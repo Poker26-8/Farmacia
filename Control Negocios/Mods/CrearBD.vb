@@ -1,5 +1,35 @@
 ﻿Module CrearBD
 
+    'tallerd
+    Public vartablatallerd As String = "CREATE TABLE `tallerd` (
+                                          `Id` int(11) NOT NULL,
+                                          `IdDispositivo` int(11) NOT NULL DEFAULT '0',
+                                          `SerieD` varchar(50) NOT NULL DEFAULT '',
+                                          `Cliente` varchar(255) NOT NULL DEFAULT '',
+                                          `Tecnico` varchar(70) NOT NULL DEFAULT '',
+                                          `Operacion` varchar(70) NOT NULL DEFAULT '',
+                                          `Status` varchar(70) NOT NULL DEFAULT '',
+                                          `FechaEntrada` datetime NOT NULL,
+                                          `FechaEstimada` datetime NOT NULL,
+                                          `Fallas` varchar(255) NOT NULL DEFAULT ''
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    'dispositivos
+    Public vartabladispositivos As String = "CREATE TABLE `dispositivos` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Serie` varchar(50) NOT NULL DEFAULT '',
+                                                  `Tipo` varchar(70) NOT NULL DEFAULT '',
+                                                  `Marca` varchar(70) NOT NULL DEFAULT '',
+                                                  `Modelo` varchar(70) NOT NULL DEFAULT '',
+                                                  `Comentario` text NOT NULL,
+                                                  `Color` varchar(50) NOT NULL DEFAULT ''
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    'accesorios 
+    Public vartablaaccesorios As String = "CREATE TABLE `accesorios` (
+                                              `Id` int(11) NOT NULL,
+                                              `Serie` varchar(50) NOT NULL DEFAULT '',
+                                              `Descripcion` varchar(255) NOT NULL DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'unidadmedsat
     Public vartablaunidadmedsat As String = "CREATE TABLE `unidadmedsat` (
                                               `Id` int(11) NOT NULL,
@@ -6852,6 +6882,9 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeytallerd As String = "ALTER TABLE `tallerd` ADD PRIMARY KEY (`Id`);"
+    Public VarKeydispositivos As String = "ALTER TABLE `dispositivos` ADD PRIMARY KEY (`Id`);"
+    Public VarKeyaccesorios As String = "ALTER TABLE `accesorios` ADD PRIMARY KEY (`Id`);"
     Public VarKeyunidadmedsat As String = "ALTER TABLE `unidadmedsat` ADD PRIMARY KEY (`Id`);"
     Public VarKeyproductosat As String = "ALTER TABLE `productosat` ADD PRIMARY KEY (`Id`);"
     Public VarKeyproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` ADD PRIMARY KEY (`Id`);"
@@ -7018,6 +7051,9 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutotallerd As String = "ALTER TABLE `tallerd` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutodispositivos As String = "ALTER TABLE `dispositivos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoaccesorios As String = "ALTER TABLE `accesorios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutounidadmedsatt As String = "ALTER TABLE `unidadmedsat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoproductosat As String = "ALTER TABLE `productosat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

@@ -594,7 +594,7 @@ Public Class frmProducirQ
                             'se actualiza la existencia del insumo si fue modificado
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & teorico & ",LoteP='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
+                            cmd3.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidadinsumo & ",LoteP='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
                             cmd3.ExecuteNonQuery()
                             cnn3.Close()
 
@@ -649,7 +649,7 @@ Public Class frmProducirQ
                         If rd1.Read Then
                             exis = rd1("Existencia").ToString
                             multi = rd1("Multiplo").ToString
-                            new_exist = exis - (cantidadinsumo * multi)
+                            new_exist = exis - (teorico * multi)
                         End If
                     End If
                     rd1.Close()

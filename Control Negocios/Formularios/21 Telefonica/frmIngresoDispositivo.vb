@@ -76,7 +76,7 @@ Public Class frmIngresoDispositivo
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "select Saldo from Abono where Id=(select max(Id) from Abono where IdCliente=" & IDCLIENTE & ")"
+                    cmd2.CommandText = "select Saldo from AbonoI where Id=(select max(Id) from AbonoI where IdCliente=" & IDCLIENTE & ")"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -637,7 +637,7 @@ Public Class frmIngresoDispositivo
                 If txtcliente.Text <> "MOSTRADOR" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Saldo from Abono where Id=(select MAX(Id) from Abono where IdCliente=" & IdCliente & ")"
+                        "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where IdCliente=" & IdCliente & ")"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -653,12 +653,12 @@ Public Class frmIngresoDispositivo
                     If CDbl(txtPagar.Text) > 0 And CDbl(txtFavor.Text) > 0 And CDbl(txtPagar.Text) = CDbl(txtPagar.Text) Then
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Abono(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & folio & "," & IdCliente & ",'" & txtcliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'','','" & lblusuario.Text & "'," & Resta & ",'')"
+                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & folio & "," & IdCliente & ",'" & txtcliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'','','" & lblusuario.Text & "'," & Resta & ",'')"
                         cmd1.ExecuteNonQuery()
                     Else
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Abono(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & folio & "," & IdCliente & ",'" & txtcliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'','','" & lblusuario.Text & "',0,'')"
+                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & folio & "," & IdCliente & ",'" & txtcliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'','','" & lblusuario.Text & "',0,'')"
                         cmd1.ExecuteNonQuery()
                     End If
 
@@ -772,60 +772,60 @@ Door:
 
                         If MyDepto <> "SERVICIOS" And Kit = False Then
                             'Cálculos de PePs
-                            Do While necesito > 0
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "select Id,Saldo,Costo from PEPS where Id=(select MIN(Id) from PEPS where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(mycode, 6) & "')"
-                                rd1 = cmd1.ExecuteReader
-                                If rd1.HasRows Then
-                                    If rd1.Read Then
-                                        id_peps = rd1("Id").ToString()
-                                        tengo = rd1("Saldo").ToString()
-                                        cuanto_cuestan = rd1("Costo").ToString()
-                                    End If
-                                Else
-                                    'Esto para evitar un bucle cuando no hay una compra previa
-                                    rd1.Close()
-                                    Exit Do
-                                End If
-                                rd1.Close()
+                            'Do While necesito > 0
+                            '    cmd1 = cnn1.CreateCommand
+                            '    cmd1.CommandText =
+                            '        "select Id,Saldo,Costo from PEPS where Id=(select MIN(Id) from PEPS where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(mycode, 6) & "')"
+                            '    rd1 = cmd1.ExecuteReader
+                            '    If rd1.HasRows Then
+                            '        If rd1.Read Then
+                            '            id_peps = rd1("Id").ToString()
+                            '            tengo = rd1("Saldo").ToString()
+                            '            cuanto_cuestan = rd1("Costo").ToString()
+                            '        End If
+                            '    Else
+                            '        'Esto para evitar un bucle cuando no hay una compra previa
+                            '        rd1.Close()
+                            '        Exit Do
+                            '    End If
+                            '    rd1.Close()
 
-                                'En todo va a hacer los cálculos de la utilidad
-                                If tengo >= necesito Then
-                                    quedan = tengo - necesito
-                                    cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText =
-                                        "update PEPS set Saldo=" & quedan & " where Id=" & id_peps
-                                    cmd1.ExecuteNonQuery()
+                            '    'En todo va a hacer los cálculos de la utilidad
+                            '    If tengo >= necesito Then
+                            '        quedan = tengo - necesito
+                            '        cmd1 = cnn1.CreateCommand
+                            '        cmd1.CommandText =
+                            '            "update PEPS set Saldo=" & quedan & " where Id=" & id_peps
+                            '        cmd1.ExecuteNonQuery()
 
-                                    v_costo = necesito * cuanto_cuestan
-                                    v_venta = necesito * myprecio
-                                    utilidad = utilidad + (v_venta - v_costo)
+                            '        v_costo = necesito * cuanto_cuestan
+                            '        v_venta = necesito * myprecio
+                            '        utilidad = utilidad + (v_venta - v_costo)
 
-                                    Exit Do
-                                ElseIf tengo < necesito Then
-                                    cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText =
-                                        "update PEPS set Saldo=0 where Id=" & id_peps
-                                    cmd1.ExecuteNonQuery()
+                            '        Exit Do
+                            '    ElseIf tengo < necesito Then
+                            '        cmd1 = cnn1.CreateCommand
+                            '        cmd1.CommandText =
+                            '            "update PEPS set Saldo=0 where Id=" & id_peps
+                            '        cmd1.ExecuteNonQuery()
 
-                                    v_costo = tengo * cuanto_cuestan
-                                    v_venta = tengo * myprecio
-                                    utilidad = (v_venta - v_costo)
-                                    necesito = necesito - tengo
+                            '        v_costo = tengo * cuanto_cuestan
+                            '        v_venta = tengo * myprecio
+                            '        utilidad = (v_venta - v_costo)
+                            '        necesito = necesito - tengo
 
-                                    cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText =
-                                        "insert into PEPS(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (tengo * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
-                                    cmd1.ExecuteNonQuery()
-                                    utilidad = 0
-                                End If
-                            Loop
-                            'Sí alcanzan las que tengo en el primer registro, entonces guarda y avanza
-                            cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText =
-                                "insert into PEPS(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (necesito * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
-                            cmd1.ExecuteNonQuery()
+                            '        cmd1 = cnn1.CreateCommand
+                            '        cmd1.CommandText =
+                            '            "insert into PEPS(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (tengo * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
+                            '        cmd1.ExecuteNonQuery()
+                            '        utilidad = 0
+                            '    End If
+                            'Loop
+                            ''Sí alcanzan las que tengo en el primer registro, entonces guarda y avanza
+                            'cmd1 = cnn1.CreateCommand
+                            'cmd1.CommandText =
+                            '    "insert into PEPS(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (necesito * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
+                            'cmd1.ExecuteNonQuery()
 
                             Dim nueva_existe As Double = 0
                             nueva_existe = Existencia - (mycant / MyMCD)
@@ -935,7 +935,7 @@ Door:
                 rd1.Close()
 
                 If TPrint = "TICKET" Then
-                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulotaller) : Exit Sub
+                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulotaller) : btnLimpiar.PerformClick() : Exit Sub
                     If Tamaño = "80" Then
                         PVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
                         PVenta80.Print()

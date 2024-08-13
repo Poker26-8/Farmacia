@@ -172,7 +172,7 @@ Public Class frmIngreso
             rd1.Close()
 
 
-            If impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulotaller) : Exit Sub
+            If impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulotaller) : btnNuevo.PerformClick() : Exit Sub
 
 
 
