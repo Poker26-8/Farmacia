@@ -247,7 +247,7 @@
                                 cnn1.Close()
                                 cnn1.Open()
                                 cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText = "Select * from Productos where Nombre='" & grdcaptura.Rows(xxx).Cells(2).Value.ToString & "'"
+                                cmd1.CommandText = "Select IVA,Codigo,UVenta,Departamento,Grupo,Existencia from Productos where Nombre='" & grdcaptura.Rows(xxx).Cells(2).Value.ToString & "'"
                                 rd1 = cmd1.ExecuteReader
                                 If rd1.Read Then
                                     pocentajeiva = rd1("IVA").ToString
@@ -395,7 +395,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Productos where Nombre='" & txtservicio.Text & "'"
+                cmd1.CommandText = "Select IVA,Codigo,UVenta,Departamento,Grupo,Existencia from Productos where Nombre='" & txtservicio.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.Read Then
                     pocentajeiva = rd1("IVA").ToString

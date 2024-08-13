@@ -111,7 +111,7 @@ Public Class frmRepAsistenciaGym
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "select * from AsistenciaGym where Nombre = '" & CboEmpleado.Text & "' and Fecha>='" & Format(MonthV1, "yyyy/MM/dd") & "' And Fecha<='" & Format(MonthV1, "yyyy/MM/dd") & "'"
+                    cmd2.CommandText = "select NumEmp,Nombre,Estatus,Fecha,Hora from AsistenciaGym where Nombre = '" & CboEmpleado.Text & "' and Fecha>='" & Format(MonthV1, "yyyy/MM/dd") & "' And Fecha<='" & Format(MonthV1, "yyyy/MM/dd") & "'"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         My.Application.DoEvents()
@@ -141,5 +141,9 @@ Public Class frmRepAsistenciaGym
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
     End Sub
 End Class

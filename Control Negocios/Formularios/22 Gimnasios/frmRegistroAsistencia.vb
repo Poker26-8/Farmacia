@@ -33,7 +33,7 @@ Public Class frmRegistroAsistencia
         cnn1.Close()
         cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "Select * from Clientes"
+        cmd1.CommandText = "Select Id,Template from Clientes"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             FpVer.FPLoad(rd1("Id").ToString, 7, rd1("Template").ToString, "YourSecretKey" & rd1("Id").ToString)

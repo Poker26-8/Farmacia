@@ -193,7 +193,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from Productos where Nombre='" & cboProducto.Text & "'"
+            cmd1.CommandText = "Select IVA,Codigo,UVenta,Departamento,Grupo,Existencia from Productos where Nombre='" & cboProducto.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 pocentajeiva = rd1("IVA").ToString

@@ -42,12 +42,12 @@ Partial Class frmRepAsistenciaGym
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.GridCaptura = New System.Windows.Forms.DataGridView()
-        Me.CboEmpleado = New System.Windows.Forms.ComboBox()
         Me.Col0 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CboEmpleado = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -202,15 +202,6 @@ Partial Class frmRepAsistenciaGym
         Me.GridCaptura.Size = New System.Drawing.Size(896, 287)
         Me.GridCaptura.TabIndex = 76
         '
-        'CboEmpleado
-        '
-        Me.CboEmpleado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboEmpleado.FormattingEnabled = True
-        Me.CboEmpleado.Location = New System.Drawing.Point(12, 205)
-        Me.CboEmpleado.Name = "CboEmpleado"
-        Me.CboEmpleado.Size = New System.Drawing.Size(359, 26)
-        Me.CboEmpleado.TabIndex = 75
-        '
         'Col0
         '
         Me.Col0.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -220,7 +211,6 @@ Partial Class frmRepAsistenciaGym
         Me.Col0.Name = "Col0"
         Me.Col0.ReadOnly = True
         Me.Col0.Visible = False
-        Me.Col0.Width = 115
         '
         'Col1
         '
@@ -261,6 +251,15 @@ Partial Class frmRepAsistenciaGym
         Me.Col4.Name = "Col4"
         Me.Col4.ReadOnly = True
         Me.Col4.Width = 55
+        '
+        'CboEmpleado
+        '
+        Me.CboEmpleado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboEmpleado.FormattingEnabled = True
+        Me.CboEmpleado.Location = New System.Drawing.Point(12, 205)
+        Me.CboEmpleado.Name = "CboEmpleado"
+        Me.CboEmpleado.Size = New System.Drawing.Size(359, 26)
+        Me.CboEmpleado.TabIndex = 75
         '
         'Label1
         '
