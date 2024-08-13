@@ -403,7 +403,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into MiProd(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo) values('" & cbocod.Text & "','" & cbonombre.Text & "','" & txtuni.Text & "'," & txtexistencia.Text & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & ",'INSUMO')"
+                        "insert into MiProd(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo) values('" & cbocod.Text & "','" & cbonombre.Text & "','" & txtuni.Text & "'," & IIf(txtexistencia.Text = "", "0", txtexistencia.Text) & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & ",'INSUMO')"
                     cmd1.ExecuteNonQuery()
                 Next
                 MsgBox("Conformación de producto guardada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick()

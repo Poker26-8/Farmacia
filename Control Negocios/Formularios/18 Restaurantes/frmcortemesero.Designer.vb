@@ -89,7 +89,7 @@ Partial Class frmcortemesero
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(420, 41)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 69)
+        Me.Button1.Size = New System.Drawing.Size(75, 80)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Salir"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -104,7 +104,7 @@ Partial Class frmcortemesero
         Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnImprimir.Location = New System.Drawing.Point(339, 41)
         Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(75, 69)
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 80)
         Me.btnImprimir.TabIndex = 4
         Me.btnImprimir.Text = "Imprimir"
         Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
