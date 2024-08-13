@@ -181,7 +181,7 @@ Public Class Inicio
         'End Try
     End Sub
 
-    Private Sub Nuevos_Pedidos()
+    Public Sub Nuevos_Pedidos()
         Try
             cnn4.Close() : cnn4.Open()
 
@@ -204,285 +204,285 @@ Public Class Inicio
 
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
-        PrimeraConfig = ""
-        Login.Hide()
+        'PrimeraConfig = ""
+        'Login.Hide()
 
-        Me.Show()
+        'Me.Show()
 
-        Await SformatosInicio()
+        'Await SformatosInicio()
 
-        verif()
-        Permisos(id_usu_log)
-        If varrutabase = "" Then
-            ActualizaCampos()
-        End If
+        'verif()
+        'Permisos(id_usu_log)
+        'If varrutabase = "" Then
+        '    ActualizaCampos()
+        'End If
 
-        'Licencia()
-        Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select numero,usuario,password from loginrecargas"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-                varnumero = rd1("numero").ToString
-                varusuario = rd1("usuario").ToString
-                varcontra = rd1("password").ToString
-            End If
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        ''Licencia()
+        'Try
+        '    cnn1.Close()
+        '    cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "Select numero,usuario,password from loginrecargas"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.Read Then
+        '        varnumero = rd1("numero").ToString
+        '        varusuario = rd1("usuario").ToString
+        '        varcontra = rd1("password").ToString
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
 
-        If tienda_enlinea = True Then
-            Nuevos_Pedidos()
-        End If
+        'If tienda_enlinea = True Then
+        '    Nuevos_Pedidos()
+        'End If
 
-        Dim tiendalinea As Integer = Await ValidarAsync("TiendaLinea")
-        Dim gimnasios As Integer = Await ValidarAsync("Gimnasio")
-        Dim consignacion As Integer = Await ValidarAsync("Consignacion")
-        Dim nomina As Integer = Await ValidarAsync("Nomina")
-        Dim Mod_Asis As Integer = Await ValidarAsync("Mod_Asis")
-        Dim Control_Servicios As Integer = Await ValidarAsync("Control_Servicios")
-        Dim series As Integer = Await ValidarAsync("Series")
-        Dim produccion As Integer = Await ValidarAsync("Produccion")
-        Dim partes As Integer = Await ValidarAsync("Partes")
-        Dim escuelas As Integer = Await ValidarAsync("Escuelas")
-        Dim costeo As Integer = Await ValidarAsync("Costeo")
-        Dim restaurante As Integer = Await ValidarAsync("Restaurante")
-        Dim refaccionaria As Integer = Await ValidarAsync("Refaccionaria")
-        Dim pollos As Integer = Await ValidarAsync("pollos")
-        Dim telefonia As Integer = Await ValidarAsync("Telefonia")
-        Dim Hoteles As Integer = Await ValidarAsync("Hoteles")
-        Dim Migracion As Integer = Await ValidarAsync("Migracion")
-        Dim Optica As Integer = Await ValidarAsync("Optica")
-        Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
-        Dim transportistas As Integer = Await ValidarAsync("Transportistas")
-        Dim produccionpro As Integer = Await ValidarAsync("ProduccionPro")
-        Dim dentista As Integer = Await ValidarAsync("Dentista")
+        'Dim tiendalinea As Integer = Await ValidarAsync("TiendaLinea")
+        'Dim gimnasios As Integer = Await ValidarAsync("Gimnasio")
+        'Dim consignacion As Integer = Await ValidarAsync("Consignacion")
+        'Dim nomina As Integer = Await ValidarAsync("Nomina")
+        'Dim Mod_Asis As Integer = Await ValidarAsync("Mod_Asis")
+        'Dim Control_Servicios As Integer = Await ValidarAsync("Control_Servicios")
+        'Dim series As Integer = Await ValidarAsync("Series")
+        'Dim produccion As Integer = Await ValidarAsync("Produccion")
+        'Dim partes As Integer = Await ValidarAsync("Partes")
+        'Dim escuelas As Integer = Await ValidarAsync("Escuelas")
+        'Dim costeo As Integer = Await ValidarAsync("Costeo")
+        'Dim restaurante As Integer = Await ValidarAsync("Restaurante")
+        'Dim refaccionaria As Integer = Await ValidarAsync("Refaccionaria")
+        'Dim pollos As Integer = Await ValidarAsync("pollos")
+        'Dim telefonia As Integer = Await ValidarAsync("Telefonia")
+        'Dim Hoteles As Integer = Await ValidarAsync("Hoteles")
+        'Dim Migracion As Integer = Await ValidarAsync("Migracion")
+        'Dim Optica As Integer = Await ValidarAsync("Optica")
+        'Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
+        'Dim transportistas As Integer = Await ValidarAsync("Transportistas")
+        'Dim produccionpro As Integer = Await ValidarAsync("ProduccionPro")
+        'Dim dentista As Integer = Await ValidarAsync("Dentista")
 
-        If dentista = 1 Then
-            btnDentista.Visible = True
-        Else
-            btnDentista.Visible = False
-        End If
+        'If dentista = 1 Then
+        '    btnDentista.Visible = True
+        'Else
+        '    btnDentista.Visible = False
+        'End If
 
-        If produccionpro = 1 Then
-            TproduccionCos.Visible = True
-        Else
-            TproduccionCos.Visible = False
-        End If
+        'If produccionpro = 1 Then
+        '    TproduccionCos.Visible = True
+        'Else
+        '    TproduccionCos.Visible = False
+        'End If
 
-        If tiendalinea = 1 Then
-            PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
-            pedidos_tienda.Visible = True
-        Else
-            PedidosTiendaEnLíneaToolStripMenuItem.Visible = False
-            pedidos_tienda.Visible = False
-        End If
+        'If tiendalinea = 1 Then
+        '    PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
+        '    pedidos_tienda.Visible = True
+        'Else
+        '    PedidosTiendaEnLíneaToolStripMenuItem.Visible = False
+        '    pedidos_tienda.Visible = False
+        'End If
 
-        If gimnasios = 1 Then
-            GimnasiosToolStripMenuItem.Visible = True
-        Else
-            GimnasiosToolStripMenuItem.Visible = False
-        End If
+        'If gimnasios = 1 Then
+        '    GimnasiosToolStripMenuItem.Visible = True
+        'Else
+        '    GimnasiosToolStripMenuItem.Visible = False
+        'End If
 
-        If consignacion = 1 Then
-            menuconsignaciones.Visible = True
-        Else
-            menuconsignaciones.Visible = False
-        End If
+        'If consignacion = 1 Then
+        '    menuconsignaciones.Visible = True
+        'Else
+        '    menuconsignaciones.Visible = False
+        'End If
 
-        If nomina = 1 Then
-            NominaToolStripMenuItem.Visible = True
-        Else
-            NominaToolStripMenuItem.Visible = False
-        End If
+        'If nomina = 1 Then
+        '    NominaToolStripMenuItem.Visible = True
+        'Else
+        '    NominaToolStripMenuItem.Visible = False
+        'End If
 
-        If Mod_Asis = 1 Then
-            pAsistencia.Visible = True
-        Else
-            pAsistencia.Visible = False
-        End If
+        'If Mod_Asis = 1 Then
+        '    pAsistencia.Visible = True
+        'Else
+        '    pAsistencia.Visible = False
+        'End If
 
-        If Control_Servicios = 1 Then
-            ControlDeServiciosToolStripMenuItem.Visible = True
-        Else
-            ControlDeServiciosToolStripMenuItem.Visible = False
-        End If
+        'If Control_Servicios = 1 Then
+        '    ControlDeServiciosToolStripMenuItem.Visible = True
+        'Else
+        '    ControlDeServiciosToolStripMenuItem.Visible = False
+        'End If
 
-        cnn2.Close() : cnn2.Open()
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT Rep_Servicios FROM permisos WHERE IdEmpleado=" & id_usu_log
-        rd2 = cmd2.ExecuteReader
-        If rd2.HasRows Then
-            If rd2.Read Then
-                If rd2(0).ToString = 1 Then
-                    If Control_Servicios = 1 Then
-                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
-                    Else
-                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
-                    End If
-                Else
-                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
-                End If
-            End If
-        Else
-            ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
-        End If
-        rd2.Close()
-        cnn2.Close()
+        'cnn2.Close() : cnn2.Open()
+        'cmd2 = cnn2.CreateCommand
+        'cmd2.CommandText = "SELECT Rep_Servicios FROM permisos WHERE IdEmpleado=" & id_usu_log
+        'rd2 = cmd2.ExecuteReader
+        'If rd2.HasRows Then
+        '    If rd2.Read Then
+        '        If rd2(0).ToString = 1 Then
+        '            If Control_Servicios = 1 Then
+        '                ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
+        '            Else
+        '                ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+        '            End If
+        '        Else
+        '            ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+        '        End If
+        '    End If
+        'Else
+        '    ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+        'End If
+        'rd2.Close()
+        'cnn2.Close()
 
-        If series = 1 Then
-            ReporteDeSeries.Visible = True
-        Else
-            ReporteDeSeries.Visible = False
-        End If
+        'If series = 1 Then
+        '    ReporteDeSeries.Visible = True
+        'Else
+        '    ReporteDeSeries.Visible = False
+        'End If
 
-        If produccion = 1 Then
-            pMod_Produccion.Enabled = True
-            pMod_Produccion.Visible = True
-            '  pControl_Procesos.Visible = False
-        Else
-            pMod_Produccion.Enabled = False
-            pMod_Produccion.Visible = False
-            'pControl_Procesos.Visible = False
-        End If
+        'If produccion = 1 Then
+        '    pMod_Produccion.Enabled = True
+        '    pMod_Produccion.Visible = True
+        '    '  pControl_Procesos.Visible = False
+        'Else
+        '    pMod_Produccion.Enabled = False
+        '    pMod_Produccion.Visible = False
+        '    'pControl_Procesos.Visible = False
+        'End If
 
-        If partes = 1 Then
-            pVentasT.Visible = False
-            ZapateríaToolStripMenuItem.Visible = False
-            pMod_Precios.Visible = False
-            pMod_Produccion.Visible = False
-            Button5.Visible = False
-        End If
+        'If partes = 1 Then
+        '    pVentasT.Visible = False
+        '    ZapateríaToolStripMenuItem.Visible = False
+        '    pMod_Precios.Visible = False
+        '    pMod_Produccion.Visible = False
+        '    Button5.Visible = False
+        'End If
 
-        If escuelas = 1 Then
-            pClientes.Visible = False
-            pMonederos.Visible = False
-            GruposToolStripMenuItem.Visible = True
-            AlumnosToolStripMenuItem.Visible = True
-            InscripciónToolStripMenuItem.Visible = True
-            ZapateríaToolStripMenuItem.Visible = False
-            ProductosToolStripMenuItem.Visible = True
-            ComprasTouchToolStripMenuItem.Visible = False
-            AlumnosToolStripMenuItem1.Visible = True
-            pVentasT.Visible = False
-            pAbonosV.Visible = False
-            Button5.Visible = False
-        End If
+        'If escuelas = 1 Then
+        '    pClientes.Visible = False
+        '    pMonederos.Visible = False
+        '    GruposToolStripMenuItem.Visible = True
+        '    AlumnosToolStripMenuItem.Visible = True
+        '    InscripciónToolStripMenuItem.Visible = True
+        '    ZapateríaToolStripMenuItem.Visible = False
+        '    ProductosToolStripMenuItem.Visible = True
+        '    ComprasTouchToolStripMenuItem.Visible = False
+        '    AlumnosToolStripMenuItem1.Visible = True
+        '    pVentasT.Visible = False
+        '    pAbonosV.Visible = False
+        '    Button5.Visible = False
+        'End If
 
-        If costeo = 1 Then
-        Else
-            MsgBox("Por favor configura el método de costeo de tu inventario antes de comenzar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-            PrimeraConfig = "1"
-            frmConfigs.Show()
-            frmConfigs.tabFuncionalidades1.Focus().Equals(True)
-            frmConfigs.tabFuncionalidades1.Select()
-            frmConfigs.TopMost = True
-        End If
+        'If costeo = 1 Then
+        'Else
+        '    MsgBox("Por favor configura el método de costeo de tu inventario antes de comenzar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '    PrimeraConfig = "1"
+        '    frmConfigs.Show()
+        '    frmConfigs.tabFuncionalidades1.Focus().Equals(True)
+        '    frmConfigs.tabFuncionalidades1.Select()
+        '    frmConfigs.TopMost = True
+        'End If
 
-        If restaurante = 1 Then
-            Button12.Visible = True
-            btnPagarComandas.Visible = True
-            btnvtatouch.Visible = True
-            CORTEMESERO.Visible = True
-            pMod_Produccion.Visible = True
-            pMod_Produccion.Enabled = True
-            frmPermisos.btnPermisosRestaurante.Visible = True
-            repHistorialMesas.Visible = True
-        Else
-            Button12.Visible = False
-            btnPagarComandas.Visible = False
-            btnvtatouch.Visible = False
-            CORTEMESERO.Visible = False
-            frmPermisos.btnPermisosRestaurante.Visible = False
-            repHistorialMesas.Visible = False
-        End If
+        'If restaurante = 1 Then
+        '    Button12.Visible = True
+        '    btnPagarComandas.Visible = True
+        '    btnvtatouch.Visible = True
+        '    CORTEMESERO.Visible = True
+        '    pMod_Produccion.Visible = True
+        '    pMod_Produccion.Enabled = True
+        '    frmPermisos.btnPermisosRestaurante.Visible = True
+        '    repHistorialMesas.Visible = True
+        'Else
+        '    Button12.Visible = False
+        '    btnPagarComandas.Visible = False
+        '    btnvtatouch.Visible = False
+        '    CORTEMESERO.Visible = False
+        '    frmPermisos.btnPermisosRestaurante.Visible = False
+        '    repHistorialMesas.Visible = False
+        'End If
 
-        If refaccionaria = 1 Then
-            btnRefaccionaria.Visible = True
-        Else
-            btnRefaccionaria.Visible = False
-        End If
+        'If refaccionaria = 1 Then
+        '    btnRefaccionaria.Visible = True
+        'Else
+        '    btnRefaccionaria.Visible = False
+        'End If
 
-        If pollos = 1 Then
-            btnpollo.Visible = True
-        Else
-            btnpollo.Visible = False
-        End If
+        'If pollos = 1 Then
+        '    btnpollo.Visible = True
+        'Else
+        '    btnpollo.Visible = False
+        'End If
 
-        If telefonia = 1 Then
-            btnTelefonia.Visible = True
-        Else
-            btnTelefonia.Visible = False
-        End If
+        'If telefonia = 1 Then
+        '    btnTelefonia.Visible = True
+        'Else
+        '    btnTelefonia.Visible = False
+        'End If
 
-        If Hoteles = 1 Then
-            btnHoteleria.Visible = True
-            ReporteDeHotelToolStripMenuItem.Visible = True
-        Else
-            btnHoteleria.Visible = False
-            ReporteDeHotelToolStripMenuItem.Visible = False
-        End If
+        'If Hoteles = 1 Then
+        '    btnHoteleria.Visible = True
+        '    ReporteDeHotelToolStripMenuItem.Visible = True
+        'Else
+        '    btnHoteleria.Visible = False
+        '    ReporteDeHotelToolStripMenuItem.Visible = False
+        'End If
 
-        If Migracion = 1 Then
-            pMigracion.Visible = True
-        Else
-            pMigracion.Visible = False
-        End If
+        'If Migracion = 1 Then
+        '    pMigracion.Visible = True
+        'Else
+        '    pMigracion.Visible = False
+        'End If
 
-        If Optica = 1 Then
-            btnOptica.Visible = True
-        Else
-            btnOptica.Visible = False
-        End If
+        'If Optica = 1 Then
+        '    btnOptica.Visible = True
+        'Else
+        '    btnOptica.Visible = False
+        'End If
 
-        If Mov_Cuenta = 1 Then
-            ReporteMovCuentasToolStripMenuItem.Visible = True
-            MovCuentasToolStripMenuItem.Visible = True
-        Else
-            ReporteMovCuentasToolStripMenuItem.Visible = False
-            MovCuentasToolStripMenuItem.Visible = False
-        End If
+        'If Mov_Cuenta = 1 Then
+        '    ReporteMovCuentasToolStripMenuItem.Visible = True
+        '    MovCuentasToolStripMenuItem.Visible = True
+        'Else
+        '    ReporteMovCuentasToolStripMenuItem.Visible = False
+        '    MovCuentasToolStripMenuItem.Visible = False
+        'End If
 
-        If transportistas = 1 Then
-            TransportistasToolStripMenuItem.Visible = True
-        Else
-            TransportistasToolStripMenuItem.Visible = False
-        End If
+        'If transportistas = 1 Then
+        '    TransportistasToolStripMenuItem.Visible = True
+        'Else
+        '    TransportistasToolStripMenuItem.Visible = False
+        'End If
 
-        ''Validación de la aditoria
+        '''Validación de la aditoria
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='Audita'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    validaciones.audita = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
+        'Try
+        '    cnn1.Close() : cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText =
+        '        "select NotasCred from Formatos where Facturas='Audita'"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.HasRows Then
+        '        If rd1.Read Then
+        '            validaciones.audita = rd1(0).ToString
+        '        End If
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
 
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
 
-        'Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
-        'Dim coma As OleDbCommand = New OleDbCommand
-        'Dim lect As OleDbDataReader = Nothing
+        ''Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
+        ''Dim coma As OleDbCommand = New OleDbCommand
+        ''Dim lect As OleDbDataReader = Nothing
 
-        'VieneDe_Compras = ""
-        'VieneDe_Folios = ""
+        ''VieneDe_Compras = ""
+        ''VieneDe_Folios = ""
 
-        '   Actualiza_Promos()
+        ''   Actualiza_Promos()
     End Sub
 
     Public Sub verif()
@@ -2134,7 +2134,7 @@ Public Class Inicio
         End Try
     End Sub
 
-    Private Sub ActualizaCampos()
+    Public Sub ActualizaCampos()
         Try
             cnn2.Close() : cnn2.Open()
 

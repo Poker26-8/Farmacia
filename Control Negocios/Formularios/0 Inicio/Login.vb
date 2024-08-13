@@ -112,8 +112,10 @@ Public Class Login
 
             If txtUsuario.Text = "" Then
             Else
-                Inicio.Show()
-                Inicio.Text = "Delsscom Solutions® Control Negocios Pro" & Strings.Space(40) & FormatDateTime(Date.Now, DateFormat.ShortDate) & Strings.Space(50) & lblEmpresa.Text
+                frmLoad.Show()
+                frmLoad.BringToFront()
+                My.Application.DoEvents()
+
                 Me.Hide()
             End If
 

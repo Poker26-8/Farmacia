@@ -243,6 +243,12 @@
     <Compile Include="Formularios\0 Inicio\AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\0 Inicio\frmLoad.Designer.vb">
+      <DependentUpon>frmLoad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\0 Inicio\frmLoad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\0 Inicio\frmScript.Designer.vb">
       <DependentUpon>frmScript.vb</DependentUpon>
     </Compile>
@@ -2256,6 +2262,9 @@
     <EmbeddedResource Include="Formularios\0 Inicio\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\0 Inicio\frmLoad.resx">
+      <DependentUpon>frmLoad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\frmScript.resx">
       <DependentUpon>frmScript.vb</DependentUpon>
