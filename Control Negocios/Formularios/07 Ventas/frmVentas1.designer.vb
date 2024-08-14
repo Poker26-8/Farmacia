@@ -2121,7 +2121,7 @@ Partial Class frmVentas1
         Me.boxAntis.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.boxAntis.Location = New System.Drawing.Point(217, 323)
         Me.boxAntis.Name = "boxAntis"
-        Me.boxAntis.Size = New System.Drawing.Size(531, 285)
+        Me.boxAntis.Size = New System.Drawing.Size(532, 312)
         Me.boxAntis.TabIndex = 220
         Me.boxAntis.TabStop = False
         Me.boxAntis.Text = "Venta de antibióticos"
@@ -2243,7 +2243,7 @@ Partial Class frmVentas1
         Me.grdantis.Name = "grdantis"
         Me.grdantis.ReadOnly = True
         Me.grdantis.RowHeadersVisible = False
-        Me.grdantis.Size = New System.Drawing.Size(520, 147)
+        Me.grdantis.Size = New System.Drawing.Size(521, 174)
         Me.grdantis.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
