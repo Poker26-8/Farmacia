@@ -112,11 +112,10 @@ Public Class Login
 
             If txtUsuario.Text = "" Then
             Else
-                Inicio.BringToFront()
-                Inicio.Show()
-                '   frmLoad.Show()
-                ' frmLoad.BringToFront()
+                frmLoad.Show()
+                frmLoad.BringToFront()
                 My.Application.DoEvents()
+                frmLoad.cargaTodo()
 
                 Me.Hide()
             End If
