@@ -6770,8 +6770,8 @@ doorcita:
                     Label18.Visible = False
                     txtadeuda.Visible = False
 
-                    cbocomisionista.Enabled = False
-                    cbocomisionista.Text = ""
+                    '     cbocomisionista.Enabled = False
+                    '    cbocomisionista.Text = ""
                     lblNumCliente.Text = "MOSTRADOR"
                     cboNombre.SelectionStart = 0
                     cboNombre.SelectionLength = Len(cboNombre.Text)

@@ -113,7 +113,7 @@ Module FunAsync
     '------------------------------------------PANTALLA DE VENTAS 3-------------------------------------------------
     Public Async Function FunctionVentas3Async() As Task(Of String)
 
-        frmVentas2.cbodesc.Items.Clear()
+        frmVentas3.cbodesc.Items.Clear()
 
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
@@ -137,7 +137,7 @@ Module FunAsync
     Public Async Function FunctionClinetes3Async() As Task(Of String)
 
 
-        frmVentas2.cboNombre.Items.Clear()
+        frmVentas3.cboNombre.Items.Clear()
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
         cmd5.CommandText = "SELECT distinct Nombre FROM Clientes WHERE Nombre<>'' order by Nombre asc"

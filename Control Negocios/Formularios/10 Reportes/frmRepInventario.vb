@@ -2788,4 +2788,9 @@ quepaso_wey:
         frmMinMax.Show()
         frmMinMax.BringToFront()
     End Sub
+
+    Private Sub btnRepTraspasos_Click(sender As Object, e As EventArgs) Handles btnRepTraspasos.Click
+        frmRepTraspasos.BringToFront()
+        frmRepTraspasos.Show()
+    End Sub
 End Class

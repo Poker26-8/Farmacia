@@ -82,6 +82,7 @@ Partial Class frmRepInventario
         Me.btnentrada = New System.Windows.Forms.Button()
         Me.btnetiquetas = New System.Windows.Forms.Button()
         Me.btncatalogo = New System.Windows.Forms.Button()
+        Me.btnRepTraspasos = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -592,9 +593,9 @@ Partial Class frmRepInventario
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(553, 122)
+        Me.DataGridView1.Location = New System.Drawing.Point(298, 154)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(105, 63)
+        Me.DataGridView1.Size = New System.Drawing.Size(23, 15)
         Me.DataGridView1.TabIndex = 253
         Me.DataGridView1.Visible = False
         '
@@ -618,7 +619,7 @@ Partial Class frmRepInventario
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(664, 123)
+        Me.Button1.Location = New System.Drawing.Point(584, 123)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 63)
         Me.Button1.TabIndex = 254
@@ -760,11 +761,25 @@ Partial Class frmRepInventario
         Me.btncatalogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncatalogo.UseVisualStyleBackColor = True
         '
+        'btnRepTraspasos
+        '
+        Me.btnRepTraspasos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRepTraspasos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRepTraspasos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRepTraspasos.Location = New System.Drawing.Point(665, 123)
+        Me.btnRepTraspasos.Name = "btnRepTraspasos"
+        Me.btnRepTraspasos.Size = New System.Drawing.Size(75, 63)
+        Me.btnRepTraspasos.TabIndex = 256
+        Me.btnRepTraspasos.Text = "Rep Traspasos"
+        Me.btnRepTraspasos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRepTraspasos.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1004, 595)
+        Me.Controls.Add(Me.btnRepTraspasos)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
@@ -873,4 +888,5 @@ Partial Class frmRepInventario
     Friend WithEvents Button1 As Button
     Friend WithEvents rbAjuste As RadioButton
     Friend WithEvents Button2 As Button
+    Friend WithEvents btnRepTraspasos As Button
 End Class

@@ -645,6 +645,12 @@
     <Compile Include="Formularios\10 Reportes\frmMinMax.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\frmRepTraspasos.Designer.vb">
+      <DependentUpon>frmRepTraspasos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmRepTraspasos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\Hoteles\frmRepHoteles.Designer.vb">
       <DependentUpon>frmRepHoteles.vb</DependentUpon>
     </Compile>
@@ -2456,6 +2462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmMinMax.resx">
       <DependentUpon>frmMinMax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmRepTraspasos.resx">
+      <DependentUpon>frmRepTraspasos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Hoteles\frmRepHoteles.resx">
       <DependentUpon>frmRepHoteles.vb</DependentUpon>
