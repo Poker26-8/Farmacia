@@ -30,10 +30,9 @@ Module FunAsync
 
     End Function
 
-    Public Async Function SformatosInicio() As Task
+    Public Function SformatosInicio()
 
-        Await Task.Run(Sub()
-                           SFormatos("SinNumCoemensal", "0")
+        SFormatos("SinNumCoemensal", "0")
                            SFormatos("CobroSimplificado", "0")
                            SFormatos("Pollos", "")
                            SFormatos("Pto-Bascula", "")
@@ -80,7 +79,7 @@ Module FunAsync
                            SFormatos("LimpiarV", "0")
                            SFormatos("ProduccionPro", "0")
                            SFormatos("Dentista", "0")
-                       End Sub)
+
 
     End Function
 

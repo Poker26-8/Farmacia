@@ -61,6 +61,7 @@ Public Class frmLoad
         If tienda_enlinea = True Then
             Inicio.Nuevos_Pedidos()
         End If
+        SformatosInicio()
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
