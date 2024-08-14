@@ -2061,7 +2061,7 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT Monto,Descuento,Propina FROM abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND Mesero='" & mesero & "' group by formapago order by formapago"
+                    cmd2.CommandText = "SELECT Monto,Descuento,Propina FROM abonoi WHERE FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' group by formapago order by formapago"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -2114,7 +2114,7 @@ Public Class frmcortemesero
                             Y += 25
 
                             cmd9 = cnn9.CreateCommand
-                            cmd9.CommandText = "SELECT FormaPago FROM abonoi WHERE Concepto='ABONO' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' group by formapago order by formapago"
+                            cmd9.CommandText = "SELECT FormaPago FROM abonoi WHERE Concepto='ABONO' AND FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' group by formapago order by formapago"
                             rd9 = cmd9.ExecuteReader
                             Do While rd9.Read
                                 If rd9.HasRows Then
@@ -2122,7 +2122,7 @@ Public Class frmcortemesero
                                     formapagos = rd9("FormaPago").ToString
 
                                     cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
+                                    cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "'  AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -2148,7 +2148,7 @@ Public Class frmcortemesero
                             e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
                             Y += 20
 
-                            e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
+                            e.Graphics.DrawString("FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
                             e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 180, Y, sf)
                             Y += 25
 
@@ -2164,7 +2164,7 @@ Public Class frmcortemesero
                             Dim dx As String = ""
 
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "SELECT Saldo,Monto FROM Abonoi WHERE Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO'"
+                            cmd4.CommandText = "SELECT Saldo,Monto FROM Abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "'  AND Concepto='ABONO'"
                             rd4 = cmd4.ExecuteReader
                             Do While rd4.Read
                                 If rd4.HasRows Then
@@ -2345,7 +2345,7 @@ Public Class frmcortemesero
             Dim totalsuma As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Monto,Propina,Descuento FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'  group by Mesero order by mesero"
+            cmd1.CommandText = "SELECT Monto,Propina,Descuento FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'  group by Mesero order by mesero"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -2397,7 +2397,7 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
+                    cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         If rd2.HasRows Then
@@ -2405,7 +2405,7 @@ Public Class frmcortemesero
                             FORMAPAGO = rd2(0).ToString
 
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
+                            cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
                             rd3 = cmd3.ExecuteReader
                             If rd3.HasRows Then
                                 If rd3.Read Then
@@ -2429,7 +2429,7 @@ Public Class frmcortemesero
                     e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
                     Y += 20
 
-                    e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
                     e.Graphics.DrawString("$ " & FormatNumber(totalsuma, 2), fuente_prods, Brushes.Black, 180, Y, sf)
                     Y += 25
 
@@ -2446,7 +2446,7 @@ Public Class frmcortemesero
                     Dim TOTALCUENTAS As Double = 0
 
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT Saldo,Monto FROM Abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora between '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
+                    cmd4.CommandText = "SELECT Saldo,Monto FROM Abonoi WHERE FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
                     rd4 = cmd4.ExecuteReader
                     Do While rd4.Read
                         If rd4.HasRows Then
