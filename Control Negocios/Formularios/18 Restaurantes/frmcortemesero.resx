@@ -137,7 +137,7 @@
   <data name="btnImprimir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADUAAAAyCAYAAAD845PIAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAxFJREFUaEPtms1qWkEUx/MIPoKPkEdwIQSykhCyUEvQ7FxUCCV0ESRKxVBKUypF
+        DgAACw4BQL7hQQAAAxFJREFUaEPtms1qWkEUx/MIPoKPkEdwIQSykhCyUEvQ7FxUCCV0ESRKxVBKUypF
         6CqkFaQa/ABJiR/YTSm2izYEklIQaS21LRIpTZtF2+k5kpHxeGxuqLneK3fxA5nMnPP/eedexuiMEEIT
         B83vNqALiAmAfe1cLg52kAOKbihNJsEGl4uDHeTAoqSJ3lhSmsCipIneTKXUPS4XBzuIOJ1O27Vl/43Q
         rTvH4dhW8/Fu6ZRppBvJbEVgDuT66s1NzMflRthBBBZtA0KFa6YXNAuQ43Ij7CACi2qkCNtML2gWoMvl
@@ -154,28 +154,28 @@
 </value>
   </data>
   <metadata name="PCorte80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>560, 21</value>
   </metadata>
   <metadata name="PCorteU80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>119, 17</value>
+    <value>32, 17</value>
   </metadata>
   <metadata name="pCortePe80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>229, 17</value>
+    <value>745, 24</value>
   </metadata>
   <metadata name="PCortePU80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>344, 17</value>
+    <value>247, 18</value>
   </metadata>
   <metadata name="PCorte58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>461, 17</value>
+    <value>651, 21</value>
   </metadata>
   <metadata name="PCorteU58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>563, 17</value>
+    <value>134, 18</value>
   </metadata>
   <metadata name="pCortePe58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>673, 17</value>
+    <value>860, 25</value>
   </metadata>
   <metadata name="PCortePU58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>788, 17</value>
+    <value>357, 18</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

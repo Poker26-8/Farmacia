@@ -292,7 +292,7 @@ Public Class frmProducirQ
             Dim cantidadpro As Double = txtCantidadI.Text
             Dim teo As Double = 0
 
-            teo = CDec(cantidad * 1000) * (cantidadpro / 100)
+            teo = CDec(cantidad) * CDec(cantidadpro)
             txtTotalI.Text = CDbl(cantidadpro) * CDec(txtPrecioI.Text)
             txtTeorico.Text = FormatNumber(teo, 2)
             txtPrecioI.Focus.Equals(True)
@@ -468,7 +468,7 @@ Public Class frmProducirQ
         cbocodigo.Text = ""
         cbonombre.Text = ""
         txtunidad.Text = ""
-        txtcantidad.Text = ""
+        txtcantidad.Text = "1"
         txtcostod.Text = "0.00"
         cboLote.Text = ""
         dtpFechaLote.Value = Date.Now
@@ -613,7 +613,7 @@ Public Class frmProducirQ
 
 
                             cantidadlotes = rd2("Cantidad").ToString
-                            nuevacoantidadlotes = CDec(cantidadlotes) - CDec(teorico)
+                            nuevacoantidadlotes = CDec(cantidadlotes) - CDec(real)
 
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
@@ -625,10 +625,10 @@ Public Class frmProducirQ
                     Else
                         cnn3.Close() : cnn3.Open()
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & codinsumo & "','" & loteinsumo & "','" & fechaloteinsumo & "'," & teorico & ")"
+                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & codinsumo & "','" & loteinsumo & "','" & fechaloteinsumo & "'," & real & ")"
                         cmd3.ExecuteNonQuery()
 
-                        nuevacoantidadlotes = CDec(teorico) - teorico
+                        nuevacoantidadlotes = CDec(real) - real
 
                         cmd3 = cnn3.CreateCommand
                         cmd3.CommandText = "UPDATE lotecaducidad SET Cantidad=" & nuevacoantidadlotes & " WHERE Codigo='" & codinsumo & "' AND lote='" & loteinsumo & "'"
@@ -649,7 +649,7 @@ Public Class frmProducirQ
                         If rd1.Read Then
                             exis = rd1("Existencia").ToString
                             multi = rd1("Multiplo").ToString
-                            new_exist = exis - (teorico * multi)
+                            new_exist = exis - (real * multi)
                         End If
                     End If
                     rd1.Close()
