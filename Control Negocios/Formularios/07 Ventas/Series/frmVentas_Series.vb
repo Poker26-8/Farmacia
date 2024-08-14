@@ -5839,7 +5839,7 @@ Door:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+                    "select Saldo from Monedero where Barras='" & txtMonedero.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -5863,6 +5863,8 @@ Door:
         Dim ivapro As Double = 0
         Dim ivaproducto As Double = 0
 
+        Dim comision As Double = 0
+        Dim totalcomision As Double = 0
         Try
             txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
@@ -5870,9 +5872,12 @@ Door:
             cnn1.Close() : cnn1.Open()
             For N As Integer = 0 To grdcaptura.Rows.Count - 1
                 If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+
+                    Dim ca As Double = grdcaptura.Rows(N).Cells(3).Value.ToString
+
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                        "select IVA,Comision from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -5883,12 +5888,15 @@ Door:
 
                                 TotalIVAPrint = TotalIVAPrint + CDbl(ivaproducto)
                             End If
+                            comision = rd1(1).ToString * CDec(ca)
+                            totalcomision = totalcomision + CDec(comision)
                         End If
                     End If
                     rd1.Close()
                 End If
             Next
             TotalIVAPrint = FormatNumber(TotalIVAPrint, 6)
+            totalcomision = FormatNumber(totalcomision, 2)
             ' MySubtotal = FormatNumber(MySubtotal, 4)
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -5935,7 +5943,7 @@ Door:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select Id,DiasCred from Clientes where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

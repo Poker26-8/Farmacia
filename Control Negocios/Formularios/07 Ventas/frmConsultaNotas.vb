@@ -21,6 +21,13 @@ Public Class frmConsultaNotas
     Dim formaa As String = ""
     Dim bancoa As String = ""
     Dim referenciaa As String = ""
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim tamticket As Integer = 0
+    Dim imp_ticket As String = ""
     Private Sub Borra()
         cbonombre.Items.Clear()
         lblfechaventa.Text = ""
@@ -348,6 +355,29 @@ Public Class frmConsultaNotas
         rd1.Close()
         cnn1.Close()
         cnn2.Close()
+
+
+        Try
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    imp_ticket = rd3(0).ToString()
+                End If
+            End If
+            rd3.Close() : cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn3.Close()
+        End Try
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+        DesglosaIVA = DatosRecarga("Desglosa")
+        tamticket = DatosRecarga("TamImpre")
     End Sub
 
 
@@ -2227,10 +2257,7 @@ Public Class frmConsultaNotas
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         Try
@@ -2256,11 +2283,11 @@ Public Class frmConsultaNotas
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -2477,9 +2504,6 @@ Public Class frmConsultaNotas
     Private Sub btnTicket_Click(sender As Object, e As EventArgs) Handles btnTicket.Click
 
         Dim formato As String = ""
-        Dim imp_ticket As String = ""
-        Dim tamticket As Integer = 0
-
         If (optcotiz.Checked) Then
             formato = "TICKET"
         Else
@@ -2488,19 +2512,6 @@ Public Class frmConsultaNotas
             Else
                 Try
                     formato = "TICKET"
-
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TamImpre'"
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            tamticket = rd2(0).ToString
-                        End If
-                    End If
-                    rd2.Close()
-                    cnn2.Close()
-
                 Catch ex As Exception
                     MessageBox.Show(ex.ToString())
                     cnn2.Close()
@@ -2509,23 +2520,7 @@ Public Class frmConsultaNotas
         End If
 
         If formato = "TICKET" Then
-            Try
-                cnn3.Close() : cnn3.Open()
-
-                cmd3 = cnn3.CreateCommand
-                cmd3.CommandText =
-                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
-                rd3 = cmd3.ExecuteReader
-                If rd3.HasRows Then
-                    If rd3.Read Then
-                        imp_ticket = rd3(0).ToString()
-                    End If
-                End If
-                rd3.Close() : cnn3.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn3.Close()
-            End Try
+            imp_ticket = imp_ticket
         End If
 
         If MsgBox("¿Deseas imprimir una copia?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
@@ -4324,10 +4319,10 @@ doorcita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
+
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
+
         Dim Pie As String = ""
 
         Try
@@ -4604,13 +4599,11 @@ doorcita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
         Dim Pie As String = ""
         Dim pagare As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         Try
             '[°]. Logotipo
@@ -4635,11 +4628,11 @@ doorcita:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6,Pagare FROM Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
@@ -4676,7 +4669,7 @@ doorcita:
                         e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
                         Y += 12
                     End If
-                    Y += 17
+                    Y += 4
                 End If
             Else
                 Y += 0
@@ -4691,7 +4684,7 @@ doorcita:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 250, Y, sf)
+            e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 270, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 270, Y, sf)
@@ -4735,7 +4728,7 @@ doorcita:
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 11
+            Y += 15
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 270, Y, sf)
@@ -4841,24 +4834,24 @@ doorcita:
                 End While
             End If
 
-            Dim va_whatsapp As Integer = 0
-            Try
-                cnn1.Close() : cnn1.Open()
+            '  Dim va_whatsapp As Integer = 0
+            'Try
+            '    cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select NumPart from Formatos where Facturas='Whatsapp'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        va_whatsapp = rd1(0).ToString()
-                    End If
-                End If
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn1.Close()
-            End Try
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText =
+            '        "select NumPart from Formatos where Facturas='Whatsapp'"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            va_whatsapp = rd1(0).ToString()
+            '        End If
+            '    End If
+            '    rd1.Close() : cnn1.Close()
+            'Catch ex As Exception
+            '    MessageBox.Show(ex.ToString())
+            '    cnn1.Close()
+            'End Try
 
             e.HasMorePages = False
         Catch ex As Exception
@@ -6040,13 +6033,13 @@ doorcita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
+
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
+
         Dim Pie As String = ""
         Dim pagare As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         Try
             '[°]. Logotipo
@@ -6071,11 +6064,11 @@ doorcita:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Pagare,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
@@ -6299,24 +6292,24 @@ doorcita:
                 End If
             End If
 
-            Dim va_whatsapp As Integer = 0
-            Try
-                cnn1.Close() : cnn1.Open()
+            'Dim va_whatsapp As Integer = 0
+            'Try
+            '    cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select NumPart from Formatos where Facturas='Whatsapp'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        va_whatsapp = rd1(0).ToString()
-                    End If
-                End If
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn1.Close()
-            End Try
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText =
+            '        "select NumPart from Formatos where Facturas='Whatsapp'"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            va_whatsapp = rd1(0).ToString()
+            '        End If
+            '    End If
+            '    rd1.Close() : cnn1.Close()
+            'Catch ex As Exception
+            '    MessageBox.Show(ex.ToString())
+            '    cnn1.Close()
+            'End Try
 
             e.HasMorePages = False
         Catch ex As Exception
