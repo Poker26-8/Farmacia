@@ -5,7 +5,15 @@ Public Class frmEntregaPedidos
     Dim unidadsel As String = ""
 
     Dim totalxd As Double = 0
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
     Private Sub frmEntregaPedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+
         buscaFolio()
     End Sub
     Public Sub buscaFolio()
@@ -595,10 +603,8 @@ Public Class frmEntregaPedidos
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
 
         Try
             '[°]. Logotipo
@@ -621,7 +627,7 @@ Public Class frmEntregaPedidos
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

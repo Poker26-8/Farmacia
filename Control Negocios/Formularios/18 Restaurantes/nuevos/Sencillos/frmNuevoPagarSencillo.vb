@@ -66,6 +66,11 @@ Public Class frmNuevoPagarSencillo
     Dim tarjeta As Double = 0
     Dim transferencia As Double = 0
 
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim facLinea As Integer = 0
     Private Sub BTNsALIR_Click(sender As Object, e As EventArgs) Handles BTNsALIR.Click
         Me.Close()
     End Sub
@@ -73,6 +78,12 @@ Public Class frmNuevoPagarSencillo
     Private Sub frmNuevoPagarSencillo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
+            nLogo = DatosRecarga("LogoG")
+            tLogo = DatosRecarga("TipoLogo")
+            simbolo = DatosRecarga("Simbolo")
+            DesglosaIVA = IIf(DatosRecarga("Desglosa") = "", 0, DatosRecarga("Desglosa"))
+            facLinea = IIf(DatosRecarga("AutoFac") = "", 0, DatosRecarga("AutoFac"))
+
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -3130,11 +3141,6 @@ Door:
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = IIf(DatosRecarga("Desglosa") = "", 0, DatosRecarga("Desglosa"))
-        Dim facLinea As Integer = IIf(DatosRecarga("AutoFac") = "", 0, DatosRecarga("AutoFac"))
         Dim foliofactura As String = ""
 
         Dim nombrepro As String = ""
@@ -3714,11 +3720,6 @@ Door:
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
         Dim foliofactura As String = ""
 
         Dim nombrepro As String = ""
@@ -4685,14 +4686,13 @@ Door:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
+
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
         Dim Pie As String = ""
         Dim Pie2 As String = ""
         Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         '[°]. Logotipo
         If tLogo <> "SIN" Then
@@ -4869,14 +4869,10 @@ Door:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
         Dim Pie2 As String = ""
         Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         '[°]. Logotipo
         If tLogo <> "SIN" Then

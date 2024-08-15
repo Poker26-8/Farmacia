@@ -219,6 +219,12 @@
       <DependentUpon>Cotización_Img.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Pedido2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pedido2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\Produccion\Produccion.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2252,6 +2258,10 @@
     <EmbeddedResource Include="CrystalReports\Imagenes\Cotización_Img.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cotización_Img.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Pedido2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pedido2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\Produccion\Produccion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

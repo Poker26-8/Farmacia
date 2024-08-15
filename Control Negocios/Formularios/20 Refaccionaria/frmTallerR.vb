@@ -7,7 +7,18 @@ Public Class frmTallerR
     Dim IDCLIENTE As Integer = 0
     Dim FOLIO As Integer = 0
     Friend WithEvents btnVehiculo As System.Windows.Forms.Button
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
     Private Sub frmTallerR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+        DesglosaIVA = DatosRecarga("Desglosa")
+
         TVehiculo.Start()
         TVenta.Start()
         TFecha.Start()
@@ -902,12 +913,10 @@ Door:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
         Dim Pie As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         Try
             '[°]. Logotipo
@@ -1206,12 +1215,9 @@ Door:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         Try
             '[°]. Logotipo

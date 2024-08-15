@@ -19,7 +19,19 @@ Public Class frmPagarH
     Dim idusuario As Integer = 0
     Dim estadousuario As Integer = 0
 
+    Dim simbolo As String = ""
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim facLinea As Integer = ""
     Private Sub frmPagarH_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        simbolo = DatosRecarga("Simbolo")
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        DesglosaIVA = DatosRecarga("Desglosa")
+        facLinea = DatosRecarga("AutoFac")
 
         Timer1.Start()
         TFecha.Start()
@@ -1457,14 +1469,10 @@ Public Class frmPagarH
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
+
+
 
         Dim foliofactura As String = ""
         Dim articulos As Integer = 0
@@ -1760,11 +1768,6 @@ Public Class frmPagarH
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
         Dim foliofactura As String = ""
 
         Dim pie1 As String = ""

@@ -1173,16 +1173,7 @@ Public Class frmPolleria
             ppeso.Visible = True
             txtPeso.Focus.Equals(True)
         End If
-
-
         cnn2.Close()
-
-
-
-
-
-
-
 
     End Sub
 

@@ -20,7 +20,19 @@ Public Class frmPagarPollos
 
     Dim folio As String = ""
 
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim facLinea As Integer = ""
+
     Private Sub frmPagarPollos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+        DesglosaIVA = DatosRecarga("Desglosa")
+        facLinea = DatosRecarga("AutoFac")
 
         TFolioP.Start()
 
@@ -1091,11 +1103,7 @@ Public Class frmPagarPollos
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
+
         Dim foliofactura As String = ""
 
         Dim pie1 As String = ""

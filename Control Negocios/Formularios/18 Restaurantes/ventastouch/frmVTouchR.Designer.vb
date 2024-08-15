@@ -214,7 +214,6 @@ Partial Class frmVTouchR
         Me.lbltotalventa.TabIndex = 96
         Me.lbltotalventa.Text = "0.00"
         Me.lbltotalventa.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.lbltotalventa.Visible = False
         '
         'Label15
         '
@@ -226,7 +225,6 @@ Partial Class frmVTouchR
         Me.Label15.Size = New System.Drawing.Size(121, 23)
         Me.Label15.TabIndex = 95
         Me.Label15.Text = "Total a Pagar:"
-        Me.Label15.Visible = False
         '
         'lblDescuento
         '
@@ -238,7 +236,6 @@ Partial Class frmVTouchR
         Me.lblDescuento.TabIndex = 94
         Me.lblDescuento.Text = "0.00"
         Me.lblDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblDescuento.Visible = False
         '
         'Label14
         '
@@ -249,7 +246,6 @@ Partial Class frmVTouchR
         Me.Label14.Size = New System.Drawing.Size(100, 23)
         Me.Label14.TabIndex = 93
         Me.Label14.Text = "Descuento:"
-        Me.Label14.Visible = False
         '
         'lblPropina
         '
@@ -261,7 +257,6 @@ Partial Class frmVTouchR
         Me.lblPropina.TabIndex = 92
         Me.lblPropina.Text = "0.00"
         Me.lblPropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblPropina.Visible = False
         '
         'Label13
         '
@@ -272,7 +267,6 @@ Partial Class frmVTouchR
         Me.Label13.Size = New System.Drawing.Size(100, 23)
         Me.Label13.TabIndex = 91
         Me.Label13.Text = "Propina:"
-        Me.Label13.Visible = False
         '
         'lblPagos
         '
@@ -283,7 +277,6 @@ Partial Class frmVTouchR
         Me.lblPagos.Size = New System.Drawing.Size(100, 23)
         Me.lblPagos.TabIndex = 90
         Me.lblPagos.Text = "0.00"
-        Me.lblPagos.Visible = False
         '
         'Label10
         '
@@ -294,7 +287,6 @@ Partial Class frmVTouchR
         Me.Label10.Size = New System.Drawing.Size(101, 23)
         Me.Label10.TabIndex = 89
         Me.Label10.Text = "$ Pagos:"
-        Me.Label10.Visible = False
         '
         'lblImporteEfectivo
         '
@@ -305,7 +297,6 @@ Partial Class frmVTouchR
         Me.lblImporteEfectivo.Size = New System.Drawing.Size(100, 23)
         Me.lblImporteEfectivo.TabIndex = 88
         Me.lblImporteEfectivo.Text = "0.00"
-        Me.lblImporteEfectivo.Visible = False
         '
         'Label1
         '
@@ -316,7 +307,6 @@ Partial Class frmVTouchR
         Me.Label1.Size = New System.Drawing.Size(101, 23)
         Me.Label1.TabIndex = 87
         Me.Label1.Text = "$ Efectivo:"
-        Me.Label1.Visible = False
         '
         'lblCambio
         '
@@ -328,7 +318,6 @@ Partial Class frmVTouchR
         Me.lblCambio.Size = New System.Drawing.Size(95, 23)
         Me.lblCambio.TabIndex = 86
         Me.lblCambio.Text = "0.00"
-        Me.lblCambio.Visible = False
         '
         'Label2
         '
@@ -340,7 +329,6 @@ Partial Class frmVTouchR
         Me.Label2.Size = New System.Drawing.Size(95, 23)
         Me.Label2.TabIndex = 85
         Me.Label2.Text = "$ Cambio:"
-        Me.Label2.Visible = False
         '
         'lblRestaPagar
         '
@@ -353,7 +341,6 @@ Partial Class frmVTouchR
         Me.lblRestaPagar.TabIndex = 84
         Me.lblRestaPagar.Text = "0.00"
         Me.lblRestaPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblRestaPagar.Visible = False
         '
         'Label3
         '
@@ -365,7 +352,6 @@ Partial Class frmVTouchR
         Me.Label3.Size = New System.Drawing.Size(117, 23)
         Me.Label3.TabIndex = 83
         Me.Label3.Text = "Resta Pagar:"
-        Me.Label3.Visible = False
         '
         'Panel6
         '

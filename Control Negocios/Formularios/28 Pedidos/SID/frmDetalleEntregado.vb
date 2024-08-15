@@ -27,7 +27,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from pedidosdet where Cantidad>CantidadE"
+                cmd1.CommandText = "Select NumPed,Codigo,Nombre,Unidad,Cantidad,CantidadE,Precio,Proveedor from pedidosdet where Cantidad>CantidadE"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     DataGridView1.Rows.Add(rd1("NumPed").ToString, rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("Unidad").ToString, rd1("Cantidad").ToString, rd1("CantidadE").ToString, FormatNumber(rd1("Cantidad").ToString, 2) - CDec(FormatNumber(rd1("CantidadE").ToString, 2)), FormatNumber(rd1("Precio").ToString, 2), FormatNumber(CDec(rd1("Cantidad").ToString * rd1("Precio").ToString), 2), rd1("Proveedor").ToString)
@@ -38,20 +38,20 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from pedidosven where NumPedido='" & lblFolio.Text & "' and Fecha='" & Format(fech, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "Select Folio,Cliente from pedidosven where NumPedido='" & lblFolio.Text & "' and Fecha='" & Format(fech, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
 
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "Select * from pedidosvendet where Folio=" & rd1("Folio").ToString & ""
+                    cmd2.CommandText = "Select Codigo,Cantidad,Fecha,Precio,Total from pedidosvendet where Folio=" & rd1("Folio").ToString & ""
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         cnn3.Close()
                         cnn3.Open()
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "Select * from pedidosdet where NumPed='" & lblFolio.Text & "' and Codigo='" & rd2("Codigo").ToString & "'"
+                        cmd3.CommandText = "Select Codigo,Nombre,Cantidad from pedidosdet where NumPed='" & lblFolio.Text & "' and Codigo='" & rd2("Codigo").ToString & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.Read Then
                             grdCaptura.Rows.Add(rd1("Folio").ToString, rd3("Codigo").ToString, rd3("Nombre").ToString, rd3("Unidad").ToString, rd3("Cantidad").ToString, rd2("Cantidad").ToString, rd1("Cliente").ToString, rd2("Fecha").ToString, FormatNumber(rd2("Precio").ToString, 2), FormatNumber(rd2("Total").ToString, 2))
@@ -68,7 +68,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from pedidosdet where NumPed='" & lblFolio.Text & "' and Cantidad>CantidadE"
+                cmd1.CommandText = "Select NumPed,Codigo,Nombre,Unidad,Cantidad,CantidadE,Precio,Proveedor from pedidosdet where NumPed='" & lblFolio.Text & "' and Cantidad>CantidadE"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     DataGridView1.Rows.Add(rd1("NumPed").ToString, rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("Unidad").ToString, rd1("Cantidad").ToString, rd1("CantidadE").ToString, FormatNumber(rd1("Cantidad").ToString, 2) - CDec(FormatNumber(rd1("CantidadE").ToString, 2)), FormatNumber(rd1("Precio").ToString, 2), FormatNumber(CDec(rd1("Cantidad").ToString * rd1("Precio").ToString), 2), rd1("Proveedor").ToString)

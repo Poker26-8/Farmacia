@@ -91,10 +91,9 @@ Public Class frmRepAsistenciaGym
             If RbTodos.Checked = True Then
                 If CboEmpleado.Text = "" Then
                     GridCaptura.Rows.Clear()
-                    cnn2.Close()
-                    cnn2.Open()
+                    cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "select * from AsistenciaGym where Fecha>='" & Format(MonthV1, "yyyy/MM/dd") & "' And Fecha<='" & Format(MonthV2, "yyyy/MM/dd") & "'"
+                    cmd2.CommandText = "select NumEmp,Nombre,Estatus,Fecha,Hora from AsistenciaGym where Fecha>='" & Format(MonthV1, "yyyy/MM/dd") & "' And Fecha<='" & Format(MonthV2, "yyyy/MM/dd") & "'"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         My.Application.DoEvents()

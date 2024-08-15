@@ -281,7 +281,7 @@
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM habitacion WHERE N_Habitacion='" & habi & "'"
+            cmd2.CommandText = "SELECT N_Habitacion FROM habitacion WHERE N_Habitacion='" & habi & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

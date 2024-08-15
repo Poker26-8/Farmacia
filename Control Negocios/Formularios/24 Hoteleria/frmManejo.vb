@@ -853,7 +853,7 @@ Public Class frmManejo
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & txtHabitacion.Text & "'"
+                        cmd1.CommandText = "SELECT Nombre FROM asigpc WHERE Nombre='" & txtHabitacion.Text & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -870,7 +870,7 @@ Public Class frmManejo
 
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT * FROM Asigpc WHERE Nombre='" & txtHabitacion.Text & "'"
+                            cmd2.CommandText = "SELECT Nombre FROM Asigpc WHERE Nombre='" & txtHabitacion.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -888,7 +888,7 @@ Public Class frmManejo
 
                                 cnn1.Close() : cnn1.Open()
                                 cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText = "SELECT * FROM habitacion WHERE N_Habitacion='" & txtHabitacion.Text & "'"
+                                cmd1.CommandText = "SELECT Tipo,Ubicacion,Caracteristicas,Estado FROM habitacion WHERE N_Habitacion='" & txtHabitacion.Text & "'"
                                 rd1 = cmd1.ExecuteReader
                                 If rd1.HasRows Then
                                     If rd1.Read Then
@@ -907,7 +907,7 @@ Public Class frmManejo
 
                                         cnn2.Close() : cnn2.Open()
                                         cmd2 = cnn2.CreateCommand
-                                        cmd2.CommandText = "SELECT * FROM detallehotel WHERE Habitacion='" & txtHabitacion.Text & "'"
+                                        cmd2.CommandText = "SELECT Cliente,Telefono,FEntrada,FSalida FROM detallehotel WHERE Habitacion='" & txtHabitacion.Text & "'"
                                         rd2 = cmd2.ExecuteReader
                                         If rd2.HasRows Then
                                             If rd2.Read Then
@@ -1136,7 +1136,7 @@ Public Class frmManejo
                         Try
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & txtpass.Text & "'"
+                            cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtpass.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -1146,7 +1146,7 @@ Public Class frmManejo
                             rd2.Close()
 
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT Nombre FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
+                            cmd2.CommandText = "SELECT * FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -1167,7 +1167,7 @@ Public Class frmManejo
 
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & txtHabitacion.Text & "'"
+                                cmd2.CommandText = "SELECT NMESA FROM Comandas WHERE NMESA='" & txtHabitacion.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.HasRows Then
                                     If rd2.Read Then
@@ -1283,7 +1283,7 @@ Public Class frmManejo
 
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT * FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
+                            cmd2.CommandText = "SELECT Id FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then

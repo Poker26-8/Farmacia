@@ -69,7 +69,7 @@ Public Class frmVTouchR
     Dim MYFOLIO As Integer = 0
 
     Public rutacomanda As String = ""
-    Public desglosaiva As Integer = 0
+    Public desglosaiva2 As Integer = 0
 
     Dim respuesta As String = ""
 
@@ -80,7 +80,22 @@ Public Class frmVTouchR
 
     Friend WithEvents btnDepto, btnGrupo, btnProd, btnPrefe, btnExtra, btnPromo As System.Windows.Forms.Button
     Public cadenafact As String = ""
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim siqrwhats As Integer = 0
+    Dim whats As String = ""
+    Dim siqr As String = ""
+
+    Dim autofac As Integer = 0
+    Dim linkauto As String = ""
+
     Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
+
+
+
         TFolio.Stop()
 
         TFolio.Interval = 5000
@@ -190,6 +205,17 @@ Public Class frmVTouchR
 
     Private Sub frmVTouchR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
+            autofac = DatosRecarga("AutoFac")
+            nLogo = DatosRecarga("LogoG")
+            tLogo = DatosRecarga("TipoLogo")
+            simbolo = DatosRecarga("Simbolo")
+            DesglosaIVA = DatosRecarga("Desglosa")
+            siqrwhats = DatosRecarga2("WhatsApp")
+            whats = DatosRecarga("Whatsapp")
+            linkauto = DatosRecarga("LinkAuto")
+            siqr = DatosRecarga2("LinkAuto")
+
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1257,15 +1283,10 @@ deku:
         Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim Pie2 As String = ""
-        Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+        Dim Logotipo As Drawing.Image = Nothing
+
 
         Dim cantidad As Double = 0
         Dim nombre As String = ""
@@ -1280,10 +1301,7 @@ deku:
         Dim cuentatotal As Double = 0
 
         Dim ligaqr As String = ""
-        Dim whats As String = DatosRecarga("Whatsapp")
 
-        Dim autofact As String = DatosRecarga("LinkAuto")
-        Dim siqr As String = DatosRecarga2("LinkAuto")
 
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
@@ -1311,13 +1329,12 @@ deku:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select Pie1,Pie2,Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
                 Pie = rd4("Pie1").ToString
-                Pie2 = rd4("Pie2").ToString
-                Pie3 = rd4("Pie3").ToString
+
                 'Razón social
                 If rd4("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd4("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, centro)
@@ -1414,7 +1431,7 @@ deku:
         cnn4.Close() : cnn4.Open()
 
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "select Cantidad,Nombre,Precio,Total from VentasDetalle where Folio='" & MYFOLIO & "'"
+        cmd3.CommandText = "select Codigo,Cantidad,Nombre,Precio,Total from VentasDetalle where Folio='" & MYFOLIO & "'"
         rd3 = cmd3.ExecuteReader
         Do While rd3.Read
             If rd3.HasRows Then
@@ -1471,8 +1488,6 @@ deku:
         e.Graphics.DrawString("Cantidad de articulos: " & articulos, fuente_r, Brushes.Black, 1, Y)
         Y += 25
 
-
-
         If DesglosaIVA = 1 Then
             e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(FormatNumber(cuentatotal - CDbl(TotalIVA), 2), fuente_b, Brushes.Black, 270, Y, derecha)
@@ -1497,13 +1512,13 @@ deku:
             Y += 15
         End If
 
-        If lblPropina.Text > 0 Then
+        If frmPagarTouch.txtPropina.Text > 0 Then
             e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(lblPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(FormatNumber(frmPagarTouch.txtPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 15
 
             e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(CDbl(lbltotalventa.Text) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(FormatNumber(CDbl(frmPagarTouch.txttotalpropina.Text) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 15
         End If
 
@@ -1519,17 +1534,16 @@ deku:
 
         End If
 
-        If lblImporteEfectivo.Text > 0 Then
+        If frmPagarTouch.txtEfectivo.Text > 0 Then
             e.Graphics.DrawString("EFECTIVO: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(lblImporteEfectivo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(FormatNumber(frmPagarTouch.txtEfectivo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
+        End If
 
-            If lblCambio.Text > 0 Then
-                e.Graphics.DrawString("CAMBIO: ", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(FormatNumber(lblCambio.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                Y += 20
-            End If
-
+        If frmPagarTouch.txtCambio.Text > 0 Then
+            e.Graphics.DrawString("CAMBIO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(frmPagarTouch.txtCambio.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
         End If
 
         If frmPagarTouch.grdPagos.Rows.Count > 0 Then
@@ -1561,7 +1575,7 @@ deku:
 
         Dim CantidaLetra As String = ""
 
-        CantidaLetra = "Son: " & convLetras(lbltotalventa.Text)
+        CantidaLetra = "Son: " & convLetras(lblTotalPagar.Text)
         Y += 20
 
         If Mid(CantidaLetra, 1, 37) <> "" Then
@@ -1574,56 +1588,14 @@ deku:
             e.Graphics.DrawString(Mid(CantidaLetra, 1, 38), fuente_r, Brushes.Black, 1, Y)
             CantidaLetra = Mid(CantidaLetra, 40, 500)
             Y += 20
-        End If
-
-        Pie2 = EliminarSaltosLinea(Pie2, " ")
-        If Trim(Pie2) <> "" Then
-            e.Graphics.DrawString(Mid(Pie2, 1, 38), fuente_r, Brushes.Black, 1, Y)
-            Pie2 = Mid(Pie2, 39, 700)
-            Y += 15
         End If
 
         e.Graphics.DrawString("Lo atendio: " & lblAtendio.Text, fuente_r, Brushes.Black, 1, Y)
         Y += 20
 
-        Dim autofac As Integer = 0
-        Dim linkauto As String = ""
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                autofac = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
 
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                linkauto = rd1(0).ToString
-                siqr = rd1(1).ToString
-            End If
-        End If
-        rd1.Close()
 
-        Dim siqrwhats As Integer = 0
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                siqrwhats = rd1(1).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cnn1.Close()
         If siqrwhats = 1 Then
             If ligaqr <> "" Then
                 Dim qre As New QrCodeImgControl
@@ -2271,7 +2243,7 @@ deku:
 
                 If grdCaptura.Rows(q).Cells(0).Value = CodigoProducto Then
 
-                    grdCaptura.Rows(q).Cells(7).Value = nombrepreferencia
+                    grdCaptura.Rows(q).Cells(7).Value = grdCaptura.Rows(q).Cells(7).Value + " " + nombrepreferencia
 
 
                 End If
@@ -3357,8 +3329,6 @@ kakaxd:
                             Else
                                 nuevopago = montopago - lblPropina.Text
                             End If
-
-
                         Else
                             nuevopago = montopago
                         End If
@@ -4244,14 +4214,10 @@ Door:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim Pie2 As String = ""
-        Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        Dim Logotipo As Drawing.Image = Nothing
+
+
 
         Dim cantidad As Double = 0
         Dim nombre As String = ""
@@ -4266,10 +4232,7 @@ Door:
         Dim cuentatotal As Double = 0
 
         Dim ligaqr As String = ""
-        Dim whats As String = DatosRecarga("Whatsapp")
 
-        Dim autofact As String = DatosRecarga("LinkAuto")
-        Dim siqr As String = DatosRecarga2("LinkAuto")
 
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
@@ -4298,13 +4261,12 @@ Door:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
                 Pie = rd4("Pie1").ToString
-                Pie2 = rd4("Pie2").ToString
-                Pie3 = rd4("Pie3").ToString
+
                 'Razón social
                 If rd4("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd4("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, centro)
@@ -4401,7 +4363,7 @@ Door:
         cnn4.Close() : cnn4.Open()
 
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "select * from VentasDetalle where Folio='" & MYFOLIO & "'"
+        cmd3.CommandText = "select Cantidad,Nombre,Precio,Total from VentasDetalle where Folio='" & MYFOLIO & "'"
         rd3 = cmd3.ExecuteReader
         Do While rd3.Read
             If rd3.HasRows Then
@@ -4547,54 +4509,9 @@ Door:
             Y += 12
         End If
 
-        Pie2 = EliminarSaltosLinea(Pie2, " ")
-        If Trim(Pie2) <> "" Then
-            e.Graphics.DrawString(Mid(Pie2, 1, 30), fuente_r, Brushes.Black, 1, Y)
-            Pie2 = Mid(Pie2, 39, 700)
-            Y += 15
-        End If
-
         e.Graphics.DrawString("Lo atendio: " & lblAtendio.Text, fuente_r, Brushes.Black, 1, Y)
         Y += 20
 
-        Dim autofac As Integer = 0
-        Dim linkauto As String = ""
-
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                autofac = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                linkauto = rd1(0).ToString
-                siqr = rd1(1).ToString
-            End If
-        End If
-        rd1.Close()
-
-        Dim siqrwhats As Integer = 0
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                siqrwhats = rd1(1).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cnn1.Close()
         If siqrwhats = 1 Then
             If ligaqr <> "" Then
                 Dim qre As New QrCodeImgControl
@@ -4657,21 +4574,16 @@ Door:
         Dim logo As Image = Nothing
         Dim tamlogo As String = ""
 
-        Dim pie1 As String = ""
-        Dim pie2 As String = ""
-        Dim pie3 As String = ""
 
         cnn4.Close() : cnn4.Open()
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
-                pie1 = rd4("Pie1").ToString
-                pie2 = rd4("Pie2").ToString
-                pie3 = rd4("Pie3").ToString
+
                 'Razón social
                 If rd4("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd4("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, centro)
@@ -4773,9 +4685,7 @@ Door:
         Dim pluma As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim pie1 As String = ""
-        Dim pie2 As String = ""
-        Dim pie3 As String = ""
+
 
         cnn4.Close() : cnn4.Open()
 
@@ -4789,9 +4699,6 @@ Door:
                 Y += 18
 
             Next
-            pie1 = rd4(7).ToString
-            pie2 = rd4(8).ToString
-            pie3 = rd4(9).ToString
         End If
         rd4.Close()
 
@@ -4817,7 +4724,7 @@ Door:
         Y += 15
 
         cmd4 = cnn4.CreateCommand
-        cmd4.CommandText = "Select * From VentasDetalle Where Gprint ='" & rutacomanda & "' and Folio=" & MYFOLIO & ""
+        cmd4.CommandText = "Select Comentario,Nombre,Cantidad From VentasDetalle Where Gprint ='" & rutacomanda & "' and Folio=" & MYFOLIO & ""
         rd4 = cmd4.ExecuteReader
         Do While rd4.Read
             If rd4.HasRows Then
@@ -4856,14 +4763,9 @@ Door:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim Pie2 As String = ""
-        Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         '[°]. Logotipo
         If tLogo <> "SIN" Then
@@ -4887,13 +4789,12 @@ Door:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
                 Pie = rd4("Pie1").ToString
-                Pie2 = rd4("Pie2").ToString
-                Pie3 = rd4("Pie3").ToString
+
                 'Razón social
                 If rd4("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd4("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, centro)
@@ -5020,8 +4921,8 @@ Door:
             Y += 15
         End If
 
-        If Trim(Pie2) <> "" Then
-            e.Graphics.DrawString(Mid(Pie2, 1, 38), fuente_r, Brushes.Black, 1, Y)
+        If Trim(Pie) <> "" Then
+            e.Graphics.DrawString(Mid(Pie, 1, 38), fuente_r, Brushes.Black, 1, Y)
             Y += 20
         End If
 
@@ -5043,14 +4944,9 @@ Door:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim Pie2 As String = ""
-        Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         '[°]. Logotipo
         If tLogo <> "SIN" Then
@@ -5074,13 +4970,12 @@ Door:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
                 Pie = rd4("Pie1").ToString
-                Pie2 = rd4("Pie2").ToString
-                Pie3 = rd4("Pie3").ToString
+
                 'Razón social
                 If rd4("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd4("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, centro)
@@ -5209,8 +5104,8 @@ Door:
             Y += 15
         End If
 
-        If Trim(Pie2) <> "" Then
-            e.Graphics.DrawString(Mid(Pie2, 1, 38), fuente_r, Brushes.Black, 1, Y)
+        If Trim(Pie) <> "" Then
+            e.Graphics.DrawString(Mid(Pie, 1, 38), fuente_r, Brushes.Black, 1, Y)
             Y += 15
         End If
 

@@ -6802,7 +6802,7 @@ Door:
                                 Do While necesito > 0
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                                        "select * from Costeo where Id=(select MIN(Id) from Costeo where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(Cod, 6) & "')"
+                                        "select Id,Saldo,Costo from Costeo where Id=(select MIN(Id) from Costeo where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(Cod, 6) & "')"
                                     rd1 = cmd1.ExecuteReader
                                     If rd1.HasRows Then
                                         If rd1.Read Then

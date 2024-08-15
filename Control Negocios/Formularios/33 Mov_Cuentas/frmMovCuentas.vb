@@ -1,6 +1,13 @@
 ﻿Imports System.IO
 Public Class frmMovCuentas
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
     Private Sub frmMovCuentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+
         TFolio.Start()
         cboNombre.Focus.Equals(True)
     End Sub
@@ -954,8 +961,7 @@ Public Class frmMovCuentas
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
+
             Dim foliofactura As String = ""
 
             Dim Pie1 As String = ""
@@ -1097,8 +1103,6 @@ Public Class frmMovCuentas
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
             Dim foliofactura As String = ""
 
             Dim Pie1 As String = ""

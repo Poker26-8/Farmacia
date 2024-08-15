@@ -64,8 +64,13 @@ Public Class frmNuevoPagar
 
     'Dim tim As New Timer()
     Dim tim As New System.Windows.Forms.Timer()
-
     Dim sumacomandas As Double = 0
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim facLinea As Integer = 0
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
         tim.Stop()
 
@@ -129,6 +134,12 @@ Public Class frmNuevoPagar
     End Sub
     Private Sub frmNuevoPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            nLogo = DatosRecarga("LogoG")
+            tLogo = DatosRecarga("TipoLogo")
+            simbolo = DatosRecarga("Simbolo")
+            DesglosaIVA = IIf(DatosRecarga("Desglosa") = "", 0, DatosRecarga("Desglosa"))
+            facLinea = IIf(DatosRecarga("AutoFac") = "", 0, DatosRecarga("AutoFac"))
+
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1073,6 +1084,7 @@ Public Class frmNuevoPagar
 
     Private Sub btnIntro_Click(sender As Object, e As EventArgs) Handles btnIntro.Click
 
+        btnIntro.Enabled = True
         Dim varieps As String = ""
         Dim vartotal As String = ""
         Dim mypago As Double = 0
@@ -2277,8 +2289,7 @@ deku:
             Dim numdec As String = ""
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
+
 
             cnn2.Close() : cnn2.Open()
             cnn4.Close() : cnn4.Open()
@@ -3646,11 +3657,7 @@ deku:
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = IIf(DatosRecarga("Desglosa") = "", 0, DatosRecarga("Desglosa"))
-        Dim facLinea As Integer = IIf(DatosRecarga("AutoFac") = "", 0, DatosRecarga("AutoFac"))
+
         Dim foliofactura As String = ""
 
         Dim nombrepro As String = ""
@@ -4234,11 +4241,11 @@ deku:
         Dim Y As Double = 0
 
         Dim Logotipo As Drawing.Image = Nothing
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
+        '  Dim nLogo As String = DatosRecarga("LogoG")
+        '   Dim tLogo As String = DatosRecarga("TipoLogo")
+        ' Dim simbolo As String = DatosRecarga("Simbolo")
+        '  Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        '  Dim facLinea As Integer = DatosRecarga("AutoFac")
         Dim foliofactura As String = ""
 
         Dim nombrepro As String = ""
@@ -5957,10 +5964,10 @@ deku:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
+        ' Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+        '  Dim tLogo As String = DatosRecarga("TipoLogo")
+        ' Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
         Dim Pie2 As String = ""
         Dim Pie3 As String = ""
@@ -6141,14 +6148,14 @@ deku:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
+        '  Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+        '  Dim tLogo As String = DatosRecarga("TipoLogo")
+        ' Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
         Dim Pie2 As String = ""
         Dim Pie3 As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        ' Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         '[°]. Logotipo
         If tLogo <> "SIN" Then

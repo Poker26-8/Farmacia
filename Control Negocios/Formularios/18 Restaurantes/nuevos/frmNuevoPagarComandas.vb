@@ -47,12 +47,22 @@ Public Class frmNuevoPagarComandas
     Dim idcliente As Integer = 0
 
     Public foco As Integer = 0
-
     Dim NewPos As String = ""
 
     '  Dim tim As New Timer
     Dim tim As New System.Windows.Forms.Timer()
     Public cadenafact As String = ""
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
+    Dim facLinea As Integer = 0
+    Dim whats As String = ""
+    Dim autofact As String = ""
+    Dim siqr As String = ""
+
+
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
         tim.Stop()
 
@@ -166,6 +176,15 @@ Public Class frmNuevoPagarComandas
     End Sub
 
     Private Sub frmNuevoPagarComandas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+        DesglosaIVA = DatosRecarga("Desglosa")
+        facLinea = DatosRecarga("AutoFac")
+        whats = DatosRecarga("Whatsapp")
+        autofact = DatosRecarga("LinkAuto")
+        siqr = DatosRecarga2("LinkAuto")
 
         TFecha.Start()
         TFolio.Start()
@@ -2818,11 +2837,8 @@ Door:
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
-            Dim simbolo As String = DatosRecarga("Simbolo")
-            Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-            Dim facLinea As Integer = DatosRecarga("AutoFac")
+
+
             Dim foliofactura As String = ""
 
             Dim articulos As Integer = 0
@@ -2840,10 +2856,7 @@ Door:
             Dim pie As String = ""
 
             Dim ligaqr As String = ""
-            Dim whats As String = DatosRecarga("Whatsapp")
 
-            Dim autofact As String = DatosRecarga("LinkAuto")
-            Dim siqr As String = DatosRecarga2("LinkAuto")
 
             If whats <> "" Then
                 ligaqr = "http://wa.me/" & whats
@@ -3617,11 +3630,8 @@ Door:
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
-            Dim simbolo As String = DatosRecarga("Simbolo")
-            Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-            Dim facLinea As Integer = DatosRecarga("AutoFac")
+
+
             Dim foliofactura As String = ""
 
             Dim articulos As Integer = 0
@@ -3639,10 +3649,7 @@ Door:
             Dim pie As String = ""
 
             Dim ligaqr As String = ""
-            Dim whats As String = DatosRecarga("Whatsapp")
 
-            Dim autofact As String = DatosRecarga("LinkAuto")
-            Dim siqr As String = DatosRecarga2("LinkAuto")
 
             If whats <> "" Then
                 ligaqr = "http://wa.me/" & whats
@@ -4142,9 +4149,7 @@ Door:
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
-            Dim simbolo As String = DatosRecarga("Simbolo")
+
 
             Dim pie As String = ""
             Dim articulos As Double = 0
@@ -4306,10 +4311,6 @@ Door:
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
-            Dim simbolo As String = DatosRecarga("Simbolo")
-
             Dim pie As String = ""
             Dim articulos As Double = 0
 

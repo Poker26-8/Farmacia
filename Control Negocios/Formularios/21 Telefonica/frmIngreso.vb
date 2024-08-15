@@ -3,7 +3,17 @@ Imports System.IO
 Public Class frmIngreso
 
     Dim ordenfolio As Integer = 0
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+    Dim DesglosaIVA As String = ""
     Private Sub frmIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+        DesglosaIVA = DatosRecarga("Desglosa")
 
     End Sub
 
@@ -445,12 +455,10 @@ Public Class frmIngreso
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
-        Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        Dim Logotipo As Drawing.Image = Nothing
+
+
 
         Try
 
@@ -660,12 +668,9 @@ Public Class frmIngreso
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
 
         Try
 

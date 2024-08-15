@@ -68,6 +68,8 @@ Partial Class frmIngresoDispositivo
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtPagar = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.cboSerieP = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -81,6 +83,7 @@ Partial Class frmIngresoDispositivo
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtUnidad = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -141,7 +144,7 @@ Partial Class frmIngresoDispositivo
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(962, 194)
+        Me.Panel1.Size = New System.Drawing.Size(1063, 194)
         Me.Panel1.TabIndex = 19
         '
         'lblfolio
@@ -150,7 +153,7 @@ Partial Class frmIngresoDispositivo
         Me.lblfolio.BackColor = System.Drawing.Color.Navy
         Me.lblfolio.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.ForeColor = System.Drawing.Color.White
-        Me.lblfolio.Location = New System.Drawing.Point(861, 5)
+        Me.lblfolio.Location = New System.Drawing.Point(962, 5)
         Me.lblfolio.Name = "lblfolio"
         Me.lblfolio.Size = New System.Drawing.Size(95, 23)
         Me.lblfolio.TabIndex = 203
@@ -412,7 +415,7 @@ Partial Class frmIngresoDispositivo
         Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Controls.Add(Me.btnLimpiar)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(861, 194)
+        Me.Panel4.Location = New System.Drawing.Point(962, 194)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(101, 377)
         Me.Panel4.TabIndex = 200
@@ -489,7 +492,7 @@ Partial Class frmIngresoDispositivo
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel3.Location = New System.Drawing.Point(0, 502)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(861, 69)
+        Me.Panel3.Size = New System.Drawing.Size(962, 69)
         Me.Panel3.TabIndex = 201
         '
         'cboimpresion
@@ -516,7 +519,7 @@ Partial Class frmIngresoDispositivo
         Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(632, 7)
+        Me.Label26.Location = New System.Drawing.Point(733, 7)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(104, 19)
         Me.Label26.TabIndex = 185
@@ -529,7 +532,7 @@ Partial Class frmIngresoDispositivo
         Me.txtdescuento2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdescuento2.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdescuento2.ForeColor = System.Drawing.Color.Black
-        Me.txtdescuento2.Location = New System.Drawing.Point(636, 29)
+        Me.txtdescuento2.Location = New System.Drawing.Point(737, 29)
         Me.txtdescuento2.Name = "txtdescuento2"
         Me.txtdescuento2.ReadOnly = True
         Me.txtdescuento2.Size = New System.Drawing.Size(98, 31)
@@ -544,7 +547,7 @@ Partial Class frmIngresoDispositivo
         Me.txtSubTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtSubTotal.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubTotal.ForeColor = System.Drawing.Color.Black
-        Me.txtSubTotal.Location = New System.Drawing.Point(518, 29)
+        Me.txtSubTotal.Location = New System.Drawing.Point(619, 29)
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(114, 31)
         Me.txtSubTotal.TabIndex = 182
@@ -556,7 +559,7 @@ Partial Class frmIngresoDispositivo
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(747, 7)
+        Me.Label25.Location = New System.Drawing.Point(848, 7)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(103, 19)
         Me.Label25.TabIndex = 181
@@ -567,7 +570,7 @@ Partial Class frmIngresoDispositivo
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(563, 7)
+        Me.Label27.Location = New System.Drawing.Point(664, 7)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(69, 19)
         Me.Label27.TabIndex = 183
@@ -580,7 +583,7 @@ Partial Class frmIngresoDispositivo
         Me.txtPagar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPagar.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPagar.ForeColor = System.Drawing.Color.White
-        Me.txtPagar.Location = New System.Drawing.Point(739, 29)
+        Me.txtPagar.Location = New System.Drawing.Point(840, 29)
         Me.txtPagar.Name = "txtPagar"
         Me.txtPagar.Size = New System.Drawing.Size(112, 31)
         Me.txtPagar.TabIndex = 180
@@ -589,6 +592,8 @@ Partial Class frmIngresoDispositivo
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.cboSerieP)
+        Me.Panel5.Controls.Add(Me.Label20)
         Me.Panel5.Controls.Add(Me.grdCaptura)
         Me.Panel5.Controls.Add(Me.Label16)
         Me.Panel5.Controls.Add(Me.txtUnidad)
@@ -607,8 +612,30 @@ Partial Class frmIngresoDispositivo
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 194)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(861, 308)
+        Me.Panel5.Size = New System.Drawing.Size(962, 308)
         Me.Panel5.TabIndex = 202
+        '
+        'cboSerieP
+        '
+        Me.cboSerieP.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboSerieP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSerieP.FormattingEnabled = True
+        Me.cboSerieP.Location = New System.Drawing.Point(852, 29)
+        Me.cboSerieP.Name = "cboSerieP"
+        Me.cboSerieP.Size = New System.Drawing.Size(107, 24)
+        Me.cboSerieP.TabIndex = 203
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(849, 3)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(110, 23)
+        Me.Label20.TabIndex = 202
+        Me.Label20.Text = "Serie"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'grdCaptura
         '
@@ -619,12 +646,12 @@ Partial Class frmIngresoDispositivo
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column12, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column12, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column13})
         Me.grdCaptura.Location = New System.Drawing.Point(12, 59)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(840, 243)
+        Me.grdCaptura.Size = New System.Drawing.Size(947, 243)
         Me.grdCaptura.TabIndex = 11
         '
         'Column1
@@ -681,24 +708,28 @@ Partial Class frmIngresoDispositivo
         Me.Column12.HeaderText = "Column10"
         Me.Column12.Name = "Column12"
         Me.Column12.ReadOnly = True
+        Me.Column12.Visible = False
         '
         'Column8
         '
         Me.Column8.HeaderText = "Column11"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
         '
         'Column9
         '
         Me.Column9.HeaderText = "Column12"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
+        Me.Column9.Visible = False
         '
         'Column10
         '
         Me.Column10.HeaderText = "Column13"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
+        Me.Column10.Visible = False
         '
         'Column11
         '
@@ -706,6 +737,12 @@ Partial Class frmIngresoDispositivo
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
         Me.Column11.Visible = False
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Serie"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
         '
         'Label16
         '
@@ -870,7 +907,7 @@ Partial Class frmIngresoDispositivo
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(962, 571)
+        Me.ClientSize = New System.Drawing.Size(1063, 571)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel4)
@@ -938,18 +975,6 @@ Partial Class frmIngresoDispositivo
     Friend WithEvents txtPagar As TextBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents grdCaptura As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Label16 As Label
     Friend WithEvents txtUnidad As TextBox
     Friend WithEvents Label11 As Label
@@ -969,4 +994,19 @@ Partial Class frmIngresoDispositivo
     Friend WithEvents Timer1 As Timer
     Friend WithEvents PVenta80 As Printing.PrintDocument
     Friend WithEvents PVenta58 As Printing.PrintDocument
+    Friend WithEvents cboSerieP As ComboBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
 End Class
