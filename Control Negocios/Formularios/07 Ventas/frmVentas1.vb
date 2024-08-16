@@ -6433,6 +6433,7 @@ Door:
         End If
 
     End Sub
+
     Public Sub PDF_Cotizacion()
         Dim root_name_recibo As String = ""
         Dim FileOpen As New ProcessStartInfo
