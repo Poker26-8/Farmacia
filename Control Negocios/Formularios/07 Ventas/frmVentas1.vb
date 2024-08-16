@@ -6285,7 +6285,7 @@ Door:
         Dim Total_Ve As Double = 0
 
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-
+        Dim acuentaventa As Double = 0
         Try
             txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
@@ -6326,26 +6326,68 @@ Door:
         FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
         FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txtPagar.Text) & "'"
 
+        acuentaventa = FormatNumber((CDec(txtefectivo.Text) + CDec(txtMontoP.Text)) - CDec(txtCambio.Text), 2)
         'Pagos
-        If DesglosaIVA = "1" Then
-            If SubTotal > 0 Then
-                FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"       'Subtotal
-            End If
-            If IVA_Vent > 0 Then
-                If IVA_Vent > 0 And IVA_Vent <> CDbl(txtPagar.Text) Then
-                    FileNta.DataDefinition.FormulaFields("IVA").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"   'IVA
+        'If DesglosaIVA = "1" Then
+        '    If SubTotal > 0 Then
+        '        FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"       'Subtotal
+        '    End If
+        '    If IVA_Vent > 0 Then
+        '        If IVA_Vent > 0 And IVA_Vent <> CDbl(txtPagar.Text) Then
+        '            FileNta.DataDefinition.FormulaFields("IVA").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"   'IVA
+        '        End If
+        '    End If
+        'End If
+
+        Dim TotTarjeta As Double = 0, TotTransfe As Double = 0, TotMonedero As Double = 0, TotOtros As Double = 0
+        If grdpago.Rows.Count > 0 Then
+            For R As Integer = 0 To grdpago.Rows.Count - 1
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "TARJETA" Then
+                    TotTarjeta = TotTarjeta + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
                 End If
-            End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "TRANSFERENCIA" Then
+                    TotTransfe = TotTransfe + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "MONEDERO" Then
+                    TotMonedero = TotMonedero + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "OTRO" Then
+                    TotOtros = TotOtros + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+            Next
         End If
 
         Dim total_des As Double = Total_Ve + CDbl(txtdescuento2.Text)
 
-        FileNta.DataDefinition.FormulaFields("Total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
-        If CDbl(txtdescuento2.Text) > 0 Then
-            FileNta.DataDefinition.FormulaFields("TTotal").Text = "'" & FormatNumber(total_des, 4) & "'"             'Total
-            FileNta.DataDefinition.FormulaFields("Descuento").Text = "'" & FormatNumber(txtdescuento2.Text, 4) & "'"             'Total
-        End If
+        FileNta.DataDefinition.FormulaFields("total_vent").Text = "'" & FormatNumber(Total_Ve, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("acuenta_vent").Text = "'" & FormatNumber(acuentaventa, 2) & "'" 'Total
 
+        'If CDbl(txtdescuento2.Text) > 0 Then
+        '    FileNta.DataDefinition.FormulaFields("TTotal").Text = "'" & FormatNumber(total_des, 2) & "'"             'Total
+        '    FileNta.DataDefinition.FormulaFields("Descuento").Text = "'" & FormatNumber(txtdescuento2.Text, 2) & "'"             'Total
+        'End If
+
+        If CDbl(txtefectivo.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("efectivo_vent").Text = "'" & FormatNumber(txtefectivo.Text, 2) & "'"  'Efectivo
+        End If
+        If CDbl(txtCambio.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("cambio_vent").Text = "'" & FormatNumber(txtCambio.Text, 2) & "'"      'Cambio
+        End If
+        If TotTarjeta > 0 Then
+            FileNta.DataDefinition.FormulaFields("tarjeta_vent").Text = "'" & FormatNumber(TotTarjeta, 2) & "'"         'Tarjeta
+        End If
+        If TotTransfe > 0 Then
+            FileNta.DataDefinition.FormulaFields("transferencia_vent").Text = "'" & FormatNumber(TotTransfe, 2) & "'"   'Transferencia
+        End If
+        If TotMonedero > 0 Then
+            FileNta.DataDefinition.FormulaFields("monedero_vent").Text = "'" & FormatNumber(TotMonedero, 2) & "'"       'Monedero
+        End If
+        If TotOtros > 0 Then
+            FileNta.DataDefinition.FormulaFields("otros_vent").Text = "'" & FormatNumber(txtCambio.Text, 2) & "'"       'Otros
+        End If
+        If CDbl(txtResta.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("resta_vent").Text = "'" & FormatNumber(txtResta.Text, 2) & "'"        'Resta
+        End If
 
         If PieNota <> "" Then
             FileNta.DataDefinition.FormulaFields("pieNota").Text = "'" & PieNota & "'"          'Pie de nota
