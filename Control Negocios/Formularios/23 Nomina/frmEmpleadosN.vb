@@ -421,7 +421,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM usuarios WHERE Nombre='" & cboempleado.Text & "'"
+            cmd1.CommandText = "SELECT IdEmpleado,Rfc,Curp,NSS,NumExt,NumInt,Colonia,Calle,Delegacion,Cp,Entidad,Telefono,Correo,Ingreso,Departamento,Puesto,Sueldoxdia,FormaPago,ClaveP,CuentaP,Emp_regimen,Emp_Periodo,Emp_Jornada,Emp_Contrato,Emp_Riesgo,Banco,Estado FROM usuarios WHERE Nombre='" & cboempleado.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -586,7 +586,7 @@
             If verifica() Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM usuarios WHERE Nombre='" & cboempleado.Text & "'"
+                cmd1.CommandText = "SELECT Nombre FROM usuarios WHERE Nombre='" & cboempleado.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

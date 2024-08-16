@@ -663,6 +663,12 @@
     <Compile Include="Formularios\10 Reportes\Hoteles\frmRepHoteles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\MAC\frmRepMac.Designer.vb">
+      <DependentUpon>frmRepMac.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\MAC\frmRepMac.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\MovCuentas\frmRepMovCuentas.Designer.vb">
       <DependentUpon>frmRepMovCuentas.vb</DependentUpon>
     </Compile>
@@ -2478,6 +2484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Hoteles\frmRepHoteles.resx">
       <DependentUpon>frmRepHoteles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\MAC\frmRepMac.resx">
+      <DependentUpon>frmRepMac.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\MovCuentas\frmRepMovCuentas.resx">
       <DependentUpon>frmRepMovCuentas.vb</DependentUpon>

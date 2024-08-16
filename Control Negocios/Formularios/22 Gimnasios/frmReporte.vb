@@ -40,7 +40,7 @@ Public Class frmReporte
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from MembresiasGym where Inicio>='" & Format(m1, "yyyy/MM/dd") & "' and Fin<='" & Format(m2, "yyyy/MM/dd") & "' order by Cliente"
+            cmd1.CommandText = "Select Id,Cliente,Producto,Precio,Inicio,Fin from MembresiasGym where Inicio>='" & Format(m1, "yyyy/MM/dd") & "' and Fin<='" & Format(m2, "yyyy/MM/dd") & "' order by Cliente"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 fechafinal = FormatDateTime(rd1(5).ToString)
@@ -67,7 +67,7 @@ Public Class frmReporte
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from MembresiasGym where Inicio>='" & Format(m1, "yyyy/MM/dd") & "' and Fin<='" & Format(m2, "yyyy/MM/dd") & "' and Cliente='" & cbocliente.Text & "' order by Cliente"
+            cmd1.CommandText = "Select Id,Cliente,Producto,Precio,Inicio,Fin from MembresiasGym where Inicio>='" & Format(m1, "yyyy/MM/dd") & "' and Fin<='" & Format(m2, "yyyy/MM/dd") & "' and Cliente='" & cbocliente.Text & "' order by Cliente"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 fechafinal = FormatDateTime(rd1(5).ToString)

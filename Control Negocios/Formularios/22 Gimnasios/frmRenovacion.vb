@@ -16,7 +16,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from MembresiasGym"
+                cmd1.CommandText = "Select Id,Cliente,Producto,Precio,Inicio,Fin from MembresiasGym"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     grdcaptura.Rows.Add(rd1(0).ToString, rd1(1).ToString, rd1(2).ToString, rd1(3).ToString, FormatDateTime(rd1(4).ToString, DateFormat.ShortDate), FormatDateTime(rd1(5).ToString, DateFormat.ShortDate))
@@ -37,7 +37,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from MembresiasGym where Fin< '" & Format(fecha, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "Select Id,Cliente,Producto,Precio,Inicio,Fin from MembresiasGym where Fin< '" & Format(fecha, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     grdcaptura.Rows.Add(rd1(0).ToString, rd1(1).ToString, rd1(2).ToString, rd1(3).ToString, FormatDateTime(rd1(4).ToString, DateFormat.ShortDate), FormatDateTime(rd1(5).ToString, DateFormat.ShortDate))

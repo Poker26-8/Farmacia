@@ -48,7 +48,7 @@ Public Class frmNomina_Empleado
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
 
-        Dim sSQL As String = "SELECT * FROM otrospagos ORDER BY descripcion"
+        Dim sSQL As String = "SELECT clave,descripcion FROM otrospagos ORDER BY descripcion"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -76,7 +76,7 @@ Public Class frmNomina_Empleado
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
 
-        Dim sSQL As String = "Select * from tipo_percepcion_contable order by atpc_descripcion"
+        Dim sSQL As String = "Select atpc_id,atpc_descripcion from tipo_percepcion_contable order by atpc_descripcion"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -103,7 +103,7 @@ Public Class frmNomina_Empleado
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
 
-        Dim sSQL As String = "Select * from tipo_deduccion_contable  order by atdc_descripcion" '
+        Dim sSQL As String = "Select atdc_id,atdc_descripcion from tipo_deduccion_contable  order by atdc_descripcion" '
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -128,7 +128,7 @@ Public Class frmNomina_Empleado
     Private Sub llena_combo_empresa()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM datosnegocio ORDER BY Em_RazonSocial"
+        Dim sSQL As String = "SELECT Emisor_id,Em_RazonSocial FROM datosnegocio ORDER BY Em_RazonSocial"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -170,7 +170,7 @@ Public Class frmNomina_Empleado
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
 
-        Dim sSQL As String = "SELECT * FROM origenrecurso"
+        Dim sSQL As String = "SELECT clave,descripcion FROM origenrecurso"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -202,7 +202,7 @@ Public Class frmNomina_Empleado
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
 
-        Dim sSQL As String = "SELECT * FROM tiponomina"
+        Dim sSQL As String = "SELECT clave,descripcion FROM tiponomina"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -232,7 +232,7 @@ Public Class frmNomina_Empleado
     Private Sub llena_combo_peridicidad()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select * from Periodicidad_pago order by pp_id"
+        Dim sSQL As String = "Select pp_id,pp_nombre from Periodicidad_pago order by pp_id"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -258,7 +258,7 @@ Public Class frmNomina_Empleado
     Private Sub llena_combo_tipoInca()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM tipoincapacidadSat ORDER BY Id"
+        Dim sSQL As String = "SELECT TipoIncapacidad,Descripcion FROM tipoincapacidadSat ORDER BY Id"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -284,7 +284,7 @@ Public Class frmNomina_Empleado
     Private Sub llena_combo_periodo()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM periodicidad_pago ORDER BY pp_id"
+        Dim sSQL As String = "SELECT pp_id,pp_nombre FROM periodicidad_pago ORDER BY pp_id"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -333,7 +333,7 @@ marca:
     Private Sub llena_informacion_empresa()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM datosnegocio WHERE Emisor_id=" & cboEmpresa.SelectedValue
+        Dim sSQL As String = "SELECT Em_rfc,Em_RFiscal FROM datosnegocio WHERE Emisor_id=" & cboEmpresa.SelectedValue
         Dim dr As DataRow
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -362,7 +362,7 @@ marca:
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         'Emp_numerico1=Emp_empresa
-        sSQL = "SELECT * FROM usuarios WHERE Status = 1 AND Emp_empresa = " & cboEmpresa.SelectedValue & " ORDER BY Nombre"
+        sSQL = "SELECT Ingreso,IdEmpleado,Nombre,Curp,NSS,Area,Puesto,Rfc,Sueldoxdia,Emp_ultimo_timbre FROM usuarios WHERE Status = 1 AND Emp_empresa = " & cboEmpresa.SelectedValue & " ORDER BY Nombre"
         Dim cadena_dep As String = ""
         Dim cadena_pue As String = ""
         Dim dt As New DataTable
@@ -742,7 +742,7 @@ marca:
 
 
         Dim sinfo As String = ""
-        Dim sSQL As String = "SELECT * FROM datosnegocio WHERE Emisor_id=" & cboEmpresa.SelectedValue
+        Dim sSQL As String = "SELECT Em_rfcm,Em_calle,Em_NumExterior,Em_colonia,Em_Municipio,Em_Estado,Em_CP,Em_RFiscal,Em_registro_patronal,emi_cer,emi_key,emi_psw,emi_pfx,Em_RFiscal,Em_serieN, FROM datosnegocio WHERE Emisor_id=" & cboEmpresa.SelectedValue
         Dim dr As DataRow
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata As New ToolKitSQL.myssql
@@ -789,7 +789,7 @@ marca:
 
         maiemp = ""
         Dim sinfo As String = ""
-        Dim sSQL As String = "Select * from usuarios where idEmpleado=" & id_emp_e
+        Dim sSQL As String = "Select Nombre,Rfc,Calle,NumExt,Colonia,Delegacion,Entidad,Cp,Emp_Regimen,Curp,NSS,Area,ClaveP,Banco,Ingreso,Emp_Contrato,Emp_Jornada,Emp_Periodo,Sueldoxdia,Emp_Riesgo,Puesto,FormaPago,Correo from usuarios where idEmpleado=" & id_emp_e
         Dim dr As DataRow
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
@@ -959,7 +959,7 @@ marca:
     Private Sub id_detalle_nom_a(ByVal id_emp_e As Integer, ByRef id_detalle_nom As Integer)
 
         Dim sinfo As String = ""
-        Dim sSQL As String = "SELECT * FROM detalle_nomina WHERE id_empleado=" & id_emp_e & " and id_nomina=0"
+        Dim sSQL As String = "SELECT id_empleado FROM detalle_nomina WHERE id_empleado=" & id_emp_e & " and id_nomina=0"
         Dim dr As DataRow
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata As New ToolKitSQL.myssql
@@ -996,7 +996,7 @@ marca:
 
 
         Dim sinfo As String = ""
-        Dim sSQL As String = "SELECT * FROM detalle_nomina WHERE id_empleado=" & idac_empleadoo & " AND id_nomina=" & id_det
+        Dim sSQL As String = "SELECT id_percepcion,importe,gravado,exento,id_deduccion,id_otropago FROM detalle_nomina WHERE id_empleado=" & idac_empleadoo & " AND id_nomina=" & id_det
         Dim dr As DataRow
         Dim dt As New DataTable
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
@@ -1240,7 +1240,7 @@ marca:
         Dim variable_empleado As Integer = grid_empleados.CurrentRow.Cells(0).Value.ToString  'grid_empleados.CurrentRow.Cells(0).Value.ToString
         Dim nomi_S As String = "0"
         id_detalle_nom_a(variable_empleado, nomi_S)
-        Dim sSQL As String = "Select * from detalle_nomina where id_empleado=" & variable_empleado & " and id_nomina=" & nomi_S & " order by id_detalle Desc"
+        Dim sSQL As String = "Select id_percepcion,gravado,exento,importe,id_deduccion,id_otropago from detalle_nomina where id_empleado=" & variable_empleado & " and id_nomina=" & nomi_S & " order by id_detalle Desc"
         Dim dt As New DataTable
         Dim dr As DataRow
 

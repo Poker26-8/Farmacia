@@ -659,7 +659,7 @@ Public Class frmManejo
                                     cnn2.Close() : cnn2.Open()
 
                                     cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText = "Select * FROM AsigPC WHERE Nombre='" & btnHabitacionn.Text & "'"
+                                    cmd1.CommandText = "Select Nombre FROM AsigPC WHERE Nombre='" & btnHabitacionn.Text & "'"
                                     rd1 = cmd1.ExecuteReader
                                     If rd1.HasRows Then
                                         If rd1.Read Then
@@ -1146,7 +1146,7 @@ Public Class frmManejo
                             rd2.Close()
 
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT * FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
+                            cmd2.CommandText = "SELECT Id FROM comanda1 WHERE Nombre='" & txtHabitacion.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then

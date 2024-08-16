@@ -72,7 +72,7 @@ malo:
     Private Sub llena_combo_empresa()
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM datosnegocio ORDER BY Em_RazonSocial"
+        Dim sSQL As String = "SELECT Emisor_id,Em_RazonSocial FROM datosnegocio ORDER BY Em_RazonSocial"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -103,7 +103,7 @@ malo:
         Dim sSQL As String = ""
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         If cbo_empresa.SelectedValue > 0 Then
-            sSQL = "SELECT * FROM usuarios WHERE Status = 1 and Emp_empresa = " & cbo_empresa.SelectedValue & " order by Nombre"
+            sSQL = "SELECT IdEmpleado,Nombre FROM usuarios WHERE Status = 1 and Emp_empresa = " & cbo_empresa.SelectedValue & " order by Nombre"
         End If
         Dim ds As New DataSet
         Dim sinfo As String = ""
@@ -239,7 +239,7 @@ malo:
     Private Sub buscalogo()
 
         Dim sinfo As String = ""
-        Dim sSQL As String = "SELECT * FROM datosnegocio WHERE Emisor_id=" & cbo_empresa.SelectedValue
+        Dim sSQL As String = "SELECT emi_logo FROM datosnegocio WHERE Emisor_id=" & cbo_empresa.SelectedValue
         Dim dr As DataRow
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata As New ToolKitSQL.myssql
@@ -323,7 +323,7 @@ malo:
     Private Sub busca_detalle(ByVal idnom1 As String)
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "SELECT * FROM  detalle_nomina  where id_nomina=" & idnom1
+        Dim sSQL As String = "SELECT id_percepcion,gravado,exento,concepto,id_otropago,importe,id_deduccion FROM  detalle_nomina  where id_nomina=" & idnom1
         Dim dt As New DataTable
         Dim dr As DataRow
         Dim sinfo As String = ""

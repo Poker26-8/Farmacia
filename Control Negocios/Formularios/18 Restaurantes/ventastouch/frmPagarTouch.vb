@@ -585,7 +585,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -614,7 +614,6 @@
             rd3.Close()
             cnn3.Close()
 
-
             frmVTouchR.lblCliente.Text = cboNombre.Text
             frmVTouchR.lblTelefono.Text = cboTelefono.Text
             frmVTouchR.lblNumCliente.Text = lblidcliente.Text
@@ -622,8 +621,20 @@
             frmVTouchR.lblTelefono.Text = cboTelefono.Text
             frmVTouchR.lblDireccion.Text = rbtDireccion.Text
         End If
-        btnIntro.Enabled = False
-        frmVTouchR.GuardarVenta()
+
+        Dim ACUENTA As Double = 0
+        Dim descuento As Double = 0
+        descuento = txtDescuento.Text
+        ACUENTA = FormatNumber(CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtCambio.Text), 2)
+
+        If ACUENTA > 0 And ACUENTA >= txttotalpropina.Text Then
+            btnIntro.Enabled = False
+            frmVTouchR.GuardarVenta()
+        Else
+            MsgBox("Necesita pagar el total de la venta", vbInformation + vbOKOnly, titulocentral) : txtEfectivo.Focus.Equals(True) : Exit Sub
+        End If
+
+
 
     End Sub
 

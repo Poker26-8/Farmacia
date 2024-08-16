@@ -2419,7 +2419,7 @@ kaka:
                         cmd2 = cnn2.CreateCommand
                         If btndevo.Text = "GUARDAR DEVOLUCIÓN" Then
                             cmd2.CommandText =
-                                    "select * from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                    "select Lote from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             Do While rd2.Read
                                 If rd2.HasRows Then cboLote.Items.Add(rd2("Lote").ToString())
@@ -3670,7 +3670,7 @@ kaka:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                "select Existencia from Productos where Codigo='" & cbocodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

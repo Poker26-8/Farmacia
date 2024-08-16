@@ -2683,6 +2683,8 @@ deku:
 
         formapagov = IIf(lblPagos.Text = 0, 0, lblPagos.Text)
 
+
+
         If formapagov > CDec(lbltotalventa.Text) Then
             MsgBox("La suma de las forma de pago no deben revasar el total de la venta", vbInformation + vbOKOnly, titulorestaurante)
             frmNuevoPagarTouchS.btnIntro.Enabled = True
