@@ -48,6 +48,8 @@ Partial Class frmPagarD
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.lblCreditoCli = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.pCredito = New System.Windows.Forms.Panel()
         Me.lblSaldoFavor = New System.Windows.Forms.Label()
@@ -57,8 +59,6 @@ Partial Class frmPagarD
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblCreditoCli = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -71,7 +71,7 @@ Partial Class frmPagarD
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.Label1.ForeColor = System.Drawing.Color.DodgerBlue
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(484, 27)
@@ -84,7 +84,7 @@ Partial Class frmPagarD
         Me.lblTotalP.BackColor = System.Drawing.Color.White
         Me.lblTotalP.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTotalP.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalP.ForeColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.lblTotalP.ForeColor = System.Drawing.Color.DodgerBlue
         Me.lblTotalP.Location = New System.Drawing.Point(0, 27)
         Me.lblTotalP.Name = "lblTotalP"
         Me.lblTotalP.Size = New System.Drawing.Size(484, 57)
@@ -276,7 +276,7 @@ Partial Class frmPagarD
         '
         'btnAceptar
         '
-        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(161, Byte), Integer))
+        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.Color.White
@@ -292,7 +292,7 @@ Partial Class frmPagarD
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(161, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
@@ -362,9 +362,31 @@ Partial Class frmPagarD
         Me.Panel4.Size = New System.Drawing.Size(484, 95)
         Me.Panel4.TabIndex = 24
         '
+        'lblCreditoCli
+        '
+        Me.lblCreditoCli.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCreditoCli.ForeColor = System.Drawing.Color.Red
+        Me.lblCreditoCli.Location = New System.Drawing.Point(128, 26)
+        Me.lblCreditoCli.Name = "lblCreditoCli"
+        Me.lblCreditoCli.Size = New System.Drawing.Size(119, 24)
+        Me.lblCreditoCli.TabIndex = 24
+        Me.lblCreditoCli.Text = "0.00"
+        Me.lblCreditoCli.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Red
+        Me.Label4.Location = New System.Drawing.Point(3, 26)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(132, 24)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Total a crédito:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(161, Byte), Integer))
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
@@ -460,7 +482,7 @@ Partial Class frmPagarD
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(161, Byte), Integer))
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
@@ -470,28 +492,6 @@ Partial Class frmPagarD
         Me.Button3.Size = New System.Drawing.Size(43, 46)
         Me.Button3.TabIndex = 21
         Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(3, 26)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(132, 24)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Total a crédito:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblCreditoCli
-        '
-        Me.lblCreditoCli.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCreditoCli.ForeColor = System.Drawing.Color.Red
-        Me.lblCreditoCli.Location = New System.Drawing.Point(128, 26)
-        Me.lblCreditoCli.Name = "lblCreditoCli"
-        Me.lblCreditoCli.Size = New System.Drawing.Size(119, 24)
-        Me.lblCreditoCli.TabIndex = 24
-        Me.lblCreditoCli.Text = "0.00"
-        Me.lblCreditoCli.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmPagarD
         '

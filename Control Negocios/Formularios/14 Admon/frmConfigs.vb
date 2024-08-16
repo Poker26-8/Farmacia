@@ -17,7 +17,7 @@ Public Class frmConfigs
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
+            cmd1.CommandText = "Select numero,usuario,password,id from loginrecargas"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 txtnumero.Text = rd1("numero").ToString
@@ -64,13 +64,13 @@ Public Class frmConfigs
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Terminal,Clave,Solicitud,Resultado from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
-                txtTerminal.Text = rd1(1).ToString
-                txtClave.Text = rd1(2).ToString
-                txtSolicitud.Text = rd1(3).ToString
-                txtResultado.Text = rd1(4).ToString
+                txtTerminal.Text = rd1(0).ToString
+                txtClave.Text = rd1(1).ToString
+                txtSolicitud.Text = rd1(2).ToString
+                txtResultado.Text = rd1(3).ToString
 
                 txtResultado.Enabled = False
                 txtSolicitud.Enabled = False
@@ -179,7 +179,7 @@ Public Class frmConfigs
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM formatos WHERE Facturas='Porc_Mone'"
+            cmd4.CommandText = "SELECT NumPart,NotasCred FROM formatos WHERE Facturas='Porc_Mone'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -539,7 +539,7 @@ Public Class frmConfigs
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select * from Ticket"
+                "select NoPrint,Copias,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6,Cab7,Pie1,Pie2,Pagare from Ticket"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -767,7 +767,7 @@ Public Class frmConfigs
                 If cboventas.Text <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta'"
+                        "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -795,7 +795,7 @@ Public Class frmConfigs
                 If cbocompras.Text <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Compras'"
+                        "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Compras'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -823,7 +823,7 @@ Public Class frmConfigs
                 If cbocotiza.Text <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Cotiza'"
+                        "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Cotiza'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1212,7 +1212,7 @@ Public Class frmConfigs
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+              "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1247,7 +1247,7 @@ Public Class frmConfigs
             If cboImpCarta.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+              "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1271,7 +1271,7 @@ Public Class frmConfigs
 
             If cboBascula.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM formatos WHERE Facturas='Pto-Bascula'"
+                cmd1.CommandText = "SELECT Facturas FROM formatos WHERE Facturas='Pto-Bascula'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1290,7 +1290,7 @@ Public Class frmConfigs
 
             If bascula <> "" Then
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM formatos WHERE Facturas='Bascula'"
+                cmd1.CommandText = "SELECT Facturas FROM formatos WHERE Facturas='Bascula'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1358,7 +1358,7 @@ Public Class frmConfigs
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
+                "select id,tipo_cambio from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1526,7 +1526,7 @@ Public Class frmConfigs
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select * from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
+                     "select Id from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1857,7 +1857,7 @@ Public Class frmConfigs
                     Try
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "select * from DatosNegocio where EM_Expedir='FISCAL'"
+                        cmd2.CommandText = "select Emisor_id from DatosNegocio where EM_Expedir='FISCAL'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -2153,7 +2153,7 @@ Public Class frmConfigs
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select * from DatosNegocio where Em_RazonSocial<>'' and (Em_Expedir='FISCAL' or Em_Expedir='SUCURSAL')"
+                 "select Em_RazonSocial from DatosNegocio where Em_RazonSocial<>'' and (Em_Expedir='FISCAL' or Em_Expedir='SUCURSAL')"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cborazon_social.Items.Add(rd1("Em_RazonSocial").ToString())
@@ -2171,7 +2171,7 @@ Public Class frmConfigs
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select * from DatosNegocio where Em_RazonSocial='" & cborazon_social.Text & "' and (Em_Expedir='FISCAL' or Em_Expedir='SUCURSAL')"
+                 "select Emisor_id,Em_rfc,Em_calle,Em_colonia,Em_NumExterior,Em_NumInterior,Em_CP,Em_Municipio,Em_Estado,Em_Pais,Em_Mail,Em_Tel from,Em_NombreNegocio,Em_Actividad,Em_Expedir,Em_RFiscal DatosNegocio where Em_RazonSocial='" & cborazon_social.Text & "' and (Em_Expedir='FISCAL' or Em_Expedir='SUCURSAL')"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2293,7 +2293,7 @@ Public Class frmConfigs
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                         "select * from DatosNegocio where Em_rfc='" & txtRFC_fact.Text & "'"
+                         "select Emisor_id,Em_RazonSocial,Em_calle,Em_colonia,Em_NumExterior,Em_NumInterior,Em_CP,Em_Municipio,Em_Estado,Em_Pais,Em_Mail,Em_Tel,Em_NombreNegocio,Em_Actividad,Em_Expedir,Em_RFiscal from DatosNegocio where Em_rfc='" & txtRFC_fact.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -2815,7 +2815,7 @@ Public Class frmConfigs
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
+                "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2860,7 +2860,7 @@ Public Class frmConfigs
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
+                    "select Equipo from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2983,7 +2983,7 @@ Public Class frmConfigs
 
                     cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "Select * from Productos where Codigo='RECAR'"
+                    cmd1.CommandText = "Select Codigo from Productos where Codigo='RECAR'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.Read Then
                         rd1.Close()
@@ -3406,7 +3406,7 @@ Public Class frmConfigs
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Id from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 rd1.Close()

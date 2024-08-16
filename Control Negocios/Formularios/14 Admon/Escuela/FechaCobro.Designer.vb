@@ -25,11 +25,11 @@ Partial Class FechaCobro
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FechaCobro))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtinicia = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txttermina = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txttermina = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtinicia = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -63,24 +63,24 @@ Partial Class FechaCobro
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fecha"
         '
-        'txtinicia
+        'Label7
         '
-        Me.txtinicia.BackColor = System.Drawing.Color.White
-        Me.txtinicia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtinicia.Location = New System.Drawing.Point(36, 22)
-        Me.txtinicia.Name = "txtinicia"
-        Me.txtinicia.Size = New System.Drawing.Size(60, 23)
-        Me.txtinicia.TabIndex = 64
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(190, 26)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(76, 15)
+        Me.Label7.TabIndex = 68
+        Me.Label7.Text = "de cada mes."
         '
-        'Label3
+        'txttermina
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 26)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(24, 15)
-        Me.Label3.TabIndex = 65
-        Me.Label3.Text = "Del"
+        Me.txttermina.BackColor = System.Drawing.Color.White
+        Me.txttermina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txttermina.Location = New System.Drawing.Point(124, 22)
+        Me.txttermina.Name = "txttermina"
+        Me.txttermina.Size = New System.Drawing.Size(60, 23)
+        Me.txttermina.TabIndex = 67
         '
         'Label6
         '
@@ -92,24 +92,24 @@ Partial Class FechaCobro
         Me.Label6.TabIndex = 66
         Me.Label6.Text = "al"
         '
-        'txttermina
+        'Label3
         '
-        Me.txttermina.BackColor = System.Drawing.Color.White
-        Me.txttermina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txttermina.Location = New System.Drawing.Point(124, 22)
-        Me.txttermina.Name = "txttermina"
-        Me.txttermina.Size = New System.Drawing.Size(60, 23)
-        Me.txttermina.TabIndex = 67
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(6, 26)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(24, 15)
+        Me.Label3.TabIndex = 65
+        Me.Label3.Text = "Del"
         '
-        'Label7
+        'txtinicia
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(190, 26)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 15)
-        Me.Label7.TabIndex = 68
-        Me.Label7.Text = "de cada mes."
+        Me.txtinicia.BackColor = System.Drawing.Color.White
+        Me.txtinicia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtinicia.Location = New System.Drawing.Point(36, 22)
+        Me.txtinicia.Name = "txtinicia"
+        Me.txtinicia.Size = New System.Drawing.Size(60, 23)
+        Me.txtinicia.TabIndex = 64
         '
         'Button1
         '

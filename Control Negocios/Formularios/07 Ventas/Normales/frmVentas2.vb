@@ -3634,6 +3634,10 @@ kaka:
                         Minimo = rd1("Min").ToString()
                         txtubicacion.Text = rd1("Ubicacion").ToString()
 
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
+                            picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
+                        End If
+
                         cnn2.Close() : cnn2.Open() : cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
                             "select Existencia from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
