@@ -105,7 +105,7 @@ Public Class frmMigracion
             seccion = "Clientes"
             cmd = cnn.CreateCommand
             cmd.CommandText =
-                "select * from Clientes order by Nombre"
+                "select Nombre,RazonSocial,Tipo,RFC,Telefono1,ContactoMail,Credito,DiasCredito,Comisionista,SuspVent,Calle,Colonia,CP,Delegacion,Entidad,CPais,Regfis from Clientes order by Nombre"
             cnn1.Close() : cnn1.Open()
             rd = cmd.ExecuteReader
             Do While rd.Read
@@ -147,7 +147,7 @@ Public Class frmMigracion
             seccion = "Proveedores"
             cmd = cnn.CreateCommand
             cmd.CommandText =
-                "select * from Proveedores order by NComercial"
+                "select NComercial,Compañia,RFC,CURP,Calle,Colonia,CP,Delegacion,EntFed,Tel1,Email,Saldo,Credito,DiasCredito from Proveedores order by NComercial"
             cnn1.Close() : cnn1.Open()
             rd = cmd.ExecuteReader
             Do While rd.Read
@@ -186,7 +186,7 @@ Public Class frmMigracion
             seccion = "Productos"
             cmd = cnn.CreateCommand
             cmd.CommandText =
-                "select * from Productos order by Nombre"
+                "select Codigo,CodBarra,Nombre,ProvPri,ProvRes,UCompra,UVenta,VentaMin,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PorcentageMin,IVA,Existencia,Porcentage,PorMay,PorMM,PorEsp,PreMay,PreMM,PreEsp,CantMin,CantMin2,CantMay,CantMay2,CantMM,CantMM2,CantEsp,CantEsp2,CantLta,CantLta2,pres_vol,id_tbMoneda,Dscto,AFECTA_EXISTENCIA,PercentIVAret,IIEPS,isr,ClavaSat,ClaveUnidadSat,Status_Promocion,Porcentaje_Promo,Uso,Color,Genero,Marca,Articulo,Dia,Descu from Productos order by Nombre"
             rd = cmd.ExecuteReader
             cnn1.Close() : cnn1.Open()
             Do While rd.Read
@@ -274,7 +274,7 @@ Public Class frmMigracion
             seccion = "Usuarios"
             cmd = cnn.CreateCommand
             cmd.CommandText =
-                "select * from Usuarios"
+                "select Nombre,Alias,Area,Puesto,ClaveIMSS,Clave,FechaIngreso,Sueldo,Comisionista,CalleyNum,Colonia,CP,Delegacion,Entidad,Cel,Email,Status from Usuarios"
             cnn1.Close() : cnn1.Open()
             cnn2.Close() : cnn2.Open()
             rd = cmd.ExecuteReader
@@ -301,7 +301,7 @@ Public Class frmMigracion
                     If alias_u = "ADMIN" Then
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "select * from Usuarios where Alias='ADMIN'"
+                            "select Alias from Usuarios where Alias='ADMIN'"
                         rd = cmd.ExecuteReader
                         If rd.HasRows Then
                             If rd.Read Then
@@ -400,7 +400,7 @@ queso:
 
             cmd = cnn.CreateCommand
             cmd.CommandText =
-                "select * from Clientes"
+                "select Cliente,RazonSocial,Tipo,RFC,Cel,Email,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,CPais from Clientes"
             rd = cmd.ExecuteReader
             Do While rd.Read
                 If rd.HasRows Then
@@ -434,5 +434,9 @@ caca:
         MsgBox(seccion & " - " & Err.Number & " - " & Err.Description & vbNewLine & "No se pudo completar la migración de datos, inténtelo de nuevo más tarde. Sí el problema persiste comuníquese con su proveedor de software.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         cnn.Close() : cnn1.Close() : cnn2.Close()
         Exit Sub
+    End Sub
+
+    Private Sub frmMigracion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -27,7 +27,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                "select IdEmpleado,Area,Puesto,Clave,Ingreso from Usuarios where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -43,7 +43,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Permisos where IdEmpleado=" & lblid_usu.Text
+                "select Cat_Emp,Cat_Cli,Cat_Prov,Cat_Mone,cat_Formas,cat_Bancos,cat_Cuentas,Asis_Hora,Asis_Hue,Asis_Asis,Asis_Rep,Prod_Prod,Prod_Serv,Prod_Pre,Prod_Prom,Prod_Kits,Comp_Ped,Comp_CPed,Comp_Com,Comp_CCom,Comp_NCred,Comp_CtPag,Comp_Abon,Comp_Anti,Vent_Most,Vent_Touch,Vent_NVen,Vent_Coti,Vent_Pedi,Vent_Devo,Vent_CFol,Vent_Abo,Vent_Canc,Vent_EPrec,Ing_CEmp,Egr_PEmp,Egr_Nom,Egr_Tran,Egr_Otro,Rep_Vent,Rep_VentG,Rep_Comp,Rep_CCob,Rep_CPag,Rep_Ent,Rep_Sal,Rep_Inv,Rep_Aju,List_Pre,List_Pro,List_Fal,Fact_Fact,Fact_Rep,Ad_Perm,Ad_Conf,Ad_Util,Ad_Cort,Ad_Cli,Rep_Servicios,Rep_CamPrecio,Rep_EstResultado,Rep_Auditoria,EliAbono,ReimprimirTicket from Permisos where IdEmpleado=" & lblid_usu.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -659,7 +659,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Alias='" & lblusuario.Text & "'"
+                    "select IdEmpleado from Usuarios where Alias='" & lblusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -670,7 +670,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Permisos where IdEmpleado=" & usu_edita
+                    "select Ad_Perm from Permisos where IdEmpleado=" & usu_edita
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -685,7 +685,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtcontra.Text & "'"
+                    "select IdEmpleado from Usuarios where Clave='" & txtcontra.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -702,7 +702,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                    "select IdEmpleado from Usuarios where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -713,7 +713,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Permisos where IdEmpleado=" & id_emp
+                    "select Id from Permisos where IdEmpleado=" & id_emp
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -809,7 +809,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        "select IdEmpleado,Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -821,7 +821,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Permisos where IdEmpleado=" & id_empleado
+                        "select Ad_Perm from Permisos where IdEmpleado=" & id_empleado
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
