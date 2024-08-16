@@ -52,7 +52,7 @@ Public Class frmVehiculos
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Transporte WHERE Placas='" & txtplacas.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM Transporte WHERE Placas='" & txtplacas.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -118,7 +118,7 @@ Public Class frmVehiculos
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM transporte WHERE Placas='" & txtplacas.Text & "'"
+            cmd1.CommandText = "SELECT Modelo,Marca,Area,Chofer,Seguro,Poliza,Vence_Seguro,Contacto_Seguro,Agente,Contacto_Agente,Verifica1,Verifica2,NoCircula,Afina_Ant,Aceite_Ant,Afina_Prox,Aceite_Prox FROM transporte WHERE Placas='" & txtplacas.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

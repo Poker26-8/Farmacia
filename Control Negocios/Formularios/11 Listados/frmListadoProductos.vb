@@ -466,15 +466,15 @@ Public Class frmListadoProductos
             cmd1 = cnn1.CreateCommand
             If (optproveedor.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where ProvPri='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,Departamento,Grupo,Multiplo from Productos where ProvPri='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             If (optdepartamento.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Departamento='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,Departamento,Grupo,Multiplo from Productos where Departamento='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             If (optgrupo.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Grupo='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,Departamento,Grupo,Multiplo from Productos where Grupo='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             rd1 = cmd1.ExecuteReader
             cnn2.Close() : cnn2.Open()

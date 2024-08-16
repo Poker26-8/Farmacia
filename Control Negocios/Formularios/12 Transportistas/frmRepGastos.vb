@@ -56,7 +56,7 @@ Public Class frmRepGastos
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM otrosgastos"
+                cmd1.CommandText = "SELECT Fecha,Tipo,Modelo,Placas,Folio,Concepto,FormaPago,Total,Nota FROM otrosgastos"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then

@@ -2860,7 +2860,7 @@ Public Class frmListadoPrecios
                     cnn200.Close() : cnn200.Open()
                     cmd200 = cnn200.CreateCommand
                     cmd200.CommandText =
-                        "select * from Productos p INNER JOIN tb_moneda tm ON p.id_tbMoneda=tm.id where Codigo='" & codigo & "' order by Nombre"
+                        "select tipo_cambio,PrecioCompra,IVA,PrecioVentaIVA,PreMin,PreMM,PreMay,PreEsp,Porcentaje,Porcentaje2,PrecioVentaIVA2,PorcMin2,PreMin2,PorcMay2,PreMay2,PorcMM2,PreMM2,PorcEsp2,PreEsp2 from Productos p INNER JOIN tb_moneda tm ON p.id_tbMoneda=tm.id where Codigo='" & codigo & "' order by Nombre"
                     rd200 = cmd200.ExecuteReader
                     If rd200.HasRows Then
                         If rd200.Read Then
@@ -3042,15 +3042,15 @@ Public Class frmListadoPrecios
             cmd1 = cnn1.CreateCommand
             If (optproveedores.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where ProvPri='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos where ProvPri='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             If (optdepto.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Departamento='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos where Departamento='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             If (optgrupo.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Grupo='" & cbofiltro.Text & "' order by " & order_by & ""
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos where Grupo='" & cbofiltro.Text & "' order by " & order_by & ""
             End If
             rd1 = cmd1.ExecuteReader
             cnn2.Close() : cnn2.Open()
@@ -3094,7 +3094,7 @@ Public Class frmListadoPrecios
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
+                    "select tipo_cambio,PrecioCompra,IVA,PrecioVentaIVA,PreMin,PreMM,PreMay,PreEsp,Porcentaje,Porcentaje2,PrecioVentaIVA2,PorcMin2,PreMin2,PorcMay2,PreMay2,PorcMM2,PreMM2,PorcEsp2,PreEsp2 from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -3454,7 +3454,7 @@ Public Class frmListadoPrecios
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                    "select IVA from Productos where Codigo='" & codigo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
