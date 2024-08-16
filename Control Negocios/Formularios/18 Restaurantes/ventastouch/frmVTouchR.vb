@@ -3050,7 +3050,8 @@ kakaxd:
                     Else
                         SubTotal = lbltotalventa.Text
                     End If
-                    Total_Ve = FormatNumber(CDbl(lbltotalventa.Text), 2)
+
+                    Total_Ve = FormatNumber(CDec(lbltotalventa.Text), 2)
                     Descuento = lblDescuento.Text
                     MontoSDesc = FormatNumber(CDbl(lbltotalventa.Text) - Descuento, 2)
 

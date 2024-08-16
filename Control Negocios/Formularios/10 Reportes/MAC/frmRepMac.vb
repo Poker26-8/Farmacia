@@ -43,13 +43,14 @@ Public Class frmRepMac
             exHoja.Cells(7, 3).Value = FormatNumber(txtIVA.Text, 2)
 
             exHoja.Cells(8, 1).Value = "05-001-0004-001"
-            exHoja.Cells(8, 2).Value = "CLIENTES FARMACIA"
+            exHoja.Cells(8, 2).Value = "CLIENTES"
+            exHoja.Cells(8, 3).Value = FormatNumber(CDec(txtSubtotal.Text) + CDec(txtIVA.Text), 2)
 
             exHoja.Cells(9, 1).Value = "47-001-0003-000"
             exHoja.Cells(9, 2).Value = "DESCUENTO"
             exHoja.Cells(9, 3).Value = FormatNumber(txtDescuento.Text, 2)
             ' Total
-            exHoja.Cells(10, 2).Value = "Totales"
+            exHoja.Cells(10, 2).Value = "TOTAL"
             exHoja.Cells(10, 3).Value = FormatNumber(txtTotal.Text, 2)
 
             exHoja.Cells(11, 1).Value = "Cuenta"

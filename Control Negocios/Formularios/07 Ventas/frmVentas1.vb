@@ -209,6 +209,7 @@ Public Class frmVentas1
 
 
     End Sub
+
     Private Async Sub frmVentas1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         Me.KeyPreview = True
@@ -7639,9 +7640,11 @@ kakaxd:
                         IVA_Vent = FormatNumber(SumaTotales, 2)
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                         '  Descuento = FormatNumber(txtdescuento2.Text, 4)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + txtdescuento2.Text, 2)
                         sumadescuento = FormatNumber(sumadescuento, 2)
 
+                        Dim subtotalsindes As Double = 0
+                        subtotalsindes = CDec(txtSubTotal.Text)
 
                         cnn1.Close() : cnn1.Open()
 
@@ -7660,7 +7663,7 @@ kakaxd:
                         End If
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                         Descuento = FormatNumber(txtdescuento2.Text, 2)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + CDec(txtdescuento2.Text), 2)
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
@@ -7732,7 +7735,7 @@ kakaxd:
                     IVA_Vent = FormatNumber(SumaTotales, 2)
                     Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                     '  Descuento = FormatNumber(txtdescuento2.Text, 4)
-                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + CDec(txtdescuento2.Text), 2)
                     sumadescuento = FormatNumber(sumadescuento, 2)
 
                     'Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)

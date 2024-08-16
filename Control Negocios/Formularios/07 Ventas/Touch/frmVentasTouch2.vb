@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Xml
+Imports System.IO.Ports
 Class frmVentasTouch2
 
     Public valorxd As Integer = 0
@@ -41,7 +42,7 @@ Class frmVentasTouch2
     Public cadenafact As String = ""
 
     Friend WithEvents btnDepto, btnGrupo, btnProd As System.Windows.Forms.Button
-
+    Public WithEvents serialPortT As New SerialPort()
 
     Public Sub Folio()
         If cnn9.State = 1 Then cnn9.Close()
@@ -1003,6 +1004,129 @@ Class frmVentasTouch2
             PctoAnt = btnProducto.TabIndex
             CodigoProducto = btnProducto.Tag
             cantidad = 1
+
+            Dim puertobascula As String = ""
+            Dim bascula As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select NotasCred From Formatos Where Facturas='Pto-Bascula'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    puertobascula = rd1("NotasCred").ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select NotasCred From Formatos Where Facturas='Bascula'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    bascula = rd1("NotasCred").ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If bascula = "SBascula" Then
+                txtcantidad.Text = 1
+            End If
+
+
+            If bascula = "Noval" Then
+
+                ' Configurar el puerto serie
+                With serialPortT
+                    .PortName = puertobascula ' Cambia esto al puerto correcto de tu báscula
+                    .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
+                    .DataBits = 8
+                    .StopBits = StopBits.One
+                    .Parity = Parity.None
+                End With
+
+                ' Abrir el puerto serie
+                If Not serialPortT.IsOpen Then
+                    serialPortT.Open()
+                    ' MessageBox.Show("Conectado a la báscula.")
+                End If
+
+                ' Leer datos de la báscula
+                If serialPortT.IsOpen Then
+                    Dim data As Double = serialPortT.ReadLine()
+
+                    cantidad = data
+                    cantidad = FormatNumber(cantidad, 2)
+                Else
+                    MessageBox.Show("La báscula no está conectada.")
+                End If
+
+                ' Cerrar el puerto serie al cerrar la aplicación
+                If serialPortT.IsOpen Then
+                    serialPortT.Close()
+                End If
+
+            End If
+
+            If bascula = "Rhino" Then
+
+                Dim NUEVOPESO As Double = 0
+                ' Configurar el puerto serie
+                With serialPortT
+                    .PortName = puertobascula ' Cambia esto al puerto correcto de tu báscula
+                    .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
+                    .DataBits = 8
+                    .StopBits = StopBits.One
+                    .Parity = Parity.None
+                End With
+
+                ' Abrir el puerto serie
+                If Not serialPortT.IsOpen Then
+                    serialPortT.Open()
+                    'MessageBox.Show("Conectado a la báscula.")
+                End If
+
+                ' Lee los datos disponibles en el búfer de entrada del puerto serie
+                Dim data2 As String = serialPortT.ReadExisting()
+
+                ' Leer datos de la báscula
+                If serialPortT.IsOpen Then
+                    serialPortT.Write("P")
+
+                    ' Espera un momento para que la báscula procese el comando
+                    System.Threading.Thread.Sleep(100)
+
+                    'Dim Data As String = serialPortT.ReadLine()
+                    Dim Data As String = serialPortT.ReadExisting()
+
+                    ' Elimina los dos últimos caracteres (" kg") y convierte la cadena resultante en un número
+                    If Double.TryParse(Data.Substring(0, Data.Length - 3), NUEVOPESO) Then
+                        Console.WriteLine(NUEVOPESO)
+                    Else
+                        Console.WriteLine("No se pudo convertir el peso.")
+                    End If
+                    cantidad = Trim(NUEVOPESO)
+
+                Else
+                    MessageBox.Show("La báscula no está conectada.")
+                End If
+
+                ' Cerrar el puerto serie al cerrar la aplicación
+                If serialPortT.IsOpen Then
+                    serialPortT.Close()
+                End If
+
+
+            End If
+
+            If bascula = "Metrologic" Then
+
+            End If
+
+            If bascula = "Torrey" Then
+
+            End If
 
             ObtenerProducto(btnProducto.Tag)
 

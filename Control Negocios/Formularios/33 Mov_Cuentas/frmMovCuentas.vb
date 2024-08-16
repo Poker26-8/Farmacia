@@ -1244,8 +1244,7 @@ Public Class frmMovCuentas
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
+
             Dim foliofactura As String = ""
 
             Dim Pie1 As String = ""
@@ -1269,11 +1268,11 @@ Public Class frmMovCuentas
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Ticket"
+            cmd2.CommandText = "SELECT Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie1 = rd2("Pie3").ToString
+                    Pie1 = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -1387,8 +1386,6 @@ Public Class frmMovCuentas
             Dim Y As Double = 0
 
             Dim Logotipo As Drawing.Image = Nothing
-            Dim nLogo As String = DatosRecarga("LogoG")
-            Dim tLogo As String = DatosRecarga("TipoLogo")
             Dim foliofactura As String = ""
 
             Dim Pie1 As String = ""
@@ -1412,11 +1409,11 @@ Public Class frmMovCuentas
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
+            cmd2.CommandText = "SELECT Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie1 = rd2("Pie3").ToString
+                    Pie1 = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)

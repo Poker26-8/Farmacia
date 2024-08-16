@@ -8046,7 +8046,7 @@ kakaxd:
                         IVA_Vent = FormatNumber(SumaTotales, 2)
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                         '  Descuento = FormatNumber(txtdescuento2.Text, 4)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + CDec(txtdescuento2.Text), 2)
                         sumadescuento = FormatNumber(sumadescuento, 2)
 
 
@@ -8067,7 +8067,7 @@ kakaxd:
                         End If
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                         Descuento = FormatNumber(txtdescuento2.Text, 2)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + CDec(txtdescuento2.Text), 2)
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
@@ -8139,7 +8139,7 @@ kakaxd:
                     IVA_Vent = FormatNumber(SumaTotales, 2)
                     Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
                     '  Descuento = FormatNumber(txtdescuento2.Text, 4)
-                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + CDec(txtdescuento2.Text), 2)
                     sumadescuento = FormatNumber(sumadescuento, 2)
 
                     'Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)

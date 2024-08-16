@@ -309,7 +309,7 @@
             cnn3.Close() : cnn3.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT HorEnt FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+            cmd1.CommandText = "SELECT HorEnt,Nombre,NumPC FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
