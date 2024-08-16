@@ -4301,7 +4301,7 @@ Public Class frmNuvRepVentas
         txtAcuenta.Text = "0.00"
         txtSubtotal.Text = "0.00"
 
-        frmRepMac.Show()
+
     End Sub
 
     Private Sub btnAntibiotico_Click(sender As Object, e As EventArgs) Handles btnAntibiotico.Click
@@ -5232,5 +5232,10 @@ Public Class frmNuvRepVentas
 
     Private Sub grdCaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellContentClick
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmRepMac.BringToFront()
+        frmRepMac.Show()
     End Sub
 End Class

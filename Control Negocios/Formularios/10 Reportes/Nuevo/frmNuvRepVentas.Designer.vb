@@ -22,10 +22,10 @@ Partial Class frmNuvRepVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvRepVentas))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -52,12 +52,6 @@ Partial Class frmNuvRepVentas
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.btnReporte = New System.Windows.Forms.Button()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.btnExcel = New System.Windows.Forms.Button()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnAntibiotico = New System.Windows.Forms.Button()
-        Me.btnControlado = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -94,6 +88,13 @@ Partial Class frmNuvRepVentas
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.PMasVendido80 = New System.Drawing.Printing.PrintDocument()
+        Me.btnReporte = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.btnExcel = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnAntibiotico = New System.Windows.Forms.Button()
+        Me.btnControlado = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -151,15 +152,15 @@ Partial Class frmNuvRepVentas
         Me.Panel7.Controls.Add(Me.txtTotal)
         Me.Panel7.Controls.Add(Me.lblTotal)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(303, 0)
+        Me.Panel7.Location = New System.Drawing.Point(382, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(748, 166)
+        Me.Panel7.Size = New System.Drawing.Size(669, 166)
         Me.Panel7.TabIndex = 17
         '
         'txtAcuenta
         '
         Me.txtAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAcuenta.Location = New System.Drawing.Point(537, 135)
+        Me.txtAcuenta.Location = New System.Drawing.Point(456, 135)
         Me.txtAcuenta.Name = "txtAcuenta"
         Me.txtAcuenta.Size = New System.Drawing.Size(100, 24)
         Me.txtAcuenta.TabIndex = 37
@@ -169,7 +170,7 @@ Partial Class frmNuvRepVentas
         'lblAcuenta
         '
         Me.lblAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcuenta.Location = New System.Drawing.Point(537, 112)
+        Me.lblAcuenta.Location = New System.Drawing.Point(456, 112)
         Me.lblAcuenta.Name = "lblAcuenta"
         Me.lblAcuenta.Size = New System.Drawing.Size(100, 24)
         Me.lblAcuenta.TabIndex = 36
@@ -179,7 +180,7 @@ Partial Class frmNuvRepVentas
         'txtCostoUtilidad
         '
         Me.txtCostoUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCostoUtilidad.Location = New System.Drawing.Point(643, 26)
+        Me.txtCostoUtilidad.Location = New System.Drawing.Point(562, 26)
         Me.txtCostoUtilidad.Name = "txtCostoUtilidad"
         Me.txtCostoUtilidad.Size = New System.Drawing.Size(100, 24)
         Me.txtCostoUtilidad.TabIndex = 35
@@ -189,7 +190,7 @@ Partial Class frmNuvRepVentas
         'lblUtilidad
         '
         Me.lblUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUtilidad.Location = New System.Drawing.Point(410, 27)
+        Me.lblUtilidad.Location = New System.Drawing.Point(329, 27)
         Me.lblUtilidad.Name = "lblUtilidad"
         Me.lblUtilidad.Size = New System.Drawing.Size(227, 20)
         Me.lblUtilidad.TabIndex = 34
@@ -199,7 +200,7 @@ Partial Class frmNuvRepVentas
         'txtResta
         '
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResta.Location = New System.Drawing.Point(643, 135)
+        Me.txtResta.Location = New System.Drawing.Point(562, 135)
         Me.txtResta.Name = "txtResta"
         Me.txtResta.Size = New System.Drawing.Size(100, 24)
         Me.txtResta.TabIndex = 33
@@ -209,7 +210,7 @@ Partial Class frmNuvRepVentas
         'lblResta
         '
         Me.lblResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResta.Location = New System.Drawing.Point(643, 112)
+        Me.lblResta.Location = New System.Drawing.Point(562, 112)
         Me.lblResta.Name = "lblResta"
         Me.lblResta.Size = New System.Drawing.Size(100, 24)
         Me.lblResta.TabIndex = 32
@@ -219,7 +220,7 @@ Partial Class frmNuvRepVentas
         'txtCosto
         '
         Me.txtCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCosto.Location = New System.Drawing.Point(304, 26)
+        Me.txtCosto.Location = New System.Drawing.Point(223, 26)
         Me.txtCosto.Name = "txtCosto"
         Me.txtCosto.Size = New System.Drawing.Size(100, 24)
         Me.txtCosto.TabIndex = 31
@@ -229,7 +230,7 @@ Partial Class frmNuvRepVentas
         'lblCosto
         '
         Me.lblCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCosto.Location = New System.Drawing.Point(304, 3)
+        Me.lblCosto.Location = New System.Drawing.Point(223, 3)
         Me.lblCosto.Name = "lblCosto"
         Me.lblCosto.Size = New System.Drawing.Size(100, 24)
         Me.lblCosto.TabIndex = 30
@@ -239,7 +240,7 @@ Partial Class frmNuvRepVentas
         'txtSuma
         '
         Me.txtSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSuma.Location = New System.Drawing.Point(198, 26)
+        Me.txtSuma.Location = New System.Drawing.Point(117, 26)
         Me.txtSuma.Name = "txtSuma"
         Me.txtSuma.Size = New System.Drawing.Size(100, 24)
         Me.txtSuma.TabIndex = 29
@@ -249,7 +250,7 @@ Partial Class frmNuvRepVentas
         'lblSuma
         '
         Me.lblSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSuma.Location = New System.Drawing.Point(198, 3)
+        Me.lblSuma.Location = New System.Drawing.Point(117, 3)
         Me.lblSuma.Name = "lblSuma"
         Me.lblSuma.Size = New System.Drawing.Size(100, 24)
         Me.lblSuma.TabIndex = 28
@@ -259,7 +260,7 @@ Partial Class frmNuvRepVentas
         'txtPropina
         '
         Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPropina.Location = New System.Drawing.Point(92, 26)
+        Me.txtPropina.Location = New System.Drawing.Point(11, 26)
         Me.txtPropina.Name = "txtPropina"
         Me.txtPropina.Size = New System.Drawing.Size(100, 24)
         Me.txtPropina.TabIndex = 27
@@ -269,7 +270,7 @@ Partial Class frmNuvRepVentas
         'lblPropina
         '
         Me.lblPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPropina.Location = New System.Drawing.Point(92, 3)
+        Me.lblPropina.Location = New System.Drawing.Point(11, 3)
         Me.lblPropina.Name = "lblPropina"
         Me.lblPropina.Size = New System.Drawing.Size(100, 24)
         Me.lblPropina.TabIndex = 26
@@ -279,7 +280,7 @@ Partial Class frmNuvRepVentas
         'txtSubtotal
         '
         Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotal.Location = New System.Drawing.Point(219, 82)
+        Me.txtSubtotal.Location = New System.Drawing.Point(138, 82)
         Me.txtSubtotal.Name = "txtSubtotal"
         Me.txtSubtotal.Size = New System.Drawing.Size(100, 24)
         Me.txtSubtotal.TabIndex = 25
@@ -289,7 +290,7 @@ Partial Class frmNuvRepVentas
         'lblSubtotal
         '
         Me.lblSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubtotal.Location = New System.Drawing.Point(219, 59)
+        Me.lblSubtotal.Location = New System.Drawing.Point(138, 59)
         Me.lblSubtotal.Name = "lblSubtotal"
         Me.lblSubtotal.Size = New System.Drawing.Size(100, 24)
         Me.lblSubtotal.TabIndex = 24
@@ -299,7 +300,7 @@ Partial Class frmNuvRepVentas
         'txtDescuento
         '
         Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescuento.Location = New System.Drawing.Point(325, 82)
+        Me.txtDescuento.Location = New System.Drawing.Point(244, 82)
         Me.txtDescuento.Name = "txtDescuento"
         Me.txtDescuento.Size = New System.Drawing.Size(100, 24)
         Me.txtDescuento.TabIndex = 23
@@ -309,7 +310,7 @@ Partial Class frmNuvRepVentas
         'lblDescuento
         '
         Me.lblDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescuento.Location = New System.Drawing.Point(325, 55)
+        Me.lblDescuento.Location = New System.Drawing.Point(244, 55)
         Me.lblDescuento.Name = "lblDescuento"
         Me.lblDescuento.Size = New System.Drawing.Size(91, 24)
         Me.lblDescuento.TabIndex = 22
@@ -319,7 +320,7 @@ Partial Class frmNuvRepVentas
         'txtIeps
         '
         Me.txtIeps.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIeps.Location = New System.Drawing.Point(431, 82)
+        Me.txtIeps.Location = New System.Drawing.Point(350, 82)
         Me.txtIeps.Name = "txtIeps"
         Me.txtIeps.Size = New System.Drawing.Size(100, 24)
         Me.txtIeps.TabIndex = 21
@@ -329,7 +330,7 @@ Partial Class frmNuvRepVentas
         'lblIeps
         '
         Me.lblIeps.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIeps.Location = New System.Drawing.Point(431, 56)
+        Me.lblIeps.Location = New System.Drawing.Point(350, 56)
         Me.lblIeps.Name = "lblIeps"
         Me.lblIeps.Size = New System.Drawing.Size(63, 24)
         Me.lblIeps.TabIndex = 20
@@ -339,7 +340,7 @@ Partial Class frmNuvRepVentas
         'txtIVA
         '
         Me.txtIVA.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIVA.Location = New System.Drawing.Point(537, 82)
+        Me.txtIVA.Location = New System.Drawing.Point(456, 82)
         Me.txtIVA.Name = "txtIVA"
         Me.txtIVA.Size = New System.Drawing.Size(100, 24)
         Me.txtIVA.TabIndex = 19
@@ -349,7 +350,7 @@ Partial Class frmNuvRepVentas
         'lblIva
         '
         Me.lblIva.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIva.Location = New System.Drawing.Point(537, 56)
+        Me.lblIva.Location = New System.Drawing.Point(456, 56)
         Me.lblIva.Name = "lblIva"
         Me.lblIva.Size = New System.Drawing.Size(55, 24)
         Me.lblIva.TabIndex = 18
@@ -359,7 +360,7 @@ Partial Class frmNuvRepVentas
         'txtTotal
         '
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(643, 82)
+        Me.txtTotal.Location = New System.Drawing.Point(562, 82)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(100, 24)
         Me.txtTotal.TabIndex = 17
@@ -369,7 +370,7 @@ Partial Class frmNuvRepVentas
         'lblTotal
         '
         Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.Location = New System.Drawing.Point(643, 56)
+        Me.lblTotal.Location = New System.Drawing.Point(562, 56)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(74, 24)
         Me.lblTotal.TabIndex = 16
@@ -378,6 +379,7 @@ Partial Class frmNuvRepVentas
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.Button1)
         Me.Panel6.Controls.Add(Me.btnReporte)
         Me.Panel6.Controls.Add(Me.btnImprimir)
         Me.Panel6.Controls.Add(Me.btnExcel)
@@ -389,93 +391,6 @@ Partial Class frmNuvRepVentas
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(1051, 166)
         Me.Panel6.TabIndex = 16
-        '
-        'btnReporte
-        '
-        Me.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnReporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReporte.Image = CType(resources.GetObject("btnReporte.Image"), System.Drawing.Image)
-        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnReporte.Location = New System.Drawing.Point(3, 6)
-        Me.btnReporte.Name = "btnReporte"
-        Me.btnReporte.Size = New System.Drawing.Size(90, 74)
-        Me.btnReporte.TabIndex = 0
-        Me.btnReporte.Text = "Reporte"
-        Me.btnReporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnReporte.UseVisualStyleBackColor = True
-        '
-        'btnImprimir
-        '
-        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimir.Location = New System.Drawing.Point(99, 6)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(90, 74)
-        Me.btnImprimir.TabIndex = 1
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnImprimir.UseVisualStyleBackColor = True
-        Me.btnImprimir.Visible = False
-        '
-        'btnExcel
-        '
-        Me.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
-        Me.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExcel.Location = New System.Drawing.Point(3, 86)
-        Me.btnExcel.Name = "btnExcel"
-        Me.btnExcel.Size = New System.Drawing.Size(90, 74)
-        Me.btnExcel.TabIndex = 2
-        Me.btnExcel.Text = "Exportar"
-        Me.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnExcel.UseVisualStyleBackColor = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
-        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(99, 86)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(90, 74)
-        Me.btnNuevo.TabIndex = 3
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        '
-        'btnAntibiotico
-        '
-        Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAntibiotico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
-        Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAntibiotico.Location = New System.Drawing.Point(195, 6)
-        Me.btnAntibiotico.Name = "btnAntibiotico"
-        Me.btnAntibiotico.Size = New System.Drawing.Size(102, 74)
-        Me.btnAntibiotico.TabIndex = 4
-        Me.btnAntibiotico.Text = "Antibióticos"
-        Me.btnAntibiotico.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAntibiotico.UseVisualStyleBackColor = True
-        Me.btnAntibiotico.Visible = False
-        '
-        'btnControlado
-        '
-        Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnControlado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
-        Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnControlado.Location = New System.Drawing.Point(195, 86)
-        Me.btnControlado.Name = "btnControlado"
-        Me.btnControlado.Size = New System.Drawing.Size(102, 74)
-        Me.btnControlado.TabIndex = 5
-        Me.btnControlado.Text = "Controlados"
-        Me.btnControlado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnControlado.UseVisualStyleBackColor = True
-        Me.btnControlado.Visible = False
         '
         'Panel3
         '
@@ -873,27 +788,27 @@ Partial Class frmNuvRepVentas
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle9
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -904,6 +819,107 @@ Partial Class frmNuvRepVentas
         '
         'PMasVendido80
         '
+        '
+        'btnReporte
+        '
+        Me.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReporte.Image = CType(resources.GetObject("btnReporte.Image"), System.Drawing.Image)
+        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnReporte.Location = New System.Drawing.Point(3, 6)
+        Me.btnReporte.Name = "btnReporte"
+        Me.btnReporte.Size = New System.Drawing.Size(90, 74)
+        Me.btnReporte.TabIndex = 0
+        Me.btnReporte.Text = "Reporte"
+        Me.btnReporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnReporte.UseVisualStyleBackColor = True
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimir.Location = New System.Drawing.Point(99, 6)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(78, 74)
+        Me.btnImprimir.TabIndex = 1
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        Me.btnImprimir.Visible = False
+        '
+        'btnExcel
+        '
+        Me.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
+        Me.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExcel.Location = New System.Drawing.Point(3, 86)
+        Me.btnExcel.Name = "btnExcel"
+        Me.btnExcel.Size = New System.Drawing.Size(90, 74)
+        Me.btnExcel.TabIndex = 2
+        Me.btnExcel.Text = "Exportar"
+        Me.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExcel.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnNuevo.Location = New System.Drawing.Point(99, 86)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(78, 74)
+        Me.btnNuevo.TabIndex = 3
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        '
+        'btnAntibiotico
+        '
+        Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAntibiotico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
+        Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAntibiotico.Location = New System.Drawing.Point(183, 6)
+        Me.btnAntibiotico.Name = "btnAntibiotico"
+        Me.btnAntibiotico.Size = New System.Drawing.Size(102, 74)
+        Me.btnAntibiotico.TabIndex = 4
+        Me.btnAntibiotico.Text = "Antibióticos"
+        Me.btnAntibiotico.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAntibiotico.UseVisualStyleBackColor = True
+        Me.btnAntibiotico.Visible = False
+        '
+        'btnControlado
+        '
+        Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnControlado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
+        Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnControlado.Location = New System.Drawing.Point(183, 86)
+        Me.btnControlado.Name = "btnControlado"
+        Me.btnControlado.Size = New System.Drawing.Size(102, 74)
+        Me.btnControlado.TabIndex = 5
+        Me.btnControlado.Text = "Controlados"
+        Me.btnControlado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnControlado.UseVisualStyleBackColor = True
+        Me.btnControlado.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(291, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(85, 74)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Cuentas Contpaqi"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'frmNuvRepVentas
         '
@@ -1006,4 +1022,5 @@ Partial Class frmNuvRepVentas
     Friend WithEvents txtcodigo As TextBox
     Friend WithEvents txtcantidad As TextBox
     Friend WithEvents PMasVendido80 As Printing.PrintDocument
+    Friend WithEvents Button1 As Button
 End Class

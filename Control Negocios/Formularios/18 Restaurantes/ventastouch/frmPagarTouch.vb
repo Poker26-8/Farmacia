@@ -625,7 +625,7 @@
         Dim ACUENTA As Double = 0
         Dim descuento As Double = 0
         descuento = txtDescuento.Text
-        ACUENTA = FormatNumber(CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtCambio.Text), 2)
+        ACUENTA = FormatNumber(CDec(txtEfectivo.Text) + CDec(txtpagos.Text)+CDec(txtDescuento.Text) - CDec(txtCambio.Text), 2)
 
         If ACUENTA > 0 And ACUENTA >= txttotalpropina.Text Then
             btnIntro.Enabled = False
