@@ -1,6 +1,14 @@
 ﻿Imports System.IO
 Public Class frmEstResultados
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+
     Private Sub frmEstResultados_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        nLogo = DatosRecarga("LogoG")
+
+        tLogo = DatosRecarga("TipoLogo")
+
         dtpinicio.Value = Date.Now
         dtpfinal.Value = Date.Now
     End Sub
@@ -240,10 +248,9 @@ kaka:
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
+
+
 
         Try
             If tLogo <> "SIN" Then
@@ -265,7 +272,7 @@ kaka:
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -390,9 +397,8 @@ kaka:
         Dim hoja As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
 
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
+
 
         Try
             If tLogo <> "SIN" Then
@@ -414,7 +420,7 @@ kaka:
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

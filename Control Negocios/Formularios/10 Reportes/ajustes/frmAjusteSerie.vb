@@ -33,7 +33,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                "select Alias,IdEmpleado from Usuarios where Clave='" & txtcontraseña.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -52,7 +52,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Permisos where IdEmpleado= " & idUsu
+                "select Rep_Aju from Permisos where IdEmpleado= " & idUsu
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -84,7 +84,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                    "select UVenta,MCD,Multiplo,Departamento,Grupo from Productos where Codigo='" & cbocodigo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -99,7 +99,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
+                    "select PrecioVentaIVA from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -150,7 +150,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        "select Alias,IdEmpleado from Usuarios where Clave='" & txtcontraseña.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -169,7 +169,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Permisos where IdEmpleado=" & id_usu
+                        "select Rep_Aju from Permisos where IdEmpleado=" & id_usu
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -225,7 +225,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where CodBarra='" & cbodesc.Text & "'"
+                        "select Codigo from Productos where CodBarra='" & cbodesc.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -308,7 +308,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select MCD,UVenta,Nombre from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -321,7 +321,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select Existencia from Productos where Codigo='" & codigo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -349,7 +349,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Series where Codigo='" & cbocodigo.Text & "' AND Status='1'"
+                        "select Codigo,Serie from Series where Codigo='" & cbocodigo.Text & "' AND Status='1'"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -475,7 +475,7 @@
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM Series WHERE Serie='" & serie & "'"
+                cmd2.CommandText = "SELECT Id FROM Series WHERE Serie='" & serie & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -529,7 +529,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Series WHERE Serie='" & serieseleccionadfa & "' "
+            cmd1.CommandText = "SELECT Id FROM Series WHERE Serie='" & serieseleccionadfa & "' "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -555,5 +555,7 @@
         End Try
     End Sub
 
+    Private Sub frmAjusteSerie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

@@ -46,9 +46,9 @@
                 cmd1 = cnn1.CreateCommand
 
                 If cbofiltro.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
                 Else
-                    cmd1.CommandText = "SELECT * FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' order by Id"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -76,9 +76,9 @@
                 cmd1 = cnn1.CreateCommand
 
                 If cbofiltro.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM modprecios WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Nuevo,Fecha,Usuario FROM modprecios WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
                 Else
-                    cmd1.CommandText = "SELECT * FROM modprecios WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Nuevo,Fecha,Usuario FROM modprecios WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' order by Id"
                 End If
 
                 rd1 = cmd1.ExecuteReader

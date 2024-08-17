@@ -49,7 +49,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas order by Folio"
+                "select FVenta,HVenta from Ventas order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -819,10 +819,10 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+                    "select Folio,Cliente,Descuento,Devolucion,Subtotal,IVA,Totales,ACuenta,Resta,Status,Formato,FVenta,Facturado,Propina from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             Else
                 cmd1.CommandText =
-                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
+                    "select Folio,Cliente,Descuento,Devolucion,Subtotal,IVA,Totales,ACuenta,Resta,Status,Formato,FVenta,Facturado,Propina from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -936,7 +936,7 @@
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                            "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
+                            "select Cantidad from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
                 rd3 = cmd3.ExecuteReader
                 Do While rd3.Read
                     cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
@@ -950,7 +950,7 @@
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                            "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
+                            "select Codigo,Nombre,Unidad,Cantidad,Precio,TotalSinIVA,TotalIEPS,Fecha,TotalSinIVA,Lote,Caducidad,Descto from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
                 rd3 = cmd3.ExecuteReader
                 Do While rd3.Read
                     If rd3.HasRows Then
@@ -1038,7 +1038,7 @@
             Dim nuevosubtotal As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select Propina,Descuento from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1051,7 +1051,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select Folio,Cliente,Descuento,Totales, from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1067,7 +1067,7 @@
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from VentasDetalle where Folio=" & folio
+                        "select Codigo,Nombre,Unidad,Cantidad,Precio,Total,TotalIEPS,Fecha,Lote,Caducidad,Descto,CostoVP from VentasDetalle where Folio=" & folio
                     rd3 = cmd3.ExecuteReader
                     Do While rd3.Read
                         If rd3.HasRows Then
@@ -1149,7 +1149,7 @@
             Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select Folio,Cliente,Descuento,Totales,ACuenta,Resta from ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1166,7 +1166,7 @@
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from VentasDetalle where Folio=" & folio
+                        "select Codigo,Nombre,Unidad,Cantidad,Precio,TotalSinIVA,TotalIEPS,Fecha,Lote,Caducidad,Descto from VentasDetalle where Folio=" & folio
                     rd3 = cmd3.ExecuteReader
                     Do While rd3.Read
                         If rd3.HasRows Then
@@ -1255,7 +1255,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "' order by Folio"
+                "select Folio,ACuenta,Resta,Status,Fventa from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1337,7 +1337,7 @@
 
             cmd1 = cnn1.CreateCommand
             'cmd1.CommandText = "select * FROM Ventas V INNER JOIN VentasDetalle VD ON V.Folio=VD.Folio where V.FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and V.Nombre='" & ComboBox1.Text & "'"
-            cmd1.CommandText = "select * FROM Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Cliente='" & ComboBox1.Text & "'"
+            cmd1.CommandText = "select Folio FROM Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Cliente='" & ComboBox1.Text & "'"
 
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -1350,7 +1350,7 @@
                     If temp <> folio Then
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from Ventas where Folio=" & folio
+                            "select Descuento,Totales,ACuenta,Resta from Ventas where Folio=" & folio
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

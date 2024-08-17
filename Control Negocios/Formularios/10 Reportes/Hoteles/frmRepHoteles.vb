@@ -80,11 +80,11 @@
 
                 If cboDatos.Text = "" Then MsgBox("Seleccione la habitación", vbInformation + vbOKOnly, titulohotelriaa) : cboDatos.Focus.Equals(True) : Exit Sub
 
-                cmd1.CommandText = "SELECT * FROM rep_comandas WHERE NMESA='" & cboDatos.Text & "' AND Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "' AND Hr BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "HH:mm:ss") & "'"
+                cmd1.CommandText = "SELECT Fecha,NMESA,Precio,Total,Hr FROM rep_comandas WHERE NMESA='" & cboDatos.Text & "' AND Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "' AND Hr BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "HH:mm:ss") & "'"
             End If
 
             If (rbTodos.Checked) Then
-                cmd1.CommandText = "SELECT * FROM rep_comandas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "' AND Hr BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "HH:mm:ss") & "' AND Nombre='Tiempo Habitacion'"
+                cmd1.CommandText = "SELECT Fecha,NMESA,Precio,Total,Hr FROM rep_comandas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "' AND Hr BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "HH:mm:ss") & "' AND Nombre='Tiempo Habitacion'"
             End If
 
             rd1 = cmd1.ExecuteReader

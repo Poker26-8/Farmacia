@@ -134,4 +134,8 @@
         grdCaptura.Rows.Clear()
         cboDatos.Text = ""
     End Sub
+
+    Private Sub frmRepTraspasos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

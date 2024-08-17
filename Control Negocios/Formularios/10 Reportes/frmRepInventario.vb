@@ -2267,7 +2267,7 @@ quepaso_wey:
 
                 cmd4 = cnn4.CreateCommand
                 cmd4.CommandText =
-                    "select * from RepoMen"
+                    "select Codigo,PDesc,InvIni,Compra,CantDev,InvFin,CVta,PPrecio,VtaTotal,CostoTotal from RepoMen"
                 rd4 = cmd4.ExecuteReader
                 Do While rd4.Read
                     If rd4.HasRows Then
@@ -2297,7 +2297,7 @@ quepaso_wey:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos"
+                "select Codigo,UVenta,Existencia,PrecioCompra from Productos"
             rd1 = cmd1.ExecuteReader
             cnn2.Close() : cnn2.Open()
             Do While rd1.Read

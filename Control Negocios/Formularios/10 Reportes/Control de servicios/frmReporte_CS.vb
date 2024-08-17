@@ -321,7 +321,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios where Status=0 and Termino between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
+                    "select Folio,Nombre,Inicio,Termino,Comentario,Encargado,Id from control_servicios where Status=0 and Termino between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -344,7 +344,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios where Status=0 and Encargado='" & ComboBox1.Text & "' and Termino between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
+                    "select Folio,Nombre,Inicio,Termino,Comentario,Id from control_servicios where Status=0 and Encargado='" & ComboBox1.Text & "' and Termino between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -365,7 +365,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios where Status=1 and Entregado between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
+                    "select Folio,Nombre,Inicio,Termino,Comentario,Encargado,Entregado,Id from control_servicios where Status=1 and Entregado between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -388,7 +388,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios where Status=1 and Encargado='" & ComboBox1.Text & "' and Entregado between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
+                    "select Folio,Nombre,Inicio,Termino,Comentario,Entregado,Id from control_servicios where Status=1 and Encargado='" & ComboBox1.Text & "' and Entregado between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Termino"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -433,7 +433,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios_det where Id_cs=" & id
+                    "select Proceso,Status,Entrega,Comentario,Entregado from control_servicios_det where Id_cs=" & id
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -465,6 +465,10 @@
     End Sub
 
     Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
+
+    End Sub
+
+    Private Sub frmReporte_CS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
