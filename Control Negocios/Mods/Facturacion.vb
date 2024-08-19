@@ -533,8 +533,8 @@ Module Facturacion
                             Dim str As String = ""
                             Dim str1(15) As String
                             Dim contarray As Integer = 0
-                            For x = 1 To Len(frmParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString)
-                                str = Mid$(frmParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString, x, 1)
+                            For x1 = 1 To Len(frmParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString)
+                                str = Mid$(frmParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString, x1, 1)
                                 If str = "," Then
                                     contarray = contarray + 1
                                 Else
@@ -9844,8 +9844,8 @@ puertaXD1:
                             Dim str As String = ""
                             Dim str1(15) As String
                             Dim contarray As Integer = 0
-                            For x = 1 To Len(frmMultiParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString)
-                                str = Mid$(frmMultiParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString, x, 1)
+                            For x1 = 1 To Len(frmMultiParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString)
+                                str = Mid$(frmMultiParcialidades.GridParcialidades.Rows(i).Cells(16).Value.ToString, x1, 1)
                                 If str = "," Then
                                     contarray = contarray + 1
                                 Else

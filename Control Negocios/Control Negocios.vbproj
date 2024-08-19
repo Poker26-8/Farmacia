@@ -142,9 +142,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=5.0.8.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -2217,10 +2217,22 @@
     <Compile Include="Formularios\35 Dentistas\frmRepCitas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.Designer.vb">
-      <DependentUpon>frmTraspasosA.vb</DependentUpon>
+    <Compile Include="Formularios\36 Traspasos Android\frmAsignarusuarios.Designer.vb">
+      <DependentUpon>frmAsignarusuarios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.vb">
+    <Compile Include="Formularios\36 Traspasos Android\frmAsignarusuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmSucursales.Designer.vb">
+      <DependentUpon>frmSucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmSucursales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.Designer.vb">
+      <DependentUpon>frmTraspasosAndroid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mods\Almacen.vb" />
@@ -3287,8 +3299,14 @@
     <EmbeddedResource Include="Formularios\35 Dentistas\frmRepCitas.resx">
       <DependentUpon>frmRepCitas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.resx">
-      <DependentUpon>frmTraspasosA.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\36 Traspasos Android\frmAsignarusuarios.resx">
+      <DependentUpon>frmAsignarusuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\36 Traspasos Android\frmSucursales.resx">
+      <DependentUpon>frmSucursales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.resx">
+      <DependentUpon>frmTraspasosAndroid.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
