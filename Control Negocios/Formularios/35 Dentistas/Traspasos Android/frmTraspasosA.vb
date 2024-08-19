@@ -1,4 +1,5 @@
 ﻿
+Imports Microsoft.SqlServer
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 
@@ -28,49 +29,54 @@ Public Class frmTraspasosA
             If ipserverA = "" Or databaseA = "" Or userbdA = "" Or passbdA = "" Then
                 sTargetNube = ""
             Else
-                'sTargetNube = "server=" & ipserverA & ";uid=" & userbdA & ";password=" & passbdA & ";database=" & databaseA & ";persist security info=false;connect timeout=300"
-                sTargetNube = "server=72.167.50.81;uid=delsincro1_Android;password=Delsscom22;database=delsincro1_AndroidP;persist security info=false;connect timeout=300"
+                sTargetNube = "server=" & ipserverA & ";uid=" & userbdA & ";Password=" & passbdA & ";database=" & databaseA & ";persist security info=false;connect timeout=300"
+
+                ' sTargetNube =
+                '"Server = 72.167.50.81;User ID=delsincro1_Android;Password=Delsscom22;Database=delsincro1_AndroidP;Persist Security Info=False;Connect Timeout=300;"
+
+                sTargetNube = "server=72.167.50.81;uid=delsincro1_Android;Password=Delsscom22;database=delsincro1_AndroidP;persist security info=false;connect timeout=300"
             End If
 
-            'Dim cnnp As MySqlConnection = New MySqlConnection
-            'Dim sinfop As String = ""
-            'Dim drp As DataRow
-            'Dim odata As New ToolKitSQL.myssql
-            'With odata
-            '    If .dbOpen(cnnp, sTargetNube, sinfop) Then
-            '        If .getDr(cnnp, drp, "select nombre from sucursales where Id = 1 or nombre = 'MATRIZ'", sinfop) Then
-            '            lblconexion.Text = "Conexión: exitosa"
-            '        Else
-            '            lblconexion.Text = "ERROR de Conexión"
-            '        End If
-            '        cnnp.Close()
-            '    Else
-            '        lblconexion.Text = "ERROR de Conexión"
-            '    End If
-            'End With
-
-
-            Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-            Dim sSQL As String = ""
-            sSQL = "select nombre from sucursales where Id = 1 or nombre = 'MATRIZ'"
-            Dim ds As New DataSet
-            Dim sinfo As String = ""
-            Dim oData1 As New ToolKitSQL.myssql
-            With oData1
-                If .dbOpen(cnn, sTargetNube, sinfo) Then
-
-                    Try
-                        If oData1.getDs(cnn, ds, sSQL, "edos", sinfo) Then
-
-                        Else
-                        End If
-                    Catch ex As Exception
-                    End Try
-
-                    cnn.Close()
+            ' Dim cnnp As MySqlConnection = New MySqlConnection
+            Dim cnnP As MySqlConnection = New MySqlConnection
+            Dim sinfop As String = ""
+            Dim drp As DataRow
+            Dim odata As New ToolKitSQL.myssql
+            With odata
+                If .dbOpen(cnnp, sTargetNube, sinfop) Then
+                    If .getDr(cnnp, drp, "select nombre from sucursales where Id = 1 or nombre = 'MATRIZ'", sinfop) Then
+                        lblconexion.Text = "Conexión: exitosa"
+                    Else
+                        lblconexion.Text = "ERROR de Conexión"
+                    End If
+                    cnnp.Close()
                 Else
+                    lblconexion.Text = "ERROR de Conexión"
                 End If
             End With
+
+
+            'Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+            'Dim sSQL As String = ""
+            'sSQL = "select nombre from sucursales where Id = 1 or nombre = 'MATRIZ'"
+            'Dim ds As New DataSet
+            'Dim sinfo As String = ""
+            'Dim oData1 As New ToolKitSQL.myssql
+            'With oData1
+            '    If .dbOpen(cnn, sTargetNube, sinfo) Then
+
+            '        Try
+            '            If oData1.getDs(cnn, ds, sSQL, "edos", sinfo) Then
+
+            '            Else
+            '            End If
+            '        Catch ex As Exception
+            '        End Try
+
+            '        cnn.Close()
+            '    Else
+            '    End If
+            'End With
 
             FileClose()
 

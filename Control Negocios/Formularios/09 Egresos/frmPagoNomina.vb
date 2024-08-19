@@ -31,7 +31,7 @@ Public Class frmPagoNomina
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+                    "select IdEmpleado,Ingreso,Area,Sueldo,Puesto,NSS from Usuarios where Nombre='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -59,7 +59,7 @@ Public Class frmPagoNomina
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+                "select IdEmpleado,Ingreso,Area,Sueldo,Puesto,NSS from Usuarios where Nombre='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1049,6 +1049,10 @@ Public Class frmPagoNomina
         If Not IsNumeric(txtefectivo.Text) Then Exit Sub
         txttotal.Text = CDbl(txtefectivo.Text) + CDbl(txtPagos.Text)
         txttotal.Text = FormatNumber(txttotal.Text, 2)
+
+    End Sub
+
+    Private Sub frmPagoNomina_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
