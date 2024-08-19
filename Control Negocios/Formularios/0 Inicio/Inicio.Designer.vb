@@ -173,6 +173,7 @@ Partial Class Inicio
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.AcercadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuVentasRuta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -193,7 +194,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -402,7 +402,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.TproduccionCos, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.ToolStripMenuItem2})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.TproduccionCos, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.MenuVentasRuta})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1230, 24)
@@ -1351,6 +1351,12 @@ Partial Class Inicio
         Me.AcercadeToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.AcercadeToolStripMenuItem.Text = "&Acerca de..."
         '
+        'MenuVentasRuta
+        '
+        Me.MenuVentasRuta.Name = "MenuVentasRuta"
+        Me.MenuVentasRuta.Size = New System.Drawing.Size(115, 20)
+        Me.MenuVentasRuta.Text = "Traspasos Android"
+        '
         'tFoto
         '
         Me.tFoto.Interval = 10000
@@ -1604,12 +1610,6 @@ Partial Class Inicio
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
         '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(115, 20)
-        Me.ToolStripMenuItem2.Text = "Traspasos Android"
-        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1810,5 +1810,5 @@ Partial Class Inicio
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents repHistorialMesas As ToolStripMenuItem
     Friend WithEvents btnDentista As Button
-    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents MenuVentasRuta As ToolStripMenuItem
 End Class

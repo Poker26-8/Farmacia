@@ -105,6 +105,7 @@ Public Class frmLoad
         My.Application.DoEvents()
         Dim produccionpro As Integer = DatosRecarga2("ProduccionPro")
         Dim dentista As Integer = DatosRecarga2("Dentista")
+        Dim VentasRuta As Integer = DatosRecarga2("VentasRuta")
         ' Dim dentista As Integer = Await ValidarAsync("Dentista")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
@@ -114,6 +115,12 @@ Public Class frmLoad
         Else
             Inicio.btnDentista.Visible = False
         End If
+        If VentasRuta = 1 Then
+            Inicio.MenuVentasRuta.Visible = True
+        Else
+            Inicio.MenuVentasRuta.Visible = False
+        End If
+
 
         If produccionpro = 1 Then
             Inicio.TproduccionCos.Visible = True

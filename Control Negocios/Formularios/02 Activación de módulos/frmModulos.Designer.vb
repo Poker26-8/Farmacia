@@ -80,6 +80,8 @@ Partial Class frmModulos
         Me.btnControl = New System.Windows.Forms.Button()
         Me.btnSeries = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -711,12 +713,36 @@ Partial Class frmModulos
         Me.Label29.Text = "Series"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Button3
+        '
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Location = New System.Drawing.Point(800, 343)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(93, 71)
+        Me.Button3.TabIndex = 58
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.Black
+        Me.Label30.Location = New System.Drawing.Point(800, 303)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(93, 37)
+        Me.Label30.TabIndex = 57
+        Me.Label30.Text = "Traspasos Android"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 424)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.btnSeries)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.btnDentista)
@@ -839,4 +865,6 @@ Partial Class frmModulos
     Friend WithEvents btnDentista As Button
     Friend WithEvents btnSeries As Button
     Friend WithEvents Label29 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Label30 As Label
 End Class

@@ -309,6 +309,12 @@
     <Compile Include="Formularios\0 Inicio\frmTecladoLog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Android.Designer.vb">
+      <DependentUpon>frmAct_Android.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Android.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Asistencia.Designer.vb">
       <DependentUpon>frmAct_Asistencia.vb</DependentUpon>
     </Compile>
@@ -2223,6 +2229,12 @@
     <Compile Include="Formularios\36 Traspasos Android\frmAsignarusuarios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmReporteVentasAndroid.Designer.vb">
+      <DependentUpon>frmReporteVentasAndroid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\36 Traspasos Android\frmReporteVentasAndroid.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\36 Traspasos Android\frmSucursales.Designer.vb">
       <DependentUpon>frmSucursales.vb</DependentUpon>
     </Compile>
@@ -2332,6 +2344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\frmTecladoLog.resx">
       <DependentUpon>frmTecladoLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Android.resx">
+      <DependentUpon>frmAct_Android.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Asistencia.resx">
       <DependentUpon>frmAct_Asistencia.vb</DependentUpon>
@@ -3301,6 +3316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmAsignarusuarios.resx">
       <DependentUpon>frmAsignarusuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\36 Traspasos Android\frmReporteVentasAndroid.resx">
+      <DependentUpon>frmReporteVentasAndroid.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmSucursales.resx">
       <DependentUpon>frmSucursales.vb</DependentUpon>

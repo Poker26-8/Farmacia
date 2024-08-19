@@ -163,6 +163,7 @@ puerta:
         If AscW(e.KeyChar) = Keys.Enter Then
             If cboCodigo.Text = "" Then MsgBox("Debe seleccionar o escribir un código de producto") : cboCodigo.Focus() : Exit Sub
             If cboProducto.Text = "" Then MsgBox("Debe seleccionar o escribir la descripción de producto") : cboProducto.Focus() : Exit Sub
+            If txtCantidad.Text = "0" Or txtCantidad.Text = "0.00" Then MsgBox("La cantidad no puede ser 0", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtCantidad.Focus.Equals(True) : Exit Sub
             If IsNumeric(txtCantidad.Text) = False Then MsgBox("La cantidad debe tener un valor númerico") : txtCantidad.Focus() : Exit Sub
 
             dgProd.Rows.Add(cboCodigo.Text, cboProducto.Text, FormatNumber(txtCantidad.Text, 2))
@@ -570,5 +571,14 @@ puerta:
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmAsignarusuarios.Show()
         frmAsignarusuarios.BringToFront()
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+        frmReporteVentasAndroid.Show()
+        frmReporteVentasAndroid.BringToFront()
     End Sub
 End Class
