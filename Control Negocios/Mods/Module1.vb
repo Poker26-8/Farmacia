@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Math
 Imports System.Data.SqlClient
+Imports System.Drawing.Printing
 Imports System.Management
 Imports System.Net.NetworkInformation
 Imports System.Security.Cryptography
@@ -18,6 +20,12 @@ Structure datosSincronizador
     Dim usuarior As String
     Dim passr As String
 End Structure
+Structure datosAndroid
+    Dim ipr As String
+    Dim baser As String
+    Dim usuarior As String
+    Dim passr As String
+End Structure
 
 Structure datosAutoFac
     Dim rutar As String
@@ -29,6 +37,17 @@ Structure datosAutoFac
 End Structure
 
 Module Module1
+    'android
+    Public ARCHIVO_DE_CONFIGURACION_A = My.Application.Info.DirectoryPath & "\ConfiguraAndroid.dat"
+
+    Public sTargett As String = ""
+    Public sTargetNube As String = ""
+
+    Public ipserverA As String = ""
+    Public databaseA As String = ""
+    Public userbdA As String = ""
+    Public passbdA As String = ""
+
 
     Public tokenglobal As String = ""
     Public empresaseleccionadaw As Integer = 0
