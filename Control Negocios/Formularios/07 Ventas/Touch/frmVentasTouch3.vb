@@ -91,7 +91,7 @@ Public Class frmVentasTouch3
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Terminal,Clave,Solicitud,Resultado from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 hayTerminal = 1
@@ -784,7 +784,7 @@ Public Class frmVentasTouch3
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select Nombre,UVenta,Min,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -801,7 +801,7 @@ Public Class frmVentasTouch3
                     If rd2.HasRows Then
                         If rd2.Read Then
                             MyExistencia = CDbl(rd2(0).ToString) / MyMultip
-                            If rd2(1).ToString = "SERVICIOS" Then
+                            If rd2("Departamento").ToString = "SERVICIOS" Then
                                 MyExistencia = 0
                             Else
                                 If chec = True Then
@@ -860,7 +860,7 @@ Public Class frmVentasTouch3
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select PreEsp,PrecioVentaIVA,CantLst1,CantLst2,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin from Productos where Codigo='" & codigo & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -921,7 +921,7 @@ Public Class frmVentasTouch3
                             cnn5.Close() : cnn5.Open()
                             cmd5 = cnn5.CreateCommand
                             cmd5.CommandText =
-                                "select * from Productos where Codigo='" & codigo & "'"
+                                "select PrecioVentaIVA from Productos where Codigo='" & codigo & "'"
                             rd5 = cmd5.ExecuteReader
                             If rd5.HasRows Then
                                 If rd5.Read Then
@@ -1510,7 +1510,7 @@ keseso:
             Else
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & Cliente & "'"
+                    "select Id,Credito from Clientes where Nombre='" & Cliente & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
