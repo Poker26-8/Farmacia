@@ -35,7 +35,7 @@ Public Class frmRepSeries
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select * from Series"
+                cmd1.CommandText = "select Id,Codigo,Nombre,Serie,Fecha,NotaVenta,Factura,Status,FFactura,FechaEliminado from Series"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -218,7 +218,7 @@ Public Class frmRepSeries
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM VentasDetalle WHERE N_Serie<>'' AND Fecha between '" & Format(desde, "yyyy-MM-dd") & "' AND '" & Format(hasta, "yyyyy-MM-dd") & "' ORDER BY Folio"
+                cmd1.CommandText = "SELECT Folio,Codigo,Nombre,Precio,N_Serie,Usuario,Fecha FROM VentasDetalle WHERE N_Serie<>'' AND Fecha between '" & Format(desde, "yyyy-MM-dd") & "' AND '" & Format(hasta, "yyyyy-MM-dd") & "' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -246,7 +246,7 @@ Public Class frmRepSeries
                 If rbproductos.Checked = True Then
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM Series WHERE Nombre='" & cbodatos.Text & "' order by Codigo"
+                    cmd2.CommandText = "SELECT Codigo,Nombre,Serie,Fecha,NotaVenta,Factura,Status,FFactura,FechaEliminado FROM Series WHERE Nombre='" & cbodatos.Text & "' order by Codigo"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         If rd2.HasRows Then
@@ -294,7 +294,7 @@ Public Class frmRepSeries
             If rbcompras.Checked = True Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Series WHERE FFactura>='" & Format(desde, "dd/MM/yyyy") & "' AND FFactura<='" & Format(hasta, "dd/MM/yyyy") & "'"
+                cmd1.CommandText = "SELECT Codigo,Nombre,Serie,Factura,FFactura,NumNota,FSalida,Status FROM Series WHERE FFactura>='" & Format(desde, "dd/MM/yyyy") & "' AND FFactura<='" & Format(hasta, "dd/MM/yyyy") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then

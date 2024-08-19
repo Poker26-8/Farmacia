@@ -6175,6 +6175,7 @@ Door:
                         If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
                         If Tamaño = "80" Then
                             For t As Integer = 1 To Copias
+                                Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
                                 pCotiza80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
                                 pCotiza80.Print()
                             Next

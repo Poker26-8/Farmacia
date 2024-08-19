@@ -1762,7 +1762,7 @@ kakaxd:
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Multiplo,Modo_Almacen FROM Productos WHERE Codigo='" & mycodigo & "' "
+            cmd1.CommandText = "SELECT Multiplo,Modo_Almacen FROM Productos WHERE Codigo='" & MYCODIGOP & "' "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1858,7 +1858,7 @@ kakaxd:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & mycodigo & "'"
+                        cmd2.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & mycodigod & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1881,7 +1881,7 @@ kakaxd:
 
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        cmd2.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(mycodigod, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1912,7 +1912,7 @@ Door:
                         cmd4.ExecuteNonQuery()
 
                         cmd4 = cnn4.CreateCommand
-                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigod, 6) & "'"
                         cmd4.ExecuteNonQuery()
                         cnn4.Close()
 

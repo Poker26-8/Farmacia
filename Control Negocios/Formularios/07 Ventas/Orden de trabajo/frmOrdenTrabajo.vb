@@ -92,7 +92,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from OrdenTrabajo where Codigo='" & cboCodigoListo.Text & "'"
+                cmd1.CommandText = "Select Codigo,Nombre,UVenta from OrdenTrabajo where Codigo='" & cboCodigoListo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.Read Then
                     Dim mycodigo As String = ""
@@ -105,7 +105,7 @@
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "Select * from MiProd where CodigoP='" & cboCodigoListo.Text & "'"
+                    cmd2.CommandText = "Select Codigo from MiProd where CodigoP='" & cboCodigoListo.Text & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.Read Then
                         mycodigo = rd2("Codigo").ToString
@@ -123,7 +123,7 @@
 
                         rd2.Close()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "Select * from MiProd where CodigoP='" & cboCodigoListo.Text & "'"
+                        cmd2.CommandText = "Select CodigoP from MiProd where CodigoP='" & cboCodigoListo.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
 
@@ -211,7 +211,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Productos where Nombre='" & ComboBox2.Text & "'"
+                cmd1.CommandText = "Select Codigo,UVenta,PrecioVentaIVA,PrecioVentaIVA2,PreEsp,Existencia from Productos where Nombre='" & ComboBox2.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.Read Then
                     cbocodigoP.Text = rd1("Codigo").ToString
@@ -256,7 +256,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Productos where Codigo='" & cbocodigoP.Text & "'"
+                cmd1.CommandText = "Select Nombre,UVenta,PrecioVentaIVA,PrecioVentaIVA2,PreEsp,Existencia from Productos where Codigo='" & cbocodigoP.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.Read Then
                     ComboBox2.Text = rd1("Nombre").ToString

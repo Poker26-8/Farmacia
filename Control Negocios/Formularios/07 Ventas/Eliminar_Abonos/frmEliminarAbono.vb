@@ -11,6 +11,10 @@ Public Class frmEliminarAbono
     Dim idemp As Integer = 0
     Dim idcliente As Integer = 0
 
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+
     Private Sub cboCliente_DropDown(sender As Object, e As EventArgs) Handles cboCliente.DropDown
         Try
             cboCliente.Items.Clear()
@@ -71,9 +75,9 @@ Public Class frmEliminarAbono
             cmd1 = cnn1.CreateCommand
 
             If cboCliente.Text = "" Then
-                cmd1.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & cboFolio.Text & " AND Concepto='ABONO' AND Status=0"
+                cmd1.CommandText = "SELECT Cliente,IdCliente,Fecha,Id,FormaPago,Banco,Referencia,CuentaC,Monto,Usuario FROM abonoi WHERE NumFolio=" & cboFolio.Text & " AND Concepto='ABONO' AND Status=0"
             Else
-                cmd1.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & cboFolio.Text & " AND Concepto='ABONO' AND Cliente='" & cboCliente.Text & "' AND Status=0"
+                cmd1.CommandText = "SELECT Cliente,IdCliente,Fecha,Id,FormaPago,Banco,Referencia,CuentaC,Monto,Usuario FROM abonoi WHERE NumFolio=" & cboFolio.Text & " AND Concepto='ABONO' AND Cliente='" & cboCliente.Text & "' AND Status=0"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -379,7 +383,9 @@ Public Class frmEliminarAbono
     End Sub
 
     Private Sub frmEliminarAbono_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
     End Sub
 
     Private Sub pEliminar80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pEliminar80.PrintPage
@@ -395,10 +401,8 @@ Public Class frmEliminarAbono
             Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
             Dim pen As New Pen(Brushes.Black, 1)
             Dim Y As Double = 0
-            Dim nLogo As String = DatosRecarga("LogoG")
             Dim Logotipo As Drawing.Image = Nothing
-            Dim tLogo As String = DatosRecarga("TipoLogo")
-            Dim simbolo As String = DatosRecarga("Simbolo")
+
             Dim Pie As String = ""
 
             '[°]. Logotipo
@@ -421,7 +425,7 @@ Public Class frmEliminarAbono
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -566,7 +570,7 @@ Public Class frmEliminarAbono
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

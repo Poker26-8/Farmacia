@@ -89,6 +89,9 @@ Public Class frmVentasTouch
 
 
     Private Sub frmVentasTouch_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        txtbarras.Focus.Equals(True)
+        My.Application.DoEvents()
+
         Try
             cnn1.Close()
             cnn1.Open()
@@ -165,11 +168,7 @@ Public Class frmVentasTouch
     Private Sub Departamentos()
         Dim deptos As Integer = 0
         Try
-            If TotDeptos <= 10 Then
-                pDeptos.AutoScroll = False
-            Else
-                pDeptos.AutoScroll = True
-            End If
+
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
@@ -235,12 +234,6 @@ Public Class frmVentasTouch
                 If rd2.HasRows Then TotGrupos = TotGrupos + 1
             Loop
             rd2.Close()
-
-            If TotGrupos <= 10 Then
-                pGrupos.AutoScroll = False
-            Else
-                pGrupos.AutoScroll = True
-            End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
@@ -3063,6 +3056,10 @@ Door:
         frmVentasTouch2.BringToFront()
     End Sub
 
+    Private Sub frmVentasTouch_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        txtbarras.Focus.Equals(True)
+    End Sub
+
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If TextBox1.Text = "" Then TextBox1.Text = "0" : lblTotal.Text = FormatNumber(lblTotal.Text, 2)
 
@@ -3081,8 +3078,7 @@ Door:
     Private Sub btnlimpiar_Click(sender As System.Object, e As System.EventArgs) Handles btnlimpiar.Click
         tFolio.Stop()
         pProductos.Controls.Clear()
-        pGrupos.Controls.Clear()
-        pDeptos.Controls.Clear()
+
         txtbarras.Text = ""
         CodigoProducto = ""
         cantidad = 0

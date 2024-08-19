@@ -84,6 +84,8 @@ Public Class frmVentasTouch3
     Public Direccion As String = ""
 
     Private Sub frmVentasTouch_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        txtbarras.Focus.Equals(True)
+        My.Application.DoEvents()
 
         Try
             cnn1.Close()
@@ -158,11 +160,7 @@ Public Class frmVentasTouch3
     Private Sub Departamentos()
         Dim deptos As Integer = 0
         Try
-            If TotDeptos <= 10 Then
-                pDeptos.AutoScroll = False
-            Else
-                pDeptos.AutoScroll = True
-            End If
+
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
@@ -228,12 +226,6 @@ Public Class frmVentasTouch3
                 If rd2.HasRows Then TotGrupos = TotGrupos + 1
             Loop
             rd2.Close()
-
-            If TotGrupos <= 10 Then
-                pGrupos.AutoScroll = False
-            Else
-                pGrupos.AutoScroll = True
-            End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
@@ -3043,6 +3035,10 @@ Door:
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmVentasTouch.Show()
         frmVentasTouch.BringToFront()
+    End Sub
+
+    Private Sub frmVentasTouch3_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        txtbarras.Focus.Equals(True)
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

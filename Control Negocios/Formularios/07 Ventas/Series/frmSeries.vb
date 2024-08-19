@@ -37,9 +37,9 @@ Public Class frmSeries
                     cmd1 = cnn1.CreateCommand
 
                     If IsNumeric(cbodesc.Text) Then
-                        query = "SELECT * FROM Productos WHERE CodBarra='" & cbodesc.Text & "'"
+                        query = "SELECT Codigo FROM Productos WHERE CodBarra='" & cbodesc.Text & "'"
                     Else
-                        query = "SELECT * FROM Productos WHERE Nombre='" & cbodesc.Text & "'"
+                        query = "SELECT Codigo FROM Productos WHERE Nombre='" & cbodesc.Text & "'"
                     End If
 
                     cmd1.CommandText = query
@@ -177,7 +177,7 @@ Public Class frmSeries
                     rd1.Close()
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+                    cmd1.CommandText = "SELECT Existencia FROM Productos WHERE Codigo='" & codigo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -203,7 +203,7 @@ Public Class frmSeries
                     grdseries.Rows.Clear()
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM series WHERE Codigo='" & cboCodigo.Text & "' AND Status='0'"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Serie FROM series WHERE Codigo='" & cboCodigo.Text & "' AND Status='0'"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -305,7 +305,7 @@ Public Class frmSeries
 
             Dim per_ajuste As Boolean = False
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Permisos WHERE IdEmpleado= " & idUsu
+            cmd1.CommandText = "SELECT Rep_Aju FROM Permisos WHERE IdEmpleado= " & idUsu
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -339,7 +339,7 @@ Public Class frmSeries
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
+                cmd1.CommandText = "SELECT UVenta,MCD,Multiplo,Departamento,Grupo FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -353,7 +353,7 @@ Public Class frmSeries
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & Strings.Left(cboCodigo.Text, 6) & "'"
+                cmd1.CommandText = "SELECT PrecioVentaIVA FROM productos WHERE Codigo='" & Strings.Left(cboCodigo.Text, 6) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -445,7 +445,7 @@ Public Class frmSeries
             nombre = grdseries.Rows(zi).Cells(1).Value.ToString
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Series WHERE Serie='" & serie & "'"
+            cmd2.CommandText = "SELECT Serie FROM Series WHERE Serie='" & serie & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
