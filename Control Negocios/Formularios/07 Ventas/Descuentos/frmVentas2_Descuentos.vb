@@ -198,7 +198,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                    "select Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -273,10 +273,10 @@ Public Class frmVentas2_Descuentos
             cmd3 = cnn3.CreateCommand
             If cbocodigo.Text = "" Then
                 cmd3.CommandText =
-                    "select * from Productos where CodBarra='" & cbodesc.Text & "'"
+                    "select Codigo,Grupo from Productos where CodBarra='" & cbodesc.Text & "'"
             Else
                 cmd3.CommandText =
-                    "select * from Productos where CodBarra='" & cbocodigo.Text & "'"
+                    "select Codigo,Grupo from Productos where CodBarra='" & cbocodigo.Text & "'"
             End If
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
@@ -491,7 +491,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd4 = cnn4.CreateCommand
                 cmd4.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                    "select PreEsp,PrecioVentaIVA,CantLst1,CantLst2,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin from Productos where Codigo='" & codigo & "'"
                 rd4 = cmd4.ExecuteReader
                 If rd4.HasRows Then
                     If rd4.Read Then
@@ -554,7 +554,7 @@ Public Class frmVentas2_Descuentos
                                 cnn5.Close() : cnn5.Open()
                                 cmd5 = cnn5.CreateCommand
                                 cmd5.CommandText =
-                                    "select * from Productos where Codigo='" & codigo & "'"
+                                    "select PrecioVentaIVA from Productos where Codigo='" & codigo & "'"
                                 rd5 = cmd5.ExecuteReader
                                 If rd5.HasRows Then
                                     If rd5.Read Then
@@ -713,7 +713,7 @@ Public Class frmVentas2_Descuentos
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Productos where Codigo='" & Trim(cbocodigo.Text) & "'"
+                "select PrecioVentaIVA,PreMin,PreMay,PreMM,PreEsp from Productos where Codigo='" & Trim(cbocodigo.Text) & "'"
             rd3 = cmd3.ExecuteReader
 
             Select Case cbotipo.Text
@@ -938,7 +938,7 @@ Public Class frmVentas2_Descuentos
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                 "select * from Productos where Codigo='" & codigo & "'"
+                 "select Nombre,UVenta from Productos where Codigo='" & codigo & "'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -1144,7 +1144,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select Suspender,Tipo,Id,Credito,Comisionista from Clientes where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1250,10 +1250,9 @@ Public Class frmVentas2_Descuentos
             cbonombretag = cboNombre.Text
 
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                "select Suspender,Tipo,Id,Credito,Comisionista,Telefono from Clientes where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1450,7 +1449,7 @@ Public Class frmVentas2_Descuentos
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where Status<>'CANCELADA' order by Folio"
+                "select Folio from Ventas where Status<>'CANCELADA' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbonota.Items.Add(
@@ -1477,7 +1476,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ventas where Folio=" & cbonota.Text
+                    "select IdCliente,Cliente from Ventas where Folio=" & cbonota.Text
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1520,7 +1519,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+                    "select Saldo from Monedero where Barras='" & txtMonedero.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1726,7 +1725,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cbodesc.Text & "'"
+                    "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,MCD,Min,Ubicacion from Productos where Nombre='" & cbodesc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1876,7 +1875,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "select * from Productos where CodBarra='" & cbodesc.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,MCD,Min,Ubicacion from Productos where CodBarra='" & cbodesc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2144,7 +2143,7 @@ Public Class frmVentas2_Descuentos
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Codigo,MCD,Multiplo,Min,Ubicacion from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -2164,8 +2163,8 @@ Public Class frmVentas2_Descuentos
                                 Exit Sub
                             End If
 
-                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg") Then
-                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg")
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
+                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
                             End If
 
                             txtunidad.Text = rd1("UVenta").ToString()
@@ -2354,7 +2353,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Permisos where IdEmpleado=" & id_usu_log
+                    "select Vent_EPrec from Permisos where IdEmpleado=" & id_usu_log
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2439,7 +2438,7 @@ Public Class frmVentas2_Descuentos
 
                 cmd4 = cnn4.CreateCommand
                 cmd4.CommandText =
-                    "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                    "select PreEsp,PrecioVentaIVA,CantLst1,CantLst2,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin from Productos where Codigo='" & cbocodigo.Text & "'"
                 rd4 = cmd4.ExecuteReader
                 If rd4.HasRows Then
                     If rd4.Read Then
@@ -2508,7 +2507,7 @@ Public Class frmVentas2_Descuentos
                                 cnn5.Close() : cnn5.Open()
                                 cmd5 = cnn5.CreateCommand
                                 cmd5.CommandText =
-                                    "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                                    "select PrecioVentaIVA from Productos where Codigo='" & cbocodigo.Text & "'"
                                 rd5 = cmd5.ExecuteReader
                                 If rd5.HasRows Then
                                     If rd5.Read Then
@@ -2585,7 +2584,7 @@ Public Class frmVentas2_Descuentos
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                "select Existencia from Productos where Codigo='" & cbocodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2691,7 +2690,7 @@ Public Class frmVentas2_Descuentos
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cbocodigo.Text & "'"
+                "select Departamento,Grupo,Existencia from Productos where Codigo='" & cbocodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -3269,7 +3268,7 @@ Public Class frmVentas2_Descuentos
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+                        "select Saldo from Monedero where Barras='" & txtMonedero.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.HasRows Then

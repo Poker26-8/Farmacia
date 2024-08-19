@@ -52,7 +52,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from control_servicios where Folio=" & lblfolio.Text & " and Codigo='" & txtcodigo.Text & "' AND Status=0"
+                "select Folio from control_servicios where Folio=" & lblfolio.Text & " and Codigo='" & txtcodigo.Text & "' AND Status=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -97,7 +97,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                     "select Alias,IdEmpleado,Area from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -135,7 +135,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM control_servicios WHERE Folio='" & lblfolio.Text & "'"
+            cmd1.CommandText = "SELECT Folio FROM control_servicios WHERE Folio='" & lblfolio.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

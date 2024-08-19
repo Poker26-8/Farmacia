@@ -37,7 +37,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+                    "select IdEmpleado,Area,NSS,Sueldo from Usuarios where Nombre='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -57,7 +57,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from SaldosEmpleados where IdEmpleado=" & id_usu
+                    "select Tipo,Cargo,Abono from SaldosEmpleados where IdEmpleado=" & id_usu
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -94,7 +94,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+                "select IdEmpleado,Area,NSS,Sueldo from Usuarios where Nombre='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -114,7 +114,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from SaldosEmpleados where IdEmpleado=" & id_usu
+                "select Tipo,Cargo,Abono from SaldosEmpleados where IdEmpleado=" & id_usu
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -185,7 +185,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from SaldosEmpleados where Folio=" & cbofolio.Text & " and Concepto='COBRO'"
+                    "select Abono from SaldosEmpleados where Folio=" & cbofolio.Text & " and Concepto='COBRO'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -226,7 +226,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from SaldosEmpleados where Folio=" & cbofolio.Text & " and Concepto='COBRO'"
+                "select Abono from SaldosEmpleados where Folio=" & cbofolio.Text & " and Concepto='COBRO'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -375,7 +375,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                    "select Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

@@ -592,10 +592,10 @@ Partial Class frmVentas1_Descuentos
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(35, 37)
+        Me.PictureBox1.Location = New System.Drawing.Point(13, 37)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox1.Size = New System.Drawing.Size(248, 88)
+        Me.PictureBox1.Size = New System.Drawing.Size(293, 88)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 107
         Me.PictureBox1.TabStop = False
