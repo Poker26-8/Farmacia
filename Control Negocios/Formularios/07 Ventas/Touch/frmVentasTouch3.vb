@@ -1770,7 +1770,7 @@ kakaxd:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Monedero where Barras='" & Monedero
+                    "select Porcentaje from Monedero where Barras='" & Monedero
                 If rd1.HasRows Then
                     If rd1.Read Then
                         porc_mone = rd1(0).ToString
@@ -1944,7 +1944,7 @@ kakaxd:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & mycode & "'"
+                    "select Nombre,UVenta,IIEPS,IVA from Productos where Codigo='" & mycode & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1961,7 +1961,7 @@ kakaxd:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & mycode & "'"
+                    "select Departamento,Grupo,ProvRes,MCD,Multiplo,GPrint,Modo_Almacen, from Productos where Codigo='" & mycode & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1985,7 +1985,7 @@ kakaxd:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
+                    "select Existencia,Multiplo,Departamento,PrecioCompra from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
