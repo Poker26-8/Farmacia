@@ -2104,7 +2104,7 @@ Door:
                 If Kit = True Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Kits where Nombre='" & mydesc & "'"
+                        "select Codigo,Cantidad from Kits where Nombre='" & mydesc & "'"
                     rd1 = cmd1.ExecuteReader
                     cnn2.Close() : cnn2.Open()
                     Do While rd1.Read
@@ -2117,7 +2117,7 @@ Door:
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "select * from Productos where Codigo='" & Strings.Left(Cod, 7) & "'"
+                                "select Existencia from Productos where Codigo='" & Strings.Left(Cod, 7) & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then

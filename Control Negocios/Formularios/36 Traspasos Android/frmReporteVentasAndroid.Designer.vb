@@ -22,6 +22,7 @@ Partial Class frmReporteVentasAndroid
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReporteVentasAndroid))
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -55,6 +56,7 @@ Partial Class frmReporteVentasAndroid
         '
         'Button7
         '
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button7.Location = New System.Drawing.Point(696, 591)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(72, 53)
@@ -65,6 +67,7 @@ Partial Class frmReporteVentasAndroid
         '
         'Button6
         '
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button6.Location = New System.Drawing.Point(618, 591)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(72, 53)
@@ -75,6 +78,7 @@ Partial Class frmReporteVentasAndroid
         '
         'Button5
         '
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button5.Location = New System.Drawing.Point(177, 591)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(122, 53)
@@ -85,6 +89,8 @@ Partial Class frmReporteVentasAndroid
         '
         'Button3
         '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.Location = New System.Drawing.Point(96, 591)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 53)
@@ -95,6 +101,8 @@ Partial Class frmReporteVentasAndroid
         '
         'Button4
         '
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.Location = New System.Drawing.Point(15, 591)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 53)
@@ -199,6 +207,8 @@ Partial Class frmReporteVentasAndroid
         '
         'Button2
         '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.Location = New System.Drawing.Point(93, 281)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 53)
@@ -209,6 +219,9 @@ Partial Class frmReporteVentasAndroid
         '
         'Button1
         '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(12, 281)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 53)
@@ -320,6 +333,7 @@ Partial Class frmReporteVentasAndroid
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmReporteVentasAndroid"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Ventas Andoid"

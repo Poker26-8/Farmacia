@@ -346,9 +346,10 @@ Partial Class frmTraspasosAndroid
         '
         'btnSalir
         '
-        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnSalir.BackColor = System.Drawing.Color.White
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalir.Location = New System.Drawing.Point(199, 577)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(81, 68)
@@ -359,13 +360,14 @@ Partial Class frmTraspasosAndroid
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
         Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnGuardar.FlatAppearance.BorderSize = 10
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.ForeColor = System.Drawing.Color.Black
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardar.Location = New System.Drawing.Point(111, 577)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(81, 68)
@@ -376,11 +378,12 @@ Partial Class frmTraspasosAndroid
         '
         'btnNuevoProd
         '
-        Me.btnNuevoProd.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnNuevoProd.BackColor = System.Drawing.Color.White
         Me.btnNuevoProd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnNuevoProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoProd.ForeColor = System.Drawing.Color.Black
         Me.btnNuevoProd.Image = CType(resources.GetObject("btnNuevoProd.Image"), System.Drawing.Image)
+        Me.btnNuevoProd.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnNuevoProd.Location = New System.Drawing.Point(22, 577)
         Me.btnNuevoProd.Name = "btnNuevoProd"
         Me.btnNuevoProd.Size = New System.Drawing.Size(81, 68)
@@ -408,6 +411,7 @@ Partial Class frmTraspasosAndroid
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.lblconexion)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmTraspasosAndroid"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmTraspasosAndroid"
