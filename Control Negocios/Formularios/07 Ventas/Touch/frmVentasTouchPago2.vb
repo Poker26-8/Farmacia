@@ -498,7 +498,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+                        "select Saldo from Monedero where Barras='" & txtMonedero.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -593,7 +593,7 @@
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+            "select Suspender,Id,Credito,Calle,NInterior,NExterior,Colonia,Delegacion,Entidad,Pais,CP from Clientes where Nombre='" & cboNombre.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then

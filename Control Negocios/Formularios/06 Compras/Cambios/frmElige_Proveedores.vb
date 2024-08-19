@@ -5,7 +5,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores order by Id"
+                "select Id,Compania,NComercial,Telefono from Proveedores order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -29,7 +29,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Proveedores where Compania LIKE '%" & TextBox1.Text & "%'"
+                    "select Id,Compania,NComercial,Telefono from Proveedores where Compania LIKE '%" & TextBox1.Text & "%'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -48,7 +48,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Proveedores order by Id"
+                    "select Id,Compania,NComercial,Telefono from Proveedores order by Id"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then

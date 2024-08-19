@@ -12,6 +12,10 @@ Public Class frmNuvCompras
     Dim alias_compras As String = ""
     Dim DondeVoy As String = ""
     Dim tipo_impre As String = ""
+
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
     Private Sub cbomoneda_DropDown(sender As Object, e As EventArgs) Handles cbomoneda.DropDown
         cbomoneda.Items.Clear()
         Try
@@ -40,7 +44,7 @@ Public Class frmNuvCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from tb_moneda where nombre_moneda='" & cbomoneda.Text & "'"
+                "select tipo_cambio,Id from tb_moneda where nombre_moneda='" & cbomoneda.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -58,6 +62,10 @@ Public Class frmNuvCompras
         End Try
     End Sub
     Private Sub frmNuvCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
 
         dtpfecha.Value = Now
         dtpcaducidad.Value = Now
@@ -109,7 +117,7 @@ Public Class frmNuvCompras
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
+            "select tipo_cambio,id,nombre_moneda from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -133,7 +141,7 @@ Public Class frmNuvCompras
         cnn2.Close() : cnn2.Open()
 
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT * FROM AuxCompras order by Id"
+        cmd1.CommandText = "SELECT Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Caducidad,Lote,CP FROM AuxCompras order by Id"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             If rd1.HasRows Then
@@ -158,7 +166,7 @@ Public Class frmNuvCompras
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                    "select Existencia,IVA from Productos where Codigo='" & codigo & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -249,7 +257,7 @@ Public Class frmNuvCompras
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Proveedores WHERE Compania='" & cboproveedor.Text & "'"
+                cmd1.CommandText = "SELECT DiasCred FROM Proveedores WHERE Compania='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -392,7 +400,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ComprasDet where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Codigo,Precio,Cantidad,Caducidad,Lote from ComprasDet where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -402,7 +410,7 @@ Public Class frmNuvCompras
                         Dim multiplo As Double = 0
                         Dim existencia As Double = 0
                         cmd2 = cnn2.CreateCommand : cmd2.CommandText =
-                            "select * from Productos where Codigo='" & codigo & "'"
+                            "select Nombre,UCompra,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -441,7 +449,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & cboremision.Text & "' and NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Sub1,Desc1,Sub2,IVA,Total,Desc2,IEPS,Pagar,Resta,FechaC,FechaP from Compras where NumRemision='" & cboremision.Text & "' and NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -563,7 +571,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ComprasDet where NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Codigo,Precio,Cantidad,Caducidad,Lote from ComprasDet where NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -573,7 +581,7 @@ Public Class frmNuvCompras
                         Dim multiplo As Double = 0
                         Dim existencia As Double = 0
                         cmd2 = cnn2.CreateCommand : cmd2.CommandText =
-                            "select * from Productos where Codigo='" & codigo & "'"
+                            "select Nombre,UCompra,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -609,7 +617,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & cboremision.Text & "' and NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Sub1,Desc1,Sub2,IVA,Total,Desc2,IEPS,Pagar,Resta,FechaC,FechaP from Compras where NumRemision='" & cboremision.Text & "' and NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -681,7 +689,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Pedidos where Num='" & cbopedido.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Anticipo from Pedidos where Num='" & cbopedido.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -711,7 +719,7 @@ Public Class frmNuvCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from PedidosDet where NumPed='" & cbopedido.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Codigo,Precio,Cantidad from PedidosDet where NumPed='" & cbopedido.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -721,7 +729,7 @@ Public Class frmNuvCompras
                         Dim multiplo As Double = 0
                         Dim existencia As Double = 0
                         cmd2 = cnn2.CreateCommand : cmd2.CommandText =
-                            "select * from Productos where Codigo='" & codigo & "'"
+                            "select Nombre,UCompra,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -889,7 +897,7 @@ Public Class frmNuvCompras
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where CodBarra='" & cbonombre.Text & "'"
+                "select Codigo,Nombre,UCompra,PrecioCompra,Existencia from Productos where CodBarra='" & cbonombre.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -969,7 +977,7 @@ Public Class frmNuvCompras
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & txtcodigo.Text & "' and Departamento<>'SERVICIOS'"
+                        "select Codigo,UCompra,Nombre,PrecioCompra,Multiplo from Productos where Codigo='" & txtcodigo.Text & "' and Departamento<>'SERVICIOS'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1237,7 +1245,7 @@ Public Class frmNuvCompras
                     If (cbonombre.Text <> "" And txtprecio.Text <> 0) Then
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
+                        cmd1.CommandText = "SELECT IVA,Porcentaje,Porcentaje2,PorcMin,PorcMin2,PorcMay,PorcMay2,PorcMM,PorcMM2,PorcEsp,PorcEsp2 FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -1642,7 +1650,7 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                    "select IdEmpleado,Alias from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1655,7 +1663,7 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Permisos where IdEmpleado=" & id_usu
+                    "select Comp_Com from Permisos where IdEmpleado=" & id_usu
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1895,7 +1903,7 @@ kaka:
                     codigo = grdcaptura.Rows(Zi).Cells(0).Value.ToString
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+                    cmd1.CommandText = "SELECT IVA FROM Productos WHERE Codigo='" & codigo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -2008,7 +2016,7 @@ kaka:
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & txtusuario.Text & "'"
+            cmd1.CommandText = "SELECT Alias FROM Usuarios WHERE Clave='" & txtusuario.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2395,7 +2403,7 @@ kaka:
             Do Until IdCompra <> 0
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                        "select Id from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2428,7 +2436,7 @@ kaka:
                 pcompra = precio
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+                cmd1.CommandText = "SELECT IVA,Multiplo,Porcentaje,PorcMin,PorcMay,PorcMM,PorcEsp,Departamento,Grupo,Existencia FROM Productos WHERE Codigo='" & codigo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2526,7 +2534,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "select * from LoteCaducidad where Lote='" & lote & "' and Codigo='" & codigo & "'"
+                            "select Id,Cantidad from LoteCaducidad where Lote='" & lote & "' and Codigo='" & codigo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -2713,7 +2721,7 @@ kaka:
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Pedidos WHERE Proveedor='" & cboproveedor.Text & "' AND Status=0"
+                cmd1.CommandText = "SELECT Anticipo FROM Pedidos WHERE Proveedor='" & cboproveedor.Text & "' AND Status=0"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2764,10 +2772,9 @@ kaka:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
+
         Dim Pie As String = ""
 
         On Error GoTo kakita
@@ -2794,7 +2801,7 @@ kaka:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -2874,7 +2881,7 @@ kaka:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -2917,7 +2924,7 @@ kaka:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+            "select ACuenta,Resta from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -3080,10 +3087,7 @@ kakita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         On Error GoTo kaota
@@ -3109,7 +3113,7 @@ kakita:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -3188,7 +3192,7 @@ kakita:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -3230,7 +3234,7 @@ kakita:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+            "select ACuenta,Resta from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -3383,10 +3387,7 @@ kaota:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
 
         Dim ACUENTA As Double = 0
         Dim RESTA As Double = 0
@@ -3419,7 +3420,7 @@ kaota:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ticket"
+                    "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3465,7 +3466,7 @@ kaota:
             Else
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ticket"
+                    "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3515,7 +3516,7 @@ kaota:
             '[2]. Datos del proveedor
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+                "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -3544,7 +3545,7 @@ kaota:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
+                "select ACuenta,Resta from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -3824,10 +3825,8 @@ caca:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
 
         Dim ACUENTA As Double = 0
         Dim RESTA As Double = 0
@@ -3861,7 +3860,7 @@ caca:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ticket"
+                    "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3907,7 +3906,7 @@ caca:
             Else
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ticket"
+                    "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3957,7 +3956,7 @@ caca:
             '[2]. Datos del proveedor
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+                "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -3986,7 +3985,7 @@ caca:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
+                "select ACuenta,Resta from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -4354,7 +4353,7 @@ kaka:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select UCompra,IVA,Existencia from Productos where Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -4518,7 +4517,7 @@ kaka:
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Compras WHERE NumRemision='" & cboremision.Text & "' AND Proveedor='" & cboproveedor.Text & "'"
+            cmd1.CommandText = "SELECT Status FROM Compras WHERE NumRemision='" & cboremision.Text & "' AND Proveedor='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -4543,7 +4542,7 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Id,ACuenta,Resta,Status from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -4601,7 +4600,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                        "select IdProv,Id,ACuenta,Resta,Status from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -4646,7 +4645,7 @@ kaka:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                            "select Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -4788,7 +4787,7 @@ kaka:
         cnn1.Close() : cnn1.Open()
 
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT * FROM Compras WHERE NumRemision='" & cboremision.Text & "' AND Proveedor='" & cboproveedor.Text & "' AND Status<>'CANCELADA'"
+        cmd1.CommandText = "SELECT Id,IdProv,ACuenta,Resta,Status FROM Compras WHERE NumRemision='" & cboremision.Text & "' AND Proveedor='" & cboproveedor.Text & "' AND Status<>'CANCELADA'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -4848,7 +4847,7 @@ kaka:
             Dim existencia As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
+            cmd1.CommandText = "SELECT Existencia FROM Productos WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -5076,10 +5075,7 @@ quepasowey:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
         Dim saldo_fav As Double = 0
 
@@ -5107,7 +5103,7 @@ quepasowey:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -5184,7 +5180,7 @@ quepasowey:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -5203,10 +5199,12 @@ quepasowey:
                         Y += 13.5
                     End If
                 End If
+
                 If rd1("RFC").ToString <> "" Then
                     e.Graphics.DrawString("RFC: " & rd1("RFC").ToString, fuente_prods, Brushes.Black, 1, Y)
                     Y += 13.5
                 End If
+
                 If rd1("Correo").ToString <> "" Then
                     e.Graphics.DrawString("Correo: " & Mid(rd1("Correo").ToString, 1, 28), fuente_prods, Brushes.Black, 1, Y)
                     Y += 13.5
@@ -5241,7 +5239,7 @@ quepasowey:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+            "select ACuenta,Resta,Pagar from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -5341,10 +5339,7 @@ caca:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
         Dim saldo_fav As Double = 0
 
@@ -5372,7 +5367,7 @@ caca:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -5449,7 +5444,7 @@ caca:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -5506,7 +5501,7 @@ caca:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+            "select ACuenta,Resta,Pagar from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then

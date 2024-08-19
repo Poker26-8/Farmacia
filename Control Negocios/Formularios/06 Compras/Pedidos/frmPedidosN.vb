@@ -1,6 +1,10 @@
 ﻿Imports System.IO
 Public Class frmPedidosN
 
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+
     Private Sub frmPedidosN_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         cboProveedor.Focus.Equals(True)
     End Sub
@@ -419,6 +423,10 @@ Public Class frmPedidosN
     End Sub
 
     Private Sub frmPedidosN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
+
         TFolio.Start()
     End Sub
 
@@ -471,10 +479,8 @@ Public Class frmPedidosN
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
 
         Try
             '[°]. Logotipo
@@ -497,7 +503,7 @@ Public Class frmPedidosN
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -640,10 +646,8 @@ Public Class frmPedidosN
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
 
         Try
             '[°]. Logotipo
@@ -666,7 +670,7 @@ Public Class frmPedidosN
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

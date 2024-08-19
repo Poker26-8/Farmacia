@@ -40,19 +40,19 @@
             cmd2 = cnn2.CreateCommand
             If (optproveedor.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where ProvPri='" & cbofiltro.Text & "'"
+                    "select Codigo,Nombre,UVenta,PrecioVentaIVA,Existencia from Productos where ProvPri='" & cbofiltro.Text & "'"
                 cmd2.CommandText =
                     "select count(Codigo) from Productos where ProvPri='" & cbofiltro.Text & "'"
             End If
             If (optdepartamento.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Departamento='" & cbofiltro.Text & "'"
+                    "select Codigo,Nombre,UVenta,PrecioVentaIVA,Existencia from Productos where Departamento='" & cbofiltro.Text & "'"
                 cmd2.CommandText =
                     "select count(Codigo) from Productos where Departamento='" & cbofiltro.Text & "'"
             End If
             If (optgrupo.Checked) Then
                 cmd1.CommandText =
-                    "select * from Productos where Grupo='" & cbofiltro.Text & "'"
+                    "select Codigo,Nombre,UVenta,PrecioVentaIVA,Existencia from Productos where Grupo='" & cbofiltro.Text & "'"
                 cmd2.CommandText =
                     "select count(Codigo) from Productos where Grupo='" & cbofiltro.Text & "'"
             End If
@@ -106,5 +106,9 @@
 
     Private Sub cbofiltro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbofiltro.KeyPress
         e.KeyChar = UCase(e.KeyChar)
+    End Sub
+
+    Private Sub frmVentasTouchBuscar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -871,8 +871,7 @@ Class frmVentasTouch2
             rd3.Close()
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText =
-                "select PreEsp from Productos,PrecioVentaIVA,CantLst1,CantLst2,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin where Codigo='" & codigo & "'"
+            cmd3.CommandText = "select PrecioVentaIVA,CantLst1,CantLst2,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin from Productos where Codigo='" & codigo & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then

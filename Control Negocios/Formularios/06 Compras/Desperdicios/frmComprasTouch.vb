@@ -17,6 +17,11 @@ Public Class frmComprasTouch
 
     Friend WithEvents btnDepto, btnGrupo, btnProd As System.Windows.Forms.Button
 
+    Dim nLogo As String = ""
+
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+
     Private Sub tFecha_Tick(sender As Object, e As EventArgs) Handles tFecha.Tick
         lblfecha.Text = FormatDateTime(Date.Now, DateFormat.ShortDate)
     End Sub
@@ -47,6 +52,10 @@ Public Class frmComprasTouch
     End Sub
 
     Private Sub frmComprasTouch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
 
         If File.Exists(My.Application.Info.DirectoryPath & "\Fondo.jpg") Then
             pProductos.BackgroundImage = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\Fondo.jpg")
@@ -721,7 +730,7 @@ Public Class frmComprasTouch
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select Nombre,UVenta,Min,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -771,7 +780,7 @@ Public Class frmComprasTouch
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select PrecioCompra from Productos where Codigo='" & codigo & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -1060,7 +1069,7 @@ keseso:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where CodBarra='" & txtbarras.Text & "'"
+                    "select Codigo from Productos where CodBarra='" & txtbarras.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1203,7 +1212,7 @@ keseso:
                 Do Until IdCompra <> 0
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & MYFOLIO & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Id from Compras where NumRemision='" & MYFOLIO & "' and Proveedor='" & cboproveedor.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1237,7 +1246,7 @@ keseso:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                    "select * from Productos where Codigo='" & mycode & "'"
+                    "select Nombre,UCompra,IVA,Multiplo,Porcentaje,PorcMin,PorcMay,PorcMM,PorcEsp,Departamento,Grupo,Existencia from Productos where Codigo='" & mycode & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1401,10 +1410,8 @@ keseso:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
         Dim Pie As String = ""
 
         '[°]. Logotipo
@@ -1429,7 +1436,7 @@ keseso:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1496,7 +1503,7 @@ keseso:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1612,10 +1619,7 @@ keseso:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         '[°]. Logotipo
@@ -1640,11 +1644,11 @@ keseso:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                Pie = rd1("Pie2").ToString
+                Pie = rd1("Pie1").ToString
                 'Razón social
                 If rd1("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 94, Y, sc)
@@ -1706,7 +1710,7 @@ keseso:
         '[2]. Datos del proveedor
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            "select Compania,RFC,Correo from Proveedores where Compania='" & cboproveedor.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1820,7 +1824,7 @@ keseso:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+                "select Id from Proveedores where Compania='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1845,10 +1849,7 @@ keseso:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         '[°]. Logotipo
@@ -1873,11 +1874,11 @@ keseso:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                Pie = rd1("Pie2").ToString
+                Pie = rd1("Pie1").ToString
                 'Razón social
                 If rd1("Cab0").ToString() <> "" Then
                     e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -1941,7 +1942,7 @@ keseso:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NumRemision='" & cbofolio.Text & "'"
+                "select Id,FechaC,Usuario,Proveedor,Total from Compras where NumRemision='" & cbofolio.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2005,7 +2006,7 @@ keseso:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where Id_Compra=" & id_compra
+                "select Codigo,Nombre,Cantidad,Precio,Total from ComprasDet where Id_Compra=" & id_compra
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
