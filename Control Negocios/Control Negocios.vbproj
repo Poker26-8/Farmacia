@@ -2217,6 +2217,12 @@
     <Compile Include="Formularios\35 Dentistas\frmRepCitas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.Designer.vb">
+      <DependentUpon>frmTraspasosA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -3280,6 +3286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\frmRepCitas.resx">
       <DependentUpon>frmRepCitas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\Traspasos Android\frmTraspasosA.resx">
+      <DependentUpon>frmTraspasosA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
