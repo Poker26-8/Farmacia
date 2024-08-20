@@ -475,7 +475,7 @@ Partial Class frmIngresoDispositivo
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(93, 81)
         Me.btnLimpiar.TabIndex = 17
-        Me.btnLimpiar.Text = "Nuevo"
+        Me.btnLimpiar.Text = "Limpiar"
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiar.UseVisualStyleBackColor = False
         '

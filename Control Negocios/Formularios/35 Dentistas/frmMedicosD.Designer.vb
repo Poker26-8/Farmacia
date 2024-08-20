@@ -414,7 +414,7 @@ Partial Class frmMedicosD
         Me.btnNuevo.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.btnNuevo.Size = New System.Drawing.Size(58, 69)
         Me.btnNuevo.TabIndex = 33
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
