@@ -144,6 +144,7 @@ Partial Class frmAsignarusuarios
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(520, 294)
         Me.MinimumSize = New System.Drawing.Size(520, 294)
         Me.Name = "frmAsignarusuarios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
