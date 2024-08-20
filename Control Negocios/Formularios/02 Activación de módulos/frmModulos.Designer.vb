@@ -425,6 +425,7 @@ Partial Class frmModulos
         '
         Me.btnDentista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDentista.Image = CType(resources.GetObject("btnDentista.Image"), System.Drawing.Image)
         Me.btnDentista.Location = New System.Drawing.Point(701, 343)
         Me.btnDentista.Name = "btnDentista"
         Me.btnDentista.Size = New System.Drawing.Size(93, 71)
