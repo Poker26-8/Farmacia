@@ -1810,9 +1810,13 @@ doorcita:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select Cantidad from lotecaducidad where Codigo='" & cboCodigoI.Text & "' and Lote='" & cboLoteS.Text & "'"
+            cmd1.CommandText = "Select Cantidad,Caducidad from lotecaducidad where Codigo='" & cboCodigoI.Text & "' and Lote='" & cboLoteS.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
+                Dim fecha As Date = rd1(1).ToString
+                Dim f As String = ""
+                f = Format(fecha, "yyyy-MM-dd")
+                dtpFechaLoteS.Text = f
                 txtExistencia.Text = rd1(0).ToString
             Else
                 txtExistencia.Text = "0"
