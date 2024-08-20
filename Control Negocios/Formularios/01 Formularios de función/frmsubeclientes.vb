@@ -140,7 +140,7 @@ Public Class frmsubeclientes
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "SELECT * FROM Clientes WHERE Nombre='" & nombre & "'"
+                "SELECT Nombre FROM Clientes WHERE Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -163,4 +163,7 @@ Public Class frmsubeclientes
         Me.Close()
     End Sub
 
+    Private Sub frmsubeclientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

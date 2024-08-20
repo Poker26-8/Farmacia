@@ -387,7 +387,7 @@ Public Class frmReporteAsistencia
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "select * from Asistencia where NumEmp=" & rd1(0).ToString() & " and Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "'"
+                        cmd2.CommandText = "select Estatus,Fecha,Hora from Asistencia where NumEmp=" & rd1(0).ToString() & " and Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             Dim diferencia As String = ""
@@ -484,7 +484,7 @@ Public Class frmReporteAsistencia
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "select * from Asistencia where Nombre='" & rd1(0).ToString & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
+                        cmd2.CommandText = "select Estatus,Hora,Fecha from Asistencia where Nombre='" & rd1(0).ToString & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             Dim diferencia As String = ""
@@ -582,7 +582,7 @@ Public Class frmReporteAsistencia
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "select * from Asistencia where Nombre='" & rd1(0).ToString & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
+                        cmd2.CommandText = "select Estatus,Hora,Fecha from Asistencia where Nombre='" & rd1(0).ToString & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             Dim diferencia As String = ""
@@ -634,7 +634,7 @@ Public Class frmReporteAsistencia
                 cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select * from Usuarios where Nombre='" & cbofiltro.Text & "'"
+                cmd1.CommandText = "select IdEmpleado,Puesto,Area from Usuarios where Nombre='" & cbofiltro.Text & "'"
 
                 rd1 = cmd1.ExecuteReader
 
@@ -673,7 +673,7 @@ Public Class frmReporteAsistencia
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select * from Asistencia where Nombre='" & cbofiltro.Text & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "select Estatus,Hora,Fecha from Asistencia where Nombre='" & cbofiltro.Text & "' and Fecha>='" & Format(Month1, "yyyy-MM-dd") & "' and Fecha<='" & Format(Month2, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
 
                 Do While rd1.Read

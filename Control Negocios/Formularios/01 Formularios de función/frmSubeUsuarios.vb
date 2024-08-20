@@ -125,7 +125,7 @@
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "SELECT * FROM Usuarios WHERE Nombre='" & nombre & "'"
+                "SELECT Nombre FROM Usuarios WHERE Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -143,4 +143,8 @@
             cnn2.Close()
         End Try
     End Function
+
+    Private Sub frmSubeUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

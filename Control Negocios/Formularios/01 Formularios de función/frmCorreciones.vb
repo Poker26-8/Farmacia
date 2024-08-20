@@ -319,7 +319,7 @@ Public Class frmCorreciones
             cantpromo = 0
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Productos where Codigo = '" & CodigoProducto & "'"
+            cmd1.CommandText = "select F44 from Productos where Codigo = '" & CodigoProducto & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -578,7 +578,7 @@ Public Class frmCorreciones
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "SELECT * FROM Productos WHERE Codigo='" & Codigo & "'"
+                "SELECT Departamento,Nombre,UVenta,Min,Ubicacion,Multiplo,Existencia,Grupo,E1,E2 FROM Productos WHERE Codigo='" & Codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -631,7 +631,7 @@ Public Class frmCorreciones
         cnn2.Close() : cnn2.Open()
 
         cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+        cmd2.CommandText = "SELECT Grupo,PrecioVentaIVA FROM Productos WHERE Codigo='" & codigo & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -665,7 +665,7 @@ Public Class frmCorreciones
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "SELECT * FROM Ticket"
+            "SELECT Comensal FROM Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -724,7 +724,7 @@ Public Class frmCorreciones
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM Promos WHERE Codigo='" & CodigoProducto & "' AND Promo2x1=1"
+                cmd2.CommandText = "SELECT Promo2x1,Domingo,HInicioD,HFinD,HInicioD2,HFinD2,Lunes,HInicioL,HFinL,HInicioL2,HFinL2,Martes,HInicioM,HFinM,HInicioM2,HFinM2,Miercoles,HInicioMi,HFinMi,HInicioMi2,HFinMi2,Jueves,HInicioJ,HFinJ,HInicioJ2,HFinJ2,Viernes,HInicioV,HFinV,HInicioV2,HFinV2,Sabado,HInicioS,HFinS,HInicioS2,HFinS2 FROM Promos WHERE Codigo='" & CodigoProducto & "' AND Promo2x1=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1030,7 +1030,7 @@ Public Class frmCorreciones
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM promos WHERE Codigo='" & CodigoProducto & "' AND Promo3x2=1"
+                cmd2.CommandText = "SELECT Promo3x2,Domingo2,HInicioD3,HFinD3,HInicioD33,HFinD33,Lunes2,HInicioL3,HFinL3,HInicioL33,HFinL33,Martes2,HInicioM3,HFin1M3,HInicioM33,HFinM33,Miercoles2,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,Jueves2,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,Viernes2,HInicioV3,HFinV3,HInicioV33,HFinV33,Sabado2,HInicioS3,HFinS3,HInicioS33,HFinS33 FROM promos WHERE Codigo='" & CodigoProducto & "' AND Promo3x2=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then

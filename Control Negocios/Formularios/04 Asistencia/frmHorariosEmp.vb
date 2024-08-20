@@ -36,7 +36,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                "select Area,Puesto,IdEmpleado from Usuarios where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -49,7 +49,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Horarios where IdUsu=" & txtid.Text
+                "select Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,TE,TS from Horarios where IdUsu=" & txtid.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -158,7 +158,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Horarios where IdUsu=" & txtid.Text
+                "select IdUsu from Horarios where IdUsu=" & txtid.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

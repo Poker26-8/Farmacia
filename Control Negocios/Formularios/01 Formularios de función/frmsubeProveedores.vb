@@ -139,7 +139,7 @@
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "SELECT * FROM Proveedores WHERE NComercial='" & nombre & "'"
+                "SELECT NComercial FROM Proveedores WHERE NComercial='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

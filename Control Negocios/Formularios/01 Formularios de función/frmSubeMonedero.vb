@@ -37,7 +37,7 @@ Public Class frmSubeMonedero
             barsube.Maximum = cuantos
 
             cmd = cnn.CreateCommand
-            cmd.CommandText = "SELECT * FROM monedero ORDER BY Id"
+            cmd.CommandText = "SELECT Folio,NomCliente,Saldo,FechaAlta,CodigoBarras,Porcentaje,FechaAct FROM monedero ORDER BY Id"
             rd = cmd.ExecuteReader
             Do While rd.Read
                 If rd.HasRows Then
@@ -79,5 +79,9 @@ Public Class frmSubeMonedero
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmSubeMonedero_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
