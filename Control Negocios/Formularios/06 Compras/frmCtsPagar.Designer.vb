@@ -619,7 +619,7 @@ Partial Class frmCtsPagar
         Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 0, 5, 0)
         Me.btnnuevo.Size = New System.Drawing.Size(127, 48)
         Me.btnnuevo.TabIndex = 146
-        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnnuevo.UseVisualStyleBackColor = True
         '

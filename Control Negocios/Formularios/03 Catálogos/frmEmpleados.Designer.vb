@@ -59,6 +59,7 @@ Partial Class frmEmpleados
         Me.txtWhats = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.picFotica = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -70,14 +71,13 @@ Partial Class frmEmpleados
         Me.lkmédico = New System.Windows.Forms.LinkLabel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnhuella = New System.Windows.Forms.Button()
-        Me.picFotica = New System.Windows.Forms.PictureBox()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotica, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboNombre
@@ -426,6 +426,17 @@ Partial Class frmEmpleados
         Me.Label21.TabIndex = 29
         Me.Label21.Text = "Whatsapp:"
         '
+        'picFotica
+        '
+        Me.picFotica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picFotica.Location = New System.Drawing.Point(345, 415)
+        Me.picFotica.Name = "picFotica"
+        Me.picFotica.Size = New System.Drawing.Size(84, 99)
+        Me.picFotica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFotica.TabIndex = 40
+        Me.picFotica.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.picFotica, "Foto del empleado")
+        '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
@@ -544,17 +555,6 @@ Partial Class frmEmpleados
         Me.btnhuella.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnhuella.UseVisualStyleBackColor = True
         '
-        'picFotica
-        '
-        Me.picFotica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picFotica.Location = New System.Drawing.Point(345, 415)
-        Me.picFotica.Name = "picFotica"
-        Me.picFotica.Size = New System.Drawing.Size(84, 99)
-        Me.picFotica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picFotica.TabIndex = 40
-        Me.picFotica.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.picFotica, "Foto del empleado")
-        '
         'btnEliminar
         '
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
@@ -595,7 +595,7 @@ Partial Class frmEmpleados
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 23
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -647,8 +647,8 @@ Partial Class frmEmpleados
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFotica, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

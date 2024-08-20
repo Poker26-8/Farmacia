@@ -1367,7 +1367,7 @@ Partial Class frmNuvCompras
         Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.btnnuevo.Size = New System.Drawing.Size(61, 69)
         Me.btnnuevo.TabIndex = 185
-        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = True
         '

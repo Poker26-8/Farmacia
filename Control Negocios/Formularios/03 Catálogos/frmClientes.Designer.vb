@@ -289,7 +289,7 @@ Partial Class frmClientes
         Me.btnNuveo.Name = "btnNuveo"
         Me.btnNuveo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuveo.TabIndex = 28
-        Me.btnNuveo.Text = "Nuevo"
+        Me.btnNuveo.Text = "Limpiar"
         Me.btnNuveo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuveo.UseVisualStyleBackColor = True
         '
