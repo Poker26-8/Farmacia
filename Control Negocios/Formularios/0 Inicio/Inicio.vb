@@ -694,41 +694,10 @@ Public Class Inicio
     End Sub
 
     Private Sub CapturaToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles pCaptura.Click
-        Dim parte As Integer = 0
-        Dim series As Integer = 0
-        Dim refaccion As Integer = 0
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                parte = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "select NumPart from Formatos where Facturas='Series'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                series = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "select NumPart from Formatos where Facturas='Refaccionaria'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                refaccion = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
+        Dim parte As Integer = DatosRecarga2("Partes")
+        Dim series As Integer = DatosRecarga2("Series")
+        Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
 
         If parte = 1 Then
             frmComprasS.Show()
@@ -743,54 +712,30 @@ Public Class Inicio
         Else
             frmCompras.Show()
             frmCompras.BringToFront()
-
             ' frmNuvCompras.Show()
             ' frmNuvCompras.BringToFront()
         End If
 
 
-        cnn1.Close()
     End Sub
 
     Private Sub btnProductos_Click(sender As System.Object, e As System.EventArgs) Handles btnProductos.Click
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                If rd1(0).ToString() = 1 Then
-                    frmProductosSerie.Show()
-                    frmProductosSerie.BringToFront()
-                    Exit Sub
-                Else
-                    cnn2.Close() : cnn2.Open()
 
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
-                        "select NumPart from Formatos where Facturas='Escuelas'"
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            If rd2(0).ToString() = 1 Then
-                                frmProductos_Escuelas.Show()
-                                frmProductos_Escuelas.BringToFront()
-                                Exit Sub
-                            End If
-                        End If
-                    Else
-                        rd2.Close() : cnn2.Close()
-                        frmProductos.Show()
-                        frmProductos.BringToFront()
-                        Exit Sub
-                    End If
-                    rd2.Close()
-                    cnn2.Close()
-                End If
-            End If
+
+        Dim partes As Integer = DatosRecarga2("Partes")
+        Dim escuelas As Integer = DatosRecarga2("Escuelas")
+
+        If partes = 1 Then
+            frmProductosSerie.Show()
+            frmProductosSerie.BringToFront()
+
+        ElseIf escuelas = 1 Then
+            frmProductos_Escuelas.Show()
+            frmProductos_Escuelas.BringToFront()
+        Else
+            frmProductosS.Show()
+            frmProductosS.BringToFront()
         End If
-        rd1.Close() : cnn1.Close()
     End Sub
 
     Private Sub btnClientes_Click(sender As System.Object, e As System.EventArgs) Handles btnClientes.Click
@@ -800,41 +745,10 @@ Public Class Inicio
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
 
-        Dim parte As Integer = 0
-        Dim series As Integer = 0
-        Dim refaccion As Integer = 0
+        Dim parte As Integer = DatosRecarga2("Partes")
+        Dim series As Integer = DatosRecarga2("Series")
+        Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                parte = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "select NumPart from Formatos where Facturas='Series'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                series = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "select NumPart from Formatos where Facturas='Refaccionaria'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                refaccion = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
 
         If parte = 1 Then
             frmComprasS.Show()
@@ -849,13 +763,10 @@ Public Class Inicio
         Else
             ' frmCompras.Show()
             ' frmCompras.BringToFront()
-
             frmNuvCompras.Show()
             frmNuvCompras.BringToFront()
         End If
 
-
-        cnn1.Close()
     End Sub
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
@@ -894,52 +805,11 @@ Public Class Inicio
     End Sub
 
     Private Sub VentasMostradorToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pVentasM.Click
-        Dim partes As Integer = 0
-        Dim series As Integer = 0
-        Dim descuento As Integer = 0
-        Dim refaccion As Integer = 0
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                partes = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Desc_Ventas'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                descuento = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                series = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                refaccion = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-        cnn1.Close()
+        Dim partes As Integer = DatosRecarga2("Partes")
+        Dim series As Integer = DatosRecarga2("Series")
+        Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
+        Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
 
         If partes = 1 Then
             frmVentas1_Partes.Show()
@@ -957,10 +827,7 @@ Public Class Inicio
         Else
             frmVentas1.Show()
             frmVentas1.BringToFront()
-
         End If
-        'frmVentas1.Show()
-        'frmVentas1.BringToFront()
     End Sub
 
     Private Sub RegistroDeEmpleadoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pHorariosEmp.Click
@@ -1044,34 +911,15 @@ Public Class Inicio
 
     Private Sub AjusteDeInventarioToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pAjuste.Click
 
-        Try
-            Dim DATO As Integer = 0
+        Dim DATO As Integer = DatosRecarga2("Series")
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Series'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    DATO = rd1(0).ToString
-
-                    If DATO = 1 Then
-                        frmSeries.Show()
-                        frmSeries.BringToFront()
-                    Else
-                        frmAjusteInv.Show()
-                        frmAjusteInv.BringToFront()
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-        Catch ex As Exception
-
-        End Try
-
+        If DATO = 1 Then
+            frmSeries.Show()
+            frmSeries.BringToFront()
+        Else
+            frmAjusteInv.Show()
+            frmAjusteInv.BringToFront()
+        End If
 
     End Sub
 
@@ -1102,42 +950,9 @@ Public Class Inicio
 
     Private Sub SencillaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pSencilla.Click
 
-        Dim partes As Integer = 0
-        Dim restaurante As Integer = 0
-        Dim refaccionaria As Integer = 0
-
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                partes = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Restaurante'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                restaurante = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                refaccionaria = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-        cnn1.Close()
-
+        Dim partes As Integer = DatosRecarga2("Partes")
+        Dim restaurante As Integer = DatosRecarga2("Restaurante")
+        Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
 
         If partes = 1 Then
             frmProductosSSerie.Show()
@@ -1160,48 +975,18 @@ Public Class Inicio
 
     Private Sub DerivadosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pDerivados.Click
 
-        Dim partes As Integer = 0
-        Dim restaurante As Integer = 0
-
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Partes'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                partes = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Restaurante'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                restaurante = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-        cnn1.Close()
+        Dim partes As Integer = DatosRecarga2("Partes")
+        Dim restaurante As Integer = DatosRecarga2("Restaurante")
 
         If partes = 1 Then
-
             frmProductosSerie.Show()
             frmProductosSerie.BringToFront()
-
-
         ElseIf restaurante = 1 Then
-
             frmProductosDR.Show()
             frmProductosDR.BringToFront()
-
         Else
             frmProductos.Show()
             frmProductos.BringToFront()
-
-
         End If
 
     End Sub
@@ -1245,52 +1030,10 @@ Public Class Inicio
     Private Sub btnVentasN_Click(sender As System.Object, e As System.EventArgs) Handles btnVentasN.Click
         Try
 
-            Dim partes As Integer = 0
-            Dim series As Integer = 0
-            Dim descuento As Integer = 0
-            Dim refaccionaria As Integer = 0
-
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Partes'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    partes = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Desc_Ventas'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    descuento = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Series'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    series = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Refaccionaria'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    refaccionaria = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
+            Dim partes As Integer = DatosRecarga2("Partes")
+            Dim series As Integer = DatosRecarga2("Series")
+            Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
+            Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
 
             If partes = 1 Then
                 frmVentas1_Partes.Show()
@@ -1310,9 +1053,6 @@ Public Class Inicio
             Else
                 frmVentas1.Show()
                 frmVentas1.BringToFront()
-
-                'frmVentaSencilla.Show()
-                'frmVentaSencilla.BringToFront()
             End If
 
         Catch ex As Exception
@@ -1975,51 +1715,27 @@ Public Class Inicio
             End If
             rd5.Close()
 
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText =
-                "select NotasCred from Formatos where Facturas='Mod_Prod'"
-            rd5 = cmd5.ExecuteReader
-            If rd5.HasRows Then
-                If rd5.Read Then
-                    If rd5(0).ToString = "" Then
-                        pMod_Produccion.Enabled = False
-                    Else
-                        pMod_Produccion.Enabled = True
-                    End If
-                End If
-            End If
-            rd5.Close()
+            Dim modprod As String = DatosRecarga("Mod_Prod")
+            Dim ModComp As String = DatosRecarga("Mod_Comp")
+            Dim ModAsis As String = DatosRecarga("Mod_Asis")
 
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText =
-                "select NotasCred from Formatos where Facturas='Mod_Comp'"
-            rd5 = cmd5.ExecuteReader
-            If rd5.HasRows Then
-                If rd5.Read Then
-                    If rd5(0).ToString = "" Then
-                        pMod_Precios.Visible = False
-                    Else
-                        pMod_Precios.Visible = True
-                    End If
-                End If
+            If modprod = "0" Or modprod = "" Then
+                pMod_Produccion.Enabled = False
+            Else
+                pMod_Produccion.Enabled = True
             End If
-            rd5.Close()
 
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText =
-                "select NotasCred from Formatos where Facturas='Mod_Asis'"
-            rd5 = cmd5.ExecuteReader
-            If rd5.HasRows Then
-                If rd5.Read Then
-                    If rd5(0).ToString = "" Then
-                        pAsistencia.Enabled = False
-                    Else
-                        pAsistencia.Enabled = True
-                    End If
-                End If
+            If ModComp = "0" Or ModComp = "" Then
+                pMod_Precios.Visible = False
+            Else
+                pMod_Precios.Visible = True
             End If
-            rd5.Close()
 
+            If ModAsis = "0" Or ModAsis = "" Then
+                pAsistencia.Enabled = False
+            Else
+                pAsistencia.Enabled = True
+            End If
             cnn5.Close()
         Catch ex As Exception
             cnn5.Close()
@@ -2252,53 +1968,24 @@ Public Class Inicio
     End Sub
 
     Private Sub btnTelefonia_Click(sender As Object, e As EventArgs) Handles btnTelefonia.Click
-        Dim dato As Integer = 0
+        Dim dato As Integer = DatosRecarga2("Telefonia")
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Telefonia'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                dato = rd1(0).ToString
-
-                If dato = 1 Then
-                    frmTallerT.Show()
-                Else
-                    Exit Sub
-                End If
-
-            End If
+        If dato = 1 Then
+            frmTallerT.Show()
         Else
             Exit Sub
         End If
-        rd1.Close()
-        cnn1.Close()
     End Sub
 
     Private Sub btnRefaccionaria_Click(sender As Object, e As EventArgs) Handles btnRefaccionaria.Click
         Try
-            Dim dato As Integer = 0
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    dato = rd1(0).ToString
+            Dim dato As Integer = DatosRecarga2("Refaccionaria")
 
-                    If dato = 1 Then
-                        frmMenuPrincipal.Show()
-                    Else
-                        Exit Sub
-                    End If
-                End If
+            If dato = 1 Then
+                frmMenuPrincipal.Show()
             Else
                 Exit Sub
             End If
-            rd1.Close()
-            cnn1.Close()
-
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
