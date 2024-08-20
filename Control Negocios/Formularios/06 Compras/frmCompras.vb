@@ -5780,7 +5780,7 @@ quepasowey:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                    "select IVA,Multiplo,Porcentaje,PorcMin,PorcMay,PorcMM,PorcEsp,Departamento,Grupo,Existencia from Productos where Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -5878,7 +5878,7 @@ quepasowey:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "select * from LoteCaducidad where Lote='" & lote & "' and Codigo='" & codigo & "'"
+                        "select Id,Cantidad from LoteCaducidad where Lote='" & lote & "' and Codigo='" & codigo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
