@@ -31,7 +31,7 @@ Public Class frmProducirQ
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT CodigoP,UVentaP FROM miprod WHERE DescripP='" & cbonombre.Text & "'"
+            cmd1.CommandText = "SELECT Codigo,CodigoP,UVentaP,Descrip,UVenta,Cantidad,Fase,Comentario,RealT,Teorico,Grupo FROM miprod WHERE DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 If rd1.HasRows Then
@@ -68,7 +68,7 @@ Public Class frmProducirQ
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT Codigo,Descrip,UVenta,Cantidad,Existencia,Multiplo,PrecioCompra,Fase,Comentario,RealT,Teorico,Grupo FROM productos WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
+                    cmd2.CommandText = "SELECT Existencia,Multiplo,PrecioCompra FROM productos WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
