@@ -305,25 +305,25 @@
         'Proveedor
         If (optproveedor.Checked) Then
             querry1 = "select count(Codigo) from Productos where ProvPri='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
-            querry2 = "select * from Productos where ProvPri='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
+            querry2 = "select Codigo,Nombre,UCompra,PrecioCompra,Existencia,Min from Productos where ProvPri='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
         End If
 
         'Departamento
         If (optdepartamento.Checked) Then
             querry1 = "select count(Codigo) from Productos where Departamento='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
-            querry2 = "select * from Productos where Departamento='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
+            querry2 = "select Codigo,Nombre,UCompra,PrecioCompra,Existencia,Min from Productos where Departamento='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
         End If
 
         'Grupo
         If (optgrupo.Checked) Then
             querry1 = "select count(Codigo) from Productos where Grupo='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
-            querry2 = "select * from Productos where Grupo='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
+            querry2 = "select Codigo,Nombre,UCompra,PrecioCompra,Existencia,Min from Productos where Grupo='" & cboprod.Text & "' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
         End If
 
         'Coincidencia
         If (optcoincide.Checked) Then
             querry1 = "select count(Codigo) from Productos where Nombre like '%" & txtprod.Text & "%' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
-            querry2 = "select * from Productos where Nombre like '%" & txtprod.Text & "%' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
+            querry2 = "select Codigo,Nombre,UCompra,PrecioCompra,Existencia,Min from Productos where Nombre like '%" & txtprod.Text & "%' and Departamento<>'SERVICIOS' and Grupo<>'INSUMO' and Grupo<>'SERVICIOS'"
         End If
 
         If (optproveedor.Checked) Or (optdepartamento.Checked) Or (optgrupo.Checked) Or (optcoincide.Checked) Then
@@ -444,14 +444,14 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Rep_Salidas order by Cantidad DESC"
+                    "select Codigo,Nombre,Unidad,Cantidad from Rep_Salidas order by Cantidad DESC"
                 rd1 = cmd1.ExecuteReader
                 cnn2.Close() : cnn2.Open()
                 Do While rd1.Read
                     If rd1.HasRows Then
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from Productos where Codigo='" & rd1("Codigo").ToString & "'"
+                            "select PrecioCompra,Existencia,Min from Productos where Codigo='" & rd1("Codigo").ToString & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

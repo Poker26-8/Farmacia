@@ -4,13 +4,21 @@ Imports System.IO
 Public Class frmAbonoCompras
     Dim id_prov As Integer = 0
 
+    Dim nLogo As String = ""
+    Dim tLogo As String = ""
+    Dim simbolo As String = ""
+
     Private Sub frmAbonoCompras_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+        nLogo = DatosRecarga("LogoG")
+        tLogo = DatosRecarga("TipoLogo")
+        simbolo = DatosRecarga("Simbolo")
         Try
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where Proveedor='" & cboproveedor.Text & "' and NumRemision='" & txtremision.Text & "'"
+                "select Resta,IdProv from Compras where Proveedor='" & cboproveedor.Text & "' and NumRemision='" & txtremision.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -36,7 +44,7 @@ Public Class frmAbonoCompras
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Compras where Proveedor='" & cboproveedor.Text & "' and NumRemision='" & txtremision.Text & "'"
+                        "select Resta,IdProv from Compras where Proveedor='" & cboproveedor.Text & "' and NumRemision='" & txtremision.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -213,7 +221,7 @@ Public Class frmAbonoCompras
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Permisos where IdEmpleado=" & id_usuario
+            "select Comp_Abon from Permisos where IdEmpleado=" & id_usuario
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -242,7 +250,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & txtremision.Text & "' and Status='PAGADO' and Proveedor='" & cboproveedor.Text & "'"
+                    "select NumRemision from Compras where NumRemision='" & txtremision.Text & "' and Status='PAGADO' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -256,7 +264,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & txtremision.Text & "' and Status='CANCELADA' and Proveedor='" & cboproveedor.Text & "'"
+                    "select NumRemision from Compras where NumRemision='" & txtremision.Text & "' and Status='CANCELADA' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -270,7 +278,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & txtremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select NumFactura,NumPedido,IdProv from Compras where NumRemision='" & txtremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -479,7 +487,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                    "select Alias from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -529,10 +537,8 @@ Public Class frmAbonoCompras
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
+
         Dim Pie As String = ""
 
         '[°]. Logotipo
@@ -557,7 +563,7 @@ Public Class frmAbonoCompras
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then

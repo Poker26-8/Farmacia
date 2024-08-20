@@ -30,7 +30,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where NComercial='" & cboNombre.Text & "'"
+                "select Compania,RFC from Proveedores where NComercial='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -193,7 +193,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                        "select IdEmpleado from Usuarios where Clave='" & txtusuario.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -212,7 +212,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Permisos where IdEmpleado=" & id_usuario
+                        "select Comp_Anti from Permisos where IdEmpleado=" & id_usuario
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -254,7 +254,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                "select IdEmpleado from Usuarios where Clave='" & txtusuario.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -274,7 +274,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Permisos where IdEmpleado=" & id_usuario
+                "select Comp_Anti from Permisos where IdEmpleado=" & id_usuario
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -305,7 +305,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Proveedores where NComercial='" & cboNombre.Text & "'"
+                        "select Id from Proveedores where NComercial='" & cboNombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -390,5 +390,9 @@
         cbotipo.Items.Add("TRANSFERENCIA")
         cbotipo.Items.Add("DEPOSITO")
         cbotipo.Items.Add("OTRO")
+    End Sub
+
+    Private Sub frmAnticipoProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
