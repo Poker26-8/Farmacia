@@ -197,4 +197,180 @@ Public Class frmCambiaCodigo
         frmClavesSat.BringToFront()
         frmClavesSat.Show()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    Excel_Grid_SQL(DataGridView1)
+        'End If
+
+        Button1.Enabled = False
+        My.Application.DoEvents()
+        Dim cnn1 As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\BaseExportar\DL1.mdb;;Persist Security Info=True;Jet OLEDB:Database Password=jipl22")
+        Dim cmd1 As OleDbCommand = New OleDbCommand
+        Dim rd1 As OleDbDataReader
+        Dim cuantos As Integer = 0
+
+        Dim claveprod As String = ""
+        Dim descripcion As String = ""
+        Dim palabra As String = ""
+
+        Dim conteo As Integer = 0
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "select * from ProductoSat"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                Do While rd1.Read
+                    claveprod = rd1("ClaveProdSat").ToString
+                    descripcion = rd1("Descripcion").ToString
+                    palabra = rd1("PalabrasSimilares").ToString
+
+                    descripcion = Trim(Replace(descripcion, "‘", ""))
+                    descripcion = Trim(Replace(descripcion, "'", "''"))
+                    descripcion = Trim(Replace(descripcion, "*", ""))
+                    descripcion = Trim(Replace(descripcion, "", ""))
+                    descripcion = descripcion.Replace("’", "")
+                    My.Application.DoEvents()
+
+                    palabra = Trim(Replace(palabra, "‘", ""))
+                    palabra = Trim(Replace(palabra, "'", "''"))
+                    palabra = Trim(Replace(palabra, "*", ""))
+                    palabra = Trim(Replace(palabra, "", ""))
+                    palabra = palabra.Replace("’", "")
+                    My.Application.DoEvents()
+
+                    cnn2.Close()
+                    cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "Insert into productosat(ClaveProdSat,Descripcion,PalabrasSimilares) values('" & claveprod & "','" & descripcion & "','" & palabra & "')"
+                    If cmd2.ExecuteNonQuery Then
+                        cuantos = cuantos + 1
+                        txtbarras.Text = cuantos
+                        My.Application.DoEvents()
+                    Else
+                        MsgBox("Revisa el codigo " & claveprod & " hay un error", vbCritical + vbOKOnly)
+                    End If
+                Loop
+                cnn2.Close()
+                MsgBox("Se insertaron " & cuantos & " productos")
+                rd1.Close()
+                cnn1.Close()
+                txtbarras.Text = ""
+            End If
+            My.Application.DoEvents()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+        My.Application.DoEvents()
+        Button1.Enabled = True
+
+    End Sub
+
+    Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)
+
+        Dim con As OleDb.OleDbConnection
+        Dim dt As New System.Data.DataTable
+        Dim ds As New DataSet
+        Dim da As OleDb.OleDbDataAdapter
+        Dim cuadro_dialogo As New OpenFileDialog
+        Dim ruta As String = ""
+        Dim sheet As String = "hoja1"
+
+        With cuadro_dialogo
+            .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
+            .Title = "Selecciona el archivo a importar"
+            .Multiselect = False
+            .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
+            .ShowDialog()
+        End With
+
+        Try
+            If cuadro_dialogo.FileName.ToString() <> "" Then
+                ruta = cuadro_dialogo.FileName.ToString()
+                con = New OleDb.OleDbConnection(
+                    "Provider=Microsoft.ACE.OLEDB.12.0;" &
+                    " Data Source='" & ruta & "'; " &
+                    "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
+
+                da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
+
+                con.Open()
+                da.Fill(ds, "MyData")
+                dt = ds.Tables("MyData")
+                tabla.DataSource = ds
+                tabla.DataMember = "MyData"
+                con.Close()
+            End If
+
+            Dim claveprod, descripcion, palabra As String
+
+            Dim conteo As Integer = 0
+
+            barsube.Value = 0
+            barsube.Maximum = DataGridView1.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            Dim contadorconexion As Integer = 0
+
+            For dx As Integer = 0 To DataGridView1.Rows.Count - 1
+                contadorconexion += 1
+
+                claveprod = NulCad(DataGridView1.Rows(dx).Cells(0).Value.ToString())
+                descripcion = NulCad(DataGridView1.Rows(dx).Cells(1).Value.ToString())
+                palabra = NulCad(DataGridView1.Rows(dx).Cells(2).Value.ToString())
+
+                If contadorconexion > 499 Then
+                    cnn1.Close() : cnn1.Open()
+                    contadorconexion = 1
+                End If
+
+                descripcion = Trim(Replace(descripcion, "‘", ""))
+                descripcion = Trim(Replace(descripcion, "'", "''"))
+                descripcion = Trim(Replace(descripcion, "*", ""))
+                descripcion = Trim(Replace(descripcion, "", ""))
+                descripcion = descripcion.Replace("’", "")
+                My.Application.DoEvents()
+
+                palabra = Trim(Replace(palabra, "‘", ""))
+                palabra = Trim(Replace(palabra, "'", "''"))
+                palabra = Trim(Replace(palabra, "*", ""))
+                palabra = Trim(Replace(palabra, "", ""))
+                palabra = palabra.Replace("’", "")
+                My.Application.DoEvents()
+
+                If cnn1.State = 0 Then cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO productosat(ClaveProdSat,Descripcion,PalabrasSimilares) VALUES('" & claveprod & "','" & descripcion & "','" & palabra & "')"
+                cmd1.ExecuteNonQuery()
+
+                conteo += 1
+                barsube.Value = conteo
+            Next
+
+            cnn1.Close()
+            tabla.DataSource = Nothing
+            tabla.Dispose()
+            DataGridView1.Rows.Clear()
+            barsube.Value = 0
+
+            MsgBox(conteo & " productos sat fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+    End Sub
+
+    Private Function NulCad(ByVal cadena As String) As String
+        If IsDBNull(cadena) Then
+            NulCad = ""
+        Else
+            NulCad = Replace(cadena, "'", "") : Replace(cadena, "*", "")
+        End If
+    End Function
 End Class

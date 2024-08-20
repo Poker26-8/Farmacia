@@ -146,7 +146,7 @@ Public Class frmPedidos
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre='" & cbonombre.Text & "' and Length(Codigo)<7 and Departamento<>'SERVICIOS'"
+                "select Codigo,UCompra from Productos where Nombre='" & cbonombre.Text & "' and Length(Codigo)<7 and Departamento<>'SERVICIOS'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -171,7 +171,7 @@ Public Class frmPedidos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cbonombre.Text & "' and Length(Codigo)<7 and Departamento<>'SERVICIOS'"
+                    "select Codigo,UCompra from Productos where Nombre='" & cbonombre.Text & "' and Length(Codigo)<7 and Departamento<>'SERVICIOS'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -183,7 +183,7 @@ Public Class frmPedidos
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where CodBarra='" & cbonombre.Text & "'"
+                    "select Nombre,Codigo,UCompra from Productos where CodBarra='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -254,7 +254,7 @@ Public Class frmPedidos
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & txtcodigo.Text & "'"
+                        "select Nombre,UCompra,PrecioCompra,Existencia from Productos where Codigo='" & txtcodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -299,7 +299,7 @@ Public Class frmPedidos
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Codigo='" & txtcodigo.Text & "'"
+                "select Nombre,UCompra,Existencia,Min,Max,PrecioCompra from Productos where Codigo='" & txtcodigo.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

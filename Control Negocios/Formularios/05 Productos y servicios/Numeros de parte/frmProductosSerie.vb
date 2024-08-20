@@ -14,19 +14,19 @@ Public Class frmProductosSerie
             cmd1 = cnn1.CreateCommand
             If vemos = "CODIGO" Then
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                    "select Codigo,Nombre,CodBarra,NombreLargo,IVA,UCompra,UVenta,UMinima,MCD,Multiplo,Min,Max,Comision,ProvPri,ProvEme,Departamento,Grupo,Ubicacion,ProvRes,PercentIVAret,IIEPS,ClaveSat,UnidadSat,N_Serie,GPrint from Productos where Codigo='" & cboCodigo.Text & "'"
             End If
             If vemos = "BARRAS" Then
                 cmd1.CommandText =
-                    "select * from Productos where CodBarra='" & txtbarras.Text & "'"
+                    "select Codigo,Nombre,CodBarra,NombreLargo,IVA,UCompra,UVenta,UMinima,MCD,Multiplo,Min,Max,Comision,ProvPri,ProvEme,Departamento,Grupo,Ubicacion,ProvRes,PercentIVAret,IIEPS,ClaveSat,UnidadSat,N_Serie,GPrint from Productos where CodBarra='" & txtbarras.Text & "'"
             End If
             If vemos = "NOMBRE" Then
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "'"
+                    "select Codigo,Nombre,CodBarra,NombreLargo,IVA,UCompra,UVenta,UMinima,MCD,Multiplo,Min,Max,Comision,ProvPri,ProvEme,Departamento,Grupo,Ubicacion,ProvRes,PercentIVAret,IIEPS,ClaveSat,UnidadSat,N_Serie,GPrint from Productos where Nombre='" & cboNombre.Text & "'"
             End If
             If vemos = "SERIE" Then
                 cmd1.CommandText =
-                    "select * from Productos where N_Serie='" & txtn_serie.Text & "'"
+                    "select Codigo,Nombre,CodBarra,NombreLargo,IVA,UCompra,UVenta,UMinima,MCD,Multiplo,Min,Max,Comision,ProvPri,ProvEme,Departamento,Grupo,Ubicacion,ProvRes,PercentIVAret,IIEPS,ClaveSat,UnidadSat,N_Serie,GPrint from Productos where N_Serie='" & txtn_serie.Text & "'"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -60,8 +60,8 @@ Public Class frmProductosSerie
                     '-------------------------
                     '- Red
                     '------------
-                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                        picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                        picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                         txtrutaimagen.Text = ""
                     End If
                 End If
@@ -70,7 +70,7 @@ Public Class frmProductosSerie
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                      "select * from tb_moneda,Productos where Codigo='" & cboCodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
+                      "select id,nombre_moneda from tb_moneda,Productos where Codigo='" & cboCodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -96,7 +96,7 @@ Public Class frmProductosSerie
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
+            "select id,nombre_moneda from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -171,7 +171,7 @@ Public Class frmProductosSerie
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select CodBarra,Nombre,ProvPri,IVA,ProvEme,ProvRes,UCompra,UVenta,UMinima,Departamento,Grupo,Ubicacion,Max,Min,Comision,MCD,Multiplo,NombreLargo,PercentIVAret,IIEPS,N_Serie from Productos where Codigo='" & cboCodigo.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -202,7 +202,7 @@ Public Class frmProductosSerie
 
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(cboCodigo.Text, 6) & "'"
+                    "select CodBarra,Nombre,ProvPri,IVA,ProvEme,ProvRes,UCompra,UVenta,UMinima,Departamento,Grupo,Ubicacion,Max,Min,Comision,MCD,Multiplo,NombreLargo,N_Serie from Productos where Codigo='" & Strings.Left(cboCodigo.Text, 6) & "'"
                 rd3 = cmd3.ExecuteReader
                 If rd3.HasRows Then
                     If rd3.Read Then
@@ -325,7 +325,7 @@ Public Class frmProductosSerie
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "' order by Codigo"
+                    "select Codigo,CodBarra,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,Departamento,Grupo,Ubicacion,Min,Max,IVA,Comision,MCD,Multiplo,NombreLargo,PercentIVAret,N_Serie from Productos where Nombre='" & cboNombre.Text & "' order by Codigo"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -353,7 +353,7 @@ Public Class frmProductosSerie
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from tb_moneda,Productos where Codigo='" & cboCodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
+                            "select id,nombre_moneda from tb_moneda,Productos where Codigo='" & cboCodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -363,8 +363,8 @@ Public Class frmProductosSerie
                         End If
                         rd2.Close() : cnn2.Close()
 
-                        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                            picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                            picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                             txtrutaimagen.Text = ""
                         End If
                     End If
@@ -726,7 +726,7 @@ Public Class frmProductosSerie
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
+                "select id from tb_moneda where nombre_moneda='" & cboMoneda.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -852,7 +852,7 @@ Public Class frmProductosSerie
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
             Else
@@ -926,7 +926,7 @@ Public Class frmProductosSerie
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -941,10 +941,10 @@ Public Class frmProductosSerie
                         If (picImagen.Image Is Nothing) Then
                         Else
                             If txtrutaimagen.Text <> "" Then
-                                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                 End If
-                                picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
                         End If
 
@@ -965,10 +965,10 @@ Public Class frmProductosSerie
                     If (picImagen.Image Is Nothing) Then
                     Else
                         If txtrutaimagen.Text <> "" Then
-                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                             End If
-                            picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                            picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                         End If
                     End If
 
@@ -993,7 +993,7 @@ Public Class frmProductosSerie
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "' and Nombre='" & cboNombre.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "' and Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If Not rd1.HasRows Then
                 MsgBox("No puedes elimnar un producto que no está dado de alta en el sistema.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -1012,8 +1012,8 @@ Public Class frmProductosSerie
                 Else
                     If txtrutaimagen.Text = "" Then
                         picImagen.Image.Dispose()
-                        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                            File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                            File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                             picImagen.Image = Nothing
                         End If
                     Else
@@ -1197,7 +1197,7 @@ Public Class frmProductosSerie
 
         cmd2 = cnn2.CreateCommand
         cmd2.CommandText =
-            "select * from Productos where Codigo='" & cod & "'"
+            "select Codigo from Productos where Codigo='" & cod & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1210,7 +1210,7 @@ Public Class frmProductosSerie
         If codbarra <> "" Then
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where CodBarra='" & codbarra & "'"
+                "select CodBarra from Productos where CodBarra='" & codbarra & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1223,7 +1223,7 @@ Public Class frmProductosSerie
 
         cmd2 = cnn2.CreateCommand
         cmd2.CommandText =
-            "select * from Productos where Nombre='" & desc & "'"
+            "select Nombre from Productos where Nombre='" & desc & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1237,7 +1237,7 @@ Public Class frmProductosSerie
         Else
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where N_Serie='" & n_serie & "'"
+                "select N_Serie from Productos where N_Serie='" & n_serie & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

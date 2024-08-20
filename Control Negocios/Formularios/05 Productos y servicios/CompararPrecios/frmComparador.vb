@@ -170,7 +170,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM precios WHERE Descripcion='" & cboDescripcion.Text & "'"
+            cmd2.CommandText = "SELECT Codigo,Descripcion,Proveedor,PrecioAnt FROM precios WHERE Descripcion='" & cboDescripcion.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -218,7 +218,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM precios WHERE Codigo='" & cboCodigo.Text & "' AND Proveedor='" & cboproveedor.Text & "'"
+            cmd1.CommandText = "SELECT Codigo FROM precios WHERE Codigo='" & cboCodigo.Text & "' AND Proveedor='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -330,7 +330,7 @@
                 proveedor = Trim(Replace(proveedor, "'", "''"))
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM proveedores WHERE NComercial='" & proveedor & "'"
+                cmd1.CommandText = "SELECT NComercial FROM proveedores WHERE NComercial='" & proveedor & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

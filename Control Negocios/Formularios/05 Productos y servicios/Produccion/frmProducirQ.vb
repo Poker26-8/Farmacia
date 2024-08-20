@@ -31,7 +31,7 @@ Public Class frmProducirQ
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM miprod WHERE DescripP='" & cbonombre.Text & "'"
+            cmd1.CommandText = "SELECT CodigoP,UVentaP FROM miprod WHERE DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 If rd1.HasRows Then
@@ -46,7 +46,7 @@ Public Class frmProducirQ
                 If rd1.HasRows Then
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "select * from Productos where Codigo='" & rd1("Codigo").ToString & "'"
+                    cmd2.CommandText = "select PrecioCompra from Productos where Codigo='" & rd1("Codigo").ToString & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -68,7 +68,7 @@ Public Class frmProducirQ
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
+                    cmd2.CommandText = "SELECT Codigo,Descrip,UVenta,Cantidad,Existencia,Multiplo,PrecioCompra,Fase,Comentario,RealT,Teorico,Grupo FROM productos WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -669,14 +669,12 @@ Public Class frmProducirQ
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                ' cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "'"
-                cmd1.CommandText = "SELECT * FROM produccioncdetalle WHERE Folio='" & cboLote.Text & "'"
+                cmd1.CommandText = "SELECT Folio FROM produccioncdetalle WHERE Folio='" & cboLote.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        ' cmd2.CommandText = "UPDATE miprod SET Comentario='" & rtComentario.Text & "' WHERE CodigoP='" & cbocodigo.Text & "'"
                         cmd2.CommandText = "UPDATE produccioncdetalle SET Comentario='" & rtComentario.Text & "' WHERE Folio='" & cboLote.Text & "'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
@@ -1251,7 +1249,7 @@ Public Class frmProducirQ
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM produccionc WHERE Lote='" & cboLote.Text & "'"
+            cmd1.CommandText = "SELECT Lote FROM produccionc WHERE Lote='" & cboLote.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1707,7 +1705,7 @@ doorcita:
             cnn3.Close() : cnn3.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM produccionc WHERE Lote='" & cboLoteB.Text & "'"
+            cmd1.CommandText = "SELECT NCliente,Cliente,Codigo,Sku,Revision,Aplicacion,Recepcion,CodigoP,Descripcion,UVenta,Cantidad,Precio,Lote,FLote,Procedimiento,Observaciones FROM produccionc WHERE Lote='" & cboLoteB.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1730,7 +1728,7 @@ doorcita:
                     rtObservaciones.Text = rd1("Observaciones").ToString
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM produccioncdetalle WHERE Folio='" & cboLoteB.Text & "'"
+                    cmd2.CommandText = "SELECT Codigo,FLoteP,Descripcion,UVenta,Cantidad,Precio,Teorico,RealT,LoteP,Fase FROM produccioncdetalle WHERE Folio='" & cboLoteB.Text & "'"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         If rd2.HasRows Then

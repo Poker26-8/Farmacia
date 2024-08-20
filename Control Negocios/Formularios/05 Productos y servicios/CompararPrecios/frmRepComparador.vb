@@ -31,7 +31,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM precios WHERE Proveedor='" & cboproveedor.Text & "' ORDER BY Codigo"
+            cmd1.CommandText = "SELECT Codigo,CodBarra,Descripcion,PrecioAnt FROM precios WHERE Proveedor='" & cboproveedor.Text & "' ORDER BY Codigo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -147,4 +147,7 @@
 
     End Sub
 
+    Private Sub frmRepComparador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

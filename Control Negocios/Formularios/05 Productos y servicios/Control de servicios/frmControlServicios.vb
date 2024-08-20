@@ -8,7 +8,7 @@
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                    "select Alias,Puesto from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -20,7 +20,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from control_servicios where Encargado='" & lblusuario.Text & "' and Status=0 order by Termino ASC"
+                    "select Id,Nombre,Comentario,Termino,Folio from control_servicios where Encargado='" & lblusuario.Text & "' and Status=0 order by Termino ASC"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -69,7 +69,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from control_servicios where Id=" & id & " and Status=0"
+                "select Codigo,Nombre,Comentario,Inicio,Termino,ComentarioVen from control_servicios where Id=" & id & " and Status=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -161,7 +161,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from control_servicios_det where Id_cs=" & txtid.Text & " and Status=0 order by Entrega ASC"
+                "select Id,Proceso,Entrega from control_servicios_det where Id_cs=" & txtid.Text & " and Status=0 order by Entrega ASC"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

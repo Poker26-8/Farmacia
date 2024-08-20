@@ -75,4 +75,8 @@
             cnn1.Close()
         End Try
     End Sub
+
+    Private Sub frmSalidas_Pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

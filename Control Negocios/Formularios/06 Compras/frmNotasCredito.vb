@@ -39,7 +39,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "'  and Compras.NumFactura='" & cbofactura.Text & "'"
+                "select Nombre from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "'  and Compras.NumFactura='" & cbofactura.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbonombre.Items.Add(
@@ -67,7 +67,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "' and Compras.NumFactura='" & cbofactura.Text & "' and Nombre='" & cbonombre.Text & "'"
+                    "select Codigo,UCompra,Cantidad,Precio from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "' and Compras.NumFactura='" & cbofactura.Text & "' and Nombre='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -126,7 +126,7 @@ errs:
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where CodBarra='" & vemos & "'"
+                "select Codigo,Nombre,UCompra,Precio from Productos where CodBarra='" & vemos & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -145,7 +145,7 @@ errs:
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "' and Compras.NumFactura='" & cbofactura.Text & "' and Nombre='" & cbonombre.Text & "'"
+                "select Codigo,UCompra,Cantidad,Precio from Compras INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where Compras.Proveedor='" & cboproveedor.Text & "' and Compras.NumFactura='" & cbofactura.Text & "' and Nombre='" & cbonombre.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -235,7 +235,7 @@ errs:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                "select NumFactura,Sub1,Desc1,Sub2,IVA,Total,ACuenta,Resta,FechaC from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -310,7 +310,7 @@ errs:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                "select NumRemision,Sub1,Desc1,Sub2,IVA,Total,ACuenta,Resta,FechaC from Compras where NumFactura='" & cbofactura.Text & "' and Proveedor='" & cboproveedor.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -385,7 +385,7 @@ errs:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where NotaCred='" & cbonota_c.Text & "' and Proveedor='" & cboproveedor.Text & "' and NumFactura='" & cbofactura.Text & "' and NumRemision='" & cboremision.Text & "'"
+                "select Sub1,IVA,FechaNC from Compras where NotaCred='" & cbonota_c.Text & "' and Proveedor='" & cboproveedor.Text & "' and NumFactura='" & cbofactura.Text & "' and NumRemision='" & cboremision.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 If rd1.Read Then
@@ -399,7 +399,7 @@ errs:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where NotaCred='" & cbonota_c.Text & "' and Proveedor='" & cboproveedor.Text & "' and NumFactura='" & cbofactura.Text & "' and NumRemision='" & cboremision.Text & "'"
+                "select Codigo,Cantidad,Precio,Total from ComprasDet where NotaCred='" & cbonota_c.Text & "' and Proveedor='" & cboproveedor.Text & "' and NumFactura='" & cbofactura.Text & "' and NumRemision='" & cboremision.Text & "'"
             rd1 = cmd1.ExecuteReader
 
             cnn2.Close() : cnn2.Open()            
@@ -414,7 +414,7 @@ errs:
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                    "select Nombre,UCompra,Existencia from Productos where Codigo='" & codigo & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -463,7 +463,7 @@ errs:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compra INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where ComprasDet.Codigo='" & txtcodigo.Text & "' and Compras.Proveedor='" & cboproveedor.Text & "' and NumRemsion='" & cboremision.Text & "'"
+                    "select Nombre from Compra INNER JOIN ComprasDet ON Compras.Id=ComprasDet.Id_Compra where ComprasDet.Codigo='" & txtcodigo.Text & "' and Compras.Proveedor='" & cboproveedor.Text & "' and NumRemsion='" & cboremision.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then cbonombre.Items.Add(rd1("Nombre").ToString)
@@ -614,7 +614,7 @@ errs:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & TextBox12.Text & "'"
+                    "select IdEmpleado,Alias from Usuarios where Clave='" & TextBox12.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -769,7 +769,7 @@ errs:
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select Departamento,Grupo,Multiplo,Existencia from Productos where Codigo='" & codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -873,5 +873,9 @@ errs:
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmNotasCredito_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

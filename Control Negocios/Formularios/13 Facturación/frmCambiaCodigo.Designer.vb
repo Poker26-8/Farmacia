@@ -37,9 +37,14 @@ Partial Class frmCambiaCodigo
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.DGVProd = New System.Windows.Forms.DataGridView()
         Me.btnClaves = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.txtbarras = New System.Windows.Forms.TextBox()
+        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DGVEmpresa, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVProd, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label101
@@ -51,16 +56,16 @@ Partial Class frmCambiaCodigo
         Me.Label101.Location = New System.Drawing.Point(0, 0)
         Me.Label101.Name = "Label101"
         Me.Label101.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label101.Size = New System.Drawing.Size(902, 31)
+        Me.Label101.Size = New System.Drawing.Size(984, 31)
         Me.Label101.TabIndex = 94
         Me.Label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboEmpresa
         '
         Me.cboEmpresa.FormattingEnabled = True
-        Me.cboEmpresa.Location = New System.Drawing.Point(635, 58)
+        Me.cboEmpresa.Location = New System.Drawing.Point(677, 58)
         Me.cboEmpresa.Name = "cboEmpresa"
-        Me.cboEmpresa.Size = New System.Drawing.Size(259, 23)
+        Me.cboEmpresa.Size = New System.Drawing.Size(298, 23)
         Me.cboEmpresa.TabIndex = 103
         Me.cboEmpresa.Visible = False
         '
@@ -116,7 +121,7 @@ Partial Class frmCambiaCodigo
         Me.btnActualizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnActualizar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnActualizar.Location = New System.Drawing.Point(819, 84)
+        Me.btnActualizar.Location = New System.Drawing.Point(900, 84)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(75, 45)
         Me.btnActualizar.TabIndex = 101
@@ -137,7 +142,7 @@ Partial Class frmCambiaCodigo
         '
         Me.txtDescEmpresa.Location = New System.Drawing.Point(416, 58)
         Me.txtDescEmpresa.Name = "txtDescEmpresa"
-        Me.txtDescEmpresa.Size = New System.Drawing.Size(213, 23)
+        Me.txtDescEmpresa.Size = New System.Drawing.Size(255, 23)
         Me.txtDescEmpresa.TabIndex = 99
         '
         'DGVEmpresa
@@ -147,7 +152,7 @@ Partial Class frmCambiaCodigo
         Me.DGVEmpresa.Location = New System.Drawing.Point(416, 132)
         Me.DGVEmpresa.Name = "DGVEmpresa"
         Me.DGVEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVEmpresa.Size = New System.Drawing.Size(478, 462)
+        Me.DGVEmpresa.Size = New System.Drawing.Size(559, 462)
         Me.DGVEmpresa.TabIndex = 98
         '
         'Label1
@@ -190,12 +195,54 @@ Partial Class frmCambiaCodigo
         Me.btnClaves.Text = "Agregar Claves"
         Me.btnClaves.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(819, 84)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 45)
+        Me.Button1.TabIndex = 105
+        Me.Button1.Text = "Importar Claves"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(369, 50)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(38, 31)
+        Me.DataGridView1.TabIndex = 106
+        Me.DataGridView1.Visible = False
+        '
+        'txtbarras
+        '
+        Me.txtbarras.Location = New System.Drawing.Point(900, 34)
+        Me.txtbarras.Name = "txtbarras"
+        Me.txtbarras.Size = New System.Drawing.Size(75, 23)
+        Me.txtbarras.TabIndex = 107
+        '
+        'barsube
+        '
+        Me.barsube.Location = New System.Drawing.Point(828, 43)
+        Me.barsube.Name = "barsube"
+        Me.barsube.Size = New System.Drawing.Size(66, 14)
+        Me.barsube.TabIndex = 222
+        '
         'frmCambiaCodigo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(902, 607)
+        Me.ClientSize = New System.Drawing.Size(984, 607)
+        Me.Controls.Add(Me.barsube)
+        Me.Controls.Add(Me.txtbarras)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnClaves)
         Me.Controls.Add(Me.cboEmpresa)
         Me.Controls.Add(Me.GroupBox1)
@@ -216,6 +263,7 @@ Partial Class frmCambiaCodigo
         Me.GroupBox1.PerformLayout()
         CType(Me.DGVEmpresa, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVProd, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -235,4 +283,8 @@ Partial Class frmCambiaCodigo
     Friend WithEvents txtDesc As TextBox
     Friend WithEvents DGVProd As DataGridView
     Friend WithEvents btnClaves As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents txtbarras As TextBox
+    Friend WithEvents barsube As ProgressBar
 End Class

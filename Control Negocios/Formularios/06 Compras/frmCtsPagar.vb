@@ -35,7 +35,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cbonombre.Text & "'"
+                "select Id from Proveedores where Compania='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -113,7 +113,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Compras where Proveedor='" & cbonombre.Text & "' and NumRemision='" & cboremision.Text & "'"
+                        "select Id,NumFactura,Sub1,Desc1,Sub2,IVA,Total,Desc2,Pagar,Anticipo,FechaC,Resta from Compras where Proveedor='" & cbonombre.Text & "' and NumRemision='" & cboremision.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -147,7 +147,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from AbonoE where Proveedor='" & cbonombre.Text & "' and NumRemision='" & cboremision.Text & "' and Concepto='ABONO'"
+                        "select Efectivo,Tarjeta,Transfe,Otro from AbonoE where Proveedor='" & cbonombre.Text & "' and NumRemision='" & cboremision.Text & "' and Concepto='ABONO'"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -166,7 +166,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from ComprasDet where Id_Compra=" & id_compra
+                        "select Codigo,Nombre,UCompra,Cantidad,Precio,Total from ComprasDet where Id_Compra=" & id_compra
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -245,7 +245,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Compras where Proveedor='" & cbonombre.Text & "' and NumFactura='" & cbofactura.Text & "'"
+                        "select Id,NumRemision,Sub1,Desc1,Sub2,IVA,Total,Desc2,Pagar,Anticipo,FechaC from Compras where Proveedor='" & cbonombre.Text & "' and NumFactura='" & cbofactura.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -277,7 +277,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from AbonoE where Proveedor='" & cbonombre.Text & "' and NumFactura='" & cbofactura.Text & "' and Concepto='ABONO'"
+                        "select Efectivo,Tarjeta,Transfe,Otro from AbonoE where Proveedor='" & cbonombre.Text & "' and NumFactura='" & cbofactura.Text & "' and Concepto='ABONO'"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -294,7 +294,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from ComprasDet where Id_Compra=" & id_compra
+                        "select Codigo,Nombre,UCompra,Cantidad,Precio,Total from ComprasDet where Id_Compra=" & id_compra
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -417,5 +417,9 @@
 
     Private Sub frmCtsPagar_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
         cbonombre.Focus().Equals(True)
+    End Sub
+
+    Private Sub frmCtsPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
