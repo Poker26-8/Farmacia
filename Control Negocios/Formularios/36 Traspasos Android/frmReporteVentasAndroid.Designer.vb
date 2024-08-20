@@ -62,6 +62,8 @@ Partial Class frmReporteVentasAndroid
         '
         Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button7.Image = Global.Control_Negocios.My.Resources.Resources.eliminar
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button7.Location = New System.Drawing.Point(577, 233)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(72, 68)
@@ -74,6 +76,7 @@ Partial Class frmReporteVentasAndroid
         '
         Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
         Me.Button6.Location = New System.Drawing.Point(499, 233)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(72, 68)

@@ -717,6 +717,8 @@ Partial Class frmModulos
         '
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Image = Global.Control_Negocios.My.Resources.Resources.recargas1Recurso_86
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button3.Location = New System.Drawing.Point(800, 343)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(93, 71)
@@ -732,7 +734,7 @@ Partial Class frmModulos
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(93, 37)
         Me.Label30.TabIndex = 57
-        Me.Label30.Text = "Traspasos Android"
+        Me.Label30.Text = "Ventas en Ruta"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmModulos
