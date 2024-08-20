@@ -137,6 +137,8 @@ Partial Class frmSucursales
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(490, 270)
+        Me.MinimumSize = New System.Drawing.Size(490, 270)
         Me.Name = "frmSucursales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Catalogo de Sucursales"

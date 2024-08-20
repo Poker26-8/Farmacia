@@ -2801,7 +2801,8 @@
                                               `cat_Bancos` int(1) NOT NULL DEFAULT '0',
                                               `cat_Cuentas` int(1) NOT NULL DEFAULT '0',
                                               `PreciosHab` int(1) NOT NULL DEFAULT '0',
-                                              `ReimprimirTicket` int(1) NOT NULL DEFAULT '0'
+                                              `ReimprimirTicket` int(1) NOT NULL DEFAULT '0',
+                                              `Ad_Ruta` int(1) NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     Public varinsertapermisos As String = "INSERT INTO `permisos` (`Id`, `IdEmpleado`, `Cat_Emp`, `Cat_Cli`, `Cat_Prov`, `Cat_Mone`, `Asis_Hora`, `Asis_Hue`, `Asis_Asis`, `Asis_Rep`, `Prod_Prod`, `Prod_Serv`, `Prod_Pre`, `Prod_Prom`, `Prod_Kits`, `Comp_Ped`, `Comp_CPed`, `Comp_Com`, `Comp_CCom`, `Comp_NCred`, `Comp_CtPag`, `Comp_Abon`, `Comp_Anti`, `Vent_Most`, `Vent_Touch`, `Vent_NVen`, `Vent_Coti`, `Vent_Pedi`, `Vent_Devo`, `Vent_CFol`, `Vent_Abo`, `Vent_Canc`, `Vent_EPrec`, `Ing_CEmp`, `Egr_PEmp`, `Egr_Nom`, `Egr_Tran`, `Egr_Otro`, `Rep_Vent`, `Rep_VentG`, `Rep_Comp`, `Rep_CCob`, `Rep_CPag`, `Rep_Ent`, `Rep_Sal`, `Rep_Inv`, `Rep_Aju`, `List_Pre`, `List_Pro`, `List_Fal`, `Fact_Fact`, `Fact_Rep`, `Ad_Perm`, `Ad_Conf`, `Ad_Util`, `Ad_Cort`,`Ad_Cli`,`ReimprimirApp`,`CobAboRem`,`Rep_Servicios`,`Rep_CamPrecio`,`Rep_EstResultado`,`Rep_Auditoria`,`cat_Formas`,`cat_Bancos`,`cat_Cuentas`,`PreciosHab`) VALUES

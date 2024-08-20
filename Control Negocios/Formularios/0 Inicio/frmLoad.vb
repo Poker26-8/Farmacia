@@ -116,7 +116,12 @@ Public Class frmLoad
             Inicio.btnDentista.Visible = False
         End If
         If VentasRuta = 1 Then
-            Inicio.MenuVentasRuta.Visible = True
+            If Inicio.perRuta = 0 Then
+                Inicio.MenuVentasRuta.Enabled = False
+            Else
+                Inicio.MenuVentasRuta.Visible = True
+            End If
+
         Else
             Inicio.MenuVentasRuta.Visible = False
         End If
@@ -490,6 +495,24 @@ Public Class frmLoad
             rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE permisos add column ReimprimirTicket int(1) NOT NULL DEFAULT '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Ad_Ruta FROM permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE permisos add column Ad_Ruta int(1) NOT NULL DEFAULT '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try

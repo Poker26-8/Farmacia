@@ -149,6 +149,7 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.cbLimpiarV = New System.Windows.Forms.CheckBox()
+        Me.chkRuta = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1122,6 +1123,7 @@ Partial Class frmPermisos
         'Panel9
         '
         Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel9.Controls.Add(Me.chkRuta)
         Me.Panel9.Controls.Add(Me.adm_Cor)
         Me.Panel9.Controls.Add(Me.adm_Uti)
         Me.Panel9.Controls.Add(Me.adm_For)
@@ -1129,7 +1131,7 @@ Partial Class frmPermisos
         Me.Panel9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel9.Location = New System.Drawing.Point(484, 148)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(163, 85)
+        Me.Panel9.Size = New System.Drawing.Size(163, 105)
         Me.Panel9.TabIndex = 74
         '
         'adm_Cor
@@ -1237,7 +1239,7 @@ Partial Class frmPermisos
         Me.Panel15.Controls.Add(Me.corte_ciego)
         Me.Panel15.Controls.Add(Me.existencia_cero)
         Me.Panel15.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel15.Location = New System.Drawing.Point(484, 467)
+        Me.Panel15.Location = New System.Drawing.Point(486, 488)
         Me.Panel15.Name = "Panel15"
         Me.Panel15.Size = New System.Drawing.Size(163, 84)
         Me.Panel15.TabIndex = 79
@@ -1276,7 +1278,8 @@ Partial Class frmPermisos
         '
         Me.btneliminainven.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btneliminainven.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btneliminainven.Location = New System.Drawing.Point(484, 283)
+        Me.btneliminainven.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btneliminainven.Location = New System.Drawing.Point(486, 304)
         Me.btneliminainven.Name = "btneliminainven"
         Me.btneliminainven.Size = New System.Drawing.Size(163, 40)
         Me.btneliminainven.TabIndex = 80
@@ -1287,7 +1290,8 @@ Partial Class frmPermisos
         '
         Me.btneliminacat.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btneliminacat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btneliminacat.Location = New System.Drawing.Point(484, 239)
+        Me.btneliminacat.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btneliminacat.Location = New System.Drawing.Point(486, 260)
         Me.btneliminacat.Name = "btneliminacat"
         Me.btneliminacat.Size = New System.Drawing.Size(163, 40)
         Me.btneliminacat.TabIndex = 81
@@ -1301,7 +1305,7 @@ Partial Class frmPermisos
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(484, 392)
+        Me.btnnuevo.Location = New System.Drawing.Point(486, 413)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(78, 71)
         Me.btnnuevo.TabIndex = 82
@@ -1317,7 +1321,7 @@ Partial Class frmPermisos
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(567, 392)
+        Me.btnguardar.Location = New System.Drawing.Point(569, 413)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(80, 71)
         Me.btnguardar.TabIndex = 83
@@ -1330,7 +1334,7 @@ Partial Class frmPermisos
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.optmostr_caja)
         Me.GroupBox2.Controls.Add(Me.optmostrador)
-        Me.GroupBox2.Location = New System.Drawing.Point(515, 557)
+        Me.GroupBox2.Location = New System.Drawing.Point(510, 576)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(132, 69)
         Me.GroupBox2.TabIndex = 87
@@ -1382,7 +1386,7 @@ Partial Class frmPermisos
         'cb_Add_Cli
         '
         Me.cb_Add_Cli.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb_Add_Cli.Location = New System.Drawing.Point(483, 326)
+        Me.cb_Add_Cli.Location = New System.Drawing.Point(485, 347)
         Me.cb_Add_Cli.Name = "cb_Add_Cli"
         Me.cb_Add_Cli.Size = New System.Drawing.Size(164, 34)
         Me.cb_Add_Cli.TabIndex = 229
@@ -1392,7 +1396,7 @@ Partial Class frmPermisos
         'cbContraInicio
         '
         Me.cbContraInicio.AutoSize = True
-        Me.cbContraInicio.Location = New System.Drawing.Point(483, 361)
+        Me.cbContraInicio.Location = New System.Drawing.Point(485, 382)
         Me.cbContraInicio.Name = "cbContraInicio"
         Me.cbContraInicio.Size = New System.Drawing.Size(168, 19)
         Me.cbContraInicio.TabIndex = 230
@@ -1411,7 +1415,7 @@ Partial Class frmPermisos
         Me.GroupBox3.Controls.Add(Me.txt1)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Location = New System.Drawing.Point(137, 200)
+        Me.GroupBox3.Location = New System.Drawing.Point(137, 237)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(371, 225)
         Me.GroupBox3.TabIndex = 231
@@ -1529,9 +1533,9 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPermisosRestaurante.Image = CType(resources.GetObject("btnPermisosRestaurante.Image"), System.Drawing.Image)
         Me.btnPermisosRestaurante.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPermisosRestaurante.Location = New System.Drawing.Point(317, 554)
+        Me.btnPermisosRestaurante.Location = New System.Drawing.Point(321, 578)
         Me.btnPermisosRestaurante.Name = "btnPermisosRestaurante"
-        Me.btnPermisosRestaurante.Size = New System.Drawing.Size(77, 67)
+        Me.btnPermisosRestaurante.Size = New System.Drawing.Size(89, 67)
         Me.btnPermisosRestaurante.TabIndex = 232
         Me.btnPermisosRestaurante.Text = "Restaurantes y Billares"
         Me.btnPermisosRestaurante.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1540,26 +1544,36 @@ Partial Class frmPermisos
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.cbLimpiarV)
-        Me.GroupBox4.Location = New System.Drawing.Point(400, 557)
+        Me.GroupBox4.Location = New System.Drawing.Point(407, 576)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(108, 69)
+        Me.GroupBox4.Size = New System.Drawing.Size(96, 69)
         Me.GroupBox4.TabIndex = 233
         Me.GroupBox4.TabStop = False
         '
         'cbLimpiarV
         '
-        Me.cbLimpiarV.Location = New System.Drawing.Point(6, 12)
+        Me.cbLimpiarV.Location = New System.Drawing.Point(10, 12)
         Me.cbLimpiarV.Name = "cbLimpiarV"
-        Me.cbLimpiarV.Size = New System.Drawing.Size(94, 57)
+        Me.cbLimpiarV.Size = New System.Drawing.Size(87, 57)
         Me.cbLimpiarV.TabIndex = 12
         Me.cbLimpiarV.Text = "Limpiar pantalla de ventas"
         Me.cbLimpiarV.UseVisualStyleBackColor = True
+        '
+        'chkRuta
+        '
+        Me.chkRuta.AutoSize = True
+        Me.chkRuta.Location = New System.Drawing.Point(3, 83)
+        Me.chkRuta.Name = "chkRuta"
+        Me.chkRuta.Size = New System.Drawing.Size(139, 17)
+        Me.chkRuta.TabIndex = 4
+        Me.chkRuta.Text = "traspasos Ventas Ruta"
+        Me.chkRuta.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(654, 630)
+        Me.ClientSize = New System.Drawing.Size(654, 657)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnPermisosRestaurante)
         Me.Controls.Add(Me.GroupBox3)
@@ -1760,4 +1774,5 @@ Partial Class frmPermisos
     Friend WithEvents cbReimprimir As CheckBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents cbLimpiarV As CheckBox
+    Friend WithEvents chkRuta As CheckBox
 End Class

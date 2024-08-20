@@ -442,6 +442,7 @@ Partial Class frmTraspasosAndroid
         Me.Controls.Add(Me.lblconexion)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(736, 709)
         Me.Name = "frmTraspasosAndroid"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmTraspasosAndroid"

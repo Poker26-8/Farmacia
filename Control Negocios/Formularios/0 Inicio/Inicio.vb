@@ -19,6 +19,7 @@ Public Class Inicio
     Dim dr_Sucursales As DataRow
     Dim codigopro As String = ""
     Public CONTRASEÑAA As String = ""
+    Public perRuta As Integer = 0
 
     Private Sub Inicio_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
 
@@ -1334,7 +1335,7 @@ Public Class Inicio
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select Cat_Emp,Cat_Cli,cat_Formas,cat_Bancos,cat_Cuentas,Cat_Prov,Cat_Mone,Asis_Hora,Asis_Hue,Asis_Asis,Asis_Rep,Prod_Prod,Prod_Serv,Prod_Pre,Prod_Prom,Prod_Kits,Comp_Ped,Comp_CPed,Comp_Com,Comp_CCom,Comp_NCred,Comp_CtPag,Comp_Abon,Comp_Anti,Vent_Most,Vent_Touch,Vent_NVen,Vent_Coti,Vent_Pedi,Vent_Devo,Vent_CFol,Vent_Abo,Vent_Canc,Vent_EPrec,Ing_CEmp,Egr_PEmp,Egr_Nom,Egr_Tran,Egr_Otro,Rep_Vent,Rep_VentG,Rep_Comp,Rep_CCob,Rep_CPag,Rep_Ent,Rep_Sal,Rep_Aju,Rep_Inv,Rep_CamPrecio,Rep_EstResultado,Rep_Auditoria,List_Pre,List_Pro,List_Fal,Fact_Fact,Fact_Rep,Ad_Perm,Ad_Conf,Ad_Util,Ad_Cort,EliAbono from Permisos where IdEmpleado=" & id_usuario
+                "select Cat_Emp,Cat_Cli,cat_Formas,cat_Bancos,cat_Cuentas,Cat_Prov,Cat_Mone,Asis_Hora,Asis_Hue,Asis_Asis,Asis_Rep,Prod_Prod,Prod_Serv,Prod_Pre,Prod_Prom,Prod_Kits,Comp_Ped,Comp_CPed,Comp_Com,Comp_CCom,Comp_NCred,Comp_CtPag,Comp_Abon,Comp_Anti,Vent_Most,Vent_Touch,Vent_NVen,Vent_Coti,Vent_Pedi,Vent_Devo,Vent_CFol,Vent_Abo,Vent_Canc,Vent_EPrec,Ing_CEmp,Egr_PEmp,Egr_Nom,Egr_Tran,Egr_Otro,Rep_Vent,Rep_VentG,Rep_Comp,Rep_CCob,Rep_CPag,Rep_Ent,Rep_Sal,Rep_Aju,Rep_Inv,Rep_CamPrecio,Rep_EstResultado,Rep_Auditoria,List_Pre,List_Pro,List_Fal,Fact_Fact,Fact_Rep,Ad_Perm,Ad_Conf,Ad_Util,Ad_Cort,EliAbono,Ad_Ruta from Permisos where IdEmpleado=" & id_usuario
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then
@@ -1921,6 +1922,12 @@ Public Class Inicio
                         pPermisos.Enabled = False
                         P.Ad_Permisos = False
                         Admi += 1
+                    End If
+
+                    If rd5("Ad_Ruta").ToString = True Then
+                        perRuta = 1
+                    Else
+                        perRuta = 0
                     End If
 
                     If rd5("Ad_Conf").ToString = True Then
