@@ -181,7 +181,7 @@ Partial Class frmVehiculos2
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 78)
         Me.btnNuevo.TabIndex = 8
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '

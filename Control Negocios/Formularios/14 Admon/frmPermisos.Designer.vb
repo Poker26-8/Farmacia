@@ -111,6 +111,7 @@ Partial Class frmPermisos
         Me.lis_Pre = New System.Windows.Forms.CheckBox()
         Me.lbllistados = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.chkRuta = New System.Windows.Forms.CheckBox()
         Me.adm_Cor = New System.Windows.Forms.CheckBox()
         Me.adm_Uti = New System.Windows.Forms.CheckBox()
         Me.adm_For = New System.Windows.Forms.CheckBox()
@@ -149,7 +150,6 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.cbLimpiarV = New System.Windows.Forms.CheckBox()
-        Me.chkRuta = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1134,6 +1134,16 @@ Partial Class frmPermisos
         Me.Panel9.Size = New System.Drawing.Size(163, 105)
         Me.Panel9.TabIndex = 74
         '
+        'chkRuta
+        '
+        Me.chkRuta.AutoSize = True
+        Me.chkRuta.Location = New System.Drawing.Point(3, 83)
+        Me.chkRuta.Name = "chkRuta"
+        Me.chkRuta.Size = New System.Drawing.Size(139, 17)
+        Me.chkRuta.TabIndex = 4
+        Me.chkRuta.Text = "traspasos Ventas Ruta"
+        Me.chkRuta.UseVisualStyleBackColor = True
+        '
         'adm_Cor
         '
         Me.adm_Cor.AutoSize = True
@@ -1309,7 +1319,7 @@ Partial Class frmPermisos
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(78, 71)
         Me.btnnuevo.TabIndex = 82
-        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = False
         '
@@ -1558,16 +1568,6 @@ Partial Class frmPermisos
         Me.cbLimpiarV.TabIndex = 12
         Me.cbLimpiarV.Text = "Limpiar pantalla de ventas"
         Me.cbLimpiarV.UseVisualStyleBackColor = True
-        '
-        'chkRuta
-        '
-        Me.chkRuta.AutoSize = True
-        Me.chkRuta.Location = New System.Drawing.Point(3, 83)
-        Me.chkRuta.Name = "chkRuta"
-        Me.chkRuta.Size = New System.Drawing.Size(139, 17)
-        Me.chkRuta.TabIndex = 4
-        Me.chkRuta.Text = "traspasos Ventas Ruta"
-        Me.chkRuta.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '

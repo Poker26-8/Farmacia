@@ -22,6 +22,7 @@ Partial Class frmEnvio_Corte
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEnvio_Corte))
         Me.btnenvia = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtmensaje = New System.Windows.Forms.RichTextBox()
@@ -137,6 +138,7 @@ Partial Class frmEnvio_Corte
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmEnvio_Corte"
         Me.Text = "frmEnvio_Corte"
         Me.GroupBox3.ResumeLayout(False)

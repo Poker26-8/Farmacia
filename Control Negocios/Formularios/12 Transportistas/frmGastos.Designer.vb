@@ -38,6 +38,10 @@ Partial Class frmGastos
         Me.txtContraseña = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtIva = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtSubtotal = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.txtEfectivo = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -83,10 +87,6 @@ Partial Class frmGastos
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cbobanco = New System.Windows.Forms.ComboBox()
         Me.cbotpago = New System.Windows.Forms.ComboBox()
-        Me.txtSubtotal = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtIva = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -257,6 +257,47 @@ Partial Class frmGastos
         Me.GroupBox2.TabIndex = 156
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Salida"
+        '
+        'txtIva
+        '
+        Me.txtIva.Enabled = False
+        Me.txtIva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIva.Location = New System.Drawing.Point(462, 74)
+        Me.txtIva.Name = "txtIva"
+        Me.txtIva.Size = New System.Drawing.Size(102, 22)
+        Me.txtIva.TabIndex = 172
+        Me.txtIva.Text = "0.00"
+        Me.txtIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(386, 74)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(64, 22)
+        Me.Label12.TabIndex = 171
+        Me.Label12.Text = "Iva:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtSubtotal
+        '
+        Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubtotal.Location = New System.Drawing.Point(462, 49)
+        Me.txtSubtotal.Name = "txtSubtotal"
+        Me.txtSubtotal.Size = New System.Drawing.Size(102, 22)
+        Me.txtSubtotal.TabIndex = 170
+        Me.txtSubtotal.Text = "0.00"
+        Me.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label10
+        '
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(382, 49)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 22)
+        Me.Label10.TabIndex = 169
+        Me.Label10.Text = "Subtotal:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtEfectivo
         '
@@ -537,7 +578,7 @@ Partial Class frmGastos
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 77)
         Me.btnNuevo.TabIndex = 284
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -701,47 +742,6 @@ Partial Class frmGastos
         Me.cbotpago.Name = "cbotpago"
         Me.cbotpago.Size = New System.Drawing.Size(166, 21)
         Me.cbotpago.TabIndex = 260
-        '
-        'txtSubtotal
-        '
-        Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotal.Location = New System.Drawing.Point(462, 49)
-        Me.txtSubtotal.Name = "txtSubtotal"
-        Me.txtSubtotal.Size = New System.Drawing.Size(102, 22)
-        Me.txtSubtotal.TabIndex = 170
-        Me.txtSubtotal.Text = "0.00"
-        Me.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label10
-        '
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(382, 49)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 22)
-        Me.Label10.TabIndex = 169
-        Me.Label10.Text = "Subtotal:"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtIva
-        '
-        Me.txtIva.Enabled = False
-        Me.txtIva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIva.Location = New System.Drawing.Point(462, 74)
-        Me.txtIva.Name = "txtIva"
-        Me.txtIva.Size = New System.Drawing.Size(102, 22)
-        Me.txtIva.TabIndex = 172
-        Me.txtIva.Text = "0.00"
-        Me.txtIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label12
-        '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(386, 74)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(64, 22)
-        Me.Label12.TabIndex = 171
-        Me.Label12.Text = "Iva:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmGastos
         '

@@ -214,13 +214,14 @@ Partial Class frmAjusteInv
         'btnGuardar
         '
         Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardar.Location = New System.Drawing.Point(382, 83)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
+        Me.btnGuardar.Size = New System.Drawing.Size(60, 74)
         Me.btnGuardar.TabIndex = 82
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -233,9 +234,9 @@ Partial Class frmAjusteInv
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(382, 152)
+        Me.btnNuevo.Location = New System.Drawing.Point(382, 163)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
+        Me.btnNuevo.Size = New System.Drawing.Size(60, 73)
         Me.btnNuevo.TabIndex = 81
         Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter

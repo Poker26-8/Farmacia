@@ -28,6 +28,9 @@ Partial Class frmCorte2
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.txtegresosforma = New System.Windows.Forms.TextBox()
+        Me.btnSaldoGlobal = New System.Windows.Forms.Button()
+        Me.btnCalcularGlobal = New System.Windows.Forms.Button()
+        Me.btnLimpiarGlobal = New System.Windows.Forms.Button()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.MonederoCajaG = New System.Windows.Forms.TextBox()
         Me.Label36 = New System.Windows.Forms.Label()
@@ -95,6 +98,7 @@ Partial Class frmCorte2
         Me.Label39 = New System.Windows.Forms.Label()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btnLimpiarUsuario = New System.Windows.Forms.Button()
         Me.gbxCalculo = New System.Windows.Forms.GroupBox()
         Me.grpb = New System.Windows.Forms.GroupBox()
         Me.btnOKCalculo = New System.Windows.Forms.Button()
@@ -207,6 +211,9 @@ Partial Class frmCorte2
         Me.txtEfectivoCajaU = New System.Windows.Forms.TextBox()
         Me.txtSaldoFinalU = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.btnSaldoUsuario = New System.Windows.Forms.Button()
+        Me.btnCierre = New System.Windows.Forms.Button()
+        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.DepositoCajaG = New System.Windows.Forms.TextBox()
         Me.tCorte = New System.Windows.Forms.Timer(Me.components)
@@ -216,13 +223,6 @@ Partial Class frmCorte2
         Me.pCalculoUsuario58 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario80 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario58 = New System.Drawing.Printing.PrintDocument()
-        Me.btnSaldoGlobal = New System.Windows.Forms.Button()
-        Me.btnCalcularGlobal = New System.Windows.Forms.Button()
-        Me.btnLimpiarGlobal = New System.Windows.Forms.Button()
-        Me.btnLimpiarUsuario = New System.Windows.Forms.Button()
-        Me.btnSaldoUsuario = New System.Windows.Forms.Button()
-        Me.btnCierre = New System.Windows.Forms.Button()
-        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -300,6 +300,48 @@ Partial Class frmCorte2
         Me.txtegresosforma.TabIndex = 179
         Me.txtegresosforma.Text = "0.00"
         Me.txtegresosforma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'btnSaldoGlobal
+        '
+        Me.btnSaldoGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
+        Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaldoGlobal.Location = New System.Drawing.Point(367, 495)
+        Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
+        Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
+        Me.btnSaldoGlobal.TabIndex = 176
+        Me.btnSaldoGlobal.Text = "Saldo inicial"
+        Me.btnSaldoGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSaldoGlobal.UseVisualStyleBackColor = True
+        '
+        'btnCalcularGlobal
+        '
+        Me.btnCalcularGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
+        Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCalcularGlobal.Location = New System.Drawing.Point(441, 495)
+        Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
+        Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
+        Me.btnCalcularGlobal.TabIndex = 175
+        Me.btnCalcularGlobal.Text = "Calcular"
+        Me.btnCalcularGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCalcularGlobal.UseVisualStyleBackColor = True
+        '
+        'btnLimpiarGlobal
+        '
+        Me.btnLimpiarGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
+        Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(515, 494)
+        Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
+        Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
+        Me.btnLimpiarGlobal.TabIndex = 174
+        Me.btnLimpiarGlobal.Text = "Limpiar"
+        Me.btnLimpiarGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiarGlobal.UseVisualStyleBackColor = True
         '
         'Label34
         '
@@ -1046,6 +1088,19 @@ Partial Class frmCorte2
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "                       CORTE POR USUARIO (X)                                  "
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'btnLimpiarUsuario
+        '
+        Me.btnLimpiarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLimpiarUsuario.Image = CType(resources.GetObject("btnLimpiarUsuario.Image"), System.Drawing.Image)
+        Me.btnLimpiarUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiarUsuario.Location = New System.Drawing.Point(520, 440)
+        Me.btnLimpiarUsuario.Name = "btnLimpiarUsuario"
+        Me.btnLimpiarUsuario.Size = New System.Drawing.Size(60, 64)
+        Me.btnLimpiarUsuario.TabIndex = 202
+        Me.btnLimpiarUsuario.Text = "&Limpiar"
+        Me.btnLimpiarUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiarUsuario.UseVisualStyleBackColor = True
         '
         'gbxCalculo
         '
@@ -2269,6 +2324,45 @@ Partial Class frmCorte2
         Me.Label26.Text = "SALDO INICIAL  +  INGRESOS  -  EGRESOS  =  SALDO FINAL"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'btnSaldoUsuario
+        '
+        Me.btnSaldoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSaldoUsuario.Image = CType(resources.GetObject("btnSaldoUsuario.Image"), System.Drawing.Image)
+        Me.btnSaldoUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaldoUsuario.Location = New System.Drawing.Point(298, 440)
+        Me.btnSaldoUsuario.Name = "btnSaldoUsuario"
+        Me.btnSaldoUsuario.Size = New System.Drawing.Size(86, 64)
+        Me.btnSaldoUsuario.TabIndex = 191
+        Me.btnSaldoUsuario.Text = "Guardar Saldo inicial"
+        Me.btnSaldoUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSaldoUsuario.UseVisualStyleBackColor = True
+        '
+        'btnCierre
+        '
+        Me.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCierre.Image = CType(resources.GetObject("btnCierre.Image"), System.Drawing.Image)
+        Me.btnCierre.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCierre.Location = New System.Drawing.Point(456, 440)
+        Me.btnCierre.Name = "btnCierre"
+        Me.btnCierre.Size = New System.Drawing.Size(60, 64)
+        Me.btnCierre.TabIndex = 184
+        Me.btnCierre.Text = "&Hacer cierre"
+        Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCierre.UseVisualStyleBackColor = True
+        '
+        'btnCalcular
+        '
+        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcular.Image = CType(resources.GetObject("btnCalcular.Image"), System.Drawing.Image)
+        Me.btnCalcular.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCalcular.Location = New System.Drawing.Point(390, 440)
+        Me.btnCalcular.Name = "btnCalcular"
+        Me.btnCalcular.Size = New System.Drawing.Size(60, 64)
+        Me.btnCalcular.TabIndex = 161
+        Me.btnCalcular.Text = "Calcular"
+        Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCalcular.UseVisualStyleBackColor = True
+        '
         'Label33
         '
         Me.Label33.AutoSize = True
@@ -2311,100 +2405,6 @@ Partial Class frmCorte2
         '
         'pCierreUsuario58
         '
-        '
-        'btnSaldoGlobal
-        '
-        Me.btnSaldoGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
-        Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoGlobal.Location = New System.Drawing.Point(367, 495)
-        Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
-        Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
-        Me.btnSaldoGlobal.TabIndex = 176
-        Me.btnSaldoGlobal.Text = "Saldo inicial"
-        Me.btnSaldoGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSaldoGlobal.UseVisualStyleBackColor = True
-        '
-        'btnCalcularGlobal
-        '
-        Me.btnCalcularGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
-        Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcularGlobal.Location = New System.Drawing.Point(441, 495)
-        Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
-        Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
-        Me.btnCalcularGlobal.TabIndex = 175
-        Me.btnCalcularGlobal.Text = "Calcular"
-        Me.btnCalcularGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCalcularGlobal.UseVisualStyleBackColor = True
-        '
-        'btnLimpiarGlobal
-        '
-        Me.btnLimpiarGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
-        Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(515, 494)
-        Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
-        Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
-        Me.btnLimpiarGlobal.TabIndex = 174
-        Me.btnLimpiarGlobal.Text = "Limpiar"
-        Me.btnLimpiarGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiarGlobal.UseVisualStyleBackColor = True
-        '
-        'btnLimpiarUsuario
-        '
-        Me.btnLimpiarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLimpiarUsuario.Image = CType(resources.GetObject("btnLimpiarUsuario.Image"), System.Drawing.Image)
-        Me.btnLimpiarUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarUsuario.Location = New System.Drawing.Point(520, 440)
-        Me.btnLimpiarUsuario.Name = "btnLimpiarUsuario"
-        Me.btnLimpiarUsuario.Size = New System.Drawing.Size(60, 64)
-        Me.btnLimpiarUsuario.TabIndex = 202
-        Me.btnLimpiarUsuario.Text = "&Limpiar"
-        Me.btnLimpiarUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiarUsuario.UseVisualStyleBackColor = True
-        '
-        'btnSaldoUsuario
-        '
-        Me.btnSaldoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSaldoUsuario.Image = CType(resources.GetObject("btnSaldoUsuario.Image"), System.Drawing.Image)
-        Me.btnSaldoUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoUsuario.Location = New System.Drawing.Point(298, 440)
-        Me.btnSaldoUsuario.Name = "btnSaldoUsuario"
-        Me.btnSaldoUsuario.Size = New System.Drawing.Size(86, 64)
-        Me.btnSaldoUsuario.TabIndex = 191
-        Me.btnSaldoUsuario.Text = "Guardar Saldo inicial"
-        Me.btnSaldoUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSaldoUsuario.UseVisualStyleBackColor = True
-        '
-        'btnCierre
-        '
-        Me.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCierre.Image = CType(resources.GetObject("btnCierre.Image"), System.Drawing.Image)
-        Me.btnCierre.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCierre.Location = New System.Drawing.Point(456, 440)
-        Me.btnCierre.Name = "btnCierre"
-        Me.btnCierre.Size = New System.Drawing.Size(60, 64)
-        Me.btnCierre.TabIndex = 184
-        Me.btnCierre.Text = "&Hacer cierre"
-        Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCierre.UseVisualStyleBackColor = True
-        '
-        'btnCalcular
-        '
-        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalcular.Image = CType(resources.GetObject("btnCalcular.Image"), System.Drawing.Image)
-        Me.btnCalcular.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcular.Location = New System.Drawing.Point(390, 440)
-        Me.btnCalcular.Name = "btnCalcular"
-        Me.btnCalcular.Size = New System.Drawing.Size(60, 64)
-        Me.btnCalcular.TabIndex = 161
-        Me.btnCalcular.Text = "Calcular"
-        Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCalcular.UseVisualStyleBackColor = True
         '
         'frmCorte2
         '
