@@ -86,7 +86,7 @@ Public Class frmConfigs
         End Try
 
         Try
-            Dim tipo_logo As String = ""
+          
             Dim tipo_impresora As String = ""
             Dim nLogo As String = ""
             Dim nlogoeti As String = ""
@@ -140,162 +140,77 @@ Public Class frmConfigs
             Else
                 chkauto.Checked = False
                 txtlink.Text = linkautos
-
             End If
 
-            Dim linkau As String = ""
-            Dim auto As Integer = 0
+            Dim auto As Integer = DatosRecarga("AutoFac")
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    auto = rd4(0).ToString
-
-                    If auto = 1 Then
-                        chkautofacturas.Checked = True
-                    Else
-                        chkautofacturas.Checked = False
-                    End If
-                End If
-            End If
-            rd4.Close()
-
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT numpart FROM formatos WHERE Facturas='Series'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    auto = rd4(0).ToString
-
-                    If auto = 1 Then
-                        cbseries.Checked = True
-                    Else
-                        cbseries.Checked = False
-                    End If
-                End If
-            End If
-            rd4.Close()
-
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT NumPart,NotasCred FROM formatos WHERE Facturas='Porc_Mone'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4("NumPart").ToString = 0 Then
-                        optmone_prod.Checked = True
-                    End If
-                    If rd4("NumPart").ToString = 0 Then
-                        optmone_ven.Checked = True
-                        txtporc_venta.Text = rd4("NotasCred").ToString()
-                    End If
-                End If
-            End If
-            rd4.Close()
-
-            If (chkautofacturas.Checked) Then
+            If auto = 1 Then
                 pauto.Visible = True
-                cmd4 = cnn4.CreateCommand
-                cmd4.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
-                rd4 = cmd4.ExecuteReader
-                If rd4.HasRows Then
-                    If rd4.Read Then
-                        txtlink.Text = rd4(0).ToString
-                    End If
-                End If
-                rd4.Close()
-
+                chkautofacturas.Checked = True
+            Else
+                pauto.Visible = False
+                chkautofacturas.Checked = False
             End If
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                 "select NumPart from Formatos where Facturas='Partes'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        chkPartes.Checked = True
-                        chkPartes.Enabled = False
-                    Else
-                        chkPartes.Checked = False
-                        chkPartes.Enabled = True
-                    End If
-                End If
-            End If
-            rd4.Close()
+            Dim series As Integer = DatosRecarga2("Series")
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='MinimoA'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = "1" Then
-                        chkMinAlmacen.Checked = True
-                    ElseIf rd4(0).ToString() = "0" Then
-                        chkMinAlmacen.Checked = False
-                    End If
-                End If
+            If series = 1 Then
+                cbseries.Checked = True
+            Else
+                cbseries.Checked = False
+            End If
+
+            Dim porcmon As Integer = DatosRecarga2("Porc_Mone")
+            Dim porcentajemon As String = DatosRecarga("Porc_Mone")
+
+            If porcmon = 1 Then
+                optmone_ven.Checked = True
+                txtporc_venta.Text = porcentajemon
+            Else
+                optmone_prod.Checked = False
+            End If
+
+            Dim partes As Integer = DatosRecarga2("Partes")
+
+            If partes = 1 Then
+                chkPartes.Checked = True
+                chkPartes.Enabled = False
+            Else
+                chkPartes.Checked = False
+                chkPartes.Enabled = True
+            End If
+
+            Dim minimoa As String = DatosRecarga("MinimoA")
+
+            If minimoa = "1" Then
+                chkMinAlmacen.Checked = True
             Else
                 chkMinAlmacen.Checked = False
             End If
-            rd4.Close()
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Desc_Ventas'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = "1" Then
-                        chkDesc_Ventas.Checked = True
-                    ElseIf rd4(0).ToString() = "0" Then
-                        chkDesc_Ventas.Checked = False
-                    End If
-                End If
+            Dim DescVentas As Integer = DatosRecarga2("Desc_Ventas")
+
+            If DescVentas = 1 Then
+                chkDesc_Ventas.Checked = True
             Else
                 chkDesc_Ventas.Checked = False
             End If
-            rd4.Close()
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Acumula'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = "1" Then
-                        chkAcumula.Checked = True
-                    ElseIf rd4(0).ToString() = "0" Then
-                        chkAcumula.Checked = False
-                    End If
-                End If
+            Dim Acumula As Integer = DatosRecarga2("Acumula")
+
+            If Acumula = 1 Then
+                chkAcumula.Checked = True
             Else
                 chkAcumula.Checked = False
             End If
-            rd4.Close()
 
+            Dim franquicia As String = DatosRecarga("Franquicia")
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Franquicia'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = "1" Then
-                        chkFranquicia.Checked = True
-                    ElseIf rd4(0).ToString() = "0" Then
-                        chkFranquicia.Checked = False
-                    Else
-                        chkFranquicia.Checked = False
-                    End If
-                End If
+            If franquicia = 1 Then
+                chkFranquicia.Checked = True
             Else
                 chkFranquicia.Checked = False
             End If
-            rd4.Close()
-
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
@@ -316,125 +231,67 @@ Public Class frmConfigs
             End If
             rd4.Close()
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Desglosa'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = "1" Then
-                        chkDesglosa.Checked = True
-                    ElseIf rd4(0).ToString() = "0" Then
-                        chkDesglosa.Checked = False
-                    End If
-                End If
+            Dim desglosa As Integer = DatosRecarga2("Desglosa")
+            If desglosa = 1 Then
+                chkDesglosa.Checked = True
             Else
                 chkDesglosa.Checked = False
             End If
-            rd4.Close()
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='LogoG'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    nLogo = rd4(0).ToString
-                End If
+            Dim logog As String = DatosRecarga("LogoG")
+            If logog <> "" Then
+                nLogo = logog
             Else
                 nLogo = ""
             End If
-            rd4.Close()
 
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='ImpreT'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    cboImpTickets.Text = rd4(0).ToString
-                    If cboImpTickets.Text <> "" Then
-                        boxTickets.Enabled = True
-                    Else
-                        boxTickets.Enabled = False
-                    End If
-                End If
+            Dim impret As String = DatosRecarga("ImpreT")
+            If impret <> "" Then
+                cboImpTickets.Text = impret
+                boxTickets.Enabled = True
             Else
                 cboImpTickets.Text = ""
+                boxTickets.Enabled = False
             End If
-            rd4.Close()
 
             'puerto bascula
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-    "select NotasCred from Formatos where Facturas='Pto-Bascula'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    cboBascula.Text = rd4(0).ToString
-
-                End If
+            Dim PtoBascula As String = DatosRecarga("Pto-Bascula")
+            If PtoBascula <> "" Then
+                cboBascula.Text = PtoBascula
             Else
-                cboImpTickets.Text = ""
+                cboBascula.Text = ""
             End If
-            rd4.Close()
 
             'nombre bascula
+            Dim ba As String = DatosRecarga("Bascula")
+            If ba = "Noval" Then
+                rbNoval.Checked = True
+            ElseIf ba = "Metrologic" Then
+                optmetrologic.Checked = True
+            ElseIf ba = "Torrey" Then
+                opttorrey.Checked = True
+            ElseIf ba = "Rhino" Then
+                rbRhino.Checked = True
+            ElseIf ba = "SBascula" Then
+                rbsbascula.Checked = True
+            End If
 
-            Dim ba As String = ""
-
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-    "select NotasCred from Formatos where Facturas='Bascula'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-
-                    ba = rd4(0).ToString
-
-                    If ba = "Noval" Then
-                        rbNoval.Checked = True
-                    ElseIf ba = "Metrologic" Then
-                        optmetrologic.Checked = True
-                    ElseIf ba = "Torrey" Then
-                        opttorrey.Checked = True
-                    ElseIf ba = "Rhino" Then
-                        rbRhino.Checked = True
-                    ElseIf ba = "SBascula" Then
-                        rbsbascula.Checked = True
-                    End If
-
-                End If
+            Dim tipo_logo As String = DatosRecarga("TipoLogo")
+            If tipo_logo = "SIN" Then
+                optnada.Checked = True
+            ElseIf tipo_logo = "RECT" Then
+                optrecta.Checked = True
+            ElseIf tipo_logo = "CUAD" Then
+                optcuadra.Checked = True
             Else
-                cboImpTickets.Text = ""
+                optnada.Checked = True
             End If
-            rd4.Close()
-
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='TipoLogo'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    tipo_logo = rd4(0).ToString
-                    If tipo_logo = "SIN" Then
-                        optnada.Checked = True
-                    ElseIf tipo_logo = "RECT" Then
-                        optrecta.Checked = True
-                    ElseIf tipo_logo = "CUAD" Then
-                        optcuadra.Checked = True
-                    Else
-                        optnada.Checked = True
-                    End If
-
-                    If tipo_logo <> "SIN" Then
-                        If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
-                            picLogo.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
-                        End If
-                    End If
+            If tipo_logo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    picLogo.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
                 End If
             End If
-            rd4.Close()
+
 
             Dim logofractura As String = ""
 
@@ -1903,7 +1760,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Formatos set NotasCred='1' where Facturas='Acumula'"
+                    "update Formatos set NumPart='1' where Facturas='Acumula'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -1915,7 +1772,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Formatos set NotasCred='0' where Facturas='Acumula'"
+                    "update Formatos set NumPart='0' where Facturas='Acumula'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -1929,6 +1786,7 @@ Public Class frmConfigs
         SFormatos("AutoFac", "")
         If (chkautofacturas.Checked) Then
             Try
+                pauto.Visible = True
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -1941,6 +1799,7 @@ Public Class frmConfigs
             End Try
         Else
             Try
+                pauto.Visible = False
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -1951,7 +1810,7 @@ Public Class frmConfigs
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
             End Try
-            pauto.Visible = True
+
         End If
     End Sub
 
@@ -1966,7 +1825,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "update Formatos set NotasCred='1' where Facturas='Desglosa'"
+                     "update Formatos set NumPart='1' where Facturas='Desglosa'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -1978,7 +1837,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "update Formatos set NotasCred='0' where Facturas='Desglosa'"
+                     "update Formatos set NumPart='0' where Facturas='Desglosa'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -2754,7 +2613,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "update Formatos set NotasCred='1' where Facturas='Desc_Ventas'"
+                     "update Formatos set NumPart='1' where Facturas='Desc_Ventas'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -2766,7 +2625,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "update Formatos set NotasCred='0' where Facturas='Desc_Ventas'"
+                     "update Formatos set NumPart='0' where Facturas='Desc_Ventas'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
