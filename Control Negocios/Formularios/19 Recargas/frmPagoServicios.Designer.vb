@@ -188,6 +188,7 @@ Partial Class frmPagoServicios
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(816, 371)
         Me.MinimumSize = New System.Drawing.Size(816, 371)
         Me.Name = "frmPagoServicios"
