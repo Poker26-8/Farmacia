@@ -74,7 +74,7 @@ Public Class frmAsistenciaEmp
         cnn1.Close()
         cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "Select * from Usuarios"
+        cmd1.CommandText = "Select IdEmpleado,Template from Usuarios"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             FpVer.FPLoad(rd1("IdEmpleado").ToString, 7, rd1("Template").ToString, "YourSecretKey" & rd1("IdEmpleado").ToString)
