@@ -155,14 +155,14 @@ Partial Class frmCorteCaja
         Me.txtEnCaja = New System.Windows.Forms.TextBox()
         Me.txtegresosformapago = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.txtformapago = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.txtEfectivoCajaU = New System.Windows.Forms.TextBox()
         Me.txtSaldoFinalU = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.grdEgresos = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label49 = New System.Windows.Forms.Label()
         Me.txtEgrMonederoU = New System.Windows.Forms.TextBox()
         Me.Label50 = New System.Windows.Forms.Label()
@@ -190,6 +190,8 @@ Partial Class frmCorteCaja
         Me.Label74 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.grdIngresos = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.txtIngEfectivoU = New System.Windows.Forms.TextBox()
         Me.Label61 = New System.Windows.Forms.Label()
@@ -197,6 +199,8 @@ Partial Class frmCorteCaja
         Me.Label64 = New System.Windows.Forms.Label()
         Me.txtCobroEmpU = New System.Windows.Forms.TextBox()
         Me.Label65 = New System.Windows.Forms.Label()
+        Me.txtformapago = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
         Me.txtComprasCanceU = New System.Windows.Forms.TextBox()
         Me.Label66 = New System.Windows.Forms.Label()
         Me.txtVentasU = New System.Windows.Forms.TextBox()
@@ -221,10 +225,6 @@ Partial Class frmCorteCaja
         Me.pCalculoUsuario58 = New System.Drawing.Printing.PrintDocument()
         Me.PCierreUsuario80 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario58 = New System.Drawing.Printing.PrintDocument()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -1753,26 +1753,6 @@ Partial Class frmCorteCaja
         Me.Label25.TabIndex = 210
         Me.Label25.Text = "EGRESOS EN FORMA DE PAGO:"
         '
-        'txtformapago
-        '
-        Me.txtformapago.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtformapago.Location = New System.Drawing.Point(180, 168)
-        Me.txtformapago.Name = "txtformapago"
-        Me.txtformapago.ReadOnly = True
-        Me.txtformapago.Size = New System.Drawing.Size(101, 20)
-        Me.txtformapago.TabIndex = 209
-        Me.txtformapago.Text = "0.00"
-        Me.txtformapago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(3, 171)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(176, 13)
-        Me.Label33.TabIndex = 208
-        Me.Label33.Text = "INGRESOS EN FORMA DE PAGO:"
-        '
         'Label38
         '
         Me.Label38.AutoSize = True
@@ -1866,6 +1846,20 @@ Partial Class frmCorteCaja
         Me.grdEgresos.RowHeadersVisible = False
         Me.grdEgresos.Size = New System.Drawing.Size(290, 98)
         Me.grdEgresos.TabIndex = 169
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Forma de pago"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 168
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Monto"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'Label49
         '
@@ -2164,6 +2158,20 @@ Partial Class frmCorteCaja
         Me.grdIngresos.Size = New System.Drawing.Size(274, 109)
         Me.grdIngresos.TabIndex = 169
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Forma de pago"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 168
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Monto"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
         'Label59
         '
         Me.Label59.AutoSize = True
@@ -2234,6 +2242,26 @@ Partial Class frmCorteCaja
         Me.Label65.Size = New System.Drawing.Size(137, 13)
         Me.Label65.TabIndex = 128
         Me.Label65.Text = "COMPRAS CANCELADAS:"
+        '
+        'txtformapago
+        '
+        Me.txtformapago.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtformapago.Location = New System.Drawing.Point(180, 168)
+        Me.txtformapago.Name = "txtformapago"
+        Me.txtformapago.ReadOnly = True
+        Me.txtformapago.Size = New System.Drawing.Size(101, 20)
+        Me.txtformapago.TabIndex = 209
+        Me.txtformapago.Text = "0.00"
+        Me.txtformapago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(3, 171)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(176, 13)
+        Me.Label33.TabIndex = 208
+        Me.Label33.Text = "INGRESOS EN FORMA DE PAGO:"
         '
         'txtComprasCanceU
         '
@@ -2433,34 +2461,6 @@ Partial Class frmCorteCaja
         '
         'PCierreUsuario80
         '
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Forma de pago"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 168
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Monto"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Forma de pago"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 168
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Monto"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
         '
         'frmCorteCaja
         '

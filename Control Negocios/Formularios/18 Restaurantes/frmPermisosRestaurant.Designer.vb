@@ -231,7 +231,7 @@ Partial Class frmPermisosRestaurant
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(80, 69)
         Me.btnnuevo.TabIndex = 234
-        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = False
         '
@@ -737,7 +737,7 @@ Partial Class frmPermisosRestaurant
         Me.btnNM.Name = "btnNM"
         Me.btnNM.Size = New System.Drawing.Size(73, 75)
         Me.btnNM.TabIndex = 249
-        Me.btnNM.Text = "Nuevo"
+        Me.btnNM.Text = "Limpiar"
         Me.btnNM.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNM.UseVisualStyleBackColor = False
         '

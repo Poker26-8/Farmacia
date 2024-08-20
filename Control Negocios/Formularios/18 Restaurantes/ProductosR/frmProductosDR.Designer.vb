@@ -233,7 +233,7 @@ Partial Class frmProductosDR
         Me.btnNuevoNormal.Name = "btnNuevoNormal"
         Me.btnNuevoNormal.Size = New System.Drawing.Size(65, 67)
         Me.btnNuevoNormal.TabIndex = 323
-        Me.btnNuevoNormal.Text = "Nuevo"
+        Me.btnNuevoNormal.Text = "Limpiar"
         Me.btnNuevoNormal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevoNormal.UseVisualStyleBackColor = False
         '
