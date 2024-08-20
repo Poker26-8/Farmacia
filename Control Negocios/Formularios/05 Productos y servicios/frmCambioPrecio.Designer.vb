@@ -141,7 +141,7 @@ Partial Class frmCambioPrecio
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 25
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "Limpiar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -589,10 +589,10 @@ Partial Class frmCambioPrecio
         Me.TabPage2.Controls.Add(Me.Button2)
         Me.TabPage2.Controls.Add(Me.txtprecioxpeso)
         Me.TabPage2.Controls.Add(Me.Button1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(360, 241)
+        Me.TabPage2.Size = New System.Drawing.Size(360, 247)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Cambio de precios por peso"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -610,10 +610,10 @@ Partial Class frmCambioPrecio
         Me.TabPage3.Controls.Add(Me.txtpromo)
         Me.TabPage3.Controls.Add(Me.dtp2)
         Me.TabPage3.Controls.Add(Me.Label20)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 58)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(360, 241)
+        Me.TabPage3.Size = New System.Drawing.Size(360, 247)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Promociones por departamento/grupo"
         '
@@ -626,10 +626,10 @@ Partial Class frmCambioPrecio
         Me.TabPage4.Controls.Add(Me.txtmonedero)
         Me.TabPage4.Controls.Add(Me.Panel5)
         Me.TabPage4.Controls.Add(Me.Label7)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 58)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(360, 241)
+        Me.TabPage4.Size = New System.Drawing.Size(360, 247)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Bonificación a monedero"
         '
@@ -766,10 +766,10 @@ Partial Class frmCambioPrecio
         Me.TabPage5.Controls.Add(Me.rbProductoDia)
         Me.TabPage5.Controls.Add(Me.rbGrupoDia)
         Me.TabPage5.Controls.Add(Me.Label11)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 58)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(360, 241)
+        Me.TabPage5.Size = New System.Drawing.Size(360, 247)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Descuento por día"
         Me.TabPage5.UseVisualStyleBackColor = True

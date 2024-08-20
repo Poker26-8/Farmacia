@@ -34,7 +34,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                    "select CodBarra,Nombre,IVA,PrecioVenta,PrecioVentaIVA,PreMin from Productos where Codigo='" & cboCodigo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -67,7 +67,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select CodBarra,Nombre,IVA,PrecioVenta,PrecioVentaIVA,PreMin from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -120,7 +120,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "'"
+                    "select CodBarra,Codigo,IVA,PrecioVenta,PrecioVentaIVA,PreMin from Productos where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -152,7 +152,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre='" & cboNombre.Text & "'"
+                "select CodBarra,Codigo,IVA,PrecioVenta,PrecioVentaIVA,PreMin from Productos where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -178,7 +178,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from IVA"
+                "select IVA from IVA"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cboIVA.Items.Add(
@@ -259,7 +259,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "' and Nombre='" & cboNombre.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "' and Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If Not rd1.HasRows Then
                 MsgBox("No puedes eliminar un servicio que no está registrado en el catálogo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -302,7 +302,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Departamento from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -352,7 +352,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ProductoSat where ClaveProdSat='" & txtCodigoSAT.Text & "'"
+                    "select Descripcion from ProductoSat where ClaveProdSat='" & txtCodigoSAT.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -375,7 +375,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ProductoSat where Descripcion='" & cboCodigoSAT.Text & "'"
+                    "select ClaveProdSat from ProductoSat where Descripcion='" & cboCodigoSAT.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -398,7 +398,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from UnidadMedSat where ClaveUnidad='" & txtClaveSAT.Text & "'"
+                    "select NomUnidad from UnidadMedSat where ClaveUnidad='" & txtClaveSAT.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -421,7 +421,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from UnidadMedSat where NomUnidad='" & cboClaveSAT.Text & "'"
+                    "select ClaveUnidad from UnidadMedSat where NomUnidad='" & cboClaveSAT.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -449,7 +449,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where CodBarra='" & txtbarras.Text & "'"
+                        "select UVenta,Codigo,IVA,PrecioVenta,PrecioVentaIVA,PreMin from Productos where CodBarra='" & txtbarras.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -476,5 +476,9 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmServicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

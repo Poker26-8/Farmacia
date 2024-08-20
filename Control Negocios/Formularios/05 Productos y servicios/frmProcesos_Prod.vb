@@ -33,7 +33,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from MiProd where DescripP='" & cbonombre.Text & "'"
+                "select CodigoP,UVentaP from MiProd where DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -59,7 +59,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MiProd where DescripP='" & cbonombre.Text & "'"
+                        "select CodigoP,UVentaP from MiProd where DescripP='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -97,7 +97,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MiProd where CodigoP='" & txtcodigo.Text & "'"
+                        "select DescripP,UVentaP from MiProd where CodigoP='" & txtcodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -164,7 +164,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Procesos_Prod where Codigo='" & txtcodigo.Text & "' and Lote='" & cbolote.Text & "' and Proceso='Inicio de producción'"
+                "select Cantidad from Procesos_Prod where Codigo='" & txtcodigo.Text & "' and Lote='" & cbolote.Text & "' and Proceso='Inicio de producción'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -200,7 +200,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Procesos_Prod where Codigo='" & txtcodigo.Text & "' and Lote='" & cbolote.Text & "' and Proceso='Inicio de producción'"
+                        "select Cantidad from Procesos_Prod where Codigo='" & txtcodigo.Text & "' and Lote='" & cbolote.Text & "' and Proceso='Inicio de producción'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -272,7 +272,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                        "select Alias from Usuarios where Clave='" & txtusuario.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -384,7 +384,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Descrip='" & cboDesc1.Text & "' and CodigoP='" & txtcodigo.Text & "'"
+                "select Codigo,UVenta from Productos where Descrip='" & cboDesc1.Text & "' and CodigoP='" & txtcodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -410,7 +410,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Descrip='" & cboDesc1.Text & "' and CodigoP='" & txtcodigo.Text & "'"
+                        "select Codigo,UVenta from Productos where Descrip='" & cboDesc1.Text & "' and CodigoP='" & txtcodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -449,7 +449,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MiProd where CodigoP='" & txtcodigo.Text & "' and Codigo='" & txtcod.Text & "'"
+                        "select Cantidad from MiProd where CodigoP='" & txtcodigo.Text & "' and Codigo='" & txtcod.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

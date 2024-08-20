@@ -28,7 +28,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from MiProd where DescripP='" & cbonombre.Text & "'"
+                "select CodigoP,UVentaP from MiProd where DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -55,7 +55,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from MiProd where DescripP='" & cbonombre.Text & "'"
+                    "select Codigo,Descrip,UVenta,Cantidad from MiProd where DescripP='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -272,5 +272,9 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmRequiereGlobal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

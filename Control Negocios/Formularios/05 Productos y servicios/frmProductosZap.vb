@@ -314,7 +314,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Proveedores where NComercial='" & cboproveedor.Text & "'"
+                    "select NComercial from Proveedores where NComercial='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

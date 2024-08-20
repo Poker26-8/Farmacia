@@ -56,7 +56,7 @@ Public Class frmRequiere
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from MiProd where DescripP='" & cbonombre.Text & "'"
+                "select Codigo,CodigoP,UVentaP,Descrip,UVenta,Cantidad from MiProd where DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -70,7 +70,7 @@ Public Class frmRequiere
             Do While rd1.Read
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "select * from Productos where Codigo='" & rd1("Codigo").ToString & "'"
+                    "select PrecioCompra from Productos where Codigo='" & rd1("Codigo").ToString & "'"
                 rd3 = cmd3.ExecuteReader
                 If rd3.HasRows Then
                     If rd3.Read Then
@@ -81,7 +81,7 @@ Public Class frmRequiere
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
+                    "select Existencia,Multiplo,PrecioCompra from Productos where Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -235,5 +235,9 @@ Public Class frmRequiere
                 MessageBox.Show(ex.ToString)
             End Try
         End If
+    End Sub
+
+    Private Sub frmRequiere_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -7,9 +7,9 @@
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from Productos where CodBarra='" & cbocodigo.Text & "'"
-                        rd1 = cmd1.ExecuteReader
+                cmd1.CommandText =
+                            "select Codigo,Nombre from Productos where CodBarra='" & cbocodigo.Text & "'"
+                rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                               If rd1.Read Then
                                     cbocodigo.Text = rd1("Codigo").ToString()
@@ -29,9 +29,9 @@
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from Productos where CodBarra='" & cbodescripcion.Text & "'"
-                        rd1 = cmd1.ExecuteReader
+                cmd1.CommandText =
+                            "select Codigo,Nombre from Productos where CodBarra='" & cbodescripcion.Text & "'"
+                rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                               If rd1.Read Then
                                     cbocodigo.Text = rd1("Codigo").ToString()
@@ -100,9 +100,9 @@
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from Productos where Codigo='" & cbocodigo.Text & "' and ProvRes=0"
-                        rd1 = cmd1.ExecuteReader
+                cmd1.CommandText =
+                            "select Nombre,UVenta from Productos where Codigo='" & cbocodigo.Text & "' and ProvRes=0"
+                rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                               If rd1.Read Then
                                     cbodescripcion.Text = rd1("Nombre").ToString()
@@ -148,9 +148,9 @@
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from Productos where Nombre='" & cbodescripcion.Text & "' and Provres=0"
-                        rd1 = cmd1.ExecuteReader
+                cmd1.CommandText =
+                            "select Codigo,Grupo,UVenta,PreEsp from Productos where Nombre='" & cbodescripcion.Text & "' and Provres=0"
+                rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                               If rd1.Read Then
                                     cbocodigo.Text = rd1("Codigo").ToString()
@@ -245,9 +245,9 @@
                         cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from Kits where Nombre='" & cbonombre.Text & "'"
-                        rd1 = cmd1.ExecuteReader
+                cmd1.CommandText =
+                            "select Codigo,Descrip,UVenta,Cantidad,PPrecio,CTotal from Kits where Nombre='" & cbonombre.Text & "'"
+                rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                               codigo = rd1("Codigo").ToString
                               nombre = rd1("Descrip").ToString
@@ -303,9 +303,9 @@
                   cnn1.Open()
 
                   cmd1 = cnn1.CreateCommand
-                  cmd1.CommandText =
-                      "select * from Kits where Nombre='" & cbonombre.Text & "'"
-                  rd1 = cmd1.ExecuteReader
+            cmd1.CommandText =
+                      "select Codigo,Descrip,UVenta,Cantidad,PPrecio,CTotal from Kits where Nombre='" & cbonombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
                   Do While rd1.Read
                         codigo = rd1("Codigo").ToString()
                         nombre = rd1("Descrip").ToString()
@@ -477,9 +477,9 @@
                   cnn1.Close() : cnn1.Open()
 
                   cmd1 = cnn1.CreateCommand
-                  cmd1.CommandText =
-                      "select * from Productos where Codigo='" & txtcod.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
-                  rd1 = cmd1.ExecuteReader
+            cmd1.CommandText =
+                      "select Codigo from Productos where Codigo='" & txtcod.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+            rd1 = cmd1.ExecuteReader
                   If Not rd1.HasRows Then
                         MsgBox("El kit no existe en la base de datos, selecciona uno del campo o regístralo en el catálogo de productos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         Exit Sub
@@ -497,9 +497,9 @@
                                     cmd2.ExecuteNonQuery()
 
                                     cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText =
-                                        "select * from Kits where Cod='" & txtcod.Text & "'"
-                                    rd2 = cmd2.ExecuteReader
+                        cmd2.CommandText =
+                                        "select Cod from Kits where Cod='" & txtcod.Text & "'"
+                        rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
                                           If rd2.Read Then
                                                 cnn3.Close() : cnn3.Open()
@@ -558,54 +558,60 @@
                   cnn1.Open()
 
                   cmd1 = cnn1.CreateCommand
-                  cmd1.CommandText =
-                      "select * from Productos where Codigo='" & cbocodigo.Text & "'"
-                  rd1 = cmd1.ExecuteReader
+            cmd1.CommandText =
+                      "select CantLst1,CantLst2,PrecioVentaIVA,CantEsp1,CantEsp2,PreEsp,CantMM1,CantMM2,PreMM,CantMay1,CantMay2,PreMay,CantMin1,CantMin2,PreMin from Productos where Codigo='" & cbocodigo.Text & "'"
+            rd1 = cmd1.ExecuteReader
                   If rd1.HasRows Then
                         If rd1.Read Then
-                              If Not IsDBNull(rd1("CantLst1").ToString) And Not IsDBNull(rd1("CantLst2").ToString) Then
-                                    If (CDec(txtcantidad.Text) >= CDec(rd1("CantLst1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantLst2").ToString)) Then
-                                          txtprecio.Text = FormatNumber(rd1("PrecioVentaIVA").ToString, 2)
-                                          temp = 1
-                                    End If
-                              End If
-                              If Not IsDBNull(rd1("CantEsp1").ToString) And Not IsDBNull(rd1("CantEsp2").ToString) Then
-                                    ATemp1 = rd1("CantEsp1").ToString
-                                    If (CDec(txtcantidad.Text) >= CDec(rd1("CantEsp1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantEsp2").ToString)) Then
-                                          txtprecio.Text = FormatNumber(rd1("PreEsp").ToString, 2)
-                                          temp = 1
-                                    End If
-                              End If
-                              If Not IsDBNull(rd1("CantMM1").ToString) And Not IsDBNull(rd1("CantMM2").ToString) Then
-                                    ATemp2 = rd1("CantMM1").ToString
-                                    If (CDec(txtcantidad.Text) >= CDec(rd1("CantMM1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMM2").ToString)) Then
-                                          txtprecio.Text = FormatNumber(rd1("PreMM").ToString, 2)
-                                          temp = 1
-                                    End If
-                              End If
-                              If Not IsDBNull(rd1("CantMay1").ToString) And Not IsDBNull(rd1("CantMay2").ToString) Then
-                                    ATemp3 = rd1("CantMay1").ToString
-                                    If (CDec(txtcantidad.Text) >= CDec(rd1("CantMay1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMay2").ToString)) Then
-                                          txtprecio.Text = FormatNumber(rd1("PreMay").ToString, 2)
-                                          temp = 1
-                                    End If
-                              End If
-                              If Not IsDBNull(rd1("CantMin1").ToString) And Not IsDBNull(rd1("CantMin2").ToString) Then
-                                    ATemp4 = rd1("CantMin1").ToString
-                                    If (CDec(txtcantidad.Text) >= CDec(rd1("CantMin1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMin2").ToString)) Then
-                                          txtprecio.Text = FormatNumber(rd1("PreMin").ToString, 2)
-                                          temp = 1
-                                    End If
-                              End If
-                              If ATemp1 <> 0 Or ATemp2 <> 0 Or ATemp3 <> 0 Or ATemp4 <> 0 Or ATemp5 <> 0 Then
-                                    If temp = 0 Then
-                                          MsgBox("El producto no existe en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                                          txtprecio.SelectionStart = 0
-                                          txtprecio.SelectionLength = Len(txtprecio.Text)
-                                          Exit Sub
-                                    End If
-                              End If
+                    If Not IsDBNull(rd1("CantLst1").ToString) And Not IsDBNull(rd1("CantLst2").ToString) Then
+                        If (CDec(txtcantidad.Text) >= CDec(rd1("CantLst1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantLst2").ToString)) Then
+                            txtprecio.Text = FormatNumber(rd1("PrecioVentaIVA").ToString, 2)
+                            temp = 1
                         End If
+                    End If
+
+                    If Not IsDBNull(rd1("CantEsp1").ToString) And Not IsDBNull(rd1("CantEsp2").ToString) Then
+                        ATemp1 = rd1("CantEsp1").ToString
+                        If (CDec(txtcantidad.Text) >= CDec(rd1("CantEsp1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantEsp2").ToString)) Then
+                            txtprecio.Text = FormatNumber(rd1("PreEsp").ToString, 2)
+                            temp = 1
+                        End If
+                    End If
+
+                    If Not IsDBNull(rd1("CantMM1").ToString) And Not IsDBNull(rd1("CantMM2").ToString) Then
+                        ATemp2 = rd1("CantMM1").ToString
+                        If (CDec(txtcantidad.Text) >= CDec(rd1("CantMM1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMM2").ToString)) Then
+                            txtprecio.Text = FormatNumber(rd1("PreMM").ToString, 2)
+                            temp = 1
+                        End If
+                    End If
+
+                    If Not IsDBNull(rd1("CantMay1").ToString) And Not IsDBNull(rd1("CantMay2").ToString) Then
+                        ATemp3 = rd1("CantMay1").ToString
+                        If (CDec(txtcantidad.Text) >= CDec(rd1("CantMay1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMay2").ToString)) Then
+                            txtprecio.Text = FormatNumber(rd1("PreMay").ToString, 2)
+                            temp = 1
+                        End If
+                    End If
+
+                    If Not IsDBNull(rd1("CantMin1").ToString) And Not IsDBNull(rd1("CantMin2").ToString) Then
+                        ATemp4 = rd1("CantMin1").ToString
+                        If (CDec(txtcantidad.Text) >= CDec(rd1("CantMin1").ToString)) And (CDec(txtcantidad.Text) <= CDec(rd1("CantMin2").ToString)) Then
+                            txtprecio.Text = FormatNumber(rd1("PreMin").ToString, 2)
+                            temp = 1
+                        End If
+                    End If
+
+                    If ATemp1 <> 0 Or ATemp2 <> 0 Or ATemp3 <> 0 Or ATemp4 <> 0 Or ATemp5 <> 0 Then
+                        If temp = 0 Then
+                            MsgBox("El producto no existe en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtprecio.SelectionStart = 0
+                            txtprecio.SelectionLength = Len(txtprecio.Text)
+                            Exit Sub
+                        End If
+                    End If
+
+                End If
                   End If
                   rd1.Close()
                   cnn1.Close()
@@ -643,5 +649,9 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmKits_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

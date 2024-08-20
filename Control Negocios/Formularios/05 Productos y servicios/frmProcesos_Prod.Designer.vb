@@ -576,11 +576,12 @@ Partial Class frmProcesos_Prod
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
+        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnnuevo.Location = New System.Drawing.Point(570, 492)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 73)
         Me.btnnuevo.TabIndex = 161
-        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = True
         '
