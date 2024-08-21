@@ -1893,7 +1893,7 @@ Public Class frmAgregarProducto
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT Promo3x2,Domingo2,HInicioD3,HFinD3,HInicioD33,HFinD33,Lunes2,HInicioL3,HFinL3,HInicioL33,HFinL33,Martes2,HInicioM3,HFin1M3,HInicioM33,HFinM33,Miercoles2,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,Jueves2,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,Viernes2,HInicioV3,HFinV3,HInicioV33,HFinV33,Sabado2,HInicioS3,HFinS3,HInicioS33,HFinS33 FROM promos WHERE Codigo='" & CodigoProducto & "' AND Promo3x2=1"
+                cmd2.CommandText = "SELECT Promo3x2,Domingo2,HInicioD3,HFinD3,HInicioD33,HFinD33,Lunes2,HInicioL3,HFinL3,HInicioL33,HFinL33,Martes2,HInicioM3,HFinM3,HInicioM33,HFinM33,Miercoles2,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,Jueves2,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,Viernes2,HInicioV3,HFinV3,HInicioV33,HFinV33,Sabado2,HInicioS3,HFinS3,HInicioS33,HFinS33 FROM promos WHERE Codigo='" & CodigoProducto & "' AND Promo3x2=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1927,7 +1927,7 @@ Public Class frmAgregarProducto
                                 Case = 3
                                     If rd2("Martes2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioM3").ToString And TestStr <= rd2("HFin1M3").ToString Or TestStr >= rd2("HInicioM33").ToString And TestStr <= rd2("HFinM33").ToString Then
+                                        If TestStr >= rd2("HInicioM3").ToString And TestStr <= rd2("HFinM3").ToString Or TestStr >= rd2("HInicioM33").ToString And TestStr <= rd2("HFinM33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0

@@ -2139,6 +2139,12 @@
     <Compile Include="Formularios\31 Bodegas\frmMapa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\31 Bodegas\frmRegistroBodega.Designer.vb">
+      <DependentUpon>frmRegistroBodega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\31 Bodegas\frmRegistroBodega.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\32 Tienda en linea\frmPedidos_Tienda.Designer.vb">
       <DependentUpon>frmPedidos_Tienda.vb</DependentUpon>
     </Compile>
@@ -3271,6 +3277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\31 Bodegas\frmMapa.resx">
       <DependentUpon>frmMapa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\31 Bodegas\frmRegistroBodega.resx">
+      <DependentUpon>frmRegistroBodega.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\32 Tienda en linea\frmPedidos_Tienda.resx">
       <DependentUpon>frmPedidos_Tienda.vb</DependentUpon>
