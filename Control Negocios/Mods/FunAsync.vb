@@ -32,6 +32,7 @@ Module FunAsync
 
     Public Function SformatosInicio()
 
+        SFormatos("Bodegas", "0")
         SFormatos("VentasRuta", "0")
         SFormatos("SinNumCoemensal", "0")
         SFormatos("CobroSimplificado", "0")

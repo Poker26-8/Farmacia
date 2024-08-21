@@ -109,6 +109,15 @@ Public Class frmLoad
         ' Dim dentista As Integer = Await ValidarAsync("Dentista")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
+        Dim bodegas As Integer = DatosRecarga2("Bodegas")
+        ProgressBar1.Value = ProgressBar1.Value + 1
+        My.Application.DoEvents()
+
+        If bodegas = 1 Then
+            Inicio.btnBodegas.Visible = True
+        Else
+            Inicio.btnBodegas.Visible = False
+        End If
 
         If dentista = 1 Then
             Inicio.btnDentista.Visible = True
@@ -125,7 +134,6 @@ Public Class frmLoad
         Else
             Inicio.MenuVentasRuta.Visible = False
         End If
-
 
         If produccionpro = 1 Then
             Inicio.TproduccionCos.Visible = True
@@ -183,8 +191,6 @@ Public Class frmLoad
         Else
             Inicio.ControlDeServiciosToolStripMenuItem.Visible = False
         End If
-
-
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
@@ -282,7 +288,7 @@ Public Class frmLoad
         My.Application.DoEvents()
 
         If restaurante = 1 Then
-            Inicio.Button12.Visible = True
+            Inicio.btnComandera.Visible = True
             Inicio.btnPagarComandas.Visible = True
             Inicio.btnvtatouch.Visible = True
             Inicio.CORTEMESERO.Visible = True
@@ -291,7 +297,7 @@ Public Class frmLoad
             frmPermisos.btnPermisosRestaurante.Visible = True
             Inicio.repHistorialMesas.Visible = True
         Else
-            Inicio.Button12.Visible = False
+            Inicio.btnComandera.Visible = False
             Inicio.btnPagarComandas.Visible = False
             Inicio.btnvtatouch.Visible = False
             Inicio.CORTEMESERO.Visible = False

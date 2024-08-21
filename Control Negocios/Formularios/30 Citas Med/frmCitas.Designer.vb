@@ -66,7 +66,7 @@ Partial Class frmCitas
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 109)
+        Me.Label1.Location = New System.Drawing.Point(4, 163)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(155, 23)
         Me.Label1.TabIndex = 0
@@ -76,7 +76,7 @@ Partial Class frmCitas
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(160, 109)
+        Me.Label2.Location = New System.Drawing.Point(3, 110)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(431, 23)
         Me.Label2.TabIndex = 1
@@ -87,9 +87,9 @@ Partial Class frmCitas
         '
         Me.cboMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMedico.FormattingEnabled = True
-        Me.cboMedico.Location = New System.Drawing.Point(160, 132)
+        Me.cboMedico.Location = New System.Drawing.Point(3, 136)
         Me.cboMedico.Name = "cboMedico"
-        Me.cboMedico.Size = New System.Drawing.Size(431, 24)
+        Me.cboMedico.Size = New System.Drawing.Size(430, 24)
         Me.cboMedico.TabIndex = 3
         '
         'Panel1
@@ -123,9 +123,9 @@ Partial Class frmCitas
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(439, 3)
+        Me.Label4.Location = New System.Drawing.Point(3, 57)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 23)
+        Me.Label4.Size = New System.Drawing.Size(430, 23)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Telefono"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -133,26 +133,26 @@ Partial Class frmCitas
         'txtTelefono
         '
         Me.txtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTelefono.Location = New System.Drawing.Point(439, 29)
+        Me.txtTelefono.Location = New System.Drawing.Point(3, 83)
         Me.txtTelefono.Name = "txtTelefono"
-        Me.txtTelefono.Size = New System.Drawing.Size(152, 24)
+        Me.txtTelefono.Size = New System.Drawing.Size(430, 24)
         Me.txtTelefono.TabIndex = 8
         '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(597, 3)
+        Me.Label5.Location = New System.Drawing.Point(439, 3)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(213, 23)
+        Me.Label5.Size = New System.Drawing.Size(387, 23)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Motivo"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtMotivo
         '
-        Me.txtMotivo.Location = New System.Drawing.Point(597, 29)
+        Me.txtMotivo.Location = New System.Drawing.Point(439, 29)
         Me.txtMotivo.Name = "txtMotivo"
-        Me.txtMotivo.Size = New System.Drawing.Size(229, 126)
+        Me.txtMotivo.Size = New System.Drawing.Size(387, 183)
         Me.txtMotivo.TabIndex = 10
         Me.txtMotivo.Text = ""
         '
@@ -160,9 +160,9 @@ Partial Class frmCitas
         '
         Me.Panel2.Controls.Add(Me.grdCitas)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 197)
+        Me.Panel2.Location = New System.Drawing.Point(0, 255)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1106, 309)
+        Me.Panel2.Size = New System.Drawing.Size(1106, 383)
         Me.Panel2.TabIndex = 11
         '
         'grdCitas
@@ -193,7 +193,7 @@ Partial Class frmCitas
         Me.grdCitas.Name = "grdCitas"
         Me.grdCitas.ReadOnly = True
         Me.grdCitas.RowHeadersVisible = False
-        Me.grdCitas.Size = New System.Drawing.Size(1106, 309)
+        Me.grdCitas.Size = New System.Drawing.Size(1106, 383)
         Me.grdCitas.TabIndex = 0
         '
         'Column1
@@ -253,7 +253,7 @@ Partial Class frmCitas
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 56)
+        Me.Label6.Location = New System.Drawing.Point(165, 163)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(120, 23)
         Me.Label6.TabIndex = 12
@@ -265,7 +265,7 @@ Partial Class frmCitas
         Me.dtpFecha.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(3, 82)
+        Me.dtpFecha.Location = New System.Drawing.Point(165, 189)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(120, 24)
         Me.dtpFecha.TabIndex = 13
@@ -274,7 +274,7 @@ Partial Class frmCitas
         '
         Me.dtoHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtoHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtoHora.Location = New System.Drawing.Point(129, 82)
+        Me.dtoHora.Location = New System.Drawing.Point(291, 189)
         Me.dtoHora.Name = "dtoHora"
         Me.dtoHora.ShowUpDown = True
         Me.dtoHora.Size = New System.Drawing.Size(109, 24)
@@ -283,7 +283,7 @@ Partial Class frmCitas
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(129, 56)
+        Me.Label7.Location = New System.Drawing.Point(291, 163)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(109, 23)
         Me.Label7.TabIndex = 210
@@ -313,7 +313,7 @@ Partial Class frmCitas
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 33)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1106, 164)
+        Me.Panel3.Size = New System.Drawing.Size(1106, 222)
         Me.Panel3.TabIndex = 211
         '
         'lblUsuario
@@ -354,7 +354,7 @@ Partial Class frmCitas
         'txtCedula
         '
         Me.txtCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCedula.Location = New System.Drawing.Point(3, 132)
+        Me.txtCedula.Location = New System.Drawing.Point(4, 188)
         Me.txtCedula.Name = "txtCedula"
         Me.txtCedula.Size = New System.Drawing.Size(155, 24)
         Me.txtCedula.TabIndex = 212
@@ -367,7 +367,7 @@ Partial Class frmCitas
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel4.Location = New System.Drawing.Point(944, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(162, 164)
+        Me.Panel4.Size = New System.Drawing.Size(162, 222)
         Me.Panel4.TabIndex = 211
         '
         'Button3
@@ -420,7 +420,7 @@ Partial Class frmCitas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SkyBlue
-        Me.ClientSize = New System.Drawing.Size(1106, 506)
+        Me.ClientSize = New System.Drawing.Size(1106, 638)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)

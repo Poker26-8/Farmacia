@@ -1874,7 +1874,7 @@ Public Class Inicio
         frmCuentabANCARIA.BringToFront()
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles btnComandera.Click
         frmMesas.Show()
         frmMesas.BringToFront()
     End Sub
@@ -2216,5 +2216,10 @@ Public Class Inicio
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MenuVentasRuta.Click
         frmTraspasosAndroid.Show()
         frmTraspasosAndroid.BringToFront()
+    End Sub
+
+    Private Sub btnBodegas_Click(sender As Object, e As EventArgs) Handles btnBodegas.Click
+        frmMapa.BringToFront()
+        frmMapa.Show()
     End Sub
 End Class

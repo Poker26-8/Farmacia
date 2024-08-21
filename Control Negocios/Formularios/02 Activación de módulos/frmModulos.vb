@@ -167,4 +167,10 @@
         frmAct_Android.Show()
         frmAct_Android.BringToFront()
     End Sub
+
+    Private Sub btnBodegas_Click(sender As Object, e As EventArgs) Handles btnBodegas.Click
+        frmAct_Bodegas.BringToFront()
+        frmAct_Bodegas.Show()
+        Me.Close()
+    End Sub
 End Class

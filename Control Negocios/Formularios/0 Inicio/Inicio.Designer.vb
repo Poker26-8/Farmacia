@@ -183,11 +183,12 @@ Partial Class Inicio
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
+        Me.btnBodegas = New System.Windows.Forms.Button()
         Me.btnDentista = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
+        Me.btnComandera = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
         Me.POpciones = New System.Windows.Forms.Panel()
@@ -1369,15 +1370,16 @@ Partial Class Inicio
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
         Me.Panel2.Controls.Add(Me.btnOptica)
+        Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.btnpollo)
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
-        Me.Panel2.Controls.Add(Me.btnTelefonia)
+        Me.Panel2.Controls.Add(Me.btnBodegas)
         Me.Panel2.Controls.Add(Me.btnDentista)
-        Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.btnPagarComandas)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
-        Me.Panel2.Controls.Add(Me.Button12)
+        Me.Panel2.Controls.Add(Me.btnComandera)
+        Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 114)
         Me.Panel2.Name = "Panel2"
@@ -1391,7 +1393,7 @@ Partial Class Inicio
         Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 692)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 782)
         Me.btnOptica.Name = "btnOptica"
         Me.btnOptica.Size = New System.Drawing.Size(90, 84)
         Me.btnOptica.TabIndex = 186
@@ -1405,7 +1407,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 602)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 620)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1419,7 +1421,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 512)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 530)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1433,7 +1435,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 439)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 457)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 73)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1449,13 +1451,27 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 367)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 710)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
         Me.btnTelefonia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnTelefonia.UseVisualStyleBackColor = False
         Me.btnTelefonia.Visible = False
+        '
+        'btnBodegas
+        '
+        Me.btnBodegas.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnBodegas.FlatAppearance.BorderSize = 0
+        Me.btnBodegas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnBodegas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBodegas.Image = CType(resources.GetObject("btnBodegas.Image"), System.Drawing.Image)
+        Me.btnBodegas.Location = New System.Drawing.Point(0, 367)
+        Me.btnBodegas.Name = "btnBodegas"
+        Me.btnBodegas.Size = New System.Drawing.Size(90, 90)
+        Me.btnBodegas.TabIndex = 188
+        Me.btnBodegas.UseVisualStyleBackColor = True
+        Me.btnBodegas.Visible = False
         '
         'btnDentista
         '
@@ -1520,23 +1536,23 @@ Partial Class Inicio
         Me.btnvtatouch.UseVisualStyleBackColor = True
         Me.btnvtatouch.Visible = False
         '
-        'Button12
+        'btnComandera
         '
-        Me.Button12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button12.FlatAppearance.BorderSize = 0
-        Me.Button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
-        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button12.Location = New System.Drawing.Point(0, 0)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(90, 90)
-        Me.Button12.TabIndex = 7
-        Me.Button12.Text = "COMANDERA"
-        Me.Button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button12.UseVisualStyleBackColor = True
-        Me.Button12.Visible = False
+        Me.btnComandera.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnComandera.FlatAppearance.BorderSize = 0
+        Me.btnComandera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnComandera.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnComandera.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnComandera.Image = CType(resources.GetObject("btnComandera.Image"), System.Drawing.Image)
+        Me.btnComandera.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnComandera.Location = New System.Drawing.Point(0, 0)
+        Me.btnComandera.Name = "btnComandera"
+        Me.btnComandera.Size = New System.Drawing.Size(90, 90)
+        Me.btnComandera.TabIndex = 7
+        Me.btnComandera.Text = "COMANDERA"
+        Me.btnComandera.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnComandera.UseVisualStyleBackColor = True
+        Me.btnComandera.Visible = False
         '
         'Label1
         '
@@ -1752,7 +1768,7 @@ Partial Class Inicio
     Friend WithEvents SubeUsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormasDePagoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CuentasBancariasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button12 As Button
+    Friend WithEvents btnComandera As Button
     Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlumnosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InscripciónToolStripMenuItem As ToolStripMenuItem
@@ -1811,4 +1827,5 @@ Partial Class Inicio
     Friend WithEvents repHistorialMesas As ToolStripMenuItem
     Friend WithEvents btnDentista As Button
     Friend WithEvents MenuVentasRuta As ToolStripMenuItem
+    Friend WithEvents btnBodegas As Button
 End Class

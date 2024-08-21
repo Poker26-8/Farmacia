@@ -82,6 +82,8 @@ Partial Class frmModulos
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.btnBodegas = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -738,12 +740,37 @@ Partial Class frmModulos
         Me.Label30.Text = "Ventas en Ruta"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label31
+        '
+        Me.Label31.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.Black
+        Me.Label31.Location = New System.Drawing.Point(899, 303)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(93, 37)
+        Me.Label31.TabIndex = 59
+        Me.Label31.Text = "Bodegas"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnBodegas
+        '
+        Me.btnBodegas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBodegas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnBodegas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBodegas.Location = New System.Drawing.Point(899, 343)
+        Me.btnBodegas.Name = "btnBodegas"
+        Me.btnBodegas.Size = New System.Drawing.Size(93, 71)
+        Me.btnBodegas.TabIndex = 60
+        Me.btnBodegas.UseVisualStyleBackColor = True
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 424)
+        Me.Controls.Add(Me.btnBodegas)
+        Me.Controls.Add(Me.Label31)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.btnSeries)
@@ -870,4 +897,6 @@ Partial Class frmModulos
     Friend WithEvents Label29 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Label30 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents btnBodegas As Button
 End Class

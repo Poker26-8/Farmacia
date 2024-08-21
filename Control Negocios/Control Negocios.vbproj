@@ -267,12 +267,6 @@
     <Compile Include="Formularios\0 Inicio\frmSoporte.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\01 Formularios de función\frmCorreciones.Designer.vb">
-      <DependentUpon>frmCorreciones.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\01 Formularios de función\frmCorreciones.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\01 Formularios de función\frmPurgarDatos.Designer.vb">
       <DependentUpon>frmPurgarDatos.vb</DependentUpon>
     </Compile>
@@ -319,6 +313,12 @@
       <DependentUpon>frmAct_Asistencia.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Asistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Bodegas.Designer.vb">
+      <DependentUpon>frmAct_Bodegas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Bodegas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.Designer.vb">
@@ -2324,9 +2324,6 @@
     <EmbeddedResource Include="Formularios\0 Inicio\frmSoporte.resx">
       <DependentUpon>frmSoporte.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\01 Formularios de función\frmCorreciones.resx">
-      <DependentUpon>frmCorreciones.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\01 Formularios de función\frmPurgarDatos.resx">
       <DependentUpon>frmPurgarDatos.vb</DependentUpon>
     </EmbeddedResource>
@@ -2350,6 +2347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Asistencia.resx">
       <DependentUpon>frmAct_Asistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Bodegas.resx">
+      <DependentUpon>frmAct_Bodegas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.resx">
       <DependentUpon>frmAct_Consignaciones.vb</DependentUpon>
