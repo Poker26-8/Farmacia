@@ -2213,14 +2213,33 @@ Public Class frmConsultaNotas
                     cnn3.Close()
                 End Try
 
+                Dim Copias As Integer = 0
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+            "select Copias from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        Copias = rd1("Copias").ToString()
+                    End If
+                End If
+                rd1.Close() : cnn1.Close()
+
                 If TPrint = "TICKET" Then
                     If Tamaño = "80" Then
-                        pAbono80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pAbono80.Print()
+                        For t As Integer = 1 To Copias
+                            pAbono80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pAbono80.Print()
+                        Next
                     End If
                     If Tamaño = "58" Then
-                        pAbono58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pAbono58.Print()
+                        For t As Integer = 1 To Copias
+                            pAbono58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pAbono58.Print()
+                        Next
                     End If
                 End If
                 If TPrint = "MEDIA CARTA" Then
