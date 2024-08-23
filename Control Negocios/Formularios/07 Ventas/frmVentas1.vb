@@ -9015,9 +9015,9 @@ Door:
                 If Tamaño = "80" Then
                     For t As Integer = 1 To Copias
 
-
-
                         pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        'Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, Integer.MaxValue)
+                        'pVenta80.DefaultPageSettings.PaperSize = ps
                         If pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora Then
                             pVenta80.Print()
                         Else
@@ -10479,7 +10479,7 @@ ecomoda:
                     Y += 17
                     e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 1, Y)
                 End If
-                Y += 6
+                Y += 10
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
                     Y += 21
