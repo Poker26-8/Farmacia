@@ -33,7 +33,7 @@ Public Class frmProductosS
             End If
             If tipo = "PRODU" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint from Productos where Nombre='" & cboNombre.Text & "' and Length(Codigo)<=6"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint from Productos where Nombre='" & cboNombre.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -107,7 +107,7 @@ Public Class frmProductosS
             End If
             If tipo = "PRODU" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda from Productos where Nombre='" & cboNombre.Text & "' and Length(Codigo)<=6"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda from Productos where Nombre='" & cboNombre.Text & "'"
             End If
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
