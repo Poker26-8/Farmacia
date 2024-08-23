@@ -6,8 +6,20 @@ Public Class frmMapa
     Friend WithEvents btnplanta As System.Windows.Forms.Button
 
     Public edita As Boolean = False
+    Dim tim As New Timer()
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs)
+        tim.Stop()
+        Crea_Plantas()
+        tim.Start()
+    End Sub
 
     Private Sub frmMapa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        tim.Interval = 15000
+        AddHandler tim.Tick, AddressOf Timer_Tick
+        tim.Start()
 
         Crea_Plantas()
         primerBoton()

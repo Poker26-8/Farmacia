@@ -2714,6 +2714,7 @@ kaka:
                                 Exit Sub
                             End If
                         End If
+
                         If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
                             cbocodigo.Text = rd1("Codigo").ToString
                             cbocodigo.Focus().Equals(True)
@@ -16651,5 +16652,9 @@ doorcita:
             MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub pDevo58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevo58.PrintPage
+
     End Sub
 End Class

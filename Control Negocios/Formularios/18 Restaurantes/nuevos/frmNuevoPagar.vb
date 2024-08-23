@@ -2055,8 +2055,8 @@ Door:
                 If TamImpre = "80" Then
                     For naruto As Integer = 1 To copias
                         PVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                        Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
-                        PVentaMapeo80.DefaultPageSettings.PaperSize = ps
+                        'Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 19276)
+                        'PVentaMapeo80.DefaultPageSettings.PaperSize = ps
                         PVentaMapeo80.Print()
                     Next
                 End If

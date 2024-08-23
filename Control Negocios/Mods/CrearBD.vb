@@ -1,5 +1,45 @@
 ﻿Module CrearBD
 
+    'prescripcion
+    Public VartablaPrescripcion As String = "CREATE TABLE `prescripcion` (
+                                              `Folio` int(11) NOT NULL,
+                                              `Id` int(11) NOT NULL DEFAULT '0',
+                                              `Paciente` varchar(250) NOT NULL DEFAULT '',
+                                              `Fecha` date NOT NULL,
+                                              `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                              `Medicamento` varchar(250) NOT NULL DEFAULT '',
+                                              `Lote` varchar(100) NOT NULL DEFAULT '',
+                                              `Caducidad` varchar(50) NOT NULL DEFAULT '',
+                                              `ModoUso` varchar(250) NOT NULL DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'hisclinica
+    Public vartablahisclinica As String = "CREATE TABLE `hisclinica` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Medico` varchar(250) NOT NULL DEFAULT '',
+                                                  `Fecha` date NOT NULL,
+                                                  `Hora` time DEFAULT NULL,
+                                                  `Paciente` varchar(250) NOT NULL DEFAULT '',
+                                                  `Urgencia` varchar(70) DEFAULT '',
+                                                  `Tutor` varchar(255) DEFAULT '',
+                                                  `Padecimiento` varchar(255) NOT NULL DEFAULT '',
+                                                  `Sexo` int(1) NOT NULL DEFAULT '0',
+                                                  `FNacimiento` date NOT NULL,
+                                                  `Edad` varchar(50) NOT NULL DEFAULT '',
+                                                  `Peso` varchar(100) NOT NULL DEFAULT '',
+                                                  `TA` varchar(100) NOT NULL DEFAULT '',
+                                                  `Talla` varchar(100) NOT NULL DEFAULT '',
+                                                  `Alergias` varchar(255) NOT NULL DEFAULT '',
+                                                  `Embarazo` int(1) NOT NULL DEFAULT '0',
+                                                  `Glucosa` varchar(100) NOT NULL DEFAULT '',
+                                                  `Temperatura` varchar(100) NOT NULL DEFAULT '',
+                                                  `FC` varchar(50) NOT NULL DEFAULT '',
+                                                  `FR` varchar(50) NOT NULL DEFAULT '',
+                                                  `Saturacion` varchar(100) NOT NULL DEFAULT '0',
+                                                  `MotivoConsulta` text NOT NULL,
+                                                  `Folio` int(11) NOT NULL DEFAULT '0',
+                                                  `Estado` int(1) NOT NULL DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'tallerd
     Public vartablatallerd As String = "CREATE TABLE `tallerd` (
                                           `Id` int(11) NOT NULL,
@@ -6883,6 +6923,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeyPrescripcion As String = "ALTER TABLE `prescripcion`ADD PRIMARY KEY (`Folio`);"
+    Public VarKeyhisclinica As String = "ALTER TABLE `hisclinica`ADD PRIMARY KEY (`Id`);"
     Public VarKeytallerd As String = "ALTER TABLE `tallerd` ADD PRIMARY KEY (`Id`);"
     Public VarKeydispositivos As String = "ALTER TABLE `dispositivos` ADD PRIMARY KEY (`Id`);"
     Public VarKeyaccesorios As String = "ALTER TABLE `accesorios` ADD PRIMARY KEY (`Id`);"
@@ -7052,6 +7094,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public VarAutoPrescripcion As String = "ALTER TABLE `prescripcion`MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
+    Public VarAutohiscliente As String = "ALTER TABLE `hisclinica`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotallerd As String = "ALTER TABLE `tallerd` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodispositivos As String = "ALTER TABLE `dispositivos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoaccesorios As String = "ALTER TABLE `accesorios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
