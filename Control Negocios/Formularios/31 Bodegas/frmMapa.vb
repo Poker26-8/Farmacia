@@ -449,5 +449,13 @@ Public Class frmMapa
         End If
     End Sub
 
+    Private Sub btnconsulta_Click(sender As Object, e As EventArgs) Handles btnconsulta.Click
+        If txtbodega.Text = "" Then MsgBox("Selecciona una bodega para consultar su información.", vbInformation + vbOKOnly, titulocentral) : Exit Sub
 
+        frmConsultaBodega.txtbodega.Text = txtbodega.Text
+        frmConsultaBodega.txtplanta.Text = Me.Text
+        frmConsultaBodega.lbldescripcion.Text = "CONSULTA DE BODEGA " & txtbodega.Text & " UBICADA EN " & Me.Text
+        My.Application.DoEvents()
+        frmConsultaBodega.Show()
+    End Sub
 End Class

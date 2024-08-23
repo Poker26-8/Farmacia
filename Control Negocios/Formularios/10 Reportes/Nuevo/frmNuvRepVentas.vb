@@ -2878,7 +2878,7 @@ Public Class frmNuvRepVentas
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio,Subtotal,Descuento,IVA,Totales,ACuenta,Resta,Status,Fecha, FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' AND Cliente='" & cboDatos.Text & "' ORDER BY Folio"
+                cmd1.CommandText = "SELECT Folio,Subtotal,Descuento,IVA,Totales,ACuenta,Resta,Status,Fecha FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' AND Cliente='" & cboDatos.Text & "' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2983,7 +2983,7 @@ Public Class frmNuvRepVentas
 
                 cnn2.Close() : cnn2.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio,Descuento,Propina FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH.mm:ss") & "' AND Cliente='" & cboDatos.Text & "'"
+                cmd1.CommandText = "SELECT Folio,Descuento,Propina,ACuenta,Resta FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH.mm:ss") & "' AND Cliente='" & cboDatos.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2993,7 +2993,7 @@ Public Class frmNuvRepVentas
 
                         If temp <> folio Then
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT ACuenta,Resta FROM Ventas WHERE Folio=" & folio
+                            cmd2.CommandText = "SELECT Folio FROM Ventas WHERE Folio=" & folio
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -3896,7 +3896,7 @@ Public Class frmNuvRepVentas
 
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio,Cliente FROM Ventas WHERE Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' ORDER BY FOLIO"
+                cmd1.CommandText = "SELECT Folio,Cliente,Fecha FROM Ventas WHERE Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' ORDER BY FOLIO"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3906,7 +3906,7 @@ Public Class frmNuvRepVentas
                         cnn3.Close() : cnn3.Open()
                         cmd3 = cnn3.CreateCommand
                         cmd3.CommandText =
-                                    "select Codigo,Nombre,Unidad,Cantidad,Precio,TotalSinIVA,Descto,TotalIEPS,Fecha,Total from VentasDetalle where left(Codigo, 6)='" & Strings.Left(cboDatos.Text, 6) & "' and Fecha between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' and Folio=" & folio & " order by Codigo "
+                                    "select Codigo,Nombre,Unidad,Cantidad,Precio,TotalSinIVA,Descto,TotalIEPS,Total from VentasDetalle where left(Codigo, 6)='" & Strings.Left(cboDatos.Text, 6) & "' and Fecha between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' and Folio=" & folio & " order by Codigo "
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -4030,7 +4030,7 @@ Public Class frmNuvRepVentas
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio,Nombre,Cantidad,Unidad,Precio,Cliente,Usuario,FVenta,HVenta,CostoVUE FROM Ventas V INNER JOIN VentasDetalle VD On V.Folio=VD.Folio WHERE V.Concepto='CORTESIA' AND V.Fecha BETWEEN  '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "'  and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
+                cmd1.CommandText = "SELECT v.Folio,Nombre,Cantidad,Unidad,Precio,Cliente,v.Usuario,FVenta,HVenta,CostoVUE FROM Ventas V INNER JOIN VentasDetalle VD On V.Folio=VD.Folio WHERE V.Concepto='CORTESIA' AND V.Fecha BETWEEN  '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "'  and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -5237,5 +5237,9 @@ Public Class frmNuvRepVentas
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmRepMac.BringToFront()
         frmRepMac.Show()
+    End Sub
+
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
+
     End Sub
 End Class

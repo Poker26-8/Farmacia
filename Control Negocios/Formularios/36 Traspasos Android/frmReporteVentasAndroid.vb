@@ -84,7 +84,7 @@ Public Class frmReporteVentasAndroid
                 End If
 
                 MsgBox("Reporte Terminado")
-                cnnl.Clone()
+                cnnl.Close()
                 cnnp.Close()
 
             End If
