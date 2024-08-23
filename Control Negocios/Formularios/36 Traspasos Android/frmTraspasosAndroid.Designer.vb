@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmTraspasosAndroid
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,22 +20,26 @@ Partial Class frmTraspasosAndroid
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTraspasosAndroid))
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnReportes = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgProd = New System.Windows.Forms.DataGridView()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnNuevoProd = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.cboFolio = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -51,26 +55,23 @@ Partial Class frmTraspasosAndroid
         Me.cboRuta = New System.Windows.Forms.ComboBox()
         Me.lblconexion = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnNuevoProd = New System.Windows.Forms.Button()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgProd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnReportes
         '
+        Me.btnReportes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnReportes.BackColor = System.Drawing.Color.White
         Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReportes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReportes.Image = Global.Control_Negocios.My.Resources.Resources.pedidoRecurso_89
         Me.btnReportes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnReportes.Location = New System.Drawing.Point(182, 10)
+        Me.btnReportes.Location = New System.Drawing.Point(584, 208)
         Me.btnReportes.Name = "btnReportes"
         Me.btnReportes.Size = New System.Drawing.Size(81, 68)
         Me.btnReportes.TabIndex = 83
@@ -80,12 +81,15 @@ Partial Class frmTraspasosAndroid
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.BackColor = System.Drawing.Color.White
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(95, 10)
+        Me.Button2.Location = New System.Drawing.Point(584, 20)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(81, 68)
+        Me.Button2.Size = New System.Drawing.Size(81, 93)
         Me.Button2.TabIndex = 82
         Me.Button2.Text = "Asignar Usuarios a Sucursal"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -93,12 +97,15 @@ Partial Class frmTraspasosAndroid
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(8, 10)
+        Me.Button1.Location = New System.Drawing.Point(584, 119)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 68)
+        Me.Button1.Size = New System.Drawing.Size(81, 83)
         Me.Button1.TabIndex = 81
         Me.Button1.Text = "Catalogo de sucursales"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -108,21 +115,31 @@ Partial Class frmTraspasosAndroid
         '
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.txtTotal)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox3.Location = New System.Drawing.Point(566, 579)
+        Me.GroupBox3.Location = New System.Drawing.Point(460, 282)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(139, 66)
+        Me.GroupBox3.Size = New System.Drawing.Size(205, 95)
         Me.GroupBox3.TabIndex = 77
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Total Prod."
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(24, 20)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(152, 18)
+        Me.Label5.TabIndex = 105
+        Me.Label5.Text = "Total de Productos"
         '
         'txtTotal
         '
         Me.txtTotal.Enabled = False
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(11, 26)
+        Me.txtTotal.Location = New System.Drawing.Point(43, 52)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(117, 24)
         Me.txtTotal.TabIndex = 104
@@ -133,34 +150,43 @@ Partial Class frmTraspasosAndroid
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.btnReportes)
+        Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.dgProd)
+        Me.GroupBox2.Controls.Add(Me.GroupBox3)
+        Me.GroupBox2.Controls.Add(Me.btnNuevoProd)
+        Me.GroupBox2.Controls.Add(Me.btnGuardar)
+        Me.GroupBox2.Controls.Add(Me.btnSalir)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Black
         Me.GroupBox2.Location = New System.Drawing.Point(18, 265)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(690, 296)
+        Me.GroupBox2.Size = New System.Drawing.Size(690, 393)
         Me.GroupBox2.TabIndex = 76
         Me.GroupBox2.TabStop = False
         '
         'dgProd
         '
         Me.dgProd.AllowUserToAddRows = False
+        Me.dgProd.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgProd.BackgroundColor = System.Drawing.Color.White
         Me.dgProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgProd.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column2, Me.Column3, Me.Column8})
-        Me.dgProd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgProd.Location = New System.Drawing.Point(3, 20)
         Me.dgProd.Name = "dgProd"
         Me.dgProd.ReadOnly = True
         Me.dgProd.RowHeadersVisible = False
-        Me.dgProd.Size = New System.Drawing.Size(684, 273)
+        Me.dgProd.Size = New System.Drawing.Size(435, 367)
         Me.dgProd.TabIndex = 0
         '
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column2.HeaderText = "Código"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
@@ -168,23 +194,73 @@ Partial Class frmTraspasosAndroid
         '
         'Column3
         '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column3.HeaderText = "Descripción"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 112
         '
         'Column8
         '
         Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column8.HeaderText = "Cantidad"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         Me.Column8.Width = 91
+        '
+        'btnNuevoProd
+        '
+        Me.btnNuevoProd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevoProd.BackColor = System.Drawing.Color.White
+        Me.btnNuevoProd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnNuevoProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoProd.ForeColor = System.Drawing.Color.Black
+        Me.btnNuevoProd.Image = CType(resources.GetObject("btnNuevoProd.Image"), System.Drawing.Image)
+        Me.btnNuevoProd.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnNuevoProd.Location = New System.Drawing.Point(469, 173)
+        Me.btnNuevoProd.Name = "btnNuevoProd"
+        Me.btnNuevoProd.Size = New System.Drawing.Size(81, 68)
+        Me.btnNuevoProd.TabIndex = 79
+        Me.btnNuevoProd.Text = "Limpiar"
+        Me.btnNuevoProd.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevoProd.UseVisualStyleBackColor = False
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnGuardar.FlatAppearance.BorderSize = 10
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.ForeColor = System.Drawing.Color.Black
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(469, 20)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(81, 68)
+        Me.btnGuardar.TabIndex = 78
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = False
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(469, 99)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(81, 68)
+        Me.btnSalir.TabIndex = 80
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'GroupBox11
         '
@@ -267,9 +343,9 @@ Partial Class frmTraspasosAndroid
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(244, 69)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(81, 18)
+        Me.Label4.Size = New System.Drawing.Size(90, 18)
         Me.Label4.TabIndex = 101
-        Me.Label4.Text = "Exitencia:"
+        Me.Label4.Text = "Existencia:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
         'cboProducto
@@ -352,77 +428,15 @@ Partial Class frmTraspasosAndroid
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.Label1.Size = New System.Drawing.Size(720, 31)
         Me.Label1.TabIndex = 71
+        Me.Label1.Text = "TRASPASOS DE PRODUCTOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnSalir
-        '
-        Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.BackColor = System.Drawing.Color.White
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(199, 577)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(81, 68)
-        Me.btnSalir.TabIndex = 80
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = False
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnGuardar.BackColor = System.Drawing.Color.White
-        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.btnGuardar.FlatAppearance.BorderSize = 10
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.ForeColor = System.Drawing.Color.Black
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(111, 577)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(81, 68)
-        Me.btnGuardar.TabIndex = 78
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'btnNuevoProd
-        '
-        Me.btnNuevoProd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnNuevoProd.BackColor = System.Drawing.Color.White
-        Me.btnNuevoProd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnNuevoProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevoProd.ForeColor = System.Drawing.Color.Black
-        Me.btnNuevoProd.Image = CType(resources.GetObject("btnNuevoProd.Image"), System.Drawing.Image)
-        Me.btnNuevoProd.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevoProd.Location = New System.Drawing.Point(22, 577)
-        Me.btnNuevoProd.Name = "btnNuevoProd"
-        Me.btnNuevoProd.Size = New System.Drawing.Size(81, 68)
-        Me.btnNuevoProd.TabIndex = 79
-        Me.btnNuevoProd.Text = "Limpiar"
-        Me.btnNuevoProd.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevoProd.UseVisualStyleBackColor = False
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox4.Controls.Add(Me.btnReportes)
-        Me.GroupBox4.Controls.Add(Me.Button1)
-        Me.GroupBox4.Controls.Add(Me.Button2)
-        Me.GroupBox4.Location = New System.Drawing.Point(286, 567)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(269, 91)
-        Me.GroupBox4.TabIndex = 84
-        Me.GroupBox4.TabStop = False
         '
         'frmTraspasosAndroid
         '
@@ -430,11 +444,6 @@ Partial Class frmTraspasosAndroid
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(720, 670)
-        Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.btnNuevoProd)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox1)
@@ -445,7 +454,7 @@ Partial Class frmTraspasosAndroid
         Me.MinimumSize = New System.Drawing.Size(736, 709)
         Me.Name = "frmTraspasosAndroid"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmTraspasosAndroid"
+        Me.Text = "Traspasos de productos"
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -454,7 +463,6 @@ Partial Class frmTraspasosAndroid
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -470,9 +478,6 @@ Partial Class frmTraspasosAndroid
     Friend WithEvents btnNuevoProd As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgProd As DataGridView
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox11 As GroupBox
     Friend WithEvents cboFolio As ComboBox
     Friend WithEvents GroupBox1 As GroupBox
@@ -488,5 +493,8 @@ Partial Class frmTraspasosAndroid
     Friend WithEvents cboRuta As ComboBox
     Friend WithEvents lblconexion As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class

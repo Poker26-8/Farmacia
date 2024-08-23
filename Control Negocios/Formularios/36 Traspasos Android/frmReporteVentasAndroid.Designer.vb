@@ -43,6 +43,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +53,10 @@ Partial Class frmReporteVentasAndroid
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Exportar = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -62,12 +67,13 @@ Partial Class frmReporteVentasAndroid
         '
         Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button7.Location = New System.Drawing.Point(577, 233)
+        Me.Button7.Location = New System.Drawing.Point(544, 247)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(72, 68)
+        Me.Button7.Size = New System.Drawing.Size(108, 68)
         Me.Button7.TabIndex = 25
-        Me.Button7.Text = "Ninguno"
+        Me.Button7.Text = "Deseleccionar todo"
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button7.UseVisualStyleBackColor = True
         '
@@ -75,11 +81,13 @@ Partial Class frmReporteVentasAndroid
         '
         Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button6.Location = New System.Drawing.Point(499, 233)
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button6.Location = New System.Drawing.Point(421, 247)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(72, 68)
+        Me.Button6.Size = New System.Drawing.Size(105, 68)
         Me.Button6.TabIndex = 24
-        Me.Button6.Text = "Todos"
+        Me.Button6.Text = "Seleccionar Todos"
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -90,7 +98,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(171, 239)
+        Me.Button5.Location = New System.Drawing.Point(251, 247)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(122, 68)
         Me.Button5.TabIndex = 23
@@ -104,7 +112,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(90, 239)
+        Me.Button3.Location = New System.Drawing.Point(9, 247)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 68)
         Me.Button3.TabIndex = 22
@@ -118,7 +126,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(9, 239)
+        Me.Button4.Location = New System.Drawing.Point(170, 247)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 68)
         Me.Button4.TabIndex = 21
@@ -136,10 +144,10 @@ Partial Class frmReporteVentasAndroid
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn7, Me.Column8})
-        Me.DataGridView2.Location = New System.Drawing.Point(9, 40)
+        Me.DataGridView2.Location = New System.Drawing.Point(9, 43)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(643, 187)
+        Me.DataGridView2.Size = New System.Drawing.Size(643, 192)
         Me.DataGridView2.TabIndex = 20
         '
         'DataGridViewTextBoxColumn1
@@ -148,7 +156,7 @@ Partial Class frmReporteVentasAndroid
         Me.DataGridViewTextBoxColumn1.HeaderText = "Id"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 41
+        Me.DataGridViewTextBoxColumn1.Visible = False
         '
         'DataGridViewTextBoxColumn2
         '
@@ -192,35 +200,39 @@ Partial Class frmReporteVentasAndroid
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 3)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(221, 12)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.Size = New System.Drawing.Size(71, 20)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Sucursal"
         '
         'ComboBox2
         '
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(59, 0)
+        Me.ComboBox2.Location = New System.Drawing.Point(306, 9)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(276, 21)
+        Me.ComboBox2.Size = New System.Drawing.Size(276, 28)
         Me.ComboBox2.TabIndex = 18
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 16)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(221, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.Size = New System.Drawing.Size(79, 20)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Vendedor"
         '
         'ComboBox1
         '
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(65, 13)
+        Me.ComboBox1.Location = New System.Drawing.Point(306, 14)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(263, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(263, 28)
         Me.ComboBox1.TabIndex = 16
         '
         'Button2
@@ -228,7 +240,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(90, 274)
+        Me.Button2.Location = New System.Drawing.Point(8, 274)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 68)
         Me.Button2.TabIndex = 15
@@ -241,7 +253,7 @@ Partial Class frmReporteVentasAndroid
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(9, 274)
+        Me.Button1.Location = New System.Drawing.Point(170, 274)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 68)
         Me.Button1.TabIndex = 14
@@ -257,12 +269,12 @@ Partial Class frmReporteVentasAndroid
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column9, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
         Me.DataGridView1.Location = New System.Drawing.Point(9, 44)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(641, 218)
+        Me.DataGridView1.Size = New System.Drawing.Size(641, 224)
         Me.DataGridView1.TabIndex = 13
         '
         'Column1
@@ -271,7 +283,13 @@ Partial Class frmReporteVentasAndroid
         Me.Column1.HeaderText = "Id"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 41
+        Me.Column1.Visible = False
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Folio"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
         '
         'Column2
         '
@@ -325,13 +343,14 @@ Partial Class frmReporteVentasAndroid
         '
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Historic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(0, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.Label3.Size = New System.Drawing.Size(685, 31)
         Me.Label3.TabIndex = 72
+        Me.Label3.Text = "REPORTE DE VENTAS E INVENTARIO"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox1
@@ -339,6 +358,8 @@ Partial Class frmReporteVentasAndroid
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Exportar)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -346,7 +367,7 @@ Partial Class frmReporteVentasAndroid
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 44)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(666, 356)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 348)
         Me.GroupBox1.TabIndex = 73
         Me.GroupBox1.TabStop = False
         '
@@ -355,6 +376,8 @@ Partial Class frmReporteVentasAndroid
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.Button8)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
@@ -363,11 +386,60 @@ Partial Class frmReporteVentasAndroid
         Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Button5)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 406)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 398)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(668, 313)
+        Me.GroupBox2.Size = New System.Drawing.Size(668, 321)
         Me.GroupBox2.TabIndex = 74
         Me.GroupBox2.TabStop = False
+        '
+        'Exportar
+        '
+        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
+        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Exportar.Location = New System.Drawing.Point(88, 274)
+        Me.Exportar.Name = "Exportar"
+        Me.Exportar.Size = New System.Drawing.Size(75, 68)
+        Me.Exportar.TabIndex = 203
+        Me.Exportar.Text = "Exportar"
+        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Exportar.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button8.Location = New System.Drawing.Point(89, 248)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 68)
+        Me.Button8.TabIndex = 204
+        Me.Button8.Text = "Exportar"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(6, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(167, 24)
+        Me.Label4.TabIndex = 204
+        Me.Label4.Text = "Reporte de Ventas"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(6, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(190, 24)
+        Me.Label5.TabIndex = 205
+        Me.Label5.Text = "Reporte de Inventario"
         '
         'frmReporteVentasAndroid
         '
@@ -382,7 +454,7 @@ Partial Class frmReporteVentasAndroid
         Me.MinimumSize = New System.Drawing.Size(701, 770)
         Me.Name = "frmReporteVentasAndroid"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = " "
+        Me.Text = " Reporte de ventas en ruta"
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -399,12 +471,6 @@ Partial Class frmReporteVentasAndroid
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
     Friend WithEvents Label2 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label1 As Label
@@ -412,14 +478,25 @@ Partial Class frmReporteVentasAndroid
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Label3 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Exportar As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class

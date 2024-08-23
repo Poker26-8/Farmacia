@@ -24,46 +24,32 @@ Partial Class frmSucursales
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSucursales))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cboSucursal = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.Label1.Size = New System.Drawing.Size(474, 31)
         Me.Label1.TabIndex = 72
+        Me.Label1.Text = "CATALOGO DE SUCURSALES"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.GroupBox6.Controls.Add(Me.Label2)
-        Me.GroupBox6.Controls.Add(Me.cboSucursal)
-        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox6.Location = New System.Drawing.Point(12, 44)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(444, 66)
-        Me.GroupBox6.TabIndex = 73
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Datos"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 27)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(20, 53)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(84, 20)
         Me.Label2.TabIndex = 1
@@ -72,11 +58,11 @@ Partial Class frmSucursales
         'cboSucursal
         '
         Me.cboSucursal.BackColor = System.Drawing.Color.White
-        Me.cboSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboSucursal.FormattingEnabled = True
-        Me.cboSucursal.Location = New System.Drawing.Point(93, 25)
+        Me.cboSucursal.Location = New System.Drawing.Point(105, 51)
         Me.cboSucursal.Name = "cboSucursal"
-        Me.cboSucursal.Size = New System.Drawing.Size(335, 26)
+        Me.cboSucursal.Size = New System.Drawing.Size(335, 28)
         Me.cboSucursal.TabIndex = 0
         '
         'Button1
@@ -131,10 +117,11 @@ Partial Class frmSucursales
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(474, 231)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cboSucursal)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(490, 270)
@@ -142,9 +129,8 @@ Partial Class frmSucursales
         Me.Name = "frmSucursales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Catalogo de Sucursales"
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -152,7 +138,6 @@ Partial Class frmSucursales
     Friend WithEvents Button1 As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnGuardar As Button
-    Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Label2 As Label
     Friend WithEvents cboSucursal As ComboBox
 End Class
