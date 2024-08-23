@@ -458,4 +458,9 @@ Public Class frmMapa
         My.Application.DoEvents()
         frmConsultaBodega.Show()
     End Sub
+
+    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
+        frmRepBodegas.BringToFront()
+        frmRepBodegas.Show()
+    End Sub
 End Class

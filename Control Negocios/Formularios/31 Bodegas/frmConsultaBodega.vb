@@ -75,7 +75,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "insert into Movimientos(Id_Bodega,Nombre_Bodega,Movimiento,Fecha,Hora,Id_Cliente,Nombre,Usuario,Estado) values(" & txtID.Text & ",'" & txtbodega.Text & "','Entrada','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0,'" & cbovisitas.Text & "','" & lblusuario.Text & "',0)"
+                "insert into Movimientos(Id_Bodega,Nombre_Bodega,Movimiento,Fecha,Hora,FechaC,Id_Cliente,Nombre,Usuario,Estado) values(" & txtID.Text & ",'" & txtbodega.Text & "','Entrada','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0,'" & cbovisitas.Text & "','" & lblusuario.Text & "',0)"
             If cmd1.ExecuteNonQuery Then
                 MsgBox("Entrada registrada correctamente.", vbInformation + vbOKOnly, titulocentral)
                 cbovisitas.Text = ""
@@ -137,7 +137,7 @@
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into Movimientos(Id_Bodega,Nombre_Bodega,Movimiento,Fecha,Hora,Id_Cliente,Nombre,Usuario,Estado) values(" & txtID.Text & ",'" & txtbodega.Text & "','Salida','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0,'" & cbovisitas.Text & "','" & lblusuario.Text & "',1)"
+                        "insert into Movimientos(Id_Bodega,Nombre_Bodega,Movimiento,Fecha,Hora,FechaC,Id_Cliente,Nombre,Usuario,Estado) values(" & txtID.Text & ",'" & txtbodega.Text & "','Salida','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0,'" & cbovisitas.Text & "','" & lblusuario.Text & "',1)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
