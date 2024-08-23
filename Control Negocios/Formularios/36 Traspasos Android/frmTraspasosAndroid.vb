@@ -59,6 +59,23 @@ Public Class frmTraspasosAndroid
 
         llena_Usuarios(cboRuta)
     End Sub
+    Public Sub validaInfo()
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from ventas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
     Private Sub btnNuevoProd_Click(sender As Object, e As EventArgs) Handles btnNuevoProd.Click
         cboRuta.Text = ""
         cboFolio.Text = ""
@@ -72,6 +89,7 @@ Public Class frmTraspasosAndroid
         cboRuta.Focus()
 
         llena_Usuarios(cboRuta)
+        My.Application.DoEvents()
     End Sub
     Private Sub cboFolio_DropDown(sender As Object, e As System.EventArgs) Handles cboFolio.DropDown
         cboFolio.Items.Clear()
