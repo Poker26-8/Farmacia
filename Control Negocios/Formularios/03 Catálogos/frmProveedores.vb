@@ -329,7 +329,7 @@ Public Class frmProveedores
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-                        sql = "update Proveedores,NComercial='" & cboNombre.Text & "',Compania='" & cboRazon.Text & "' set RFC='" & txtRFC.Text & "', CURP='" & txtCURP.Text & "', Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Telefono='" & txtWhats.Text & "', Facebook='" & txtFace.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & credito & ", DiasCred=" & txtDias.Text & " where Id=" & txtId.Text
+                        sql = "update Proveedores set NComercial='" & cboNombre.Text & "',Compania='" & cboRazon.Text & "', RFC='" & txtRFC.Text & "', CURP='" & txtCURP.Text & "', Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Telefono='" & txtWhats.Text & "', Facebook='" & txtFace.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & credito & ", DiasCred=" & txtDias.Text & " where Id=" & txtId.Text
                     End If
                 End If
                 rd1.Close()
