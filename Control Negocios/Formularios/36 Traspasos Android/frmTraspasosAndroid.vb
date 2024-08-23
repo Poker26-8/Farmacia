@@ -599,4 +599,16 @@ puerta:
         frmReporteVentasAndroid.Show()
         frmReporteVentasAndroid.BringToFront()
     End Sub
+
+    Private Sub dgProd_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgProd.CellDoubleClick
+        Dim index As Integer = dgProd.CurrentRow.Index
+        If cboFolio.Text = "" Then
+            cboCodigo.Text = dgProd.Rows(index).Cells(0).Value.ToString
+            cboProducto.Text = dgProd.Rows(index).Cells(1).Value.ToString
+            txtCantidad.Text = dgProd.Rows(index).Cells(2).Value.ToString
+
+
+            dgProd.Rows.Remove(dgProd.Rows(index))
+        End If
+    End Sub
 End Class

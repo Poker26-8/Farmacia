@@ -22,10 +22,10 @@ Partial Class frmTraspasosAndroid
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTraspasosAndroid))
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnReportes = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -85,6 +85,7 @@ Partial Class frmTraspasosAndroid
         Me.Button2.BackColor = System.Drawing.Color.White
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button2.Location = New System.Drawing.Point(584, 20)
         Me.Button2.Name = "Button2"
@@ -100,6 +101,7 @@ Partial Class frmTraspasosAndroid
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(584, 119)
         Me.Button1.Name = "Button1"
@@ -183,8 +185,8 @@ Partial Class frmTraspasosAndroid
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column2.HeaderText = "Código"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
@@ -193,8 +195,8 @@ Partial Class frmTraspasosAndroid
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column3.HeaderText = "Descripción"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -202,8 +204,8 @@ Partial Class frmTraspasosAndroid
         'Column8
         '
         Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column8.HeaderText = "Cantidad"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True

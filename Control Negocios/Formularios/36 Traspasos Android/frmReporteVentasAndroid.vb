@@ -2,6 +2,8 @@
 
 Public Class frmReporteVentasAndroid
     Private Sub frmReporteVentasAndroid_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        sTargett = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+
         Dim cnnp As New MySqlClient.MySqlConnection
         Dim sinfop As String = ""
         Dim drp As DataRow
@@ -144,7 +146,7 @@ Public Class frmReporteVentasAndroid
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
+        sTargett = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
         Dim existensuc As Integer = 0
         For i = 0 To DataGridView2.Rows.Count - 1
             If DataGridView2.Rows(i).Cells(5).Value Then
