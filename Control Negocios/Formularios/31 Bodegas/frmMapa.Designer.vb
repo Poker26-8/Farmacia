@@ -295,9 +295,9 @@ Partial Class frmMapa
         'btnAddBodega
         '
         Me.btnAddBodega.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddBodega.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnAddBodega.BackColor = System.Drawing.Color.SkyBlue
         Me.btnAddBodega.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAddBodega.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddBodega.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddBodega.ForeColor = System.Drawing.Color.Black
         Me.btnAddBodega.Location = New System.Drawing.Point(101, 150)
         Me.btnAddBodega.Name = "btnAddBodega"

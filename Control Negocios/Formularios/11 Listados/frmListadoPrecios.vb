@@ -3396,6 +3396,9 @@ Public Class frmListadoPrecios
                     MsgBox("No se encuentra la 'Hoja1' en el archivo de excel seleccionado." & vbNewLine & "Escriba el nombre de la hoja donde se encuentran los datos e inténtelo de nuevo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     cnn1.Close() : Exit Sub
                 End If
+
+                ' If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
+
                 codigo = Convert.ToString(grdimporta.Rows.Item(X).Cells(0).Value)
                 barras = Convert.ToString(grdimporta.Rows.Item(X).Cells(1).Value)
                 nombre = Convert.ToString(grdimporta.Rows.Item(X).Cells(2).Value)

@@ -2221,5 +2221,7 @@ Public Class Inicio
     Private Sub btnBodegas_Click(sender As Object, e As EventArgs) Handles btnBodegas.Click
         frmMapa.BringToFront()
         frmMapa.Show()
+
+        frmpruebas.Show()
     End Sub
 End Class
