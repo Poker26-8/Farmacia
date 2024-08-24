@@ -2557,17 +2557,20 @@ Public Class frmConsultaNotas
 
             If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcotiz.Checked) Or (optPedidos.Checked) Then
 
-                If formato = "TICKET" Then
-                    If tamticket = "80" Then
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pVentas80.PrinterSettings.PrinterName = imp_ticket
-                        pVentas80.Print()
-                    Else
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pVenta58.PrinterSettings.PrinterName = imp_ticket
-                        pVenta58.Print()
+                If (optnotas.Checked) Then
+                    If formato = "TICKET" Then
+                        If tamticket = "80" Then
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pVentas80.PrinterSettings.PrinterName = imp_ticket
+                            pVentas80.Print()
+                        Else
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pVenta58.PrinterSettings.PrinterName = imp_ticket
+                            pVenta58.Print()
+                        End If
                     End If
                 End If
+
 
                 If (optPedidos.Checked) Then
                     If formato = "TICKET" Then
@@ -2615,6 +2618,80 @@ Public Class frmConsultaNotas
             End If
             Panel6.Visible = False
         End If
+
+        'If MsgBox("¿Deseas imprimir una copia?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+        '    If (optnotas.Checked) Then TipoVenta = 1
+        '    If (optcobrar.Checked) Then TipoVenta = 2
+        '    If (optpagadas.Checked) Then TipoVenta = 3
+        '    If (optanceladas.Checked) Then TipoVenta = 4
+
+        '    If (optcotiz.Checked) Then TipoVenta = 5
+
+        '    If (optdevos.Checked) Then TipoVenta = 7
+        '    If (optPedidos.Checked) Then TipoVenta = 6
+
+
+        '    If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcotiz.Checked) Or (optPedidos.Checked) Then
+
+        '        If formato = "TICKET" Then
+        '            If tamticket = "80" Then
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pVentas80.PrinterSettings.PrinterName = imp_ticket
+        '                pVentas80.Print()
+        '            Else
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pVenta58.PrinterSettings.PrinterName = imp_ticket
+        '                pVenta58.Print()
+        '            End If
+        '        End If
+
+        '        If (optPedidos.Checked) Then
+        '            If formato = "TICKET" Then
+        '                If tamticket = "80" Then
+        '                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                    pCotiz80.PrinterSettings.PrinterName = imp_ticket
+        '                    pCotiz80.Print()
+        '                Else
+        '                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                    pCotiz58.PrinterSettings.PrinterName = imp_ticket
+        '                    pCotiz58.Print()
+        '                End If
+        '            End If
+        '        End If
+
+        '        If (optcotiz.Checked) Then
+        '            If formato = "TICKET" Then
+
+        '                If tamticket = "80" Then
+        '                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                    pCotiz80.PrinterSettings.PrinterName = imp_ticket
+        '                    pCotiz80.Print()
+        '                Else
+        '                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                    pCotiz58.PrinterSettings.PrinterName = imp_ticket
+        '                    pCotiz58.Print()
+        '                End If
+
+        '            End If
+        '        End If
+
+        '        If (optdevos.Checked) Then
+        '            If tamticket = "80" Then
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pDevos80.PrinterSettings.PrinterName = imp_ticket
+        '                pDevos80.Print()
+        '            Else
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pDevos58.PrinterSettings.PrinterName = imp_ticket
+        '                pDevos58.Print()
+        '            End If
+
+        '        End If
+
+        '    End If
+        '    Panel6.Visible = False
+        'End If
     End Sub
 
     Private Sub btnPdf_Click(sender As Object, e As EventArgs) Handles btnPdf.Click

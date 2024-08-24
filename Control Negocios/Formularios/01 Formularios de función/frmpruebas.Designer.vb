@@ -39,7 +39,7 @@ Partial Class frmpruebas
         Me.grd.Location = New System.Drawing.Point(0, 0)
         Me.grd.Name = "grd"
         Me.grd.ReadOnly = True
-        Me.grd.Size = New System.Drawing.Size(1046, 450)
+        Me.grd.Size = New System.Drawing.Size(436, 450)
         Me.grd.TabIndex = 0
         '
         'Column1
@@ -54,7 +54,7 @@ Partial Class frmpruebas
         Me.Column2.HeaderText = "Equipo Local"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 94
+        Me.Column2.Width = 87
         '
         'Column3
         '
@@ -68,7 +68,7 @@ Partial Class frmpruebas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1046, 450)
+        Me.ClientSize = New System.Drawing.Size(436, 450)
         Me.Controls.Add(Me.grd)
         Me.Name = "frmpruebas"
         Me.Text = "frmpruebas"

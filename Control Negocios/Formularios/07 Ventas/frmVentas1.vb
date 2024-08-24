@@ -276,10 +276,7 @@ Public Class frmVentas1
                 rd2.Close()
 
             End If
-            cnn2.Close()
-
-
-
+        cnn2.Close()
 
         If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
 
@@ -2252,33 +2249,33 @@ kak:
 
     'Productos
     Private Sub cbodesc_DropDown(sender As System.Object, e As System.EventArgs) Handles cbodesc.DropDown
-        'If Serchi = True Then
-        '    Serchi = False
-        'Else
-        '    cbodesc.Items.Clear()
-        '    Try
-        '        cnn1.Close() : cnn1.Open()
-        '        cmd1 = cnn1.CreateCommand
-        '        If cbonota.Text = "" Then
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
-        '        Else
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
-        '        End If
-        '        rd1 = cmd1.ExecuteReader
-        '        Do While rd1.Read
-        '            If rd1.HasRows Then cbodesc.Items.Add(
-        '                rd1(0).ToString
-        '                )
-        '        Loop
-        '        rd1.Close()
-        '        cnn1.Close()
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.ToString)
-        '        cnn1.Close()
-        '    End Try
-        'End If
+        If Serchi = True Then
+            Serchi = False
+        Else
+            cbodesc.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                If cbonota.Text = "" Then
+                    'cmd1.CommandText =
+                    '    "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+                Else
+                    cmd1.CommandText =
+                        "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
+                End If
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbodesc.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
     Private Sub cbodesc_GotFocus(sender As Object, e As System.EventArgs) Handles cbodesc.GotFocus
         T_Precio = DatosRecarga("TipoPrecio")

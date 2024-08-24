@@ -169,7 +169,6 @@ Partial Class frmVentas1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblautofac = New System.Windows.Forms.Label()
         Me.Label12121 = New System.Windows.Forms.Label()
-        Me.lblpedido = New System.Windows.Forms.Label()
         Me.btnPedido = New System.Windows.Forms.Button()
         Me.txtequivale = New System.Windows.Forms.TextBox()
         Me.Label46 = New System.Windows.Forms.Label()
@@ -185,8 +184,6 @@ Partial Class frmVentas1
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.txtcant_productos = New System.Windows.Forms.TextBox()
         Me.boxAntis = New System.Windows.Forms.GroupBox()
         Me.txtid_medico = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -251,6 +248,9 @@ Partial Class frmVentas1
         Me.lblsaldo_monedero = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.lblcorreocli = New System.Windows.Forms.Label()
+        Me.txtcant_productos = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.lblpedido = New System.Windows.Forms.Label()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido80 = New System.Drawing.Printing.PrintDocument()
@@ -1894,18 +1894,6 @@ Partial Class frmVentas1
         Me.Label12121.Text = "Domicilio:"
         Me.Label12121.Visible = False
         '
-        'lblpedido
-        '
-        Me.lblpedido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblpedido.BackColor = System.Drawing.Color.LightGreen
-        Me.lblpedido.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpedido.Location = New System.Drawing.Point(433, 563)
-        Me.lblpedido.Name = "lblpedido"
-        Me.lblpedido.Size = New System.Drawing.Size(65, 22)
-        Me.lblpedido.TabIndex = 242
-        Me.lblpedido.Text = "0"
-        Me.lblpedido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'btnPedido
         '
         Me.btnPedido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2081,30 +2069,6 @@ Partial Class frmVentas1
         Me.Label14.Size = New System.Drawing.Size(233, 30)
         Me.Label14.TabIndex = 0
         Me.Label14.Text = "IMPRIMIENDO PDF..."
-        '
-        'Label42
-        '
-        Me.Label42.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label42.AutoSize = True
-        Me.Label42.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label42.Location = New System.Drawing.Point(432, 589)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(77, 19)
-        Me.Label42.TabIndex = 234
-        Me.Label42.Text = "Productos"
-        '
-        'txtcant_productos
-        '
-        Me.txtcant_productos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtcant_productos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcant_productos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.txtcant_productos.Location = New System.Drawing.Point(428, 613)
-        Me.txtcant_productos.Name = "txtcant_productos"
-        Me.txtcant_productos.ReadOnly = True
-        Me.txtcant_productos.Size = New System.Drawing.Size(84, 25)
-        Me.txtcant_productos.TabIndex = 233
-        Me.txtcant_productos.Text = "0"
-        Me.txtcant_productos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'boxAntis
         '
@@ -2822,6 +2786,42 @@ Partial Class frmVentas1
         Me.lblcorreocli.Size = New System.Drawing.Size(181, 23)
         Me.lblcorreocli.TabIndex = 236
         Me.lblcorreocli.Visible = False
+        '
+        'txtcant_productos
+        '
+        Me.txtcant_productos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtcant_productos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtcant_productos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.txtcant_productos.Location = New System.Drawing.Point(428, 613)
+        Me.txtcant_productos.Name = "txtcant_productos"
+        Me.txtcant_productos.ReadOnly = True
+        Me.txtcant_productos.Size = New System.Drawing.Size(84, 25)
+        Me.txtcant_productos.TabIndex = 233
+        Me.txtcant_productos.Text = "0"
+        Me.txtcant_productos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label42
+        '
+        Me.Label42.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label42.Location = New System.Drawing.Point(432, 589)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(77, 19)
+        Me.Label42.TabIndex = 234
+        Me.Label42.Text = "Productos"
+        '
+        'lblpedido
+        '
+        Me.lblpedido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblpedido.BackColor = System.Drawing.Color.LightGreen
+        Me.lblpedido.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpedido.Location = New System.Drawing.Point(433, 563)
+        Me.lblpedido.Name = "lblpedido"
+        Me.lblpedido.Size = New System.Drawing.Size(65, 22)
+        Me.lblpedido.TabIndex = 242
+        Me.lblpedido.Text = "0"
+        Me.lblpedido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pComanda80
         '

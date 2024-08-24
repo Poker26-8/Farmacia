@@ -274,6 +274,7 @@ Partial Class frmConsultaBodega
         '
         Me.Button3.BackColor = System.Drawing.Color.MistyRose
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(470, 209)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(145, 28)
@@ -294,6 +295,7 @@ Partial Class frmConsultaBodega
         '
         Me.Button2.BackColor = System.Drawing.Color.LightCoral
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(546, 166)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(70, 37)
@@ -305,6 +307,7 @@ Partial Class frmConsultaBodega
         '
         Me.Button1.BackColor = System.Drawing.Color.PaleGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(470, 166)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(70, 37)
