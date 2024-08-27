@@ -2252,14 +2252,16 @@ kak:
         If Serchi = True Then
             Serchi = False
         Else
-            cbodesc.Items.Clear()
+
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If cbonota.Text = "" Then
                     'cmd1.CommandText =
                     '    "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+                    Exit Sub
                 Else
+                    cbodesc.Items.Clear()
                     cmd1.CommandText =
                         "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
                 End If
