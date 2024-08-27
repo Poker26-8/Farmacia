@@ -3010,33 +3010,35 @@ doorcita:
         End If
     End Sub
     Private Sub cbodesc_DropDown(sender As Object, e As EventArgs) Handles cbodesc.DropDown
-        'If Serchi = True Then
-        '    Serchi = False
-        'Else
-        '    cbodesc.Items.Clear()
-        '    Try
-        '        cnn1.Close() : cnn1.Open()
-        '        cmd1 = cnn1.CreateCommand
-        '        If cbonota.Text = "" Then
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
-        '        Else
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
-        '        End If
-        '        rd1 = cmd1.ExecuteReader
-        '        Do While rd1.Read
-        '            If rd1.HasRows Then cbodesc.Items.Add(
-        '                rd1(0).ToString
-        '                )
-        '        Loop
-        '        rd1.Close()
-        '        cnn1.Close()
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.ToString)
-        '        cnn1.Close()
-        '    End Try
-        'End If
+        If Serchi = True Then
+            Serchi = False
+        Else
+            ' cbodesc.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                If cbonota.Text = "" Then
+                    'cmd1.CommandText =
+                    '"select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+                    Exit Sub
+                Else
+                    cbodesc.Items.Clear()
+                    cmd1.CommandText =
+                        "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
+                End If
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbodesc.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
     Private Sub cbodesc_GotFocus(sender As Object, e As EventArgs) Handles cbodesc.GotFocus
         T_Precio = DatosRecarga("TipoPrecio")
@@ -6316,6 +6318,7 @@ kaka:
         boxcomentario.Visible = False
         txtcomentario.Text = ""
         ordetrabajo = 0
+        FunctionVentas2Async()
         Timer1.Start()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click

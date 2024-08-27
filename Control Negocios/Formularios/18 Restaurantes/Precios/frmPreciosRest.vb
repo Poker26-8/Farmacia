@@ -277,8 +277,8 @@
                 If txtPV.Text <> "" Then
                     If CDec(txtPC.Text) <> 0 Then txtUti.Text = (((txtPV.Text / txtPC.Text) - 1) * 100)
                     txtPVI.Text = ((txtPV.Text * ivaproducto) + (txtPV.Text))
-                    txtPVI.Text = Format(txtPVI.Text, "###,##0.00")
-                    txtPV.Text = Format(txtPV.Text, "###,##0.00")
+                    txtPVI.Text = FormatNumber(txtPVI.Text, 2)
+                    txtPV.Text = FormatNumber(txtPV.Text, 2)
                 End If
 
             End If

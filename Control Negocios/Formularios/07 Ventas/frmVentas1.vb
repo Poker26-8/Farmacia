@@ -5577,6 +5577,8 @@ kaka:
         boxcomentario.Visible = False
         txtcomentario.Text = ""
         ordetrabajo = 0
+
+        FunctionVentasAsync()
         Timer1.Start()
 
     End Sub

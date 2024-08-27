@@ -5,10 +5,7 @@ Module FunAsync
     Dim respuesta As String = ""
     Dim siono As Integer = 0
 
-
-
     Public Async Function ValidarAsync(valor As String) As Task(Of Integer)
-
 
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
@@ -23,11 +20,7 @@ Module FunAsync
             siono = ""
         End If
         rd5.Close() : cnn5.Close()
-
         Return siono
-
-
-
     End Function
 
     Public Function SformatosInicio()
@@ -119,10 +112,10 @@ Module FunAsync
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
 
-        If frmVentas1.cbonota.Text = "" Then
+        If frmVentas3.cbonota.Text = "" Then
             cmd5.CommandText = "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
         Else
-            cmd5.CommandText = "select distinct Nombre from VentasDetalle where Folio=" & frmVentas1.cbonota.Text & " order by Nombre"
+            cmd5.CommandText = "select distinct Nombre from VentasDetalle where Folio=" & frmVentas3.cbonota.Text & " order by Nombre"
         End If
 
         rd5 = cmd5.ExecuteReader
@@ -137,7 +130,6 @@ Module FunAsync
     End Function
     Public Async Function FunctionClinetes3Async() As Task(Of String)
 
-
         frmVentas3.cboNombre.Items.Clear()
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
@@ -151,35 +143,33 @@ Module FunAsync
         rd5.Close()
         cnn5.Close()
 
-
-
     End Function
     '------------------------------------------PANTALLA DE VENTAS 2-------------------------------------------------
     Public Async Function FunctionVentas2Async() As Task(Of String)
 
         frmVentas2.cbodesc.Items.Clear()
 
-                           cnn5.Close() : cnn5.Open()
-                           cmd5 = cnn5.CreateCommand
+        cnn5.Close() : cnn5.Open()
+        cmd5 = cnn5.CreateCommand
 
-                           If frmVentas1.cbonota.Text = "" Then
-                               cmd5.CommandText = "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
-                           Else
-                               cmd5.CommandText = "select distinct Nombre from VentasDetalle where Folio=" & frmVentas1.cbonota.Text & " order by Nombre"
-                           End If
+        If frmVentas2.cbonota.Text = "" Then
+            cmd5.CommandText = "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+        Else
+            cmd5.CommandText = "select distinct Nombre from VentasDetalle where Folio=" & frmVentas2.cbonota.Text & " order by Nombre"
+        End If
 
-                           rd5 = cmd5.ExecuteReader
-                           Do While rd5.Read
-                               If rd5.HasRows Then
-                                   frmVentas2.cbodesc.Items.Add(rd5(0).ToString)
-                               End If
-                           Loop
-                           rd5.Close()
+        rd5 = cmd5.ExecuteReader
+        Do While rd5.Read
+            If rd5.HasRows Then
+                frmVentas2.cbodesc.Items.Add(rd5(0).ToString)
+            End If
+        Loop
+        rd5.Close()
         cnn5.Close()
 
     End Function
-    Public Async Function FunctionClinetes2Async() As Task(Of String)
 
+    Public Async Function FunctionClinetes2Async() As Task(Of String)
 
         frmVentas2.cboNombre.Items.Clear()
         cnn5.Close() : cnn5.Open()
@@ -193,8 +183,6 @@ Module FunAsync
         Loop
         rd5.Close()
         cnn5.Close()
-
-
 
     End Function
 

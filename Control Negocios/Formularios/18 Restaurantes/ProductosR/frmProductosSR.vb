@@ -429,7 +429,7 @@ Public Class frmProductosSR
         txt_resumen.Text = ""
         txt_descripcion.Text = ""
         PictureBox1.Image = Nothing
-        TXTieps.Text = ""
+        TXTieps.Text = "0"
     End Sub
 
     Private Sub cboIva_DropDown(sender As Object, e As EventArgs) Handles cboIva.DropDown
