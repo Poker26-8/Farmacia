@@ -129,6 +129,178 @@ Module Module1
 
     Public Grupo_Impresion_Tienda As String = ""
 
+    Public Tiempo(2) As Integer
+    Public Fechita(3) As Integer
+    Public refer As String
+
+
+    Public Sub ActualHora(ByRef grid As DataGridView, ByRef usuario As String)
+        grid.Rows.Clear()
+        Dim minuto As String = ""
+        Dim hora As String = ""
+
+        Try
+            cnn2.Close() : cnn2.Open()
+
+            For field As Integer = 0 To 60
+                If field = 60 Then Exit For
+                minuto = field
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select * from Agenda where Minuto=" & minuto & " and Hora=" & Tiempo(1) & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        If rd2("Hora").ToString < 10 Then
+                            hora = "0" & rd2("Hora").ToString
+                        Else
+                            hora = rd2("Hora").ToString
+                        End If
+
+                        If rd2("Minuto").ToString < 10 Then
+                            minuto = "0" & rd2("Minuto").ToString
+                        Else
+                            minuto = rd2("Minuto").ToString
+                        End If
+
+                        grid.Rows.Add(rd2("Id").ToString, hora & ":" & minuto, rd2("Asunto").ToString, rd2("Activo").ToString)
+                    End If
+                Else
+                    If field < 10 Then
+                        minuto = "0" & field
+                    Else
+                        minuto = field
+                    End If
+
+                    If CDec(Tiempo(1)) < 10 Then
+                        hora = "0" & Tiempo(1)
+                    Else
+                        hora = Tiempo(1)
+                    End If
+
+                    grid.Rows.Add("0", hora & ":" & minuto, "", "0")
+                End If
+                rd2.Close()
+            Next
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            conexion.Close()
+        End Try
+    End Sub
+
+    Public Sub ActualDia(ByRef grid As DataGridView, ByRef usuario As String)
+        grid.Rows.Clear()
+        Dim hora As String = ""
+        Dim horx As String = ""
+        Dim evento As String = ""
+
+        Try
+            cnn2.Close() : cnn2.Open()
+            cnn3.Close()
+            cnn3.Open()
+
+            For field As Integer = 0 To 23
+                If field < 10 Then
+                    hora = "0" & field
+                Else
+                    hora = field
+                End If
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select * from Agenda where Hora=" & hora & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText =
+                            "select Asunto from Agenda where Hora=" & hora & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                        rd3 = cmd3.ExecuteReader
+                        Do While rd3.Read
+                            If rd3.HasRows Then
+                                evento = evento & " - " & rd3(0).ToString
+                            End If
+                        Loop
+                        rd3.Close()
+                        evento = Mid(evento, 4, 99000)
+
+                        If rd2("Hora").ToString < 10 Then
+                            horx = "0" & rd2("Hora").ToString
+                        Else
+                            horx = rd2("Hora").ToString
+                        End If
+
+                        grid.Rows.Add(rd2("Id").ToString, rd2("Hora").ToString & ":" & rd2("Minuto").ToString, evento, rd2("Activo").ToString)
+                    End If
+                Else
+                    If hora < 10 Then
+                        horx = "0" & field
+                    Else
+                        horx = field
+                    End If
+                    grid.Rows.Add("0", hora & ":00", "", "0")
+                End If
+                rd2.Close()
+            Next
+            cnn2.Close()
+            cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            conexion.Close()
+            cnn3.Close()
+        End Try
+    End Sub
+
+    Public Sub ActualMes(ByRef grid As DataGridView, ByRef usuario As String)
+        grid.Rows.Clear()
+        Dim dia As String = ""
+        Dim evento As String = ""
+
+        Try
+            cnn2.Close() : cnn2.Open()
+            cnn3.Close()
+            cnn3.Open()
+
+            For field As Integer = 1 To Date.DaysInMonth(Now.Year, Now.Month)
+                dia = field
+
+                cmd2 = conexion.CreateCommand
+                cmd2.CommandText =
+                    "select * from Agenda where Dia=" & dia & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText =
+                            "select Asunto from Agenda where Dia=" & dia & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                        rd3 = cmd3.ExecuteReader
+                        Do While rd3.Read
+                            If rd3.HasRows Then
+                                evento = evento & " - " & rd3(0).ToString
+                            End If
+                        Loop
+                        rd3.Close()
+                        evento = Mid(evento, 4, 99000)
+
+                        grid.Rows.Add(rd2("Id").ToString, rd2("Dia").ToString, evento, rd2("Activo").ToString)
+                    End If
+                Else
+                    grid.Rows.Add("0", dia, "", "0")
+                End If
+
+                My.Application.DoEvents()
+                rd2.Close()
+            Next
+            cnn2.Close()
+            cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            conexion.Close()
+            cnn3.Close()
+        End Try
+    End Sub
+
     Public Function ConvertCero(ByVal vl As String) As Double
         If Not IsNumeric(vl) Then
             ConvertCero = 0

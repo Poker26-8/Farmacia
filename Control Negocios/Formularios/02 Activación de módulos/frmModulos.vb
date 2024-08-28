@@ -108,7 +108,8 @@
     End Sub
 
     Private Sub btnMedicas_Click(sender As Object, e As EventArgs) Handles btnMedicas.Click
-
+        FrmAgenda.BringToFront()
+        FrmAgenda.Show()
     End Sub
 
     Private Sub btnFarmacia_Click(sender As Object, e As EventArgs) Handles btnFarmacia.Click

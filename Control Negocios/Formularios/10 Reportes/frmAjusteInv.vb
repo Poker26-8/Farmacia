@@ -247,6 +247,7 @@
                     txtfisica.Text = Trim(Replace(txtfisica.Text, "-", ""))
                 End If
                 diferencia = CDbl(IIf(txtfisica.Text = "", 0, txtfisica.Text)) - CDbl(IIf(txtsistema.Text = "", 0, txtsistema.Text))
+                'diferencia = CDbl(IIf(txtsistema.Text = "", 0, txtsistema.Text)) - CDbl(IIf(txtfisica.Text = "", 0, txtfisica.Text))
                 txtdiferencia.Text = diferencia
             End If
         End If

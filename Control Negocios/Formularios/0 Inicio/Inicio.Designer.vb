@@ -179,16 +179,16 @@ Partial Class Inicio
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnOptica = New System.Windows.Forms.Button()
+        Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.btnpollo = New System.Windows.Forms.Button()
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
-        Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.btnBodegas = New System.Windows.Forms.Button()
         Me.btnDentista = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.btnComandera = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
         Me.POpciones = New System.Windows.Forms.Panel()
@@ -403,7 +403,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.TproduccionCos, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.MenuVentasRuta})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.TproduccionCos, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pIngresos, Me.pEgresos, Me.pReportes, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.MenuVentasRuta})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1230, 24)
@@ -1400,6 +1400,23 @@ Partial Class Inicio
         Me.btnOptica.UseVisualStyleBackColor = True
         Me.btnOptica.Visible = False
         '
+        'btnTelefonia
+        '
+        Me.btnTelefonia.BackColor = System.Drawing.Color.Moccasin
+        Me.btnTelefonia.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnTelefonia.FlatAppearance.BorderSize = 0
+        Me.btnTelefonia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
+        Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 710)
+        Me.btnTelefonia.Name = "btnTelefonia"
+        Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
+        Me.btnTelefonia.TabIndex = 181
+        Me.btnTelefonia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnTelefonia.UseVisualStyleBackColor = False
+        Me.btnTelefonia.Visible = False
+        '
         'btnpollo
         '
         Me.btnpollo.Dock = System.Windows.Forms.DockStyle.Top
@@ -1442,23 +1459,6 @@ Partial Class Inicio
         Me.btnRefaccionaria.UseVisualStyleBackColor = True
         Me.btnRefaccionaria.Visible = False
         '
-        'btnTelefonia
-        '
-        Me.btnTelefonia.BackColor = System.Drawing.Color.Moccasin
-        Me.btnTelefonia.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnTelefonia.FlatAppearance.BorderSize = 0
-        Me.btnTelefonia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
-        Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 710)
-        Me.btnTelefonia.Name = "btnTelefonia"
-        Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
-        Me.btnTelefonia.TabIndex = 181
-        Me.btnTelefonia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnTelefonia.UseVisualStyleBackColor = False
-        Me.btnTelefonia.Visible = False
-        '
         'btnBodegas
         '
         Me.btnBodegas.Dock = System.Windows.Forms.DockStyle.Top
@@ -1486,19 +1486,6 @@ Partial Class Inicio
         Me.btnDentista.TabIndex = 187
         Me.btnDentista.UseVisualStyleBackColor = True
         Me.btnDentista.Visible = False
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.PapayaWhip
-        Me.Button6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(0, 682)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 24)
-        Me.Button6.TabIndex = 9
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'btnPagarComandas
         '
@@ -1553,6 +1540,19 @@ Partial Class Inicio
         Me.btnComandera.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnComandera.UseVisualStyleBackColor = True
         Me.btnComandera.Visible = False
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.PapayaWhip
+        Me.Button6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Location = New System.Drawing.Point(0, 682)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(90, 24)
+        Me.Button6.TabIndex = 9
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'Label1
         '

@@ -37,6 +37,7 @@ Module ModGral
     Dim seguridad As Boolean = False
 
 
+
     Public Function TraerFormatoImpresion() As String
 
         Dim respuesta As String = ""

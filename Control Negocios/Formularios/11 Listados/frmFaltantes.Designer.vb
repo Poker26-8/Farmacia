@@ -23,13 +23,13 @@ Partial Class frmFaltantes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFaltantes))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFaltantes))
         Me.cbofiltro = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.opttodos = New System.Windows.Forms.RadioButton()
@@ -38,11 +38,6 @@ Partial Class frmFaltantes
         Me.optproveedor = New System.Windows.Forms.RadioButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.ordgru = New System.Windows.Forms.RadioButton()
-        Me.orddep = New System.Windows.Forms.RadioButton()
-        Me.ordnom = New System.Windows.Forms.RadioButton()
-        Me.btnsalir = New System.Windows.Forms.Button()
-        Me.btnexportar = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +47,11 @@ Partial Class frmFaltantes
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ordgru = New System.Windows.Forms.RadioButton()
+        Me.orddep = New System.Windows.Forms.RadioButton()
+        Me.ordnom = New System.Windows.Forms.RadioButton()
+        Me.btnsalir = New System.Windows.Forms.Button()
+        Me.btnexportar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -130,7 +130,7 @@ Partial Class frmFaltantes
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(851, 31)
+        Me.Label1.Size = New System.Drawing.Size(1095, 31)
         Me.Label1.TabIndex = 239
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -150,77 +150,8 @@ Partial Class frmFaltantes
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(832, 276)
+        Me.grdcaptura.Size = New System.Drawing.Size(1076, 343)
         Me.grdcaptura.TabIndex = 242
-        '
-        'ordgru
-        '
-        Me.ordgru.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ordgru.AutoSize = True
-        Me.ordgru.Location = New System.Drawing.Point(594, 466)
-        Me.ordgru.Name = "ordgru"
-        Me.ordgru.Size = New System.Drawing.Size(124, 19)
-        Me.ordgru.TabIndex = 245
-        Me.ordgru.TabStop = True
-        Me.ordgru.Text = "Ordenar por grupo"
-        Me.ordgru.UseVisualStyleBackColor = True
-        Me.ordgru.Visible = False
-        '
-        'orddep
-        '
-        Me.orddep.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.orddep.AutoSize = True
-        Me.orddep.Location = New System.Drawing.Point(347, 466)
-        Me.orddep.Name = "orddep"
-        Me.orddep.Size = New System.Drawing.Size(167, 19)
-        Me.orddep.TabIndex = 244
-        Me.orddep.TabStop = True
-        Me.orddep.Text = "Ordenar por departamento"
-        Me.orddep.UseVisualStyleBackColor = True
-        Me.orddep.Visible = False
-        '
-        'ordnom
-        '
-        Me.ordnom.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ordnom.AutoSize = True
-        Me.ordnom.Location = New System.Drawing.Point(133, 466)
-        Me.ordnom.Name = "ordnom"
-        Me.ordnom.Size = New System.Drawing.Size(134, 19)
-        Me.ordnom.TabIndex = 243
-        Me.ordnom.TabStop = True
-        Me.ordnom.Text = "Ordenar por nombre"
-        Me.ordnom.UseVisualStyleBackColor = True
-        Me.ordnom.Visible = False
-        '
-        'btnsalir
-        '
-        Me.btnsalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalir.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalir.Image = CType(resources.GetObject("btnsalir.Image"), System.Drawing.Image)
-        Me.btnsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnsalir.Location = New System.Drawing.Point(759, 103)
-        Me.btnsalir.Name = "btnsalir"
-        Me.btnsalir.Size = New System.Drawing.Size(82, 75)
-        Me.btnsalir.TabIndex = 249
-        Me.btnsalir.Text = "Limpiar"
-        Me.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalir.UseVisualStyleBackColor = True
-        '
-        'btnexportar
-        '
-        Me.btnexportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnexportar.BackgroundImage = CType(resources.GetObject("btnexportar.BackgroundImage"), System.Drawing.Image)
-        Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexportar.Location = New System.Drawing.Point(759, 34)
-        Me.btnexportar.Name = "btnexportar"
-        Me.btnexportar.Size = New System.Drawing.Size(82, 63)
-        Me.btnexportar.TabIndex = 248
-        Me.btnexportar.Text = "Exportar"
-        Me.btnexportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnexportar.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -305,11 +236,80 @@ Partial Class frmFaltantes
         Me.Column9.ReadOnly = True
         Me.Column9.Width = 63
         '
+        'ordgru
+        '
+        Me.ordgru.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ordgru.AutoSize = True
+        Me.ordgru.Location = New System.Drawing.Point(716, 533)
+        Me.ordgru.Name = "ordgru"
+        Me.ordgru.Size = New System.Drawing.Size(124, 19)
+        Me.ordgru.TabIndex = 245
+        Me.ordgru.TabStop = True
+        Me.ordgru.Text = "Ordenar por grupo"
+        Me.ordgru.UseVisualStyleBackColor = True
+        Me.ordgru.Visible = False
+        '
+        'orddep
+        '
+        Me.orddep.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.orddep.AutoSize = True
+        Me.orddep.Location = New System.Drawing.Point(469, 533)
+        Me.orddep.Name = "orddep"
+        Me.orddep.Size = New System.Drawing.Size(167, 19)
+        Me.orddep.TabIndex = 244
+        Me.orddep.TabStop = True
+        Me.orddep.Text = "Ordenar por departamento"
+        Me.orddep.UseVisualStyleBackColor = True
+        Me.orddep.Visible = False
+        '
+        'ordnom
+        '
+        Me.ordnom.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ordnom.AutoSize = True
+        Me.ordnom.Location = New System.Drawing.Point(255, 533)
+        Me.ordnom.Name = "ordnom"
+        Me.ordnom.Size = New System.Drawing.Size(134, 19)
+        Me.ordnom.TabIndex = 243
+        Me.ordnom.TabStop = True
+        Me.ordnom.Text = "Ordenar por nombre"
+        Me.ordnom.UseVisualStyleBackColor = True
+        Me.ordnom.Visible = False
+        '
+        'btnsalir
+        '
+        Me.btnsalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsalir.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalir.Image = CType(resources.GetObject("btnsalir.Image"), System.Drawing.Image)
+        Me.btnsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnsalir.Location = New System.Drawing.Point(1003, 103)
+        Me.btnsalir.Name = "btnsalir"
+        Me.btnsalir.Size = New System.Drawing.Size(82, 75)
+        Me.btnsalir.TabIndex = 249
+        Me.btnsalir.Text = "Limpiar"
+        Me.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnsalir.UseVisualStyleBackColor = True
+        '
+        'btnexportar
+        '
+        Me.btnexportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnexportar.BackgroundImage = CType(resources.GetObject("btnexportar.BackgroundImage"), System.Drawing.Image)
+        Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexportar.Location = New System.Drawing.Point(1003, 34)
+        Me.btnexportar.Name = "btnexportar"
+        Me.btnexportar.Size = New System.Drawing.Size(82, 63)
+        Me.btnexportar.TabIndex = 248
+        Me.btnexportar.Text = "Exportar"
+        Me.btnexportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnexportar.UseVisualStyleBackColor = True
+        '
         'frmFaltantes
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(851, 492)
+        Me.ClientSize = New System.Drawing.Size(1095, 559)
         Me.Controls.Add(Me.btnsalir)
         Me.Controls.Add(Me.btnexportar)
         Me.Controls.Add(Me.ordgru)

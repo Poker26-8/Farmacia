@@ -991,7 +991,7 @@ Public Class frmRepInventario
 
         Else
             If (Partes) Then
-                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, exitencia, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, FormatNumber(exitencia, 2), sumapedidos, FormatNumber(diferencia, 2), FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                         Else
                             If restaurante = 1 And copeo = 1 Then
                                 Dim existe_temp As Double = exitencia
@@ -1020,9 +1020,9 @@ Public Class frmRepInventario
                                 End If
 
 
-                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, FormatNumber(nueva_existe, 2), sumapedidos, FormatNumber(diferencia, 2), FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             Else
-                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, exitencia, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, FormatNumber(exitencia, 2), sumapedidos, FormatNumber(diferencia, 2), FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             End If
                         End If
                     End If
@@ -2046,8 +2046,8 @@ Public Class frmRepInventario
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                Efectivo_Ventas = rd1("Vent").ToString
-                Efectivo_Costo = rd1("Cost").ToString
+                Efectivo_Ventas = IIf(rd1("Vent").ToString = "", 0, rd1("Vent").ToString)
+                Efectivo_Costo = IIf(rd1("Cost").ToString = "", 0, rd1("Cost").ToString)
             End If
         End If
         rd1.Close() : cnn1.Close()
@@ -2792,5 +2792,122 @@ quepaso_wey:
     Private Sub btnRepTraspasos_Click(sender As Object, e As EventArgs) Handles btnRepTraspasos.Click
         frmRepTraspasos.BringToFront()
         frmRepTraspasos.Show()
+    End Sub
+
+    Private Sub optperdidas_Click(sender As Object, e As EventArgs) Handles optperdidas.Click
+        If (optperdidas.Checked) Then
+
+            cbofiltro.Text = ""
+            cbofiltro.Items.Clear()
+            cbofiltro.Enabled = True
+            boxcaduca.Enabled = False
+            txtCompraTot.Text = "0.00"
+            txtVentaTot.Text = "0.00"
+
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+            My.Application.DoEvents()
+
+            If (Libreria) Then
+            Else
+
+
+                grdcaptura.ColumnCount = 8
+                With grdcaptura
+                    With .Columns(0)
+                        .HeaderText = "Código"
+                        .Width = 70
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(1)
+                        .HeaderText = "Descripción"
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    End With
+                    With .Columns(2)
+                        .HeaderText = "Cantidad"
+                        .Width = 60
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(3)
+                        .HeaderText = "Unidad"
+                        .Width = 60
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(4)
+                        .HeaderText = "Fecha"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(5)
+                        .HeaderText = "Departamento"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(6)
+                        .HeaderText = "grupo"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(7)
+                        .HeaderText = "Usuario"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                End With
+
+                Try
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Cantidad,Unidad,Fecha,Depto,Grupo,Usuario FROM merma ORDER BY nombre"
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then
+                            Dim fecha As Date = Nothing
+                            Dim f As String = ""
+                            fecha = Format(rd1("Fecha").ToString)
+                            f = Format(fecha, "yyyy-MM-dd HH:mm:ss")
+
+                            grdcaptura.Rows.Add(rd1("Codigo").ToString,
+                                                rd1("Nombre").ToString,
+                                                rd1("Cantidad").ToString,
+                                                rd1("Unidad").ToString,
+                                                f,
+                                                rd1("Depto").ToString,
+                                                rd1("Grupo").ToString,
+                                                rd1("Usuario").ToString
+)
+                        End If
+                    Loop
+                    rd1.Close()
+                    cnn1.Close()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                    cnn1.Close()
+                End Try
+
+            End If
+            cbofiltro.Focus().Equals(True)
+        End If
     End Sub
 End Class

@@ -2133,10 +2133,22 @@
     <Compile Include="Formularios\29 Condominios\frmRegistroHusped.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\30 Citas Med\FrmAgenda.Designer.vb">
+      <DependentUpon>FrmAgenda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\FrmAgenda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\30 Citas Med\frmCitas.Designer.vb">
       <DependentUpon>frmCitas.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\30 Citas Med\frmCitas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmModificar.Designer.vb">
+      <DependentUpon>frmModificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmModificar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\31 Bodegas\frmConsultaBodega.Designer.vb">
@@ -3293,8 +3305,14 @@
     <EmbeddedResource Include="Formularios\29 Condominios\frmRegistroHusped.resx">
       <DependentUpon>frmRegistroHusped.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\FrmAgenda.resx">
+      <DependentUpon>FrmAgenda.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\frmCitas.resx">
       <DependentUpon>frmCitas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\frmModificar.resx">
+      <DependentUpon>frmModificar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\31 Bodegas\frmConsultaBodega.resx">
       <DependentUpon>frmConsultaBodega.vb</DependentUpon>
