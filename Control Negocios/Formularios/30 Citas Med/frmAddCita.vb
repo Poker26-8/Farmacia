@@ -238,11 +238,11 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Agenda where Minuto=" & cboMinuto.Text & " and Hora=" & cboHora.Text & " and Dia=" & txtDia.Text & " and Mes=" & cboMes.Tag & " and Anio=" & cboAño.Text & " and Usuario='" & cboUsuario.Text & "' and Activo=-1"
+                "select * from Agenda where Minuto=" & cboMinuto.Text & " and Hora=" & cboHora.Text & " and Dia=" & txtDia.Text & " and Mes=" & cboMes.Tag & " and Anio=" & cboAño.Text & " and Usuario='" & cboUsuario.Text & "' and Activo=1"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    MsgBox("Ya hay una cita programada para el día " & txtDia.Text & "/" & cboMes.Tag & "/" & cboAño.Text & " a las " & cboHora.Text & ":" & cboMinuto.Text & ".", vbInformation + vbOKCancel, "Delsscom Agenda de citas")
+                    MsgBox("Ya hay una cita programada para el día " & txtDia.Text & "/" & cboMes.Tag & "/" & cboAño.Text & " a las " & cboHora.Text & ":" & cboMinuto.Text & ".", vbInformation + vbOKCancel, titulocentral)
                     rd1.Close()
                     cnn1.Close()
                     Exit Sub
@@ -254,7 +254,7 @@
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "insert into Agenda(Hora,Minuto,Dia,Mes,Anio,Asunto,Usuario,Activo) values(" & cboHora.Text & "," & cboMinuto.Text & "," & txtDia.Text & "," & cboMes.Tag & "," & cboAño.Text & ",'" & QuitaSaltos(rtbAsunto.Text, " ") & "','" & cboUsuario.Text & "',-1)"
+                    "insert into Agenda(Hora,Minuto,Dia,Mes,Anio,Asunto,Usuario,Activo) values(" & cboHora.Text & "," & cboMinuto.Text & "," & txtDia.Text & "," & cboMes.Tag & "," & cboAño.Text & ",'" & QuitaSaltos(rtbAsunto.Text, " ") & "','" & cboUsuario.Text & "',1)"
                 cmd2.ExecuteNonQuery()
                 cnn2.Close()
 

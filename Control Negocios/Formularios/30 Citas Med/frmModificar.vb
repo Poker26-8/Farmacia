@@ -364,7 +364,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "update Agenda set Hora=" & cboHora.Text & ", Minuto=" & cboMinuto.Text & ", Dia=" & txtDia.Text & ", Mes=" & cboMes.Tag & ", Anio=" & cboAño.Text & ", Asunto='" & QuitaSaltos(rtbAsunto.Text, "") & "', Usuario='" & cboUsuario.Text & "', Activo=-1 where Id=" & txtID.Text
+                "update Agenda set Hora=" & cboHora.Text & ", Minuto=" & cboMinuto.Text & ", Dia=" & txtDia.Text & ", Mes=" & cboMes.Tag & ", Anio=" & cboAño.Text & ", Asunto='" & QuitaSaltos(rtbAsunto.Text, "") & "', Usuario='" & cboUsuario.Text & "', Activo=1 where Id=" & txtID.Text
             cmd1.ExecuteNonQuery()
             cnn1.Close()
 
