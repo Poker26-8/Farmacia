@@ -133,6 +133,35 @@ Module Module1
     Public Fechita(3) As Integer
     Public refer As String
 
+    Public Function QuitaSaltos(ByVal texto As String, ByRef caracter As String) As String
+        QuitaSaltos = Replace(Replace(texto, Chr(10), caracter), Chr(13), caracter)
+    End Function
+
+    Public Sub Estado()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Agenda set Activo=0 where Anio<=" & CDec(Fechita(3)) & " and Mes<=" & CDec(Fechita(2)) & " and Dia<" & CDec(Fechita(1)) & ""
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Agenda set Activo=0 where Anio<=" & CDec(Fechita(3)) & " and Mes<=" & CDec(Fechita(2)) & " and Dia<=" & CDec(Fechita(1)) & " and Hora<" & CDec(Tiempo(1)) & ""
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Agenda set Activo=0 where Anio<=" & CDec(Fechita(3)) & " and Mes<=" & CDec(Fechita(2)) & " and Dia<=" & CDec(Fechita(1)) & " and Hora<=" & CDec(Tiempo(1)) & " and Minuto<" & CDec(Tiempo(2)) & ""
+            cmd1.ExecuteNonQuery()
+
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 
     Public Sub ActualHora(ByRef grid As DataGridView, ByRef usuario As String)
         grid.Rows.Clear()
@@ -147,7 +176,7 @@ Module Module1
                 minuto = field
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Agenda where Minuto=" & minuto & " and Hora=" & Tiempo(1) & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                    "select Hora,Minuto,Id,Asunto,Activo from Agenda where Minuto=" & minuto & " and Hora=" & Tiempo(1) & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -209,7 +238,7 @@ Module Module1
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Agenda where Hora=" & hora & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                    "select Hora,Id,Minuto,Activo from Agenda where Hora=" & hora & " and Dia=" & Fechita(1) & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -267,7 +296,7 @@ Module Module1
 
                 cmd2 = conexion.CreateCommand
                 cmd2.CommandText =
-                    "select * from Agenda where Dia=" & dia & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
+                    "select Id,Dia,Activo from Agenda where Dia=" & dia & " and Mes=" & Fechita(2) & " and Anio=" & Fechita(3) & " and Usuario='" & usuario & "' and Activo=-1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then

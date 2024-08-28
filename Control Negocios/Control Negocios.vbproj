@@ -2133,6 +2133,12 @@
     <Compile Include="Formularios\29 Condominios\frmRegistroHusped.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmAddCita.Designer.vb">
+      <DependentUpon>frmAddCita.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmAddCita.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\30 Citas Med\FrmAgenda.Designer.vb">
       <DependentUpon>FrmAgenda.vb</DependentUpon>
     </Compile>
@@ -2143,6 +2149,18 @@
       <DependentUpon>frmCitas.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\30 Citas Med\frmCitas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmConsultaCita.Designer.vb">
+      <DependentUpon>frmConsultaCita.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmConsultaCita.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmDetalleCita.Designer.vb">
+      <DependentUpon>frmDetalleCita.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmDetalleCita.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\30 Citas Med\frmModificar.Designer.vb">
@@ -3305,11 +3323,20 @@
     <EmbeddedResource Include="Formularios\29 Condominios\frmRegistroHusped.resx">
       <DependentUpon>frmRegistroHusped.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\frmAddCita.resx">
+      <DependentUpon>frmAddCita.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\FrmAgenda.resx">
       <DependentUpon>FrmAgenda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\frmCitas.resx">
       <DependentUpon>frmCitas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\frmConsultaCita.resx">
+      <DependentUpon>frmConsultaCita.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\frmDetalleCita.resx">
+      <DependentUpon>frmDetalleCita.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\frmModificar.resx">
       <DependentUpon>frmModificar.vb</DependentUpon>

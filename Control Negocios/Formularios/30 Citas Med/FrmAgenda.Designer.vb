@@ -25,32 +25,32 @@ Partial Class FrmAgenda
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAgenda))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.optHora = New System.Windows.Forms.RadioButton()
         Me.optDia = New System.Windows.Forms.RadioButton()
+        Me.optHora = New System.Windows.Forms.RadioButton()
         Me.optMes = New System.Windows.Forms.RadioButton()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboUsuario = New System.Windows.Forms.ComboBox()
         Me.lblMes = New System.Windows.Forms.Label()
         Me.lblDía = New System.Windows.Forms.Label()
         Me.lblHora = New System.Windows.Forms.Label()
+        Me.cboUsuario = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnDetalle = New System.Windows.Forms.Button()
+        Me.btnConsultar = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.btnConsultar = New System.Windows.Forms.Button()
-        Me.btnDetalle = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
         Me.tHora = New System.Windows.Forms.Timer(Me.components)
         Me.tActuales = New System.Windows.Forms.Timer(Me.components)
         Me.tEstado = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -63,86 +63,60 @@ Partial Class FrmAgenda
         Me.Panel1.Size = New System.Drawing.Size(545, 139)
         Me.Panel1.TabIndex = 0
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(308, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(234, 121)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 7
-        Me.PictureBox1.TabStop = False
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.optDia)
+        Me.GroupBox1.Controls.Add(Me.optHora)
+        Me.GroupBox1.Controls.Add(Me.optMes)
         Me.GroupBox1.Controls.Add(Me.lblMes)
         Me.GroupBox1.Controls.Add(Me.lblDía)
         Me.GroupBox1.Controls.Add(Me.lblHora)
         Me.GroupBox1.Controls.Add(Me.cboUsuario)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.optMes)
-        Me.GroupBox1.Controls.Add(Me.optDia)
-        Me.GroupBox1.Controls.Add(Me.optHora)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(300, 128)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         '
-        'optHora
-        '
-        Me.optHora.AutoSize = True
-        Me.optHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optHora.Location = New System.Drawing.Point(7, 52)
-        Me.optHora.Name = "optHora"
-        Me.optHora.Size = New System.Drawing.Size(55, 20)
-        Me.optHora.TabIndex = 0
-        Me.optHora.TabStop = True
-        Me.optHora.Text = "Hora"
-        Me.optHora.UseVisualStyleBackColor = True
-        '
         'optDia
         '
         Me.optDia.AutoSize = True
-        Me.optDia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optDia.Location = New System.Drawing.Point(6, 77)
+        Me.optDia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optDia.ForeColor = System.Drawing.Color.Black
+        Me.optDia.Location = New System.Drawing.Point(7, 76)
         Me.optDia.Name = "optDia"
-        Me.optDia.Size = New System.Drawing.Size(46, 20)
-        Me.optDia.TabIndex = 1
+        Me.optDia.Size = New System.Drawing.Size(59, 22)
+        Me.optDia.TabIndex = 37
         Me.optDia.TabStop = True
-        Me.optDia.Text = "Día"
+        Me.optDia.Text = "Hora"
         Me.optDia.UseVisualStyleBackColor = True
+        '
+        'optHora
+        '
+        Me.optHora.AutoSize = True
+        Me.optHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optHora.ForeColor = System.Drawing.Color.Black
+        Me.optHora.Location = New System.Drawing.Point(6, 51)
+        Me.optHora.Name = "optHora"
+        Me.optHora.Size = New System.Drawing.Size(71, 22)
+        Me.optHora.TabIndex = 38
+        Me.optHora.TabStop = True
+        Me.optHora.Text = "Minuto"
+        Me.optHora.UseVisualStyleBackColor = True
         '
         'optMes
         '
         Me.optMes.AutoSize = True
-        Me.optMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optMes.Location = New System.Drawing.Point(6, 102)
+        Me.optMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optMes.ForeColor = System.Drawing.Color.Black
+        Me.optMes.Location = New System.Drawing.Point(6, 101)
         Me.optMes.Name = "optMes"
-        Me.optMes.Size = New System.Drawing.Size(51, 20)
-        Me.optMes.TabIndex = 2
+        Me.optMes.Size = New System.Drawing.Size(48, 22)
+        Me.optMes.TabIndex = 39
         Me.optMes.TabStop = True
-        Me.optMes.Text = "Mes"
+        Me.optMes.Text = "Día"
         Me.optMes.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(4, 4)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 18)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Usuario"
-        '
-        'cboUsuario
-        '
-        Me.cboUsuario.FormattingEnabled = True
-        Me.cboUsuario.Location = New System.Drawing.Point(6, 25)
-        Me.cboUsuario.Name = "cboUsuario"
-        Me.cboUsuario.Size = New System.Drawing.Size(286, 21)
-        Me.cboUsuario.TabIndex = 4
         '
         'lblMes
         '
@@ -180,6 +154,24 @@ Partial Class FrmAgenda
         Me.lblHora.Text = "Label1"
         Me.lblHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'cboUsuario
+        '
+        Me.cboUsuario.FormattingEnabled = True
+        Me.cboUsuario.Location = New System.Drawing.Point(6, 25)
+        Me.cboUsuario.Name = "cboUsuario"
+        Me.cboUsuario.Size = New System.Drawing.Size(286, 21)
+        Me.cboUsuario.TabIndex = 4
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(4, 4)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 18)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Usuario"
+        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.btnModificar)
@@ -191,6 +183,58 @@ Partial Class FrmAgenda
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(545, 52)
         Me.Panel2.TabIndex = 1
+        '
+        'btnModificar
+        '
+        Me.btnModificar.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.Color.White
+        Me.btnModificar.Location = New System.Drawing.Point(102, 9)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(86, 31)
+        Me.btnModificar.TabIndex = 3
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.White
+        Me.btnAgregar.Location = New System.Drawing.Point(10, 9)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(86, 31)
+        Me.btnAgregar.TabIndex = 2
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = False
+        '
+        'btnDetalle
+        '
+        Me.btnDetalle.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDetalle.ForeColor = System.Drawing.Color.White
+        Me.btnDetalle.Location = New System.Drawing.Point(291, 9)
+        Me.btnDetalle.Name = "btnDetalle"
+        Me.btnDetalle.Size = New System.Drawing.Size(86, 31)
+        Me.btnDetalle.TabIndex = 1
+        Me.btnDetalle.Text = "Detalle"
+        Me.btnDetalle.UseVisualStyleBackColor = False
+        '
+        'btnConsultar
+        '
+        Me.btnConsultar.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnConsultar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsultar.ForeColor = System.Drawing.Color.White
+        Me.btnConsultar.Location = New System.Drawing.Point(383, 9)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(150, 31)
+        Me.btnConsultar.TabIndex = 0
+        Me.btnConsultar.Text = "Consultar posteriores"
+        Me.btnConsultar.UseVisualStyleBackColor = False
         '
         'Panel3
         '
@@ -214,54 +258,6 @@ Partial Class FrmAgenda
         Me.grdCaptura.Size = New System.Drawing.Size(545, 405)
         Me.grdCaptura.TabIndex = 0
         '
-        'btnConsultar
-        '
-        Me.btnConsultar.BackColor = System.Drawing.Color.LightBlue
-        Me.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnConsultar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConsultar.Location = New System.Drawing.Point(400, 9)
-        Me.btnConsultar.Name = "btnConsultar"
-        Me.btnConsultar.Size = New System.Drawing.Size(133, 31)
-        Me.btnConsultar.TabIndex = 0
-        Me.btnConsultar.Text = "Consultar posteriores"
-        Me.btnConsultar.UseVisualStyleBackColor = False
-        '
-        'btnDetalle
-        '
-        Me.btnDetalle.BackColor = System.Drawing.Color.LightBlue
-        Me.btnDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDetalle.Location = New System.Drawing.Point(308, 9)
-        Me.btnDetalle.Name = "btnDetalle"
-        Me.btnDetalle.Size = New System.Drawing.Size(86, 31)
-        Me.btnDetalle.TabIndex = 1
-        Me.btnDetalle.Text = "Detalle"
-        Me.btnDetalle.UseVisualStyleBackColor = False
-        '
-        'btnAgregar
-        '
-        Me.btnAgregar.BackColor = System.Drawing.Color.LightBlue
-        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.Location = New System.Drawing.Point(10, 9)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(86, 31)
-        Me.btnAgregar.TabIndex = 2
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = False
-        '
-        'btnModificar
-        '
-        Me.btnModificar.BackColor = System.Drawing.Color.LightBlue
-        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModificar.Location = New System.Drawing.Point(102, 9)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(86, 31)
-        Me.btnModificar.TabIndex = 3
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = False
-        '
         'tHora
         '
         Me.tHora.Interval = 10
@@ -273,6 +269,17 @@ Partial Class FrmAgenda
         'tEstado
         '
         Me.tEstado.Interval = 10000
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(308, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(234, 121)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
         '
         'FrmAgenda
         '
@@ -288,12 +295,12 @@ Partial Class FrmAgenda
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Agenda de citas"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -302,9 +309,6 @@ Partial Class FrmAgenda
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents optMes As RadioButton
-    Friend WithEvents optDia As RadioButton
-    Friend WithEvents optHora As RadioButton
     Friend WithEvents lblMes As Label
     Friend WithEvents lblDía As Label
     Friend WithEvents lblHora As Label
@@ -319,4 +323,7 @@ Partial Class FrmAgenda
     Friend WithEvents tHora As Timer
     Friend WithEvents tActuales As Timer
     Friend WithEvents tEstado As Timer
+    Friend WithEvents optDia As RadioButton
+    Friend WithEvents optHora As RadioButton
+    Friend WithEvents optMes As RadioButton
 End Class
