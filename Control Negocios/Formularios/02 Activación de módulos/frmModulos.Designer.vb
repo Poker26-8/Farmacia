@@ -88,9 +88,9 @@ Partial Class frmModulos
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(8, 71)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 37)
@@ -113,9 +113,9 @@ Partial Class frmModulos
         '
         'Label3
         '
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label3.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(107, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(93, 37)
@@ -125,9 +125,9 @@ Partial Class frmModulos
         '
         'Label4
         '
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label4.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(206, 71)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 37)
@@ -137,9 +137,9 @@ Partial Class frmModulos
         '
         'Label5
         '
-        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label5.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(305, 71)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(93, 37)
@@ -149,9 +149,9 @@ Partial Class frmModulos
         '
         'Label6
         '
-        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label6.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(404, 71)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 37)
@@ -161,9 +161,9 @@ Partial Class frmModulos
         '
         'Label7
         '
-        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label7.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(503, 71)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(93, 37)
@@ -173,9 +173,9 @@ Partial Class frmModulos
         '
         'Label8
         '
-        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label8.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Black
+        Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(602, 71)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 37)
@@ -185,9 +185,9 @@ Partial Class frmModulos
         '
         'Label9
         '
-        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label9.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
+        Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(701, 71)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(93, 37)
@@ -197,9 +197,9 @@ Partial Class frmModulos
         '
         'Label10
         '
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label10.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(800, 71)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(93, 37)
@@ -209,9 +209,9 @@ Partial Class frmModulos
         '
         'Label11
         '
-        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label11.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(8, 189)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(93, 37)
@@ -221,9 +221,9 @@ Partial Class frmModulos
         '
         'Label12
         '
-        Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label12.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Black
+        Me.Label12.ForeColor = System.Drawing.Color.White
         Me.Label12.Location = New System.Drawing.Point(107, 189)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(93, 37)
@@ -233,9 +233,9 @@ Partial Class frmModulos
         '
         'Label13
         '
-        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label13.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
+        Me.Label13.ForeColor = System.Drawing.Color.White
         Me.Label13.Location = New System.Drawing.Point(206, 189)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(93, 37)
@@ -245,9 +245,9 @@ Partial Class frmModulos
         '
         'Label14
         '
-        Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label14.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.Black
+        Me.Label14.ForeColor = System.Drawing.Color.White
         Me.Label14.Location = New System.Drawing.Point(305, 189)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(93, 37)
@@ -257,9 +257,9 @@ Partial Class frmModulos
         '
         'Label15
         '
-        Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label15.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.Black
+        Me.Label15.ForeColor = System.Drawing.Color.White
         Me.Label15.Location = New System.Drawing.Point(404, 189)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(93, 37)
@@ -269,9 +269,9 @@ Partial Class frmModulos
         '
         'Label16
         '
-        Me.Label16.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label16.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.ForeColor = System.Drawing.Color.White
         Me.Label16.Location = New System.Drawing.Point(503, 189)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(93, 37)
@@ -281,9 +281,9 @@ Partial Class frmModulos
         '
         'Label17
         '
-        Me.Label17.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label17.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.Black
+        Me.Label17.ForeColor = System.Drawing.Color.White
         Me.Label17.Location = New System.Drawing.Point(602, 189)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(93, 37)
@@ -293,9 +293,9 @@ Partial Class frmModulos
         '
         'Label18
         '
-        Me.Label18.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label18.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.Black
+        Me.Label18.ForeColor = System.Drawing.Color.White
         Me.Label18.Location = New System.Drawing.Point(701, 189)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(93, 37)
@@ -305,9 +305,9 @@ Partial Class frmModulos
         '
         'Label19
         '
-        Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label19.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Black
+        Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(800, 189)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(93, 37)
@@ -317,9 +317,9 @@ Partial Class frmModulos
         '
         'Label20
         '
-        Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label20.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.Black
+        Me.Label20.ForeColor = System.Drawing.Color.White
         Me.Label20.Location = New System.Drawing.Point(899, 189)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(93, 37)
@@ -329,9 +329,9 @@ Partial Class frmModulos
         '
         'Label21
         '
-        Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label21.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.ForeColor = System.Drawing.Color.Black
+        Me.Label21.ForeColor = System.Drawing.Color.White
         Me.Label21.Location = New System.Drawing.Point(8, 303)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(93, 37)
@@ -341,9 +341,9 @@ Partial Class frmModulos
         '
         'Label22
         '
-        Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label22.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.Black
+        Me.Label22.ForeColor = System.Drawing.Color.White
         Me.Label22.Location = New System.Drawing.Point(107, 303)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(93, 37)
@@ -353,9 +353,9 @@ Partial Class frmModulos
         '
         'Label23
         '
-        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label23.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.Black
+        Me.Label23.ForeColor = System.Drawing.Color.White
         Me.Label23.Location = New System.Drawing.Point(206, 303)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(93, 37)
@@ -365,9 +365,9 @@ Partial Class frmModulos
         '
         'Label24
         '
-        Me.Label24.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label24.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.Black
+        Me.Label24.ForeColor = System.Drawing.Color.White
         Me.Label24.Location = New System.Drawing.Point(305, 303)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(93, 37)
@@ -377,9 +377,9 @@ Partial Class frmModulos
         '
         'Label25
         '
-        Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label25.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.Black
+        Me.Label25.ForeColor = System.Drawing.Color.White
         Me.Label25.Location = New System.Drawing.Point(404, 303)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(93, 37)
@@ -389,9 +389,9 @@ Partial Class frmModulos
         '
         'Label26
         '
-        Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label26.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.Black
+        Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(503, 303)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(93, 37)
@@ -401,9 +401,9 @@ Partial Class frmModulos
         '
         'Label27
         '
-        Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label27.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.Black
+        Me.Label27.ForeColor = System.Drawing.Color.White
         Me.Label27.Location = New System.Drawing.Point(602, 303)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(93, 37)
@@ -413,9 +413,9 @@ Partial Class frmModulos
         '
         'Label28
         '
-        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label28.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.ForeColor = System.Drawing.Color.Black
+        Me.Label28.ForeColor = System.Drawing.Color.White
         Me.Label28.Location = New System.Drawing.Point(701, 303)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(93, 37)
@@ -706,9 +706,9 @@ Partial Class frmModulos
         '
         'Label29
         '
-        Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label29.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.ForeColor = System.Drawing.Color.Black
+        Me.Label29.ForeColor = System.Drawing.Color.White
         Me.Label29.Location = New System.Drawing.Point(899, 71)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(93, 37)
@@ -730,9 +730,9 @@ Partial Class frmModulos
         '
         'Label30
         '
-        Me.Label30.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label30.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.Black
+        Me.Label30.ForeColor = System.Drawing.Color.White
         Me.Label30.Location = New System.Drawing.Point(800, 303)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(93, 37)
@@ -742,9 +742,9 @@ Partial Class frmModulos
         '
         'Label31
         '
-        Me.Label31.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label31.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.Black
+        Me.Label31.ForeColor = System.Drawing.Color.White
         Me.Label31.Location = New System.Drawing.Point(899, 303)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(93, 37)
