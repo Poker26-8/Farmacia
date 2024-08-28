@@ -121,9 +121,10 @@ Partial Class frmAct_Optica
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Label1.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(579, 43)
@@ -148,7 +149,7 @@ Partial Class frmAct_Optica
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAct_Optica"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Act_Optica"
+        Me.Text = "Opticas"
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
