@@ -2222,6 +2222,6 @@ Public Class Inicio
         frmMapa.BringToFront()
         frmMapa.Show()
 
-        frmpruebas.Show()
+        'frmpruebas.Show()
     End Sub
 End Class
