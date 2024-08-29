@@ -40,7 +40,7 @@ Partial Class frmAct_Taller
         Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesactivar.Location = New System.Drawing.Point(458, 149)
+        Me.btnDesactivar.Location = New System.Drawing.Point(451, 120)
         Me.btnDesactivar.Name = "btnDesactivar"
         Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
         Me.btnDesactivar.TabIndex = 43
@@ -50,7 +50,7 @@ Partial Class frmAct_Taller
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(339, 205)
+        Me.Label5.Location = New System.Drawing.Point(332, 176)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(153, 19)
         Me.Label5.TabIndex = 42
@@ -62,7 +62,7 @@ Partial Class frmAct_Taller
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(458, 96)
+        Me.Button1.Location = New System.Drawing.Point(451, 67)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(113, 47)
         Me.Button1.TabIndex = 41
@@ -73,7 +73,7 @@ Partial Class frmAct_Taller
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 206)
+        Me.Label4.Location = New System.Drawing.Point(2, 177)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(165, 19)
         Me.Label4.TabIndex = 40
@@ -82,7 +82,7 @@ Partial Class frmAct_Taller
         'txtcontra
         '
         Me.txtcontra.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontra.Location = New System.Drawing.Point(180, 202)
+        Me.txtcontra.Location = New System.Drawing.Point(173, 173)
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtcontra.Size = New System.Drawing.Size(153, 27)
@@ -93,7 +93,7 @@ Partial Class frmAct_Taller
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(12, 110)
+        Me.Panel1.Location = New System.Drawing.Point(5, 81)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(440, 86)
         Me.Panel1.TabIndex = 38
@@ -113,7 +113,7 @@ Partial Class frmAct_Taller
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 83)
+        Me.Label2.Location = New System.Drawing.Point(5, 54)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(142, 19)
         Me.Label2.TabIndex = 37
@@ -121,12 +121,13 @@ Partial Class frmAct_Taller
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Label1.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(587, 66)
+        Me.Label1.Size = New System.Drawing.Size(587, 45)
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Taller"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -136,7 +137,7 @@ Partial Class frmAct_Taller
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(587, 242)
+        Me.ClientSize = New System.Drawing.Size(587, 208)
         Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
