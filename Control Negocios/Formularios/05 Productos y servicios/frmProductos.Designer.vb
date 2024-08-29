@@ -56,9 +56,7 @@ Partial Class frmProductos
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtComi = New System.Windows.Forms.TextBox()
         Me.chkKIT = New System.Windows.Forms.CheckBox()
-        Me.txtCodigoSAT = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtClaveSAT = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -110,6 +108,8 @@ Partial Class frmProductos
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.cboCodigoSAT = New System.Windows.Forms.ComboBox()
+        Me.cboClaveSAT = New System.Windows.Forms.ComboBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -501,17 +501,6 @@ Partial Class frmProductos
         Me.chkKIT.Text = "Este registro es un KIT"
         Me.chkKIT.UseVisualStyleBackColor = True
         '
-        'txtCodigoSAT
-        '
-        Me.txtCodigoSAT.BackColor = System.Drawing.Color.White
-        Me.txtCodigoSAT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCodigoSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigoSAT.Location = New System.Drawing.Point(608, 345)
-        Me.txtCodigoSAT.Name = "txtCodigoSAT"
-        Me.txtCodigoSAT.Size = New System.Drawing.Size(140, 23)
-        Me.txtCodigoSAT.TabIndex = 125
-        Me.txtCodigoSAT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.SystemColors.HotTrack
@@ -524,17 +513,6 @@ Partial Class frmProductos
         Me.Label13.TabIndex = 124
         Me.Label13.Text = "Código SAT"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtClaveSAT
-        '
-        Me.txtClaveSAT.BackColor = System.Drawing.Color.White
-        Me.txtClaveSAT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtClaveSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClaveSAT.Location = New System.Drawing.Point(608, 371)
-        Me.txtClaveSAT.Name = "txtClaveSAT"
-        Me.txtClaveSAT.Size = New System.Drawing.Size(140, 23)
-        Me.txtClaveSAT.TabIndex = 127
-        Me.txtClaveSAT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label18
         '
@@ -1157,11 +1135,33 @@ Partial Class frmProductos
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'cboCodigoSAT
+        '
+        Me.cboCodigoSAT.BackColor = System.Drawing.Color.White
+        Me.cboCodigoSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCodigoSAT.FormattingEnabled = True
+        Me.cboCodigoSAT.Location = New System.Drawing.Point(608, 344)
+        Me.cboCodigoSAT.Name = "cboCodigoSAT"
+        Me.cboCodigoSAT.Size = New System.Drawing.Size(140, 23)
+        Me.cboCodigoSAT.TabIndex = 253
+        '
+        'cboClaveSAT
+        '
+        Me.cboClaveSAT.BackColor = System.Drawing.Color.White
+        Me.cboClaveSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboClaveSAT.FormattingEnabled = True
+        Me.cboClaveSAT.Location = New System.Drawing.Point(608, 370)
+        Me.cboClaveSAT.Name = "cboClaveSAT"
+        Me.cboClaveSAT.Size = New System.Drawing.Size(140, 23)
+        Me.cboClaveSAT.TabIndex = 254
+        '
         'frmProductos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1015, 423)
+        Me.Controls.Add(Me.cboClaveSAT)
+        Me.Controls.Add(Me.cboCodigoSAT)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.lblInfo)
@@ -1192,9 +1192,7 @@ Partial Class frmProductos
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnEliminar)
-        Me.Controls.Add(Me.txtClaveSAT)
         Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.txtCodigoSAT)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.chkKIT)
         Me.Controls.Add(Me.txtComi)
@@ -1280,9 +1278,7 @@ Partial Class frmProductos
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents txtComi As System.Windows.Forms.TextBox
     Friend WithEvents chkKIT As System.Windows.Forms.CheckBox
-    Friend WithEvents txtCodigoSAT As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents txtClaveSAT As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
     Friend WithEvents btnNuevo As System.Windows.Forms.Button
@@ -1334,4 +1330,6 @@ Partial Class frmProductos
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label35 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents cboCodigoSAT As ComboBox
+    Friend WithEvents cboClaveSAT As ComboBox
 End Class

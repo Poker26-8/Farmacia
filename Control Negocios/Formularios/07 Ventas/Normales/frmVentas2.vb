@@ -9655,19 +9655,19 @@ safo:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & (MySaldo + Total_devo) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & Total_devo & "," & (MySaldo + Total_devo) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
                         End If
 
                         If lblNumCliente.Text = "MOSTRADOR" Then
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & Total_devo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",0," & Total_devo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
                         End If
                         cnn1.Close()
@@ -9718,78 +9718,78 @@ safo:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Devuelve & ",'','','" & lblusuario.Text & "',0,0,0,0)"
+                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Devuelve & ",'','','" & lblusuario.Text & "',0,0,0,0)"
                         cmd1.ExecuteNonQuery()
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",'',0," & (MySaldo - Resta_ventas) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",'',0," & (MySaldo - Resta_ventas) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                         cmd1.ExecuteNonQuery()
                     End If
 
                     If lblNumCliente.Text = "MOSTRADOR" And Devuelve > 0 Then
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & (MySaldo - Resta_ventas) & ",'EFECTIVO'," & Devuelve & ",'','','" & lblusuario.Text & "',0,0,0,0)"
+                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",0," & (MySaldo - Resta_ventas) & ",'EFECTIVO'," & Devuelve & ",'','','" & lblusuario.Text & "',0,0,0,0)"
                         cmd1.ExecuteNonQuery()
                     End If
                     cnn1.Close()
                 End If
 
 
-                If Resta_ventas > 0 Then
-                    Nuevo_devo = Devolucion + Total_devo
-                    Devuelve = Total_devo - Resta_ventas
+                'If Resta_ventas > 0 Then
+                '    Nuevo_devo = Devolucion + Total_devo
+                '    Devuelve = Total_devo - Resta_ventas
 
-                    MsgBox("Saldrán $" & FormatNumber(Total_devo, 4) & " de caja por concepto de devolución.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    TipoDevolucion = 2
-                    SalenDevos = Total_devo
+                '    MsgBox("Saldrán $" & FormatNumber(Total_devo, 4) & " de caja por concepto de devolución.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                '    TipoDevolucion = 2
+                '    SalenDevos = Total_devo
 
-                    Nuevo_acuenta = Acuenta_venta - Total_devo
+                '    Nuevo_acuenta = Acuenta_venta - Total_devo
 
-                    cnn1.Close() : cnn1.Open()
+                '    cnn1.Close() : cnn1.Open()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "update Ventas set Devolucion=" & Nuevo_devo & ", ACuenta=" & Nuevo_acuenta & " where Folio=" & cbonota.Text
-                    cmd1.ExecuteNonQuery()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText =
+                '        "update Ventas set Devolucion=" & Nuevo_devo & ", ACuenta=" & Nuevo_acuenta & " where Folio=" & cbonota.Text
+                '    cmd1.ExecuteNonQuery()
 
-                    If lblNumCliente.Text <> "MOSTRADOR" Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.HasRows Then
-                            If rd1.Read Then
-                                MySaldo = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
-                            End If
-                        Else
-                            MySaldo = 0
-                        End If
-                        rd1.Close()
+                '    If lblNumCliente.Text <> "MOSTRADOR" Then
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText =
+                '            "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                '        rd1 = cmd1.ExecuteReader
+                '        If rd1.HasRows Then
+                '            If rd1.Read Then
+                '                MySaldo = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                '            End If
+                '        Else
+                '            MySaldo = 0
+                '        End If
+                '        rd1.Close()
 
-                        If MySaldo < 0 Then
-                            MySaldo = 0
-                        End If
+                '        If MySaldo < 0 Then
+                '            MySaldo = 0
+                '        End If
 
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
-                        cmd1.ExecuteNonQuery()
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText =
+                '            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
+                '        cmd1.ExecuteNonQuery()
 
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",'EFECTIVO',0,'','','" & lblusuario.Text & "',0,0,0,0)"
-                        cmd1.ExecuteNonQuery()
-                    End If
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText =
+                '            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",'EFECTIVO',0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                '        cmd1.ExecuteNonQuery()
+                '    End If
 
-                    If lblNumCliente.Text = "MOSTRADOR" And Devuelve > 0 Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                    "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
-                        cmd1.ExecuteNonQuery()
-                    End If
-                End If
+                '    If lblNumCliente.Text = "MOSTRADOR" And Devuelve > 0 Then
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText =
+                '    "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
+                '        cmd1.ExecuteNonQuery()
+                '    End If
+                'End If
                 cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
@@ -15499,4 +15499,6 @@ doorcita:
         frmOrdenTrabajo.Show()
         frmOrdenTrabajo.BringToFront()
     End Sub
+
+
 End Class

@@ -72,8 +72,8 @@ Public Class frmProductos
                     chkKIT.Checked = IIf(rd1("ProvRes").ToString = True, True, False)
                     txtRetIVA.Text = rd1("PercentIVAret").ToString
                     txtIEPS.Text = rd1("IIEPS").ToString
-                    txtCodigoSAT.Text = rd1("ClaveSat").ToString
-                    txtClaveSAT.Text = rd1("UnidadSat").ToString
+                    cboCodigoSAT.Text = rd1("ClaveSat").ToString
+                    cboClaveSAT.Text = rd1("UnidadSat").ToString
                     chkUnico.Checked = IIf(rd1("Unico").ToString() = True, True, False)
                     cboComanda.Text = rd1("GPrint").ToString
 
@@ -779,7 +779,7 @@ Public Class frmProductos
 
     Private Sub txtIEPS_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtIEPS.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtClaveSAT.Focus().Equals(True)
+            cboClaveSAT.Focus().Equals(True)
         End If
     End Sub
 
@@ -796,31 +796,10 @@ Public Class frmProductos
     Private Sub txtComi_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtComi.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             txtComi.Text = FormatNumber(txtComi.Text, 2)
-            txtCodigoSAT.Focus().Equals(True)
+            cboCodigoSAT.Focus().Equals(True)
         End If
     End Sub
 
-    Private Sub txtClaveSAT_GotFocus(sender As Object, e As System.EventArgs) Handles txtClaveSAT.GotFocus
-        txtClaveSAT.SelectionStart = 0
-        txtClaveSAT.SelectionLength = Len(txtClaveSAT.Text)
-    End Sub
-
-    Private Sub txtClaveSAT_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtClaveSAT.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
-            btnGuardar.Focus().Equals(True)
-        End If
-    End Sub
-
-    Private Sub txtCodigoSAT_GotFocus(sender As Object, e As System.EventArgs) Handles txtCodigoSAT.GotFocus
-        txtCodigoSAT.SelectionStart = 0
-        txtCodigoSAT.SelectionLength = Len(txtCodigoSAT.Text)
-    End Sub
-
-    Private Sub txtCodigoSAT_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtCodigoSAT.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
-            cboProvP.Focus().Equals(True)
-        End If
-    End Sub
 
     Private Sub btnNuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnNuevo.Click
         txtbarras.Text = ""
@@ -859,8 +838,8 @@ Public Class frmProductos
         txtRetIVA.Text = "0"
         txtIEPS.Text = "0"
         chkKIT.Checked = False
-        txtCodigoSAT.Text = ""
-        txtClaveSAT.Text = ""
+        cboCodigoSAT.Text = ""
+        cboClaveSAT.Text = ""
         picImagen.Image = Nothing
         txtrutaimagen.Text = ""
         cboComanda.Text = ""
@@ -986,7 +965,7 @@ Public Class frmProductos
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "insert into Productos(Codigo,CodBarra,CodBarra1,CodBarra2,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,PercentIVAret,Almacen3,IIEPS,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & txtBarras1.Text & "','" & txtBarras2.Text & "','" & cboNombre.Text & "','" & txtNombreL.Text & "','" & cboProvP.Text & "','" & cboProvE.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtMaxima.Text & "','" & txtActual.Text & "','" & txtMinima.Text & "'," & mcd & "," & multiplo & ",'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "'," & minimo & "," & maximo & "," & comision & ",0,0,0," & cboIVA.Text & ",0,'" & fecha & "',0," & cboMoneda.Tag & ",0,0," & retIVA & ",0," & ieps & ",'" & txtCodigoSAT.Text & "','" & txtClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "')"
+                    "insert into Productos(Codigo,CodBarra,CodBarra1,CodBarra2,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,PercentIVAret,Almacen3,IIEPS,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & txtBarras1.Text & "','" & txtBarras2.Text & "','" & cboNombre.Text & "','" & txtNombreL.Text & "','" & cboProvP.Text & "','" & cboProvE.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtMaxima.Text & "','" & txtActual.Text & "','" & txtMinima.Text & "'," & mcd & "," & multiplo & ",'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "'," & minimo & "," & maximo & "," & comision & ",0,0,0," & cboIVA.Text & ",0,'" & fecha & "',0," & cboMoneda.Tag & ",0,0," & retIVA & ",0," & ieps & ",'" & cboCodigoSAT.Text & "','" & cboClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "')"
                 If cmd2.ExecuteNonQuery Then
 
                     If (picImagen.Image Is Nothing) Then
@@ -1732,5 +1711,71 @@ Public Class frmProductos
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub cboCodigoSAT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCodigoSAT.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboProvP.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboCodigoSAT_GotFocus(sender As Object, e As EventArgs) Handles cboCodigoSAT.GotFocus
+        cboCodigoSAT.SelectionStart = 0
+        cboCodigoSAT.SelectionLength = Len(cboCodigoSAT.Text)
+    End Sub
+
+    Private Sub cboCodigoSAT_DropDown(sender As Object, e As EventArgs) Handles cboCodigoSAT.DropDown
+        Try
+            cboCodigoSAT.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT ClaveSat FROM productos WHERE ClaveSat<>'' ORDER BY ClaveSat"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboCodigoSAT.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboClaveSAT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboClaveSAT.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnGuardar.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboClaveSAT_GotFocus(sender As Object, e As EventArgs) Handles cboClaveSAT.GotFocus
+        cboClaveSAT.SelectionStart = 0
+        cboClaveSAT.SelectionLength = Len(cboClaveSAT.Text)
+    End Sub
+
+    Private Sub cboClaveSAT_DropDown(sender As Object, e As EventArgs) Handles cboClaveSAT.DropDown
+        Try
+            cboClaveSAT.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT UnidadSat FROM productos WHERE UnidadSat<>'' ORDER BY UnidadSat"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboClaveSAT.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
     End Sub
 End Class

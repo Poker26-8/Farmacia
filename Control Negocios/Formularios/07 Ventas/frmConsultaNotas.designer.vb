@@ -80,7 +80,7 @@ Partial Class frmConsultaNotas
         Me.txtvence = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtsubtotal = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
+        Me.lbldescuento = New System.Windows.Forms.Label()
         Me.txtdescuento = New System.Windows.Forms.TextBox()
         Me.txtBancoRep = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -713,15 +713,15 @@ Partial Class frmConsultaNotas
         Me.txtsubtotal.Text = "0.00"
         Me.txtsubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label18
+        'lbldescuento
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(3, 116)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(82, 19)
-        Me.Label18.TabIndex = 135
-        Me.Label18.Text = "Descuento:"
+        Me.lbldescuento.AutoSize = True
+        Me.lbldescuento.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldescuento.Location = New System.Drawing.Point(3, 116)
+        Me.lbldescuento.Name = "lbldescuento"
+        Me.lbldescuento.Size = New System.Drawing.Size(82, 19)
+        Me.lbldescuento.TabIndex = 135
+        Me.lbldescuento.Text = "Descuento:"
         '
         'txtdescuento
         '
@@ -1176,7 +1176,7 @@ Partial Class frmConsultaNotas
         Me.Panel8.Controls.Add(Me.txtdescu_porc)
         Me.Panel8.Controls.Add(Me.Label26)
         Me.Panel8.Controls.Add(Me.txtacuenta)
-        Me.Panel8.Controls.Add(Me.Label18)
+        Me.Panel8.Controls.Add(Me.lbldescuento)
         Me.Panel8.Controls.Add(Me.Label27)
         Me.Panel8.Controls.Add(Me.Label33)
         Me.Panel8.Controls.Add(Me.txtrestaabono)
@@ -1736,7 +1736,7 @@ Partial Class frmConsultaNotas
     Friend WithEvents txtvence As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents txtsubtotal As System.Windows.Forms.TextBox
-    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents lbldescuento As System.Windows.Forms.Label
     Friend WithEvents txtdescuento As System.Windows.Forms.TextBox
     Friend WithEvents cbobanco As System.Windows.Forms.ComboBox
     Friend WithEvents Label17 As System.Windows.Forms.Label

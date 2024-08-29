@@ -132,7 +132,7 @@ el campo 'Grupo' tendrá que ser INSUMO.</value>
   <data name="btnGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAnpJREFUWEedl7trFFEUh1OKICqIb00U0tuYO4hFBDst7Dad/gOBlCntgl3KICkE
+        DAAACwwBP0AiyAAAAnpJREFUWEedl7trFFEUh1OKICqIb00U0tuYO4hFBDst7Dad/gOBlCntgl3KICkE
         2ZkIBjXYGXDBB5Jik6xIHiSgEEhpqjSBXM9vyJEzd859zBRfsWd2z3fm7rmvIWttK+6+GRsZXTATNwpz
         X3ueghrUINkT4hXxm7DgZmHsqW5WcqabHV3Izc7Vwsxov9dQgxKSPJNCiZRLTnez40u56Wn5JGoQUPI7
         xJqUufjkDEbjemE6Wn6gBikx3vZAijRicuZKYeY1Ty1ASSFWZS6pcqAVUPlACcddQYgmcuA2oxSfI9TG
@@ -172,7 +172,7 @@ el campo 'Grupo' tendrá que ser INSUMO.</value>
   <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB8AAAAgCAYAAADqgqNBAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAApFJREFUWEedl79rFEEUx/Mn+A/oJZeIoNFczh9YKAQsxEoRIRYRrLTNPyBYWaey
+        DAAACwwBP0AiyAAAApFJREFUWEedl79rFEEUx/Mn+A/oJZeIoNFczh9YKAQsxEoRIRYRrLTNPyBYWaey
         UhQEW/0HhFMUUiU5VDRHjKJ3u6VWNoLj+272rW/evpndueJT3OzdfL67M/f2zYxzLols8eIhYqXg2Lmb
         k/n+esHC6QvW92OYgxoSzRIbxDfCMSR0k8PH/9NZ/DOZW9pDGGsejTnIkKBHDKRQUpNLZk/9bAphDgKa
         /L6WaaJyptvbpu91LEdtgCbFmr6UkhCt5KBz8rcVwPtAE0K8IwUxWsuBEUDLn2pBjCQ5oADSJ8W39eRN
@@ -225,7 +225,7 @@ el campo 'Grupo' tendrá que ser INSUMO.</value>
   <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAnCAYAAACFSPFPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAepJREFUWEft171LAmEcwHH/BP+DhMaGlEAKhBzyLRIsqIggbJFe6M1Cg4YEqZYG
+        DAAACwwBP0AiyAAAAepJREFUWEft171LAmEcwHH/BP+DhMaGlEAKhBzyLRIsqIggbJFe6M1Cg4YEqZYG
         oQZHg4YaKkkC8wWOhiahIGhycHMpFIMagn79nvDkSZ+H887zcLjhA95z8Py+8JxwZ3jb6zcVQkMXqaC9
         dLg6UwgEAoJKksgIAIZ2kZgIAlFxdwAy2zaIrU0CbtapBGsoT0tMs4edYYiveyG8vMAaJkVgDeWRjKG9
         hAfhbMMD+ytzrMEs3YuhkeO8DdqljlObGBo5RkYIoX3M5dYYK4TQY1ghhB7DCiH0GFYI0bsxx4+jJhRB

@@ -217,7 +217,10 @@ Public Class frmConsultaNotas
 
                         If Not (optcotiz.Checked) And Not (optdevos.Checked) And Not (optPedidos.Checked) Then
                             If CDbl(rd1("Devolucion").ToString()) > 0 Then
+                                lbldescuento.Text = "Devolución:"
                                 txtdescuento.Text = FormatNumber(CDbl(txtdescuento.Text) + CDbl(rd1("Devolucion").ToString()), 2)
+                            Else
+                                lbldescuento.Text = "Descuento:"
                             End If
                         End If
                         txtdireccion.Text = rd1("Direccion").ToString()
