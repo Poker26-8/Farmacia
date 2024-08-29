@@ -4739,6 +4739,26 @@ kaka:
         txtprecio.SelectionStart = 0
         txtprecio.SelectionLength = Len(txtprecio.Text)
     End Sub
+    Public Sub ConsultaLotes(varcodigo As String)
+        Try
+            Dim lotexd As String = ""
+            DataGridView1.Rows.Clear()
+            cnn7.Clone()
+            cnn7.Open()
+            cmd7 = cnn7.CreateCommand
+            cmd7.CommandText = "Select * from LoteCaducidad where Codigo='" & varcodigo & "'"
+            rd7 = cmd7.ExecuteReader
+            Do While rd7.Read
+                lotexd = rd7("Lote").ToString
+                DataGridView1.Rows.Add(False, lotexd, rd7("Caducidad").ToString, rd7("Cantidad").ToString)
+            Loop
+            rd7.Close()
+            cnn7.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn7.Close()
+        End Try
+    End Sub
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
         Dim editap As Boolean = False
@@ -4887,6 +4907,11 @@ kaka:
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.HasRows Then
                                     cboLote.Focus().Equals(True)
+                                    gbLotes.Visible = True
+                                    txtcodlote.Text = cbocodigo.Text
+                                    txtnombrelote.Text = cbodesc.Text
+                                    ConsultaLotes(cbocodigo.Text)
+                                    My.Application.DoEvents()
                                 Else
                                     rd1.Close() : cnn1.Close()
                                     rd2.Close() : cnn2.Close()
@@ -4950,10 +4975,10 @@ kaka:
         Dim renta As Boolean = False
 
         If cboLote.Text = "" Then
-            If cboLote.Items.Count > 0 Then
-                MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                Exit Sub
-            End If
+            'If cboLote.Items.Count > 0 Then
+            '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '    Exit Sub
+            'End If
         End If
 
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -15574,5 +15599,9 @@ doorcita:
             MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
     End Sub
 End Class
