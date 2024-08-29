@@ -1801,23 +1801,23 @@ kak:
                 If cboNombre.Text = "" Then Exit Sub
                 cbonombretag = cboNombre.Text
 
-                cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
                     "select Suspender,Tipo,Id,Credito,Comisionista,Telefono,Correo,Observaciones,Calle,NInterior,NExterior,Colonia,Delegacion,Entidad,Pais,CP,SaldoFavor from Clientes where Nombre='" & cboNombre.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        If (rd1("Suspender").ToString) Then MsgBox("Venta suspendida a este cliente." & vbNewLine & "Consulta con el administrador.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : rd1.Close() : cnn1.Close() : Exit Sub
-                        cbotipo.Text = rd1("Tipo").ToString
-                        MyIdCliente = rd1("Id").ToString
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        If (rd2("Suspender").ToString) Then MsgBox("Venta suspendida a este cliente." & vbNewLine & "Consulta con el administrador.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : rd2.Close() : cnn2.Close() : Exit Sub
+                        cbotipo.Text = rd2("Tipo").ToString
+                        MyIdCliente = rd2("Id").ToString
                         lblNumCliente.Text = MyIdCliente
-                        txtcredito.Text = FormatNumber(rd1("Credito").ToString, 4)
-                        cbocomisionista.Text = rd1("Comisionista").ToString
-                        txttel.Text = rd1("Telefono").ToString
-                        lblcorreocli.Text = rd1("Correo").ToString
-                        txtObservaciones.Text = rd1("Observaciones").ToString
+                        txtcredito.Text = FormatNumber(rd2("Credito").ToString, 4)
+                        cbocomisionista.Text = rd2("Comisionista").ToString
+                        txttel.Text = rd2("Telefono").ToString
+                        lblcorreocli.Text = rd2("Correo").ToString
+                        txtObservaciones.Text = rd2("Observaciones").ToString
 
                         If Trim(cbocomisionista.Text) <> "" Then
                             cbocomisionista.Enabled = False
@@ -1828,14 +1828,14 @@ kak:
                         Dim dire(9) As String
                         Dim direccion As String = ""
 
-                        dire(0) = rd1("Calle").ToString()       'Calle
-                        dire(1) = rd1("NInterior").ToString()   'Numero Int
-                        dire(2) = rd1("NExterior").ToString()   'Numero Ext
-                        dire(3) = rd1("Colonia").ToString()     'Colonia
-                        dire(4) = rd1("Delegacion").ToString()  'Delegacion
-                        dire(5) = rd1("Entidad").ToString()     'Entidad
-                        dire(6) = rd1("Pais").ToString()        'Pais
-                        dire(7) = rd1("CP").ToString()          'CP
+                        dire(0) = rd2("Calle").ToString()       'Calle
+                        dire(1) = rd2("NInterior").ToString()   'Numero Int
+                        dire(2) = rd2("NExterior").ToString()   'Numero Ext
+                        dire(3) = rd2("Colonia").ToString()     'Colonia
+                        dire(4) = rd2("Delegacion").ToString()  'Delegacion
+                        dire(5) = rd2("Entidad").ToString()     'Entidad
+                        dire(6) = rd2("Pais").ToString()        'Pais
+                        dire(7) = rd2("CP").ToString()          'CP
 
                         'Calle
                         If Trim(dire(0)) <> "" Then
@@ -1874,7 +1874,7 @@ kak:
                         txtdireccion.Text = direccion
                         ' txtdireccion.Focus().Equals(True)
 
-                        txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
+                        txtafavor.Text = FormatNumber(rd2("SaldoFavor").ToString(), 4)
 
                         Label12121.Visible = True
                         cboDomi.Visible = True
@@ -1890,17 +1890,17 @@ kak:
                         txtNombreClave.Text = ""
                     End If
                 End If
-                rd1.Close()
+                rd2.Close()
 
                 If lblNumCliente.Text = "MOSTRADOR" Then MyIdCliente = 0 : Exit Sub
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
                     "select Saldo from AbonoI where Id=(select max(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MySaldo = CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString))
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        MySaldo = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
                         If MySaldo > 0 Then
                             txtadeuda.Text = Math.Abs(MySaldo)
                             txtadeuda.Text = FormatNumber(txtadeuda.Text, 4)
@@ -1924,12 +1924,12 @@ kak:
                     txtafavor.Text = "0.00"
                     txtfechacad.Text = ""
                 End If
-                rd1.Close()
-                cnn1.Close()
+                rd2.Close()
+                cnn2.Close()
                 If cboNombre.Text = "" Then lblNumCliente.Text = "MOSTRADOR" : MyIdCliente = 0
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
-                cnn1.Close()
+                cnn2.Close()
             End Try
         Else
             Try
@@ -9733,19 +9733,19 @@ safo:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & (MySaldo + Total_devo) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & Total_devo & "," & (MySaldo + Total_devo) & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",0," & MySaldo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
                         End If
 
                         If lblNumCliente.Text = "MOSTRADOR" Then
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_devo & ",0," & Total_devo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & ",0,'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_devo & ",0," & Total_devo & ",0,'','','" & lblusuario.Text & "',0,0,0,0)"
                             cmd1.ExecuteNonQuery()
                         End If
                         cnn1.Close()
@@ -10085,7 +10085,7 @@ ecomoda:
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select Existencia from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
+                            "select Existencia,Codigo from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -10094,7 +10094,7 @@ ecomoda:
                                 cnn3.Close() : cnn3.Open()
                                 cmd3 = cnn3.CreateCommand
                                 cmd3.CommandText =
-                                    "update Productos set Cargado=0, CargadoInv=0,Existencia=Existencia+" & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
+                                    "update Productos set Cargado=0, CargadoInv=0,Existencia=Existencia + " & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
                                 cmd3.ExecuteNonQuery()
 
                                 '****** Configurable

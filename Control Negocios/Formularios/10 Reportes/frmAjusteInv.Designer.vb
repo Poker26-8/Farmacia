@@ -415,7 +415,7 @@ Partial Class frmAjusteInv
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(451, 327)
+        Me.ClientSize = New System.Drawing.Size(451, 325)
         Me.ContextMenuStrip = Me.cmsElimina
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.txtcontraseña)

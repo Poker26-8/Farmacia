@@ -252,14 +252,14 @@ Public Class frmConsultaNotas
                                         unidad = rd2("Unidad").ToString()
                                     Else
                                         unidad = rd2("Unidad").ToString()
-                                            comentario = rd2("CostVR").ToString()
-                                            descue = 0
+                                        comentario = IIf(rd2("CostVR").ToString = "", "", rd2("CostVR").ToString)
+                                        descue = 0
                                         End If
                                     End If
                                     cantidad = rd2("Cantidad").ToString()
                                     precio = rd2("Precio").ToString()
                                     total = rd2("Total").ToString()
-                                comentario = rd2("Comentario").ToString
+                                comentario = IIf(rd2("Comentario").ToString = "", "", rd2("Comentario").ToString)
                                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0", comentario)
                                 If comentario <> "" Then
                                     grdcaptura.Rows.Add("", comentario, "", "", "", "")
@@ -3730,20 +3730,20 @@ doorcita:
         Try
             cnn1.Close() : cnn1.Open()
 
-            'Nota de venta pagada
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select * from Devoluciones where Folio=" & cbofolio.Text & " and Facturado='DEVOLUCION'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    MsgBox("La nota de venta " & cbofolio.Text & " no puede ser cancelada porque ya se han efectuado devoluciones de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    cbofolio.Focus().Equals(True)
-                    rd1.Close() : cnn1.Close()
-                    Exit Sub
-                End If
-            End If
-            rd1.Close()
+            ''Nota de venta pagada
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText =
+            '     "select * from Devoluciones where Folio=" & cbofolio.Text & " and Facturado='DEVOLUCION'"
+            'rd1 = cmd1.ExecuteReader
+            'If rd1.HasRows Then
+            '    If rd1.Read Then
+            '        MsgBox("La nota de venta " & cbofolio.Text & " no puede ser cancelada porque ya se han efectuado devoluciones de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '        cbofolio.Focus().Equals(True)
+            '        rd1.Close() : cnn1.Close()
+            '        Exit Sub
+            '    End If
+            'End If
+            'rd1.Close()
 
             'Nota de venta cancelada
             cmd1 = cnn1.CreateCommand
@@ -4027,6 +4027,7 @@ doorcita:
                         If rd2.HasRows Then
                             If rd2.Read Then
                                 sumapagos = rd2(0).ToString
+
 
                                 If lblNumCliente.Text <> "MOSTRADOR" Then
                                     cmd3 = cnn3.CreateCommand
