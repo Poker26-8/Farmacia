@@ -13307,6 +13307,13 @@ ecomoda:
                 "select Cedula from CtMedicos where Cedula='" & cbocedula.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
+                If rd1.Read Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE ctmedicos SET Domicilio='" & txtdireccion_med.Text & "' WHERE Cedula='" & cbocedula.Text & "' AND Nombre='" & txtmedico.Text & "'"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
             Else
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
