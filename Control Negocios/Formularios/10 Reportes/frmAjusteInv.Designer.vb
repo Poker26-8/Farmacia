@@ -70,7 +70,7 @@ Partial Class frmAjusteInv
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(450, 31)
+        Me.Label1.Size = New System.Drawing.Size(451, 31)
         Me.Label1.TabIndex = 5
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -83,7 +83,7 @@ Partial Class frmAjusteInv
         Me.cbodesc.FormattingEnabled = True
         Me.cbodesc.Location = New System.Drawing.Point(92, 54)
         Me.cbodesc.Name = "cbodesc"
-        Me.cbodesc.Size = New System.Drawing.Size(286, 23)
+        Me.cbodesc.Size = New System.Drawing.Size(287, 23)
         Me.cbodesc.TabIndex = 56
         '
         'Label45
@@ -96,7 +96,7 @@ Partial Class frmAjusteInv
         Me.Label45.ForeColor = System.Drawing.Color.White
         Me.Label45.Location = New System.Drawing.Point(92, 40)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(286, 15)
+        Me.Label45.Size = New System.Drawing.Size(287, 15)
         Me.Label45.TabIndex = 55
         Me.Label45.Text = "Descripción"
         Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -131,7 +131,7 @@ Partial Class frmAjusteInv
         Me.Label48.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label48.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label48.ForeColor = System.Drawing.Color.White
-        Me.Label48.Location = New System.Drawing.Point(377, 40)
+        Me.Label48.Location = New System.Drawing.Point(378, 40)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(65, 15)
         Me.Label48.TabIndex = 74
@@ -142,7 +142,7 @@ Partial Class frmAjusteInv
         '
         Me.txtunidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtunidad.Location = New System.Drawing.Point(377, 54)
+        Me.txtunidad.Location = New System.Drawing.Point(378, 54)
         Me.txtunidad.Name = "txtunidad"
         Me.txtunidad.Size = New System.Drawing.Size(65, 23)
         Me.txtunidad.TabIndex = 73
@@ -219,7 +219,7 @@ Partial Class frmAjusteInv
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(382, 83)
+        Me.btnGuardar.Location = New System.Drawing.Point(383, 83)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 74)
         Me.btnGuardar.TabIndex = 82
@@ -234,7 +234,7 @@ Partial Class frmAjusteInv
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(382, 163)
+        Me.btnNuevo.Location = New System.Drawing.Point(383, 163)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 73)
         Me.btnNuevo.TabIndex = 81
@@ -415,7 +415,7 @@ Partial Class frmAjusteInv
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(450, 327)
+        Me.ClientSize = New System.Drawing.Size(451, 327)
         Me.ContextMenuStrip = Me.cmsElimina
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.txtcontraseña)
