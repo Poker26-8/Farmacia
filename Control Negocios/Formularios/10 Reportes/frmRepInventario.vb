@@ -1050,15 +1050,15 @@ Public Class frmRepInventario
             cmd1 = cnn1.CreateCommand
             If (optProveedor.Checked) Then
                 cmd1.CommandText =
-                    "select distinct ProvPri from Productos where ProvPri<>''"
+                    "select distinct ProvPri from Productos where ProvPri<>'' ORDER BY ProvPri"
             End If
             If (optDepartamento.Checked) Then
                 cmd1.CommandText =
-                    "select distinct Departamento from Productos where Departamento <> 'SERVICIOS' and Departamento<>''"
+                    "select distinct Departamento from Productos where Departamento <> 'SERVICIOS' and Departamento<>'' ORDER BY Departamento"
             End If
             If (optGrupo.Checked) Then
                 cmd1.CommandText =
-                    "select distinct Grupo from Productos where Grupo<>''"
+                    "select distinct Grupo from Productos where Grupo<>'' ORDER BY Grupo"
             End If
             If (optCaducidades.Checked) Then
                 cmd1.CommandText =

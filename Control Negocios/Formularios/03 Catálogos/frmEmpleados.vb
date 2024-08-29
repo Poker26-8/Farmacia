@@ -113,6 +113,10 @@ Public Class frmEmpleados
                     txtWhats.Text = rd1("Telefono").ToString
                     txtCorreo.Text = rd1("Correo").ToString
                     txtFace.Text = rd1("Facebook").ToString
+
+                    If cboArea.Text = "MEDICO" Then
+                        lkmédico.Visible = True
+                    End If
                 End If
             End If
             rd1.Close() : cnn1.Close()

@@ -29,6 +29,7 @@
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             cnn1.Close() : cnn1.Open()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Nombre FROM usuarios WHERE Nombre='" & lblNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
@@ -46,7 +47,31 @@
 
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cedula FROM ctmedicos WHERE Cedula='" & txtCedula.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE ctmedicos SET Profesion='" & txtEspecialidad.Text & "' WHERE Cedula='" & txtCedula.Text & "'"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO ctmedicos(Cedula,Nombre,Domicilio,Profesion) VALUES('" & txtCedula.Text & "','" & lblNombre.Text & "','','" & txtEspecialidad.Text & "')"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
             cnn1.Close()
+
+
 
             btnNuevo.PerformClick()
 
@@ -198,6 +223,72 @@
     End Sub
 
     Private Sub frmMedicosD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim logo As String = ""
 
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cedula,Escuela,Especialidad,LogoR FROM usuarios WHERE Nombre='" & lblNombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtCedula.Text = rd1(0).ToString
+                    txtEscuela.Text = rd1(1).ToString
+                    txtEspecialidad.Text = rd1(2).ToString
+                    logo = rd1(3).ToString
+                    If logo = "UNAM" Then
+                        rbnunam.Checked = True
+
+                    ElseIf logo = "UAM" Then
+                        rbnuam.Checked = True
+
+                    ElseIf logo = "BUAP" Then
+                        rbbuap.Checked = True
+
+                    ElseIf logo = "IPN" Then
+                        rbnipn.Checked = True
+
+                    ElseIf logo = "UDABOL" Then
+                        optudabol.Checked = True
+
+                    ElseIf logo = "DEUS" Then
+                        optuniversitas.Checked = True
+
+                    ElseIf logo = "UNIGUA" Then
+                        optunigua.Checked = True
+
+                    ElseIf logo = "HIPOUNI" Then
+                        optHIPO.Checked = True
+
+                    ElseIf logo = "IXTLA" Then
+                        optixtla.Checked = True
+
+                    ElseIf logo = "UMSN" Then
+                        optUMSN.Checked = True
+
+                    ElseIf logo = "ULA" Then
+                        optULA.Checked = True
+
+                    ElseIf logo = "ANAHUAC" Then
+                        optANAHUAC.Checked = True
+
+                    ElseIf logo = "UV" Then
+                        optUV.Checked = True
+
+                    ElseIf logo = "UAEM" Then
+                        optUAEM.Checked = True
+
+                    ElseIf logo = "UVM" Then
+                        optUVM.Checked = True
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class
