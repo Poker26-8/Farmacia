@@ -407,6 +407,81 @@ Public Class frmLoad
     End Sub
 
     Public Sub verif()
+        'CEDULA
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cedula FROM usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE usuarios add column Cedula varchar(50) DEFAULT ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'escuela
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Escuela FROM usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE usuarios add column Escuela varchar(255) DEFAULT ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+        'especialidad
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Especialidad FROM usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE usuarios add column Especialidad varchar(255) DEFAULT ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'logor
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT LogoR FROM usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE usuarios add column LogoR varchar(50) DEFAULT ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'hismesa
         Try
             cnn1.Close()
