@@ -2818,10 +2818,10 @@ Public Class frmConsultaNotas
                             Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\Pedido_" & cbofolio.Text & ".pdf")
                         End If
                     Else
-                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\Pedido" & cbofolio.Text & ".pdf") Then
-                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\Pedido_" & cbofolio.Text & ".pdf")
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\Pedido_" & cbofolio.Text & ".pdf") Then
+                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\Pedido_" & cbofolio.Text & ".pdf")
                         Else
-                            Insert_pedido()
+                            Insert_Pedido()
                             PDF_Pedido()
                             My.Application.DoEvents()
                         End If
