@@ -9248,6 +9248,9 @@ safo:
         If CDbl(txtefectivo.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("efectivo_vent").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
         End If
+        If CDbl(txtdescuento2.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("DescuentoV").Text = "'" & FormatNumber(txtdescuento2.Text, 4) & "'"  'Descuento
+        End If
         If CDbl(txtCambio.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("cambio_vent").Text = "'" & FormatNumber(txtCambio.Text, 4) & "'"      'Cambio
         End If

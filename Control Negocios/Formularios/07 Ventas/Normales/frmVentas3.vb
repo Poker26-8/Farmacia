@@ -4743,7 +4743,7 @@ kaka:
         Try
             Dim lotexd As String = ""
             DataGridView1.Rows.Clear()
-            cnn7.Clone()
+            cnn7.Close()
             cnn7.Open()
             cmd7 = cnn7.CreateCommand
             cmd7.CommandText = "Select * from LoteCaducidad where Codigo='" & varcodigo & "'"
