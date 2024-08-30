@@ -4750,7 +4750,7 @@ kaka:
             rd7 = cmd7.ExecuteReader
             Do While rd7.Read
                 lotexd = rd7("Lote").ToString
-                DataGridView1.Rows.Add(False, lotexd, rd7("Caducidad").ToString, rd7("Cantidad").ToString)
+                DataGridView1.Rows.Add(False, lotexd, rd7("Caducidad").ToString, "")
             Loop
             rd7.Close()
             cnn7.Close()
