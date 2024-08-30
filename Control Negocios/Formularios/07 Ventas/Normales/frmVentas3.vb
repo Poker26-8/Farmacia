@@ -4742,6 +4742,7 @@ kaka:
     Public Sub ConsultaLotes(varcodigo As String)
         Try
             Dim lotexd As String = ""
+
             DataGridView1.Rows.Clear()
             cnn7.Close()
             cnn7.Open()
@@ -4750,7 +4751,12 @@ kaka:
             rd7 = cmd7.ExecuteReader
             Do While rd7.Read
                 lotexd = rd7("Lote").ToString
-                DataGridView1.Rows.Add(False, lotexd, rd7("Caducidad").ToString, "")
+                Dim fechalote As Date = rd7("Caducidad").ToString
+                Dim f As String = ""
+                f = Format(fechalote, "yyyy-MM-dd")
+
+                My.Application.DoEvents()
+                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "")
             Loop
             rd7.Close()
             cnn7.Close()
@@ -4910,6 +4916,7 @@ kaka:
                                     gbLotes.Visible = True
                                     txtcodlote.Text = cbocodigo.Text
                                     txtnombrelote.Text = cbodesc.Text
+                                    TextBox1.Text = txtcantidad.Text
                                     ConsultaLotes(cbocodigo.Text)
                                     My.Application.DoEvents()
                                 Else
@@ -4975,10 +4982,12 @@ kaka:
         Dim renta As Boolean = False
 
         If cboLote.Text = "" Then
-            'If cboLote.Items.Count > 0 Then
-            '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-            '    Exit Sub
-            'End If
+            If cboLote.Items.Count > 0 Then
+                If DataGridView2.Rows.Count > 0 Then
+                    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Exit Sub
+                End If
+            End If
         End If
 
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -6160,6 +6169,8 @@ kaka:
         End If
 
         Timer1.Stop()
+        Button14.PerformClick()
+        gbLotes.Visible = False
         Me.Text = "Ventas (3)"
         lblpedido.Text = "0"
         cbodesc.Focus.Equals(True)
@@ -8512,8 +8523,21 @@ kakaxd:
                 End If
 
                 If ordetrabajo = 0 Then
-                    caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
-                    lote = grdcaptura.Rows(R).Cells(8).Value.ToString
+                    If DataGridView2.Rows.Count > 0 Then
+                        For xx As Integer = 0 To DataGridView2.Rows.Count - 1
+                            If caduca = "" Then
+                                caduca = DataGridView2.Rows(xx).Cells(3).Value.ToString
+                                lote = DataGridView2.Rows(xx).Cells(2).Value.ToString
+                            Else
+                                caduca = caduca & "," & DataGridView2.Rows(xx).Cells(3).Value.ToString
+                                lote = lote & "," & DataGridView2.Rows(xx).Cells(2).Value.ToString
+                            End If
+                        Next
+                        'caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                        'lote = grdcaptura.Rows(R).Cells(8).Value.ToString
+                    End If
+                    'caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                    'lote = grdcaptura.Rows(R).Cells(8).Value.ToString
                 Else
                     caduca = ""
                     lote = ""
@@ -8846,7 +8870,7 @@ Door:
 
                 If lote <> "" Then
                     Dim IdVD As Integer = 0
-                    Dim idLote As Integer = grdcaptura.Rows(R).Cells(7).Value.ToString
+                    'Dim idLote As Integer = grdcaptura.Rows(R).Cells(7).Value.ToString
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
@@ -8858,22 +8882,27 @@ Door:
                         End If
                     End If
                     rd1.Close()
+                    If DataGridView2.Rows.Count > 0 Then
+                        For xd As Integer = 0 To DataGridView2.Rows.Count - 1
+                            Dim idLote As Integer = DataGridView2.Rows(xd).Cells(1).Value.ToString
+                            lote = DataGridView2.Rows(xd).Cells(2).Value.ToString
 
-                    Dim cant_lote As Double = GetCantLote(mycode, lote)
-
-                    If cant_lote > mycant Then
-                        Dim nueva_cant As Double = cant_lote - mycant
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
-                        cmd1.ExecuteNonQuery()
-                    Else
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "update LoteCaducidad set Cantidad=0 where Id=" & idLote
-                        cmd1.ExecuteNonQuery()
+                            Dim cant_lote As Double = GetCantLote(mycode, lote)
+                            mycant = DataGridView2.Rows(xd).Cells(4).Value.ToString
+                            If cant_lote > mycant Then
+                                Dim nueva_cant As Double = cant_lote - mycant
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                                    "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
+                                cmd1.ExecuteNonQuery()
+                            Else
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                                    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
+                                cmd1.ExecuteNonQuery()
+                            End If
+                        Next
                     End If
-
                 End If
             Next
             cnn1.Close()
@@ -15606,8 +15635,18 @@ doorcita:
 
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
-                DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString)
+                DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
             End If
         Next
+
+
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        DataGridView2.Rows.Clear()
+        DataGridView1.Rows.Clear()
+        txtcodlote.Text = ""
+        txtnombrelote.Text = ""
+        TextBox1.Text = ""
     End Sub
 End Class
