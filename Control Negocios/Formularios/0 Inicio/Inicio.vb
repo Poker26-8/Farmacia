@@ -761,10 +761,10 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            'frmCompras.Show()
-            'frmCompras.BringToFront()
-            frmNuvCompras.Show()
-            frmNuvCompras.BringToFront()
+            frmCompras.Show()
+            frmCompras.BringToFront()
+            'frmNuvCompras.Show()
+            'frmNuvCompras.BringToFront()
         End If
 
     End Sub
@@ -2223,5 +2223,9 @@ Public Class Inicio
         frmMapa.Show()
 
         'frmpruebas.Show()
+    End Sub
+
+    Private Sub pCompras_Click(sender As Object, e As EventArgs) Handles pCompras.Click
+
     End Sub
 End Class

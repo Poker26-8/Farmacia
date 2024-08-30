@@ -323,6 +323,9 @@
         HGxyjEGjsWuMBT9WDBi7BHLIeZRDeczvxlyaHZr0L4yUQ8o4awl8AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 10</value>
+  </metadata>
   <data name="Button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAYAAACqj0o2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -379,9 +382,6 @@
         GrPhZ8fA3KXphbed67ie+C520fyUp/4P4TmZIA6fCEAAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 10</value>
-  </metadata>
   <data name="btnVentasN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAYAAACqj0o2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -682,6 +682,9 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 10</value>
   </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 10</value>
+  </metadata>
   <metadata name="tFoto.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>231, 10</value>
   </metadata>
@@ -827,7 +830,7 @@
   <data name="btnBodegas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFUAAABHCAYAAAB26wvKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAACIdJREFUeF7tmltsFGUUxwlG1MQHEh8I2FaDxgdCTPHBmBhjE5EYjAKmImptWlKg
+        DAAACwwBP0AiyAAACIdJREFUeF7tmltsFGUUxwlG1MQHEh8I2FaDxgdCTPHBmBhjE5EYjAKmImptWlKg
         KaWWi5SrVFOKpYUUFEQxBYJAI1RpjEDiJZh4iUII8qBiIpdugViQ1lahBdJx/kPP9My3Z2bnuh3jPvzC
         7jdnzpz58c13me0wTdNiT0F+Wa5Ol06RdDxuiI1xY0CoBtRjcURsjBskFPRPGX3YA/t1pko5o0RsjBuK
         VM+o+aJGbIwbAaUel3JGidgYNwJKzZNyRonYGDcCSK2W8kWN2Bg3AkhN+yQFxMa4EUDqGZ2RUs4oERvj
@@ -869,7 +872,7 @@
   <data name="btnDentista.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFsAAABdCAYAAADKbxqEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAADcpJREFUeF7tnMl2G8cVhv0IfAQ9gh6Bj+BH0CprbrPIOcwu52QRLW3HA2Pn5DiJ
+        DwAACw8BkvkDpQAADcpJREFUeF7tnMl2G8cVhv0IfAQ9gh6Bj+BH0CprbrPIOcwu52QRLW3HA2Pn5DiJ
         Y0O2JVEDKc7iIBLgqIkSQYEAAYIgGmhMjQbRubeFBgvVf09AA2zGWXw+VrG7cetD4dat6gY+MQxj5Pz6
         w/3bxF1ijjA6JIgYcYcYQ+fddGDjoLAsYqIjj4WKWHLdUAj5PIbfoNvoNW8CsLFfSARLZiFIYJiw+Bsn
         HTb2A3WeRXMqQHKGAY/+GyUcNgaFOj1OjFK0BQufQDFFEdjoF+roqNKGF/xGR36Uw0Y/UOdGnTa8iHxa
