@@ -4865,7 +4865,8 @@ doorcita:
                 e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
                 Y += 12.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
-                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 270, Y, sf)
                 Y += 21
@@ -6314,7 +6315,8 @@ doorcita:
                 'e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
                 Y += 12
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 25, Y)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 30, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 80, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 Y += 21
