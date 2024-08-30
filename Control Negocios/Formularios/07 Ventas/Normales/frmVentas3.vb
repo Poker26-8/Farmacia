@@ -15603,5 +15603,11 @@ doorcita:
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+
+        For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
+            If DataGridView1.Rows(xxx).Cells(0).Value Then
+                DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString)
+            End If
+        Next
     End Sub
 End Class

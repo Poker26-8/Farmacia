@@ -25,7 +25,6 @@ Partial Class frmVentas3
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas3))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -41,6 +40,7 @@ Partial Class frmVentas3
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pAbajo = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -85,10 +85,6 @@ Partial Class frmVentas3
         Me.txtcodlote = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column32 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblautofac = New System.Windows.Forms.Label()
         Me.txtfechacad = New System.Windows.Forms.TextBox()
         Me.lblpedido = New System.Windows.Forms.Label()
@@ -271,6 +267,10 @@ Partial Class frmVentas3
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pPedidoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pVentaMatriz80 = New System.Drawing.Printing.PrintDocument()
+        Me.Column32 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pAbajo.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -934,7 +934,7 @@ Partial Class frmVentas3
         Me.gbLotes.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbLotes.Location = New System.Drawing.Point(55, 172)
         Me.gbLotes.Name = "gbLotes"
-        Me.gbLotes.Size = New System.Drawing.Size(829, 256)
+        Me.gbLotes.Size = New System.Drawing.Size(829, 213)
         Me.gbLotes.TabIndex = 279
         Me.gbLotes.TabStop = False
         Me.gbLotes.Text = "Registro de Lotes"
@@ -950,10 +950,10 @@ Partial Class frmVentas3
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column33, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
         Me.DataGridView2.GridColor = System.Drawing.Color.White
-        Me.DataGridView2.Location = New System.Drawing.Point(282, 132)
+        Me.DataGridView2.Location = New System.Drawing.Point(345, 31)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(324, 118)
+        Me.DataGridView2.Size = New System.Drawing.Size(324, 130)
         Me.DataGridView2.TabIndex = 235
         '
         'Column33
@@ -982,16 +982,16 @@ Partial Class frmVentas3
         '
         'txtnombrelote
         '
-        Me.txtnombrelote.Location = New System.Drawing.Point(239, 45)
+        Me.txtnombrelote.Location = New System.Drawing.Point(133, 33)
         Me.txtnombrelote.Name = "txtnombrelote"
         Me.txtnombrelote.Size = New System.Drawing.Size(199, 20)
         Me.txtnombrelote.TabIndex = 234
         '
         'txtcodlote
         '
-        Me.txtcodlote.Location = New System.Drawing.Point(22, 47)
+        Me.txtcodlote.Location = New System.Drawing.Point(19, 32)
         Me.txtcodlote.Name = "txtcodlote"
-        Me.txtcodlote.Size = New System.Drawing.Size(199, 20)
+        Me.txtcodlote.Size = New System.Drawing.Size(108, 20)
         Me.txtcodlote.TabIndex = 234
         '
         'Button10
@@ -1002,7 +1002,7 @@ Partial Class frmVentas3
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.White
-        Me.Button10.Location = New System.Drawing.Point(466, 17)
+        Me.Button10.Location = New System.Drawing.Point(272, 65)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(60, 70)
         Me.Button10.TabIndex = 178
@@ -1020,37 +1020,11 @@ Partial Class frmVentas3
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column32, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.DataGridView1.GridColor = System.Drawing.Color.White
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 132)
+        Me.DataGridView1.Location = New System.Drawing.Point(19, 70)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(227, 118)
+        Me.DataGridView1.Size = New System.Drawing.Size(247, 126)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Column32
-        '
-        Me.Column32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column32.HeaderText = ""
-        Me.Column32.Name = "Column32"
-        Me.Column32.Width = 5
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Lote"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 50
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Caducidad"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 50
         '
         'lblautofac
         '
@@ -2956,6 +2930,33 @@ Partial Class frmVentas3
         '
         'pVentaMatriz80
         '
+        '
+        'Column32
+        '
+        Me.Column32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column32.HeaderText = ""
+        Me.Column32.Name = "Column32"
+        Me.Column32.Width = 5
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Lote"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 80
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Caducidad"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 80
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 50
         '
         'frmVentas3
         '
