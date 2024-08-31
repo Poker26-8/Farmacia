@@ -7034,10 +7034,10 @@ puerta_FacturaG:
                                             Dim varUniMed As String = ""
                                             Dim varClaveProd As String = ""
                                             Dim varDescLarg As String = ""
-                                            Dim varIva As String = ""
-                                            Dim varDscto As String = ""
-                                            Dim varIvaReten As String = ""
-                                            Dim varIEPS As String = ""
+                                            Dim varIva As String = "0"
+                                            Dim varDscto As String = "0"
+                                            Dim varIvaReten As String = "0"
+                                            Dim varIEPS As String = "0"
                                             Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
                                             sinfo = ""
                                             Dim dt2 As New DataTable
