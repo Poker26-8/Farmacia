@@ -15675,10 +15675,14 @@ doorcita:
         End If
         Dim ventatotal As Double = 0
         Dim voyconteo As Double = 0
+        Dim senecesita As Double = 0
+        Dim tengo As Double = 0
         ventatotal = TextBox1.Text
         For lucas As Integer = 0 To DataGridView1.Rows.Count - 1
+            senecesita = DataGridView1.Rows(lucas).Cells(4).Value.ToString
+            tengo = DataGridView1.Rows(lucas).Cells(5).Value
             If DataGridView1.Rows(lucas).Cells(0).Value Then
-                If DataGridView1.Rows(lucas).Cells(4).Value > DataGridView1.Rows(lucas).Cells(5).Value Then
+                If senecesita > tengo Then
                     MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
                     Exit Sub
                 End If
