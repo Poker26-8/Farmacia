@@ -28,6 +28,8 @@ Partial Class frmVentas3
         Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -39,8 +41,6 @@ Partial Class frmVentas3
         Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pAbajo = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -76,11 +76,25 @@ Partial Class frmVentas3
         Me.lblusuario = New System.Windows.Forms.Label()
         Me.pCentral = New System.Windows.Forms.Panel()
         Me.gbLotes = New System.Windows.Forms.GroupBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Column33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtnombrelote = New System.Windows.Forms.TextBox()
         Me.txtcodlote = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column32 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Column34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblautofac = New System.Windows.Forms.Label()
         Me.txtfechacad = New System.Windows.Forms.TextBox()
         Me.lblpedido = New System.Windows.Forms.Label()
@@ -263,19 +277,6 @@ Partial Class frmVentas3
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pPedidoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pVentaMatriz80 = New System.Drawing.Printing.PrintDocument()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Column32 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Column34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.pAbajo.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -948,6 +949,38 @@ Partial Class frmVentas3
         Me.gbLotes.Text = "Registro de Lotes"
         Me.gbLotes.Visible = False
         '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.SteelBlue
+        Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.Font = New System.Drawing.Font("Segoe UI", 7.0!)
+        Me.Button14.ForeColor = System.Drawing.Color.White
+        Me.Button14.Location = New System.Drawing.Point(218, 55)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(64, 69)
+        Me.Button14.TabIndex = 299
+        Me.Button14.Text = "CANCELAR"
+        Me.Button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button14.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(72, 77)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(55, 20)
+        Me.TextBox1.TabIndex = 237
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(17, 83)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 12)
+        Me.Label7.TabIndex = 236
+        Me.Label7.Text = "Cantidad:"
+        '
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
@@ -963,6 +996,36 @@ Partial Class frmVentas3
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.Size = New System.Drawing.Size(324, 213)
         Me.DataGridView2.TabIndex = 235
+        '
+        'Column33
+        '
+        Me.Column33.HeaderText = "Codigo"
+        Me.Column33.Name = "Column33"
+        '
+        'Column35
+        '
+        Me.Column35.HeaderText = "Id"
+        Me.Column35.Name = "Column35"
+        Me.Column35.Width = 20
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Lote"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 50
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Caducidad"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle29
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 50
         '
         'txtnombrelote
         '
@@ -1002,13 +1065,49 @@ Partial Class frmVentas3
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column32, Me.Column34, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column32, Me.Column34, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.Column36})
         Me.DataGridView1.GridColor = System.Drawing.Color.White
         Me.DataGridView1.Location = New System.Drawing.Point(16, 128)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(285, 155)
         Me.DataGridView1.TabIndex = 0
+        '
+        'Column32
+        '
+        Me.Column32.HeaderText = ""
+        Me.Column32.Name = "Column32"
+        Me.Column32.Width = 20
+        '
+        'Column34
+        '
+        Me.Column34.HeaderText = "Id"
+        Me.Column34.Name = "Column34"
+        Me.Column34.Width = 20
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Lote"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Caducidad"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 85
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle30
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 55
+        '
+        'Column36
+        '
+        Me.Column36.HeaderText = "exi"
+        Me.Column36.Name = "Column36"
         '
         'lblautofac
         '
@@ -1987,8 +2086,8 @@ Partial Class frmVentas3
         '
         'Column24
         '
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column24.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column24.DefaultCellStyle = DataGridViewCellStyle31
         Me.Column24.HeaderText = "Unidad"
         Me.Column24.Name = "Column24"
         Me.Column24.ReadOnly = True
@@ -1996,8 +2095,8 @@ Partial Class frmVentas3
         '
         'Column23
         '
-        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column23.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column23.DefaultCellStyle = DataGridViewCellStyle32
         Me.Column23.HeaderText = "Cant"
         Me.Column23.Name = "Column23"
         Me.Column23.ReadOnly = True
@@ -2005,8 +2104,8 @@ Partial Class frmVentas3
         '
         'Column22
         '
-        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column22.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column22.DefaultCellStyle = DataGridViewCellStyle33
         Me.Column22.HeaderText = "Precio"
         Me.Column22.Name = "Column22"
         Me.Column22.ReadOnly = True
@@ -2014,8 +2113,8 @@ Partial Class frmVentas3
         '
         'Column25
         '
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column25.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column25.DefaultCellStyle = DataGridViewCellStyle34
         Me.Column25.HeaderText = "Total"
         Me.Column25.Name = "Column25"
         Me.Column25.ReadOnly = True
@@ -2031,6 +2130,7 @@ Partial Class frmVentas3
         Me.cboLote.Name = "cboLote"
         Me.cboLote.Size = New System.Drawing.Size(115, 28)
         Me.cboLote.TabIndex = 277
+        Me.cboLote.Visible = False
         '
         'Label10
         '
@@ -2045,6 +2145,7 @@ Partial Class frmVentas3
         Me.Label10.TabIndex = 276
         Me.Label10.Text = "Lote"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label10.Visible = False
         '
         'chkBuscaProd
         '
@@ -2915,99 +3016,6 @@ Partial Class frmVentas3
         'pVentaMatriz80
         '
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(17, 83)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 12)
-        Me.Label7.TabIndex = 236
-        Me.Label7.Text = "Cantidad:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(72, 77)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(55, 20)
-        Me.TextBox1.TabIndex = 237
-        '
-        'Column32
-        '
-        Me.Column32.HeaderText = ""
-        Me.Column32.Name = "Column32"
-        Me.Column32.Width = 20
-        '
-        'Column34
-        '
-        Me.Column34.HeaderText = "Id"
-        Me.Column34.Name = "Column34"
-        Me.Column34.Width = 20
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Lote"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Caducidad"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Width = 85
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle33
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 55
-        '
-        'Column33
-        '
-        Me.Column33.HeaderText = "Codigo"
-        Me.Column33.Name = "Column33"
-        '
-        'Column35
-        '
-        Me.Column35.HeaderText = "Id"
-        Me.Column35.Name = "Column35"
-        Me.Column35.Width = 20
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Lote"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 50
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Caducidad"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle34
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Width = 50
-        '
-        'Button14
-        '
-        Me.Button14.BackColor = System.Drawing.Color.SteelBlue
-        Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button14.ForeColor = System.Drawing.Color.White
-        Me.Button14.Location = New System.Drawing.Point(218, 55)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(64, 69)
-        Me.Button14.TabIndex = 299
-        Me.Button14.Text = "LIMPIAR"
-        Me.Button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button14.UseVisualStyleBackColor = False
-        '
         'frmVentas3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3286,15 +3294,16 @@ Partial Class frmVentas3
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Column32 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column34 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Column33 As DataGridViewTextBoxColumn
     Friend WithEvents Column35 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents Button14 As Button
+    Friend WithEvents Column32 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column34 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column36 As DataGridViewTextBoxColumn
 End Class

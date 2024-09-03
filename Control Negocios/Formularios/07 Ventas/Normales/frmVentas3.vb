@@ -12,7 +12,7 @@ Imports System.Xml
 Imports System.Text
 Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Public Class frmVentas3
-
+    Private WithEvents editingControl As DataGridViewTextBoxEditingControl
     ''' variablesm para terminal bancaria
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
@@ -4756,7 +4756,7 @@ kaka:
                 f = Format(fechalote, "yyyy-MM-dd")
 
                 My.Application.DoEvents()
-                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "")
+                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "", rd7("Cantidad").ToString)
             Loop
             rd7.Close()
             cnn7.Close()
@@ -4983,10 +4983,15 @@ kaka:
 
         If cboLote.Text = "" Then
             If cboLote.Items.Count > 0 Then
-                If DataGridView2.Rows.Count > 0 Then
-                    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    Exit Sub
-                End If
+                'If DataGridView2.Rows.Count > 0 Then
+                '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                '    Exit Sub
+                'End If
+
+                'If DataGridView2.Rows.Count > 0 Then
+                '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                '    Exit Sub
+                'End If
             End If
         End If
 
@@ -15625,20 +15630,40 @@ doorcita:
             e.HasMorePages = False
 
         Catch ex As Exception
-            MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
+            MessageBox.Show("No se pudo generar el docuemnto, a continuació n se muestra la descripción del error." & vbNewLine & ex.ToString())
             cnn1.Close()
         End Try
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
 
+        If TextBox1.Text = "" Then
+            Exit Sub
+        End If
+        Dim ventatotal As Double = 0
+        Dim voyconteo As Double = 0
+        ventatotal = TextBox1.Text
+        For lucas As Integer = 0 To DataGridView1.Rows.Count - 1
+            If DataGridView1.Rows(lucas).Cells(4).Value > DataGridView1.Rows(lucas).Cells(5).Value Then
+                MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                Exit Sub
+            End If
+        Next
+        For chanita As Integer = 0 To DataGridView1.Rows.Count - 1
+            If DataGridView1.Rows(chanita).Cells(0).Value Then
+                voyconteo = voyconteo + CDec(DataGridView1.Rows(chanita).Cells(4).Value)
+            End If
+        Next
+        If voyconteo > ventatotal Then
+            MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+            Exit Sub
+        End If
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
                 DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
             End If
         Next
-
+        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
 
     End Sub
 
@@ -15648,5 +15673,7 @@ doorcita:
         txtcodlote.Text = ""
         txtnombrelote.Text = ""
         TextBox1.Text = ""
+        gbLotes.Visible = False
     End Sub
+
 End Class
