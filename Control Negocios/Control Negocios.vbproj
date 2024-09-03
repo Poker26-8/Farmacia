@@ -399,6 +399,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Optica.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Pediatra.Designer.vb">
+      <DependentUpon>frmAct_Pediatra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Pediatra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Precios.Designer.vb">
       <DependentUpon>frmAct_Precios.vb</DependentUpon>
     </Compile>
@@ -2444,6 +2450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Optica.resx">
       <DependentUpon>frmAct_Optica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Pediatra.resx">
+      <DependentUpon>frmAct_Pediatra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Precios.resx">
       <DependentUpon>frmAct_Precios.vb</DependentUpon>

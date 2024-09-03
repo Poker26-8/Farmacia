@@ -174,4 +174,9 @@
         frmAct_Bodegas.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnPediatra_Click(sender As Object, e As EventArgs) Handles btnPediatra.Click
+        frmAct_Pediatra.BringToFront()
+        frmAct_Pediatra.Show()
+    End Sub
 End Class

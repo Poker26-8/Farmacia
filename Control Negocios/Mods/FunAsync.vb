@@ -74,7 +74,7 @@ Module FunAsync
         SFormatos("LimpiarV", "0")
         SFormatos("ProduccionPro", "0")
         SFormatos("Dentista", "0")
-
+        SFormatos("Pediatra", "0")
 
     End Function
 
