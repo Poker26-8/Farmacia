@@ -521,7 +521,13 @@
                 End If
 
                 Dim existemmmmmmmcias As Double = 0
-                existemmmmmmmcias = FormatNumber(CDbl(txtfisica.Text) * MyMult2, 0)
+                If MyMult2 > 1 And MyMCD = 1 Then
+                    existemmmmmmmcias = FormatNumber(CDbl(txtfisica.Text) * MyMult2, 0)
+                Else
+                    existemmmmmmmcias = CDec(txtfisica.Text) * CDec(MyMult2)
+                End If
+
+
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "update Productos set Cargado=0, CargadoInv=0, Existencia=" & existemmmmmmmcias & " where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"

@@ -2633,7 +2633,7 @@ quepaso_wey:
                             cmd2.ExecuteNonQuery()
 
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & CODIGO & "'"
+                            cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
 
