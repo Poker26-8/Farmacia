@@ -5804,7 +5804,7 @@ quepasowey:
                 tipo_anti = ""
             End If
 
-            Dim nueva_exis As Double = existe + (cantid * mymultiplo)
+            Dim nueva_exis As Double = (existe + (cantid * mymultiplo))
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =

@@ -2661,7 +2661,7 @@ quepaso_wey:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Id FROM productos WHERE Codigo='" & codigo & "'"
+            cmd2.CommandText = "SELECT Codigo FROM productos WHERE Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

@@ -277,8 +277,9 @@ Public Class frmProductosSR
                         End If
 
                         MsgBox("Producto actualizado correctamente", vbInformation + vbOKOnly, titulomensajes)
+                        cnn2.Close()
                     End If
-                    cnn2.Close()
+
                 End If
             Else
                 cmd2 = cnn2.CreateCommand
@@ -296,11 +297,13 @@ Public Class frmProductosSR
                     End If
 
                     MsgBox("Producto agregado correctamente", vbInformation + vbOKOnly, titulomensajes)
+                    cnn2.Close()
                 End If
-                cnn2.Close()
+
             End If
             rd1.Close()
             cnn1.Close()
+            cnn2.Close()
 
             If grdpreferencia.Rows.Count > 0 Then
                 For luffy As Integer = 0 To grdpreferencia.Rows.Count - 1
