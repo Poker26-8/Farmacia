@@ -210,6 +210,9 @@ Public Class frmVentas3
     Private Async Sub frmVentas3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
         txtResta.ReadOnly = True
+        DataGridView1.Columns(2).ReadOnly = True
+        DataGridView1.Columns(3).ReadOnly = True
+        DataGridView1.Columns(5).ReadOnly = True
         Try
             cnn1.Close()
             cnn1.Open()
