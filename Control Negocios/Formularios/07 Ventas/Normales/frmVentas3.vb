@@ -4756,7 +4756,7 @@ kaka:
                 f = Format(fechalote, "yyyy-MM-dd")
 
                 My.Application.DoEvents()
-                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "", rd7("Cantidad").ToString)
+                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "0", rd7("Cantidad").ToString)
             Loop
             rd7.Close()
             cnn7.Close()
@@ -4983,10 +4983,16 @@ kaka:
 
         If cboLote.Text = "" Then
             If cboLote.Items.Count > 0 Then
-                'If DataGridView2.Rows.Count > 0 Then
-                '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                '    Exit Sub
-                'End If
+                If DataGridView2.Rows.Count = 0 Then
+                    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    gbLotes.Visible = True
+                    txtcodlote.Text = cbocodigo.Text
+                    txtnombrelote.Text = cbodesc.Text
+                    TextBox1.Text = txtcantidad.Text
+                    ConsultaLotes(cbocodigo.Text)
+                    My.Application.DoEvents()
+                    Exit Sub
+                End If
 
                 'If DataGridView2.Rows.Count > 0 Then
                 '    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -5640,6 +5646,9 @@ kaka:
         txtResta.Text = txtPagar.Text
         txtcant_productos.Text = txtcant_productos.Text - CantDX
         Call cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(Chr(Keys.Enter)))
+        If grdcaptura.Rows.Count = 0 Then
+            DataGridView2.Rows.Clear()
+        End If
     End Sub
     Private Sub chkBuscaProd_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaProd.CheckedChanged
         If (chkBuscaProd.Checked) Then
@@ -6176,6 +6185,8 @@ kaka:
         Timer1.Stop()
         Button14.PerformClick()
         gbLotes.Visible = False
+        DataGridView1.Rows.Clear()
+        DataGridView2.Rows.Clear()
         Me.Text = "Ventas (3)"
         lblpedido.Text = "0"
         cbodesc.Focus.Equals(True)
@@ -8528,21 +8539,21 @@ kakaxd:
                 End If
 
                 If ordetrabajo = 0 Then
-                    If DataGridView2.Rows.Count > 0 Then
-                        For xx As Integer = 0 To DataGridView2.Rows.Count - 1
-                            If caduca = "" Then
-                                caduca = DataGridView2.Rows(xx).Cells(3).Value.ToString
-                                lote = DataGridView2.Rows(xx).Cells(2).Value.ToString
-                            Else
-                                caduca = caduca & "," & DataGridView2.Rows(xx).Cells(3).Value.ToString
-                                lote = lote & "," & DataGridView2.Rows(xx).Cells(2).Value.ToString
-                            End If
-                        Next
-                        'caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
-                        'lote = grdcaptura.Rows(R).Cells(8).Value.ToString
-                    End If
-                    'caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
-                    'lote = grdcaptura.Rows(R).Cells(8).Value.ToString
+                    'If DataGridView2.Rows.Count > 0 Then
+                    '    For xx As Integer = 0 To DataGridView2.Rows.Count - 1
+                    '        If caduca = "" Then
+                    '            caduca = DataGridView2.Rows(xx).Cells(3).Value.ToString
+                    '            lote = DataGridView2.Rows(xx).Cells(2).Value.ToString
+                    '        Else
+                    '            caduca = caduca & "," & DataGridView2.Rows(xx).Cells(3).Value.ToString
+                    '            lote = lote & "," & DataGridView2.Rows(xx).Cells(2).Value.ToString
+                    '        End If
+                    '    Next
+                    '    'caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                    '    'lote = grdcaptura.Rows(R).Cells(8).Value.ToString
+                    'End If
+                    caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                    lote = grdcaptura.Rows(R).Cells(8).Value.ToString
                 Else
                     caduca = ""
                     lote = ""
@@ -8595,12 +8606,34 @@ kakaxd:
 Door:
                 If grdcaptura.Rows(R).Cells(0).Value.ToString() <> "" Then
                     Dim mycodd As String = mycode
+                    Dim voy As Integer = 0
+                    Dim mycant2 As Double = mycant
                     If ordetrabajo = 0 Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
-                        cmd1.ExecuteNonQuery()
-
+                        If DataGridView2.Rows.Count > 0 Then
+                            For cuca As Integer = 0 To DataGridView2.Rows.Count - 1
+                                If mycode = DataGridView2.Rows(cuca).Cells(0).Value.ToString Then
+                                    lote = DataGridView2.Rows(cuca).Cells(2).Value.ToString
+                                    caduca = DataGridView2.Rows(cuca).Cells(3).Value.ToString
+                                    mycant2 = DataGridView2.Rows(cuca).Cells(4).Value.ToString
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText =
+                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant2 & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                                    cmd1.ExecuteNonQuery()
+                                    voy += 1
+                                End If
+                            Next
+                        Else
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                            cmd1.ExecuteNonQuery()
+                        End If
+                        If voy = 0 Then
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                            cmd1.ExecuteNonQuery()
+                        End If
                     Else
 
                         cnn2.Close()
@@ -14995,7 +15028,7 @@ rayos2:
                         ' PDF_Cotizacion_Img()
                     Else
                         ' PDF_Cotizacion()
-                        pdf_pedido
+                        PDF_pedido()
                     End If
                     Panel6.Visible = False
                     My.Application.DoEvents()
@@ -15644,9 +15677,11 @@ doorcita:
         Dim voyconteo As Double = 0
         ventatotal = TextBox1.Text
         For lucas As Integer = 0 To DataGridView1.Rows.Count - 1
-            If DataGridView1.Rows(lucas).Cells(4).Value > DataGridView1.Rows(lucas).Cells(5).Value Then
-                MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
-                Exit Sub
+            If DataGridView1.Rows(lucas).Cells(0).Value Then
+                If DataGridView1.Rows(lucas).Cells(4).Value > DataGridView1.Rows(lucas).Cells(5).Value Then
+                    MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Exit Sub
+                End If
             End If
         Next
         For chanita As Integer = 0 To DataGridView1.Rows.Count - 1
@@ -15660,10 +15695,17 @@ doorcita:
         End If
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
-                DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
+                If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then
+                    MsgBox("La cantidad del lote seleccionado no puede ser 0, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                Else
+                    DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
+                End If
             End If
         Next
-        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+        If DataGridView2.Rows.Count <> 0 Then
+            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+            gbLotes.Visible = False
+        End If
 
     End Sub
 
