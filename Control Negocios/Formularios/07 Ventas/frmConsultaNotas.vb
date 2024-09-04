@@ -30,6 +30,7 @@ Public Class frmConsultaNotas
     Dim DesglosaIVA As String = ""
     Dim tamticket As Integer = 0
     Dim imp_ticket As String = ""
+
     Private Sub Borra()
         cbonombre.Items.Clear()
         lblfechaventa.Text = ""
@@ -7919,10 +7920,7 @@ doorcita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         Try
@@ -8275,15 +8273,10 @@ doorcita:
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
-        Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
-        Dim tLogo As String = DatosRecarga("TipoLogo")
-        Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
 
         Try
-
-
             '[°]. Logotipo
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
@@ -8305,11 +8298,11 @@ doorcita:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
@@ -8362,9 +8355,9 @@ doorcita:
 
             e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 180, Y, sf)
             Y += 15
-            e.Graphics.DrawString("Fecha: " & FormatDateTime(lblfechaventa.Text, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatDateTime(lblhoraventa.Text, DateFormat.LongTime), fuente_prods, Brushes.Black, 180, Y, sf)
-            Y += 19
+            e.Graphics.DrawString("Fecha: " & fechaabono, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(horaabono, fuente_prods, Brushes.Black, 180, Y, sf)
+            Y += 15
 
             '[2]. Datos del cliente
             If cbonombre.Text <> "" Then
@@ -8383,16 +8376,21 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim caracteresPorLinea2 As Integer = 25
+                    Dim texto2 As String = txtdireccion.Text
+                    Dim inicio2 As Integer = 0
+                    Dim longitudTexto2 As Integer = texto2.Length
+
+                    While inicio2 < longitudTexto2
+                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                        Dim bloque2 As String = texto.Substring(inicio2, longitudBloque2)
+                        e.Graphics.DrawString(bloque2, fuente_prods, Brushes.Black, 30, Y)
+                        Y += 12.5
+                        inicio2 += caracteresPorLinea2
+                    End While
+
+
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -8404,7 +8402,7 @@ doorcita:
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 90, Y, sc)
-            Y += 11
+            Y += 15
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 130, Y, sf)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 180, Y, sf)
@@ -8449,11 +8447,6 @@ doorcita:
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 120, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 Y += 21
-                If descuento <> 0 Then
-                    Y -= 4
-                    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                    Y += 12
-                End If
                 total_prods = total_prods + canti
             Next
 
@@ -8482,40 +8475,34 @@ doorcita:
                 inicio11 += caracteresPorLinea11
             End While
 
-            If CDbl(txtresta.Text) > 0 Then
-                e.Graphics.DrawString("Restaba:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
-            End If
-
             If CDbl(abonoa) > 0 Then
                 e.Graphics.DrawString("Monto:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(abonoa, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
+                Y += 20
             End If
 
             If CDbl(txtresta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If formaa <> "" Then
                 e.Graphics.DrawString("Forma de Pago:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(formaa, fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If bancoa <> "" Then
                 e.Graphics.DrawString("Banco:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(bancoa, fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If referenciaa <> "" Then
                 e.Graphics.DrawString("Referencia:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(referenciaa, fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             Dim caracteresPorLinea1 As Integer = 30

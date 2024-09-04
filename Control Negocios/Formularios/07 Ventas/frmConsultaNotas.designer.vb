@@ -128,11 +128,11 @@ Partial Class frmConsultaNotas
         Me.btnTicket = New System.Windows.Forms.Button()
         Me.boxpagos = New System.Windows.Forms.GroupBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.txtdescu_porc = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.txtdescu = New System.Windows.Forms.TextBox()
+        Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.grdAbonos = New System.Windows.Forms.DataGridView()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -174,7 +174,6 @@ Partial Class frmConsultaNotas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pCancelacion80 = New System.Drawing.Printing.PrintDocument()
         Me.pCancelacion58 = New System.Drawing.Printing.PrintDocument()
-        Me.btnRepAbono = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -1166,7 +1165,6 @@ Partial Class frmConsultaNotas
         '
         'Panel8
         '
-        Me.Panel8.Controls.Add(Me.btnRepAbono)
         Me.Panel8.Controls.Add(Me.btnAbono)
         Me.Panel8.Controls.Add(Me.Label16)
         Me.Panel8.Controls.Add(Me.Label15)
@@ -1197,14 +1195,6 @@ Partial Class frmConsultaNotas
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(443, 227)
         Me.Panel8.TabIndex = 159
-        '
-        'txtComentario
-        '
-        Me.txtComentario.Location = New System.Drawing.Point(353, 60)
-        Me.txtComentario.Name = "txtComentario"
-        Me.txtComentario.Size = New System.Drawing.Size(59, 23)
-        Me.txtComentario.TabIndex = 159
-        Me.txtComentario.Visible = False
         '
         'Label35
         '
@@ -1251,6 +1241,14 @@ Partial Class frmConsultaNotas
         Me.txtdescu.TabIndex = 153
         Me.txtdescu.Text = "0.00"
         Me.txtdescu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtComentario
+        '
+        Me.txtComentario.Location = New System.Drawing.Point(353, 60)
+        Me.txtComentario.Name = "txtComentario"
+        Me.txtComentario.Size = New System.Drawing.Size(59, 23)
+        Me.txtComentario.TabIndex = 159
+        Me.txtComentario.Visible = False
         '
         'grdAbonos
         '
@@ -1643,20 +1641,6 @@ Partial Class frmConsultaNotas
         'pCancelacion58
         '
         '
-        'btnRepAbono
-        '
-        Me.btnRepAbono.BackColor = System.Drawing.Color.White
-        Me.btnRepAbono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRepAbono.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRepAbono.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnRepAbono.Location = New System.Drawing.Point(7, 8)
-        Me.btnRepAbono.Name = "btnRepAbono"
-        Me.btnRepAbono.Size = New System.Drawing.Size(80, 49)
-        Me.btnRepAbono.TabIndex = 159
-        Me.btnRepAbono.Text = "Reimprimir abono"
-        Me.btnRepAbono.UseVisualStyleBackColor = False
-        Me.btnRepAbono.Visible = False
-        '
         'frmConsultaNotas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1858,5 +1842,4 @@ Partial Class frmConsultaNotas
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents btnRepAbono As Button
 End Class
