@@ -209,21 +209,21 @@ Public Class frmTraspSalida
 
     Private Sub cbodesc_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbodesc.SelectedValueChanged
         Try
-            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
                 "select Codigo from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    cbocodigo.Text = rd1("Codigo").ToString
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cbocodigo.Text = rd2("Codigo").ToString
                 End If
             End If
-            rd1.Close() : cnn1.Close()
+            rd2.Close() : cnn2.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn1.Close()
+            cnn2.Close()
         End Try
     End Sub
 
@@ -737,7 +737,7 @@ Nota:
             End If
 
             If TPrint = "TICKET" Then
-                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
+                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick() : Exit Sub
                 If Tamaño = "80" Then
                     For t As Integer = 1 To Copias
                         pSalida80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora

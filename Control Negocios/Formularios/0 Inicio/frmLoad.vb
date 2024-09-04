@@ -416,6 +416,43 @@ Public Class frmLoad
 
     Public Sub verif()
 
+        'trasladosdet
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Num_Traslado FROM trasladosdet"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE trasladosdet add column Num_Traslado INT DEFAULT '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comisionista FROM trasladosdet"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE trasladosdet add column Comisionista varchar(255) DEFAULT ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'devoluciones
         Try
             cnn1.Close()

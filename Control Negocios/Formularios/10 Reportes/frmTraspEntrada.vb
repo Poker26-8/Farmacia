@@ -581,7 +581,8 @@ Nota:
                 End If
 
                 If TPrint = "TICKET" Then
-                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
+                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick() :
+                    Exit Sub
                     If Tamaño = "80" Then
                         For t As Integer = 1 To Copias
                             pEntrada80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora

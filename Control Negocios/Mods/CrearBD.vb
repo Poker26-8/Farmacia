@@ -6607,22 +6607,24 @@
 
 
     'TrasladosDet
-    Public vartablatrasladosdet As String = "CREATE TABLE IF NOT EXISTS `trasladosdet` (
-                                          `Id` int(11) NOT NULL,
-                                          `Codigo` varchar(50) NOT NULL DEFAULT '',
-                                          `Nombre` varchar(250) NOT NULL DEFAULT '',
-                                          `Unidad` varchar(100) NOT NULL DEFAULT '',
-                                          `Cantidad` float NOT NULL DEFAULT '0',
-                                          `Precio` float NOT NULL DEFAULT '0',
-                                          `Total` float NOT NULL DEFAULT '0',
-                                          `Existe` float NOT NULL DEFAULT '0',
-                                          `Fecha` date NOT NULL,
-                                          `Concepto` varchar(150) NOT NULL DEFAULT '',
-                                          `Depto` varchar(150) NOT NULL DEFAULT '',
-                                          `Grupo` varchar(150) NOT NULL DEFAULT '',
-                                          `Folio` int(11) NOT NULL DEFAULT '0',
-                                          `CostVR` text NOT NULL
-                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    Public vartablatrasladosdet As String = "CREATE TABLE `trasladosdet` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(250) NOT NULL DEFAULT '',
+                                                  `Unidad` varchar(100) NOT NULL DEFAULT '',
+                                                  `Cantidad` float NOT NULL DEFAULT '0',
+                                                  `Precio` float NOT NULL DEFAULT '0',
+                                                  `Total` float NOT NULL DEFAULT '0',
+                                                  `Existe` float NOT NULL DEFAULT '0',
+                                                  `Fecha` date NOT NULL,
+                                                  `Concepto` varchar(150) NOT NULL DEFAULT '',
+                                                  `Depto` varchar(150) NOT NULL DEFAULT '',
+                                                  `Grupo` varchar(150) NOT NULL DEFAULT '',
+                                                  `Folio` int(11) NOT NULL DEFAULT '0',
+                                                  `CostVR` text NOT NULL,
+                                                  `Comisionista` varchar(255) DEFAULT '',
+                                                  `Num_Traslado` int(11) DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
 
