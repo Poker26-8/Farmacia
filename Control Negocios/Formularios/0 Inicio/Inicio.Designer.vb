@@ -178,6 +178,7 @@ Partial Class Inicio
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.btnOptica = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.btnpollo = New System.Windows.Forms.Button()
@@ -185,6 +186,7 @@ Partial Class Inicio
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnBodegas = New System.Windows.Forms.Button()
         Me.btnDentista = New System.Windows.Forms.Button()
+        Me.btnPediatra = New System.Windows.Forms.Button()
         Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.btnComandera = New System.Windows.Forms.Button()
@@ -195,8 +197,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.btnPediatra = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1390,6 +1390,20 @@ Partial Class Inicio
         Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
         '
+        'Button8
+        '
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.Location = New System.Drawing.Point(0, 956)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(90, 90)
+        Me.Button8.TabIndex = 189
+        Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
+        '
         'btnOptica
         '
         Me.btnOptica.Dock = System.Windows.Forms.DockStyle.Top
@@ -1490,6 +1504,20 @@ Partial Class Inicio
         Me.btnDentista.TabIndex = 187
         Me.btnDentista.UseVisualStyleBackColor = True
         Me.btnDentista.Visible = False
+        '
+        'btnPediatra
+        '
+        Me.btnPediatra.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPediatra.FlatAppearance.BorderSize = 0
+        Me.btnPediatra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPediatra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPediatra.Image = CType(resources.GetObject("btnPediatra.Image"), System.Drawing.Image)
+        Me.btnPediatra.Location = New System.Drawing.Point(0, 283)
+        Me.btnPediatra.Name = "btnPediatra"
+        Me.btnPediatra.Size = New System.Drawing.Size(90, 90)
+        Me.btnPediatra.TabIndex = 190
+        Me.btnPediatra.UseVisualStyleBackColor = True
+        Me.btnPediatra.Visible = False
         '
         'btnPagarComandas
         '
@@ -1629,34 +1657,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(0, 956)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(90, 90)
-        Me.Button8.TabIndex = 189
-        Me.Button8.UseVisualStyleBackColor = True
-        Me.Button8.Visible = False
-        '
-        'btnPediatra
-        '
-        Me.btnPediatra.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPediatra.FlatAppearance.BorderSize = 0
-        Me.btnPediatra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnPediatra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPediatra.Image = CType(resources.GetObject("btnPediatra.Image"), System.Drawing.Image)
-        Me.btnPediatra.Location = New System.Drawing.Point(0, 283)
-        Me.btnPediatra.Name = "btnPediatra"
-        Me.btnPediatra.Size = New System.Drawing.Size(90, 90)
-        Me.btnPediatra.TabIndex = 190
-        Me.btnPediatra.UseVisualStyleBackColor = True
-        Me.btnPediatra.Visible = False
         '
         'Inicio
         '

@@ -781,7 +781,7 @@ Partial Class frmModulos
         '
         Me.btnPediatra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnPediatra.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPediatra.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPediatra.Image = CType(resources.GetObject("btnPediatra.Image"), System.Drawing.Image)
         Me.btnPediatra.Location = New System.Drawing.Point(800, 343)
         Me.btnPediatra.Name = "btnPediatra"
         Me.btnPediatra.Size = New System.Drawing.Size(93, 71)
