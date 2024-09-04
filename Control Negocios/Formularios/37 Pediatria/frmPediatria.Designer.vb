@@ -152,7 +152,7 @@ Partial Class frmPediatria
         'txtTemperatura
         '
         Me.txtTemperatura.BackColor = System.Drawing.Color.White
-        Me.txtTemperatura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTemperatura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTemperatura.Location = New System.Drawing.Point(84, 92)
         Me.txtTemperatura.Name = "txtTemperatura"
         Me.txtTemperatura.Size = New System.Drawing.Size(134, 26)
@@ -181,7 +181,7 @@ Partial Class frmPediatria
         'txtPeso
         '
         Me.txtPeso.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPeso.Location = New System.Drawing.Point(84, 60)
         Me.txtPeso.Name = "txtPeso"
         Me.txtPeso.Size = New System.Drawing.Size(134, 26)
@@ -530,7 +530,7 @@ Partial Class frmPediatria
         '
         'barsube
         '
-        Me.barsube.Location = New System.Drawing.Point(580, 242)
+        Me.barsube.Location = New System.Drawing.Point(580, 245)
         Me.barsube.Margin = New System.Windows.Forms.Padding(2)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(90, 10)
