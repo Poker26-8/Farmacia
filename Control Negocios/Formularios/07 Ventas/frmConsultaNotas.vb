@@ -8096,45 +8096,39 @@ doorcita:
             Y += 18
 
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txttotal.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txttotal.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
             Y += 18
 
             e.Graphics.DrawString(convLetras(txttotal.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
             Y += 18
 
-            If CDbl(txtresta.Text) > 0 Then
-                e.Graphics.DrawString("Restaba:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
-            End If
-
             If CDbl(abonoa) > 0 Then
                 e.Graphics.DrawString("Monto:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(abonoa, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(abonoa, 2), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 12
             End If
 
-            'If CDbl(txtresta.Text) > 0 Then
-            e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            Y += 13.5
-            'End If
+            If CDbl(txtresta.Text) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 13.5
+            End If
 
             If formaa <> "" Then
                 e.Graphics.DrawString("Forma de Pago:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(formaa, fuente_prods, Brushes.Black, 285, Y, sf)
+                e.Graphics.DrawString(formaa, fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
             If bancoa <> "" Then
                 e.Graphics.DrawString("Banco:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(bancoa, fuente_prods, Brushes.Black, 285, Y, sf)
+                e.Graphics.DrawString(bancoa, fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
             If referenciaa <> "" Then
                 e.Graphics.DrawString("Referencia:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(referenciaa, fuente_prods, Brushes.Black, 285, Y, sf)
+                e.Graphics.DrawString(referenciaa, fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 

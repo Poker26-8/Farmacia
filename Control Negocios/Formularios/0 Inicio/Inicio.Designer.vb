@@ -73,14 +73,6 @@ Partial Class Inicio
         Me.pRegistro_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReporte_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TproduccionCos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pAsistencia = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pHorariosEmp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pRegistroHuella = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pRegistroAsis = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pReporteAsis = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCompras = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPedidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCaptura = New System.Windows.Forms.ToolStripMenuItem()
@@ -91,6 +83,14 @@ Partial Class Inicio
         Me.pZapatería = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaPorModeloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntallarComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TproduccionCos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pAsistencia = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pHorariosEmp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pRegistroHuella = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pRegistroAsis = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pReporteAsis = New System.Windows.Forms.ToolStripMenuItem()
         Me.pVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pVentasM = New System.Windows.Forms.ToolStripMenuItem()
         Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
@@ -195,6 +195,8 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnPediatra = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -665,64 +667,6 @@ Partial Class Inicio
         Me.ControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ControlDeServiciosToolStripMenuItem.Text = "Control de servicios"
         '
-        'TproduccionCos
-        '
-        Me.TproduccionCos.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.TproduccionCos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
-        Me.TproduccionCos.Name = "TproduccionCos"
-        Me.TproduccionCos.Size = New System.Drawing.Size(145, 20)
-        Me.TproduccionCos.Text = "Produccion Cosmeticos"
-        Me.TproduccionCos.Visible = False
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(135, 22)
-        Me.ToolStripMenuItem3.Text = "Producción"
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 22)
-        Me.ToolStripMenuItem4.Text = "Reporte"
-        '
-        'pAsistencia
-        '
-        Me.pAsistencia.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.pAsistencia.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pHorariosEmp, Me.pRegistroHuella, Me.pRegistroAsis, Me.pReporteAsis})
-        Me.pAsistencia.Name = "pAsistencia"
-        Me.pAsistencia.Size = New System.Drawing.Size(72, 20)
-        Me.pAsistencia.Text = "Asistencia"
-        Me.pAsistencia.Visible = False
-        '
-        'pHorariosEmp
-        '
-        Me.pHorariosEmp.BackColor = System.Drawing.Color.White
-        Me.pHorariosEmp.Name = "pHorariosEmp"
-        Me.pHorariosEmp.Size = New System.Drawing.Size(185, 22)
-        Me.pHorariosEmp.Text = "Horarios del usuario"
-        '
-        'pRegistroHuella
-        '
-        Me.pRegistroHuella.BackColor = System.Drawing.Color.White
-        Me.pRegistroHuella.Name = "pRegistroHuella"
-        Me.pRegistroHuella.Size = New System.Drawing.Size(185, 22)
-        Me.pRegistroHuella.Text = "Registro de huella"
-        '
-        'pRegistroAsis
-        '
-        Me.pRegistroAsis.BackColor = System.Drawing.Color.White
-        Me.pRegistroAsis.Name = "pRegistroAsis"
-        Me.pRegistroAsis.Size = New System.Drawing.Size(185, 22)
-        Me.pRegistroAsis.Text = "Asistencia"
-        '
-        'pReporteAsis
-        '
-        Me.pReporteAsis.BackColor = System.Drawing.Color.White
-        Me.pReporteAsis.Name = "pReporteAsis"
-        Me.pReporteAsis.Size = New System.Drawing.Size(185, 22)
-        Me.pReporteAsis.Text = "Reporte de asistencia"
-        '
         'pCompras
         '
         Me.pCompras.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pPedidos, Me.pCaptura, Me.ComprasTouchToolStripMenuItem, Me.pNotasC, Me.pCuentasPag, Me.pAnticipoP, Me.pZapatería})
@@ -794,6 +738,64 @@ Partial Class Inicio
         Me.EntallarComprasToolStripMenuItem.Name = "EntallarComprasToolStripMenuItem"
         Me.EntallarComprasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.EntallarComprasToolStripMenuItem.Text = "Entallar compras"
+        '
+        'TproduccionCos
+        '
+        Me.TproduccionCos.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.TproduccionCos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.TproduccionCos.Name = "TproduccionCos"
+        Me.TproduccionCos.Size = New System.Drawing.Size(145, 20)
+        Me.TproduccionCos.Text = "Produccion Cosmeticos"
+        Me.TproduccionCos.Visible = False
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(135, 22)
+        Me.ToolStripMenuItem3.Text = "Producción"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 22)
+        Me.ToolStripMenuItem4.Text = "Reporte"
+        '
+        'pAsistencia
+        '
+        Me.pAsistencia.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.pAsistencia.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pHorariosEmp, Me.pRegistroHuella, Me.pRegistroAsis, Me.pReporteAsis})
+        Me.pAsistencia.Name = "pAsistencia"
+        Me.pAsistencia.Size = New System.Drawing.Size(72, 20)
+        Me.pAsistencia.Text = "Asistencia"
+        Me.pAsistencia.Visible = False
+        '
+        'pHorariosEmp
+        '
+        Me.pHorariosEmp.BackColor = System.Drawing.Color.White
+        Me.pHorariosEmp.Name = "pHorariosEmp"
+        Me.pHorariosEmp.Size = New System.Drawing.Size(185, 22)
+        Me.pHorariosEmp.Text = "Horarios del usuario"
+        '
+        'pRegistroHuella
+        '
+        Me.pRegistroHuella.BackColor = System.Drawing.Color.White
+        Me.pRegistroHuella.Name = "pRegistroHuella"
+        Me.pRegistroHuella.Size = New System.Drawing.Size(185, 22)
+        Me.pRegistroHuella.Text = "Registro de huella"
+        '
+        'pRegistroAsis
+        '
+        Me.pRegistroAsis.BackColor = System.Drawing.Color.White
+        Me.pRegistroAsis.Name = "pRegistroAsis"
+        Me.pRegistroAsis.Size = New System.Drawing.Size(185, 22)
+        Me.pRegistroAsis.Text = "Asistencia"
+        '
+        'pReporteAsis
+        '
+        Me.pReporteAsis.BackColor = System.Drawing.Color.White
+        Me.pReporteAsis.Name = "pReporteAsis"
+        Me.pReporteAsis.Size = New System.Drawing.Size(185, 22)
+        Me.pReporteAsis.Text = "Reporte de asistencia"
         '
         'pVentas
         '
@@ -1369,6 +1371,7 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
+        Me.Panel2.Controls.Add(Me.Button8)
         Me.Panel2.Controls.Add(Me.btnOptica)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.btnpollo)
@@ -1376,6 +1379,7 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnBodegas)
         Me.Panel2.Controls.Add(Me.btnDentista)
+        Me.Panel2.Controls.Add(Me.btnPediatra)
         Me.Panel2.Controls.Add(Me.btnPagarComandas)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.btnComandera)
@@ -1393,7 +1397,7 @@ Partial Class Inicio
         Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 782)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 872)
         Me.btnOptica.Name = "btnOptica"
         Me.btnOptica.Size = New System.Drawing.Size(90, 84)
         Me.btnOptica.TabIndex = 186
@@ -1409,7 +1413,7 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 710)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 800)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
@@ -1424,7 +1428,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 620)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 710)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1438,7 +1442,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 530)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 620)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1452,7 +1456,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 457)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 547)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 73)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1466,7 +1470,7 @@ Partial Class Inicio
         Me.btnBodegas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnBodegas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBodegas.Image = CType(resources.GetObject("btnBodegas.Image"), System.Drawing.Image)
-        Me.btnBodegas.Location = New System.Drawing.Point(0, 367)
+        Me.btnBodegas.Location = New System.Drawing.Point(0, 457)
         Me.btnBodegas.Name = "btnBodegas"
         Me.btnBodegas.Size = New System.Drawing.Size(90, 90)
         Me.btnBodegas.TabIndex = 188
@@ -1480,7 +1484,7 @@ Partial Class Inicio
         Me.btnDentista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDentista.Image = CType(resources.GetObject("btnDentista.Image"), System.Drawing.Image)
-        Me.btnDentista.Location = New System.Drawing.Point(0, 283)
+        Me.btnDentista.Location = New System.Drawing.Point(0, 373)
         Me.btnDentista.Name = "btnDentista"
         Me.btnDentista.Size = New System.Drawing.Size(90, 84)
         Me.btnDentista.TabIndex = 187
@@ -1625,6 +1629,34 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.Location = New System.Drawing.Point(0, 956)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(90, 90)
+        Me.Button8.TabIndex = 189
+        Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
+        '
+        'btnPediatra
+        '
+        Me.btnPediatra.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPediatra.FlatAppearance.BorderSize = 0
+        Me.btnPediatra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPediatra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPediatra.Image = CType(resources.GetObject("btnPediatra.Image"), System.Drawing.Image)
+        Me.btnPediatra.Location = New System.Drawing.Point(0, 283)
+        Me.btnPediatra.Name = "btnPediatra"
+        Me.btnPediatra.Size = New System.Drawing.Size(90, 90)
+        Me.btnPediatra.TabIndex = 190
+        Me.btnPediatra.UseVisualStyleBackColor = True
+        Me.btnPediatra.Visible = False
         '
         'Inicio
         '
@@ -1828,4 +1860,6 @@ Partial Class Inicio
     Friend WithEvents btnDentista As Button
     Friend WithEvents MenuVentasRuta As ToolStripMenuItem
     Friend WithEvents btnBodegas As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents btnPediatra As Button
 End Class

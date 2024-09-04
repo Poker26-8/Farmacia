@@ -67,6 +67,7 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
+        Dim pediatra As Integer = DatosRecarga2("Pediatra")
         Dim tiendalinea As Integer = DatosRecarga2("TiendaLinea")
         Dim gimnasios As Integer = DatosRecarga2("Gimnasio")
         Dim consignacion As Integer = DatosRecarga2("Consignacion")
@@ -113,6 +114,12 @@ Public Class frmLoad
         Dim bodegas As Integer = DatosRecarga2("Bodegas")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
+
+        If pediatra = 1 Then
+            Inicio.btnPediatra.Visible = True
+        Else
+            Inicio.btnPediatra.Visible = False
+        End If
 
         If bodegas = 1 Then
             Inicio.btnBodegas.Visible = True

@@ -2228,4 +2228,9 @@ Public Class Inicio
     Private Sub pCompras_Click(sender As Object, e As EventArgs) Handles pCompras.Click
 
     End Sub
+
+    Private Sub btnPediatra_Click(sender As Object, e As EventArgs) Handles btnPediatra.Click
+        frmPediatria.BringToFront()
+        frmPediatria.Show()
+    End Sub
 End Class
