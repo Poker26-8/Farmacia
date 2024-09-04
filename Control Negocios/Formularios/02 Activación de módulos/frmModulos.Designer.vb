@@ -759,7 +759,6 @@ Partial Class frmModulos
         Me.btnBodegas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnBodegas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnBodegas.Image = CType(resources.GetObject("btnBodegas.Image"), System.Drawing.Image)
-        Me.btnBodegas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnBodegas.Location = New System.Drawing.Point(701, 343)
         Me.btnBodegas.Name = "btnBodegas"
         Me.btnBodegas.Size = New System.Drawing.Size(93, 71)
