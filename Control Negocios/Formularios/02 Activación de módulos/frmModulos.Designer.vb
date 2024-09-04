@@ -723,8 +723,7 @@ Partial Class frmModulos
         '
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Image = Global.Control_Negocios.My.Resources.Resources.recargas1Recurso_86
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.Location = New System.Drawing.Point(602, 343)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(93, 71)
