@@ -21,6 +21,8 @@ Public Class frmConsultaNotas
     Dim formaa As String = ""
     Dim bancoa As String = ""
     Dim referenciaa As String = ""
+    Dim fechaabono As String = ""
+    Dim horaabono As String = ""
 
     Dim nLogo As String = ""
     Dim tLogo As String = ""
@@ -7946,11 +7948,11 @@ doorcita:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -8001,11 +8003,11 @@ doorcita:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
-            e.Graphics.DrawString("Fecha: " & FormatDateTime(lblfechaventa.Text, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(lblhoraventa.Text, DateFormat.LongTime), fuente_prods, Brushes.Black, 285, Y, sf)
-            Y += 19
+            e.Graphics.DrawString("Fecha: " & fechaabono, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & horaabono, fuente_prods, Brushes.Black, 280, Y, sf)
+            Y += 12
 
             '[2]. Datos del cliente
             If cbonombre.Text <> "" Then
@@ -8024,28 +8026,31 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim caracteresPorLinea1 As Integer = 35
+                    Dim texto1 As String = txtdireccion.Text
+                    Dim inicio1 As Integer = 0
+                    Dim longitudTexto1 As Integer = texto1.Length
+
+                    While inicio1 < longitudTexto1
+                        Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                        Dim bloque1 As String = texto1.Substring(inicio1, longitudBloque1)
+                        e.Graphics.DrawString(bloque1, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 15
+                        inicio1 += caracteresPorLinea1
+                    End While
+
+
                 End If
-                Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else
-                Y += 4
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 11
+            Y += 15
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
@@ -8078,12 +8083,8 @@ doorcita:
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
-                Y += 21
-                If descuento <> 0 Then
-                    Y -= 4
-                    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                    Y += 12
-                End If
+                Y += 20
+
                 total_prods = total_prods + canti
             Next
 
@@ -8105,34 +8106,35 @@ doorcita:
             If CDbl(abonoa) > 0 Then
                 e.Graphics.DrawString("Monto:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(abonoa, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 12
+                Y += 20
             End If
 
             If CDbl(txtresta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If formaa <> "" Then
                 e.Graphics.DrawString("Forma de Pago:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(formaa, fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If bancoa <> "" Then
                 e.Graphics.DrawString("Banco:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(bancoa, fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             If referenciaa <> "" Then
                 e.Graphics.DrawString("Referencia:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(referenciaa, fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
+            Y += 5
 
-            Dim caracteresPorLinea As Integer = 30
+            Dim caracteresPorLinea As Integer = 35
             Dim texto As String = Pie
             Dim inicio As Integer = 0
             Dim longitudTexto As Integer = texto.Length
@@ -8140,7 +8142,7 @@ doorcita:
             While inicio < longitudTexto
                 Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                 Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 15
                 inicio += caracteresPorLinea
             End While
@@ -8161,6 +8163,8 @@ doorcita:
         Dim celda As DataGridViewCellEventArgs = e
 
         If celda.ColumnIndex = 0 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8169,6 +8173,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 1 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8177,6 +8183,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 2 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8185,6 +8193,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 3 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8193,6 +8203,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 4 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8202,6 +8214,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 5 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8210,6 +8224,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 6 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8218,6 +8234,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 7 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8226,6 +8244,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 8 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
@@ -8234,6 +8254,8 @@ doorcita:
         End If
 
         If celda.ColumnIndex = 9 Then
+            fechaabono = grdAbonos.CurrentRow.Cells(0).Value.ToString
+            horaabono = grdAbonos.CurrentRow.Cells(1).Value.ToString
             abonoa = grdAbonos.CurrentRow.Cells(2).Value.ToString
             formaa = grdAbonos.CurrentRow.Cells(3).Value.ToString
             bancoa = grdAbonos.CurrentRow.Cells(4).Value.ToString
