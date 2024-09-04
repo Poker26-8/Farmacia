@@ -24,43 +24,43 @@ Partial Class frmPediatria
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPediatria))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboCliente = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtpAlergia = New System.Windows.Forms.DateTimePicker()
+        Me.dtpNacimiento = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cboMedida = New System.Windows.Forms.ComboBox()
+        Me.txtTemperatura = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.txtPeso = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.cbxMas = New System.Windows.Forms.CheckBox()
         Me.cbxFem = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtPeso = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtTemperatura = New System.Windows.Forms.TextBox()
-        Me.cboMedida = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.dtpNacimiento = New System.Windows.Forms.DateTimePicker()
-        Me.dtpAlergia = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cboCliente = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.txtAlergias = New System.Windows.Forms.RichTextBox()
         Me.gbxMotivo = New System.Windows.Forms.GroupBox()
         Me.txtMotivo = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtMama = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtPapa = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtTutor = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtTelM = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtTelP = New System.Windows.Forms.TextBox()
-        Me.txtT = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtT = New System.Windows.Forms.TextBox()
+        Me.txtTelP = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtTelM = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtTutor = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtPapa = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtMama = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.cboMedico = New System.Windows.Forms.ComboBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.cboUrgencia = New System.Windows.Forms.ComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.cboMedico = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -100,34 +100,102 @@ Partial Class frmPediatria
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Paciente"
         '
-        'Label1
+        'dtpAlergia
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 28)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 26)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nombre:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.dtpAlergia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAlergia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpAlergia.Location = New System.Drawing.Point(115, 156)
+        Me.dtpAlergia.Name = "dtpAlergia"
+        Me.dtpAlergia.Size = New System.Drawing.Size(146, 26)
+        Me.dtpAlergia.TabIndex = 258
         '
-        'cboCliente
+        'dtpNacimiento
         '
-        Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Location = New System.Drawing.Point(84, 28)
-        Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(355, 26)
-        Me.cboCliente.TabIndex = 1
+        Me.dtpNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpNacimiento.Location = New System.Drawing.Point(115, 124)
+        Me.dtpNacimiento.Name = "dtpNacimiento"
+        Me.dtpNacimiento.Size = New System.Drawing.Size(146, 26)
+        Me.dtpNacimiento.TabIndex = 257
         '
-        'Label2
+        'Label6
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(276, 66)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 23)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "SEXO:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(6, 156)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(103, 26)
+        Me.Label6.TabIndex = 256
+        Me.Label6.Text = "F.Alergia:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(6, 124)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(116, 26)
+        Me.Label5.TabIndex = 255
+        Me.Label5.Text = "F.Nacimiento:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cboMedida
+        '
+        Me.cboMedida.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMedida.FormattingEnabled = True
+        Me.cboMedida.Items.AddRange(New Object() {"°C", "°F"})
+        Me.cboMedida.Location = New System.Drawing.Point(224, 97)
+        Me.cboMedida.Name = "cboMedida"
+        Me.cboMedida.Size = New System.Drawing.Size(37, 22)
+        Me.cboMedida.TabIndex = 254
+        Me.cboMedida.Text = "°C"
+        '
+        'txtTemperatura
+        '
+        Me.txtTemperatura.BackColor = System.Drawing.Color.White
+        Me.txtTemperatura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTemperatura.Location = New System.Drawing.Point(84, 92)
+        Me.txtTemperatura.Name = "txtTemperatura"
+        Me.txtTemperatura.Size = New System.Drawing.Size(134, 26)
+        Me.txtTemperatura.TabIndex = 253
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(6, 92)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(72, 26)
+        Me.Label4.TabIndex = 252
+        Me.Label4.Text = "TEMP:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(224, 68)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(33, 17)
+        Me.Label23.TabIndex = 251
+        Me.Label23.Text = "Kg."
+        '
+        'txtPeso
+        '
+        Me.txtPeso.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPeso.Location = New System.Drawing.Point(84, 60)
+        Me.txtPeso.Name = "txtPeso"
+        Me.txtPeso.Size = New System.Drawing.Size(134, 26)
+        Me.txtPeso.TabIndex = 250
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(6, 60)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(72, 26)
+        Me.Label3.TabIndex = 249
+        Me.Label3.Text = "PESO:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cbxMas
         '
@@ -151,102 +219,34 @@ Partial Class frmPediatria
         Me.cbxFem.Text = "F"
         Me.cbxFem.UseVisualStyleBackColor = True
         '
-        'Label3
+        'Label2
         '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 60)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 26)
-        Me.Label3.TabIndex = 249
-        Me.Label3.Text = "PESO:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(276, 66)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 23)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "SEXO:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtPeso
+        'cboCliente
         '
-        Me.txtPeso.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPeso.Location = New System.Drawing.Point(84, 60)
-        Me.txtPeso.Name = "txtPeso"
-        Me.txtPeso.Size = New System.Drawing.Size(134, 26)
-        Me.txtPeso.TabIndex = 250
+        Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCliente.FormattingEnabled = True
+        Me.cboCliente.Location = New System.Drawing.Point(84, 28)
+        Me.cboCliente.Name = "cboCliente"
+        Me.cboCliente.Size = New System.Drawing.Size(355, 26)
+        Me.cboCliente.TabIndex = 1
         '
-        'Label23
+        'Label1
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(224, 68)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(33, 17)
-        Me.Label23.TabIndex = 251
-        Me.Label23.Text = "Kg."
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 92)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 26)
-        Me.Label4.TabIndex = 252
-        Me.Label4.Text = "TEMP:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtTemperatura
-        '
-        Me.txtTemperatura.BackColor = System.Drawing.Color.White
-        Me.txtTemperatura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTemperatura.Location = New System.Drawing.Point(84, 92)
-        Me.txtTemperatura.Name = "txtTemperatura"
-        Me.txtTemperatura.Size = New System.Drawing.Size(134, 26)
-        Me.txtTemperatura.TabIndex = 253
-        '
-        'cboMedida
-        '
-        Me.cboMedida.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboMedida.FormattingEnabled = True
-        Me.cboMedida.Items.AddRange(New Object() {"°C", "°F"})
-        Me.cboMedida.Location = New System.Drawing.Point(224, 97)
-        Me.cboMedida.Name = "cboMedida"
-        Me.cboMedida.Size = New System.Drawing.Size(37, 22)
-        Me.cboMedida.TabIndex = 254
-        Me.cboMedida.Text = "°C"
-        '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 124)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(116, 26)
-        Me.Label5.TabIndex = 255
-        Me.Label5.Text = "F.Nacimiento:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 156)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(103, 26)
-        Me.Label6.TabIndex = 256
-        Me.Label6.Text = "F.Alergia:"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'dtpNacimiento
-        '
-        Me.dtpNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpNacimiento.Location = New System.Drawing.Point(115, 124)
-        Me.dtpNacimiento.Name = "dtpNacimiento"
-        Me.dtpNacimiento.Size = New System.Drawing.Size(146, 26)
-        Me.dtpNacimiento.TabIndex = 257
-        '
-        'dtpAlergia
-        '
-        Me.dtpAlergia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpAlergia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpAlergia.Location = New System.Drawing.Point(115, 156)
-        Me.dtpAlergia.Name = "dtpAlergia"
-        Me.dtpAlergia.Size = New System.Drawing.Size(146, 26)
-        Me.dtpAlergia.TabIndex = 258
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(6, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(69, 26)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Nombre:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox4
         '
@@ -314,81 +314,33 @@ Partial Class frmPediatria
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Responsables"
         '
-        'Label7
+        'Label12
         '
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(6, 28)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(59, 26)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Mamá:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(397, 98)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 25)
+        Me.Label12.TabIndex = 264
+        Me.Label12.Text = "Tel:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtMama
+        'txtT
         '
-        Me.txtMama.BackColor = System.Drawing.Color.White
-        Me.txtMama.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMama.Location = New System.Drawing.Point(63, 28)
-        Me.txtMama.Name = "txtMama"
-        Me.txtMama.Size = New System.Drawing.Size(328, 26)
-        Me.txtMama.TabIndex = 254
+        Me.txtT.BackColor = System.Drawing.Color.White
+        Me.txtT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtT.Location = New System.Drawing.Point(435, 97)
+        Me.txtT.Name = "txtT"
+        Me.txtT.Size = New System.Drawing.Size(144, 26)
+        Me.txtT.TabIndex = 263
         '
-        'Label8
+        'txtTelP
         '
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(6, 63)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(59, 27)
-        Me.Label8.TabIndex = 255
-        Me.Label8.Text = "Papá:"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtPapa
-        '
-        Me.txtPapa.BackColor = System.Drawing.Color.White
-        Me.txtPapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPapa.Location = New System.Drawing.Point(63, 62)
-        Me.txtPapa.Name = "txtPapa"
-        Me.txtPapa.Size = New System.Drawing.Size(328, 26)
-        Me.txtPapa.TabIndex = 256
-        '
-        'Label9
-        '
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 97)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(59, 26)
-        Me.Label9.TabIndex = 257
-        Me.Label9.Text = "Tutor:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtTutor
-        '
-        Me.txtTutor.BackColor = System.Drawing.Color.White
-        Me.txtTutor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTutor.Location = New System.Drawing.Point(63, 96)
-        Me.txtTutor.Name = "txtTutor"
-        Me.txtTutor.Size = New System.Drawing.Size(328, 26)
-        Me.txtTutor.TabIndex = 258
-        '
-        'Label10
-        '
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(397, 28)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(41, 25)
-        Me.Label10.TabIndex = 259
-        Me.Label10.Text = "Tel:"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtTelM
-        '
-        Me.txtTelM.BackColor = System.Drawing.Color.White
-        Me.txtTelM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTelM.Location = New System.Drawing.Point(435, 27)
-        Me.txtTelM.Name = "txtTelM"
-        Me.txtTelM.Size = New System.Drawing.Size(144, 26)
-        Me.txtTelM.TabIndex = 260
+        Me.txtTelP.BackColor = System.Drawing.Color.White
+        Me.txtTelP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTelP.Location = New System.Drawing.Point(435, 62)
+        Me.txtTelP.Name = "txtTelP"
+        Me.txtTelP.Size = New System.Drawing.Size(144, 26)
+        Me.txtTelP.TabIndex = 262
         '
         'Label11
         '
@@ -400,33 +352,81 @@ Partial Class frmPediatria
         Me.Label11.Text = "Tel:"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtTelP
+        'txtTelM
         '
-        Me.txtTelP.BackColor = System.Drawing.Color.White
-        Me.txtTelP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTelP.Location = New System.Drawing.Point(435, 62)
-        Me.txtTelP.Name = "txtTelP"
-        Me.txtTelP.Size = New System.Drawing.Size(144, 26)
-        Me.txtTelP.TabIndex = 262
+        Me.txtTelM.BackColor = System.Drawing.Color.White
+        Me.txtTelM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTelM.Location = New System.Drawing.Point(435, 27)
+        Me.txtTelM.Name = "txtTelM"
+        Me.txtTelM.Size = New System.Drawing.Size(144, 26)
+        Me.txtTelM.TabIndex = 260
         '
-        'txtT
+        'Label10
         '
-        Me.txtT.BackColor = System.Drawing.Color.White
-        Me.txtT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtT.Location = New System.Drawing.Point(435, 97)
-        Me.txtT.Name = "txtT"
-        Me.txtT.Size = New System.Drawing.Size(144, 26)
-        Me.txtT.TabIndex = 263
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(397, 28)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(41, 25)
+        Me.Label10.TabIndex = 259
+        Me.Label10.Text = "Tel:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label12
+        'txtTutor
         '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(397, 98)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 25)
-        Me.Label12.TabIndex = 264
-        Me.Label12.Text = "Tel:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.txtTutor.BackColor = System.Drawing.Color.White
+        Me.txtTutor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTutor.Location = New System.Drawing.Point(63, 96)
+        Me.txtTutor.Name = "txtTutor"
+        Me.txtTutor.Size = New System.Drawing.Size(328, 26)
+        Me.txtTutor.TabIndex = 258
+        '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(6, 97)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(59, 26)
+        Me.Label9.TabIndex = 257
+        Me.Label9.Text = "Tutor:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtPapa
+        '
+        Me.txtPapa.BackColor = System.Drawing.Color.White
+        Me.txtPapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPapa.Location = New System.Drawing.Point(63, 62)
+        Me.txtPapa.Name = "txtPapa"
+        Me.txtPapa.Size = New System.Drawing.Size(328, 26)
+        Me.txtPapa.TabIndex = 256
+        '
+        'Label8
+        '
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(6, 63)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(59, 27)
+        Me.Label8.TabIndex = 255
+        Me.Label8.Text = "Papá:"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtMama
+        '
+        Me.txtMama.BackColor = System.Drawing.Color.White
+        Me.txtMama.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMama.Location = New System.Drawing.Point(63, 28)
+        Me.txtMama.Name = "txtMama"
+        Me.txtMama.Size = New System.Drawing.Size(328, 26)
+        Me.txtMama.TabIndex = 254
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(6, 28)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 26)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "Mamá:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox3
         '
@@ -442,24 +442,14 @@ Partial Class frmPediatria
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Médico"
         '
-        'Label13
+        'cboUrgencia
         '
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(6, 28)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(69, 26)
-        Me.Label13.TabIndex = 1
-        Me.Label13.Text = "Nombre:"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cboMedico
-        '
-        Me.cboMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboMedico.FormattingEnabled = True
-        Me.cboMedico.Location = New System.Drawing.Point(83, 29)
-        Me.cboMedico.Name = "cboMedico"
-        Me.cboMedico.Size = New System.Drawing.Size(496, 26)
-        Me.cboMedico.TabIndex = 2
+        Me.cboUrgencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboUrgencia.FormattingEnabled = True
+        Me.cboUrgencia.Location = New System.Drawing.Point(145, 60)
+        Me.cboUrgencia.Name = "cboUrgencia"
+        Me.cboUrgencia.Size = New System.Drawing.Size(200, 26)
+        Me.cboUrgencia.TabIndex = 4
         '
         'Label14
         '
@@ -471,14 +461,24 @@ Partial Class frmPediatria
         Me.Label14.Text = "Nivel de Urgencia:"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'cboUrgencia
+        'cboMedico
         '
-        Me.cboUrgencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboUrgencia.FormattingEnabled = True
-        Me.cboUrgencia.Location = New System.Drawing.Point(145, 60)
-        Me.cboUrgencia.Name = "cboUrgencia"
-        Me.cboUrgencia.Size = New System.Drawing.Size(200, 26)
-        Me.cboUrgencia.TabIndex = 4
+        Me.cboMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMedico.FormattingEnabled = True
+        Me.cboMedico.Location = New System.Drawing.Point(83, 29)
+        Me.cboMedico.Name = "cboMedico"
+        Me.cboMedico.Size = New System.Drawing.Size(496, 26)
+        Me.cboMedico.TabIndex = 2
+        '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(6, 28)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(69, 26)
+        Me.Label13.TabIndex = 1
+        Me.Label13.Text = "Nombre:"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnLimpiar
         '
