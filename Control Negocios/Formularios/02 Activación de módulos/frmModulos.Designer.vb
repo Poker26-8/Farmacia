@@ -700,6 +700,7 @@ Partial Class frmModulos
         'btnSeries
         '
         Me.btnSeries.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSeries.Image = CType(resources.GetObject("btnSeries.Image"), System.Drawing.Image)
         Me.btnSeries.Location = New System.Drawing.Point(899, 115)
         Me.btnSeries.Name = "btnSeries"
         Me.btnSeries.Size = New System.Drawing.Size(93, 71)
