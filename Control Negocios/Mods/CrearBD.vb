@@ -6575,7 +6575,6 @@
 
     'Traslados
     Public vartablatraslados As String = "CREATE TABLE IF NOT EXISTS `traslados` (
-                                              `Id` int(11) NOT NULL,
                                               `Folio` int(11) NOT NULL,
                                               `idCliente` int(11) NOT NULL,
                                               `Nombre` varchar(255) NOT NULL DEFAULT '',
@@ -7083,7 +7082,7 @@
     Public varKeytiposcomprobantesat As String = "ALTER TABLE `tiposcomprobantesat` ADD PRIMARY KEY (`Id`);"
     Public varKeytiprelacioncfdisat As String = "ALTER TABLE `tiprelacioncfdisat` ADD PRIMARY KEY (`Id`);"
     Public varKeytransporte As String = "ALTER TABLE `transporte` ADD PRIMARY KEY (`Id`);"
-    Public varKeytraslados As String = "ALTER TABLE `traslados` ADD PRIMARY KEY (`Id`);"
+    Public varKeytraslados As String = "ALTER TABLE `traslados` ADD PRIMARY KEY (`Folio`);"
     Public varKeytrasladosdet As String = "ALTER TABLE `trasladosdet` ADD PRIMARY KEY (`Id`);"
     Public varKeyumtblcfds As String = "ALTER TABLE `umtblcfds` ADD PRIMARY KEY (`idCFDi`);"
     Public varKeyusocomprocfdisat As String = "ALTER TABLE `usocomprocfdisat` ADD PRIMARY KEY (`Id`);"
@@ -7255,7 +7254,7 @@
     Public varAutotiposcomprobantesat As String = "ALTER TABLE `tiposcomprobantesat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;"
     Public varAutotiprelacioncfdisat As String = "ALTER TABLE `tiprelacioncfdisat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;"
     Public varAutotransporte As String = "ALTER TABLE `transporte` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
-    Public varAutotraslados As String = "ALTER TABLE `traslados` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutotraslados As String = "ALTER TABLE `traslados` MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotrasladosdet As String = "ALTER TABLE `trasladosdet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoumtblcfds As String = "ALTER TABLE `umtblcfds` MODIFY `idCFDi` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutousocomprocfdisat As String = "ALTER TABLE `usocomprocfdisat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;"
