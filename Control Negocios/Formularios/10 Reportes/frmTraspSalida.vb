@@ -763,7 +763,7 @@ Nota:
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
-        Dim pen As New Pen(Brushes.Black, 1)9
+        Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
         Dim nLogo As String = DatosRecarga("LogoG")
         Dim Logotipo As Drawing.Image = Nothing
