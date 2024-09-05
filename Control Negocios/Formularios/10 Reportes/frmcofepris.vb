@@ -10,7 +10,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "SELECT VE.Folio, PR.Codigo, PR.Nombre, SUM(VD.Cantidad) as Cantidad, PR.Existencia, VD.Fecha, RA.Receta, RA.Status, RA.me_id FROM (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo) INNER JOIN Ventas VE ON VD.Folio=VE.Folio) INNER JOIN rep_antib RA ON RA.Folio=VE.Folio) WHERE (VD.Grupo='ANTIBIOTICO' OR VD.Grupo='CONTROLADO') AND FVenta>='" & Format(M1, "yyyy-MM-dd") & "' AND FVenta<='" & Format(M2, "yyyy-MM-dd") & "' GROUP BY VE.Folio, PR.Codigo, PR.Nombre, VD.Cantidad, PR.Existencia, VD.Fecha, RA.Receta, RA.Status, RA.me_id"
+                "SELECT VE.Folio, PR.Codigo, PR.Nombre, SUM(VD.Cantidad) as Cantidad, PR.Existencia, VD.Fecha, RA.Receta, RA.Status, RA.me_id,VD.Lote,VD.Caducidad FROM (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo) INNER JOIN Ventas VE ON VD.Folio=VE.Folio) INNER JOIN rep_antib RA ON RA.Folio=VE.Folio) WHERE (VD.Grupo='ANTIBIOTICO' OR VD.Grupo='CONTROLADO') AND FVenta>='" & Format(M1, "yyyy-MM-dd") & "' AND FVenta<='" & Format(M2, "yyyy-MM-dd") & "' GROUP BY VE.Folio, PR.Codigo, PR.Nombre, VD.Cantidad, PR.Existencia, VD.Fecha, RA.Receta, RA.Status, RA.me_id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -29,7 +29,7 @@
                     End If
                     rd2.Close()
 
-                    grdcaptura.Rows.Add(rd1("Folio").ToString(), rd1("Codigo").ToString(), rd1("Nombre").ToString(), rd1("Cantidad").ToString(), rd1("Existencia").ToString(), "", FormatDateTime(rd1("Fecha").ToString(), DateFormat.ShortDate), rd1("Receta").ToString(), cedula, nombre, direccion)
+                    grdcaptura.Rows.Add(rd1("Folio").ToString(), rd1("Codigo").ToString(), rd1("Nombre").ToString(), rd1("Cantidad").ToString(), rd1("Existencia").ToString(), "", FormatDateTime(rd1("Fecha").ToString(), DateFormat.ShortDate), rd1("Lote").ToString(), rd1("Caducidad").ToString, rd1("Receta").ToString(), cedula, nombre, direccion)
                 End If
             Loop
             rd1.Close()
