@@ -749,7 +749,7 @@ errs:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "',''," & cboproveedor.Tag & ",'" & cboproveedor.Text & "','NOTA CREDITO','" & Format(Date.Now, "yyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & CDbl(txttotalnc.Text) & "," & MySaldo & ",'','','" & lblusuario.Text & "',0,0,0)"
+                    "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "',''," & cboproveedor.Tag & ",'" & cboproveedor.Text & "','NOTA CREDITO','" & Format(Date.Now, "yyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyy-MM-dd HH:mm:ss") & "',0," & CDbl(txttotalnc.Text) & "," & MySaldo & ",'','','" & lblusuario.Text & "',0,0,0)"
                 cmd1.ExecuteNonQuery()
 
                 cnn2.Close() : cnn2.Open()

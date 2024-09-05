@@ -387,7 +387,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Saldo,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & txtremision.Text & "','" & num_fac & "','" & num_ped & "'," & id_prov & ",'" & cboproveedor.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MySaldo & ",'" & CDbl(MyPago) & "'," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','" & lblUsuario.Text & "',0,0,0)"
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Saldo,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & txtremision.Text & "','" & num_fac & "','" & num_ped & "'," & id_prov & ",'" & cboproveedor.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & MySaldo & ",'" & CDbl(MyPago) & "'," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','" & lblUsuario.Text & "',0,0,0)"
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Abono a compra registardo correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     frmCtsPagar.txtresta.Text = FormatNumber(txtresta.Text, 2)

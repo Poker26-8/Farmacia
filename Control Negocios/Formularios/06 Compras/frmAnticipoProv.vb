@@ -364,7 +364,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('','',''," & id_prov & ",'" & txtrazon.Text & "','ANTICIPO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyTotal & "," & MySaldo & "," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & tarnsfe & "," & otro & ",'" & banco & "','" & refer & "','',0,0,0)"
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('','',''," & id_prov & ",'" & txtrazon.Text & "','ANTICIPO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "',0," & MyTotal & "," & MySaldo & "," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & tarnsfe & "," & otro & ",'" & banco & "','" & refer & "','',0,0,0)"
                     If cmd1.ExecuteNonQuery Then
                     End If
 

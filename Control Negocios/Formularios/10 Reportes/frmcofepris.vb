@@ -3,6 +3,8 @@
         Dim M1 As Date = mCalendar1.SelectionStart.ToShortDateString
         Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
 
+        Dim fcaduca As Date = Nothing
+        Dim f As String = ""
         Try
             cnn1.Close() : cnn1.Open()
 
@@ -29,7 +31,10 @@
                     End If
                     rd2.Close()
 
-                    grdcaptura.Rows.Add(rd1("Folio").ToString(), rd1("Codigo").ToString(), rd1("Nombre").ToString(), rd1("Cantidad").ToString(), rd1("Existencia").ToString(), "", FormatDateTime(rd1("Fecha").ToString(), DateFormat.ShortDate), rd1("Lote").ToString(), rd1("Caducidad").ToString, rd1("Receta").ToString(), cedula, nombre, direccion)
+                    fcaduca = rd1("Caducidad").ToString
+                    f = Format(fcaduca, "yyyy-MM-dd")
+
+                    grdcaptura.Rows.Add(rd1("Folio").ToString(), rd1("Codigo").ToString(), rd1("Nombre").ToString(), rd1("Cantidad").ToString(), rd1("Existencia").ToString(), "", FormatDateTime(rd1("Fecha").ToString(), DateFormat.ShortDate), rd1("Lote").ToString(), f, rd1("Receta").ToString(), cedula, nombre, direccion)
                 End If
             Loop
             rd1.Close()
