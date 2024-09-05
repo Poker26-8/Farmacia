@@ -8509,7 +8509,7 @@ kakaxd:
                 Dim myunid As String = ""
                 Dim mycant As Double = grdcaptura.Rows(R).Cells(3).Value.ToString
                 Dim myprecio As Double = grdcaptura.Rows(R).Cells(4).Value.ToString
-                Dim caduca As String = ""
+                Dim caduca As Date = Nothing
                 Dim lote As String = ""
                 Dim descuentotal As Double = 0
                 Dim MyIVA As Double = 0
@@ -8599,8 +8599,10 @@ kakaxd:
                     rd1.Close()
                 End If
 
+                Dim fechacaducidad As String = ""
                 If ordetrabajo = 0 Then
                     caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                    fechacaducidad = Format(caduca, "yyyy-MM-dd")
                     lote = grdcaptura.Rows(R).Cells(8).Value.ToString
                 Else
                     caduca = ""
