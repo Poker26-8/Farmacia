@@ -823,7 +823,7 @@ Public Class frmVentasTouch
                                 MyExistencia = 0
                             Else
                                 If chec = True Then
-                                    Existe = rd1("Existencia").ToString
+                                    Existe = IIf(rd1("Existencia").ToString = "", 0, rd1("Existencia").ToString)
                                     Dim TExis As Double = Existe - CDbl(txtcantidad.Text)
                                     If TExis <= 0 Then
                                         MsgBox("No puedes vender productos sin existencia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
