@@ -808,7 +808,7 @@ Class frmVentasTouch2
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select Departamento from Productos where Codigo='" & Strings.Left(codigo, 7) & "'"
+                        "select Existencia,Departamento from Productos where Codigo='" & Strings.Left(codigo, 7) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -817,7 +817,7 @@ Class frmVentasTouch2
                                 MyExistencia = 0
                             Else
                                 If chec = True Then
-                                    IIf(Existe = rd1("Existencia").ToString = "", 0, rd1("Existencia").ToString)
+                                    Existe = IIf(rd1("Existencia").ToString = "", 0, rd1("Existencia").ToString)
                                     Dim TExis As Double = Existe - CDbl(txtcantidad.Text)
                                     If TExis <= 0 Then
                                         MsgBox("No puedes vender productos sin existencia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")

@@ -805,7 +805,7 @@ Public Class frmVentasTouch3
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select Departamento from Productos where Codigo='" & Strings.Left(codigo, 7) & "'"
+                        "select Existencia, Departamento from Productos where Codigo='" & Strings.Left(codigo, 7) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -1970,7 +1970,7 @@ kakaxd:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Departamento,Grupo,ProvRes,MCD,Multiplo,GPrint,Modo_Almacen, from Productos where Codigo='" & mycode & "'"
+                    "select Departamento,Grupo,ProvRes,MCD,Multiplo,GPrint,Modo_Almacen from Productos where Codigo='" & mycode & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
