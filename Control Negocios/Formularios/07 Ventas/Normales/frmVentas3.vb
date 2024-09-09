@@ -11414,7 +11414,7 @@ ecomoda:
                     e.Graphics.DrawString(Mid(cboNombre.Text, 49, 100), fuente_prods, Brushes.Black, 1, Y)
                     Y += 13.5
                 End If
-                Y += 3
+
                 'If txtDireccion.Text <> "" Then
                 '    e.Graphics.DrawString(Mid(txtDireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
                 '    Y += 13.5
@@ -11427,7 +11427,7 @@ ecomoda:
                 '        Y += 13.5
                 '    End If
                 'End If
-                Y += 8
+                Y += 10
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else

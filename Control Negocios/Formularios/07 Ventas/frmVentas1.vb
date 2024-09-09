@@ -1802,7 +1802,6 @@ kak:
                 cbonombretag = cboNombre.Text
 
                 cnn2.Close() : cnn2.Open()
-
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
                     "select Suspender,Tipo,Id,Credito,Comisionista,Telefono,Correo,Observaciones,Calle,NInterior,NExterior,Colonia,Delegacion,Entidad,Pais,CP,SaldoFavor from Clientes where Nombre='" & cboNombre.Text & "'"
@@ -10443,7 +10442,6 @@ ecomoda:
                         Y += 13
                         inicio2 += caracteresPorLinea2
                     End While
-
 
                 End If
                 Y += 8
