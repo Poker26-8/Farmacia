@@ -5445,22 +5445,25 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim caracteresPorLinea2 As Integer = 36
+                    Dim texto2 As String = txtdireccion.Text
+                    Dim inicio2 As Integer = 0
+                    Dim longitudTexto2 As Integer = texto.Length
+
+                    While inicio2 < longitudTexto2
+                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                        Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                        e.Graphics.DrawString(bloque2, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio2 += caracteresPorLinea2
+                    End While
                 End If
-                Y += 8
+                Y += 5
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else
-                Y += 4
+                Y += 5
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             End If
@@ -5493,7 +5496,7 @@ doorcita:
                 Dim total As Double = FormatNumber(canti * precio, 2)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 60, Y)
                 Y += 12.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)

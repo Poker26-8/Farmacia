@@ -5868,7 +5868,7 @@ doorcita:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "',''," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & comentariogen & "','" & dameIP2() & "')"
+                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & comentariogen & "','" & dameIP2() & "')"
                 cmd1.ExecuteNonQuery()
 
                 Do Until MYFOLIO <> 0
@@ -10408,16 +10408,21 @@ ecomoda:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 70) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 105) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim caracteresPorLinea2 As Integer = 35
+                    Dim texto2 As String = txtdireccion.Text
+                    Dim inicio2 As Integer = 0
+                    Dim longitudTexto2 As Integer = texto2.Length
+
+                    While inicio2 < longitudTexto2
+                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                        Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                        e.Graphics.DrawString(bloque2, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio2 += caracteresPorLinea2
+                    End While
+
+
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -10472,7 +10477,7 @@ ecomoda:
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 52, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 60, Y)
                 Y += 12.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
@@ -10953,16 +10958,21 @@ ecomoda:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 70) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 105) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim caracteresPorLinea2 As Integer = 35
+                    Dim texto2 As String = txtdireccion.Text
+                    Dim inicio2 As Integer = 0
+                    Dim longitudTexto2 As Integer = texto2.Length
+
+                    While inicio2 < longitudTexto2
+                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                        Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                        e.Graphics.DrawString(bloque2, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio2 += caracteresPorLinea2
+                    End While
+
+
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)

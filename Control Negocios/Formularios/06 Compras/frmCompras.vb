@@ -43,7 +43,7 @@ Public Class frmCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select Compania from Proveedores where Compania<>'' order by Compania"
+                "SELECT DISTINCT Compania FROM Proveedores WHERE Compania<>'' ORDER BY Compania"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cboproveedor.Items.Add(
