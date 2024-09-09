@@ -5446,10 +5446,10 @@ doorcita:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
-                    Dim caracteresPorLinea2 As Integer = 36
+                    Dim caracteresPorLinea2 As Integer = 35
                     Dim texto2 As String = txtdireccion.Text
                     Dim inicio2 As Integer = 0
-                    Dim longitudTexto2 As Integer = texto.Length
+                    Dim longitudTexto2 As Integer = texto2.Length
 
                     While inicio2 < longitudTexto2
                         Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
@@ -5458,6 +5458,7 @@ doorcita:
                         Y += 13
                         inicio2 += caracteresPorLinea2
                     End While
+
                 End If
                 Y += 5
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)

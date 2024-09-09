@@ -2085,7 +2085,7 @@ kak:
     Private Sub txtdireccion_KeyPress_2(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtdireccion.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            txttel.Focus().Equals(True)
+            txtObservaciones.Focus().Equals(True)
         End If
     End Sub
     Private Sub cbocomisionista_DropDown(sender As System.Object, e As System.EventArgs) Handles cbocomisionista.DropDown
@@ -5864,14 +5864,19 @@ doorcita:
                 Dim comentariogen As String = ""
                 comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
 
-                Dim dire As String = ""
-                dire = txtdireccion.Text.TrimEnd(vbCrLf.ToCharArray)
+                Dim dire As String = txtdireccion.Text
+                Dim dircort As String = ""
+                Dim nuvdire As String = ""
+
+
+                dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
 
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "','" & dire & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & comentariogen & "','" & dameIP2() & "')"
+                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "','" & nuvdire & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & comentariogen & "','" & dameIP2() & "')"
                 cmd1.ExecuteNonQuery()
 
                 Do Until MYFOLIO <> 0
@@ -7580,6 +7585,14 @@ kakaxd:
 
         Dim observaciones As String = ""
         observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+        Dim dire As String = txtdireccion.Text
+        Dim dircort As String = ""
+        Dim nuvdire As String = ""
+
+        dircort = dire.TrimStart(vbCrLf.ToCharArray)
+        nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
         'Inserción en [Ventas]
         Try
             Select Case lblNumCliente.Text
@@ -7657,10 +7670,9 @@ kakaxd:
                         subtotalsindes = CDec(txtSubTotal.Text)
 
                         cnn1.Close() : cnn1.Open()
-
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & nuvdire & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
@@ -7678,7 +7690,7 @@ kakaxd:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & nuvdire & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
@@ -7755,7 +7767,7 @@ kakaxd:
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Comision,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & nuvdire & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "'," & totalcomision & ",''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
             End Select
@@ -10412,8 +10424,15 @@ ecomoda:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea2 As Integer = 35
-                    Dim texto2 As String = txtdireccion.Text
+                    Dim texto2 As String = nuvdire
                     Dim inicio2 As Integer = 0
                     Dim longitudTexto2 As Integer = texto2.Length
 
@@ -10962,8 +10981,16 @@ ecomoda:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea2 As Integer = 35
-                    Dim texto2 As String = txtdireccion.Text
+                    Dim texto2 As String = nuvdire
                     Dim inicio2 As Integer = 0
                     Dim longitudTexto2 As Integer = texto2.Length
 
@@ -13380,7 +13407,7 @@ ecomoda:
     End Sub
     Private Sub txttel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttel.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtObservaciones.Focus.Equals(True)
+            cbodesc.Focus().Equals(True)
 
             Try
                 cnn2.Close() : cnn2.Open()
@@ -13552,8 +13579,15 @@ ecomoda:
 
                 If txtdireccion.Text <> "" Then
 
-                    Dim caracteresPorLinea As Integer = 29
-                    Dim texto As String = txtdireccion.Text
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea As Integer = 30
+                    Dim texto As String = nuvdire
                     Dim inicio As Integer = 0
                     Dim longitudTexto As Integer = texto.Length
 
@@ -13565,32 +13599,6 @@ ecomoda:
                         inicio += caracteresPorLinea
                     End While
 
-                    'e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
-                    'Y += 13
-                    'If Mid(txtdireccion.Text, 30, 58) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 30, 58), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
-                    'If Mid(txtdireccion.Text, 59, 87) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 87), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
-                    'If Mid(txtdireccion.Text, 88, 116) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 88, 116), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
-                    'If Mid(txtdireccion.Text, 117, 145) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 117, 145), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
-                    'If Mid(txtdireccion.Text, 146, 175) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 146, 175), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
-                    'If Mid(txtdireccion.Text, 175, 204) <> "" Then
-                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 175, 204), fuente_prods, Brushes.Black, 1, Y)
-                    '    Y += 13
-                    'End If
                 End If
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
@@ -14117,16 +14125,27 @@ ecomoda:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 12
-                    If Mid(txtdireccion.Text, 36, 70) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 12
-                    End If
-                    If Mid(txtdireccion.Text, 71, 105) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 12
-                    End If
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea2 As Integer = 35
+                    Dim texto2 As String = nuvdire
+                    Dim inicio2 As Integer = 0
+                    Dim longitudTexto2 As Integer = texto2.Length
+
+                    While inicio2 < longitudTexto2
+                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                        Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                        e.Graphics.DrawString(bloque2, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio2 += caracteresPorLinea2
+                    End While
+
                 End If
                 Y += 1
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -15036,7 +15055,7 @@ ecomoda:
     Private Sub txtObservaciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtObservaciones.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            cbodesc.Focus().Equals(True)
+            txttel.Focus().Equals(True)
         End If
     End Sub
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
