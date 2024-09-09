@@ -5446,8 +5446,15 @@ doorcita:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea2 As Integer = 35
-                    Dim texto2 As String = txtdireccion.Text
+                    Dim texto2 As String = nuvdire
                     Dim inicio2 As Integer = 0
                     Dim longitudTexto2 As Integer = texto2.Length
 
@@ -5996,8 +6003,16 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea As Integer = 40
-                    Dim texto As String = txtdireccion.Text
+                    Dim texto As String = nuvdire
                     Dim inicio As Integer = 0
                     Dim longitudTexto As Integer = texto.Length
 
@@ -6008,6 +6023,7 @@ doorcita:
                         Y += 13
                         inicio += caracteresPorLinea
                     End While
+
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -6235,22 +6251,33 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13.5
-                    If Mid(txtdireccion.Text, 36, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
-                    If Mid(txtdireccion.Text, 71, 35) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 35), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13.5
-                    End If
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea As Integer = 35
+                    Dim texto As String = nuvdire
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio += caracteresPorLinea
+                    End While
+
+
                 End If
-                Y += 8
+
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else
-                Y += 4
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             End If
@@ -6887,8 +6914,16 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    Dim caracteresPorLinea As Integer = 29
-                    Dim texto As String = txtdireccion.Text
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea As Integer = 30
+                    Dim texto As String = nuvdire
                     Dim inicio As Integer = 0
                     Dim longitudTexto As Integer = texto.Length
 
@@ -7180,16 +7215,27 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 12
-                    If Mid(txtdireccion.Text, 29, 58) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 29, 58), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 12
-                    End If
-                    If Mid(txtdireccion.Text, 59, 88) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 88), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 12
-                    End If
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea As Integer = 30
+                    Dim texto As String = nuvdire
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 13
+                        inicio += caracteresPorLinea
+                    End While
+
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -7427,8 +7473,16 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
+
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea As Integer = 29
-                    Dim texto As String = txtdireccion.Text
+                    Dim texto As String = nuvdire
                     Dim inicio As Integer = 0
                     Dim longitudTexto As Integer = texto.Length
 
@@ -8029,8 +8083,15 @@ doorcita:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
                     Dim caracteresPorLinea1 As Integer = 35
-                    Dim texto1 As String = txtdireccion.Text
+                    Dim texto1 As String = nuvdire
                     Dim inicio1 As Integer = 0
                     Dim longitudTexto1 As Integer = texto1.Length
 
@@ -8381,8 +8442,15 @@ doorcita:
                 Y += 3
                 If txtdireccion.Text <> "" Then
 
-                    Dim caracteresPorLinea2 As Integer = 25
-                    Dim texto2 As String = txtdireccion.Text
+                    Dim dire As String = txtdireccion.Text
+                    Dim dircort As String = ""
+                    Dim nuvdire As String = ""
+
+                    dircort = dire.TrimStart(vbCrLf.ToCharArray)
+                    nuvdire = dircort.TrimEnd(vbCrLf.ToCharArray)
+
+                    Dim caracteresPorLinea2 As Integer = 30
+                    Dim texto2 As String = nuvdire
                     Dim inicio2 As Integer = 0
                     Dim longitudTexto2 As Integer = texto2.Length
 
