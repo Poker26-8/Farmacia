@@ -1039,7 +1039,7 @@ Public Class frmProductosS
         End Try
         Return Nothing
     End Function
-    Private Function Comprueba2(ByVal nombre As String,) As Boolean
+    Private Function Comprueba2(ByVal nombre As String) As Boolean
         Try
             Dim valida As Boolean = True
 
