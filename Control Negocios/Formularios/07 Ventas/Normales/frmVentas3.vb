@@ -481,16 +481,16 @@ Public Class frmVentas3
             cnn9.Open()
 
             cmd9 = cnn9.CreateCommand
-            If Me.Text = "Ventas (3)" Then
+            If Me.Text = "Ventas (1)" Then
                 cmd9.CommandText =
                     "select MAX(Folio) from Ventas"
             End If
-            If Me.Text = "Cotización (3)" Then
+            If Me.Text = "Cotización (1)" Then
                 cmd9.CommandText =
                     "select MAX(Folio) from CotPed"
             End If
 
-            If Me.Text = "Pedidos (3)" Then
+            If Me.Text = "Pedidos (1)" Then
                 cmd9.CommandText =
                    "select MAX(Folio) from CotPed"
             End If
@@ -3333,7 +3333,7 @@ doorcita:
                                 txtcantidad.Text = pesofinal
                                 If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                     If VSE = False Then
-                                        If Me.Text = "Ventas (3)" Then
+                                        If Me.Text = "Ventas (1)" Then
                                             MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                             rd1.Close() : cnn1.Close()
                                             cbocodigo.Text = ""
@@ -3740,7 +3740,7 @@ kaka:
                             txtcantidad.Text = "1"
                             If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                 If VSE = True Then
-                                    If Me.Text = "Ventas (3)" Then
+                                    If Me.Text = "Ventas (1)" Then
                                         MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                         rd1.Close() : cnn1.Close()
                                         cbocodigo.Text = ""
@@ -3988,7 +3988,7 @@ kaka:
                                     txtcantidad.Text = "1"
                                     If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                         If VSE = False Then
-                                            If Me.Text = "Ventas (3)" Then
+                                            If Me.Text = "Ventas (1)" Then
                                                 MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                                 rd2.Close() : cnn2.Close()
                                                 cbocodigo.Text = ""
@@ -4350,10 +4350,10 @@ kaka:
                     txtdescuento1.ReadOnly = True
                 End If
             End If
-            If Me.Text = "Ventas (3)" Then
+            If Me.Text = "Ventas (1)" Then
                 txtefectivo.Focus().Equals(True)
             End If
-            If Me.Text = "Cotización (3)" Then
+            If Me.Text = "Cotización (1)" Then
                 Button3.Focus().Equals(True)
             End If
         End If
@@ -6190,7 +6190,7 @@ kaka:
         gbLotes.Visible = False
         DataGridView1.Rows.Clear()
         DataGridView2.Rows.Clear()
-        Me.Text = "Ventas (3)"
+        Me.Text = "Ventas (1)"
         lblpedido.Text = "0"
         cbodesc.Focus.Equals(True)
         txtvalor.Text = "0.00"
@@ -6398,8 +6398,8 @@ kaka:
         frmPedidosCli.Show()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmVentas1.Show()
-        frmVentas1.BringToFront()
+        Me.Show()
+        Me.BringToFront()
     End Sub
 
     'Cotizaciones
@@ -6503,8 +6503,8 @@ doorcita:
         End With
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Me.Text = "Cotización (3)"
-        If Me.Text = "Ventas (3)" Then
+        Me.Text = "Cotización (1)"
+        If Me.Text = "Ventas (1)" Then
             btnnuevo.PerformClick()
 
 
@@ -6523,7 +6523,7 @@ doorcita:
             Button9.Enabled = False
             grdpago.Enabled = False
             cboNombre.Focus().Equals(True)
-        ElseIf Me.Text = "Cotización (3)" Then
+        ElseIf Me.Text = "Cotización (1)" Then
             If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbocodigo.Focus().Equals(True) : Exit Sub
             If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus().Equals(True) : DondeVoy = "Cotiza" : Exit Sub
             'If cboNombre.Text = "" Then MsgBox("Escribe/Selecciona un cliente para realizar la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboNombre.Focus().Equals(True) : Exit Sub
@@ -14626,8 +14626,8 @@ ecomoda:
     End Sub
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         Try
-            Me.Text = "Pedidos (3)"
-            If Me.Text = "Ventas (3)" Then
+            Me.Text = "Pedidos (1)"
+            If Me.Text = "Ventas (1)" Then
 
                 btnnuevo.PerformClick()
                 btndevo.Enabled = False
@@ -14646,7 +14646,7 @@ ecomoda:
                 grdpago.Enabled = False
                 cboNombre.Focus().Equals(True)
 
-            ElseIf Me.Text = "Pedidos (3)" Then
+            ElseIf Me.Text = "Pedidos (1)" Then
 
                 If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar el pedido.", vbInformation + vbOKOnly, titulocentral) : cbocodigo.Focus().Equals(True) : Exit Sub
                 If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con el pedido.", vbInformation + vbOKOnly, titulocentral) : txtcontraseña.Focus().Equals(True) : DondeVoy = "Cotiza" : Exit Sub
@@ -15148,7 +15148,7 @@ rayos2:
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
-            Me.Text = "Ventas (3)"
+            Me.Text = "Ventas (1)"
             btnnuevo.PerformClick()
             cnn1.Close()
         End Try

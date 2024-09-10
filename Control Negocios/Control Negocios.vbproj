@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>Control_Negocios.My.MyApplication</StartupObject>
     <RootNamespace>Control_Negocios</RootNamespace>
-    <AssemblyName>Control Negocios</AssemblyName>
+    <AssemblyName>Delsscom Farmacias</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -38,8 +38,8 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\..\..\..\ControlNegociosPro\</OutputPath>
-    <DocumentationFile>Control Negocios.xml</DocumentationFile>
+    <OutputPath>..\..\..\DelsscomFarmacias\</OutputPath>
+    <DocumentationFile>Delsscom Farmacias.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
@@ -51,7 +51,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Control Negocios.xml</DocumentationFile>
+    <DocumentationFile>Delsscom Farmacias.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>

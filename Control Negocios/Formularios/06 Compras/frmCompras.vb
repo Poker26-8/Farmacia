@@ -1223,7 +1223,13 @@ Public Class frmCompras
             If txtcantidad.Text = "" Then txtcantidad.Focus().Equals(True) : Exit Sub
             txttotal.Text = CDbl(txtcantidad.Text) * CDbl(txtprecio.Text)
             txttotal.Text = FormatNumber(txttotal.Text, 2)
-            dtpcaducidad.Focus().Equals(True)
+            'dtpcaducidad.Focus().Equals(True)
+            gbLotes.Show()
+            txtcanttotal.Text = txtcantidad.Text
+            txtcodlote.Text = txtcodigo.Text
+            txtnombrelote.Text = cbonombre.Text
+            txtlotexd.Focus.Equals(True)
+            My.Application.DoEvents()
         End If
     End Sub
 
@@ -6107,15 +6113,39 @@ quepasowey:
         panpago_compra.Visible = False
     End Sub
 
-    Private Sub pCancela58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancela58.PrintPage
-
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        DataGridView3.Rows.Clear()
+        txtlotexd.Text = ""
+        txtcantidadxd.Text = "1"
+        gbLotes.Visible = False
     End Sub
 
-    Private Sub pCancelaMC_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancelaMC.PrintPage
-
+    Private Sub txtlotexd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtlotexd.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtlotexd.Text = "" Then
+                txtlotexd.Focus.Equals(True)
+                Exit Sub
+            End If
+            dtpxd.Focus.Equals(True)
+            My.Application.DoEvents()
+        End If
     End Sub
 
-    Private Sub txtlote_TextChanged(sender As Object, e As EventArgs) Handles txtlote.TextChanged
+    Private Sub dtpxd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpxd.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtcantidadxd.SelectAll()
+            txtcantidadxd.Focus.Equals(True)
+            My.Application.DoEvents()
+        End If
+    End Sub
 
+    Private Sub txtcantidadxd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidadxd.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtcantidadxd.Text = "" Or txtcantidadxd.Text = "0" Then
+                txtcantidadxd.Focus.Equals(True)
+                Exit Sub
+            End If
+            DataGridView3.Rows.Add(txtcodlote.Text, txtlotexd.Text, dtpxd.Value, txtcantidadxd.Text)
+        End If
     End Sub
 End Class

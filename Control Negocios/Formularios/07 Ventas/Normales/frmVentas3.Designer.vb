@@ -3030,7 +3030,7 @@ Partial Class frmVentas3
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmVentas3"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Ventas (3)"
+        Me.Text = "Ventas (1)"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.pAbajo.ResumeLayout(False)

@@ -807,28 +807,30 @@ Public Class Inicio
 
     Private Sub VentasMostradorToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pVentasM.Click
 
-        Dim partes As Integer = DatosRecarga2("Partes")
-        Dim series As Integer = DatosRecarga2("Series")
-        Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
-        Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
+        'Dim partes As Integer = DatosRecarga2("Partes")
+        'Dim series As Integer = DatosRecarga2("Series")
+        'Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
+        'Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
 
-        If partes = 1 Then
-            frmVentas1_Partes.Show()
-            frmVentas1_Partes.BringToFront()
-        ElseIf descuento = 1 Then
-            frmVentas1_Descuentos.Show()
-            frmVentas1_Descuentos.BringToFront()
-        ElseIf series = 1 Then
-            frmVentas_Series.Show()
-            frmVentas_Series.BringToFront()
+        'If partes = 1 Then
+        '    frmVentas1_Partes.Show()
+        '    frmVentas1_Partes.BringToFront()
+        'ElseIf descuento = 1 Then
+        '    frmVentas1_Descuentos.Show()
+        '    frmVentas1_Descuentos.BringToFront()
+        'ElseIf series = 1 Then
+        '    frmVentas_Series.Show()
+        '    frmVentas_Series.BringToFront()
 
-        ElseIf refaccion = 1 Then
-            frmVentas_refa.Show()
-            frmVentas_refa.BringToFront()
-        Else
-            frmVentas1.Show()
-            frmVentas1.BringToFront()
-        End If
+        'ElseIf refaccion = 1 Then
+        '    frmVentas_refa.Show()
+        '    frmVentas_refa.BringToFront()
+        'Else
+        '    frmVentas1.Show()
+        '    frmVentas1.BringToFront()
+        'End If
+        frmVentas3.Show()
+        frmVentas3.BringToFront()
     End Sub
 
     Private Sub RegistroDeEmpleadoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pHorariosEmp.Click
@@ -1031,31 +1033,32 @@ Public Class Inicio
     Private Sub btnVentasN_Click(sender As System.Object, e As System.EventArgs) Handles btnVentasN.Click
         Try
 
-            Dim partes As Integer = DatosRecarga2("Partes")
-            Dim series As Integer = DatosRecarga2("Series")
-            Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
-            Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
+            'Dim partes As Integer = DatosRecarga2("Partes")
+            'Dim series As Integer = DatosRecarga2("Series")
+            'Dim descuento As Integer = DatosRecarga2("Desc_Ventas")
+            'Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
 
-            If partes = 1 Then
-                frmVentas1_Partes.Show()
-                frmVentas1_Partes.BringToFront()
+            'If partes = 1 Then
+            '    frmVentas1_Partes.Show()
+            '    frmVentas1_Partes.BringToFront()
 
-            ElseIf descuento = 1 Then
-                frmVentas1_Descuentos.Show()
-                frmVentas1_Descuentos.BringToFront()
+            'ElseIf descuento = 1 Then
+            '    frmVentas1_Descuentos.Show()
+            '    frmVentas1_Descuentos.BringToFront()
 
-            ElseIf series = 1 Then
-                frmVentas_Series.Show()
-                frmVentas_Series.BringToFront()
+            'ElseIf series = 1 Then
+            '    frmVentas_Series.Show()
+            '    frmVentas_Series.BringToFront()
 
-            ElseIf refaccionaria = 1 Then
-                frmVentas_refa.Show()
-                frmVentas_refa.BringToFront()
-            Else
-                frmVentas1.Show()
-                frmVentas1.BringToFront()
-            End If
-
+            'ElseIf refaccionaria = 1 Then
+            '    frmVentas_refa.Show()
+            '    frmVentas_refa.BringToFront()
+            'Else
+            '    frmVentas1.Show()
+            '    frmVentas1.BringToFront()
+            'End If
+            frmVentas3.Show()
+            frmVentas3.BringToFront()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
