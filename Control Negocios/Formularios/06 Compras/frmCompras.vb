@@ -782,6 +782,10 @@ Public Class frmCompras
     Private Sub txtcantidad_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcantidad.KeyPress
         If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = ""
         If AscW(e.KeyChar) = Keys.Enter Then
+            If txtcantidad.Text = "" Or txtcantidad.Text = "0" Then
+                txtcantidad.Focus.Equals(True)
+                Exit Sub
+            End If
             txtprecio.Focus().Equals(True)
         End If
     End Sub
