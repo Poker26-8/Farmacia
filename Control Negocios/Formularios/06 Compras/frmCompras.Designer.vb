@@ -23,14 +23,14 @@ Partial Class frmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompras))
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -179,6 +179,12 @@ Partial Class frmCompras
         Me.btnprod = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.gbLotes = New System.Windows.Forms.GroupBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.txtcantidadxd = New System.Windows.Forms.TextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.dtpxd = New System.Windows.Forms.DateTimePicker()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.txtlotexd = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.txtcanttotal = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
@@ -196,12 +202,6 @@ Partial Class frmCompras
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtlotexd = New System.Windows.Forms.TextBox()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.dtpxd = New System.Windows.Forms.DateTimePicker()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.txtcantidadxd = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -234,8 +234,8 @@ Partial Class frmCompras
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -273,8 +273,8 @@ Partial Class frmCompras
         '
         'Column4
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -282,8 +282,8 @@ Partial Class frmCompras
         '
         'Column5
         '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -291,8 +291,8 @@ Partial Class frmCompras
         '
         'Column6
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -300,8 +300,8 @@ Partial Class frmCompras
         '
         'Column7
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -1394,12 +1394,6 @@ Partial Class frmCompras
         'pCancela80
         '
         '
-        'pCancela58
-        '
-        '
-        'pCancelaMC
-        '
-        '
         'lblusuario
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
@@ -1802,6 +1796,58 @@ Partial Class frmCompras
         Me.gbLotes.Text = "Registro de Lotes"
         Me.gbLotes.Visible = False
         '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(214, 55)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(49, 12)
+        Me.Label50.TabIndex = 305
+        Me.Label50.Text = "Cantidad:"
+        '
+        'txtcantidadxd
+        '
+        Me.txtcantidadxd.Location = New System.Drawing.Point(216, 69)
+        Me.txtcantidadxd.Name = "txtcantidadxd"
+        Me.txtcantidadxd.Size = New System.Drawing.Size(107, 20)
+        Me.txtcantidadxd.TabIndex = 304
+        Me.txtcantidadxd.Text = "1"
+        Me.txtcantidadxd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(138, 55)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(63, 12)
+        Me.Label49.TabIndex = 303
+        Me.Label49.Text = "F. Caducidad"
+        '
+        'dtpxd
+        '
+        Me.dtpxd.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpxd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpxd.Location = New System.Drawing.Point(132, 69)
+        Me.dtpxd.Name = "dtpxd"
+        Me.dtpxd.Size = New System.Drawing.Size(77, 23)
+        Me.dtpxd.TabIndex = 302
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(17, 55)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(28, 12)
+        Me.Label48.TabIndex = 301
+        Me.Label48.Text = "Lote:"
+        '
+        'txtlotexd
+        '
+        Me.txtlotexd.Location = New System.Drawing.Point(19, 69)
+        Me.txtlotexd.Name = "txtlotexd"
+        Me.txtlotexd.Size = New System.Drawing.Size(107, 20)
+        Me.txtlotexd.TabIndex = 300
+        '
         'Button14
         '
         Me.Button14.BackColor = System.Drawing.Color.SteelBlue
@@ -1814,7 +1860,7 @@ Partial Class frmCompras
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(64, 69)
         Me.Button14.TabIndex = 299
-        Me.Button14.Text = "CANCELAR."
+        Me.Button14.Text = "CANCELAR.s"
         Me.Button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button14.UseVisualStyleBackColor = False
         '
@@ -1875,8 +1921,8 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.Width = 50
@@ -1949,63 +1995,11 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Width = 50
-        '
-        'txtlotexd
-        '
-        Me.txtlotexd.Location = New System.Drawing.Point(19, 69)
-        Me.txtlotexd.Name = "txtlotexd"
-        Me.txtlotexd.Size = New System.Drawing.Size(107, 20)
-        Me.txtlotexd.TabIndex = 300
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(17, 55)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(28, 12)
-        Me.Label48.TabIndex = 301
-        Me.Label48.Text = "Lote:"
-        '
-        'dtpxd
-        '
-        Me.dtpxd.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpxd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpxd.Location = New System.Drawing.Point(132, 69)
-        Me.dtpxd.Name = "dtpxd"
-        Me.dtpxd.Size = New System.Drawing.Size(77, 23)
-        Me.dtpxd.TabIndex = 302
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(138, 55)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(63, 12)
-        Me.Label49.TabIndex = 303
-        Me.Label49.Text = "F. Caducidad"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(214, 55)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(49, 12)
-        Me.Label50.TabIndex = 305
-        Me.Label50.Text = "Cantidad:"
-        '
-        'txtcantidadxd
-        '
-        Me.txtcantidadxd.Location = New System.Drawing.Point(216, 69)
-        Me.txtcantidadxd.Name = "txtcantidadxd"
-        Me.txtcantidadxd.Size = New System.Drawing.Size(107, 20)
-        Me.txtcantidadxd.TabIndex = 304
-        Me.txtcantidadxd.Text = "1"
-        Me.txtcantidadxd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmCompras
         '
