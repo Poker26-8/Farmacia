@@ -62,6 +62,8 @@ Partial Class frmProductosS
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.txtutilidad = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -89,8 +91,6 @@ Partial Class frmProductosS
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblExistencia = New System.Windows.Forms.Label()
         Me.txtExistencia = New System.Windows.Forms.TextBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.chkAnti = New System.Windows.Forms.CheckBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,6 +294,7 @@ Partial Class frmProductosS
         Me.cboDepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDepto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepto.FormattingEnabled = True
+        Me.cboDepto.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.cboDepto.Location = New System.Drawing.Point(521, 117)
         Me.cboDepto.Name = "cboDepto"
         Me.cboDepto.Size = New System.Drawing.Size(208, 23)
@@ -570,6 +571,42 @@ Partial Class frmProductosS
         Me.tip.SetToolTip(Me.Button3, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.Button3.UseVisualStyleBackColor = False
         Me.Button3.Visible = False
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackColor = System.Drawing.Color.White
+        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button5.Location = New System.Drawing.Point(89, 298)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(97, 65)
+        Me.Button5.TabIndex = 260
+        Me.Button5.Text = "Importar Departamentos"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button5, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button6
+        '
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button6.BackColor = System.Drawing.Color.White
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button6.Location = New System.Drawing.Point(191, 298)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(97, 65)
+        Me.Button6.TabIndex = 261
+        Me.Button6.Text = "Importar Grupos"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button6, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'txtutilidad
         '
@@ -901,42 +938,6 @@ Partial Class frmProductosS
         Me.txtExistencia.TabIndex = 259
         Me.txtExistencia.Text = "0"
         Me.txtExistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button5.BackColor = System.Drawing.Color.White
-        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button5.Location = New System.Drawing.Point(89, 298)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(97, 65)
-        Me.Button5.TabIndex = 260
-        Me.Button5.Text = "Importar Departamentos"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.tip.SetToolTip(Me.Button5, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.White
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button6.Location = New System.Drawing.Point(191, 298)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(97, 65)
-        Me.Button6.TabIndex = 261
-        Me.Button6.Text = "Importar Grupos"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.tip.SetToolTip(Me.Button6, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'chkAnti
         '
