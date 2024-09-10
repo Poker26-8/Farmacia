@@ -124,12 +124,8 @@ Public Class frmProductosS
                     txtpcompra2.Text = FormatNumber(CDbl(txtpcompra.Text) * (1 + CDbl(cboIVA.Text)), 2)
                     txtpventa.Text = FormatNumber(rd2("PrecioVentaIVA").ToString(), 2)
                     cboProvP.Text = rd2("ProvPri").ToString()
-                    Dim deptooo As String = rd2("Departamento").ToString()
-                    My.Application.DoEvents()
-                    'cboDepto.Text = rd2("Departamento").ToString()
-                    cboDepto.SelectedItem = deptooo
+                    cboDepto.Text = rd2("Departamento").ToString()
                     cboGrupo.Text = rd2("Grupo").ToString()
-                    cboGrupo.SelectedText = rd2("Grupo").ToString()
                     cboubicacion.Text = rd2("Ubicacion").ToString()
                     chkKIT.Checked = IIf(rd2("ProvRes").ToString() = True, True, False)
                     txtClaveSAT.Text = rd2("UnidadSat").ToString()
@@ -432,6 +428,7 @@ Public Class frmProductosS
     End Sub
 
     Private Sub cboDepto_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cboDepto.KeyPress
+        e.Handled = True
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cboGrupo.Focus().Equals(True)
@@ -467,6 +464,7 @@ Public Class frmProductosS
     End Sub
 
     Private Sub cboGrupo_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cboGrupo.KeyPress
+        e.Handled = True
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             btnGuardar.Focus().Equals(True)

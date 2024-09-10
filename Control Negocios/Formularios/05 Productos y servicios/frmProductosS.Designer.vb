@@ -267,7 +267,6 @@ Partial Class frmProductosS
         'cboGrupo
         '
         Me.cboGrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cboGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGrupo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGrupo.FormattingEnabled = True
         Me.cboGrupo.Location = New System.Drawing.Point(521, 167)
@@ -291,7 +290,6 @@ Partial Class frmProductosS
         'cboDepto
         '
         Me.cboDepto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cboDepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDepto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepto.FormattingEnabled = True
         Me.cboDepto.ImeMode = System.Windows.Forms.ImeMode.NoControl
