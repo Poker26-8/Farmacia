@@ -1039,32 +1039,7 @@ Public Class frmProductosS
         End Try
         Return Nothing
     End Function
-    Private Function Comprueba2(ByVal nombre As String) As Boolean
-        Try
-            Dim valida As Boolean = True
 
-            cnn2.Close()
-            cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select Nombre from Productos where Nombre='" & nombre & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    'MsgBox("Ya cuentas con un producto registrado con el nombre " & nombre & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    valida = False
-                    Exit Function
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-            Return valida
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn2.Close()
-        End Try
-        Return Nothing
-    End Function
 
     Private Function NulCad(ByVal cadena As String) As String
         If IsDBNull(cadena) Then
@@ -1718,13 +1693,13 @@ Public Class frmProductosS
         End Try
     End Sub
 
-    Private Function Comprueba2(ByVal nombre As String) As Boolean
+    Private Function Comprueba2(ByVal xxd As String) As Boolean
         Try
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select Nombre from Departamentos where Nombre='" & nombre & "'"
+                "select Nombre from Departamentos where Nombre='" & xxd & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1742,13 +1717,13 @@ Public Class frmProductosS
         End Try
         Return Nothing
     End Function
-    Private Function Comprueba3(ByVal nombre As String) As Boolean
+    Private Function Comprueba3(ByVal xd As String) As Boolean
         Try
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select Nombre from Grupo where Nombre='" & nombre & "'"
+                "select Nombre from Grupo where Nombre='" & xd & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
