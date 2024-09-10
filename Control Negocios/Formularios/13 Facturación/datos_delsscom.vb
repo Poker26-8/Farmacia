@@ -150,7 +150,14 @@ Public Class datos_delsscom
                 'Dim sTargetprueba = "Server=localhost;user id = root; password=;"
                 With odata
                     If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
-
+                        'Departamentos
+                        .runSp(cnnprueba, Vartabladepartamentos, sinfo)
+                        .runSp(cnnprueba, VarKeydepartamentos, sinfo)
+                        .runSp(cnnprueba, VarAutodepartamentos, sinfo)
+                        'Grupos
+                        .runSp(cnnprueba, Vartablagrupo, sinfo)
+                        .runSp(cnnprueba, VarKeygrupo, sinfo)
+                        .runSp(cnnprueba, VarAutogrupo, sinfo)
                         'pedidosvendet
                         .runSp(cnnprueba, vartablapedidosvendet, sinfo)
                         .runSp(cnnprueba, VarKeypedidosvendet, sinfo)

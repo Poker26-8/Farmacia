@@ -406,7 +406,7 @@ Public Class frmProductosS
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Departamento from Productos order by Departamento"
+                "select distinct Nombre from Departamentos order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cboDepto.Items.Add(
@@ -439,7 +439,7 @@ Public Class frmProductosS
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Grupo from Productos where Departamento='" & cboDepto.Text & "' order by Grupo"
+                "select distinct Nombre from Grupo order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

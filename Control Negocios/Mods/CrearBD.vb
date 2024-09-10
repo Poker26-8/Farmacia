@@ -12,6 +12,16 @@
                                               `Caducidad` varchar(50) NOT NULL DEFAULT '',
                                               `ModoUso` varchar(250) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    'departamentos
+    Public Vartabladepartamentos As String = "CREATE TABLE `departamentos` (
+                                              `Id` int(11) NOT NULL,
+                                              `Nombre` varchar(250) NOT NULL DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    'grupo
+    Public Vartablagrupo As String = "CREATE TABLE `grupo` (
+                                              `Id` int(11) NOT NULL,
+                                              `Nombre` varchar(250) NOT NULL DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'hisclinica
     Public vartablahisclinica As String = "CREATE TABLE `hisclinica` (
@@ -6927,6 +6937,8 @@
     '/////////////////////////////////////////////////////////////////////////
     Public VarKeyPrescripcion As String = "ALTER TABLE `prescripcion`ADD PRIMARY KEY (`Folio`);"
     Public VarKeyhisclinica As String = "ALTER TABLE `hisclinica`ADD PRIMARY KEY (`Id`);"
+    Public VarKeydepartamentos As String = "ALTER TABLE `departamentos`ADD PRIMARY KEY (`Id`);"
+    Public VarKeygrupo As String = "ALTER TABLE `grupo`ADD PRIMARY KEY (`Id`);"
     Public VarKeytallerd As String = "ALTER TABLE `tallerd` ADD PRIMARY KEY (`Id`);"
     Public VarKeydispositivos As String = "ALTER TABLE `dispositivos` ADD PRIMARY KEY (`Id`);"
     Public VarKeyaccesorios As String = "ALTER TABLE `accesorios` ADD PRIMARY KEY (`Id`);"
@@ -7098,6 +7110,8 @@
     '/////////////////////////////////////////////////////////////////////////
     Public VarAutoPrescripcion As String = "ALTER TABLE `prescripcion`MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutohiscliente As String = "ALTER TABLE `hisclinica`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public VarAutodepartamentos As String = "ALTER TABLE `departamentos`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public VarAutogrupo As String = "ALTER TABLE `grupo`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotallerd As String = "ALTER TABLE `tallerd` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodispositivos As String = "ALTER TABLE `dispositivos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoaccesorios As String = "ALTER TABLE `accesorios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

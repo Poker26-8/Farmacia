@@ -89,6 +89,9 @@ Partial Class frmProductosS
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblExistencia = New System.Windows.Forms.Label()
         Me.txtExistencia = New System.Windows.Forms.TextBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.chkAnti = New System.Windows.Forms.CheckBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.box_tienda.SuspendLayout()
@@ -148,11 +151,11 @@ Partial Class frmProductosS
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Location = New System.Drawing.Point(89, 296)
+        Me.btnImportar.Location = New System.Drawing.Point(8, 298)
         Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(62, 65)
+        Me.btnImportar.Size = New System.Drawing.Size(75, 65)
         Me.btnImportar.TabIndex = 217
-        Me.btnImportar.Text = "Importar"
+        Me.btnImportar.Text = "Importar Catálogo"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.tip.SetToolTip(Me.btnImportar, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.btnImportar.UseVisualStyleBackColor = False
@@ -264,6 +267,7 @@ Partial Class frmProductosS
         'cboGrupo
         '
         Me.cboGrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGrupo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGrupo.FormattingEnabled = True
         Me.cboGrupo.Location = New System.Drawing.Point(521, 167)
@@ -287,6 +291,7 @@ Partial Class frmProductosS
         'cboDepto
         '
         Me.cboDepto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboDepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDepto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepto.FormattingEnabled = True
         Me.cboDepto.Location = New System.Drawing.Point(521, 117)
@@ -538,7 +543,7 @@ Partial Class frmProductosS
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(8, 296)
+        Me.Button2.Location = New System.Drawing.Point(294, 296)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 65)
         Me.Button2.TabIndex = 251
@@ -546,6 +551,7 @@ Partial Class frmProductosS
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.tip.SetToolTip(Me.Button2, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.Button2.UseVisualStyleBackColor = False
+        Me.Button2.Visible = False
         '
         'Button3
         '
@@ -555,7 +561,7 @@ Partial Class frmProductosS
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(157, 296)
+        Me.Button3.Location = New System.Drawing.Point(375, 296)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(83, 65)
         Me.Button3.TabIndex = 252
@@ -563,6 +569,7 @@ Partial Class frmProductosS
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.tip.SetToolTip(Me.Button3, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.Button3.UseVisualStyleBackColor = False
+        Me.Button3.Visible = False
         '
         'txtutilidad
         '
@@ -633,7 +640,7 @@ Partial Class frmProductosS
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(477, 316)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(89, 267)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(47, 23)
         Me.txtrutaimagen.TabIndex = 231
@@ -747,7 +754,7 @@ Partial Class frmProductosS
         '
         Me.lblInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblInfo.AutoSize = True
-        Me.lblInfo.Location = New System.Drawing.Point(474, 342)
+        Me.lblInfo.Location = New System.Drawing.Point(142, 270)
         Me.lblInfo.Name = "lblInfo"
         Me.lblInfo.Size = New System.Drawing.Size(116, 15)
         Me.lblInfo.TabIndex = 249
@@ -762,7 +769,7 @@ Partial Class frmProductosS
         Me.box_tienda.Controls.Add(Me.Label20)
         Me.box_tienda.Controls.Add(Me.txt_descripcion)
         Me.box_tienda.Controls.Add(Me.txt_resumen)
-        Me.box_tienda.Location = New System.Drawing.Point(96, 140)
+        Me.box_tienda.Location = New System.Drawing.Point(221, 367)
         Me.box_tienda.Name = "box_tienda"
         Me.box_tienda.Size = New System.Drawing.Size(633, 120)
         Me.box_tienda.TabIndex = 253
@@ -828,9 +835,9 @@ Partial Class frmProductosS
         Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_tienda.Location = New System.Drawing.Point(373, 296)
+        Me.btn_tienda.Location = New System.Drawing.Point(561, 298)
         Me.btn_tienda.Name = "btn_tienda"
-        Me.btn_tienda.Size = New System.Drawing.Size(95, 65)
+        Me.btn_tienda.Size = New System.Drawing.Size(78, 65)
         Me.btn_tienda.TabIndex = 254
         Me.btn_tienda.Text = "Datos tienda"
         Me.btn_tienda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -845,13 +852,14 @@ Partial Class frmProductosS
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(246, 296)
+        Me.Button4.Location = New System.Drawing.Point(464, 298)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(121, 65)
+        Me.Button4.Size = New System.Drawing.Size(91, 65)
         Me.Button4.TabIndex = 256
         Me.Button4.Text = "Lotes y caducidades"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button4.UseVisualStyleBackColor = False
+        Me.Button4.Visible = False
         '
         'btnSalir
         '
@@ -894,11 +902,60 @@ Partial Class frmProductosS
         Me.txtExistencia.Text = "0"
         Me.txtExistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackColor = System.Drawing.Color.White
+        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button5.Location = New System.Drawing.Point(89, 298)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(97, 65)
+        Me.Button5.TabIndex = 260
+        Me.Button5.Text = "Importar Departamentos"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button5, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button6
+        '
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button6.BackColor = System.Drawing.Color.White
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button6.Location = New System.Drawing.Point(191, 298)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(97, 65)
+        Me.Button6.TabIndex = 261
+        Me.Button6.Text = "Importar Grupos"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button6, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'chkAnti
+        '
+        Me.chkAnti.AutoSize = True
+        Me.chkAnti.Location = New System.Drawing.Point(241, 268)
+        Me.chkAnti.Name = "chkAnti"
+        Me.chkAnti.Size = New System.Drawing.Size(85, 19)
+        Me.chkAnti.TabIndex = 262
+        Me.chkAnti.Text = "Antibiotico"
+        Me.chkAnti.UseVisualStyleBackColor = True
+        '
         'frmProductosS
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1044, 369)
+        Me.Controls.Add(Me.chkAnti)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.txtExistencia)
         Me.Controls.Add(Me.lblExistencia)
         Me.Controls.Add(Me.btnSalir)
@@ -1037,4 +1094,7 @@ Partial Class frmProductosS
     Friend WithEvents btnSalir As Button
     Friend WithEvents lblExistencia As Label
     Friend WithEvents txtExistencia As TextBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents chkAnti As CheckBox
 End Class
