@@ -1271,9 +1271,7 @@ Public Class frmProductosS
                     claveunidad = rd1("ClaveUnidadSat").ToString
                     isr = IIf(rd1("isr").ToString = "", 0, rd1("isr").ToString)
 
-                    If codigo = "047533" Then
-                        MsgBox("si")
-                    End If
+
                     nombre = nombre.Replace("’", "")
 
                     nombrelargo = Trim(Replace(nombrelargo, "'", ""))

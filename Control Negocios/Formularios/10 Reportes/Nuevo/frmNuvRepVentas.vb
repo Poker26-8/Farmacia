@@ -32,22 +32,22 @@ Public Class frmNuvRepVentas
             End If
             rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Farmacia'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        btnAntibiotico.Visible = True
-                        btnControlado.Visible = True
-                    Else
-                        btnAntibiotico.Visible = False
-                        btnControlado.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText =
+            '    "select NumPart from Formatos where Facturas='Farmacia'"
+            'rd1 = cmd1.ExecuteReader
+            'If rd1.HasRows Then
+            '    If rd1.Read Then
+            '        If rd1(0).ToString() = 1 Then
+            '            btnAntibiotico.Visible = True
+            '            btnControlado.Visible = True
+            '        Else
+            '            btnAntibiotico.Visible = False
+            '            btnControlado.Visible = False
+            '        End If
+            '    End If
+            'End If
+            'rd1.Close()
 
             cnn1.Close()
         Catch ex As Exception
@@ -4427,7 +4427,7 @@ Public Class frmNuvRepVentas
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select VE.Folio,PR.Codigo,PR.Nombre,Sum(VD.Cantidad)as Cantidad,PR.Existencia,VD.Fecha,RAnt.receta ,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad From (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo)INNER JOIN Ventas VE ON VD.Folio=VE.Folio)INNER JOIN rep_antib RAnt ON RAnt.Folio=VE.Folio ) Where VD.Grupo='ANTIBIOTICO' AND FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "'  Group By VE.Folio,PR.Codigo,PR.Nombre,VD.Cantidad,PR.Existencia,VD.Fecha,RAnt.receta,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad"
+            cmd1.CommandText = "Select VE.Folio,PR.Codigo,PR.Nombre,Sum(VD.Cantidad)as Cantidad,PR.Existencia,VD.Fecha,RAnt.receta ,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad From (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo)INNER JOIN Ventas VE ON VD.Folio=VE.Folio)INNER JOIN rep_antib RAnt ON RAnt.Folio=VE.Folio ) Where VD.Antibiotico=1 AND FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "'  Group By VE.Folio,PR.Codigo,PR.Nombre,VD.Cantidad,PR.Existencia,VD.Fecha,RAnt.receta,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

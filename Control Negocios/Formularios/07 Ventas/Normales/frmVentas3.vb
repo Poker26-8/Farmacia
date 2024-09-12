@@ -71,6 +71,7 @@ Public Class frmVentas3
     Private lastRecord As Long
     Public franquicia As Integer = 0
     Public cadenafact As String = ""
+    Dim soybarras As String = ""
 
     Private Sub frmVentas3_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         txtdia.Text = Weekday(Date.Now)
@@ -523,16 +524,16 @@ Public Class frmVentas3
             cmd3 = cnn3.CreateCommand
             If cbocodigo.Text = "" Then
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra='" & cbodesc.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra='" & cbodesc.Text & "'"
             Else
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra='" & cbocodigo.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra='" & cbocodigo.Text & "'"
             End If
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
                     cbocodigo.Text = rd3("Codigo").ToString
-                    Anti = rd3("Grupo").ToString
+                    Anti = rd3("Anti").ToString
                 End If
             End If
             rd3.Close() : cnn3.Close()
@@ -548,16 +549,16 @@ Public Class frmVentas3
             cmd3 = cnn3.CreateCommand
             If cbocodigo.Text = "" Then
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra1='" & cbodesc.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra1='" & cbodesc.Text & "'"
             Else
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra1='" & cbocodigo.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra1='" & cbocodigo.Text & "'"
             End If
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
                     cbocodigo.Text = rd3("Codigo").ToString
-                    Anti = rd3("Grupo").ToString
+                    Anti = rd3("Anti").ToString
                 End If
             End If
             rd3.Close() : cnn3.Close()
@@ -573,16 +574,16 @@ Public Class frmVentas3
             cmd3 = cnn3.CreateCommand
             If cbocodigo.Text = "" Then
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra2='" & cbodesc.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra2='" & cbodesc.Text & "'"
             Else
                 cmd3.CommandText =
-                    "select Codigo,Grupo from Productos where CodBarra2='" & cbocodigo.Text & "'"
+                    "select Codigo,Grupo,Anti from Productos where CodBarra2='" & cbocodigo.Text & "'"
             End If
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
                     cbocodigo.Text = rd3("Codigo").ToString
-                    Anti = rd3("Grupo").ToString
+                    Anti = rd3("Anti").ToString
                 End If
             End If
             rd3.Close() : cnn3.Close()
@@ -720,7 +721,7 @@ Public Class frmVentas3
                 Next
                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
             Else
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, soybarras)
             End If
 
             grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
@@ -3039,13 +3040,15 @@ doorcita:
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select Codigo,Grupo from Productos where Nombre='" & cbodesc.Text & "'"
+                "select Codigo,Grupo,CodBarra from Productos where Nombre='" & cbodesc.Text & "'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
                     MyCode = rd4(0).ToString
                     ' cbocodigo.Text = ""
                     cbocodigo.Text = MyCode
+                    soybarras = rd4(2).ToString
+                    txtbarr.Text = soybarras
                 End If
             Else
                 MsgBox("Producto no registrado en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -3198,15 +3201,16 @@ doorcita:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion from Productos where Codigo='" & codrecortado & "'"
+                            "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & codrecortado & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
 
                             Promo = IIf(rd1("Status_Promocion").ToString = False, False, True)
-                            Anti = rd1("Grupo").ToString
-                            If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-                                If MsgBox("Este en un " & Anti & " ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                            'Anti = rd1("Grupo").ToString
+                            Anti = rd1("Anti").ToString
+                            If Anti = 1 Then
+                                If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                     cbocodigo.Text = ""
                                     cbodesc.Text = ""
                                     txtunidad.Text = ""
@@ -3432,14 +3436,15 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion from Productos where Nombre='" & cbodesc.Text & "'"
+                    "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti from Productos where Nombre='" & cbodesc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         Promo = IIf(rd1("Status_Promocion").ToString = False, False, True)
-                        Anti = rd1("Grupo").ToString
-                        If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-                            If MsgBox("Este en un " & Anti & " ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                        'Anti = rd1("Grupo").ToString
+                        Anti = rd1("Anti").ToString
+                        If Anti = 1 Then
+                            If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                 cbocodigo.Text = ""
                                 cbodesc.Text = ""
                                 txtunidad.Text = ""
@@ -3583,15 +3588,16 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion from Productos where CodBarra='" & cbodesc.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti from Productos where CodBarra='" & cbodesc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
 
                         Promo = IIf(rd1("Status_Promocion").ToString = False, False, True)
-                        Anti = rd1("Grupo").ToString
-                        If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-                            If MsgBox("Este en un " & Anti & " ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                        'Anti = rd1("Grupo").ToString
+                        Anti = rd1("Anti").ToString
+                        If Anti = 1 Then
+                            If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                 cbocodigo.Text = ""
                                 cbodesc.Text = ""
                                 txtunidad.Text = ""
@@ -3836,14 +3842,15 @@ kaka:
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion from Productos where Codigo='" & cbocodigo.Text & "'"
+                            "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
                                 Promo = IIf(rd2("Status_Promocion").ToString = False, False, True)
-                                Anti = rd2("Grupo").ToString
-                                If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-                                    If MsgBox("Este en un " & Anti & " ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                                'Anti = rd2("Grupo").ToString
+                                Anti = rd1("Anti").ToString
+                                If Anti = 1 Then
+                                    If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                         cbocodigo.Text = ""
                                         cbodesc.Text = ""
                                         txtunidad.Text = ""
@@ -4146,12 +4153,12 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
                             Promo = IIf(rd1("Status_Promocion").ToString = True, True, False)
-                            Anti = rd1("Grupo").ToString
+                            Anti = rd1("Anti").ToString
                             If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
                                 cbodesc.Text = rd1("Nombre").ToString
                                 txtprecio.Text = rd1("PrecioVentaIVA").ToString
@@ -5101,8 +5108,8 @@ kaka:
                 Exit Sub
             End If
 
-            If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-                If MsgBox("Este producto es un " & Anti & ", ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+            If Anti = 1 Then
+                If MsgBox("Este producto es un Antibiotico, ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                     cbocodigo.Text = ""
                     cbodesc.Text = ""
                     txtunidad.Text = ""
@@ -5183,7 +5190,7 @@ kaka:
             txttotal.Text = FormatNumber(txttotal.Text, 4)
             Call UpGrid()
 
-            If Anti = "CONTROLADO" Or Anti = "ANTIBIOTICO" Then
+            If Anti = 1 Then
                 grdantis.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 4), FormatNumber(txttotal.Text, 4), FormatNumber(txtexistencia.Text, 4))
             End If
 
@@ -5215,6 +5222,7 @@ kaka:
             txtexistencia.Text = ""
             txtfechacad.Text = ""
             cboLote.Text = ""
+            txtbarr.Text = ""
             picProd.Image = Nothing
             cboLote.Items.Clear()
             cnn1.Close()
@@ -5570,6 +5578,7 @@ kaka:
             txtprecio.Tag = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
             txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
             txtexistencia.Text = grdcaptura.Rows(index).Cells(6).Value.ToString
+            txtbarr.Text = grdcaptura.Rows(index).Cells(15).Value.ToString
 
             If grdcaptura.Rows.Count = 1 Then
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
@@ -6187,6 +6196,7 @@ kaka:
 
         Timer1.Stop()
         Button14.PerformClick()
+        txtbarr.Text = ""
         gbLotes.Visible = False
         DataGridView1.Rows.Clear()
         DataGridView2.Rows.Clear()
@@ -8469,6 +8479,7 @@ kakaxd:
                 Dim lote As String = ""
                 Dim descuentotal As Double = 0
                 Dim MyIVA As Double = 0
+                Dim soyAnti As Integer = 0
 
                 Dim existe As Double = 0
 
@@ -8497,7 +8508,7 @@ kakaxd:
                 If ordetrabajo = 0 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select p1.Departamento, p1.Grupo, p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.PrecioCompra FROM Productos p1 LEFT JOIN Productos p2 ON p2.Codigo = LEFT(p1.Codigo, 6) WHERE p1.Codigo = '" & mycode & "'"
+                        "select p1.Departamento, p1.Grupo,p1.Anti, p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.PrecioCompra FROM Productos p1 LEFT JOIN Productos p2 ON p2.Codigo = LEFT(p1.Codigo, 6) WHERE p1.Codigo = '" & mycode & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -8510,6 +8521,7 @@ kakaxd:
                             MyMulti2 = rd1("Multiplo").ToString()
                             Unico = rd1("Unico").ToString()
                             gprint = rd1("GPrint").ToString
+                            soyAnti = rd1("Anti").ToString
                             MyIVA = rd1("IVA").ToString
                             If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
                                 rd1.Close()
@@ -8527,7 +8539,7 @@ kakaxd:
                 Else
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select p1.Departamento, p1.Grupo, p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.Multiplo, p2.PrecioCompra  from OrdenTrabajo p1 LEFT JOIN OrdenTrabajo p2 ON p2.Codigo = LEFT(p1.Codigo, 6) where p1.Codigo='" & mycode & "'"
+                        "select p1.Departamento, p1.Grupo,p1.Anti,p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.Multiplo, p2.PrecioCompra  from OrdenTrabajo p1 LEFT JOIN OrdenTrabajo p2 ON p2.Codigo = LEFT(p1.Codigo, 6) where p1.Codigo='" & mycode & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -8541,6 +8553,7 @@ kakaxd:
                             Unico = rd1("Unico").ToString()
                             gprint = rd1("GPrint").ToString
                             MyIVA = rd1("IVA").ToString
+                            soyAnti = rd1("Anti").ToString
                             If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
                                 rd1.Close()
                             Else
@@ -8634,7 +8647,7 @@ Door:
                                     mycant2 = DataGridView2.Rows(cuca).Cells(4).Value.ToString
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant2 & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint,Antibiotico) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant2 & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "'," & soyAnti & ")"
                                     cmd1.ExecuteNonQuery()
                                     voy += 1
                                 End If
@@ -8642,13 +8655,13 @@ Door:
                         Else
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint,Antibiotico) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "'," & soyAnti & ")"
                             cmd1.ExecuteNonQuery()
                         End If
                         If voy = 0 Then
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
+                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint,Antibiotico) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "'," & soyAnti & ")"
                             cmd1.ExecuteNonQuery()
                         End If
                     Else
@@ -8698,7 +8711,7 @@ Door:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycodd & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & DsctoProd & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & DsctoProd & ",'" & gprint & "')"
+                            "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint,Antibiotico) values(" & MYFOLIO & ",'" & mycodd & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & DsctoProd & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & DsctoProd & ",'" & gprint & "'," & soyAnti & ")"
                             cmd1.ExecuteNonQuery()
                         Loop
 
@@ -15777,4 +15790,7 @@ doorcita:
         gbLotes.Visible = False
     End Sub
 
+    Private Sub pCentral_Paint(sender As Object, e As PaintEventArgs) Handles pCentral.Paint
+
+    End Sub
 End Class

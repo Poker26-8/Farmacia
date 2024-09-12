@@ -2951,8 +2951,9 @@ kaka:
             Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim total As Double = FormatNumber(canti * precio, 2)
-            Dim caducidad As String = grdcaptura.Rows(miku).Cells(7).Value.ToString
-            Dim lote As String = grdcaptura.Rows(miku).Cells(8).Value.ToString
+            Dim caducidad As String = "" 'grdcaptura.Rows(miku).Cells(7).Value.ToString
+            Dim lote As String = "" 'grdcaptura.Rows(miku).Cells(8).Value.ToString
+            Dim cantidadlote As Double = 0
 
             e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
@@ -2962,14 +2963,30 @@ kaka:
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
             e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
             Y += 21
-            If lote <> "" Then
-                Y -= 4
-                e.Graphics.DrawString("Caducidad: " & caducidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y)
-                Y += 10
+            If DataGridView2.Rows.Count > 0 Then
+                For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                    If codigo = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
+                        lote = DataGridView2.Rows(asd).Cells(1).Value.ToString
+                        caducidad = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                        cantidadlote = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                        If lote <> "" Then
+                            Y -= 4
+                            e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                            e.Graphics.DrawString("Caducidad: " & caducidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                            e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                            Y += 15
+                        End If
+                    End If
+                Next
             End If
+            'If lote <> "" Then
+            '    Y -= 4
+            '    e.Graphics.DrawString("Caducidad: " & caducidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+            '    e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y)
+            '    Y += 10
+            'End If
         Next
-        Y -= 3
+
         e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
         Y += 15
         e.Graphics.DrawString("TOTAL DE PRODUCTOS " & txtprods.Text, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -5810,6 +5827,7 @@ quepasowey:
             Dim cp As Boolean = IIf(grdcaptura.Rows(Zi).Cells(9).Value.ToString() = "", 0, grdcaptura.Rows(Zi).Cells(9).Value.ToString())
             Dim dpto As String = "", grupo As String = ""
             Dim mymultiplo As Double = 0
+            Dim soyAnti As Integer = 0
             Dim iva_prod As Double = 0
             Dim pcompra As Double = 0, pventaiva As Double = 0, pminimo As Double = 0, pmayoreo As Double = 0, pespecial As Double = 0, pmedio As Double = 0
             Dim porventa As Double = 0, porminimo As Double = 0, pormayoreo As Double = 0, porespecial As Double = 0, pormedio As Double = 0
@@ -5820,7 +5838,7 @@ quepasowey:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                    "select IVA,Multiplo,Porcentaje,PorcMin,PorcMay,PorcMM,PorcEsp,Departamento,Grupo,Existencia from Productos where Codigo='" & codigo & "'"
+                    "select IVA,Multiplo,Porcentaje,PorcMin,PorcMay,PorcMM,PorcEsp,Departamento,Grupo,Existencia,Anti from Productos where Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -5828,17 +5846,18 @@ quepasowey:
                     mymultiplo = rd1("Multiplo").ToString
                     porventa = rd1("Porcentaje").ToString
                     porminimo = rd1("PorcMin").ToString
-                    pormayoreo = rd1("PorcMay")
+                    pormayoreo = rd1("PorcMay").ToString
                     pormedio = rd1("PorcMM").ToString
                     porespecial = rd1("PorcEsp").ToString
                     dpto = rd1("Departamento").ToString
                     grupo = rd1("Grupo").ToString
                     existe = rd1("Existencia").ToString
+                    soyAnti = rd1("Anti").ToString
                 End If
             End If
             rd1.Close()
 
-            If dpto = "ANTIBIOTICO" Then
+            If soyAnti = 1 Then
                 tipo_anti = "ANTIBIOTICO"
             Else
                 tipo_anti = ""
@@ -6256,5 +6275,20 @@ quepasowey:
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
+    End Sub
+
+    Private Sub DataGridView3_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellDoubleClick
+        Dim index As Integer = DataGridView3.CurrentRow.Index
+        'Dim index2 As Integer = DataGridView2.CurrentRow.Index
+        If DataGridView3.Rows.Count > 0 Then
+            txtlotexd.Text = DataGridView3.Rows(index).Cells(1).Value.ToString
+            dtpxd.Text = DataGridView3.Rows(index).Cells(2).Value.ToString
+            txtcantidadxd.Text = DataGridView3.Rows(index).Cells(3).Value.ToString
+
+            DataGridView3.Rows.Remove(DataGridView3.Rows(index))
+        End If
+        If DataGridView3.Rows.Count = 0 Then
+            DataGridView3.Rows.Clear()
+        End If
     End Sub
 End Class

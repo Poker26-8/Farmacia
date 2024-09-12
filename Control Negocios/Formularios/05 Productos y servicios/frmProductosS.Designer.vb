@@ -940,7 +940,7 @@ Partial Class frmProductosS
         'chkAnti
         '
         Me.chkAnti.AutoSize = True
-        Me.chkAnti.Location = New System.Drawing.Point(241, 268)
+        Me.chkAnti.Location = New System.Drawing.Point(253, 268)
         Me.chkAnti.Name = "chkAnti"
         Me.chkAnti.Size = New System.Drawing.Size(85, 19)
         Me.chkAnti.TabIndex = 262
@@ -952,7 +952,6 @@ Partial Class frmProductosS
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1044, 369)
-        Me.Controls.Add(Me.chkAnti)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.txtExistencia)
@@ -1014,6 +1013,7 @@ Partial Class frmProductosS
         Me.Controls.Add(Me.btn_tienda)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.chkAnti)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
