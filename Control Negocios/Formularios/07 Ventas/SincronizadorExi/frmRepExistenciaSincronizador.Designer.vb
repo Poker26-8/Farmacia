@@ -286,7 +286,7 @@ Partial Class frmRepExistenciaSincronizador
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmRepExistenciaSincronizador"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Reporte de Existencia Sincronizador"
+        Me.Text = "Reporte de Existencia Sucursales"
         Me.Panel2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

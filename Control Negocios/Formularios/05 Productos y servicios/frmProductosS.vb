@@ -826,6 +826,7 @@ Public Class frmProductosS
             Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
             Dim iva, compra, compra_iva, venta_siva, venta_civa, porcentaje, existencia, ieps As Double
             Dim conteo As Integer = 0
+            Dim antibio As Integer = 0
 
             Dim lote As String = ""
             Dim caducidad As Date = Date.Now
@@ -858,18 +859,19 @@ Public Class frmProductosS
                 prod_sat = NulCad(DataGridView1.Rows(zef).Cells(10).Value.ToString())
                 unidad_sat = NulCad(DataGridView1.Rows(zef).Cells(11).Value.ToString())
                 existencia = NulVa(DataGridView1.Rows(zef).Cells(12).Value.ToString())
-                ieps = NulVa(DataGridView1.Rows(zef).Cells(13).Value.ToString())
-                numparte = NulCad(DataGridView1.Rows(zef).Cells(14).Value.ToString())
+                'ieps = NulVa(DataGridView1.Rows(zef).Cells(13).Value.ToString())
+                'numparte = NulCad(DataGridView1.Rows(zef).Cells(14).Value.ToString())
 
-                lote = NulCad(DataGridView1.Rows(zef).Cells(15).Value.ToString())
-                caducidad = NulCad(IIf(DataGridView1.Rows(zef).Cells(16).Value.ToString() = "", Date.Now, DataGridView1.Rows(zef).Cells(16).Value.ToString()))
+                lote = NulCad(DataGridView1.Rows(zef).Cells(13).Value.ToString())
+                caducidad = NulCad(IIf(DataGridView1.Rows(zef).Cells(14).Value.ToString() = "", Date.Now, DataGridView1.Rows(zef).Cells(14).Value.ToString()))
+                antibio = NulVa(DataGridView1.Rows(zef).Cells(15).Value.ToString())
 
                 caducidad = Format(caducidad, "yyyy-MM-dd")
 
                 'If lote <> "" Then
                 '    Lote_Caducidad(codigo, existencia, caducidad, lote)
                 '    conteo += 1
-                '    Continue For
+                '    Continue For9
                 'End If
 
                 If contadorconexion > 499 Then
@@ -892,7 +894,7 @@ Public Class frmProductosS
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,N_Serie,GPrint) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",'" & numparte & "','')"
+                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,Anti,GPrint) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & antibio & ",'')"
                     If cmd1.ExecuteNonQuery Then
                         If lote <> "" Then
                             Lote_Caducidad(codigo, existencia, caducidad, lote)

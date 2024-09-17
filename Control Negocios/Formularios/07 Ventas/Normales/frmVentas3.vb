@@ -6363,6 +6363,7 @@ kaka:
         boxcomentario.Visible = False
         txtcomentario.Text = ""
         FunctionVentas3Async()
+        FunctionClinetes3Async()
         Timer1.Start()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -10403,20 +10404,20 @@ ecomoda:
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
-                Dim fechacaducidad As String = ""
+                Dim cantidadlote As Double = 0
 
-                If ordetrabajo = 0 Then
-                    If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
-                    Else
-                        lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
-                        caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
-                        fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                    End If
-                Else
-                    lote = ""
-                    caducidad = caducidad
-                    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                End If
+                'If ordetrabajo = 0 Then
+                '    If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
+                '    Else
+                '        lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+                '        caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
+                '        fechacaducidad = Format(caducidad, "yyyy-MM-dd")
+                '    End If
+                'Else
+                '    lote = ""
+                '    caducidad = caducidad
+                '    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
+                'End If
 
 
                 Dim total As Double = FormatNumber(canti * precio, 4)
@@ -10430,11 +10431,20 @@ ecomoda:
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 270, Y, sf)
                 Y += 15
-                If lote = "" Then
-                Else
-                    e.Graphics.DrawString("Lote: " & lote, fuente_prods, Brushes.Black, 1, Y)
-                    Y += 17
-                    e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 1, Y)
+                If DataGridView2.Rows.Count > 0 Then
+                    For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                        If codigo = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
+                            lote = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                            caducidad = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                            cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
+                            If lote <> "" Then
+                                e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "dd-MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                                e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                                Y += 15
+                            End If
+                        End If
+                    Next
                 End If
                 Y += 6
                 If codigo = "RECARG" Then
@@ -14633,7 +14643,7 @@ ecomoda:
             txttel.Focus().Equals(True)
         End If
     End Sub
-    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+    Private Sub Button17_Click(sender As Object, e As EventArgs)
         frmRepExistenciaSincronizador.Show()
         frmRepExistenciaSincronizador.BringToFront()
     End Sub
@@ -15791,6 +15801,17 @@ doorcita:
     End Sub
 
     Private Sub pCentral_Paint(sender As Object, e As PaintEventArgs) Handles pCentral.Paint
+
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        If sTargetdSincro = "" Then
+            MsgBox("Necesitas tener un sincronizador activo para continuar con el proceso", vbInformation + vbOKOnly, "Delsscom Farrmacias")
+            Exit Sub
+        Else
+            frmRepExistenciaSincronizador.Show()
+            frmRepExistenciaSincronizador.BringToFront()
+        End If
 
     End Sub
 End Class
