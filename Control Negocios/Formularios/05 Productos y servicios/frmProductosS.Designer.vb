@@ -113,7 +113,7 @@ Partial Class frmProductosS
         'barsube
         '
         Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(21, 278)
+        Me.barsube.Location = New System.Drawing.Point(10, 278)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 220
@@ -675,7 +675,7 @@ Partial Class frmProductosS
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(89, 267)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(78, 267)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(47, 23)
         Me.txtrutaimagen.TabIndex = 231
@@ -789,7 +789,7 @@ Partial Class frmProductosS
         '
         Me.lblInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblInfo.AutoSize = True
-        Me.lblInfo.Location = New System.Drawing.Point(142, 270)
+        Me.lblInfo.Location = New System.Drawing.Point(131, 270)
         Me.lblInfo.Name = "lblInfo"
         Me.lblInfo.Size = New System.Drawing.Size(116, 15)
         Me.lblInfo.TabIndex = 249
