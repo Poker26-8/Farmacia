@@ -92,6 +92,7 @@ Partial Class frmProductosS
         Me.lblExistencia = New System.Windows.Forms.Label()
         Me.txtExistencia = New System.Windows.Forms.TextBox()
         Me.chkAnti = New System.Windows.Forms.CheckBox()
+        Me.cchkCaducidad = New System.Windows.Forms.CheckBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.box_tienda.SuspendLayout()
@@ -257,7 +258,7 @@ Partial Class frmProductosS
         'chkKIT
         '
         Me.chkKIT.AutoSize = True
-        Me.chkKIT.Location = New System.Drawing.Point(308, 243)
+        Me.chkKIT.Location = New System.Drawing.Point(264, 270)
         Me.chkKIT.Name = "chkKIT"
         Me.chkKIT.Size = New System.Drawing.Size(42, 19)
         Me.chkKIT.TabIndex = 207
@@ -684,7 +685,7 @@ Partial Class frmProductosS
         'chkUnico
         '
         Me.chkUnico.AutoSize = True
-        Me.chkUnico.Location = New System.Drawing.Point(308, 218)
+        Me.chkUnico.Location = New System.Drawing.Point(142, 269)
         Me.chkUnico.Name = "chkUnico"
         Me.chkUnico.Size = New System.Drawing.Size(108, 19)
         Me.chkUnico.TabIndex = 234
@@ -940,18 +941,29 @@ Partial Class frmProductosS
         'chkAnti
         '
         Me.chkAnti.AutoSize = True
-        Me.chkAnti.Location = New System.Drawing.Point(253, 268)
+        Me.chkAnti.Location = New System.Drawing.Point(308, 220)
         Me.chkAnti.Name = "chkAnti"
         Me.chkAnti.Size = New System.Drawing.Size(85, 19)
         Me.chkAnti.TabIndex = 262
         Me.chkAnti.Text = "Antibiotico"
         Me.chkAnti.UseVisualStyleBackColor = True
         '
+        'cchkCaducidad
+        '
+        Me.cchkCaducidad.AutoSize = True
+        Me.cchkCaducidad.Location = New System.Drawing.Point(307, 241)
+        Me.cchkCaducidad.Name = "cchkCaducidad"
+        Me.cchkCaducidad.Size = New System.Drawing.Size(83, 19)
+        Me.cchkCaducidad.TabIndex = 263
+        Me.cchkCaducidad.Text = "Caducidad"
+        Me.cchkCaducidad.UseVisualStyleBackColor = True
+        '
         'frmProductosS
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1044, 369)
+        Me.Controls.Add(Me.cchkCaducidad)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.txtExistencia)
@@ -1096,4 +1108,5 @@ Partial Class frmProductosS
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents chkAnti As CheckBox
+    Friend WithEvents cchkCaducidad As CheckBox
 End Class
