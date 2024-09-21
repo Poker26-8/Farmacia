@@ -649,7 +649,7 @@
 
     Private Sub dtpcaduca_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles dtpcaduca.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            If dtpcaduca.Value < Date.Now Then MsgBox("La fecha de caducidad no puede ser menor al día de hoy.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
+            'If dtpcaduca.Value < Date.Now Then MsgBox("La fecha de caducidad no puede ser menor al día de hoy.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
             txtcantidad.Focus().Equals(True)
         End If
     End Sub
@@ -679,6 +679,23 @@
                 MsgBox("La suma de los lotes es mayor a la existencia del producto,verifica la información", vbInformation + vbOKOnly, titulocentral)
                 txtid.Text = CDbl(txtid.Text) - CDbl(txtcantidad.Text)
             Else
+
+                ' Dim fecha As String = Format(dtpcaduca.Value, "dd-MM-yy")
+                'Dim nuvf As String = ""
+
+                ' nuvf = fecha.Replace("-", "")
+
+
+                Dim fecha As String = Format(dtpcaduca.Value, "dd-MM-yyyy")
+                Dim partes() As String = fecha.Split("-"c)
+
+                Dim dia As Integer = Convert.ToInt32(partes(0))
+                Dim mes As Integer = Convert.ToInt32(partes(1))
+                Dim año As Integer = Convert.ToInt32(partes(2))
+
+                Dim NUVCAD As String = loteforma(mes, año)
+                MsgBox(NUVCAD)
+
                 grdcaptura.Rows.Add(
                                txtid.Text,
                                txtlote.Text,
@@ -695,6 +712,41 @@
         End If
     End Sub
 
+    Public Function loteforma(ByVal dato As String, ByVal ano As String)
+
+        Dim mes As String = dato
+        Dim ultimo As String = ano
+        Dim nmes As String = ""
+        Dim NUV As String = ""
+        Select Case mes
+            Case Is = 1
+                nmes = "ENERO"
+            Case = 2
+                nmes = "FEBRERO"
+            Case = 3
+                nmes = "MARZO"
+            Case = 4
+                nmes = "ABRIL"
+            Case = 5
+                nmes = "MAYO"
+            Case = 6
+                nmes = "JUNIO"
+            Case = 7
+                nmes = "JULIO"
+            Case = 8
+                nmes = "AGOSTO"
+            Case = 9
+                nmes = "SEPTIEMBRE"
+            Case = 10
+                nmes = "OCTUBRE"
+            Case = 11
+                nmes = "NOVIEMBRE"
+            Case = 12
+                nmes = "DICIEMBRE"
+        End Select
+        NUV = nmes & " " & ultimo
+        Return NUV
+    End Function
     Private Sub btnguarda_lote_Click(sender As System.Object, e As System.EventArgs) Handles btnguarda_lote.Click
 
         Try
@@ -964,6 +1016,8 @@
             cnn1.Close()
         End Try
     End Sub
+
+
 
 
 End Class

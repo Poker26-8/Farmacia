@@ -1241,10 +1241,26 @@ Public Class frmCompras
             txttotal.Text = FormatNumber(txttotal.Text, 2)
             'dtpcaducidad.Focus().Equals(True)
 
+            Dim cad As Integer = 0
+            cnn1.close() : cnn1.Open
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Caduca FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cad = rd1(0).ToString
+                    If cad = 1 Then
+                        gbLotes.Show()
+                    Else
+                        txtlote_KeyPress(txtlote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
 
 
 
-            gbLotes.Show()
             txtcanttotal.Text = txtcantidad.Text
             txtcodlote.Text = txtcodigo.Text
             txtnombrelote.Text = cbonombre.Text

@@ -38,7 +38,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\..\DelsscomFarmacias\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\DelsscomFarmacias\</OutputPath>
     <DocumentationFile>Delsscom Farmacias.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -76,22 +76,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\SASASA\AForge.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Controls">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\SASASA\AForge.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.Controls.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\SASASA\AForge.Imaging.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\SASASA\AForge.Math.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\..\..\ControlNegociosPro\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\..\ControlNegociosPro\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\00\SASASA\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -142,9 +142,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\00\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\..\ControlNegociosPro\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -153,7 +152,7 @@
       <HintPath>..\Profact.TimbraCFDI.dll</HintPath>
     </Reference>
     <Reference Include="QRCoder">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\QRCoder.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\ControlNegociosPro\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -172,7 +171,7 @@
       <HintPath>..\ToolKitSQL.dll</HintPath>
     </Reference>
     <Reference Include="WhatsAppDLL">
-      <HintPath>..\..\..\..\00\DELSSCOM\DLL\WhatsAppDLL.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\ControlNegociosPro\WhatsAppDLL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
