@@ -1240,6 +1240,10 @@ Public Class frmCompras
             txttotal.Text = CDbl(txtcantidad.Text) * CDbl(txtprecio.Text)
             txttotal.Text = FormatNumber(txttotal.Text, 2)
             'dtpcaducidad.Focus().Equals(True)
+
+
+
+
             gbLotes.Show()
             txtcanttotal.Text = txtcantidad.Text
             txtcodlote.Text = txtcodigo.Text
@@ -6291,4 +6295,6 @@ quepasowey:
             DataGridView3.Rows.Clear()
         End If
     End Sub
+
+
 End Class

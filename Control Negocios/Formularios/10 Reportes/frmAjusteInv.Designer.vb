@@ -265,8 +265,11 @@ Partial Class frmAjusteInv
         '
         Me.txtid.Location = New System.Drawing.Point(160, 45)
         Me.txtid.Name = "txtid"
+        Me.txtid.ReadOnly = True
         Me.txtid.Size = New System.Drawing.Size(41, 23)
         Me.txtid.TabIndex = 131
+        Me.txtid.Text = "0"
+        Me.txtid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'grdcaptura
         '

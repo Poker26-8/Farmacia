@@ -193,7 +193,7 @@
 
                 Try
                     Dim id_lote As Integer = 0
-
+                    Dim clotestraidos As Double = 0
                     cnn1.Close() : cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
@@ -208,9 +208,11 @@
                                 FormatDateTime(CDate(rd1("Caducidad").ToString), DateFormat.ShortDate),
                                 rd1("Cantidad").ToString
                                 )
+                            clotestraidos = clotestraidos + rd1("Cantidad").ToString
                         End If
                     Loop
                     rd1.Close() : cnn1.Close()
+                    txtid.Text = FormatNumber(clotestraidos, 2)
                 Catch ex As Exception
                     MessageBox.Show(ex.ToString)
                     cnn1.Close()
@@ -411,19 +413,24 @@
     Private Sub grdcaptura_CellDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
         Dim t As Integer = grdcaptura.CurrentRow.Index
 
-        txtid.Text = grdcaptura.Rows(t).Cells(0).Value.ToString
+
         txtlote.Text = grdcaptura.Rows(t).Cells(1).Value.ToString
         dtpcaduca.Value = grdcaptura.Rows(t).Cells(2).Value.ToString
         txtcantidad.Text = grdcaptura.Rows(t).Cells(3).Value.ToString
+
+        txtid.Text = CDbl(txtid.Text) - CDbl(grdcaptura.Rows(t).Cells(3).Value.ToString)
+
         grdcaptura.Rows.Remove(grdcaptura.Rows(t))
         txtlote.Focus().Equals(True)
     End Sub
 
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
+
         If cbocodigo.Text = "" Or cbodesc.Text = "" Or txtunidad.Text = "" Or txtsistema.Text = "" Or txtfisica.Text = "" Or txtdiferencia.Text = "" Then
             MsgBox("Faltan datos del producto para poder guardar el ajuste de inventario.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             cbodesc.Focus().Equals(True)
         End If
+
         If lblusuario.Text = "" Then
             MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             txtcontraseña.Focus().Equals(True)
@@ -473,6 +480,89 @@
             cnn1.Close()
         End Try
 
+        'Consultar si el producto es caduca----
+
+        Dim caduca As Integer = 0
+        Dim tlotes As Double = 0
+        Dim fisica As Double = 0
+        fisica = txtsistema.Text
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT Caduca FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                caduca = rd1(0).ToString
+                If caduca = 1 Then
+                    If grdcaptura.Rows.Count > 0 Then
+
+                        For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+                            Dim canti As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                            tlotes = tlotes + canti
+                        Next
+
+                        If tlotes < fisica Then
+                            MsgBox("La suma de los lotes es menor a la existencia del producto, verifica la información", vbInformation + vbOKOnly, titulocentral)
+                            txtlote.Focus.Equals(True)
+                        Else
+                            AJUSTAINVENTARIO()
+                            MessageAgreagarlotes()
+
+                            txtfisica.Text = ""
+                            txtdiferencia.Text = ""
+                            cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
+                            txtlote.Focus.Equals(True)
+                            My.Application.DoEvents()
+                        End If
+
+                    Else
+                            AJUSTAINVENTARIO()
+                        MessageBoxTimer()
+                        txtfisica.Text = ""
+                        txtdiferencia.Text = ""
+                        cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
+                        Exit Sub
+                    End If
+                Else
+                    AJUSTAINVENTARIO()
+                    btnlimpia_lote.PerformClick()
+                End If
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+
+
+
+    End Sub
+
+    Sub MessageAgreagarlotes()
+
+        Dim AckTime As Integer, InfoBox As Object
+        InfoBox = CreateObject("WScript.Shell")
+        AckTime = 1
+        Select Case InfoBox.Popup("Necesitas agregar los lotes y caducidades del producto faltantes", AckTime, titulocentral, 0)
+            Case 1, -1
+
+                Exit Sub
+        End Select
+    End Sub
+
+    Sub MessageBoxTimer()
+
+        Dim AckTime As Integer, InfoBox As Object
+        InfoBox = CreateObject("WScript.Shell")
+        AckTime = 1
+        Select Case InfoBox.Popup("Necesitas agregar los lotes y caducidades del producto", AckTime, titulocentral, 0)
+            Case 1, -1
+
+                Exit Sub
+        End Select
+    End Sub
+
+    Public Sub AJUSTAINVENTARIO()
         If MsgBox("¿Deseas guardar este ajuste de inventario?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Dim MyMCD As Double = 0
             Dim MyMult2 As Double = 0
@@ -531,21 +621,25 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "update Productos set Cargado=0, CargadoInv=0, Existencia=" & existemmmmmmmcias & " where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
-                cmd1.ExecuteNonQuery()
+                If cmd1.ExecuteNonQuery() Then
+                    MsgBox("Inventario actualizado correctamente", vbInformation + vbOKOnly, titulocentral)
+                End If
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
                     "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & cbocodigo.Text & "','" & cbodesc.Text & "','Ajuste de inventario'," & CDbl(txtsistema.Text) & "," & CDbl(txtdiferencia.Text) & "," & CDbl(txtfisica.Text) & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','','','','','','')"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
-                btnNuevo.PerformClick()
-                btnlimpia_lote.PerformClick()
+
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
             End Try
-        End If        
+        End If
+
     End Sub
+
+
 
     Private Sub txtlote_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtlote.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -573,42 +667,131 @@
     Private Sub txtcantidad_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcantidad.KeyPress
         If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = "" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            Dim totproductos As Double = 0
+            Dim sumalotes As Double = 0
+            Dim existencias As Double = 0
+
+            txtid.Text = CDbl(txtid.Text) + CDbl(txtcantidad.Text)
+            sumalotes = txtid.Text
+            existencias = txtsistema.Text
+            If sumalotes > existencias Then
+                MsgBox("La suma de los lotes es mayor a la existencia del producto,verifica la información", vbInformation + vbOKOnly, titulocentral)
+                txtid.Text = CDbl(txtid.Text) - CDbl(txtcantidad.Text)
+            Else
+                grdcaptura.Rows.Add(
+                               txtid.Text,
+                               txtlote.Text,
+                               FormatDateTime(CDate(dtpcaduca.Value), DateFormat.ShortDate),
+                               txtcantidad.Text
+                               )
+            End If
+
+            txtlote.Text = ""
+            dtpcaduca.Value = Date.Now
+            txtcantidad.Text = "0"
             btnguarda_lote.Focus().Equals(True)
+
         End If
     End Sub
 
     Private Sub btnguarda_lote_Click(sender As System.Object, e As System.EventArgs) Handles btnguarda_lote.Click
-        If (GuardaLote()) Then
-            MsgBox("Operación concluida.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-            btnlimpia_lote.PerformClick()
-            Try
-                cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                Do While rd1.Read
-                    If rd1.HasRows Then
-                        If rd1.HasRows Then
-                            grdcaptura.Rows.Add(
-                                rd1("Id").ToString,
-                                rd1("Lote").ToString,
-                                FormatDateTime(CDate(rd1("Caducidad").ToString), DateFormat.ShortDate),
-                                rd1("Cantidad").ToString
-                                )
+        Try
+            Dim totallotes As Double = 0
+            Dim existencia As Double = 0
+            Dim cant_lotes As Double = 0
+
+            Dim existenciasistema As Double = txtsistema.Text
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+
+            For LUFFY As Integer = 0 To grdcaptura.Rows.Count - 1
+                Dim canti As Double = grdcaptura.Rows(LUFFY).Cells(3).Value.ToString
+
+                totallotes = totallotes + canti
+            Next
+
+            If totallotes > existenciasistema Then
+                MsgBox("La suma de los lotes es mayor a la existencia registrada", vbInformation + vbOKOnly, titulocentral)
+                Exit Sub
+            ElseIf totallotes < existenciasistema Then
+                MsgBox("La suma de los lotes es menor a la existencia registrada", vbInformation + vbOKOnly, titulocentral)
+                Exit Sub
+            Else
+
+
+                For deku As Integer = 0 To grdcaptura.Rows.Count - 1
+
+
+                    Dim lote As String = grdcaptura.Rows(deku).Cells(1).Value.ToString
+                    Dim caducidad As Date = grdcaptura.Rows(deku).Cells(2).Value.ToString
+                    Dim cantidadl As Double = grdcaptura.Rows(deku).Cells(3).Value.ToString
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Lote FROM lotecaducidad WHERE Lote='" & lote & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            'Actualiza un lote
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "update LoteCaducidad set Cantidad=" & CDbl(cantidadl) & ", Caducidad='" & Format(caducidad, "yyyy-MM-dd") & "' where Lote='" & lote & "' AND Codigo='" & cbocodigo.Text & "'"
+                            cmd1.ExecuteNonQuery()
                         End If
+                    Else
+                        'Inserta un nuevo lote
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & cbocodigo.Text & "','" & lote & "','" & Format(caducidad, "yyyy-MM-dd") & "'," & CDbl(cantidadl) & ")"
+                        cmd1.ExecuteNonQuery()
                     End If
-                Loop
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-        Else
-            MsgBox("No se pudo guardar el registro del lote debido a un error.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-            Exit Sub
-        End If
+                    rd2.Close()
+                Next
+                MsgBox("Datos de los lores registrados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                txtcantidad.Text = "0"
+                txtlote.Text = ""
+                grdcaptura.Rows.Clear()
+                btnNuevo.PerformClick()
+            End If
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+        'If (GuardaLote()) Then
+        '    MsgBox("Operación concluida.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+
+        '    Try
+        '        cnn1.Close() : cnn1.Open()
+
+        '        cmd1 = cnn1.CreateCommand
+        '        cmd1.CommandText =
+        '            "select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+        '        rd1 = cmd1.ExecuteReader
+        '        Do While rd1.Read
+        '            If rd1.HasRows Then
+        '                If rd1.HasRows Then
+        '                    grdcaptura.Rows.Add(
+        '                        rd1("Id").ToString,
+        '                        rd1("Lote").ToString,
+        '                        FormatDateTime(CDate(rd1("Caducidad").ToString), DateFormat.ShortDate),
+        '                        rd1("Cantidad").ToString
+        '                        )
+        '                End If
+        '            End If
+        '        Loop
+        '        rd1.Close() : cnn1.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString)
+        '        cnn1.Close()
+        '    End Try
+        'Else
+        '    MsgBox("No se pudo guardar el registro del lote debido a un error.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '    Exit Sub
+        'End If
     End Sub
 
     Private Function GuardaLote() As Boolean
@@ -620,6 +803,7 @@
         For UI As Integer = 0 To grdcaptura.Rows.Count - 1
             cantidad_lotes = cantidad_lotes + CDbl(grdcaptura.Rows(UI).Cells(3).Value.ToString())
         Next
+
         If (cantidad_lotes + CDbl(txtcantidad.Text)) > CDbl(txtsistema.Text) Then
             MsgBox("No cuentas con existencias suficientes para registrar esta cantidad en el lote.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             txtcantidad.Focus().Equals(True)
@@ -780,4 +964,6 @@
             cnn1.Close()
         End Try
     End Sub
+
+
 End Class
