@@ -494,6 +494,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\03 Catálogos\frmDepGrup.Designer.vb">
+      <DependentUpon>frmDepGrup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\03 Catálogos\frmDepGrup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\05 Productos y servicios\CompararPrecios\frmComparador.Designer.vb">
       <DependentUpon>frmComparador.vb</DependentUpon>
     </Compile>
@@ -2503,6 +2509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmOrdenes.resx">
       <DependentUpon>frmOrdenes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\03 Catálogos\frmDepGrup.resx">
+      <DependentUpon>frmDepGrup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\CompararPrecios\frmComparador.resx">
       <DependentUpon>frmComparador.vb</DependentUpon>

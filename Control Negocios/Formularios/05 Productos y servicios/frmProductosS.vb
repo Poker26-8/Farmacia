@@ -2030,4 +2030,68 @@ Public Class frmProductosS
             Excel_Grid_SQLG(DataGridView1)
         End If
     End Sub
+
+    Private Sub cchkCaducidad_CheckedChanged(sender As Object, e As EventArgs) Handles cchkCaducidad.CheckedChanged
+        If cchkCaducidad.Checked = False Then
+            Try
+                Dim cad As Integer = 0
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select Caduca from Productos where Codigo='" & cboCodigo.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cad = rd1(0).ToString
+                    Else
+                        cad = 0
+                    End If
+                Else
+
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+                If cad = 1 Then
+                    cnn1.Close()
+                    cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "Select Lote from LoteCaducidad where Codigo='" & cboCodigo.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MsgBox("Necesitas terminar el producto con lotes registrados", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                            cchkCaducidad.Checked = True
+                            Exit Sub
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        frmDepGrup.Close()
+        My.Application.DoEvents()
+        frmDepGrup.Show()
+        frmDepGrup.BringToFront()
+        My.Application.DoEvents()
+        frmDepGrup.lblTipo.Text = "Catalogo de Departamentos"
+        My.Application.DoEvents()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        frmDepGrup.Close()
+        My.Application.DoEvents()
+        frmDepGrup.Show()
+        frmDepGrup.BringToFront()
+        My.Application.DoEvents()
+        frmDepGrup.lblTipo.Text = "Catalogo de Grupos"
+        My.Application.DoEvents()
+    End Sub
 End Class
