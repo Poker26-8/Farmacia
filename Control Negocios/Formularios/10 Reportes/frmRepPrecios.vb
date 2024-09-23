@@ -1,4 +1,6 @@
-﻿Public Class frmRepPrecios
+﻿Imports ClosedXML.Excel
+
+Public Class frmRepPrecios
     Private Sub cbonombre_DropDown(sender As Object, e As EventArgs) Handles cbonombre.DropDown
         Dim mc1 As Date = mCalendar1.SelectionStart.ToShortDateString
         Dim mc2 As Date = mCalendar2.SelectionStart.ToShortDateString
@@ -121,5 +123,63 @@
 
     Private Sub frmRepPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub btnexportar_Click(sender As Object, e As EventArgs) Handles btnexportar.Click
+        ExportarDataGridViewAExcel(grdcaptura)
+    End Sub
+
+    Public Sub ExportarDataGridViewAExcel(dgv As DataGridView)
+        If grdcaptura.Rows.Count = 0 Then MsgBox("Genera el reporte para poder exportar los datos a Excel.", vbInformation + vbOKOnly, titulocentral) : Exit Sub
+        If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+            Dim voy As Integer = 0
+            ' Crea un nuevo libro de trabajo de Excel
+            Using workbook As New XLWorkbook()
+
+                ' Añade una nueva hoja de trabajo
+                Dim worksheet As IXLWorksheet = workbook.Worksheets.Add("Datos")
+
+                ' Escribe los encabezados de columna
+                For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                    Dim headerCell As IXLCell = worksheet.Cell(1, colIndex + 1)
+                    worksheet.Cell(1, colIndex + 1).Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Style.Font.Bold = True  ' Aplica negrita a los encabezados
+                Next
+
+
+                For rowIndex As Integer = 0 To dgv.Rows.Count - 1
+                    For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                        Dim cellValue As Object = dgv.Rows(rowIndex).Cells(colIndex).Value
+                        Dim cellValueString As String = If(cellValue Is Nothing, String.Empty, cellValue.ToString())
+                        worksheet.Cell(rowIndex + 2, colIndex + 1).Value = cellValueString
+                        Dim cell As IXLCell = worksheet.Cell(rowIndex + 2, colIndex + 1)
+                        cell.Value = cellValueString
+                        cell.Style.NumberFormat.Format = "@"
+                    Next
+                    voy = voy + 1
+                    My.Application.DoEvents()
+                Next
+
+                worksheet.Columns().AdjustToContents()
+                ' Usa MemoryStream para guardar el archivo en memoria y abrirlo
+                Using memoryStream As New System.IO.MemoryStream()
+                    ' Guarda el libro de trabajo en el MemoryStream
+                    workbook.SaveAs(memoryStream)
+
+                    ' Guarda el MemoryStream en un archivo temporal para abrirlo
+                    Dim tempFilePath As String = IO.Path.GetTempPath() & Guid.NewGuid().ToString() & ".xlsx"
+                    System.IO.File.WriteAllBytes(tempFilePath, memoryStream.ToArray())
+
+                    ' Abre el archivo temporal en Excel
+                    Process.Start(tempFilePath)
+                End Using
+
+                'workbook.SaveAs(filePath)
+            End Using
+            MessageBox.Show("Datos exportados exitosamente")
+
+        End If
     End Sub
 End Class

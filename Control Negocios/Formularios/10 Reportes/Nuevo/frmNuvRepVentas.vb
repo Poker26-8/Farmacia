@@ -1,7 +1,7 @@
 ﻿Imports System.Security.Cryptography
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
-
+Imports ClosedXML.Excel
 Public Class frmNuvRepVentas
     Dim idabono As Integer = 0
     Dim Partes As Boolean = False

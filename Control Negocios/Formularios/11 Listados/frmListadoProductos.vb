@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Office.Interop
+﻿Imports ClosedXML.Excel
+Imports Microsoft.Office.Interop
 
 Public Class frmListadoProductos
 
@@ -551,54 +552,109 @@ Public Class frmListadoProductos
     End Sub
 
     Private Sub btnexportar_Click(sender As System.Object, e As System.EventArgs) Handles btnexportar.Click
+        ExportarDataGridViewAExcel(grdcaptura)
+        'If grdcaptura.Rows.Count = 0 Then MsgBox("Genera el reporte para poder exportar los datos a Excel.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
+        'If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    Dim exApp As New Excel.Application
+        '    Dim exBook As Excel.Workbook
+        '    Dim exSheet As Excel.Worksheet
+
+
+        '    bardatos.Minimum = 0
+        '    bardatos.Value = 0
+        '    Try
+        '        exBook = exApp.Workbooks.Add
+        '        exSheet = exBook.Worksheets.Application.ActiveSheet
+
+        '        exSheet.Columns("A").NumberFormat = "@"
+        '        exSheet.Columns("B").NumberFormat = "@"
+
+
+
+        '        Dim NCol As Integer = grdcaptura.ColumnCount
+        '        Dim NRow As Integer = grdcaptura.RowCount
+
+        '        For i As Integer = 1 To NCol
+        '            exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+        '        Next
+
+        '        For Fila As Integer = 0 To NRow - 1
+        '            For Col As Integer = 0 To NCol - 1
+        '                exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value
+        '            Next
+
+        '            bardatos.Value = bardatos.Value + 1
+        '            My.Application.DoEvents()
+        '        Next
+
+        '        exSheet.Rows.Item(1).Font.Bold = 1
+        '        exSheet.Rows.Item(1).HorizontalAlignment = 3
+        '        exSheet.Columns.AutoFit()
+
+        '        exApp.Application.Visible = True
+        '        exSheet = Nothing
+        '        exBook = Nothing
+        '        exApp = Nothing
+
+        '        MsgBox("Datos exportados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString)
+        '    End Try
+        'End If
+    End Sub
+
+    Public Sub ExportarDataGridViewAExcel(dgv As DataGridView)
         If grdcaptura.Rows.Count = 0 Then MsgBox("Genera el reporte para poder exportar los datos a Excel.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
-        If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-            Dim exApp As New Excel.Application
-            Dim exBook As Excel.Workbook
-            Dim exSheet As Excel.Worksheet
+        If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, titulocentral) = vbOK Then
 
+            Dim voy As Integer = 0
+            ' Crea un nuevo libro de trabajo de Excel
+            Using workbook As New XLWorkbook()
 
-            bardatos.Minimum = 0
-            bardatos.Value = 0
-            Try
-                exBook = exApp.Workbooks.Add
-                exSheet = exBook.Worksheets.Application.ActiveSheet
+                ' Añade una nueva hoja de trabajo
+                Dim worksheet As IXLWorksheet = workbook.Worksheets.Add("Datos")
 
-                exSheet.Columns("A").NumberFormat = "@"
-                exSheet.Columns("B").NumberFormat = "@"
-
-
-
-                Dim NCol As Integer = grdcaptura.ColumnCount
-                Dim NRow As Integer = grdcaptura.RowCount
-
-                For i As Integer = 1 To NCol
-                    exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                ' Escribe los encabezados de columna
+                For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                    Dim headerCell As IXLCell = worksheet.Cell(1, colIndex + 1)
+                    worksheet.Cell(1, colIndex + 1).Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Style.Font.Bold = True  ' Aplica negrita a los encabezados
                 Next
 
-                For Fila As Integer = 0 To NRow - 1
-                    For Col As Integer = 0 To NCol - 1
-                        exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value
-                    Next
 
-                    bardatos.Value = bardatos.Value + 1
+                For rowIndex As Integer = 0 To dgv.Rows.Count - 1
+                    For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                        Dim cellValue As Object = dgv.Rows(rowIndex).Cells(colIndex).Value
+                        Dim cellValueString As String = If(cellValue Is Nothing, String.Empty, cellValue.ToString())
+                        worksheet.Cell(rowIndex + 2, colIndex + 1).Value = cellValueString
+                        Dim cell As IXLCell = worksheet.Cell(rowIndex + 2, colIndex + 1)
+                        cell.Value = cellValueString
+                        cell.Style.NumberFormat.Format = "@"
+                    Next
+                    voy = voy + 1
                     My.Application.DoEvents()
                 Next
 
-                exSheet.Rows.Item(1).Font.Bold = 1
-                exSheet.Rows.Item(1).HorizontalAlignment = 3
-                exSheet.Columns.AutoFit()
+                worksheet.Columns().AdjustToContents()
+                ' Usa MemoryStream para guardar el archivo en memoria y abrirlo
+                Using memoryStream As New System.IO.MemoryStream()
+                    ' Guarda el libro de trabajo en el MemoryStream
+                    workbook.SaveAs(memoryStream)
 
-                exApp.Application.Visible = True
-                exSheet = Nothing
-                exBook = Nothing
-                exApp = Nothing
+                    ' Guarda el MemoryStream en un archivo temporal para abrirlo
+                    Dim tempFilePath As String = IO.Path.GetTempPath() & Guid.NewGuid().ToString() & ".xlsx"
+                    System.IO.File.WriteAllBytes(tempFilePath, memoryStream.ToArray())
 
-                MsgBox("Datos exportados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    ' Abre el archivo temporal en Excel
+                    Process.Start(tempFilePath)
+                End Using
 
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-            End Try
+                'workbook.SaveAs(filePath)
+            End Using
+            MessageBox.Show("Datos exportados exitosamente")
+
         End If
     End Sub
 
