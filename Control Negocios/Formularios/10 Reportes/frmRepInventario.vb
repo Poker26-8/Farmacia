@@ -2553,8 +2553,7 @@ quepaso_wey:
             Using workbook As New XLWorkbook()
 
                 ' Añade una nueva hoja de trabajo
-                Dim worksheet As IXLWorksheet =
-            workbook.Worksheets.Add("Datos")
+                Dim worksheet As IXLWorksheet = workbook.Worksheets.Add("Datos")
 
                 ' Escribe los encabezados de columna
                 Dim columnasExportar As Integer() = {0, 1, 2, 4} ' Columnas a exportar
@@ -2564,7 +2563,6 @@ quepaso_wey:
                     headerCell.Value = dgv.Columns(colIndex).HeaderText
                     headerCell.Style.Font.Bold = True ' Aplica negrita a los encabezados
                 Next
-
 
                 ' Escribe los datos de las columnas que quieres exportar
                 For rowIndex As Integer = 0 To dgv.Rows.Count - 1
