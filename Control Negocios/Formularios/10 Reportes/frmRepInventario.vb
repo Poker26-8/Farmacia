@@ -2557,22 +2557,24 @@ quepaso_wey:
             workbook.Worksheets.Add("Datos")
 
                 ' Escribe los encabezados de columna
-                For colIndex As Integer = 0 To dgv.Columns.Count - 1
-                    Dim headerCell As IXLCell = worksheet.Cell(1, colIndex + 1)
-                    worksheet.Cell(1, colIndex + 1).Value = dgv.Columns(colIndex).HeaderText
+                Dim columnasExportar As Integer() = {0, 1, 2, 4} ' Columnas a exportar
+                For i As Integer = 0 To columnasExportar.Length - 1
+                    Dim colIndex As Integer = columnasExportar(i)
+                    Dim headerCell As IXLCell = worksheet.Cell(1, i + 1)
                     headerCell.Value = dgv.Columns(colIndex).HeaderText
-                    headerCell.Style.Font.Bold = True  ' Aplica negrita a los encabezados
+                    headerCell.Style.Font.Bold = True ' Aplica negrita a los encabezados
                 Next
 
 
+                ' Escribe los datos de las columnas que quieres exportar
                 For rowIndex As Integer = 0 To dgv.Rows.Count - 1
-                    For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                    For i As Integer = 0 To columnasExportar.Length - 1
+                        Dim colIndex As Integer = columnasExportar(i)
                         Dim cellValue As Object = dgv.Rows(rowIndex).Cells(colIndex).Value
                         Dim cellValueString As String = If(cellValue Is Nothing, String.Empty, cellValue.ToString())
-                        worksheet.Cell(rowIndex + 2, colIndex + 1).Value = cellValueString
-                        Dim cell As IXLCell = worksheet.Cell(rowIndex + 2, colIndex + 1)
+                        Dim cell As IXLCell = worksheet.Cell(rowIndex + 2, i + 1)
                         cell.Value = cellValueString
-                        cell.Style.NumberFormat.Format = "@"
+                        cell.Style.NumberFormat.Format = "@" ' Formato de texto
                     Next
                     voy = voy + 1
                     My.Application.DoEvents()
