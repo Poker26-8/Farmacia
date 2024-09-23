@@ -2058,7 +2058,7 @@
                                               `Id` int(11) NOT NULL,
                                               `Codigo` varchar(50) NOT NULL DEFAULT '',
                                               `Lote` varchar(80) NOT NULL DEFAULT '',
-                                              `Caducidad` date NOT NULL,
+                                              `Caducidad` varchar(50) NOT NULL DEFAULT '',
                                               `Cantidad` float NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
