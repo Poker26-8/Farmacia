@@ -1,6 +1,7 @@
-﻿Imports Microsoft.Office.Interop.Excel
+﻿
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+Imports ClosedXML.Excel
 Public Class frmRepInventario
 
     Dim Libreria As Boolean = False
@@ -972,15 +973,15 @@ Public Class frmRepInventario
                     Dim diferencia As Double = 0
 
                     cnn3.Close() : cnn3.Open()
-                            cmd3 = cnn3.CreateCommand
+                    cmd3 = cnn3.CreateCommand
                     cmd3.CommandText = "SELECT SUM(Cantidad) FROM pedidosvendet WHERE Codigo='" & codigo & "' GROUP BY Codigo"
                     rd3 = cmd3.ExecuteReader
-                            If rd3.HasRows Then
-                                If rd3.Read Then
-                                    sumapedidos = IIf(rd3(0).ToString = "", 0, rd3(0).ToString)
-                                End If
-                            Else
-                                sumapedidos = "0"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            sumapedidos = IIf(rd3(0).ToString = "", 0, rd3(0).ToString)
+                        End If
+                    Else
+                        sumapedidos = "0"
                             End If
                             rd3.Close()
                     cnn3.Close()
@@ -2543,117 +2544,236 @@ quepaso_wey:
 
     Private Sub btnImpExis_Click(sender As Object, e As EventArgs) Handles btnImpExis.Click
 
-        If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-            Excel_Grid_SQL(DataGridView1)
+        'If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    Excel_Grid_SQL(DataGridView1)
+        'End If
+
+        CargarDatosDesdeExcel()
+
+    End Sub
+
+    ' Función para cargar datos de Excel a un DataGridView
+    Private Sub CargarDatosDesdeExcel()
+
+        ' Crear el OpenFileDialog para seleccionar el archivo Excel
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "Archivos de Excel|*.xlsx"
+        openFileDialog.Title = "Seleccionar archivo Excel"
+
+        ' Si el usuario selecciona un archivo
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+
+            ' Ruta del archivo Excel seleccionado
+            Dim filePath As String = openFileDialog.FileName
+
+            ' Crear un DataTable para almacenar los datos
+            Dim dt As New DataTable()
+
+            ' Abrir el archivo de Excel usando ClosedXML
+            Using workbook As New XLWorkbook(filePath)
+                ' Asumimos que los datos están en la primera hoja
+                Dim worksheet As IXLWorksheet = workbook.Worksheet(1)
+
+                ' Obtener la primera fila como encabezados y añadir columnas al DataTable
+                Dim firstRow As IXLRow = worksheet.Row(1)
+                For Each cell As IXLCell In firstRow.CellsUsed()
+                    dt.Columns.Add(cell.Value.ToString())
+                Next
+
+                ' Recorrer las filas restantes y añadirlas al DataTable
+                For rowIndex As Integer = 2 To worksheet.RowsUsed().Count()
+                    Dim row As DataRow = dt.NewRow()
+                    Dim currentRow As IXLRow = worksheet.Row(rowIndex)
+
+                    For colIndex As Integer = 1 To dt.Columns.Count
+                        row(colIndex - 1) = currentRow.Cell(colIndex).GetValue(Of String)()
+                    Next
+
+                    dt.Rows.Add(row)
+                Next
+            End Using
+
+            ' Asignar el DataTable al DataGridView para mostrar los datos
+            DataGridView1.DataSource = dt
+
+            Try
+                Dim NOMBRE, CODIGO As String
+                Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
+                Dim conteo As Integer = 0
+
+                cnn1.Close() : cnn1.Open()
+                Dim contadorconexion As Integer = 0
+
+                For X As Integer = 0 To DataGridView1.Rows.Count - 1
+                    '     For Each row As DataGridViewRow In DataGridView1.Rows
+                    'If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
+
+                    contadorconexion += 1
+
+                    CODIGO = DataGridView1.Rows.Item(X).Cells(0).Value 'If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
+                    NOMBRE = DataGridView1.Rows.Item(X).Cells(1).Value 'row.Cells(1).Value?.ToString()
+                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(2).Value 'If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
+
+                    'If String.IsNullOrEmpty(CODIGO) Then Continue For
+
+                    If contadorconexion > 499 Then
+                        cnn1.Close() : cnn1.Open()
+                        contadorconexion = 1
+                    End If
+
+                    If (Comprueba(CODIGO)) Then
+                        If cnn1.State = ConnectionState.Closed Then cnn1.Open()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT Existencia,Multiplo,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
+                        cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+
+                                existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
+                                mcd = If(IsDBNull(rd1("Multiplo")), 1, CDbl(rd1("Multiplo")))
+                                MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
+
+
+                                diferencia = existenciacardex - EXISTENCIA
+                                existencia_final = EXISTENCIA * mcd
+
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
+                                cmd2.ExecuteNonQuery()
+
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
+                                cmd2.ExecuteNonQuery()
+                                cnn2.Close()
+
+                            End If
+                        End If
+                        rd1.Close()
+                    Else
+                        conteo += 1
+                        Continue For
+                    End If
+                    conteo += 1
+                Next
+                cnn1.Close()
+                MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+
+
         End If
 
-
     End Sub
 
-    Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)
+    'Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)
 
-        Dim con As OleDb.OleDbConnection
-        Dim dt As New System.Data.DataTable
-        Dim ds As New DataSet
-        Dim da As OleDb.OleDbDataAdapter
-        Dim cuadro_dialogo As New OpenFileDialog
-        Dim ruta As String = ""
-        Dim sheet As String = "hoja1"
+    '    Dim con As OleDb.OleDbConnection
+    '    Dim dt As New System.Data.DataTable
+    '    Dim ds As New DataSet
+    '    Dim da As OleDb.OleDbDataAdapter
+    '    Dim cuadro_dialogo As New OpenFileDialog
+    '    Dim ruta As String = ""
+    '    Dim sheet As String = "hoja1"
 
-        With cuadro_dialogo
-            .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
-            .Title = "Selecciona el archivo a importar"
-            .Multiselect = False
-            .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
-            .ShowDialog()
-        End With
+    '    With cuadro_dialogo
+    '        .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
+    '        .Title = "Selecciona el archivo a importar"
+    '        .Multiselect = False
+    '        .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
+    '        .ShowDialog()
+    '    End With
 
-        Try
-            If cuadro_dialogo.FileName.ToString() <> "" Then
-                ruta = cuadro_dialogo.FileName.ToString()
-                con = New OleDb.OleDbConnection(
-                    "Provider=Microsoft.ACE.OLEDB.12.0;" &
-                    " Data Source='" & ruta & "'; " &
-                    "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
+    '    Try
+    '        If cuadro_dialogo.FileName.ToString() <> "" Then
+    '            ruta = cuadro_dialogo.FileName.ToString()
+    '            con = New OleDb.OleDbConnection(
+    '                "Provider=Microsoft.ACE.OLEDB.12.0;" &
+    '                " Data Source='" & ruta & "'; " &
+    '                "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
 
-                da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
+    '            da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
 
-                con.Open()
-                da.Fill(ds, "MyData")
-                dt = ds.Tables("MyData")
-                tabla.DataSource = ds
-                tabla.DataMember = "MyData"
-                con.Close()
-            End If
+    '            con.Open()
+    '            da.Fill(ds, "MyData")
+    '            dt = ds.Tables("MyData")
+    '            tabla.DataSource = ds
+    '            tabla.DataMember = "MyData"
+    '            con.Close()
+    '        End If
 
-            Dim NOMBRE, CODIGO As String
-            Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
-            Dim conteo As Integer = 0
+    '        Dim NOMBRE, CODIGO As String
+    '        Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
+    '        Dim conteo As Integer = 0
 
-            cnn1.Close() : cnn1.Open()
-            Dim contadorconexion As Integer = 0
+    '        cnn1.Close() : cnn1.Open()
+    '        Dim contadorconexion As Integer = 0
 
-            For Each row As DataGridViewRow In DataGridView1.Rows
-                If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
+    '        For Each row As DataGridViewRow In DataGridView1.Rows
+    '            If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
 
-                contadorconexion += 1
+    '            contadorconexion += 1
 
-                CODIGO = If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
-                NOMBRE = row.Cells(1).Value?.ToString()
-                EXISTENCIA = If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
+    '            CODIGO = If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
+    '            NOMBRE = row.Cells(1).Value?.ToString()
+    '            EXISTENCIA = If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
 
-                If String.IsNullOrEmpty(CODIGO) Then Continue For
+    '            If String.IsNullOrEmpty(CODIGO) Then Continue For
 
-                If contadorconexion > 499 Then
-                    cnn1.Close() : cnn1.Open()
-                    contadorconexion = 1
-                End If
+    '            If contadorconexion > 499 Then
+    '                cnn1.Close() : cnn1.Open()
+    '                contadorconexion = 1
+    '            End If
 
-                If (Comprueba(CODIGO)) Then
-                    If cnn1.State = ConnectionState.Closed Then cnn1.Open()
+    '            If (Comprueba(CODIGO)) Then
+    '                If cnn1.State = ConnectionState.Closed Then cnn1.Open()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT Existencia,Multiplo,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
-                    cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
+    '                cmd1 = cnn1.CreateCommand
+    '                cmd1.CommandText = "SELECT Existencia,Multiplo,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
+    '                cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
+    '                rd1 = cmd1.ExecuteReader
+    '                If rd1.HasRows Then
+    '                    If rd1.Read Then
 
-                            existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
-                            mcd = If(IsDBNull(rd1("Multiplo")), 1, CDbl(rd1("Multiplo")))
-                            MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
+    '                        existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
+    '                        mcd = If(IsDBNull(rd1("Multiplo")), 1, CDbl(rd1("Multiplo")))
+    '                        MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
 
 
-                            diferencia = existenciacardex - EXISTENCIA
-                            existencia_final = EXISTENCIA * mcd
+    '                        diferencia = existenciacardex - EXISTENCIA
+    '                        existencia_final = EXISTENCIA * mcd
 
-                            cnn2.Close() : cnn2.Open()
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
-                            cmd2.ExecuteNonQuery()
+    '                        cnn2.Close() : cnn2.Open()
+    '                        cmd2 = cnn2.CreateCommand
+    '                        cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
+    '                        cmd2.ExecuteNonQuery()
 
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
-                            cmd2.ExecuteNonQuery()
-                            cnn2.Close()
+    '                        cmd2 = cnn2.CreateCommand
+    '                        cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
+    '                        cmd2.ExecuteNonQuery()
+    '                        cnn2.Close()
 
-                        End If
-                    End If
-                    rd1.Close()
-                Else
-                    conteo += 1
-                    Continue For
-                End If
-                conteo += 1
-            Next
-            cnn1.Close()
-            MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+    '                    End If
+    '                End If
+    '                rd1.Close()
+    '            Else
+    '                conteo += 1
+    '                Continue For
+    '            End If
+    '            conteo += 1
+    '        Next
+    '        cnn1.Close()
+    '        MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.ToString())
+    '        cnn1.Close()
+    '    End Try
 
-    End Sub
+    'End Sub
 
     Private Function Comprueba(ByVal codigo As String) As Boolean
         Try
