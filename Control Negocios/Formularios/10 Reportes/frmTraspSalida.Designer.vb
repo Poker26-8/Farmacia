@@ -59,6 +59,11 @@ Partial Class frmTraspSalida
         Me.cbodesc = New System.Windows.Forms.ComboBox()
         Me.cbocodigo = New System.Windows.Forms.TextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.txtcoment = New System.Windows.Forms.RichTextBox()
+        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,11 +71,7 @@ Partial Class frmTraspSalida
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtcoment = New System.Windows.Forms.RichTextBox()
-        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -237,9 +238,9 @@ Partial Class frmTraspSalida
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(8, 51)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(108, 15)
+        Me.Label11.Size = New System.Drawing.Size(112, 15)
         Me.Label11.TabIndex = 306
-        Me.Label11.Text = "Bodega de destino:"
+        Me.Label11.Text = "Sucursal de destino:"
         '
         'Label8
         '
@@ -424,7 +425,7 @@ Partial Class frmTraspSalida
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
-        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(8, 138)
         Me.grdcaptura.Name = "grdcaptura"
@@ -432,6 +433,23 @@ Partial Class frmTraspSalida
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(788, 263)
         Me.grdcaptura.TabIndex = 291
+        '
+        'txtcoment
+        '
+        Me.txtcoment.BackColor = System.Drawing.Color.Pink
+        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
+        Me.txtcoment.Name = "txtcoment"
+        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
+        Me.txtcoment.TabIndex = 319
+        Me.txtcoment.Text = ""
+        Me.txtcoment.Visible = False
+        '
+        'pSalida80
+        '
+        '
+        'pSalida58
+        '
         '
         'Column1
         '
@@ -494,22 +512,12 @@ Partial Class frmTraspSalida
         Me.Column7.ReadOnly = True
         Me.Column7.Width = 65
         '
-        'txtcoment
+        'Column8
         '
-        Me.txtcoment.BackColor = System.Drawing.Color.Pink
-        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
-        Me.txtcoment.Name = "txtcoment"
-        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
-        Me.txtcoment.TabIndex = 319
-        Me.txtcoment.Text = ""
-        Me.txtcoment.Visible = False
-        '
-        'pSalida80
-        '
-        '
-        'pSalida58
-        '
+        Me.Column8.HeaderText = "Barras"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
         '
         'frmTraspSalida
         '
@@ -601,4 +609,5 @@ Partial Class frmTraspSalida
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class

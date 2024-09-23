@@ -4763,7 +4763,7 @@ kaka:
                 lotexd = rd7("Lote").ToString
                 Dim fechalote As Date = rd7("Caducidad").ToString
                 Dim f As String = ""
-                f = Format(fechalote, "yyyy-MM-dd")
+                f = Format(fechalote, "MM-yyyy")
 
                 My.Application.DoEvents()
                 DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "0", rd7("Cantidad").ToString)
@@ -4778,6 +4778,25 @@ kaka:
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
         Dim editap As Boolean = False
+        Dim cadxd As Integer = 0
+        Try
+            cnn1.Clone()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Caduca from Productos where Codigo='" & cbocodigo.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                cadxd = rd1(0).ToString
+            Else
+                cadxd = 0
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
         If Not IsNumeric(txtprecio.Text) Then txtprecio.Text = ""
         If cbocodigo.Text = "" Then MsgBox("Necesitas seleccionar un producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbodesc.Focus().Equals(True) : Exit Sub
 
@@ -4922,13 +4941,17 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.HasRows Then
-                                    cboLote.Focus().Equals(True)
-                                    gbLotes.Visible = True
-                                    txtcodlote.Text = cbocodigo.Text
-                                    txtnombrelote.Text = cbodesc.Text
-                                    TextBox1.Text = txtcantidad.Text
-                                    ConsultaLotes(cbocodigo.Text)
-                                    My.Application.DoEvents()
+                                    If cadxd = 1 Then
+                                        cboLote.Focus().Equals(True)
+                                        gbLotes.Visible = True
+                                        txtcodlote.Text = cbocodigo.Text
+                                        txtnombrelote.Text = cbodesc.Text
+                                        TextBox1.Text = txtcantidad.Text
+                                        ConsultaLotes(cbocodigo.Text)
+                                        My.Application.DoEvents()
+                                    Else
+                                        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                    End If
                                 Else
                                     rd1.Close() : cnn1.Close()
                                     rd2.Close() : cnn2.Close()
@@ -10439,7 +10462,7 @@ ecomoda:
                             cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
                             If lote <> "" Then
                                 e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "dd-MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
                                 e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
                                 Y += 15
                             End If

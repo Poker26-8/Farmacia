@@ -322,7 +322,9 @@ Public Class frmCompras
     End Sub
 
     Private Sub frmCompras_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        dtpxd.Format = DateTimePickerFormat.Custom
+        dtpxd.CustomFormat = "MM/yyyy"
+        dtpxd.ShowUpDown = True
         nLogo = DatosRecarga("LogoG")
         tLogo = DatosRecarga("TipoLogo")
         simbolo = DatosRecarga("Simbolo")
@@ -5985,6 +5987,7 @@ quepasowey:
                     For xd As Integer = 0 To DataGridView2.Rows.Count - 1
                         If codigo = DataGridView2.Rows(xd).Cells(0).Value.ToString Then
                             lote = DataGridView2.Rows(xd).Cells(1).Value.ToString
+                            caduc = DataGridView2.Rows(xd).Cells(2).Value.ToString
                             mycodd = DataGridView2.Rows(xd).Cells(0).Value.ToString
                             mycant2 = DataGridView2.Rows(xd).Cells(3).Value.ToString
                             cmd1 = cnn1.CreateCommand
@@ -6010,7 +6013,7 @@ quepasowey:
                             Else
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                                        "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & mycodd & "','" & lote & "','" & Format(CDate(caduc), "yyyy-MM-dd") & "'," & mycant2 & ")"
+                                        "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & mycodd & "','" & lote & "','" & Format(CDate(caduc), "yyyy-MM") & "'," & mycant2 & ")"
                                 cmd1.ExecuteNonQuery()
                             End If
                         End If
@@ -6257,7 +6260,7 @@ quepasowey:
             End If
             Dim fechaaa As Date = dtpxd.Value
             Dim f As String = ""
-            f = Format(fechaaa, "yyyy-MM-dd")
+            f = Format(fechaaa, "MM-yyyy")
 
             Dim totcompra As Double = txtcanttotal.Text
             Dim sumatoria As Double = 0

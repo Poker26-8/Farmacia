@@ -11,6 +11,7 @@ Public Class frmTraspSalida
 
     Private filenum As Integer
     Private recordLen As String
+    Dim barras As String = ""
     Private Sub frmTraspSalida_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Folio()
         cbo.Focus().Equals(True)
@@ -50,7 +51,7 @@ Public Class frmTraspSalida
                 passbdF = Trim(configF.passr)
                 sTargetdAutoFac = "server=" & ipserverF & ";uid=" & userbdF & ";password=" & passbdF & ";database=" & databaseF & ";persist security info=false;connect timeout=300"
 
-                Label1.Text = "AutoFact base: " & databaseF
+                'Label1.Text = "AutoFact base: " & databaseF
                 FileClose()
             Else
                 ipserverF = ""
@@ -246,7 +247,7 @@ Public Class frmTraspSalida
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Codigo,UVenta,Nombre,PrecioCompra from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
+                        "select Codigo,UVenta,Nombre,PrecioCompra,CodBarra from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -254,6 +255,7 @@ Public Class frmTraspSalida
                             txtunidad.Text = rd1("UVenta").ToString
                             cbodesc.Text = rd1("Nombre").ToString
                             txtprecio.Text = rd1("PrecioCompra").ToString
+                            barras = rd1("CodBarra").ToString
                         End If
                     End If
                     rd1.Close()
@@ -353,7 +355,7 @@ Public Class frmTraspSalida
             If txtprecio.Text = "" Then txtprecio.Focus() : Exit Sub
 
             txtprecio.Text = FormatNumber(txtprecio.Text, 2)
-            grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text)
+            grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
             cbocodigo.Text = ""
             cbodesc.Text = ""
             txtunidad.Text = ""
@@ -425,6 +427,7 @@ Public Class frmTraspSalida
         grdcaptura.Rows.Clear()
         btncopia.Enabled = False
         btnguardar.Enabled = True
+        barras = ""
         Folio()
     End Sub
 
@@ -891,10 +894,11 @@ Nota:
             Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
+            Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
 
 
-            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+            e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
             Y += 12.5
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
             e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)

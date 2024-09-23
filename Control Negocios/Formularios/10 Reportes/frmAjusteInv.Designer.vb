@@ -322,7 +322,7 @@ Partial Class frmAjusteInv
         '
         'dtpcaduca
         '
-        Me.dtpcaduca.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpcaduca.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpcaduca.Location = New System.Drawing.Point(265, 16)
         Me.dtpcaduca.Name = "dtpcaduca"
         Me.dtpcaduca.Size = New System.Drawing.Size(95, 23)

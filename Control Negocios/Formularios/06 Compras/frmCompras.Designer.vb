@@ -23,14 +23,14 @@ Partial Class frmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompras))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -233,8 +233,8 @@ Partial Class frmCompras
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -276,8 +276,8 @@ Partial Class frmCompras
         '
         'Column4
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.MinimumWidth = 8
         Me.Column4.Name = "Column4"
@@ -286,8 +286,8 @@ Partial Class frmCompras
         '
         'Column5
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column5.HeaderText = "Precio"
         Me.Column5.MinimumWidth = 8
         Me.Column5.Name = "Column5"
@@ -296,8 +296,8 @@ Partial Class frmCompras
         '
         'Column6
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column6.HeaderText = "Total"
         Me.Column6.MinimumWidth = 8
         Me.Column6.Name = "Column6"
@@ -306,8 +306,8 @@ Partial Class frmCompras
         '
         'Column7
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle12
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.MinimumWidth = 8
         Me.Column7.Name = "Column7"
@@ -353,13 +353,13 @@ Partial Class frmCompras
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UnicoToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(130, 36)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(106, 26)
         '
         'UnicoToolStripMenuItem
         '
         Me.UnicoToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.UnicoToolStripMenuItem.Name = "UnicoToolStripMenuItem"
-        Me.UnicoToolStripMenuItem.Size = New System.Drawing.Size(129, 32)
+        Me.UnicoToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
         Me.UnicoToolStripMenuItem.Text = "Unico"
         '
         'txtcodigo
@@ -368,7 +368,7 @@ Partial Class frmCompras
         Me.txtcodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcodigo.Location = New System.Drawing.Point(7, 157)
         Me.txtcodigo.Name = "txtcodigo"
-        Me.txtcodigo.Size = New System.Drawing.Size(51, 31)
+        Me.txtcodigo.Size = New System.Drawing.Size(51, 23)
         Me.txtcodigo.TabIndex = 6
         Me.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -379,7 +379,7 @@ Partial Class frmCompras
         Me.cbonombre.FormattingEnabled = True
         Me.cbonombre.Location = New System.Drawing.Point(57, 157)
         Me.cbonombre.Name = "cbonombre"
-        Me.cbonombre.Size = New System.Drawing.Size(433, 33)
+        Me.cbonombre.Size = New System.Drawing.Size(433, 23)
         Me.cbonombre.TabIndex = 7
         '
         'txtunidad
@@ -388,7 +388,7 @@ Partial Class frmCompras
         Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtunidad.Location = New System.Drawing.Point(489, 157)
         Me.txtunidad.Name = "txtunidad"
-        Me.txtunidad.Size = New System.Drawing.Size(49, 31)
+        Me.txtunidad.Size = New System.Drawing.Size(49, 23)
         Me.txtunidad.TabIndex = 8
         Me.txtunidad.Text = "PZA"
         Me.txtunidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -400,7 +400,7 @@ Partial Class frmCompras
         Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcantidad.Location = New System.Drawing.Point(537, 157)
         Me.txtcantidad.Name = "txtcantidad"
-        Me.txtcantidad.Size = New System.Drawing.Size(59, 31)
+        Me.txtcantidad.Size = New System.Drawing.Size(59, 23)
         Me.txtcantidad.TabIndex = 9
         '
         'Label3
@@ -436,7 +436,7 @@ Partial Class frmCompras
         Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtprecio.Location = New System.Drawing.Point(595, 157)
         Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(87, 31)
+        Me.txtprecio.Size = New System.Drawing.Size(87, 23)
         Me.txtprecio.TabIndex = 75
         Me.txtprecio.Text = "0.00"
         Me.txtprecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -447,7 +447,7 @@ Partial Class frmCompras
         Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotal.Location = New System.Drawing.Point(681, 157)
         Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(97, 31)
+        Me.txttotal.Size = New System.Drawing.Size(97, 23)
         Me.txttotal.TabIndex = 76
         Me.txttotal.Text = "0.00"
         Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -458,7 +458,7 @@ Partial Class frmCompras
         Me.txtexiste.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtexiste.Location = New System.Drawing.Point(777, 157)
         Me.txtexiste.Name = "txtexiste"
-        Me.txtexiste.Size = New System.Drawing.Size(66, 31)
+        Me.txtexiste.Size = New System.Drawing.Size(66, 23)
         Me.txtexiste.TabIndex = 77
         '
         'dtpcaducidad
@@ -467,7 +467,7 @@ Partial Class frmCompras
         Me.dtpcaducidad.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpcaducidad.Location = New System.Drawing.Point(748, 73)
         Me.dtpcaducidad.Name = "dtpcaducidad"
-        Me.dtpcaducidad.Size = New System.Drawing.Size(77, 31)
+        Me.dtpcaducidad.Size = New System.Drawing.Size(77, 23)
         Me.dtpcaducidad.TabIndex = 78
         Me.dtpcaducidad.Visible = False
         '
@@ -477,7 +477,7 @@ Partial Class frmCompras
         Me.txtlote.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtlote.Location = New System.Drawing.Point(824, 73)
         Me.txtlote.Name = "txtlote"
-        Me.txtlote.Size = New System.Drawing.Size(81, 31)
+        Me.txtlote.Size = New System.Drawing.Size(81, 23)
         Me.txtlote.TabIndex = 79
         Me.txtlote.Visible = False
         '
@@ -608,7 +608,7 @@ Partial Class frmCompras
         Me.lblpAnticipo.Enabled = False
         Me.lblpAnticipo.Location = New System.Drawing.Point(456, 72)
         Me.lblpAnticipo.Name = "lblpAnticipo"
-        Me.lblpAnticipo.Size = New System.Drawing.Size(82, 25)
+        Me.lblpAnticipo.Size = New System.Drawing.Size(55, 15)
         Me.lblpAnticipo.TabIndex = 159
         Me.lblpAnticipo.Text = "Anticipo:"
         '
@@ -618,7 +618,7 @@ Partial Class frmCompras
         Me.txtpAnticipo.Enabled = False
         Me.txtpAnticipo.Location = New System.Drawing.Point(519, 68)
         Me.txtpAnticipo.Name = "txtpAnticipo"
-        Me.txtpAnticipo.Size = New System.Drawing.Size(112, 31)
+        Me.txtpAnticipo.Size = New System.Drawing.Size(112, 23)
         Me.txtpAnticipo.TabIndex = 158
         Me.txtpAnticipo.Text = "0.00"
         Me.txtpAnticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -642,7 +642,7 @@ Partial Class frmCompras
         Me.cbopedido.FormattingEnabled = True
         Me.cbopedido.Location = New System.Drawing.Point(330, 42)
         Me.cbopedido.Name = "cbopedido"
-        Me.cbopedido.Size = New System.Drawing.Size(120, 33)
+        Me.cbopedido.Size = New System.Drawing.Size(120, 23)
         Me.cbopedido.TabIndex = 156
         '
         'Label31
@@ -650,7 +650,7 @@ Partial Class frmCompras
         Me.Label31.AutoSize = True
         Me.Label31.Location = New System.Drawing.Point(267, 46)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(71, 25)
+        Me.Label31.Size = New System.Drawing.Size(47, 15)
         Me.Label31.TabIndex = 155
         Me.Label31.Text = "Pedido:"
         '
@@ -660,7 +660,7 @@ Partial Class frmCompras
         Me.dtpfecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpfecha.Location = New System.Drawing.Point(330, 68)
         Me.dtpfecha.Name = "dtpfecha"
-        Me.dtpfecha.Size = New System.Drawing.Size(120, 31)
+        Me.dtpfecha.Size = New System.Drawing.Size(120, 23)
         Me.dtpfecha.TabIndex = 154
         '
         'txtvalor
@@ -670,7 +670,7 @@ Partial Class frmCompras
         Me.txtvalor.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtvalor.Location = New System.Drawing.Point(718, 68)
         Me.txtvalor.Name = "txtvalor"
-        Me.txtvalor.Size = New System.Drawing.Size(75, 31)
+        Me.txtvalor.Size = New System.Drawing.Size(75, 23)
         Me.txtvalor.TabIndex = 146
         Me.txtvalor.Text = "0.00"
         Me.txtvalor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -682,7 +682,7 @@ Partial Class frmCompras
         Me.cbomoneda.FormattingEnabled = True
         Me.cbomoneda.Location = New System.Drawing.Point(637, 68)
         Me.cbomoneda.Name = "cbomoneda"
-        Me.cbomoneda.Size = New System.Drawing.Size(75, 33)
+        Me.cbomoneda.Size = New System.Drawing.Size(75, 23)
         Me.cbomoneda.TabIndex = 145
         Me.cbomoneda.Text = "PESO"
         '
@@ -720,7 +720,7 @@ Partial Class frmCompras
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(267, 72)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(61, 25)
+        Me.Label14.Size = New System.Drawing.Size(41, 15)
         Me.Label14.TabIndex = 9
         Me.Label14.Text = "Fecha:"
         '
@@ -729,7 +729,7 @@ Partial Class frmCompras
         Me.cbofactura.FormattingEnabled = True
         Me.cbofactura.Location = New System.Drawing.Point(77, 42)
         Me.cbofactura.Name = "cbofactura"
-        Me.cbofactura.Size = New System.Drawing.Size(120, 33)
+        Me.cbofactura.Size = New System.Drawing.Size(120, 23)
         Me.cbofactura.TabIndex = 7
         '
         'Label15
@@ -737,7 +737,7 @@ Partial Class frmCompras
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(8, 46)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 25)
+        Me.Label15.Size = New System.Drawing.Size(49, 15)
         Me.Label15.TabIndex = 6
         Me.Label15.Text = "Factura:"
         '
@@ -746,7 +746,7 @@ Partial Class frmCompras
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(8, 72)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(85, 25)
+        Me.Label13.Size = New System.Drawing.Size(57, 15)
         Me.Label13.TabIndex = 5
         Me.Label13.Text = "A cuenta:"
         '
@@ -755,7 +755,7 @@ Partial Class frmCompras
         Me.txtsaldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsaldo.Location = New System.Drawing.Point(77, 68)
         Me.txtsaldo.Name = "txtsaldo"
-        Me.txtsaldo.Size = New System.Drawing.Size(120, 31)
+        Me.txtsaldo.Size = New System.Drawing.Size(120, 23)
         Me.txtsaldo.TabIndex = 4
         Me.txtsaldo.Text = "0.00"
         Me.txtsaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -766,7 +766,7 @@ Partial Class frmCompras
         Me.cboremision.FormattingEnabled = True
         Me.cboremision.Location = New System.Drawing.Point(519, 16)
         Me.cboremision.Name = "cboremision"
-        Me.cboremision.Size = New System.Drawing.Size(112, 33)
+        Me.cboremision.Size = New System.Drawing.Size(112, 23)
         Me.cboremision.TabIndex = 3
         '
         'Label12
@@ -775,7 +775,7 @@ Partial Class frmCompras
         Me.Label12.ForeColor = System.Drawing.Color.Black
         Me.Label12.Location = New System.Drawing.Point(456, 20)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(88, 25)
+        Me.Label12.Size = New System.Drawing.Size(59, 15)
         Me.Label12.TabIndex = 2
         Me.Label12.Text = "Remisión:"
         '
@@ -785,7 +785,7 @@ Partial Class frmCompras
         Me.cboproveedor.FormattingEnabled = True
         Me.cboproveedor.Location = New System.Drawing.Point(77, 16)
         Me.cboproveedor.Name = "cboproveedor"
-        Me.cboproveedor.Size = New System.Drawing.Size(373, 33)
+        Me.cboproveedor.Size = New System.Drawing.Size(373, 23)
         Me.cboproveedor.TabIndex = 1
         '
         'Label11
@@ -793,7 +793,7 @@ Partial Class frmCompras
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(8, 20)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(98, 25)
+        Me.Label11.Size = New System.Drawing.Size(64, 15)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Proveedor:"
         '
@@ -805,7 +805,7 @@ Partial Class frmCompras
         Me.txtusuario.Location = New System.Drawing.Point(812, 68)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtusuario.Size = New System.Drawing.Size(98, 31)
+        Me.txtusuario.Size = New System.Drawing.Size(98, 23)
         Me.txtusuario.TabIndex = 143
         Me.txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -853,7 +853,7 @@ Partial Class frmCompras
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(338, 71)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(82, 25)
+        Me.Label17.Size = New System.Drawing.Size(55, 15)
         Me.Label17.TabIndex = 87
         Me.Label17.Text = "Anticipo:"
         '
@@ -865,7 +865,7 @@ Partial Class frmCompras
         Me.txtanticipo.Location = New System.Drawing.Point(408, 67)
         Me.txtanticipo.Name = "txtanticipo"
         Me.txtanticipo.ReadOnly = True
-        Me.txtanticipo.Size = New System.Drawing.Size(93, 31)
+        Me.txtanticipo.Size = New System.Drawing.Size(93, 23)
         Me.txtanticipo.TabIndex = 86
         Me.txtanticipo.Text = "0.00"
         Me.txtanticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -875,7 +875,7 @@ Partial Class frmCompras
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(505, 45)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(64, 25)
+        Me.Label16.Size = New System.Drawing.Size(42, 15)
         Me.Label16.TabIndex = 85
         Me.Label16.Text = "Pagos:"
         '
@@ -887,7 +887,7 @@ Partial Class frmCompras
         Me.txtpagos.Location = New System.Drawing.Point(565, 41)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
-        Me.txtpagos.Size = New System.Drawing.Size(93, 31)
+        Me.txtpagos.Size = New System.Drawing.Size(93, 23)
         Me.txtpagos.TabIndex = 84
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -898,7 +898,7 @@ Partial Class frmCompras
         Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label32.Location = New System.Drawing.Point(674, 15)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(210, 25)
+        Me.Label32.Size = New System.Drawing.Size(134, 15)
         Me.Label32.TabIndex = 83
         Me.Label32.Text = "Cantidad de productos:"
         Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -909,7 +909,7 @@ Partial Class frmCompras
         Me.txtprods.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtprods.Location = New System.Drawing.Point(677, 33)
         Me.txtprods.Name = "txtprods"
-        Me.txtprods.Size = New System.Drawing.Size(85, 31)
+        Me.txtprods.Size = New System.Drawing.Size(85, 23)
         Me.txtprods.TabIndex = 82
         Me.txtprods.Text = "0"
         Me.txtprods.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -919,7 +919,7 @@ Partial Class frmCompras
         Me.Label30.AutoSize = True
         Me.Label30.Location = New System.Drawing.Point(505, 71)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(58, 25)
+        Me.Label30.Size = New System.Drawing.Size(38, 15)
         Me.Label30.TabIndex = 25
         Me.Label30.Text = "Resta:"
         '
@@ -929,7 +929,7 @@ Partial Class frmCompras
         Me.txtresta.ForeColor = System.Drawing.Color.Red
         Me.txtresta.Location = New System.Drawing.Point(565, 67)
         Me.txtresta.Name = "txtresta"
-        Me.txtresta.Size = New System.Drawing.Size(93, 31)
+        Me.txtresta.Size = New System.Drawing.Size(93, 23)
         Me.txtresta.TabIndex = 24
         Me.txtresta.Text = "0.00"
         Me.txtresta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -939,7 +939,7 @@ Partial Class frmCompras
         Me.Label24.AutoSize = True
         Me.Label24.Location = New System.Drawing.Point(505, 19)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(78, 25)
+        Me.Label24.Size = New System.Drawing.Size(52, 15)
         Me.Label24.TabIndex = 21
         Me.Label24.Text = "Efectivo:"
         '
@@ -951,7 +951,7 @@ Partial Class frmCompras
         Me.txtefectivo.Location = New System.Drawing.Point(565, 15)
         Me.txtefectivo.Name = "txtefectivo"
         Me.txtefectivo.ReadOnly = True
-        Me.txtefectivo.Size = New System.Drawing.Size(93, 31)
+        Me.txtefectivo.Size = New System.Drawing.Size(93, 23)
         Me.txtefectivo.TabIndex = 20
         Me.txtefectivo.Text = "0.00"
         Me.txtefectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -961,7 +961,7 @@ Partial Class frmCompras
         Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(173, 71)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(100, 25)
+        Me.Label26.Size = New System.Drawing.Size(66, 15)
         Me.Label26.TabIndex = 17
         Me.Label26.Text = "Descuento:"
         '
@@ -970,7 +970,7 @@ Partial Class frmCompras
         Me.txtdesc2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdesc2.Location = New System.Drawing.Point(242, 67)
         Me.txtdesc2.Name = "txtdesc2"
-        Me.txtdesc2.Size = New System.Drawing.Size(93, 31)
+        Me.txtdesc2.Size = New System.Drawing.Size(93, 23)
         Me.txtdesc2.TabIndex = 16
         Me.txtdesc2.Text = "0.00"
         Me.txtdesc2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -980,7 +980,7 @@ Partial Class frmCompras
         Me.Label27.AutoSize = True
         Me.Label27.Location = New System.Drawing.Point(173, 45)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(53, 25)
+        Me.Label27.Size = New System.Drawing.Size(35, 15)
         Me.Label27.TabIndex = 15
         Me.Label27.Text = "Total:"
         '
@@ -989,7 +989,7 @@ Partial Class frmCompras
         Me.txtTotalC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtTotalC.Location = New System.Drawing.Point(242, 41)
         Me.txtTotalC.Name = "txtTotalC"
-        Me.txtTotalC.Size = New System.Drawing.Size(93, 31)
+        Me.txtTotalC.Size = New System.Drawing.Size(93, 23)
         Me.txtTotalC.TabIndex = 14
         Me.txtTotalC.Text = "0.00"
         Me.txtTotalC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -999,7 +999,7 @@ Partial Class frmCompras
         Me.Label23.AutoSize = True
         Me.Label23.Location = New System.Drawing.Point(173, 19)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(43, 25)
+        Me.Label23.Size = New System.Drawing.Size(27, 15)
         Me.Label23.TabIndex = 13
         Me.Label23.Text = "IVA:"
         '
@@ -1008,7 +1008,7 @@ Partial Class frmCompras
         Me.txtiva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtiva.Location = New System.Drawing.Point(242, 15)
         Me.txtiva.Name = "txtiva"
-        Me.txtiva.Size = New System.Drawing.Size(93, 31)
+        Me.txtiva.Size = New System.Drawing.Size(93, 23)
         Me.txtiva.TabIndex = 12
         Me.txtiva.Text = "0.00"
         Me.txtiva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1018,7 +1018,7 @@ Partial Class frmCompras
         Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(6, 71)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(83, 25)
+        Me.Label22.Size = New System.Drawing.Size(54, 15)
         Me.Label22.TabIndex = 11
         Me.Label22.Text = "Subtotal:"
         '
@@ -1027,7 +1027,7 @@ Partial Class frmCompras
         Me.txtsub2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsub2.Location = New System.Drawing.Point(76, 67)
         Me.txtsub2.Name = "txtsub2"
-        Me.txtsub2.Size = New System.Drawing.Size(93, 31)
+        Me.txtsub2.Size = New System.Drawing.Size(93, 23)
         Me.txtsub2.TabIndex = 10
         Me.txtsub2.Text = "0.00"
         Me.txtsub2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1037,7 +1037,7 @@ Partial Class frmCompras
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(6, 45)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(100, 25)
+        Me.Label21.Size = New System.Drawing.Size(66, 15)
         Me.Label21.TabIndex = 9
         Me.Label21.Text = "Descuento:"
         '
@@ -1046,7 +1046,7 @@ Partial Class frmCompras
         Me.txtdesc1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdesc1.Location = New System.Drawing.Point(76, 41)
         Me.txtdesc1.Name = "txtdesc1"
-        Me.txtdesc1.Size = New System.Drawing.Size(93, 31)
+        Me.txtdesc1.Size = New System.Drawing.Size(93, 23)
         Me.txtdesc1.TabIndex = 8
         Me.txtdesc1.Text = "0.00"
         Me.txtdesc1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1056,7 +1056,7 @@ Partial Class frmCompras
         Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(6, 19)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(83, 25)
+        Me.Label20.Size = New System.Drawing.Size(54, 15)
         Me.Label20.TabIndex = 7
         Me.Label20.Text = "Subtotal:"
         '
@@ -1065,7 +1065,7 @@ Partial Class frmCompras
         Me.txtsub1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsub1.Location = New System.Drawing.Point(76, 15)
         Me.txtsub1.Name = "txtsub1"
-        Me.txtsub1.Size = New System.Drawing.Size(93, 31)
+        Me.txtsub1.Size = New System.Drawing.Size(93, 23)
         Me.txtsub1.TabIndex = 6
         Me.txtsub1.Text = "0.00"
         Me.txtsub1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1075,7 +1075,7 @@ Partial Class frmCompras
         Me.Label35.AutoSize = True
         Me.Label35.Location = New System.Drawing.Point(338, 19)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(50, 25)
+        Me.Label35.Size = New System.Drawing.Size(32, 15)
         Me.Label35.TabIndex = 81
         Me.Label35.Text = "IEPS:"
         '
@@ -1084,7 +1084,7 @@ Partial Class frmCompras
         Me.txtieps.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtieps.Location = New System.Drawing.Point(408, 15)
         Me.txtieps.Name = "txtieps"
-        Me.txtieps.Size = New System.Drawing.Size(93, 31)
+        Me.txtieps.Size = New System.Drawing.Size(93, 23)
         Me.txtieps.TabIndex = 80
         Me.txtieps.Text = "0.00"
         Me.txtieps.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1094,7 +1094,7 @@ Partial Class frmCompras
         Me.Label25.AutoSize = True
         Me.Label25.Location = New System.Drawing.Point(338, 45)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(79, 25)
+        Me.Label25.Size = New System.Drawing.Size(51, 15)
         Me.Label25.TabIndex = 19
         Me.Label25.Text = "A pagar:"
         '
@@ -1104,7 +1104,7 @@ Partial Class frmCompras
         Me.txtapagar.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtapagar.Location = New System.Drawing.Point(408, 41)
         Me.txtapagar.Name = "txtapagar"
-        Me.txtapagar.Size = New System.Drawing.Size(93, 31)
+        Me.txtapagar.Size = New System.Drawing.Size(93, 23)
         Me.txtapagar.TabIndex = 18
         Me.txtapagar.Text = "0.00"
         Me.txtapagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1115,7 +1115,7 @@ Partial Class frmCompras
         Me.dtpfpago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpfpago.Location = New System.Drawing.Point(111, 80)
         Me.dtpfpago.Name = "dtpfpago"
-        Me.dtpfpago.Size = New System.Drawing.Size(109, 34)
+        Me.dtpfpago.Size = New System.Drawing.Size(109, 25)
         Me.dtpfpago.TabIndex = 152
         '
         'Label28
@@ -1125,7 +1125,7 @@ Partial Class frmCompras
         Me.Label28.ForeColor = System.Drawing.Color.White
         Me.Label28.Location = New System.Drawing.Point(6, 82)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(69, 30)
+        Me.Label28.Size = New System.Drawing.Size(47, 20)
         Me.Label28.TabIndex = 151
         Me.Label28.Text = "Fecha"
         '
@@ -1137,7 +1137,7 @@ Partial Class frmCompras
         Me.Label33.ForeColor = System.Drawing.Color.White
         Me.Label33.Location = New System.Drawing.Point(9, 2)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(80, 21)
+        Me.Label33.Size = New System.Drawing.Size(56, 13)
         Me.Label33.TabIndex = 143
         Me.Label33.Text = "Costo en:"
         '
@@ -1149,7 +1149,7 @@ Partial Class frmCompras
         Me.Label34.ForeColor = System.Drawing.Color.White
         Me.Label34.Location = New System.Drawing.Point(9, 16)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(55, 21)
+        Me.Label34.Size = New System.Drawing.Size(36, 13)
         Me.Label34.TabIndex = 144
         Me.Label34.Text = "Valor:"
         '
@@ -1179,7 +1179,7 @@ Partial Class frmCompras
         Me.Label42.AutoSize = True
         Me.Label42.Location = New System.Drawing.Point(144, 97)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(70, 25)
+        Me.Label42.Size = New System.Drawing.Size(46, 15)
         Me.Label42.TabIndex = 152
         Me.Label42.Text = "Monto:"
         '
@@ -1188,7 +1188,7 @@ Partial Class frmCompras
         Me.txtmonto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtmonto.Location = New System.Drawing.Point(196, 93)
         Me.txtmonto.Name = "txtmonto"
-        Me.txtmonto.Size = New System.Drawing.Size(73, 31)
+        Me.txtmonto.Size = New System.Drawing.Size(73, 23)
         Me.txtmonto.TabIndex = 151
         Me.txtmonto.Text = "0.00"
         Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1199,7 +1199,7 @@ Partial Class frmCompras
         Me.dtppago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtppago.Location = New System.Drawing.Point(63, 93)
         Me.dtppago.Name = "dtppago"
-        Me.dtppago.Size = New System.Drawing.Size(78, 31)
+        Me.dtppago.Size = New System.Drawing.Size(78, 23)
         Me.dtppago.TabIndex = 150
         '
         'Label39
@@ -1207,7 +1207,7 @@ Partial Class frmCompras
         Me.Label39.AutoSize = True
         Me.Label39.Location = New System.Drawing.Point(8, 97)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(61, 25)
+        Me.Label39.Size = New System.Drawing.Size(41, 15)
         Me.Label39.TabIndex = 149
         Me.Label39.Text = "Fecha:"
         '
@@ -1216,7 +1216,7 @@ Partial Class frmCompras
         Me.Label38.AutoSize = True
         Me.Label38.Location = New System.Drawing.Point(8, 71)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(81, 25)
+        Me.Label38.Size = New System.Drawing.Size(54, 15)
         Me.Label38.TabIndex = 148
         Me.Label38.Text = "Número:"
         '
@@ -1225,7 +1225,7 @@ Partial Class frmCompras
         Me.cbobanco.FormattingEnabled = True
         Me.cbobanco.Location = New System.Drawing.Point(63, 41)
         Me.cbobanco.Name = "cbobanco"
-        Me.cbobanco.Size = New System.Drawing.Size(206, 33)
+        Me.cbobanco.Size = New System.Drawing.Size(206, 23)
         Me.cbobanco.TabIndex = 11
         '
         'txtrefe
@@ -1233,7 +1233,7 @@ Partial Class frmCompras
         Me.txtrefe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrefe.Location = New System.Drawing.Point(63, 67)
         Me.txtrefe.Name = "txtrefe"
-        Me.txtrefe.Size = New System.Drawing.Size(206, 31)
+        Me.txtrefe.Size = New System.Drawing.Size(206, 23)
         Me.txtrefe.TabIndex = 147
         '
         'Label37
@@ -1241,7 +1241,7 @@ Partial Class frmCompras
         Me.Label37.AutoSize = True
         Me.Label37.Location = New System.Drawing.Point(8, 45)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(64, 25)
+        Me.Label37.Size = New System.Drawing.Size(43, 15)
         Me.Label37.TabIndex = 10
         Me.Label37.Text = "Banco:"
         '
@@ -1250,7 +1250,7 @@ Partial Class frmCompras
         Me.cbotpago.FormattingEnabled = True
         Me.cbotpago.Location = New System.Drawing.Point(63, 15)
         Me.cbotpago.Name = "cbotpago"
-        Me.cbotpago.Size = New System.Drawing.Size(206, 33)
+        Me.cbotpago.Size = New System.Drawing.Size(206, 23)
         Me.cbotpago.TabIndex = 9
         '
         'Label36
@@ -1258,7 +1258,7 @@ Partial Class frmCompras
         Me.Label36.AutoSize = True
         Me.Label36.Location = New System.Drawing.Point(8, 19)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(51, 25)
+        Me.Label36.Size = New System.Drawing.Size(33, 15)
         Me.Label36.TabIndex = 8
         Me.Label36.Text = "Tipo:"
         '
@@ -1481,7 +1481,7 @@ Partial Class frmCompras
         Me.Label43.ForeColor = System.Drawing.Color.White
         Me.Label43.Location = New System.Drawing.Point(9, 10)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(80, 32)
+        Me.Label43.Size = New System.Drawing.Size(53, 21)
         Me.Label43.TabIndex = 10
         Me.Label43.Text = "PAGO"
         '
@@ -1519,7 +1519,7 @@ Partial Class frmCompras
         Me.Label29.Location = New System.Drawing.Point(6, 52)
         Me.Label29.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(92, 30)
+        Me.Label29.Size = New System.Drawing.Size(65, 20)
         Me.Label29.TabIndex = 18
         Me.Label29.Text = "Anticipo"
         '
@@ -1532,7 +1532,7 @@ Partial Class frmCompras
         Me.txtpc_anticipo.Location = New System.Drawing.Point(111, 48)
         Me.txtpc_anticipo.Name = "txtpc_anticipo"
         Me.txtpc_anticipo.ReadOnly = True
-        Me.txtpc_anticipo.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_anticipo.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_anticipo.TabIndex = 17
         Me.txtpc_anticipo.Text = "0.00"
         Me.txtpc_anticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1545,7 +1545,7 @@ Partial Class frmCompras
         Me.Label46.Location = New System.Drawing.Point(6, 20)
         Me.Label46.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(107, 30)
+        Me.Label46.Size = New System.Drawing.Size(73, 20)
         Me.Label46.TabIndex = 16
         Me.Label46.Text = "Por pagar"
         '
@@ -1558,7 +1558,7 @@ Partial Class frmCompras
         Me.txtpc_apagar.Location = New System.Drawing.Point(111, 16)
         Me.txtpc_apagar.Name = "txtpc_apagar"
         Me.txtpc_apagar.ReadOnly = True
-        Me.txtpc_apagar.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_apagar.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_apagar.TabIndex = 15
         Me.txtpc_apagar.Text = "0.00"
         Me.txtpc_apagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1571,7 +1571,7 @@ Partial Class frmCompras
         Me.Label45.Location = New System.Drawing.Point(6, 208)
         Me.Label45.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(58, 30)
+        Me.Label45.Size = New System.Drawing.Size(39, 20)
         Me.Label45.TabIndex = 14
         Me.Label45.Text = "Otro"
         '
@@ -1582,7 +1582,7 @@ Partial Class frmCompras
         Me.txtpc_otro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtpc_otro.Location = New System.Drawing.Point(111, 204)
         Me.txtpc_otro.Name = "txtpc_otro"
-        Me.txtpc_otro.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_otro.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_otro.TabIndex = 13
         Me.txtpc_otro.Text = "0.00"
         Me.txtpc_otro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1595,7 +1595,7 @@ Partial Class frmCompras
         Me.Label44.Location = New System.Drawing.Point(6, 176)
         Me.Label44.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(140, 30)
+        Me.Label44.Size = New System.Drawing.Size(96, 20)
         Me.Label44.TabIndex = 12
         Me.Label44.Text = "Transferencia"
         '
@@ -1606,7 +1606,7 @@ Partial Class frmCompras
         Me.txtpc_transfe.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtpc_transfe.Location = New System.Drawing.Point(111, 172)
         Me.txtpc_transfe.Name = "txtpc_transfe"
-        Me.txtpc_transfe.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_transfe.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_transfe.TabIndex = 11
         Me.txtpc_transfe.Text = "0.00"
         Me.txtpc_transfe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1619,7 +1619,7 @@ Partial Class frmCompras
         Me.Label19.Location = New System.Drawing.Point(6, 240)
         Me.Label19.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(64, 30)
+        Me.Label19.Size = New System.Drawing.Size(45, 20)
         Me.Label19.TabIndex = 10
         Me.Label19.Text = "Resta"
         '
@@ -1632,7 +1632,7 @@ Partial Class frmCompras
         Me.txtpc_resta.Location = New System.Drawing.Point(111, 236)
         Me.txtpc_resta.Name = "txtpc_resta"
         Me.txtpc_resta.ReadOnly = True
-        Me.txtpc_resta.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_resta.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_resta.TabIndex = 9
         Me.txtpc_resta.Text = "0.00"
         Me.txtpc_resta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1645,7 +1645,7 @@ Partial Class frmCompras
         Me.Label40.Location = New System.Drawing.Point(6, 144)
         Me.Label40.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(77, 30)
+        Me.Label40.Size = New System.Drawing.Size(53, 20)
         Me.Label40.TabIndex = 6
         Me.Label40.Text = "Tarjeta"
         '
@@ -1656,7 +1656,7 @@ Partial Class frmCompras
         Me.txtpc_tarjeta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtpc_tarjeta.Location = New System.Drawing.Point(111, 140)
         Me.txtpc_tarjeta.Name = "txtpc_tarjeta"
-        Me.txtpc_tarjeta.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_tarjeta.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_tarjeta.TabIndex = 5
         Me.txtpc_tarjeta.Text = "0.00"
         Me.txtpc_tarjeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1669,7 +1669,7 @@ Partial Class frmCompras
         Me.Label41.Location = New System.Drawing.Point(6, 112)
         Me.Label41.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(89, 30)
+        Me.Label41.Size = New System.Drawing.Size(62, 20)
         Me.Label41.TabIndex = 4
         Me.Label41.Text = "Efectivo"
         '
@@ -1680,7 +1680,7 @@ Partial Class frmCompras
         Me.txtpc_efectivo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtpc_efectivo.Location = New System.Drawing.Point(111, 108)
         Me.txtpc_efectivo.Name = "txtpc_efectivo"
-        Me.txtpc_efectivo.Size = New System.Drawing.Size(109, 39)
+        Me.txtpc_efectivo.Size = New System.Drawing.Size(109, 29)
         Me.txtpc_efectivo.TabIndex = 0
         Me.txtpc_efectivo.Text = "0.00"
         Me.txtpc_efectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1818,9 +1818,9 @@ Partial Class frmCompras
         Me.gbLotes.Controls.Add(Me.Button10)
         Me.gbLotes.Controls.Add(Me.DataGridView3)
         Me.gbLotes.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbLotes.Location = New System.Drawing.Point(284, 186)
+        Me.gbLotes.Location = New System.Drawing.Point(284, 161)
         Me.gbLotes.Name = "gbLotes"
-        Me.gbLotes.Size = New System.Drawing.Size(378, 296)
+        Me.gbLotes.Size = New System.Drawing.Size(391, 296)
         Me.gbLotes.TabIndex = 280
         Me.gbLotes.TabStop = False
         Me.gbLotes.Text = "Registro de Lotes"
@@ -1831,7 +1831,7 @@ Partial Class frmCompras
         Me.Label50.AutoSize = True
         Me.Label50.Location = New System.Drawing.Point(214, 55)
         Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(73, 19)
+        Me.Label50.Size = New System.Drawing.Size(49, 12)
         Me.Label50.TabIndex = 305
         Me.Label50.Text = "Cantidad:"
         '
@@ -1839,7 +1839,7 @@ Partial Class frmCompras
         '
         Me.txtcantidadxd.Location = New System.Drawing.Point(216, 69)
         Me.txtcantidadxd.Name = "txtcantidadxd"
-        Me.txtcantidadxd.Size = New System.Drawing.Size(107, 26)
+        Me.txtcantidadxd.Size = New System.Drawing.Size(107, 20)
         Me.txtcantidadxd.TabIndex = 304
         Me.txtcantidadxd.Text = "1"
         Me.txtcantidadxd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1849,7 +1849,7 @@ Partial Class frmCompras
         Me.Label49.AutoSize = True
         Me.Label49.Location = New System.Drawing.Point(138, 55)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(94, 19)
+        Me.Label49.Size = New System.Drawing.Size(63, 12)
         Me.Label49.TabIndex = 303
         Me.Label49.Text = "F. Caducidad"
         '
@@ -1859,7 +1859,7 @@ Partial Class frmCompras
         Me.dtpxd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpxd.Location = New System.Drawing.Point(132, 69)
         Me.dtpxd.Name = "dtpxd"
-        Me.dtpxd.Size = New System.Drawing.Size(77, 31)
+        Me.dtpxd.Size = New System.Drawing.Size(77, 23)
         Me.dtpxd.TabIndex = 302
         '
         'Label48
@@ -1867,7 +1867,7 @@ Partial Class frmCompras
         Me.Label48.AutoSize = True
         Me.Label48.Location = New System.Drawing.Point(17, 55)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(42, 19)
+        Me.Label48.Size = New System.Drawing.Size(28, 12)
         Me.Label48.TabIndex = 301
         Me.Label48.Text = "Lote:"
         '
@@ -1875,7 +1875,7 @@ Partial Class frmCompras
         '
         Me.txtlotexd.Location = New System.Drawing.Point(19, 69)
         Me.txtlotexd.Name = "txtlotexd"
-        Me.txtlotexd.Size = New System.Drawing.Size(107, 26)
+        Me.txtlotexd.Size = New System.Drawing.Size(107, 20)
         Me.txtlotexd.TabIndex = 300
         '
         'Button14
@@ -1899,7 +1899,7 @@ Partial Class frmCompras
         Me.txtcanttotal.Location = New System.Drawing.Point(71, 102)
         Me.txtcanttotal.Name = "txtcanttotal"
         Me.txtcanttotal.ReadOnly = True
-        Me.txtcanttotal.Size = New System.Drawing.Size(55, 26)
+        Me.txtcanttotal.Size = New System.Drawing.Size(55, 20)
         Me.txtcanttotal.TabIndex = 237
         '
         'Label47
@@ -1907,7 +1907,7 @@ Partial Class frmCompras
         Me.Label47.AutoSize = True
         Me.Label47.Location = New System.Drawing.Point(16, 108)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(73, 19)
+        Me.Label47.Size = New System.Drawing.Size(49, 12)
         Me.Label47.TabIndex = 236
         Me.Label47.Text = "Cantidad:"
         '
@@ -1951,8 +1951,8 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn7.MinimumWidth = 8
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
@@ -1963,7 +1963,7 @@ Partial Class frmCompras
         Me.txtnombrelote.Location = New System.Drawing.Point(82, 32)
         Me.txtnombrelote.Name = "txtnombrelote"
         Me.txtnombrelote.ReadOnly = True
-        Me.txtnombrelote.Size = New System.Drawing.Size(241, 26)
+        Me.txtnombrelote.Size = New System.Drawing.Size(241, 20)
         Me.txtnombrelote.TabIndex = 234
         '
         'txtcodlote
@@ -1971,7 +1971,7 @@ Partial Class frmCompras
         Me.txtcodlote.Location = New System.Drawing.Point(19, 32)
         Me.txtcodlote.Name = "txtcodlote"
         Me.txtcodlote.ReadOnly = True
-        Me.txtcodlote.Size = New System.Drawing.Size(64, 26)
+        Me.txtcodlote.Size = New System.Drawing.Size(64, 20)
         Me.txtcodlote.TabIndex = 234
         '
         'Button10
@@ -2034,8 +2034,8 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn4.MinimumWidth = 8
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"

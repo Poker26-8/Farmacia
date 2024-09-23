@@ -202,10 +202,11 @@
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
+
                             grdcaptura.Rows.Add(
                                 rd1("Id").ToString,
                                 rd1("Lote").ToString,
-                                FormatDateTime(CDate(rd1("Caducidad").ToString), DateFormat.ShortDate),
+                                Format(CDate(rd1("Caducidad").ToString), "MM-yyyy"),
                                 rd1("Cantidad").ToString
                                 )
                             clotestraidos = clotestraidos + rd1("Cantidad").ToString
@@ -680,7 +681,7 @@
                 txtid.Text = CDbl(txtid.Text) - CDbl(txtcantidad.Text)
             Else
 
-                ' Dim fecha As String = Format(dtpcaduca.Value, "dd-MM-yy")
+                Dim fechaxd As String = Format(dtpcaduca.Value, "MM-yyyy")
                 'Dim nuvf As String = ""
 
                 ' nuvf = fecha.Replace("-", "")
@@ -694,12 +695,12 @@
                 Dim año As Integer = Convert.ToInt32(partes(2))
 
                 Dim NUVCAD As String = loteforma(mes, año)
-                MsgBox(NUVCAD)
-
+                ' MsgBox(NUVCAD)
+                'FormatDateTime(CDate(dtpcaduca.Value), DateFormat.ShortDate)
                 grdcaptura.Rows.Add(
                                txtid.Text,
                                txtlote.Text,
-                               FormatDateTime(CDate(dtpcaduca.Value), DateFormat.ShortDate),
+                               fechaxd,
                                txtcantidad.Text
                                )
             End If
@@ -795,7 +796,7 @@
                         'Inserta un nuevo lote
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & cbocodigo.Text & "','" & lote & "','" & Format(caducidad, "yyyy-MM-dd") & "'," & CDbl(cantidadl) & ")"
+                            "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & cbocodigo.Text & "','" & lote & "','" & Format(caducidad, "yyyy-MM") & "'," & CDbl(cantidadl) & ")"
                         cmd1.ExecuteNonQuery()
                     End If
                     rd2.Close()
@@ -1015,6 +1016,10 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+
+        dtpcaduca.Format = DateTimePickerFormat.Custom
+        dtpcaduca.CustomFormat = "MM/yyyy"
+        dtpcaduca.ShowUpDown = True
     End Sub
 
 
