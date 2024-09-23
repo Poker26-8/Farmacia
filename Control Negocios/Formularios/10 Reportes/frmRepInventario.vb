@@ -2655,7 +2655,7 @@ quepaso_wey:
             DataGridView1.DataSource = dt
 
             Try
-                Dim NOMBRE, CODIGO As String
+                Dim NOMBRE, CODIGO, BARRAS As String
                 Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
                 Dim conteo As Integer = 0
 
@@ -2668,9 +2668,10 @@ quepaso_wey:
 
                     contadorconexion += 1
 
-                    CODIGO = DataGridView1.Rows.Item(X).Cells(0).Value 'If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
-                    NOMBRE = DataGridView1.Rows.Item(X).Cells(1).Value 'row.Cells(1).Value?.ToString()
-                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(2).Value 'If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
+                    CODIGO = DataGridView1.Rows.Item(X).Cells(0).Value
+                    BARRAS = DataGridView1.Rows.Item(X).Cells(1).Value 'If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
+                    NOMBRE = DataGridView1.Rows.Item(X).Cells(2).Value 'row.Cells(1).Value?.ToString()
+                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(3).Value 'If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
 
                     'If String.IsNullOrEmpty(CODIGO) Then Continue For
 
@@ -2703,7 +2704,7 @@ quepaso_wey:
                                 cmd2.ExecuteNonQuery()
 
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
+                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
 
