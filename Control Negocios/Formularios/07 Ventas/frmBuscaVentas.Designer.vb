@@ -34,9 +34,11 @@ Partial Class frmBuscaVentas
         Me.optgrupo = New System.Windows.Forms.RadioButton()
         Me.optproveedor = New System.Windows.Forms.RadioButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.optcoincidencias = New System.Windows.Forms.RadioButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ba = New System.Windows.Forms.ProgressBar()
+        Me.txtBarras = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -64,71 +66,63 @@ Partial Class frmBuscaVentas
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 30
-        Me.grdcaptura.Size = New System.Drawing.Size(595, 476)
+        Me.grdcaptura.Size = New System.Drawing.Size(607, 476)
         Me.grdcaptura.TabIndex = 1
         '
         'optdepto
         '
         Me.optdepto.AutoSize = True
         Me.optdepto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optdepto.Location = New System.Drawing.Point(119, 12)
+        Me.optdepto.Location = New System.Drawing.Point(943, 12)
         Me.optdepto.Name = "optdepto"
         Me.optdepto.Size = New System.Drawing.Size(116, 23)
         Me.optdepto.TabIndex = 7
         Me.optdepto.TabStop = True
         Me.optdepto.Text = "Departamento"
         Me.optdepto.UseVisualStyleBackColor = True
+        Me.optdepto.Visible = False
         '
         'optgrupo
         '
         Me.optgrupo.AutoSize = True
         Me.optgrupo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optgrupo.Location = New System.Drawing.Point(252, 12)
+        Me.optgrupo.Location = New System.Drawing.Point(1076, 12)
         Me.optgrupo.Name = "optgrupo"
         Me.optgrupo.Size = New System.Drawing.Size(66, 23)
         Me.optgrupo.TabIndex = 6
         Me.optgrupo.TabStop = True
         Me.optgrupo.Text = "Grupo"
         Me.optgrupo.UseVisualStyleBackColor = True
+        Me.optgrupo.Visible = False
         '
         'optproveedor
         '
         Me.optproveedor.AutoSize = True
         Me.optproveedor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optproveedor.Location = New System.Drawing.Point(12, 12)
+        Me.optproveedor.Location = New System.Drawing.Point(836, 12)
         Me.optproveedor.Name = "optproveedor"
         Me.optproveedor.Size = New System.Drawing.Size(90, 23)
         Me.optproveedor.TabIndex = 5
         Me.optproveedor.TabStop = True
         Me.optproveedor.Text = "Proveedor"
         Me.optproveedor.UseVisualStyleBackColor = True
+        Me.optproveedor.Visible = False
         '
         'ComboBox1
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 39)
+        Me.ComboBox1.Location = New System.Drawing.Point(836, 39)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(323, 25)
         Me.ComboBox1.TabIndex = 4
-        '
-        'optcoincidencias
-        '
-        Me.optcoincidencias.AutoSize = True
-        Me.optcoincidencias.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optcoincidencias.Location = New System.Drawing.Point(341, 12)
-        Me.optcoincidencias.Name = "optcoincidencias"
-        Me.optcoincidencias.Size = New System.Drawing.Size(109, 23)
-        Me.optcoincidencias.TabIndex = 8
-        Me.optcoincidencias.TabStop = True
-        Me.optcoincidencias.Text = "Coincidencias"
-        Me.optcoincidencias.UseVisualStyleBackColor = True
+        Me.ComboBox1.Visible = False
         '
         'TextBox1
         '
         Me.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(341, 39)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 35)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(266, 25)
         Me.TextBox1.TabIndex = 9
@@ -140,6 +134,35 @@ Partial Class frmBuscaVentas
         Me.ba.Size = New System.Drawing.Size(595, 23)
         Me.ba.TabIndex = 10
         Me.ba.Visible = False
+        '
+        'txtBarras
+        '
+        Me.txtBarras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtBarras.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBarras.Location = New System.Drawing.Point(294, 35)
+        Me.txtBarras.Name = "txtBarras"
+        Me.txtBarras.Size = New System.Drawing.Size(266, 25)
+        Me.txtBarras.TabIndex = 12
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(118, 21)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Principio Activo"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(290, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(129, 21)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "Codigo de Barras"
         '
         'Column1
         '
@@ -170,7 +193,7 @@ Partial Class frmBuscaVentas
         '
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column4.HeaderText = "Precio mínimo"
+        Me.Column4.HeaderText = "Precio Maximo Publico"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 85
@@ -198,10 +221,12 @@ Partial Class frmBuscaVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(619, 568)
+        Me.ClientSize = New System.Drawing.Size(631, 568)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtBarras)
         Me.Controls.Add(Me.ba)
         Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.optcoincidencias)
         Me.Controls.Add(Me.optdepto)
         Me.Controls.Add(Me.optgrupo)
         Me.Controls.Add(Me.optproveedor)
@@ -223,13 +248,15 @@ Partial Class frmBuscaVentas
     Friend WithEvents optgrupo As System.Windows.Forms.RadioButton
     Friend WithEvents optproveedor As System.Windows.Forms.RadioButton
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents optcoincidencias As System.Windows.Forms.RadioButton
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents ba As System.Windows.Forms.ProgressBar
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtBarras As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
 End Class

@@ -1631,6 +1631,7 @@ Partial Class Inicio
         Me.Button3.Size = New System.Drawing.Size(43, 42)
         Me.Button3.TabIndex = 9
         Me.Button3.UseVisualStyleBackColor = False
+        Me.Button3.Visible = False
         '
         'PictureBox1
         '

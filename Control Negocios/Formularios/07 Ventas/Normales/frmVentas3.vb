@@ -5689,8 +5689,10 @@ kaka:
         If (chkBuscaProd.Checked) Then
             txtProdClave.Text = ""
             Serchi = False
-            Panel4.Visible = True
+            Panel5.Visible = True
             txtProdClave.Focus().Equals(True)
+            Panel5.BringToFront()
+            My.Application.DoEvents()
         End If
     End Sub
     Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress
@@ -5713,9 +5715,11 @@ kaka:
                 cnn3.Close()
             End Try
             Serchi = True
-            Panel4.Visible = False
+            Panel5.Visible = False
+            My.Application.DoEvents()
             chkBuscaProd.Checked = False
             cbodesc.Focus().Equals(True)
+            cbodesc.DroppedDown = True
         End If
     End Sub
     Private Sub txtPagar_DoubleClick(sender As Object, e As EventArgs) Handles txtPagar.DoubleClick

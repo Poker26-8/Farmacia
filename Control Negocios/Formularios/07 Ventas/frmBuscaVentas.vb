@@ -4,6 +4,8 @@
 
     Private Sub frmBuscaVentas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         optproveedor.PerformClick()
+        TextBox1.Focus.Equals(True)
+        My.Application.DoEvents()
     End Sub
 
     Private Sub optproveedor_Click(sender As System.Object, e As System.EventArgs) Handles optproveedor.Click
@@ -14,6 +16,8 @@
             TextBox1.Enabled = False
             ComboBox1.Items.Clear()
             grdcaptura.Rows.Clear()
+            My.Application.DoEvents()
+            TextBox1.Focus.Equals(True)
         End If
     End Sub
 
@@ -39,16 +43,16 @@
         End If
     End Sub
 
-    Private Sub optcoincidencias_Click(sender As System.Object, e As System.EventArgs) Handles optcoincidencias.Click
-        If (optcoincidencias.Checked) Then
-            ComboBox1.Text = ""
-            ComboBox1.Enabled = False
-            TextBox1.Text = ""
-            TextBox1.Enabled = True
-            TextBox1.Focus.Equals(True)
-            ComboBox1.Items.Clear()
-            grdcaptura.Rows.Clear()
-        End If
+    Private Sub optcoincidencias_Click(sender As System.Object, e As System.EventArgs)
+        'If (optcoincidencias.Checked) Then
+        '    ComboBox1.Text = ""
+        '    ComboBox1.Enabled = False
+        '    TextBox1.Text = ""
+        '    TextBox1.Enabled = True
+        '    TextBox1.Focus.Equals(True)
+        '    ComboBox1.Items.Clear()
+        '    grdcaptura.Rows.Clear()
+        'End If
     End Sub
 
     Private Sub ComboBox1_DropDown(sender As System.Object, e As System.EventArgs) Handles ComboBox1.DropDown
@@ -238,16 +242,88 @@
     End Sub
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
+        'If AscW(e.KeyChar) = Keys.Enter Then
+        '    grdcaptura.Rows.Clear()
+
+        'End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        My.Application.DoEvents()
+        If TextBox1.Text = "" Then
             grdcaptura.Rows.Clear()
+            Exit Sub
+        End If
+
+        grdcaptura.Rows.Clear()
+
+        Try
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Productos where PrincipioActivo LIKE '%" & TextBox1.Text & "%'"
+            rd3 = cmd3.ExecuteReader
+            cnn2.Close() : cnn2.Open()
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString
+                    Dim nombre As String = rd3("Nombre").ToString
+                    Dim unidad As String = rd3("UVenta").ToString
+                    Dim precio_min As Double = 0, precio_ven As Double = 0
+                    Dim existencia As Double = 0, multiplo As Double = rd3("Multiplo").ToString
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                        "select * from Productos where Codigo='" & codigo & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            precio_min = rd2("PrecioMaximoPublico").ToString
+                            precio_ven = rd2("PrecioVentaIVA").ToString
+                        End If
+                    End If
+                    rd2.Close()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                        "select Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            existencia = rd2(0).ToString
+                        End If
+                    End If
+                    rd2.Close()
+                    grdcaptura.Rows.Add(codigo, nombre, unidad, FormatNumber(precio_min, 2), FormatNumber(precio_ven, 2), (existencia / multiplo))
+                End If
+            Loop
+            rd3.Close()
+            cnn3.Close()
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn3.Close()
+        End Try
+    End Sub
+
+    Private Sub frmBuscaVentas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        TextBox1.Focus.Equals(True)
+    End Sub
+
+    Private Sub txtBarras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
             My.Application.DoEvents()
-            If TextBox1.Text = "" Then Exit Sub
+            If txtBarras.Text = "" Then
+                grdcaptura.Rows.Clear()
+                Exit Sub
+            End If
+
+            grdcaptura.Rows.Clear()
 
             Try
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "select * from Productos where NombreLargo LIKE '%" & TextBox1.Text & "%'"
+                    "select * from Productos where CodBarra='" & txtBarras.Text & "'"
                 rd3 = cmd3.ExecuteReader
                 cnn2.Close() : cnn2.Open()
                 Do While rd3.Read
@@ -263,7 +339,7 @@
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                precio_min = rd2("PreMin").ToString
+                                precio_min = rd2("PrecioMaximoPublico").ToString
                                 precio_ven = rd2("PrecioVentaIVA").ToString
                             End If
                         End If
@@ -289,6 +365,13 @@
                 MessageBox.Show(ex.ToString())
                 cnn3.Close()
             End Try
+        End If
+    End Sub
+
+    Private Sub txtBarras_TextChanged(sender As Object, e As EventArgs) Handles txtBarras.TextChanged
+        If txtBarras.Text = "" Then
+            grdcaptura.Rows.Clear()
+            Exit Sub
         End If
     End Sub
 End Class
