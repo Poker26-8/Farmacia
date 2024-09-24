@@ -2761,6 +2761,7 @@ quepaso_wey:
 
                                 diferencia = existenciacardex - EXISTENCIA
                                 existencia_final = EXISTENCIA * mcd
+                                existencia_final = existencia_final + existenciacardex
 
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand

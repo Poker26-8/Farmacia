@@ -578,8 +578,8 @@ Public Class frmProductosS
         If txtpcompra.Text = "" Then MsgBox("El precio de compra del producto no puede estar vacío, por defecto '0'.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtpcompra.Focus().Equals(True) : Exit Sub
         If txtpventa.Text = "" Then MsgBox("El precio de venta del producto no puede estar vacío, por defecto '0'.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtpventa.Focus().Equals(True) : Exit Sub
         'If cboProvP.Text = "" Then MsgBox("Selecciona un proveedor de tu catálogo para este producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboProvP.Focus().Equals(True) : Exit Sub
-        If cboDepto.Text = "" Then MsgBox("Escribe o selecciona un deparatamento para el producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboDepto.Focus().Equals(True) : Exit Sub
-        If cboGrupo.Text = "" Then MsgBox("Escribe o selecciona en grupo para el producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboGrupo.Focus().Equals(True) : Exit Sub
+        'If cboDepto.Text = "" Then MsgBox("Escribe o selecciona un deparatamento para el producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboDepto.Focus().Equals(True) : Exit Sub
+        'If cboGrupo.Text = "" Then MsgBox("Escribe o selecciona en grupo para el producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboGrupo.Focus().Equals(True) : Exit Sub
 
         Dim p_compra As Double = txtpcompra.Text
         Dim p_venta As Double = txtpventa.Text
