@@ -789,7 +789,7 @@
                             'Actualiza un lote
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "update LoteCaducidad set Cantidad=" & CDbl(cantidadl) & ", Caducidad='" & Format(caducidad, "yyyy-MM-dd") & "' where Lote='" & lote & "' AND Codigo='" & cbocodigo.Text & "'"
+                                "update LoteCaducidad set Cantidad=" & CDbl(cantidadl) & ", Caducidad='" & Format(caducidad, "yyyy-MM") & "' where Lote='" & lote & "' AND Codigo='" & cbocodigo.Text & "'"
                             cmd1.ExecuteNonQuery()
                         End If
                     Else

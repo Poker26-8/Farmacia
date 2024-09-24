@@ -109,7 +109,7 @@ Public Class frmTraspSalida
             End If
             rd2.Close()
 
-            If sincro = 0 Then
+            If sTargetdSincro = "" Then
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand

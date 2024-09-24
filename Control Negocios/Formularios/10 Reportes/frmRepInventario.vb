@@ -230,6 +230,47 @@ Public Class frmRepInventario
             cbofiltro.Focus().Equals(True)
         End If
     End Sub
+    Private Sub Lote_Caducidad(ByVal codigo As String, ByVal cantidad As Double, ByVal fecha As Date, ByVal lote As String)
+        Dim caduci As String = ""
+
+        If fecha = Nothing Then
+            caduci = Date.Now
+        Else
+            caduci = Format(fecha, "yyyy-MM")
+            My.Application.DoEvents()
+
+        End If
+        Try
+            cnn2.Close() : cnn2.Open()
+            cnn3.Close() : cnn3.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select Codigo from LoteCaducidad where Codigo='" & codigo & "' and Lote='" & lote & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                'Existe
+                If rd2.Read Then
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "'"
+
+                    cmd3.ExecuteNonQuery()
+                End If
+            Else
+                'No existe
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                    "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codigo & "','" & lote & "','" & caduci & "'," & cantidad & ")"
+                cmd3.ExecuteNonQuery()
+            End If
+            rd2.Close()
+            cnn2.Close()
+            cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
+    End Sub
 
     Private Async Sub frmRepInventario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Dim fecha As String = DatosRecarga("FechaCosteo")
@@ -2548,6 +2589,7 @@ quepaso_wey:
     Public Sub ExportarDataGridViewAExcel(dgv As DataGridView)
         If grdcaptura.Rows.Count = 0 Then MsgBox("Genera el reporte para poder exportar los datos a Excel.", vbInformation + vbOKOnly, titulocentral) : Exit Sub
         If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            btnExpExis.Enabled = False
             Dim voy As Integer = 0
             ' Crea un nuevo libro de trabajo de Excel
             Using workbook As New XLWorkbook()
@@ -2564,6 +2606,15 @@ quepaso_wey:
                     headerCell.Style.Font.Bold = True ' Aplica negrita a los encabezados
                 Next
 
+                ' Agregar encabezados personalizados para "Lote" y "Caducidad"
+                Dim loteHeader As IXLCell = worksheet.Cell(1, columnasExportar.Length + 1) ' La siguiente columna
+                loteHeader.Value = "Lote"
+                loteHeader.Style.Font.Bold = True
+
+                Dim caducidadHeader As IXLCell = worksheet.Cell(1, columnasExportar.Length + 2) ' La siguiente columna
+                caducidadHeader.Value = "Caducidad"
+                caducidadHeader.Style.Font.Bold = True
+
                 ' Escribe los datos de las columnas que quieres exportar
                 For rowIndex As Integer = 0 To dgv.Rows.Count - 1
                     For i As Integer = 0 To columnasExportar.Length - 1
@@ -2575,6 +2626,7 @@ quepaso_wey:
                         cell.Style.NumberFormat.Format = "@" ' Formato de texto
                     Next
                     voy = voy + 1
+                    txtregistros.Text = voy
                     My.Application.DoEvents()
                 Next
 
@@ -2595,6 +2647,8 @@ quepaso_wey:
                 'workbook.SaveAs(filePath)
             End Using
             MessageBox.Show("Datos exportados exitosamente")
+            btnExpExis.Enabled = True
+            txtregistros.Text = ""
             barCarga.Value = 0
             barCarga.Visible = False
         End If
@@ -2612,7 +2666,7 @@ quepaso_wey:
 
     ' Función para cargar datos de Excel a un DataGridView
     Private Sub CargarDatosDesdeExcel()
-
+        btnImpExis.Enabled = False
         ' Crear el OpenFileDialog para seleccionar el archivo Excel
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Archivos de Excel|*.xlsx"
@@ -2658,6 +2712,8 @@ quepaso_wey:
                 Dim NOMBRE, CODIGO, BARRAS As String
                 Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
                 Dim conteo As Integer = 0
+                Dim LOTE As String = ""
+                Dim CADUCA As Date = Date.Now
 
                 cnn1.Close() : cnn1.Open()
                 Dim contadorconexion As Integer = 0
@@ -2669,10 +2725,18 @@ quepaso_wey:
                     contadorconexion += 1
 
                     CODIGO = DataGridView1.Rows.Item(X).Cells(0).Value
+                    If CODIGO = "" Then
+                        GoTo kaka
+                    End If
                     BARRAS = DataGridView1.Rows.Item(X).Cells(1).Value 'If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
                     NOMBRE = DataGridView1.Rows.Item(X).Cells(2).Value 'row.Cells(1).Value?.ToString()
-                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(3).Value 'If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
-
+                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(3).Value 'If(String.IsNullOrEmpty(row.Cells
+                    LOTE = DataGridView1.Rows.Item(X).Cells(4).Value
+                    If LOTE <> "" Then
+                        CADUCA = DataGridView1.Rows.Item(X).Cells(5).Value
+                    End If
+                    'L(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
+                    'Dim caducaxd As Date = Format("01-" & CADUCA, "yyyy-MM")
                     'If String.IsNullOrEmpty(CODIGO) Then Continue For
 
                     If contadorconexion > 499 Then
@@ -2711,14 +2775,25 @@ quepaso_wey:
                             End If
                         End If
                         rd1.Close()
+
+                        If LOTE <> "" Then
+                            Lote_Caducidad(CODIGO, EXISTENCIA, CADUCA, LOTE)
+                        End If
                     Else
                         conteo += 1
+                        txtregistros.Text = conteo
+                        My.Application.DoEvents()
                         Continue For
                     End If
                     conteo += 1
+                    txtregistros.Text = conteo
+                    My.Application.DoEvents()
                 Next
+kaka:
                 cnn1.Close()
                 MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                btnImpExis.Enabled = True
+                txtregistros.Text = ""
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
@@ -2850,7 +2925,7 @@ quepaso_wey:
             Else
                 MsgBox("El código corto no existe " & codigo & ".", vbInformation + vbOKOnly, titulocentral)
                 valida = False
-                Exit Function
+                'Exit Function
             End If
             rd2.Close()
             cnn2.Close()
