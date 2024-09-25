@@ -1401,8 +1401,8 @@ kak:
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
-                    suma_registros = rd4("Salen").ToString()
-                    cuestan_registros = rd4("Cuestan").ToString()
+                    suma_registros = IIf(rd4("Salen").ToString = "", "0", rd4("Salen").ToString)
+                    cuestan_registros = IIf(rd4("Cuestan").ToString = "", "0", rd4("Cuestan").ToString)
                 End If
             End If
             rd4.Close()
@@ -10063,7 +10063,7 @@ ecomoda:
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select Existencia from  Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
+                            "select Existencia,Codigo from  Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

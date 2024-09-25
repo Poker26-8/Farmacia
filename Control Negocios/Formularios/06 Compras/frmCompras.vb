@@ -263,7 +263,7 @@ Public Class frmCompras
         If cboremision.Text = "" And cbofactura.Text = "" And cbopedido.Text = "" Then MsgBox("Necesitas escribir un número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
             If (CodBarra()) Then
-                txtcantidad.Focus().Equals(True)
+                'txtcantidad.Focus().Equals(True)
             Else
                 txtcodigo.Focus().Equals(True)
             End If
