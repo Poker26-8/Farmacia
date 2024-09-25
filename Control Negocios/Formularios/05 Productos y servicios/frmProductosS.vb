@@ -14,26 +14,26 @@ Public Class frmProductosS
             cmd1 = cnn1.CreateCommand
             If tipo = "BARRAS" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra='" & txtbarras.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra='" & txtbarras.Text & "'"
             End If
 
             If tipo = "BARRAS1" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra1='" & txtBarras1.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra1='" & txtBarras1.Text & "'"
             End If
 
             If tipo = "BARRAS2" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra2='" & txtBarras2.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra2='" & txtBarras2.Text & "'"
             End If
 
             If tipo = "CODIGO" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where Codigo='" & cboCodigo.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where Codigo='" & cboCodigo.Text & "'"
             End If
             If tipo = "PRODU" Then
                 cmd1.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where Nombre='" & cboNombre.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where Nombre='" & cboNombre.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -68,6 +68,7 @@ Public Class frmProductosS
                     txtExistencia.Text = "0"
                     chkAnti.Checked = IIf(rd1("Anti").ToString() = True, True, False)
                     cchkCaducidad.Checked = IIf(rd1("Caduca").ToString() = True, True, False)
+                    chkControlado.Checked = IIf(rd1("Controlado").ToString() = True, True, False)
                     txtpmp.Text = FormatNumber(rd2("PrecioMaximoPublico").ToString, 2)
                     txtlaboratorio.Text = rd2("Laboratorio").ToString
                     txtPrincipioActivo.Text = rd2("PrincipioActivo").ToString
@@ -94,26 +95,26 @@ Public Class frmProductosS
             cmd2 = cnn2.CreateCommand
             If tipo = "BARRAS" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra='" & txtbarras.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra='" & txtbarras.Text & "'"
             End If
 
             If tipo = "BARRAS1" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra1='" & txtBarras1.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra1='" & txtBarras1.Text & "'"
             End If
 
             If tipo = "BARRAS2" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where CodBarra2='" & txtBarras2.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where CodBarra2='" & txtBarras2.Text & "'"
             End If
 
             If tipo = "CODIGO" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where Codigo='" & cboCodigo.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where Codigo='" & cboCodigo.Text & "'"
             End If
             If tipo = "PRODU" Then
                 cmd2.CommandText =
-                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS from Productos where Nombre='" & cboNombre.Text & "'"
+                    "select CodBarra,CodBarra1,CodBarra2,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado from Productos where Nombre='" & cboNombre.Text & "'"
             End If
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
@@ -152,6 +153,7 @@ Public Class frmProductosS
                     'TIENDA LINEA
                     txt_resumen.Text = rd2("Resumen").ToString
                     txt_descripcion.Text = rd2("Descripcion_Tienda").ToString
+                    chkControlado.Checked = IIf(rd2("Controlado").ToString() = True, True, False)
 
                     lblExistencia.Visible = False
                     txtExistencia.Visible = False
@@ -489,6 +491,7 @@ Public Class frmProductosS
         cboCodigo.Text = ""
         chkAnti.Checked = False
         cchkCaducidad.Checked = False
+        chkControlado.Checked = False
         txtpmp.Text = "0.00"
         txtlaboratorio.Text = ""
         txtPrincipioActivo.Text = ""
@@ -630,7 +633,7 @@ Public Class frmProductosS
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "update Productos set CodBarra='" & txtbarras.Text & "',CodBarra1='" & txtBarras1.Text & "',CodBarra2='" & txtBarras2.Text & "', Nombre='" & cboNombre.Text & "', ProvPri='" & cboProvP.Text & "', IVA=" & cboIVA.Text & ", UVenta='" & txtUnidad.Text & "', PrecioCompra=" & p_compra & ", PrecioVenta=" & p_venta & ", PrecioVentaIVA=" & p_ventaiva & ", Departamento='" & cboDepto.Text & "', Grupo='" & cboGrupo.Text & "', Ubicacion='" & cboubicacion.Text & "', ProvRes=" & IIf(chkKIT.Checked, 1, 0) & ", ClaveSat='" & txtCodigoSAT.Text & "', UnidadSat='" & txtClaveSAT.Text & "', Unico=" & IIf(chkUnico.Checked = True, 1, 0) & ",GPrint='" & cboComanda.Text & "', Resumen='" & txt_resumen.Text & "', Descripcion_Tienda='" & txt_descripcion.Text & "', Actu=0, Anti=" & IIf(chkAnti.Checked = True, 1, 0) & ", Caduca=" & IIf(cchkCaducidad.Checked = True, 1, 0) & ",PrecioMaximoPublico=" & pmp & ",Laboratorio='" & lab & "',PrincipioActivo='" & pa & "',IIEPS=" & ieps & " where Codigo='" & cboCodigo.Text & "'"
+                        "update Productos set CodBarra='" & txtbarras.Text & "',CodBarra1='" & txtBarras1.Text & "',CodBarra2='" & txtBarras2.Text & "', Nombre='" & cboNombre.Text & "', ProvPri='" & cboProvP.Text & "', IVA=" & cboIVA.Text & ", UVenta='" & txtUnidad.Text & "', PrecioCompra=" & p_compra & ", PrecioVenta=" & p_venta & ", PrecioVentaIVA=" & p_ventaiva & ", Departamento='" & cboDepto.Text & "', Grupo='" & cboGrupo.Text & "', Ubicacion='" & cboubicacion.Text & "', ProvRes=" & IIf(chkKIT.Checked, 1, 0) & ", ClaveSat='" & txtCodigoSAT.Text & "', UnidadSat='" & txtClaveSAT.Text & "', Unico=" & IIf(chkUnico.Checked = True, 1, 0) & ",GPrint='" & cboComanda.Text & "', Resumen='" & txt_resumen.Text & "', Descripcion_Tienda='" & txt_descripcion.Text & "', Actu=0, Anti=" & IIf(chkAnti.Checked = True, 1, 0) & ", Caduca=" & IIf(cchkCaducidad.Checked = True, 1, 0) & ",PrecioMaximoPublico=" & pmp & ",Laboratorio='" & lab & "',PrincipioActivo='" & pa & "',IIEPS=" & ieps & ",Controlado=" & IIf(chkControlado.Checked = True, 1, 0) & " where Codigo='" & cboCodigo.Text & "'"
                     If cmd2.ExecuteNonQuery Then
                         MsgBox("Datos de producto actualizados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
 
@@ -666,7 +669,7 @@ Public Class frmProductosS
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "insert into Productos(Codigo,CodBarra,CodBarra1,CodBarra2,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & txtBarras1.Text & "','" & txtBarras2.Text & "','" & cboNombre.Text & "','" & cboNombre.Text & "','" & cboProvP.Text & "','" & cboProvP.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtUnidad.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "',1,1,'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "',1,1,0," & p_compra & "," & p_venta & "," & p_ventaiva & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & p_compra & ",'" & txtCodigoSAT.Text & "','" & txtClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "','" & txt_resumen.Text & "','" & txt_descripcion.Text & "'," & IIf(chkAnti.Checked, 1, 0) & "," & IIf(cchkCaducidad.Checked, 1, 0) & "," & pmp & ",'" & lab & "','" & pa & "'," & ieps & ")"
+                    "insert into Productos(Codigo,CodBarra,CodBarra1,CodBarra2,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint,Resumen,Descripcion_Tienda,Anti,Caduca,PrecioMaximoPublico,Laboratorio,PrincipioActivo,IIEPS,Controlado) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & txtBarras1.Text & "','" & txtBarras2.Text & "','" & cboNombre.Text & "','" & cboNombre.Text & "','" & cboProvP.Text & "','" & cboProvP.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtUnidad.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "',1,1,'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "',1,1,0," & p_compra & "," & p_venta & "," & p_ventaiva & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & p_compra & ",'" & txtCodigoSAT.Text & "','" & txtClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "','" & txt_resumen.Text & "','" & txt_descripcion.Text & "'," & IIf(chkAnti.Checked, 1, 0) & "," & IIf(cchkCaducidad.Checked, 1, 0) & "," & pmp & ",'" & lab & "','" & pa & "'," & ieps & "," & IIf(chkControlado.Checked = True, 1, 0) & ")"
                 If cmd2.ExecuteNonQuery Then
                     MsgBox("Datos de producto registrados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
 
