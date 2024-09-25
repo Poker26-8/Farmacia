@@ -10075,7 +10075,7 @@ ecomoda:
                                     "update Productos set Cargado=0, CargadoInv=0,Existencia=Existencia+" & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
                                 cmd3.ExecuteNonQuery()
 
-                                '****** Configurable
+                                '**************************** Configurable ****************************************
                                 ActualizaPEPS(cbonota.Text, mycode, Mycant)
 
                                 cmd3 = cnn3.CreateCommand
