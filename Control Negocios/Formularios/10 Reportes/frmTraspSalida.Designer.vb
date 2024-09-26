@@ -95,9 +95,9 @@ Partial Class frmTraspSalida
         Me.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncopia.Location = New System.Drawing.Point(8, 407)
+        Me.btncopia.Location = New System.Drawing.Point(8, 415)
         Me.btncopia.Name = "btncopia"
-        Me.btncopia.Size = New System.Drawing.Size(60, 63)
+        Me.btncopia.Size = New System.Drawing.Size(60, 77)
         Me.btncopia.TabIndex = 290
         Me.btncopia.Text = "Copia"
         Me.btncopia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -111,9 +111,10 @@ Partial Class frmTraspSalida
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
-        Me.btnguardar.Location = New System.Drawing.Point(670, 407)
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnguardar.Location = New System.Drawing.Point(670, 415)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(60, 63)
+        Me.btnguardar.Size = New System.Drawing.Size(60, 77)
         Me.btnguardar.TabIndex = 318
         Me.btnguardar.Text = "Guardar"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -126,9 +127,9 @@ Partial Class frmTraspSalida
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(736, 407)
+        Me.btnnuevo.Location = New System.Drawing.Point(736, 415)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(60, 63)
+        Me.btnnuevo.Size = New System.Drawing.Size(60, 77)
         Me.btnnuevo.TabIndex = 317
         Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -432,7 +433,7 @@ Partial Class frmTraspSalida
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(788, 263)
+        Me.grdcaptura.Size = New System.Drawing.Size(788, 271)
         Me.grdcaptura.TabIndex = 291
         '
         'txtcoment
@@ -524,7 +525,7 @@ Partial Class frmTraspSalida
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(804, 477)
+        Me.ClientSize = New System.Drawing.Size(804, 499)
         Me.Controls.Add(Me.txtcoment)
         Me.Controls.Add(Me.btnguardar)
         Me.Controls.Add(Me.btnnuevo)
