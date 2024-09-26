@@ -482,16 +482,16 @@ Public Class frmVentas3
             cnn9.Open()
 
             cmd9 = cnn9.CreateCommand
-            If Me.Text = "Ventas (1)" Then
+            If Me.Text = "Ventas (3)" Then
                 cmd9.CommandText =
                     "select MAX(Folio) from Ventas"
             End If
-            If Me.Text = "Cotización (1)" Then
+            If Me.Text = "Cotización (3)" Then
                 cmd9.CommandText =
                     "select MAX(Folio) from CotPed"
             End If
 
-            If Me.Text = "Pedidos (1)" Then
+            If Me.Text = "Pedidos (3)" Then
                 cmd9.CommandText =
                    "select MAX(Folio) from CotPed"
             End If
@@ -2146,6 +2146,7 @@ doorcita:
             System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
     End Sub
+
     Private Sub PDF_Venta_2()
         Dim root_name_recibo As String = ""
         Dim FileOpen As New ProcessStartInfo
@@ -2364,6 +2365,7 @@ doorcita:
             System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
     End Sub
+
     Public Sub Termina_Error_Ventas()
         Dim pide As String = "", contra As String = txtcontraseña.Text, usu As String = lblusuario.Text
 
@@ -2402,6 +2404,7 @@ doorcita:
         End If
         cbodesc.Focus().Equals(True)
     End Sub
+
     Private Sub cboNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboNombre.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -2783,6 +2786,7 @@ doorcita:
             My.Application.DoEvents()
         End If
     End Sub
+
     Private Sub cbotipo_DropDown(sender As Object, e As EventArgs) Handles cbotipo.DropDown
         cbotipo.Items.Clear()
         cbotipo.Items.Add("Lista")
@@ -2837,6 +2841,7 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
+
     Private Sub txtdireccion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdireccion.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -2864,12 +2869,14 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
+
     Private Sub cbocomisionista_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbocomisionista.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             btnventa.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub picProd_DoubleClick(sender As Object, e As EventArgs) Handles picProd.DoubleClick
         If picProd.Width = 72 Then
             picProd.Left = 767
@@ -2883,6 +2890,7 @@ doorcita:
             picProd.Height = 72
         End If
     End Sub
+
     Private Sub cbonota_DropDown(sender As Object, e As EventArgs) Handles cbonota.DropDown
         cbonota.Items.Clear()
         Try
@@ -2951,12 +2959,14 @@ doorcita:
         cbodesc.Focus().Equals(True)
         Call cbonota_LostFocus(cbonota, New EventArgs())
     End Sub
+
     Private Sub cboimpresion_DropDown(sender As Object, e As EventArgs) Handles cboimpresion.DropDown
         cboimpresion.Items.Clear()
         cboimpresion.Items.Add("TICKET")
         cboimpresion.Items.Add("PDF - CARTA 1")
         cboimpresion.Items.Add("PDF - CARTA 2")
     End Sub
+
     Private Sub chkBuscaCliente_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaCliente.CheckedChanged
         If (chkBuscaCliente.Checked) Then
             txtNombreClave.Text = ""
@@ -3337,7 +3347,7 @@ doorcita:
                                 txtcantidad.Text = pesofinal
                                 If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                     If VSE = False Then
-                                        If Me.Text = "Ventas (1)" Then
+                                        If Me.Text = "Ventas (3)" Then
                                             MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                             rd1.Close() : cnn1.Close()
                                             cbocodigo.Text = ""
@@ -3746,7 +3756,7 @@ kaka:
                             txtcantidad.Text = "1"
                             If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                 If VSE = True Then
-                                    If Me.Text = "Ventas (1)" Then
+                                    If Me.Text = "Ventas (3)" Then
                                         MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                         rd1.Close() : cnn1.Close()
                                         cbocodigo.Text = ""
@@ -3995,7 +4005,7 @@ kaka:
                                     txtcantidad.Text = "1"
                                     If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
                                         If VSE = False Then
-                                            If Me.Text = "Ventas (1)" Then
+                                            If Me.Text = "Ventas (3)" Then
                                                 MsgBox("No se puede vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                                 rd2.Close() : cnn2.Close()
                                                 cbocodigo.Text = ""
@@ -4099,6 +4109,7 @@ kaka:
             End Try
         End If
     End Sub
+
     Private Sub cbocodigo_Click(sender As Object, e As EventArgs) Handles cbocodigo.Click
         cbocodigo.SelectionStart = 0
         cbocodigo.SelectionLength = Len(cbocodigo.Text)
@@ -4357,15 +4368,16 @@ kaka:
                     txtdescuento1.ReadOnly = True
                 End If
             End If
-            If Me.Text = "Ventas (1)" Then
+            If Me.Text = "Ventas (3)" Then
                 txtefectivo.Focus().Equals(True)
             End If
-            If Me.Text = "Cotización (1)" Then
+            If Me.Text = "Cotización (3)" Then
                 Button3.Focus().Equals(True)
             End If
         End If
         If AscW(e.KeyChar) = Keys.Enter And btndevo.Text = "GUARDAR DEVOLUCIÓN" And cbocodigo.Text = "" Then btndevo.Focus().Equals(True)
     End Sub
+
     Private Sub txtdescuento1_TextChanged(sender As Object, e As EventArgs) Handles txtdescuento1.TextChanged
         If donde_va = "Descuento Porcentaje" Then
             If txtdescuento1.Text = "" Then
@@ -4432,6 +4444,7 @@ kaka:
             txtResta.Text = FormatNumber(txtSubTotal.Text, 2)
         End If
     End Sub
+
     Private Sub txtcantidad_Click(sender As Object, e As EventArgs) Handles txtcantidad.Click
         txtcantidad.SelectionStart = 0
         txtcantidad.SelectionLength = Len(txtcantidad.Text)
@@ -4741,6 +4754,7 @@ kaka:
         End Try
         If txtprecio.Text = "" Then txtprecio.Text = "0.00"
     End Sub
+
     Private Sub txtprecio_Click(sender As Object, e As EventArgs) Handles txtprecio.Click
         txtprecio.SelectionStart = 0
         txtprecio.SelectionLength = Len(txtprecio.Text)
@@ -4775,6 +4789,7 @@ kaka:
             cnn7.Close()
         End Try
     End Sub
+
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
         Dim editap As Boolean = False
@@ -4981,6 +4996,7 @@ kaka:
         'txttotal.Text = CDbl(IIf(txtcantidad.Text = "", "0", txtcantidad.Text)) * CDbl(IIf(txtprecio.Text = "" Or txtprecio.Text = ".", "0", txtprecio.Text))
         txttotal.Text = FormatNumber(txttotal.Text, 4)
     End Sub
+
     Private Sub cboLote_DropDown(sender As Object, e As EventArgs) Handles cboLote.DropDown
         cboLote.Items.Clear()
         cnn1.Close() : cnn1.Open()
@@ -5095,7 +5111,7 @@ kaka:
                             If btndevo.Text <> "GUARDAR DEVOLUCIÓN" Then
                                 Dim Existe As Double = rd1("Existencia").ToString()
                                 Dim TExiste As Double = Existe - CDbl(txtcantidad.Text)
-                                If Me.Text = "Ventas (1)" Then
+                                If Me.Text = "Ventas (3)" Then
                                     If txtexistencia.Text <= 0 Then
                                         MsgBox("No está permitido vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                         txtcantidad.Focus().Equals(True)
@@ -5261,6 +5277,7 @@ kaka:
             cbodesc.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub txttotal_Click(sender As Object, e As EventArgs) Handles txttotal.Click
         txttotal.SelectionStart = 0
         txttotal.SelectionLength = Len(txttotal.Text)
@@ -5298,6 +5315,7 @@ kaka:
     Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txttotal.TextChanged
         Call Actualiza()
     End Sub
+
     Private Sub txtcoment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcoment.KeyPress
         If AscW(e.KeyChar) = 0 Then
             txtcoment.Text = ""
@@ -5331,6 +5349,7 @@ kaka:
             btnventa.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub grdcaptura_KeyDown(sender As Object, e As KeyEventArgs) Handles grdcaptura.KeyDown
         If e.KeyCode = Keys.Delete Then
 
@@ -5685,6 +5704,7 @@ kaka:
             DataGridView2.Rows.Clear()
         End If
     End Sub
+
     Private Sub chkBuscaProd_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaProd.CheckedChanged
         If (chkBuscaProd.Checked) Then
             txtProdClave.Text = ""
@@ -5695,6 +5715,7 @@ kaka:
             My.Application.DoEvents()
         End If
     End Sub
+
     Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Items.Clear()
@@ -5722,6 +5743,7 @@ kaka:
             cbodesc.DroppedDown = True
         End If
     End Sub
+
     Private Sub txtPagar_DoubleClick(sender As Object, e As EventArgs) Handles txtPagar.DoubleClick
         Dim TotalNV As Double = 0
         If MsgBox("¿Deseas agregar 16% de IVA a todos los productos?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
@@ -5746,6 +5768,7 @@ kaka:
             txtefectivo.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub txtdescuento1_Click(sender As Object, e As EventArgs) Handles txtdescuento1.Click
         donde_va = "Descuento Porcentaje"
         txtdescuento1.SelectionStart = 0
@@ -5771,6 +5794,7 @@ kaka:
             End If
         End If
     End Sub
+
     Private Sub txtdescuento2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescuento2.KeyPress
         If Not IsNumeric(txtdescuento2.Text) Then txtdescuento2.Text = "" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -5788,6 +5812,7 @@ kaka:
         txtdescuento2.SelectionStart = 0
         txtdescuento2.SelectionLength = Len(txtdescuento2.Text)
     End Sub
+
     Private Sub txtefectivo_Click(sender As Object, e As EventArgs) Handles txtefectivo.Click
         txtefectivo.SelectionStart = 0
         txtefectivo.SelectionLength = Len(txtefectivo.Text)
@@ -5841,6 +5866,7 @@ kaka:
         txtCambio.Text = FormatNumber(txtCambio.Text, 2)
         txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
+
     Private Sub cbobanco_DropDown(sender As Object, e As EventArgs) Handles cbobanco.DropDown
         cbobanco.Items.Clear()
         Try
@@ -5868,11 +5894,13 @@ kaka:
             txtnumref.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub cbotpago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbotpago.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cbobanco.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub txtnumref_Click(sender As Object, e As EventArgs) Handles txtnumref.Click
         txtnumref.SelectionStart = 0
         txtnumref.SelectionLength = Len(txtnumref.Text)
@@ -5979,6 +6007,7 @@ kaka:
             txtmonto.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub txtmonto_Click(sender As Object, e As EventArgs) Handles txtmonto.Click
         txtmonto.SelectionStart = 0
         txtmonto.SelectionLength = Len(txtmonto.Text)
@@ -6047,6 +6076,7 @@ kaka:
             End If
         End If
     End Sub
+
     Private Sub txtMontoP_TextChanged(sender As Object, e As EventArgs) Handles txtMontoP.TextChanged
         If txtMontoP.Text = "" Then txtMontoP.Text = "0.00"
         If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
@@ -6064,6 +6094,7 @@ kaka:
         txtCambio.Text = FormatNumber(txtCambio.Text, 2)
         txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
+
     Private Sub cbotpago_DropDown(sender As Object, e As EventArgs) Handles cbotpago.DropDown
         cbotpago.Items.Clear()
         Try
@@ -6227,7 +6258,7 @@ kaka:
         gbLotes.Visible = False
         DataGridView1.Rows.Clear()
         DataGridView2.Rows.Clear()
-        Me.Text = "Ventas (1)"
+        Me.Text = "Ventas (3)"
         lblpedido.Text = "0"
         cbodesc.Focus.Equals(True)
         txtvalor.Text = "0.00"
@@ -6436,8 +6467,8 @@ kaka:
         frmPedidosCli.Show()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Show()
-        Me.BringToFront()
+        frmVentas1.BringToFront()
+        frmVentas1.Show()
     End Sub
 
     'Cotizaciones
@@ -6541,8 +6572,8 @@ doorcita:
         End With
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Me.Text = "Cotización (1)"
-        If Me.Text = "Ventas (1)" Then
+        Me.Text = "Cotización (3)"
+        If Me.Text = "Ventas (3)" Then
             btnnuevo.PerformClick()
 
 
@@ -6561,7 +6592,7 @@ doorcita:
             Button9.Enabled = False
             grdpago.Enabled = False
             cboNombre.Focus().Equals(True)
-        ElseIf Me.Text = "Cotización (1)" Then
+        ElseIf Me.Text = "Cotización (3)" Then
             If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbocodigo.Focus().Equals(True) : Exit Sub
             If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus().Equals(True) : DondeVoy = "Cotiza" : Exit Sub
             'If cboNombre.Text = "" Then MsgBox("Escribe/Selecciona un cliente para realizar la cotización.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboNombre.Focus().Equals(True) : Exit Sub
@@ -7009,7 +7040,7 @@ Door:
 
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
-                Me.Text = "Ventas (1)"
+                Me.Text = "Ventas (3)"
                 btnnuevo.PerformClick()
                 cnn1.Close()
             End Try
@@ -10236,6 +10267,7 @@ ecomoda:
             txtprecio.ReadOnly = True
         End If
     End Sub
+
     Private Sub pVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -13159,6 +13191,7 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
+
     Private Sub txtreceta_Click(sender As Object, e As EventArgs) Handles txtreceta.Click
         txtreceta.SelectionStart = 0
         txtreceta.SelectionLength = Len(txtreceta.Text)
@@ -13185,6 +13218,7 @@ ecomoda:
             txtdireccion_med.Focus().Equals(True)
         End If
     End Sub
+
     Private Sub txtdireccion_med_Click(sender As Object, e As EventArgs) Handles txtdireccion_med.Click
         txtdireccion_med.SelectionStart = 0
         txtdireccion_med.SelectionLength = Len(txtdireccion_med.Text)
@@ -13257,6 +13291,7 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
+
     Private Sub txtComentarioPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComentarioPago.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboCuentaRecepcion.Focus().Equals(True)
@@ -13289,6 +13324,7 @@ ecomoda:
 
         End If
     End Sub
+
     Private Sub pVenta58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta58.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -14679,8 +14715,8 @@ ecomoda:
     End Sub
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         Try
-            Me.Text = "Pedidos (1)"
-            If Me.Text = "Ventas (1)" Then
+            Me.Text = "Pedidos (3)"
+            If Me.Text = "Ventas (3)" Then
 
                 btnnuevo.PerformClick()
                 btndevo.Enabled = False
@@ -14699,7 +14735,7 @@ ecomoda:
                 grdpago.Enabled = False
                 cboNombre.Focus().Equals(True)
 
-            ElseIf Me.Text = "Pedidos (1)" Then
+            ElseIf Me.Text = "Pedidos (3)" Then
 
                 If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar el pedido.", vbInformation + vbOKOnly, titulocentral) : cbocodigo.Focus().Equals(True) : Exit Sub
                 If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con el pedido.", vbInformation + vbOKOnly, titulocentral) : txtcontraseña.Focus().Equals(True) : DondeVoy = "Cotiza" : Exit Sub
@@ -15201,7 +15237,7 @@ rayos2:
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
-            Me.Text = "Ventas (1)"
+            Me.Text = "Ventas (3)"
             btnnuevo.PerformClick()
             cnn1.Close()
         End Try

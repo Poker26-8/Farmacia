@@ -1057,8 +1057,8 @@ Public Class Inicio
             '    frmVentas1.Show()
             '    frmVentas1.BringToFront()
             'End If
-            frmVentas3.Show()
-            frmVentas3.BringToFront()
+            frmVentas1.Show()
+            frmVentas1.BringToFront()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
