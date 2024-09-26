@@ -381,6 +381,7 @@ Partial Class frmTraspSalida
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(63, 23)
         Me.txtcantidad.TabIndex = 295
+        Me.txtcantidad.Text = "1"
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtunidad

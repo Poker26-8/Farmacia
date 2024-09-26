@@ -187,26 +187,121 @@ Public Class frmTraspSalida
     Private Sub cbodesc_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbodesc.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             If cbodesc.Text = "" Then cbocodigo.Focus().Equals(True) : Exit Sub
-            Try
-                cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select Codigo from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        cbocodigo.Text = rd1("Codigo").ToString
-                    End If
-                End If
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-            cbocodigo.Focus().Equals(True)
+            If (CodBarras()) Then
+                cbodesc.Focus.Equals(True)
+            Else
+                cbocodigo.Focus().Equals(True)
+            End If
+
+
         End If
     End Sub
+
+    Public Function CodBarras() As Boolean
+
+        Try
+
+            If cbodesc.Text <> "" Then
+                Try
+                    cnn1.Close()
+                    cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Codigo,UVenta,Nombre,PrecioCompra,CodBarra from Productos where CodBarra='" & cbodesc.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            cbocodigo.Text = rd1("Codigo").ToString
+                            txtunidad.Text = rd1("UVenta").ToString
+                            cbodesc.Text = rd1("Nombre").ToString
+                            txtprecio.Text = rd1("PrecioCompra").ToString
+                            barras = rd1("CodBarra").ToString
+                        End If
+                    Else
+                        Exit Function
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                    cnn1.Close()
+                End Try
+
+                Dim existenciaa As Decimal = 0
+                Dim multiploo As Decimal = 0
+
+                Try
+                    cnn1.Close()
+                    cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Existencia from Productos where Codigo='" & Mid(cbocodigo.Text, 1, 6) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            existenciaa = rd1(0).ToString
+                        End If
+                    End If
+                    rd1.Close()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Multiplo from Productos where Codigo='" & cbocodigo.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            multiploo = rd1(0).ToString
+
+                            If multiploo > 0 Then
+                                txtexistencia.Text = FormatNumber(
+                                    existenciaa / multiploo,
+                                    2)
+                            End If
+                            If txtexistencia.Text = "" Then
+                                txtexistencia.Text = "0"
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                    cnn1.Close()
+                End Try
+
+                Dim canti As Double = 0
+                canti = txtcantidad.Text
+                Dim precio As Double = 0
+                precio = txtprecio.Text
+                Dim tot As Double = 0
+                tot = CDec(canti) * CDec(precio)
+                txttotal.Text = tot
+
+                grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
+
+                cbocodigo.Text = ""
+                cbodesc.Text = ""
+                txtunidad.Text = ""
+                txtcantidad.Text = ""
+                txtprecio.Text = ""
+                txttotal.Text = ""
+                txtexistencia.Text = ""
+
+
+                cbodesc.Focus.Equals(True)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+        cbocodigo.Focus().Equals(True)
+
+    End Function
+
+
 
     Private Sub cbodesc_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbodesc.SelectedValueChanged
         Try

@@ -9,7 +9,7 @@ Public Class frmRepExistenciaSincronizador
     Private Sub frmRepExistenciaSincronizador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbosucursal.Focus.Equals(True)
 
-
+        rbBarras.Checked = True
     End Sub
 
     Private Sub cbosucursal_DropDown(sender As Object, e As EventArgs) Handles cbosucursal.DropDown
@@ -144,19 +144,19 @@ Public Class frmRepExistenciaSincronizador
 
                     If cbosucursal.Text = "" Then
 
-                        If .getDt(cnn3, dt3, "SELECT P.Id, P.Codigo, P.Nombre ,P.PrecioVentaIVA, P.exitencia, S.nombre as sucursal FROM productos P, sucursales S WHERE P.NumSuc= S.Id", sinfo3) Then
+                        If .getDt(cnn3, dt3, "SELECT P.Id, P.Codigo, P.CodBarra, P.Nombre ,P.PrecioVentaIVA, P.exitencia, S.nombre as sucursal FROM productos P, sucursales S WHERE P.NumSuc= S.Id", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(4).ToString, dr3(3).ToString)
+                                grdCaptura.Rows.Add(dr3(6).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(5).ToString, dr3(4).ToString)
                             Next
                         End If
                         cnn3.Close()
 
                     Else
 
-                        If .getDt(cnn3, dt3, "SELECT Codigo, Nombre ,PrecioVentaIVA, exitencia FROM productos WHERE NumSuc=" & idsucursal & "", sinfo3) Then
+                        If .getDt(cnn3, dt3, "SELECT Codigo,CodBarra, Nombre ,PrecioVentaIVA, exitencia FROM productos WHERE NumSuc=" & idsucursal & "", sinfo3) Then
 
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(3).ToString, dr3(2).ToString)
+                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString)
                             Next
 
                         End If
@@ -177,16 +177,16 @@ Public Class frmRepExistenciaSincronizador
 
                     If cbosucursal.Text = "" Then
 
-                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo, P.Nombre as descripcion, P.PrecioVentaIVA, P.exitencia, S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.Nombre like '%" & cboFiltro.Text & "%' ", sinfo3) Then
+                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo,P.CodBarra, P.Nombre as descripcion,P.exitencia, P.PrecioVentaIVA, S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.Nombre like '%" & cboFiltro.Text & "%' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(4).ToString, dr3(3).ToString)
+                                grdCaptura.Rows.Add(dr3(6).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
                             Next
                         End If
                         cnn3.Close()
                     Else
-                        If .getDt(cnn3, dt3, "select Codigo, Nombre, PrecioVentaIVA, exitencia from productos WHERE NumSuc=" & idsucursal & " and Nombre like '%" & cboFiltro.Text & "%' ", sinfo3) Then
+                        If .getDt(cnn3, dt3, "select Codigo,CodBarra, Nombre,exitencia, PrecioVentaIVA  from productos WHERE NumSuc=" & idsucursal & " and Nombre like '%" & cboFiltro.Text & "%' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(3).ToString, dr3(2).ToString)
+                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString)
                             Next
                         End If
                         cnn3.Close()
@@ -202,23 +202,46 @@ Public Class frmRepExistenciaSincronizador
                 If .dbOpen(cnn3, sTargetdSincro, sinfo3) Then
 
                     If cbosucursal.Text = "" Then
-                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo, P.Nombre as descripcion, P.PrecioVentaIVA, P.exitencia, S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.Codigo = '" & cboFiltro.Text & "' ", sinfo3) Then
+                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo,p.CodBarra P.Nombre as descripcion, P.exitencia P.PrecioVentaIVA S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.Codigo = '" & cboFiltro.Text & "' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(4).ToString, dr3(3).ToString)
+                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
                             Next
                         End If
                         cnn3.Close()
 
                     Else
-                        If .getDt(cnn3, dt3, "select Codigo, Nombre, PrecioVentaIVA, exitencia FROM productos where NumSuc =" & idsucursal & " and Codigo = '" & cboFiltro.Text & "' ", sinfo3) Then
+                        If .getDt(cnn3, dt3, "select Codigo,CodBarra, Nombre,exitencia, PrecioVentaIVA FROM productos where NumSuc =" & idsucursal & " and Codigo = '" & cboFiltro.Text & "' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(3).ToString, dr3(2).ToString)
+                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString)
                             Next
                         End If
                         cnn3.Close()
                     End If
 
 
+                End If
+            End With
+        End If
+
+        If (rbBarras.Checked) Then
+            If cboFiltro.Text = "" Then MsgBox("Debe seleccionar o escribir un producto") : Exit Sub
+            With odata3
+                If .dbOpen(cnn3, sTargetdSincro, sinfo3) Then
+                    If cbosucursal.Text = "" Then
+                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo,p.CodBarra P.Nombre as descripcion, P.exitencia P.PrecioVentaIVA S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.CodBarra = '" & cboFiltro.Text & "' ", sinfo3) Then
+                            For Each dr3 In dt3.Rows
+                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
+                            Next
+                        End If
+                        cnn3.Close()
+                    Else
+                        If .getDt(cnn3, dt3, "select Codigo,CodBarra, Nombre,exitencia, PrecioVentaIVA FROM productos where NumSuc =" & idsucursal & " and CodBarra = '" & cboFiltro.Text & "' ", sinfo3) Then
+                            For Each dr3 In dt3.Rows
+                                grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString)
+                            Next
+                        End If
+                        cnn3.Close()
+                    End If
                 End If
             End With
         End If

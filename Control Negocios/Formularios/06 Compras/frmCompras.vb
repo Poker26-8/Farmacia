@@ -169,23 +169,24 @@ Public Class frmCompras
     Public Function CodBarra() As Boolean
         Dim Bool As Boolean = False
         'If cbonombre.Text = "" And txtcodigo.Text = "" Then CodBarra = False : Exit Function
-
+        Dim caduca As Integer = 0
         'Descripción
         If txtcodigo.Text = "" Then
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select Codigo,Nombre,UCompra,PrecioCompra,Existencia from Productos where CodBarra='" & cbonombre.Text & "'"
+                "select Codigo,Nombre,UCompra,PrecioCompra,Existencia,Caduca from Productos where CodBarra='" & cbonombre.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    If cbonombre.Text = "" Then cnn2.Close() : rd2.Close() : Return False : Exit Function
+                    'If cbonombre.Text = "" Then cnn2.Close() : rd2.Close() : Return False : Exit Function
                     txtcodigo.Text = rd2("Codigo").ToString
                     cbonombre.Text = rd2("Nombre").ToString
                     txtunidad.Text = rd2("UCompra").ToString
                     txtprecio.Text = FormatNumber(rd2("PrecioCompra").ToString, 4)
                     txtexiste.Text = rd2("Existencia").ToString
                     lblvalor.Text = FormatNumber(rd2("PrecioCompra").ToString(), 4)
+                    caduca = rd2("Caduca").ToString
 
                     cnn3.Close() : cnn3.Open() : cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
@@ -200,6 +201,10 @@ Public Class frmCompras
                         lblvalor.Text = "1.0000"
                     End If
                     rd3.Close() : cnn3.Close()
+
+                    If caduca = 0 Then
+                        txtlote_KeyPress(txtlote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    End If
 
                     txtcantidad.Focus().Equals(True)
                     Bool = True
@@ -260,10 +265,10 @@ Public Class frmCompras
 
     Private Sub cbonombre_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbonombre.KeyPress
         e.KeyChar = UCase(e.KeyChar)
-        If cboremision.Text = "" And cbofactura.Text = "" And cbopedido.Text = "" Then MsgBox("Necesitas escribir un número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+        'If cboremision.Text = "" And cbofactura.Text = "" And cbopedido.Text = "" Then MsgBox("Necesitas escribir un número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
             If (CodBarra()) Then
-                'txtcantidad.Focus().Equals(True)
+                txtcantidad.Focus().Equals(True)
             Else
                 txtcodigo.Focus().Equals(True)
             End If

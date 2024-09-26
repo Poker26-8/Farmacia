@@ -40,8 +40,10 @@ Partial Class frmRepExistenciaSincronizador
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.rbBarras = New System.Windows.Forms.RadioButton()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -71,6 +73,7 @@ Partial Class frmRepExistenciaSincronizador
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.rbBarras)
         Me.GroupBox1.Controls.Add(Me.btnReporte)
         Me.GroupBox1.Controls.Add(Me.btnuevo)
         Me.GroupBox1.Controls.Add(Me.btnsalir)
@@ -140,13 +143,13 @@ Partial Class frmRepExistenciaSincronizador
         Me.cboFiltro.FormattingEnabled = True
         Me.cboFiltro.Location = New System.Drawing.Point(9, 88)
         Me.cboFiltro.Name = "cboFiltro"
-        Me.cboFiltro.Size = New System.Drawing.Size(380, 26)
+        Me.cboFiltro.Size = New System.Drawing.Size(497, 26)
         Me.cboFiltro.TabIndex = 13
         '
         'rbTodos
         '
         Me.rbTodos.AutoSize = True
-        Me.rbTodos.Location = New System.Drawing.Point(320, 60)
+        Me.rbTodos.Location = New System.Drawing.Point(436, 60)
         Me.rbTodos.Name = "rbTodos"
         Me.rbTodos.Size = New System.Drawing.Size(69, 22)
         Me.rbTodos.TabIndex = 12
@@ -158,7 +161,7 @@ Partial Class frmRepExistenciaSincronizador
         '
         Me.rbDesc.AutoSize = True
         Me.rbDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbDesc.Location = New System.Drawing.Point(12, 58)
+        Me.rbDesc.Location = New System.Drawing.Point(128, 58)
         Me.rbDesc.Name = "rbDesc"
         Me.rbDesc.Size = New System.Drawing.Size(138, 24)
         Me.rbDesc.TabIndex = 11
@@ -169,7 +172,7 @@ Partial Class frmRepExistenciaSincronizador
         '
         Me.rbCodigo.AutoSize = True
         Me.rbCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbCodigo.Location = New System.Drawing.Point(180, 58)
+        Me.rbCodigo.Location = New System.Drawing.Point(296, 58)
         Me.rbCodigo.Name = "rbCodigo"
         Me.rbCodigo.Size = New System.Drawing.Size(105, 24)
         Me.rbCodigo.TabIndex = 10
@@ -217,7 +220,7 @@ Partial Class frmRepExistenciaSincronizador
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column6, Me.Column3, Me.Column4, Me.Column5})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -242,6 +245,17 @@ Partial Class frmRepExistenciaSincronizador
         Me.grdCaptura.Size = New System.Drawing.Size(800, 398)
         Me.grdCaptura.TabIndex = 0
         '
+        'rbBarras
+        '
+        Me.rbBarras.AutoSize = True
+        Me.rbBarras.Location = New System.Drawing.Point(9, 58)
+        Me.rbBarras.Name = "rbBarras"
+        Me.rbBarras.Size = New System.Drawing.Size(94, 22)
+        Me.rbBarras.TabIndex = 207
+        Me.rbBarras.TabStop = True
+        Me.rbBarras.Text = "Cod Barra"
+        Me.rbBarras.UseVisualStyleBackColor = True
+        '
         'Column1
         '
         Me.Column1.HeaderText = "Sucursal"
@@ -253,6 +267,14 @@ Partial Class frmRepExistenciaSincronizador
         Me.Column2.HeaderText = "Código"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Cod Barras"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 114
         '
         'Column3
         '
@@ -300,11 +322,6 @@ Partial Class frmRepExistenciaSincronizador
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents grdCaptura As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents btnReporte As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnsalir As Button
@@ -315,4 +332,11 @@ Partial Class frmRepExistenciaSincronizador
     Friend WithEvents rbCodigo As RadioButton
     Friend WithEvents rbTodos As RadioButton
     Friend WithEvents cboFiltro As ComboBox
+    Friend WithEvents rbBarras As RadioButton
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class

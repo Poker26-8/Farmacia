@@ -86,6 +86,7 @@ Partial Class frmModulos
         Me.btnBodegas = New System.Windows.Forms.Button()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.btnPediatra = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -788,12 +789,22 @@ Partial Class frmModulos
         Me.btnPediatra.TabIndex = 62
         Me.btnPediatra.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(902, 317)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 63
+        Me.Button4.Text = "Formas"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1096, 424)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.btnPediatra)
         Me.Controls.Add(Me.Label32)
         Me.Controls.Add(Me.btnBodegas)
@@ -928,4 +939,5 @@ Partial Class frmModulos
     Friend WithEvents btnBodegas As Button
     Friend WithEvents Label32 As Label
     Friend WithEvents btnPediatra As Button
+    Friend WithEvents Button4 As Button
 End Class

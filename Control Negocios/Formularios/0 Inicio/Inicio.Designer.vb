@@ -197,6 +197,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1371,6 +1372,7 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
+        Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Controls.Add(Me.Button8)
         Me.Panel2.Controls.Add(Me.btnOptica)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
@@ -1659,6 +1661,17 @@ Partial Class Inicio
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
         '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.Color.White
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button12.Location = New System.Drawing.Point(9, 11)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(75, 55)
+        Me.Button12.TabIndex = 0
+        Me.Button12.Text = "Formas Pagos"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1863,4 +1876,5 @@ Partial Class Inicio
     Friend WithEvents btnBodegas As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents btnPediatra As Button
+    Friend WithEvents Button12 As Button
 End Class
