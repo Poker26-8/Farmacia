@@ -1878,7 +1878,7 @@ Public Class Inicio
         frmCuentabANCARIA.BringToFront()
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles btnComandera.Click
+    Private Sub Button12_Click(sender As Object, e As EventArgs)
         frmMesas.Show()
         frmMesas.BringToFront()
     End Sub
@@ -1923,7 +1923,7 @@ Public Class Inicio
         frmConfigRecargas.BringToFront()
     End Sub
 
-    Private Sub btnvtatouch_Click(sender As Object, e As EventArgs) Handles btnvtatouch.Click
+    Private Sub btnvtatouch_Click(sender As Object, e As EventArgs)
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1971,7 +1971,7 @@ Public Class Inicio
         End Try
     End Sub
 
-    Private Sub btnTelefonia_Click(sender As Object, e As EventArgs) Handles btnTelefonia.Click
+    Private Sub btnTelefonia_Click(sender As Object, e As EventArgs)
         Dim dato As Integer = DatosRecarga2("Telefonia")
 
         If dato = 1 Then
@@ -1981,7 +1981,7 @@ Public Class Inicio
         End If
     End Sub
 
-    Private Sub btnRefaccionaria_Click(sender As Object, e As EventArgs) Handles btnRefaccionaria.Click
+    Private Sub btnRefaccionaria_Click(sender As Object, e As EventArgs)
         Try
             Dim dato As Integer = DatosRecarga2("Refaccionaria")
 
@@ -2026,7 +2026,7 @@ Public Class Inicio
         frmReporte_CS.BringToFront()
     End Sub
 
-    Private Sub btnHoteleria_Click(sender As Object, e As EventArgs) Handles btnHoteleria.Click
+    Private Sub btnHoteleria_Click(sender As Object, e As EventArgs)
         frmMenuHabitaciones.Show()
         frmMenuHabitaciones.BringToFront()
     End Sub
@@ -2041,7 +2041,7 @@ Public Class Inicio
         frmRepSeries.BringToFront()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btnpollo.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs)
         frmPolleria.Show()
         frmPolleria.BringToFront()
     End Sub
@@ -2083,7 +2083,7 @@ Public Class Inicio
         frmcofepris.BringToFront()
     End Sub
 
-    Private Sub btnPagarComandas_Click(sender As Object, e As EventArgs) Handles btnPagarComandas.Click
+    Private Sub btnPagarComandas_Click(sender As Object, e As EventArgs)
         frmNuevoPagarComandas.Show()
         frmNuevoPagarComandas.BringToFront()
     End Sub
@@ -2144,7 +2144,7 @@ Public Class Inicio
         frmRepHoteles.BringToFront()
     End Sub
 
-    Private Sub btnOptica_Click(sender As Object, e As EventArgs) Handles btnOptica.Click
+    Private Sub btnOptica_Click(sender As Object, e As EventArgs)
         frmOptica.Show()
         frmOptica.BringToFront()
     End Sub
@@ -2211,7 +2211,7 @@ Public Class Inicio
         frmHisMesas.Show()
     End Sub
 
-    Private Sub btnDentista_Click(sender As Object, e As EventArgs) Handles btnDentista.Click
+    Private Sub btnDentista_Click(sender As Object, e As EventArgs)
         FrmDentistas.BringToFront()
         FrmDentistas.Show()
 
@@ -2222,7 +2222,7 @@ Public Class Inicio
         frmTraspasosAndroid.BringToFront()
     End Sub
 
-    Private Sub btnBodegas_Click(sender As Object, e As EventArgs) Handles btnBodegas.Click
+    Private Sub btnBodegas_Click(sender As Object, e As EventArgs)
         frmMapa.BringToFront()
         frmMapa.Show()
 
@@ -2233,7 +2233,7 @@ Public Class Inicio
 
     End Sub
 
-    Private Sub btnPediatra_Click(sender As Object, e As EventArgs) Handles btnPediatra.Click
+    Private Sub btnPediatra_Click(sender As Object, e As EventArgs)
         frmPediatria.BringToFront()
         frmPediatria.Show()
     End Sub

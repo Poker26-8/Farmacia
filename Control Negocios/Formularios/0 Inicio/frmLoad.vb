@@ -115,23 +115,6 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-        If pediatra = 1 Then
-            Inicio.btnPediatra.Visible = True
-        Else
-            Inicio.btnPediatra.Visible = False
-        End If
-
-        If bodegas = 1 Then
-            Inicio.btnBodegas.Visible = True
-        Else
-            Inicio.btnBodegas.Visible = False
-        End If
-
-        If dentista = 1 Then
-            Inicio.btnDentista.Visible = True
-        Else
-            Inicio.btnDentista.Visible = False
-        End If
         If VentasRuta = 1 Then
             If Inicio.perRuta = 0 Then
                 Inicio.MenuVentasRuta.Enabled = False
@@ -295,58 +278,9 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-        If restaurante = 1 Then
-            Inicio.btnComandera.Visible = True
-            Inicio.btnPagarComandas.Visible = True
-            Inicio.btnvtatouch.Visible = True
-            Inicio.CORTEMESERO.Visible = True
-            Inicio.pMod_Produccion.Visible = True
-            Inicio.pMod_Produccion.Enabled = True
-            frmPermisos.btnPermisosRestaurante.Visible = True
-            Inicio.repHistorialMesas.Visible = True
-        Else
-            Inicio.btnComandera.Visible = False
-            Inicio.btnPagarComandas.Visible = False
-            Inicio.btnvtatouch.Visible = False
-            Inicio.CORTEMESERO.Visible = False
-            frmPermisos.btnPermisosRestaurante.Visible = False
-            Inicio.repHistorialMesas.Visible = False
-        End If
 
-        ProgressBar1.Value = ProgressBar1.Value + 1
-        My.Application.DoEvents()
 
-        If refaccionaria = 1 Then
-            Inicio.btnRefaccionaria.Visible = True
-        Else
-            Inicio.btnRefaccionaria.Visible = False
-        End If
 
-        If pollos = 1 Then
-            Inicio.btnpollo.Visible = True
-        Else
-            Inicio.btnpollo.Visible = False
-        End If
-
-        ProgressBar1.Value = ProgressBar1.Value + 1
-        My.Application.DoEvents()
-
-        If telefonia = 1 Then
-            Inicio.btnTelefonia.Visible = True
-        Else
-            Inicio.btnTelefonia.Visible = False
-        End If
-
-        ProgressBar1.Value = ProgressBar1.Value + 1
-        My.Application.DoEvents()
-
-        If Hoteles = 1 Then
-            Inicio.btnHoteleria.Visible = True
-            Inicio.ReporteDeHotelToolStripMenuItem.Visible = True
-        Else
-            Inicio.btnHoteleria.Visible = False
-            Inicio.ReporteDeHotelToolStripMenuItem.Visible = False
-        End If
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
@@ -357,11 +291,7 @@ Public Class frmLoad
             Inicio.pMigracion.Visible = False
         End If
 
-        If Optica = 1 Then
-            Inicio.btnOptica.Visible = True
-        Else
-            Inicio.btnOptica.Visible = False
-        End If
+
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
