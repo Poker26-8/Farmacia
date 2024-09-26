@@ -1784,6 +1784,7 @@
                                           `ClavePago` varchar(20) NOT NULL DEFAULT '',
                                           `Descripcion` varchar(255) NOT NULL DEFAULT ''
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     Public varinsertaformapagosat As String = "INSERT INTO `formapagosat` (`Id`, `ClavePago`, `Descripcion`) VALUES
                                         (1, '01', 'Efectivo'),
                                         (2, '02', 'Cheque nominativo'),
@@ -1816,7 +1817,11 @@
                                               `Valor` varchar(255) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
-
+    Public insertformaspagos As String = "INSERT INTO `formaspago` (`Id`, `FormaPago`, `Valor`) VALUES
+                                                (1, 'TRANSFERENCIA', ''),
+                                                (2, 'TARJETA', ''),
+                                                (3, 'MONEDERO', ''),
+                                                (4, 'SALDO A FAVOR', '');"
 
     'Formatos
     Public vartablaformatos As String = "CREATE TABLE IF NOT EXISTS `formatos` (

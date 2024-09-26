@@ -1290,6 +1290,10 @@ Public Class Login
 
                             'FormasPago
                             .runSp(cnnprueba, vartablaformaspago, sinfo)
+                            If .getDt(cnnprueba, dtprueba11, "SELECT Id from formaspago", sinfo) Then
+                            Else
+                                .runSp(cnnprueba, insertformaspagos, sinfo)
+                            End If
                             .runSp(cnnprueba, varKeyformaspago, sinfo)
                             .runSp(cnnprueba, varAutoformapagos, sinfo)
 

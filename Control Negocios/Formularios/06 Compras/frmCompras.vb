@@ -168,7 +168,7 @@ Public Class frmCompras
 
     Public Function CodBarra() As Boolean
         Dim Bool As Boolean = False
-        If cbonombre.Text = "" And txtcodigo.Text = "" Then CodBarra = False : Exit Function
+        'If cbonombre.Text = "" And txtcodigo.Text = "" Then CodBarra = False : Exit Function
 
         'Descripción
         If txtcodigo.Text = "" Then
