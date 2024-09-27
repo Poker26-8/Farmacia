@@ -69,10 +69,10 @@ Public Class frmProductosS
                     chkAnti.Checked = IIf(rd1("Anti").ToString() = True, True, False)
                     cchkCaducidad.Checked = IIf(rd1("Caduca").ToString() = True, True, False)
                     chkControlado.Checked = IIf(rd1("Controlado").ToString() = True, True, False)
-                    txtpmp.Text = FormatNumber(rd2("PrecioMaximoPublico").ToString, 2)
-                    txtlaboratorio.Text = rd2("Laboratorio").ToString
-                    txtPrincipioActivo.Text = rd2("PrincipioActivo").ToString
-                    txtIEPS.Text = rd2("IIEPS").ToString
+                    txtpmp.Text = FormatNumber(rd1("PrecioMaximoPublico").ToString, 2)
+                    txtlaboratorio.Text = rd1("Laboratorio").ToString
+                    txtPrincipioActivo.Text = rd1("PrincipioActivo").ToString
+                    txtIEPS.Text = rd1("IIEPS").ToString
                 End If
             End If
             rd1.Close()
