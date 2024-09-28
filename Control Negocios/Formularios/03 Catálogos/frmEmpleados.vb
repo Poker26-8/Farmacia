@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Threading.Tasks
+Imports ClosedXML.Excel
 
 Public Class frmEmpleados
 
@@ -478,9 +479,119 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-            Excel_Grid_SQL(DataGridView1)
+        'If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    Excel_Grid_SQL(DataGridView1)
+        'End If
+
+        CargarDatosDesdeExcel()
+    End Sub
+
+    ' Función para cargar datos de Excel a un DataGridView
+    Private Sub CargarDatosDesdeExcel()
+        ' Crear el OpenFileDialog para seleccionar el archivo Excel
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "Archivos de Excel|*.xlsx"
+        openFileDialog.Title = "Seleccionar archivo Excel"
+
+        ' Si el usuario selecciona un archivo
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Ruta del archivo Excel seleccionado
+            Dim filePath As String = openFileDialog.FileName
+
+            ' Crear un DataTable para almacenar los datos
+            Dim dt As New DataTable()
+
+            ' Abrir el archivo de Excel usando ClosedXML
+            Using workbook As New XLWorkbook(filePath)
+                ' Asumimos que los datos están en la primera hoja
+                Dim worksheet As IXLWorksheet = workbook.Worksheet(1)
+
+                ' Obtener la primera fila como encabezados y añadir columnas al DataTable
+                Dim firstRow As IXLRow = worksheet.Row(1)
+                For Each cell As IXLCell In firstRow.CellsUsed()
+                    dt.Columns.Add(cell.Value.ToString())
+                Next
+
+                ' Recorrer las filas restantes y añadirlas al DataTable
+                For rowIndex As Integer = 2 To worksheet.RowsUsed().Count()
+
+                    Dim currentRow As IXLRow = worksheet.Row(rowIndex)
+                    ' Verificar si la fila está vacía
+                    Dim isEmptyRow As Boolean = True
+                    For colIndex As Integer = 1 To dt.Columns.Count
+                        If Not String.IsNullOrWhiteSpace(currentRow.Cell(colIndex).GetValue(Of String)()) Then
+                            isEmptyRow = False
+                            Exit For
+                        End If
+                    Next
+
+                    ' Si la fila no está vacía, agregarla al DataTable
+                    If Not isEmptyRow Then
+                        Dim row As DataRow = dt.NewRow()
+                        For colIndex As Integer = 1 To dt.Columns.Count
+                            row(colIndex - 1) = currentRow.Cell(colIndex).GetValue(Of String)()
+                        Next
+                        dt.Rows.Add(row)
+                    End If
+                Next
+            End Using
+
+            ' Asignar el DataTable al DataGridView para mostrar los datos
+            DataGridView1.DataSource = dt
+
+            Dim nombre, aliass, area, puesto, clave As String
+            Dim conteo As Integer = 0
+
+            barsube.Value = 0
+            barsube.Maximum = DataGridView1.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            Dim contadorconexion As Integer = 0
+
+            For dx As Integer = 0 To DataGridView1.Rows.Count - 1
+                contadorconexion += 1
+
+                ' Asegurarse de que la fila no es la nueva fila (vacía)
+                If Not DataGridView1.Rows(dx).IsNewRow Then
+                    nombre = If(DataGridView1.Rows(dx).Cells(0).Value IsNot Nothing, DataGridView1.Rows(dx).Cells(0).Value.ToString(), "")
+                    aliass = If(DataGridView1.Rows(dx).Cells(1).Value IsNot Nothing, DataGridView1.Rows(dx).Cells(1).Value.ToString(), "")
+                    area = If(DataGridView1.Rows(dx).Cells(2).Value IsNot Nothing, DataGridView1.Rows(dx).Cells(2).Value.ToString(), "")
+                    puesto = If(DataGridView1.Rows(dx).Cells(3).Value IsNot Nothing, DataGridView1.Rows(dx).Cells(3).Value.ToString(), "")
+                    clave = If(DataGridView1.Rows(dx).Cells(4).Value IsNot Nothing, DataGridView1.Rows(dx).Cells(4).Value.ToString(), "")
+
+                    If contadorconexion > 499 Then
+                        cnn1.Close() : cnn1.Open()
+                        contadorconexion = 1
+                    End If
+
+                    If (Comprueba(nombre)) Then
+
+                        If cnn1.State = 0 Then cnn1.Open()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO usuarios(Nombre,Alias,Area,Puesto,Departamento,NSS,Rfc,Curp,Clave,Ingreso,Sueldo,Sueldoxdia,Comisionista,Calle,Colonia,CP,Delegacion,Entidad) VALUES('" & nombre & "','" & aliass & "','" & area & "','" & puesto & "','','','','','" & clave & "','','','','','','','','','')"
+                        cmd1.ExecuteNonQuery()
+                    Else
+                        conteo += 1
+                        barsube.Value = conteo
+                        Continue For
+                    End If
+                    conteo += 1
+                    barsube.Value = conteo
+                End If
+
+
+            Next
+            cnn1.Close()
+            'DataGridView1.Rows.Clear()
+            barsube.Value = 0
+            MsgBox(conteo & " clientes fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         End If
+        cnn2.Close()
+
+
+
     End Sub
 
     Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)

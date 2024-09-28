@@ -446,7 +446,7 @@ Partial Class frmEmpleados
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(465, 31)
+        Me.Label1.Size = New System.Drawing.Size(463, 31)
         Me.Label1.TabIndex = 41
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -506,8 +506,9 @@ Partial Class frmEmpleados
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(497, 46)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(282, 221)
+        Me.DataGridView1.Size = New System.Drawing.Size(403, 221)
         Me.DataGridView1.TabIndex = 224
+        Me.DataGridView1.Visible = False
         '
         'barsube
         '
@@ -603,7 +604,7 @@ Partial Class frmEmpleados
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(465, 276)
+        Me.ClientSize = New System.Drawing.Size(463, 276)
         Me.Controls.Add(Me.lkmédico)
         Me.Controls.Add(Me.barsube)
         Me.Controls.Add(Me.DataGridView1)

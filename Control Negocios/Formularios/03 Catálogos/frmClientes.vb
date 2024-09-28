@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Data.OleDb
+Imports ClosedXML.Excel
 Public Class frmClientes
 
     Private Sub Info_Click(sender As System.Object, e As System.EventArgs) Handles Info.Click
@@ -962,9 +963,138 @@ Public Class frmClientes
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-            Excel_Grid_SQL(DataGridView1)
+        'If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    Excel_Grid_SQL(DataGridView1)
+        'End If
+
+        CargarDatosDesdeExcel()
+    End Sub
+
+    ' Función para cargar datos de Excel a un DataGridView
+    Private Sub CargarDatosDesdeExcel()
+        ' Crear el OpenFileDialog para seleccionar el archivo Excel
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "Archivos de Excel|*.xlsx"
+        openFileDialog.Title = "Seleccionar archivo Excel"
+
+        ' Si el usuario selecciona un archivo
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Ruta del archivo Excel seleccionado
+            Dim filePath As String = openFileDialog.FileName
+
+            ' Crear un DataTable para almacenar los datos
+            Dim dt As New DataTable()
+
+            ' Abrir el archivo de Excel usando ClosedXML
+            Using workbook As New XLWorkbook(filePath)
+                ' Asumimos que los datos están en la primera hoja
+                Dim worksheet As IXLWorksheet = workbook.Worksheet(1)
+
+                ' Obtener la primera fila como encabezados y añadir columnas al DataTable
+                Dim firstRow As IXLRow = worksheet.Row(1)
+                For Each cell As IXLCell In firstRow.CellsUsed()
+                    dt.Columns.Add(cell.Value.ToString())
+                Next
+
+                ' Recorrer las filas restantes y añadirlas al DataTable
+                For rowIndex As Integer = 2 To worksheet.RowsUsed().Count()
+
+                    Dim currentRow As IXLRow = worksheet.Row(rowIndex)
+                    ' Verificar si la fila está vacía
+                    Dim isEmptyRow As Boolean = True
+                    For colIndex As Integer = 1 To dt.Columns.Count
+                        If Not String.IsNullOrWhiteSpace(currentRow.Cell(colIndex).GetValue(Of String)()) Then
+                            isEmptyRow = False
+                            Exit For
+                        End If
+                    Next
+
+                    ' Si la fila no está vacía, agregarla al DataTable
+                    If Not isEmptyRow Then
+                        Dim row As DataRow = dt.NewRow()
+                        For colIndex As Integer = 1 To dt.Columns.Count
+                            row(colIndex - 1) = currentRow.Cell(colIndex).GetValue(Of String)()
+                        Next
+                        dt.Rows.Add(row)
+                    End If
+                Next
+            End Using
+
+            ' Asignar el DataTable al DataGridView para mostrar los datos
+            DataGridView1.DataSource = dt
+
+            Dim nombre, razonsocial, tipo, rfc, telefono, correo, comisionista, calle, colonia, cp, delegacion, entidad, pais, regfis, ninterior, nexterior, numcliente As String
+            Dim credito, diascred As Double
+            Dim suspender As Integer = 0
+            Dim conteo As Integer = 0
+
+            barsube.Value = 0
+            barsube.Maximum = DataGridView1.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            Dim contadorconexion As Integer = 0
+
+            For dx As Integer = 0 To DataGridView1.Rows.Count - 1
+                contadorconexion += 1
+                If Not DataGridView1.Rows(dx).IsNewRow Then
+
+
+                    nombre = NulCad(DataGridView1.Rows(dx).Cells(0).Value.ToString())
+                    razonsocial = NulCad(DataGridView1.Rows(dx).Cells(1).Value.ToString())
+                    tipo = NulCad(DataGridView1.Rows(dx).Cells(2).Value.ToString())
+                    rfc = NulCad(DataGridView1.Rows(dx).Cells(3).Value.ToString())
+                    telefono = NulCad(DataGridView1.Rows(dx).Cells(4).Value.ToString())
+                    correo = NulCad(DataGridView1.Rows(dx).Cells(5).Value.ToString())
+                    credito = NulVa(DataGridView1.Rows(dx).Cells(6).Value.ToString())
+                    diascred = NulVa(DataGridView1.Rows(dx).Cells(7).Value.ToString())
+                    comisionista = DataGridView1.Rows(dx).Cells(8).Value.ToString()
+                    suspender = NulVa(DataGridView1.Rows(dx).Cells(9).Value.ToString())
+                    calle = NulCad(DataGridView1.Rows(dx).Cells(10).Value.ToString())
+                    colonia = NulCad(DataGridView1.Rows(dx).Cells(11).Value.ToString())
+                    cp = NulCad(DataGridView1.Rows(dx).Cells(12).Value.ToString())
+                    delegacion = NulCad(DataGridView1.Rows(dx).Cells(13).Value.ToString())
+                    entidad = NulCad(DataGridView1.Rows(dx).Cells(14).Value.ToString())
+                    pais = NulCad(DataGridView1.Rows(dx).Cells(15).Value.ToString())
+                    regfis = NulCad(DataGridView1.Rows(dx).Cells(16).Value.ToString())
+                    ninterior = NulCad(DataGridView1.Rows(dx).Cells(17).Value.ToString())
+                    nexterior = NulCad(DataGridView1.Rows(dx).Cells(18).Value.ToString())
+                    numcliente = NulCad(DataGridView1.Rows(dx).Cells(19).Value.ToString())
+
+                    If nombre = "" Then
+                        nombre = razonsocial
+                    End If
+
+                    If contadorconexion > 499 Then
+                        cnn1.Close() : cnn1.Open()
+                        contadorconexion = 1
+                    End If
+
+                    If (Comprueba(nombre)) Then
+
+                        If cnn1.State = 0 Then cnn1.Open()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor,RegFis,NumCliente) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "', " & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & ninterior & "','" & nexterior & "',0,0,0,'" & regfis & "','" & numcliente & "')"
+                        cmd1.ExecuteNonQuery()
+                    Else
+                        conteo += 1
+                        barsube.Value = conteo
+                        Continue For
+                    End If
+                    conteo += 1
+                    barsube.Value = conteo
+                End If
+            Next
+
+            cnn1.Close()
+
+            DataGridView1.Rows.Clear()
+            barsube.Value = 0
+
+            MsgBox(conteo & " clientes fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         End If
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnMsj.Click

@@ -792,65 +792,74 @@ Nota:
             End If
         End If
         rd1.Close() : cnn1.Close()
+        Try
 
-        If (Imprime) Then
-            If MsgBox("¿Deseas imprimir recibo del traspaso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                Pasa_Print = True
-            Else
-                Pasa_Print = False
-            End If
-        Else
-            Pasa_Print = True
-        End If
 
-        If (Pasa_Print) Then
-            cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='TamImpre'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    Tamaño = rd1(0).ToString
+            If (Imprime) Then
+                If MsgBox("¿Deseas imprimir recibo del traspaso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                    Pasa_Print = True
+                Else
+                    Pasa_Print = False
                 End If
-            End If
-            rd1.Close()
-
-            If TPrint = "PDF - CARTA" Then
-
             Else
+                Pasa_Print = True
+            End If
+
+            If (Pasa_Print) Then
+                cnn1.Close() : cnn1.Open()
+
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                    "select NotasCred from Formatos where Facturas='TamImpre'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-                        Impresora = rd1(0).ToString
+                        Tamaño = rd1(0).ToString
                     End If
-                Else
-                    cnn1.Close()
                 End If
-                rd1.Close() : cnn1.Close()
-            End If
+                rd1.Close()
 
-            If TPrint = "TICKET" Then
-                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick() : Exit Sub
-                If Tamaño = "80" Then
-                    For t As Integer = 1 To Copias
-                        pSalida80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pSalida80.Print()
-                    Next
+                If TPrint = "PDF - CARTA" Then
+
+                Else
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            Impresora = rd1(0).ToString
+                        End If
+                    Else
+                        cnn1.Close()
+                    End If
+                    rd1.Close() : cnn1.Close()
                 End If
-                If Tamaño = "58" Then
-                    For t As Integer = 1 To Copias
-                        pSalida58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pSalida58.Print()
-                    Next
+
+                If TPrint = "TICKET" Then
+                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick() : Exit Sub
+                    If Tamaño = "80" Then
+                        For t As Integer = 1 To Copias
+                            pSalida80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pSalida80.Print()
+                        Next
+                    End If
+                    If Tamaño = "58" Then
+                        For t As Integer = 1 To Copias
+                            pSalida58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pSalida58.Print()
+                        Next
+                    End If
                 End If
             End If
-        End If
-        btnnuevo.PerformClick()
+            btnnuevo.PerformClick()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+            cnn2.Close()
+        End Try
     End Sub
 
     Private Sub pSalida80_PrintPage(sender As System.Object, e As System.Drawing.Printing.PrintPageEventArgs) Handles pSalida80.PrintPage
