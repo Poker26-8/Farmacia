@@ -1971,47 +1971,25 @@ Public Class Inicio
         End Try
     End Sub
 
-    Private Sub btnTelefonia_Click(sender As Object, e As EventArgs)
-        Dim dato As Integer = DatosRecarga2("Telefonia")
 
-        If dato = 1 Then
-            frmTallerT.Show()
-        Else
-            Exit Sub
-        End If
-    End Sub
 
-    Private Sub btnRefaccionaria_Click(sender As Object, e As EventArgs)
-        Try
-            Dim dato As Integer = DatosRecarga2("Refaccionaria")
 
-            If dato = 1 Then
-                frmMenuPrincipal.Show()
-            Else
-                Exit Sub
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
-    End Sub
-
-    Private Sub RegistroDeHuellaToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles RegistroDeHuellaToolStripMenuItem.Click
+    Private Sub RegistroDeHuellaToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
         frmHuellaCliente.Show()
         frmHuellaCliente.BringToFront()
     End Sub
 
-    Private Sub RegistroDeAsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeAsistenciaToolStripMenuItem.Click
+    Private Sub RegistroDeAsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmRegistroAsistencia.Show()
         frmRegistroAsistencia.BringToFront()
     End Sub
 
-    Private Sub ReporteDeAsistenciaToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ReporteDeAsistenciaToolStripMenuItem.Click
+    Private Sub ReporteDeAsistenciaToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
         frmRepAsistenciaGym.Show()
         frmRepAsistenciaGym.BringToFront()
     End Sub
 
-    Private Sub RegistroDeMembresiasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeMembresiasToolStripMenuItem.Click
+    Private Sub RegistroDeMembresiasToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmRegistro.Show()
         frmRegistro.BringToFront()
     End Sub
@@ -2026,15 +2004,7 @@ Public Class Inicio
         frmReporte_CS.BringToFront()
     End Sub
 
-    Private Sub btnHoteleria_Click(sender As Object, e As EventArgs)
-        frmMenuHabitaciones.Show()
-        frmMenuHabitaciones.BringToFront()
-    End Sub
 
-    Private Sub MenuNominaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuNominaToolStripMenuItem.Click
-        frmMenuNomina.Show()
-        frmMenuNomina.BringToFront()
-    End Sub
 
     Private Sub ReporteDeSeriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeSeries.Click
         frmRepSeries.Show()
@@ -2072,9 +2042,6 @@ Public Class Inicio
             frmCorte2.Show()
             frmCorte2.BringToFront()
         End If
-
-
-
     End Sub
 
 
@@ -2139,21 +2106,6 @@ Public Class Inicio
         frmEliminarAbono.BringToFront()
     End Sub
 
-    Private Sub ReporteDeHotelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeHotelToolStripMenuItem.Click
-        frmRepHoteles.Show()
-        frmRepHoteles.BringToFront()
-    End Sub
-
-    Private Sub btnOptica_Click(sender As Object, e As EventArgs)
-        frmOptica.Show()
-        frmOptica.BringToFront()
-    End Sub
-
-    Private Sub btnAuto_Click(sender As Object, e As EventArgs) Handles btnAuto.Click
-        frmAutoservicio.Show()
-        frmAutoservicio.BringToFront()
-    End Sub
-
     Private Sub pRegistro_Precios_Click(sender As Object, e As EventArgs) Handles pRegistro_Precios.Click
         frmComparador.Show()
         frmComparador.BringToFront()
@@ -2171,37 +2123,37 @@ Public Class Inicio
         'FrmDentistas.BringToFront()
     End Sub
 
-    Private Sub VehículosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles VehículosToolStripMenuItem.Click
+    Private Sub VehículosToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
         frmVehiculos.Show()
         frmVehiculos.BringToFront()
     End Sub
 
-    Private Sub OperadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OperadoresToolStripMenuItem.Click
+    Private Sub OperadoresToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmOperadores.Show()
         frmOperadores.BringToFront()
     End Sub
 
-    Private Sub GastosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GastosToolStripMenuItem1.Click
+    Private Sub GastosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         frmGastos.Show()
         frmGastos.BringToFront()
     End Sub
 
-    Private Sub ReporteDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeGastosToolStripMenuItem.Click
+    Private Sub ReporteDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmRepGastos.Show()
         frmRepGastos.BringToFront()
     End Sub
 
-    Private Sub EstadoDeResultadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeResultadosToolStripMenuItem.Click
+    Private Sub EstadoDeResultadosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmEstadoResultados.Show()
         frmEstadoResultados.BringToFront()
     End Sub
 
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs)
         frmProducirQ.Show()
         frmProducirQ.BringToFront()
     End Sub
 
-    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs)
         frmLotesyCad.BringToFront()
         frmLotesyCad.Show()
     End Sub
@@ -2215,11 +2167,6 @@ Public Class Inicio
         FrmDentistas.BringToFront()
         FrmDentistas.Show()
 
-    End Sub
-
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MenuVentasRuta.Click
-        frmTraspasosAndroid.Show()
-        frmTraspasosAndroid.BringToFront()
     End Sub
 
     Private Sub btnBodegas_Click(sender As Object, e As EventArgs)
@@ -2257,4 +2204,5 @@ Public Class Inicio
         End Try
 
     End Sub
+
 End Class
