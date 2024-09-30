@@ -59,11 +59,6 @@ Partial Class frmTraspSalida
         Me.cbodesc = New System.Windows.Forms.ComboBox()
         Me.cbocodigo = New System.Windows.Forms.TextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.txtcoment = New System.Windows.Forms.RichTextBox()
-        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -72,6 +67,12 @@ Partial Class frmTraspSalida
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtcoment = New System.Windows.Forms.RichTextBox()
+        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -112,7 +113,7 @@ Partial Class frmTraspSalida
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(670, 415)
+        Me.btnguardar.Location = New System.Drawing.Point(601, 415)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 77)
         Me.btnguardar.TabIndex = 318
@@ -123,11 +124,12 @@ Partial Class frmTraspSalida
         'btnnuevo
         '
         Me.btnnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(736, 415)
+        Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
+        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnnuevo.Location = New System.Drawing.Point(667, 415)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 77)
         Me.btnnuevo.TabIndex = 317
@@ -436,23 +438,6 @@ Partial Class frmTraspSalida
         Me.grdcaptura.Size = New System.Drawing.Size(788, 271)
         Me.grdcaptura.TabIndex = 291
         '
-        'txtcoment
-        '
-        Me.txtcoment.BackColor = System.Drawing.Color.Pink
-        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
-        Me.txtcoment.Name = "txtcoment"
-        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
-        Me.txtcoment.TabIndex = 319
-        Me.txtcoment.Text = ""
-        Me.txtcoment.Visible = False
-        '
-        'pSalida80
-        '
-        '
-        'pSalida58
-        '
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Codigo"
@@ -521,11 +506,45 @@ Partial Class frmTraspSalida
         Me.Column8.ReadOnly = True
         Me.Column8.Visible = False
         '
+        'txtcoment
+        '
+        Me.txtcoment.BackColor = System.Drawing.Color.Pink
+        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
+        Me.txtcoment.Name = "txtcoment"
+        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
+        Me.txtcoment.TabIndex = 319
+        Me.txtcoment.Text = ""
+        Me.txtcoment.Visible = False
+        '
+        'pSalida80
+        '
+        '
+        'pSalida58
+        '
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(736, 415)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 77)
+        Me.Button1.TabIndex = 320
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmTraspSalida
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(804, 499)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtcoment)
         Me.Controls.Add(Me.btnguardar)
         Me.Controls.Add(Me.btnnuevo)
@@ -612,4 +631,5 @@ Partial Class frmTraspSalida
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

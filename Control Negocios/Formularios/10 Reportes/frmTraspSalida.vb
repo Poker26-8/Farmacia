@@ -14,7 +14,7 @@ Public Class frmTraspSalida
     Dim barras As String = ""
     Private Sub frmTraspSalida_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Folio()
-        cbo.Focus().Equals(True)
+        cbodesc.Focus().Equals(True)
         usu_copia = ""
 
         If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
@@ -60,8 +60,6 @@ Public Class frmTraspSalida
                 passbdF = ""
             End If
         End If
-
-
 
     End Sub
 
@@ -1278,5 +1276,13 @@ milky:
         MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
         cnn1.Close()
         Exit Sub
+    End Sub
+
+    Private Sub frmTraspSalida_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        cbodesc.Focus.Equals(True)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
 End Class

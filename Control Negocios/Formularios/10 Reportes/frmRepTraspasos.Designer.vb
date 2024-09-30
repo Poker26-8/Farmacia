@@ -85,7 +85,7 @@ Partial Class frmRepTraspasos
         'cboDatos
         '
         Me.cboDatos.FormattingEnabled = True
-        Me.cboDatos.Items.AddRange(New Object() {"ENTRADA", "SALIDA"})
+        Me.cboDatos.Items.AddRange(New Object() {"SALIDA"})
         Me.cboDatos.Location = New System.Drawing.Point(9, 34)
         Me.cboDatos.Name = "cboDatos"
         Me.cboDatos.Size = New System.Drawing.Size(255, 28)
