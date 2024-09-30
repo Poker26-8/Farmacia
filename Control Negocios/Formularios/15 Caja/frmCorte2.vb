@@ -2742,7 +2742,7 @@ Public Class frmCorte2
             txtSaldoFinalG.Text = FormatNumber(txtSaldoFinalG.Text, 2)
 
             'Efectivo en caja
-            EfectivoCajaG.Text = (CDec(txtSaldoGlobal.Text) + CDec(txtIngEfectivoG.Text)) - CDec(txtEgresosGlobal.Text)
+            EfectivoCajaG.Text = (CDec(txtSaldoGlobal.Text) + CDec(txtIngresosGlobal.Text)) - CDec(txtEgresosGlobal.Text)
             EfectivoCajaG.Text = FormatNumber(EfectivoCajaG.Text, 2)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
