@@ -228,9 +228,9 @@ Public Class frmRepExistenciaSincronizador
             With odata3
                 If .dbOpen(cnn3, sTargetdSincro, sinfo3) Then
                     If cbosucursal.Text = "" Then
-                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo,p.CodBarra P.Nombre as descripcion, P.exitencia P.PrecioVentaIVA S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.CodBarra = '" & cboFiltro.Text & "' ", sinfo3) Then
+                        If .getDt(cnn3, dt3, "select P.Id, P.Codigo,P.CodBarra, P.Nombre, P.exitencia, P.PrecioVentaIVA, S.nombre as sucursal from productos P, sucursales S where P.NumSuc = S.Id and P.CodBarra = '" & cboFiltro.Text & "' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
-                                grdCaptura.Rows.Add(dr3(5).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
+                                grdCaptura.Rows.Add(dr3(6).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
                             Next
                         End If
                         cnn3.Close()
@@ -246,5 +246,11 @@ Public Class frmRepExistenciaSincronizador
             End With
         End If
 
+    End Sub
+
+    Private Sub cboFiltro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboFiltro.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnReporte.PerformClick()
+        End If
     End Sub
 End Class

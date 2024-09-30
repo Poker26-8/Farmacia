@@ -29,6 +29,7 @@ Partial Class frmRepExistenciaSincronizador
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rbBarras = New System.Windows.Forms.RadioButton()
         Me.btnReporte = New System.Windows.Forms.Button()
         Me.btnuevo = New System.Windows.Forms.Button()
         Me.btnsalir = New System.Windows.Forms.Button()
@@ -40,7 +41,6 @@ Partial Class frmRepExistenciaSincronizador
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.rbBarras = New System.Windows.Forms.RadioButton()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -91,6 +91,17 @@ Partial Class frmRepExistenciaSincronizador
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Busqueda"
+        '
+        'rbBarras
+        '
+        Me.rbBarras.AutoSize = True
+        Me.rbBarras.Location = New System.Drawing.Point(9, 58)
+        Me.rbBarras.Name = "rbBarras"
+        Me.rbBarras.Size = New System.Drawing.Size(94, 22)
+        Me.rbBarras.TabIndex = 207
+        Me.rbBarras.TabStop = True
+        Me.rbBarras.Text = "Cod Barra"
+        Me.rbBarras.UseVisualStyleBackColor = True
         '
         'btnReporte
         '
@@ -244,17 +255,6 @@ Partial Class frmRepExistenciaSincronizador
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(800, 398)
         Me.grdCaptura.TabIndex = 0
-        '
-        'rbBarras
-        '
-        Me.rbBarras.AutoSize = True
-        Me.rbBarras.Location = New System.Drawing.Point(9, 58)
-        Me.rbBarras.Name = "rbBarras"
-        Me.rbBarras.Size = New System.Drawing.Size(94, 22)
-        Me.rbBarras.TabIndex = 207
-        Me.rbBarras.TabStop = True
-        Me.rbBarras.Text = "Cod Barra"
-        Me.rbBarras.UseVisualStyleBackColor = True
         '
         'Column1
         '
