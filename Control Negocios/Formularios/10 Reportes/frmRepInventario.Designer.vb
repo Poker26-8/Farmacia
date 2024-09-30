@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRepInventario
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRepInventario
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepInventario))
@@ -78,11 +78,8 @@ Partial Class frmRepInventario
         Me.btnExpExis = New System.Windows.Forms.Button()
         Me.btnexcel = New System.Windows.Forms.Button()
         Me.btncardex = New System.Windows.Forms.Button()
-        Me.btnsalida = New System.Windows.Forms.Button()
-        Me.btnentrada = New System.Windows.Forms.Button()
         Me.btnetiquetas = New System.Windows.Forms.Button()
         Me.btncatalogo = New System.Windows.Forms.Button()
-        Me.btnRepTraspasos = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -447,7 +444,7 @@ Partial Class frmRepInventario
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.IniCosteo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(562, 38)
+        Me.GroupBox1.Location = New System.Drawing.Point(650, 38)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
@@ -619,7 +616,7 @@ Partial Class frmRepInventario
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(584, 123)
+        Me.Button1.Location = New System.Drawing.Point(752, 123)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 63)
         Me.Button1.TabIndex = 254
@@ -633,9 +630,9 @@ Partial Class frmRepInventario
         Me.btnExistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnExistencia.Image = CType(resources.GetObject("btnExistencia.Image"), System.Drawing.Image)
         Me.btnExistencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExistencia.Location = New System.Drawing.Point(746, 123)
+        Me.btnExistencia.Location = New System.Drawing.Point(833, 124)
         Me.btnExistencia.Name = "btnExistencia"
-        Me.btnExistencia.Size = New System.Drawing.Size(75, 63)
+        Me.btnExistencia.Size = New System.Drawing.Size(75, 61)
         Me.btnExistencia.TabIndex = 252
         Me.btnExistencia.Text = "Existencias"
         Me.btnExistencia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -701,36 +698,6 @@ Partial Class frmRepInventario
         Me.btncardex.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncardex.UseVisualStyleBackColor = True
         '
-        'btnsalida
-        '
-        Me.btnsalida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
-        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(913, 123)
-        Me.btnsalida.Name = "btnsalida"
-        Me.btnsalida.Size = New System.Drawing.Size(82, 63)
-        Me.btnsalida.TabIndex = 235
-        Me.btnsalida.Text = "Traspaso Salida"
-        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalida.UseVisualStyleBackColor = True
-        '
-        'btnentrada
-        '
-        Me.btnentrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnentrada.BackgroundImage = CType(resources.GetObject("btnentrada.BackgroundImage"), System.Drawing.Image)
-        Me.btnentrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnentrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnentrada.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnentrada.Location = New System.Drawing.Point(913, 50)
-        Me.btnentrada.Name = "btnentrada"
-        Me.btnentrada.Size = New System.Drawing.Size(82, 63)
-        Me.btnentrada.TabIndex = 234
-        Me.btnentrada.Text = "Traspaso Entrada"
-        Me.btnentrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnentrada.UseVisualStyleBackColor = True
-        '
         'btnetiquetas
         '
         Me.btnetiquetas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -738,7 +705,7 @@ Partial Class frmRepInventario
         Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnetiquetas.Location = New System.Drawing.Point(826, 123)
+        Me.btnetiquetas.Location = New System.Drawing.Point(912, 124)
         Me.btnetiquetas.Name = "btnetiquetas"
         Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
         Me.btnetiquetas.TabIndex = 233
@@ -753,7 +720,7 @@ Partial Class frmRepInventario
         Me.btncatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btncatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncatalogo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncatalogo.Location = New System.Drawing.Point(825, 50)
+        Me.btncatalogo.Location = New System.Drawing.Point(913, 52)
         Me.btncatalogo.Name = "btncatalogo"
         Me.btncatalogo.Size = New System.Drawing.Size(82, 63)
         Me.btncatalogo.TabIndex = 232
@@ -761,25 +728,11 @@ Partial Class frmRepInventario
         Me.btncatalogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncatalogo.UseVisualStyleBackColor = True
         '
-        'btnRepTraspasos
-        '
-        Me.btnRepTraspasos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRepTraspasos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRepTraspasos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnRepTraspasos.Location = New System.Drawing.Point(665, 123)
-        Me.btnRepTraspasos.Name = "btnRepTraspasos"
-        Me.btnRepTraspasos.Size = New System.Drawing.Size(75, 63)
-        Me.btnRepTraspasos.TabIndex = 256
-        Me.btnRepTraspasos.Text = "Rep Traspasos"
-        Me.btnRepTraspasos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnRepTraspasos.UseVisualStyleBackColor = True
-        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1004, 595)
-        Me.Controls.Add(Me.btnRepTraspasos)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
@@ -799,8 +752,6 @@ Partial Class frmRepInventario
         Me.Controls.Add(Me.btncardex)
         Me.Controls.Add(Me.cbofiltro)
         Me.Controls.Add(Me.boxcaduca)
-        Me.Controls.Add(Me.btnsalida)
-        Me.Controls.Add(Me.btnentrada)
         Me.Controls.Add(Me.btnetiquetas)
         Me.Controls.Add(Me.btncatalogo)
         Me.Controls.Add(Me.grdcaptura)
@@ -842,8 +793,6 @@ Partial Class frmRepInventario
     Friend WithEvents optCaducidad As System.Windows.Forms.RadioButton
     Friend WithEvents optCaducos As System.Windows.Forms.RadioButton
     Friend WithEvents grdcaptura As System.Windows.Forms.DataGridView
-    Friend WithEvents btnsalida As System.Windows.Forms.Button
-    Friend WithEvents btnentrada As System.Windows.Forms.Button
     Friend WithEvents btnetiquetas As System.Windows.Forms.Button
     Friend WithEvents btncatalogo As System.Windows.Forms.Button
     Friend WithEvents boxcaduca As System.Windows.Forms.GroupBox
@@ -888,5 +837,4 @@ Partial Class frmRepInventario
     Friend WithEvents Button1 As Button
     Friend WithEvents rbAjuste As RadioButton
     Friend WithEvents Button2 As Button
-    Friend WithEvents btnRepTraspasos As Button
 End Class

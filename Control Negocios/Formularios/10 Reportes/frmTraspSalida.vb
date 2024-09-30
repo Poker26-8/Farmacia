@@ -170,7 +170,7 @@ Public Class frmTraspSalida
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Nombre from Productos where Departamento<>'SERVICIOS'"
+                "select distinct Nombre from Productos where Departamento<>'SERVICIOS' ORDER BY Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbodesc.Items.Add(
@@ -273,7 +273,7 @@ Public Class frmTraspSalida
                 End Try
 
                 Dim canti As Double = 0
-                canti = txtcantidad.Text
+                canti = IIf(txtcantidad.Text = "", 1, txtcantidad.Text)
                 Dim precio As Double = 0
                 precio = txtprecio.Text
                 Dim tot As Double = 0
@@ -454,7 +454,7 @@ Public Class frmTraspSalida
             cbocodigo.Text = ""
             cbodesc.Text = ""
             txtunidad.Text = ""
-            txtcantidad.Text = ""
+            txtcantidad.Text = "1"
             txtprecio.Text = ""
             txttotal.Text = ""
             txtexistencia.Text = ""
@@ -513,7 +513,7 @@ Public Class frmTraspSalida
         cbodesc.Text = ""
         cbodesc.Items.Clear()
         txtunidad.Text = ""
-        txtcantidad.Text = ""
+        txtcantidad.Text = "1"
         txtprecio.Text = "0.00"
         txttotal.Text = "0.00"
         txtexistencia.Text = ""
@@ -594,14 +594,14 @@ Public Class frmTraspSalida
             cbocodigo.Text = grdcaptura.Rows(index).Cells(0).Value.ToString()
             cbodesc.Text = grdcaptura.Rows(index).Cells(1).Value.ToString()
             txtunidad.Text = grdcaptura.Rows(index).Cells(2).Value.ToString()
-            txtcantidad.Text = grdcaptura.Rows(index).Cells(3).Value.ToString()
+            txtcantidad.Text = IIf(grdcaptura.Rows(index).Cells(3).Value.ToString = "", 1, grdcaptura.Rows(index).Cells(3).Value.ToString)
             txtprecio.Text = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString())
             txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString())
             txtexistencia.Text = grdcaptura.Rows(index).Cells(6).Value.ToString()
 
             If grdcaptura.Rows.Count = 1 Then
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
-                CantDX = grdcaptura.Rows(index).Cells(3).Value.ToString
+                CantDX = IIf(grdcaptura.Rows(index).Cells(3).Value.ToString = "", 1, grdcaptura.Rows(index).Cells(3).Value.ToString)
                 grdcaptura.Rows.Clear()
             Else
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString

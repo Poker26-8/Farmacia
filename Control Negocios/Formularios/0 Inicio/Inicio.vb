@@ -1918,7 +1918,7 @@ Public Class Inicio
         frmRepCuentas.BringToFront()
     End Sub
 
-    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click_1(sender As Object, e As EventArgs)
         frmConfigRecargas.Show()
         frmConfigRecargas.BringToFront()
     End Sub
@@ -2190,6 +2190,10 @@ Public Class Inicio
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "DELETE FROM formaspago"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "INSERT INTO `formaspago` (`Id`, `FormaPago`, `Valor`) VALUES
 (1, 'TRANSFERENCIA', ''),
 (2, 'TARJETA', ''),
@@ -2205,4 +2209,12 @@ Public Class Inicio
 
     End Sub
 
+    Private Sub btnsalida_Click(sender As Object, e As EventArgs) Handles btnsalida.Click
+        frmTraspSalida.Show()
+    End Sub
+
+    Private Sub ReporteDeTraspasosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeTraspasosToolStripMenuItem.Click
+        frmRepTraspasos.BringToFront()
+        frmRepTraspasos.Show()
+    End Sub
 End Class

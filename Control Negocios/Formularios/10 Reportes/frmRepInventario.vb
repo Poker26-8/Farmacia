@@ -14,13 +14,9 @@ Public Class frmRepInventario
         frmCardex.Show()
     End Sub
 
-    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles btnentrada.Click
-        frmTraspEntrada.Show()
-    End Sub
 
-    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles btnsalida.Click
-        frmTraspSalida.Show()
-    End Sub
+
+
 
     Private Sub btnetiquetas_Click(sender As System.Object, e As System.EventArgs) Handles btnetiquetas.Click
         frmEtiquetas.Show()
@@ -3044,10 +3040,7 @@ kaka:
         frmMinMax.BringToFront()
     End Sub
 
-    Private Sub btnRepTraspasos_Click(sender As Object, e As EventArgs) Handles btnRepTraspasos.Click
-        frmRepTraspasos.BringToFront()
-        frmRepTraspasos.Show()
-    End Sub
+
 
     Private Sub optperdidas_Click(sender As Object, e As EventArgs) Handles optperdidas.Click
         If (optperdidas.Checked) Then
@@ -3165,4 +3158,5 @@ kaka:
             cbofiltro.Focus().Equals(True)
         End If
     End Sub
+
 End Class

@@ -115,22 +115,8 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-        If VentasRuta = 1 Then
-            If Inicio.perRuta = 0 Then
-                Inicio.MenuVentasRuta.Enabled = False
-            Else
-                Inicio.MenuVentasRuta.Visible = True
-            End If
 
-        Else
-            Inicio.MenuVentasRuta.Visible = False
-        End If
 
-        If produccionpro = 1 Then
-            Inicio.TproduccionCos.Visible = True
-        Else
-            Inicio.TproduccionCos.Visible = False
-        End If
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         ProgressBar1.Value = 80
@@ -144,11 +130,7 @@ Public Class frmLoad
             Inicio.pedidos_tienda.Visible = False
         End If
 
-        If gimnasios = 1 Then
-            Inicio.GimnasiosToolStripMenuItem.Visible = True
-        Else
-            Inicio.GimnasiosToolStripMenuItem.Visible = False
-        End If
+
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
@@ -162,11 +144,6 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-        If nomina = 1 Then
-            Inicio.NominaToolStripMenuItem.Visible = True
-        Else
-            Inicio.NominaToolStripMenuItem.Visible = False
-        End If
 
         If Mod_Asis = 1 Then
             Inicio.pAsistencia.Visible = True
@@ -304,11 +281,6 @@ Public Class frmLoad
             Inicio.MovCuentasToolStripMenuItem.Visible = False
         End If
 
-        If transportistas = 1 Then
-            Inicio.TransportistasToolStripMenuItem.Visible = True
-        Else
-            Inicio.TransportistasToolStripMenuItem.Visible = False
-        End If
 
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
