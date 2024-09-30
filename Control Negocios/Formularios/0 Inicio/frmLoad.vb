@@ -67,13 +67,13 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-        Dim pediatra As Integer = DatosRecarga2("Pediatra")
+
         Dim tiendalinea As Integer = DatosRecarga2("TiendaLinea")
-        Dim gimnasios As Integer = DatosRecarga2("Gimnasio")
+
         Dim consignacion As Integer = DatosRecarga2("Consignacion")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
-        Dim nomina As Integer = DatosRecarga2("Nomina")
+
         Dim Mod_Asis As Integer = DatosRecarga2("Mod_Asis")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
@@ -95,23 +95,18 @@ Public Class frmLoad
         Dim pollos As Integer = DatosRecarga2("pollos")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
-        Dim telefonia As Integer = DatosRecarga2("Telefonia")
-        Dim Hoteles As Integer = DatosRecarga2("Hoteles")
+
         Dim Migracion As Integer = DatosRecarga2("Migracion")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
-        Dim Optica As Integer = DatosRecarga2("Optica")
         Dim Mov_Cuenta As Integer = DatosRecarga2("Mov_Cuenta")
-        Dim transportistas As Integer = DatosRecarga2("Transportistas")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
         Dim produccionpro As Integer = DatosRecarga2("ProduccionPro")
-        Dim dentista As Integer = DatosRecarga2("Dentista")
         Dim VentasRuta As Integer = DatosRecarga2("VentasRuta")
         ' Dim dentista As Integer = Await ValidarAsync("Dentista")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
-        Dim bodegas As Integer = DatosRecarga2("Bodegas")
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
