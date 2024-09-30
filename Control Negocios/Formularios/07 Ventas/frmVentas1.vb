@@ -709,7 +709,7 @@ Public Class frmVentas1
             Dim acumulaxd As Integer = 0
             cnn1.Close()
             cnn1.Open()
-            cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Acumula'"
+            cmd1.CommandText = "Select NumPart from Formatos where Facturas='Acumula'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 acumulaxd = rd1(0).ToString
