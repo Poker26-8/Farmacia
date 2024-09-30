@@ -2900,11 +2900,14 @@ doorcita:
     Private Sub cbonota_DropDown(sender As Object, e As EventArgs) Handles cbonota.DropDown
         cbonota.Items.Clear()
         Try
+            Dim fechaxd As Date = Date.Now
+            Dim fechaformat As String
+            fechaformat = Format(fechaxd, "yyyy-MM-dd")
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Folio from Ventas where Status<>'CANCELADA' order by Folio"
+                "select distinct Folio from Ventas where Status<>'CANCELADA' and FVenta='" & fechaformat & "' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbonota.Items.Add(
