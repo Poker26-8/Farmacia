@@ -9892,7 +9892,7 @@ Door:
 
                 '        cmd1 = cnn1.CreateCommand
                 '        cmd1.CommandText =
-                '            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
+                '            "insert into AbonoI-(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF) values(" & cbonota.Text & "," & lblNumCliente.Text & ",'" & cboNombre.Text & "','DEVOLUCION','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & Total_devo & "," & MySaldo & ",'EFECTIVO'," & Total_devo & ",'','','" & lblusuario.Text & "',0,0,0,0)"
                 '        cmd1.ExecuteNonQuery()
 
                 '        cmd1 = cnn1.CreateCommand
@@ -9937,7 +9937,7 @@ Door:
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "select Folio,Codigo from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
+                        cmd1.CommandText = "select Id,Folio,Codigo from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
                         '"select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
