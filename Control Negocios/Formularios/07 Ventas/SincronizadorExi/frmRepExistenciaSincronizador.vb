@@ -7,9 +7,11 @@ Public Class frmRepExistenciaSincronizador
 
     Public idsucursal As Integer = 0
     Private Sub frmRepExistenciaSincronizador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbosucursal.Focus.Equals(True)
-
+        cboFiltro.Focus.Equals(True)
+        My.Application.DoEvents()
         rbBarras.Checked = True
+        cboFiltro.Focus.Equals(True)
+        My.Application.DoEvents()
     End Sub
 
     Private Sub cbosucursal_DropDown(sender As Object, e As EventArgs) Handles cbosucursal.DropDown
@@ -49,7 +51,8 @@ Public Class frmRepExistenciaSincronizador
         rbDesc.Checked = False
         llena_Descipciones()
         llena_Codigos()
-        cbosucursal.Focus.Equals(True)
+        cboFiltro.Focus.Equals(True)
+        My.Application.DoEvents()
     End Sub
 
     Private Sub cboFiltro_DropDown(sender As Object, e As EventArgs) Handles cboFiltro.DropDown
@@ -208,7 +211,6 @@ Public Class frmRepExistenciaSincronizador
                             Next
                         End If
                         cnn3.Close()
-
                     Else
                         If .getDt(cnn3, dt3, "select Codigo,CodBarra, Nombre,exitencia, PrecioVentaIVA FROM productos where NumSuc =" & idsucursal & " and Codigo = '" & cboFiltro.Text & "' ", sinfo3) Then
                             For Each dr3 In dt3.Rows
@@ -217,8 +219,6 @@ Public Class frmRepExistenciaSincronizador
                         End If
                         cnn3.Close()
                     End If
-
-
                 End If
             End With
         End If
@@ -232,6 +232,10 @@ Public Class frmRepExistenciaSincronizador
                             For Each dr3 In dt3.Rows
                                 grdCaptura.Rows.Add(dr3(6).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString, dr3(5).ToString)
                             Next
+                            cboFiltro.Text = ""
+                            My.Application.DoEvents()
+                            cboFiltro.Focus.Equals(True)
+                            My.Application.DoEvents()
                         End If
                         cnn3.Close()
                     Else
@@ -239,9 +243,17 @@ Public Class frmRepExistenciaSincronizador
                             For Each dr3 In dt3.Rows
                                 grdCaptura.Rows.Add(cbosucursal.Text, dr3(0).ToString, dr3(1).ToString, dr3(2).ToString, dr3(3).ToString, dr3(4).ToString)
                             Next
+                            cboFiltro.Text = ""
+                            My.Application.DoEvents()
+                            cboFiltro.Focus.Equals(True)
+                            My.Application.DoEvents()
                         End If
                         cnn3.Close()
                     End If
+                    cboFiltro.Text = ""
+                    My.Application.DoEvents()
+                    cboFiltro.Focus.Equals(True)
+                    My.Application.DoEvents()
                 End If
             End With
         End If
@@ -252,5 +264,10 @@ Public Class frmRepExistenciaSincronizador
         If AscW(e.KeyChar) = Keys.Enter Then
             btnReporte.PerformClick()
         End If
+    End Sub
+
+    Private Sub frmRepExistenciaSincronizador_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        cboFiltro.Focus.Equals(True)
+        My.Application.DoEvents()
     End Sub
 End Class
