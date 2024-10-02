@@ -278,7 +278,7 @@ Partial Class frmCorte2
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(590, 579)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "                      CORTE GLOBAL DEL DÍA (Z)                  "
+        Me.TabPage1.Text = "                      CORTE FINAL DEL DÍA (Z)                  "
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Label31
@@ -1086,7 +1086,7 @@ Partial Class frmCorte2
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(590, 579)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "                       CORTE POR USUARIO (X)                                  "
+        Me.TabPage2.Text = "                       CORTE POR CAJERO (X)                                  "
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'btnLimpiarUsuario
@@ -2418,7 +2418,7 @@ Partial Class frmCorte2
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCorte2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Corte de caja 2"
+        Me.Text = "Corte de caja "
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
