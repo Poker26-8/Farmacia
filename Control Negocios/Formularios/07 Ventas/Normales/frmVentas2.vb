@@ -262,8 +262,8 @@ Public Class frmVentas2
         cbotipo.Text = "Lista"
         txtdia.Text = Weekday(Date.Now)
         Timer1.Start()
-        cbodesc.Focus().Equals(True)
-
+        cbocodigo.Focus().Equals(True)
+        My.Application.DoEvents()
         Me.Show()
         My.Application.DoEvents()
 
@@ -4184,7 +4184,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -4203,6 +4203,8 @@ kaka:
                                 cnn1.Close()
                                 Exit Sub
                             End If
+                            cbocodigo.Text = rd1("Codigo").ToString
+                            My.Application.DoEvents()
 
                             If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
                                 picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
@@ -5060,7 +5062,7 @@ kaka:
         If cboLote.Text = "" Then
             If cboLote.Items.Count > 0 Then
                 If DataGridView2.Rows.Count = 0 Then
-                    MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    'MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     gbLotes.Visible = True
                     txtcodlote.Text = cbocodigo.Text
                     txtnombrelote.Text = cbodesc.Text
@@ -6470,8 +6472,8 @@ kaka:
 
         boxcomentario.Visible = False
         txtcomentario.Text = ""
-        FunctionVentas3Async()
-        FunctionClinetes3Async()
+        FunctionVentas2Async()
+        FunctionClinetes2Async()
         Timer1.Start()
     End Sub
 
