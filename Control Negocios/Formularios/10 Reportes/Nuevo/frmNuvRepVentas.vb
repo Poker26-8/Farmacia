@@ -2773,7 +2773,7 @@ Public Class frmNuvRepVentas
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Codigo,Nombre,Unidad,Cantidad,CostoVUE,Precio,TotalSinIva,Total,Descto,TotalIEPS,Fecha FROM ventasdetalle WHERE Folio=" & folio
+                        cmd2.CommandText = "SELECT Codigo,Nombre,Unidad,Cantidad,CostoVUE,Precio,PrecioSinIva,Total,Descto,TotalIEPS,Fecha FROM ventasdetalle WHERE Folio=" & folio
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             If rd2.HasRows Then
@@ -2784,13 +2784,14 @@ Public Class frmNuvRepVentas
                                 cantidad = rd2("Cantidad").ToString
                                 costo = rd2("CostoVUE").ToString
                                 precio = IIf(rd2("Precio").ToString = "", 0, rd2("Precio").ToString)
-                                subtotal = IIf(rd2("TotalSinIva").ToString = "", 0, rd2("TotalSinIva").ToString)
+                                subtotal = IIf(rd2("PrecioSinIva").ToString = "", 0, rd2("PrecioSinIva").ToString)
                                 total = IIf(rd2("Total").ToString = "", 0, rd2("Total").ToString)
                                 descuento = IIf(rd2("Descto").ToString = "", 0, rd2("Descto").ToString)
                                 ieps = IIf(rd2("TotalIEPS").ToString = "", 0, rd2("TotalIEPS").ToString)
                                 fecha = rd2("Fecha").ToString
                                 fechanueva = Format(fecha, "yyyy-MM-dd")
                                 utilidad = DameUti(folio, codigo, cantidad)
+                                subtotal = subtotal * cantidad
 
                                 T_Subtotal = T_Subtotal + subtotal
                                 T_Total = T_Total + (total)

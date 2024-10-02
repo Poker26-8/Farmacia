@@ -7642,7 +7642,7 @@ Door:
             validafranquicia = 0
         End If
         If franquicia = 0 Then
-            validafranquicia = 1
+            validafranquicia = 0
         End If
 
         Dim TotalIEPSPrint As Double = 0
@@ -9879,7 +9879,7 @@ Door:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "update VentasDetalle set Cantidad=Cantidad-" & CANTx & ", TotalSinIVA=TotalSinIVA-" & Totalx & ", Descto=Descto-" & (DescuentoUni * CANTx) & ", Total=Total-" & CDbl(grdcaptura.Rows(mahina).Cells(5).Value.ToString) & " where Codigo='" & CODx & "' and Folio=" & cbonota.Text
+                            "update VentasDetalle set Cantidad=Cantidad-" & CANTx & ", TotalSinIVA=TotalSinIVA-PrecioSinIVA*" & CANTx & ", Descto=Descto-" & (DescuentoUni * CANTx) & ", Total=Total-" & CDbl(grdcaptura.Rows(mahina).Cells(5).Value.ToString) & " where Codigo='" & CODx & "' and Folio=" & cbonota.Text
                         cmd1.ExecuteNonQuery() : cnn1.Close()
                     ElseIf TotalCantBase = CANTx Then
                         cnn1.Close() : cnn1.Open()
@@ -10007,6 +10007,10 @@ Door:
                     End If
                 End If
                 rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                            "update VentasDetalle set CostoVUE=CostoVUE-" & MyCostVUE & " where Codigo='" & mycode & "' and Folio=" & cbonota.Text
+                cmd1.ExecuteNonQuery()
 
 ecomoda:
                 If grdcaptura.Rows(beatriz_pinzon_solano).Cells(0).Value.ToString() <> "" Then
