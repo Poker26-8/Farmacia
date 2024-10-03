@@ -6624,7 +6624,7 @@
     Public vartablatrasladosdet As String = "CREATE TABLE `trasladosdet` (
                                                   `Id` int(11) NOT NULL,
                                                   `Codigo` varchar(50) NOT NULL DEFAULT '',
-                                                  `Nombre` varchar(250) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(255) NOT NULL DEFAULT '',
                                                   `Unidad` varchar(100) NOT NULL DEFAULT '',
                                                   `Cantidad` float NOT NULL DEFAULT '0',
                                                   `Precio` float NOT NULL DEFAULT '0',
@@ -6637,7 +6637,9 @@
                                                   `Folio` int(11) NOT NULL DEFAULT '0',
                                                   `CostVR` text NOT NULL,
                                                   `Comisionista` varchar(255) DEFAULT '',
-                                                  `Num_Traslado` int(11) DEFAULT '0'
+                                                  `Num_Traslado` int(11) DEFAULT '0',
+                                                  `Lote` varchar(150) DEFAULT '',
+                                                  `FCaduca` varchar(150) DEFAULT ''
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
