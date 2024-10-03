@@ -42,7 +42,7 @@ Public Class frmRepTraspasos
                 cnn2.Close()
                 cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "Select Codigo,Nombre,Cantidad,Unidad,Precio,Total from TrasladosDet where Folio=" & idtraspaso & " and Concepto='" & cboDatos.Text & "'"
+                cmd2.CommandText = "Select Codigo,Nombre,Cantidad,Unidad,Precio,Total from TrasladosDet where Folio=" & idtraspaso & " and Concepto='" & cboDatos.Text & "' order by Id"
                 rd2 = cmd2.ExecuteReader
                 Do While rd2.Read
                     codigo = rd2("Codigo").ToString
@@ -134,5 +134,9 @@ Public Class frmRepTraspasos
 
     Private Sub frmRepTraspasos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub cboDatos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboDatos.SelectedValueChanged
+        grdCaptura.Rows.Clear()
     End Sub
 End Class
