@@ -1115,7 +1115,7 @@ Nota:
 
 
         e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-        Y += 11
+        Y += 15
         e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
         e.Graphics.DrawString("EXIST.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 235, Y)
@@ -1143,16 +1143,36 @@ Nota:
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
             Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
-
+            Dim lote As String = ""
+            Dim caducidad As Date = Date.Now
+            Dim cantidadlote As Double = 0
 
             e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
-            Y += 12.5
+            Y += 15
+
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
             e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
             e.Graphics.DrawString(existencia, fuente_prods, Brushes.Black, 285, Y, sf)
-            Y += 21
+            Y += 17
+            If DataGridView2.Rows.Count > 0 Then
+                For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                    If codigo = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
+                        lote = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                        caducidad = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                        cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
+                        If lote <> "" Then
+                            e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                            e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                            e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                            Y += 15
+                        End If
+                    End If
+                Next
+            End If
+
+
             total_prods = total_prods + canti
         Next
         Y -= 1
