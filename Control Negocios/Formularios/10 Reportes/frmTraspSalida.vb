@@ -448,6 +448,8 @@ Public Class frmTraspSalida
             If txtprecio.Text = "" Then txtprecio.Focus() : Exit Sub
 
             txtprecio.Text = FormatNumber(txtprecio.Text, 2)
+            txttotal.Text = FormatNumber(CDec(txtprecio.Text) * CDec(txtcantidad.Text), 2)
+
             grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
             cbocodigo.Text = ""
             cbodesc.Text = ""
