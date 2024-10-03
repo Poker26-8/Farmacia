@@ -4695,6 +4695,8 @@ kaka:
                         Dim cantidad As Double = grdcaptura.Rows(t).Cells(3).Value.ToString()
                         Dim precio As Double = grdcaptura.Rows(t).Cells(4).Value.ToString()
                         Dim existencia As Double = 0
+                        Dim exislote As Double = 0
+                        Dim lote As String = grdcaptura.Rows(t).Cells(8).Value.ToString
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
@@ -4703,6 +4705,25 @@ kaka:
                         If rd1.HasRows Then
                             If rd1.Read Then
                                 existencia = rd1("Existencia").ToString()
+                            End If
+                        End If
+                        rd1.Close()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                exislote = rd1(0).ToString
+
+                                If exislote = cantidad Then
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "'"
+                                    cmd2.ExecuteNonQuery()
+                                    cnn2.Close()
+                                End If
+
                             End If
                         End If
                         rd1.Close()
@@ -5166,6 +5187,8 @@ caca:
             Dim unidad As String = grdcaptura.Rows(t).Cells(2).Value.ToString()
             Dim cantidad As Double = grdcaptura.Rows(t).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(t).Cells(4).Value.ToString()
+            Dim lote As String = grdcaptura.Rows(t).Cells(8).Value.ToString
+            Dim exislote As Double = 0
             Dim existencia As Double = 0
 
             cmd1 = cnn1.CreateCommand
@@ -5175,6 +5198,25 @@ caca:
             If rd1.HasRows Then
                 If rd1.Read Then
                     existencia = rd1("Existencia").ToString()
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    exislote = rd1(0).ToString
+
+                    If exislote = cantidad Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+
                 End If
             End If
             rd1.Close()
