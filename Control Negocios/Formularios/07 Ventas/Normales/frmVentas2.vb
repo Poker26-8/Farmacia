@@ -3117,10 +3117,10 @@ doorcita:
                     cbodesc.Focus().Equals(True)
                 End If
             Case Is = Keys.F3
-                frmBuscaVentas.Vienna = "Ventas3"
+                frmBuscaVentas.Vienna = "Ventas2"
                 frmBuscaVentas.Show()
             Case Is = Keys.F5
-                frmVentasKit.Vienna = "Ventas3"
+                frmVentasKit.Vienna = "Ventas2"
                 frmVentasKit.Show()
             Case Is = Keys.F7
                 chkBuscaProd.Checked = True
