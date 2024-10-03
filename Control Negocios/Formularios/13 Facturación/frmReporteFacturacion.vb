@@ -1257,4 +1257,8 @@ Public Class frmReporteFacturacion
 
         End With
     End Sub
+
+    Private Sub frmReporteFacturacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -4707,7 +4707,7 @@ MALO:
             Dim cadqr As String = ""
 
             If varrutabase <> "" Then
-                cadqr = varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg"
+                cadqr = varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg"
             Else
                 cadqr = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg"
             End If
@@ -4921,8 +4921,8 @@ malo:
                 crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\")
                 crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\")
                 If varrutabase <> "" Then
-                    crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\")
-                    crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\")
+                    crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\")
+                    crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\")
                 End If
 
                 If varrutabase <> "" Then
@@ -4931,8 +4931,8 @@ malo:
                         Case "FACTURA"
                             nombreCFD = "F" & txt_serie.Text & var_folio & ".xml"
                             If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD) = False Then
-                                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD) Then
-                                    My.Computer.FileSystem.CopyFile("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD, "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD, FileIO.UIOption.OnlyErrorDialogs, FileIO.UICancelOption.DoNothing)
+                                If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD) Then
+                                    My.Computer.FileSystem.CopyFile("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD, "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD, FileIO.UIOption.OnlyErrorDialogs, FileIO.UICancelOption.DoNothing)
                                 End If
                             End If
                     End Select
@@ -4940,10 +4940,10 @@ malo:
 
                 Dim root_name_recibo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
                 If varrutabase <> "" Then
-                    root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
+                    root_name_recibo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
                 End If
 
-                If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg") = False Then
+                If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg") = False Then
                     ima_qr(cbo_rfc_emisor.Text, Cmb_RFC.Text, Text_TOTAL.Text, dameuuid, var_folio, newcarpeta, Microsoft.VisualBasic.Right(damesellocfd, 8))
                 End If
 
@@ -5262,7 +5262,7 @@ malo:
         Dim newcarpeta As String = Replace(cbo_emisor.Text, Chr(34), "").ToString
         Dim root_name_recibo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD '"C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
         If varrutabase <> "" Then
-            root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD
+            root_name_recibo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD
         End If
 
         If File.Exists(root_name_recibo) Then
@@ -5330,7 +5330,7 @@ malo:
             'Buscamos el xml que se descargo
             Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -5359,7 +5359,7 @@ malo:
 
             Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -5558,7 +5558,7 @@ malo:
 
             Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -5594,7 +5594,7 @@ malo:
 
             Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -5709,7 +5709,7 @@ malo:
 
             Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
             Do While (Lector.Read())
                 Select Case Lector.NodeType
@@ -5731,7 +5731,7 @@ malo:
 
             Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             If varrutabase <> "" Then
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
             Do While (Lector.Read())
                 Select Case Lector.NodeType
@@ -7513,7 +7513,7 @@ puerta:
         Dim newcarpeta As String = Replace(cbo_emisor.Text, Chr(34), "").ToString
         Dim root_name_recibo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & Cmb_Nfactura.Text & "_F" & Cmb_Nfactura.Text & ".pdf"
         'If varrutabase <> "" Then
-        ' root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & Cmb_Nfactura.Text & "_F" & Cmb_Nfactura.Text & ".pdf"
+        ' root_name_recibo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & Cmb_Nfactura.Text & "_F" & Cmb_Nfactura.Text & ".pdf"
         'End If
 
         Select Case Cmb_TipoFact.Text
@@ -7527,7 +7527,7 @@ puerta:
 
         Dim xmla As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD
         ' If varrutabase <> "" Then
-        'xmla = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" &'nombreCFD
+        'xmla = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" &'nombreCFD
         'End If
         ProgressBar1.Value = 90
         lbl_proceso.Text = "Enviando E-Mail ..."
@@ -7833,7 +7833,7 @@ puerta:
         'Buscamos el xml que se descargo
         Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         If varrutabase <> "" Then
-            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         End If
 
         Do While (Lector.Read())
@@ -7862,7 +7862,7 @@ puerta:
 
         Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         If varrutabase <> "" Then
-            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         End If
 
         Do While (Lector.Read())
@@ -8054,7 +8054,7 @@ puerta:
         Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
 
         If varrutabase <> "" Then
-            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         End If
 
         Do While (Lector.Read())
@@ -8090,7 +8090,7 @@ puerta:
 
         Lector = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         If varrutabase <> "" Then
-            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
+            Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD)
         End If
 
         Do While (Lector.Read())

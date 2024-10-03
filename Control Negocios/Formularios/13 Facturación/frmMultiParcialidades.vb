@@ -583,8 +583,8 @@ Public Class frmMultiParcialidades
             If MsgBox("¿Desea Abrir el Archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 Dim FolioUnido As String = "P" & cboFolioPar.Text
                 Dim FileOpen As New ProcessStartInfo
-                crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
-                Dim root_name_recibo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+                crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
+                Dim root_name_recibo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
                 If File.Exists(root_name_recibo) Then
                     FileOpen.UseShellExecute = True
                     FileOpen.FileName = root_name_recibo
@@ -1326,8 +1326,8 @@ door:
 
         Dim newcarpeta As String = Replace(cbo_emisor.Text, Chr(34), "").ToString
 
-        crea_dir("C:\ControlNegociosPro.\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
-        Dim root_name_recibo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+        crea_dir("C:\DelsscomFarmacias.\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
+        Dim root_name_recibo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
 
         If File.Exists(root_name_recibo) Then
             File.Delete(root_name_recibo)
@@ -2536,7 +2536,7 @@ door:
         Table61.AddCell(Col1)
 
 
-        Dim cadqr As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\cd\PARCIALIDADES\" & FolioUnido & ".jpg"
+        Dim cadqr As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\cd\PARCIALIDADES\" & FolioUnido & ".jpg"
 
         Dim imagenURL2 As String = cadqr
         Dim imagenBMP2 As iTextSharp.text.Image
@@ -2595,7 +2595,7 @@ door:
         Try
             If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 Dim nombreCFD As String = FolioUnido & ".xml"
-                Dim xmla As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
+                Dim xmla As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
                 ProgressBar1.Value = 90
                 lbl_proceso.Text = "Enviando E-Mail ..."
                 My.Application.DoEvents()
@@ -2614,9 +2614,9 @@ door:
     Private Sub btn_reenvio_Click(sender As Object, e As EventArgs) Handles btn_reenvio.Click
         Dim newcarpeta As String = Replace(cbo_emisor.Text, Chr(34), "").ToString
         Dim FolioUnido As String = "P" & cboFolioPar.Text
-        Dim root_name_recibo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+        Dim root_name_recibo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
         Dim nombreCFD As String = FolioUnido & ".xml"
-        Dim xmla As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
+        Dim xmla As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
         ProgressBar1.Value = 90
         lbl_proceso.Text = "Enviando E-Mail ..."
         My.Application.DoEvents()
@@ -3014,7 +3014,7 @@ puerta:
         Table1.SetWidths(widths)
 
 #Region "Tabla.Encabezado"
-        Dim imagenURL As String = "C:\ControlNegociosPro\Dls.jpg"
+        Dim imagenURL As String = "C:\DelsscomFarmacias\Dls.jpg"
         Dim imagenBMP As iTextSharp.text.Image
         imagenBMP = iTextSharp.text.Image.GetInstance(imagenURL)
         imagenBMP.ScaleToFit(150.0F, 90.0F)
@@ -3918,7 +3918,7 @@ puerta:
         Table61.AddCell(Col1)
 
 
-        Dim imagenURL2 As String = "C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP12-1549.jpg"
+        Dim imagenURL2 As String = "C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP12-1549.jpg"
         Dim imagenBMP2 As iTextSharp.text.Image
         imagenBMP2 = iTextSharp.text.Image.GetInstance(imagenURL2)
         imagenBMP2.ScaleToFit(100.0F, 100.0F)

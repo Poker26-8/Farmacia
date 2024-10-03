@@ -2879,22 +2879,22 @@ Public Class frmCorte2
         Dim CrTables As Tables
         Dim CrTable As Table
 
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\")
-        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\")
+        root_name_recibo = "C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+        If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+            File.Delete("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
             End If
         End If
 
         With crConnectionInfo
-            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
-            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .ServerName = "C:\DelsscomFarmacias\DL1.mdb"
+            .DatabaseName = "C:\DelsscomFarmacias\DL1.mdb"
             .UserID = ""
             .Password = "jipl22"
         End With
@@ -2940,7 +2940,7 @@ Public Class frmCorte2
 
             My.Application.DoEvents()
 
-            Dim root_corte As String = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
+            Dim root_corte As String = "C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
             My.Application.DoEvents()
             frmEnvio_Corte.Show()
             frmEnvio_Corte.BringToFront()
@@ -2954,11 +2954,11 @@ Public Class frmCorte2
 
         If varrutabase <> "" Then
 
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdff")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdff")
             End If
 
-            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+            System.IO.File.Copy("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
         End If
     End Sub
 
@@ -3043,22 +3043,22 @@ Public Class frmCorte2
         Dim CrTables As Tables
         Dim CrTable As Table
 
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\")
-        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\")
+        root_name_recibo = "C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+        If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+            File.Delete("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
             End If
         End If
 
         With crConnectionInfo
-            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
-            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .ServerName = "C:\DelsscomFarmacias\DL1.mdb"
+            .DatabaseName = "C:\DelsscomFarmacias\DL1.mdb"
             .UserID = ""
             .Password = "jipl22"
         End With
@@ -3112,7 +3112,7 @@ Public Class frmCorte2
 
             My.Application.DoEvents()
 
-            Dim root_corte As String = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
+            Dim root_corte As String = "C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
             My.Application.DoEvents()
             frmEnvio_Corte.Show()
             frmEnvio_Corte.BringToFront()
@@ -3126,11 +3126,11 @@ Public Class frmCorte2
 
         If varrutabase <> "" Then
 
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdff")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdff")
             End If
 
-            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+            System.IO.File.Copy("C:\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
         End If
     End Sub
 

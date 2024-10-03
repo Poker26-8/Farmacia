@@ -153,10 +153,10 @@ Module Facturacion
                 Dim rutaftp2 As String = ""
                 Dim ruta_acuse As String = ""
                 Dim nombre_acuse As String = "Acuse_" & FolioUnido & ".xml"
-                ruta_acuse = "C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
+                ruta_acuse = "C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
 
                 If varrutabase <> "" Then
-                    ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
+                    ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
                 End If
 
                 crea_ruta(ruta_acuse)
@@ -186,9 +186,9 @@ Module Facturacion
                     Dim rutaftp2 As String = ""
                     Dim ruta_acuse As String = ""
                     Dim nombre_acuse As String = "Acuse_" & FolioUnido & ".xml"
-                    ruta_acuse = "C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
+                    ruta_acuse = "C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
                     If varrutabase <> "" Then
-                        ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
+                        ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\PARCIALIDADES\Acuses\"
                     End If
                     crea_ruta(ruta_acuse)
                     If (resultadoConsulta.GuardaXml(ruta_acuse, nombre_acuse)) Then
@@ -247,16 +247,16 @@ Module Facturacion
 
         nombreCFD = "PP" & FolioPar & "-" & FolioFact & ".xml"
 
-        crea_dir("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
+        crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
 
         Dim miXml As XmlTextWriter
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
-            miXml = New XmlTextWriter("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
+            miXml = New XmlTextWriter("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
 
         Else
-            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
-            miXml = New XmlTextWriter("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+            crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
+            miXml = New XmlTextWriter("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         End If
         Dim fechaFormateada As String
         Dim fechaFormateada1 As String
@@ -805,9 +805,9 @@ Module Facturacion
         '============================= TERMINA EL XML
 
         If varrutabase <> "" Then
-            xmldoc.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
         Else
-            xmldoc.Load("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Load("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
         End If
 
         Dim Elemento As Xml.XmlElement = xmldoc.DocumentElement
@@ -819,9 +819,9 @@ Module Facturacion
         Dim R
         R = Elemento.InnerXml
         If varrutabase <> "" Then
-            xmldoc.Save("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Save("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
         Else
-            xmldoc.Save("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Save("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD)
         End If
         '================================= termina xml base3
 
@@ -851,14 +851,14 @@ Module Facturacion
             Dim Lector As System.Xml.XmlTextReader
 
             If varrutabase = "" Then
-                crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
+                crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
 
-                Lector = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
             Else
-                crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
-                crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
+                crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
+                crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
 
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -886,10 +886,10 @@ Module Facturacion
                 End Select
             Loop
 
-            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
 
             If varrutabase <> "" Then
-                Lector1 = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+                Lector1 = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
             End If
 
             Do While (Lector1.Read())
@@ -939,10 +939,10 @@ Module Facturacion
     End Function
 
     Public Sub ima_qrpar(ByVal rfc_empresa As String, ByVal rfc_receptor As String, ByVal totalc As String, ByVal foliofis As String, ByVal id_evento As String, ByVal razon_social As String)
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\")
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\")
 
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\imagenes\")
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\imagenes\")
         End If
 
         Dim qre As New QrCodeImgControl
@@ -950,17 +950,17 @@ Module Facturacion
         qre.Text = "?re=" & rfc_empresa & "&rr=" & rfc_receptor & "&tt=" & totalc & "&id=" & foliofis
         Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
+        If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg") Then
+            File.Delete("C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
         End If
 
-        ima.Save("C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
+        ima.Save("C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
             End If
-            ima.Save("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
+            ima.Save("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP" & id_evento & ".jpg")
         End If
 
     End Sub
@@ -1002,16 +1002,16 @@ Module Facturacion
 
         If varrutabase <> "" Then
             'XML Timbrado
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
-            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
+            crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
             'XML Temporal
-            documentoXml.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD)
+            documentoXml.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD)
 
         Else
             'XML Timbrado
-            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
+            crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
             'XML Temporal
-            documentoXml.Load("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD)
+            documentoXml.Load("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD)
         End If
 
         Try
@@ -1032,21 +1032,21 @@ Module Facturacion
             End If
 
             'Ruta del archivo a timbrar
-            Dim rutaArchivo As String = "C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD
+            Dim rutaArchivo As String = "C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD
 
             If varrutabase <> "" Then
                 'En los usuarios siempre agarra este
-                rutaArchivo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD
+                rutaArchivo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD
             End If
 
             'Timbramos el CFDI por medio del conector y guardamos resultado
             Dim resultadoTimbre As Profact.TimbraCFDI.ResultadoTimbre
             resultadoTimbre = conector.TimbraCFDI(rutaArchivo)
 
-            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\")
+            crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\")
 
             If varrutabase <> "" Then
-                crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\")
+                crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\")
             End If
 
             'Verificamos el resultado
@@ -1054,36 +1054,36 @@ Module Facturacion
                 'El comprobante fue timbrado exitosamente
 
                 'Guardamos xml cfdi en equipo local
-                If resultadoTimbre.GuardaXml("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\", nombreCFD) Then
+                If resultadoTimbre.GuardaXml("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\", nombreCFD) Then
                 Else
                     'MessageBox.Show("Ocurrió un error al guardar el comprobante" & vbNewLine & "Equipo local")
                 End If
 
                 'Guardamos xml cfdi en equipo servidor
                 If varrutabase <> "" Then
-                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\", nombreCFD)) Then
+                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\", nombreCFD)) Then
                     Else
                         ' MessageBox.Show("Ocurrió un error al guardar el comprobante" & vbNewLine & "Equipo Servidor")
                     End If
                 End If
 
                 'Generación de código QR local
-                If (resultadoTimbre.GuardaCodigoBidimensional("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\", folio & "-" & folioFact)) Then
+                If (resultadoTimbre.GuardaCodigoBidimensional("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\", folio & "-" & folioFact)) Then
                 Else
                     'MessageBox.Show("Ocurrió un error al guardar el código QR" & vbNewLine & "Equipo local")
                 End If
 
                 'Generación de código QR servidor
                 If varrutabase <> "" Then
-                    If (resultadoTimbre.GuardaCodigoBidimensional("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\", folio & "-" & folioFact)) Then
+                    If (resultadoTimbre.GuardaCodigoBidimensional("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\cd\PARCIALIDADES\", folio & "-" & folioFact)) Then
                     Else
                         MessageBox.Show("Ocurrió un error al guardar el código QR" & vbNewLine & "Equipo servidor")
                     End If
                 End If
 
-                If Not File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD) Then
-                    If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD) Then
-                        File.Copy("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD, "C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD)
+                If Not File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD) Then
+                    If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD) Then
+                        File.Copy("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD, "C:\DelsscomFarmacias\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\" & nombreCFD)
                     End If
                 End If
 
@@ -1338,13 +1338,13 @@ Module Facturacion
                 Select Case frmfacturacion.Cmb_TipoFact.Text
                     Case "FACTURA"
                         If varrutabase <> "" Then
-                            ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
+                            ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                         Else
                             ruta_acuse = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                         End If
                     Case "NOTA DE CREDITO"
                         If varrutabase <> "" Then
-                            ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
+                            ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                         Else
                             ruta_acuse = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                         End If
@@ -1379,13 +1379,13 @@ Module Facturacion
                     Select Case frmfacturacion.Cmb_TipoFact.Text
                         Case "FACTURA"
                             If varrutabase <> "" Then
-                                ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
+                                ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                             Else
                                 ruta_acuse = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                             End If
                         Case "NOTA DE CREDITO"
                             If varrutabase <> "" Then
-                                ruta_acuse = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
+                                ruta_acuse = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                             Else
                                 ruta_acuse = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & frmfacturacion.Cmb_TipoFact.Text & "\Acuses\"
                             End If
@@ -1965,8 +1965,8 @@ Module Facturacion
         crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\")
         Dim miXml As XmlTextWriter = New XmlTextWriter(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\")
-            miXml = New XmlTextWriter("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\")
+            miXml = New XmlTextWriter("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         End If
         Dim fechaFormateada As String
         Dim fechaFormateada1 As String
@@ -4533,7 +4533,7 @@ puertaXD1:
 
         '============================= TERMINA EL XML
         If varrutabase <> "" Then
-            xmldoc.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
+            xmldoc.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         Else
             xmldoc.Load(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         End If
@@ -4547,7 +4547,7 @@ puertaXD1:
         R = Elemento.InnerXml
 
         If varrutabase <> "" Then
-            xmldoc.Save("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
+            xmldoc.Save("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         Else
             xmldoc.Save(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         End If
@@ -4572,8 +4572,8 @@ puertaXD1:
             Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
 
             If varrutabase <> "" Then
-                crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
+                crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -4652,8 +4652,8 @@ puertaXD1:
 
         Dim miXml As XmlTextWriter = New XmlTextWriter(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\")
-            miXml = New XmlTextWriter("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\")
+            miXml = New XmlTextWriter("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         End If
 
         Dim fechaFormateada As String
@@ -8104,7 +8104,7 @@ puertaXD1:
 
 
         If varrutabase <> "" Then
-            xmldoc.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
         Else
             xmldoc.Load(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
         End If
@@ -8119,7 +8119,7 @@ puertaXD1:
         R = Elemento.InnerXml
 
         If varrutabase <> "" Then
-            xmldoc.Save("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
+            xmldoc.Save("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
         Else
             xmldoc.Save(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
         End If
@@ -8146,8 +8146,8 @@ puertaXD1:
             Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
 
             If varrutabase <> "" Then
-                crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
-                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
+                crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
+                Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\" & nombreCFD)
             End If
 
             Do While (Lector.Read())
@@ -8268,11 +8268,11 @@ puertaXD1:
 
         crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
         End If
 
         If varrutabase <> "" Then
-            documentoXml.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD)
+            documentoXml.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD)
         Else
             documentoXml.Load(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD)
         End If
@@ -8297,9 +8297,9 @@ puertaXD1:
             'Ruta del archivo a timbrar
             Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD
             If varrutabase <> "" Then
-                rutaArchivo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD
+                rutaArchivo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD
             End If
-            '"C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\comprobanteSinTimbrar2.xml" ' 
+
             'Timbramos el CFDI por medio del conector y guardamos resultado'
             Dim resultadoTimbre As Profact.TimbraCFDI.ResultadoTimbre
             resultadoTimbre = conector.TimbraCFDI(rutaArchivo)
@@ -8317,7 +8317,7 @@ puertaXD1:
                 End If
 
                 If varrutabase <> "" Then
-                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\", nombreCFD)) Then
+                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\", nombreCFD)) Then
                     Else
                         MessageBox.Show("Ocurrió un error al guardar el comprobante")
                     End If
@@ -8448,20 +8448,10 @@ puertaXD1:
 
         '" & newcarpeta & "\"
 
-        'crea_ruta("C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\imagenes\")
-        'Dim qre As New QrCodeImgControl
-        'qre.Size = New System.Drawing.Size(200, 200)
-        'qre.Text = "?re=" & rfc_empresa & "&rr=" & rfc_receptor & "&tt=" & totalc & "&id=" & foliofis
-        'Dim ima As Image = DirectCast(qre.Image.Clone, Image)
-
-        'If File.Exists("C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\imagenes\" & id_evento & ".jpg") Then
-        '    File.Delete("C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\imagenes\" & id_evento & ".jpg")
-        'End If
-        'ima.Save("C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\imagenes\" & id_evento & ".jpg")
 
         crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\")
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\")
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\")
         End If
         Dim qre As New QrCodeImgControl
         qre.Size = New System.Drawing.Size(200, 200)
@@ -8474,14 +8464,14 @@ puertaXD1:
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
             End If
         End If
 
         ima.Save(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
         If varrutabase <> "" Then
-            ima.Save("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
+            ima.Save("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
         End If
 
     End Sub
@@ -8529,11 +8519,11 @@ puertaXD1:
 
         crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
         End If
 
         If varrutabase <> "" Then
-            documentoXml.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
+            documentoXml.Load("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         Else
             documentoXml.Load(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
         End If
@@ -8550,7 +8540,7 @@ puertaXD1:
             'Ruta del archivo a timbrar
             Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD
             If varrutabase <> "" Then
-                rutaArchivo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD
+                rutaArchivo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD
             End If
             'Timbramos el CFDI por medio del conector y guardamos resultado'
             Dim resultadoTimbre As Profact.TimbraCFDI.ResultadoTimbre
@@ -8568,12 +8558,11 @@ puertaXD1:
                 End If
 
                 If varrutabase <> "" Then
-                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\", nombreCFD)) Then
+                    If (resultadoTimbre.GuardaXml("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\", nombreCFD)) Then
                     End If
                 End If
 
-                'crea_ruta("\\" & varrutabase & "\ControlNegociosPRO\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\" & frmfacturacion.Cmb_TipoFact.Text & "\")
-                'documentoXml.Load("\\" & varrutabase & "\ControlNegociosPRO\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
+
 
 
                 'Los siguientes datos deberán ir en la respresentación impresa ó PDF
@@ -8746,7 +8735,7 @@ puertaXD1:
                 Dim rutaftp2 As String = ""
                 Dim ruta_acuse As String = ""
                 Dim nombre_acuse As String = "Acuse_" & FolioUnido & ".xml"
-                ruta_acuse = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiRazonSocial & "\CARTAPORTE\Acuses\"
+                ruta_acuse = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiRazonSocial & "\CARTAPORTE\Acuses\"
                 crea_dir(ruta_acuse)
                 If (resultadoConsulta.GuardaXml(ruta_acuse, nombre_acuse)) Then
                     MsgBox("El xml fue guardado correctamente")
@@ -8774,7 +8763,7 @@ puertaXD1:
                     Dim rutaftp2 As String = ""
                     Dim ruta_acuse As String = ""
                     Dim nombre_acuse As String = "Acuse_" & FolioUnido & ".xml"
-                    ruta_acuse = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiRazonSocial & "\CARTAPORTE\Acuses\"
+                    ruta_acuse = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiRazonSocial & "\CARTAPORTE\Acuses\"
                     crea_dir(ruta_acuse)
                     If (resultadoConsulta.GuardaXml(ruta_acuse, nombre_acuse)) Then
                         MsgBox("El xml fue guardado correctamente")
@@ -8820,9 +8809,9 @@ puertaXD1:
 
         nombreCFD = "CP" & FolioFact & ".xml"
 
-        crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\")
+        crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\")
 
-        Dim miXml As XmlTextWriter = New XmlTextWriter("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+        Dim miXml As XmlTextWriter = New XmlTextWriter("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         Dim fechaFormateada As String
         Dim fechaFormateada1 As String
         Dim fechacreacion As DateTime = Now
@@ -9229,7 +9218,7 @@ puertaXD1:
 
         '============================= TERMINA EL XML
 
-        xmldoc.Load("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD)
+        xmldoc.Load("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD)
         Dim Elemento As Xml.XmlElement = xmldoc.DocumentElement
         Dim Oxml As String
         Oxml = xmldoc.DocumentElement.InnerXml
@@ -9238,7 +9227,7 @@ puertaXD1:
 
         Dim R
         R = Elemento.InnerXml
-        xmldoc.Save("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD)
+        xmldoc.Save("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\Temporales\" & nombreCFD)
 
         '================================= termina xml base3
 
@@ -9264,9 +9253,9 @@ puertaXD1:
         My.Application.DoEvents()
         If timbre_CartaPorte("CP" & FolioFact, folio_sat_uuid, fecha_folio_sat, EmiNombre, EmiRFC, cadena_orig, no_csd_emp, certificado_sat) Then
 
-            crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\")
+            crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\")
 
-            Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\" & nombreCFD)
+            Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\" & nombreCFD)
 
             Do While (Lector.Read())
                 Select Case Lector.NodeType
@@ -9309,7 +9298,7 @@ puertaXD1:
                 End Select
             Loop
 
-            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\" & nombreCFD)
+            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & EmiNombre & "\XML\CARTAPORTE\" & nombreCFD)
 
             Do While (Lector1.Read())
                 Select Case Lector1.NodeType
@@ -9418,8 +9407,8 @@ puertaXD1:
         documentoXml = New XmlDocument
         id = folioFact
 
-        crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\CARTAPORTE\")
-        documentoXml.Load("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD)
+        crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\XML\CARTAPORTE\")
+        documentoXml.Load("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\Temporales\" & nombreCFD)
 
         frmCartaPorte.ProgressBar1.Value = 65
         frmCartaPorte.lbl_proceso.Text = "Timbrando ..."
@@ -9442,11 +9431,11 @@ puertaXD1:
             End If
 
             'Ruta del archivo a timbrar
-            Dim rutaArchivo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\Temporales\" & nombreCFD
+            Dim rutaArchivo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\Temporales\" & nombreCFD
             'Timbramos el CFDI por medio del conector y guardamos resultado'
             Dim resultadoTimbre As Profact.TimbraCFDI.ResultadoTimbre
             resultadoTimbre = conector.TimbraCFDI(rutaArchivo)
-            crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\cd\CARTAPORTE\")
+            crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\cd\CARTAPORTE\")
 
             'Verificamos el resultado
             If (resultadoTimbre.Exitoso) Then
@@ -9457,7 +9446,7 @@ puertaXD1:
                 My.Application.DoEvents()
 
                 'Guardamos xml cfdi
-                If (resultadoTimbre.GuardaXml("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\XML\CARTAPORTE\", nombreCFD)) Then
+                If (resultadoTimbre.GuardaXml("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\XML\CARTAPORTE\", nombreCFD)) Then
                     '     MessageBox.Show("El xml fue guardado correctamente")
                 Else
                     MessageBox.Show("Ocurrió un error al guardar el comprobante")
@@ -9467,7 +9456,7 @@ puertaXD1:
 
                 '  1.- Código bidimensional folio & "-" & folioFact
 
-                If (resultadoTimbre.GuardaCodigoBidimensional("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\cd\CARTAPORTE\", folioFact)) Then
+                If (resultadoTimbre.GuardaCodigoBidimensional("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & Trim(Replace(razon_social, Chr(34), "").ToString) & "\cd\CARTAPORTE\", folioFact)) Then
                     ' MessageBox.Show("El código bidimensional fue guardado correctamente")
                 Else
                     '  MessageBox.Show("Ocurrió un error al guardar el código bidimensional")
@@ -9555,9 +9544,9 @@ puertaXD1:
 
         nombreCFD = "P" & FolioPar & ".xml"
 
-        crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\")
+        crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\")
 
-        Dim miXml As XmlTextWriter = New XmlTextWriter("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+        Dim miXml As XmlTextWriter = New XmlTextWriter("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
         Dim fechaFormateada As String
         Dim fechaFormateada1 As String
         Dim fechaFormateada2 As String
@@ -10115,7 +10104,7 @@ puertaXD1:
 
         '============================= TERMINA EL XML
 
-        xmldoc.Load("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
+        xmldoc.Load("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
         Dim Elemento As Xml.XmlElement = xmldoc.DocumentElement
         Dim Oxml As String
         Oxml = xmldoc.DocumentElement.InnerXml
@@ -10125,7 +10114,7 @@ puertaXD1:
         Dim R
         R = Elemento.InnerXml
 
-        xmldoc.Save("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
+        xmldoc.Save("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD)
 
         '================================= termina xml base3
 
@@ -10151,9 +10140,9 @@ puertaXD1:
         My.Application.DoEvents()
         If timbre_Par1(FolioFact, serie, "P" & FolioPar, folio_sat_uuid, fecha_folio_sat, newcarpeta, EmiRFC, cadena_orig, no_csd_emp, certificado_sat) Then
 
-            crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\")
+            crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\")
 
-            Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+            Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
 
             Do While (Lector.Read())
                 Select Case Lector.NodeType
@@ -10197,7 +10186,7 @@ puertaXD1:
             Loop
 
 
-            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+            Dim Lector1 As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
 
             Do While (Lector1.Read())
                 Select Case Lector1.NodeType
@@ -10263,8 +10252,8 @@ puertaXD1:
         id = folio
         'id = serie & folio
 
-        crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\PARCIALIDADES\")
-        documentoXml.Load("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
+        crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\PARCIALIDADES\")
+        documentoXml.Load("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD)
 
         Try
             'Este ejemplo está dirigido a aquellos integradores que ya generan el xml (CFDI) y solo desean timbrarlo
@@ -10284,18 +10273,18 @@ puertaXD1:
             End If
 
             'Ruta del archivo a timbrar
-            Dim rutaArchivo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD
+            Dim rutaArchivo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\Temporales\" & nombreCFD
             'Timbramos el CFDI por medio del conector y guardamos resultado'
             Dim resultadoTimbre As Profact.TimbraCFDI.ResultadoTimbre
             resultadoTimbre = conector.TimbraCFDI(rutaArchivo)
-            crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\cd\PARCIALIDADES\")
+            crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\cd\PARCIALIDADES\")
             'Verificamos el resultado
             If (resultadoTimbre.Exitoso) Then
 
                 'El comprobante fue timbrado exitosamente
 
                 'Guardamos xml cfdi
-                If (resultadoTimbre.GuardaXml("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\PARCIALIDADES\", nombreCFD)) Then
+                If (resultadoTimbre.GuardaXml("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\XML\PARCIALIDADES\", nombreCFD)) Then
                     '     MessageBox.Show("El xml fue guardado correctamente")
                 Else
                     MessageBox.Show("Ocurrió un error al guardar el comprobante")
@@ -10303,10 +10292,9 @@ puertaXD1:
 
                 'Los siguientes datos deberán ir en la respresentación impresa ó PDF
 
-                '  1.- Código bidimensional folio & "-" & folioFact
-                'If (resultadoTimbre.GuardaCodigoBidimensional("C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\" & Replace(razon_social, Chr(34), "").ToString & "\cd\PARCIALIDADES\", folio)) Then
 
-                If (resultadoTimbre.GuardaCodigoBidimensional("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\cd\PARCIALIDADES\", folio)) Then
+
+                If (resultadoTimbre.GuardaCodigoBidimensional("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & razon_social & "\cd\PARCIALIDADES\", folio)) Then
                     ' MessageBox.Show("El código bidimensional fue guardado correctamente")
                 Else
                     '  MessageBox.Show("Ocurrió un error al guardar el código bidimensional")

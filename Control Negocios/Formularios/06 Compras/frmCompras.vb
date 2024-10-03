@@ -6143,7 +6143,7 @@ quepasowey:
     Public Sub ImportarXML()
 
         ' Especifica la ruta del archivo XML
-        Dim rutaArchivoXML As String = "C:\ControlNegociosPro\Archivos de importación\Compras.xml"
+        Dim rutaArchivoXML As String = "C:\DelsscomFarmacias\Archivos de importación\Compras.xml"
         ' Crea una nueva instancia de XmlDocument
         Dim xmlDoc As New XmlDocument()
         ' Accede a los nodos y realiza la importación según tus necesidades

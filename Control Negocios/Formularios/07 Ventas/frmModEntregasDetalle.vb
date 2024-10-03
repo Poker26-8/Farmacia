@@ -314,8 +314,8 @@ Public Class frmModEntregasDetalle
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
             End If
         End If
 
@@ -376,7 +376,7 @@ Public Class frmModEntregasDetalle
         FileNta.Close()
 
         If varrutabase <> "" Then
-            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
         End If
     End Sub
 
@@ -399,8 +399,8 @@ Public Class frmModEntregasDetalle
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf")
             End If
         End If
 
@@ -461,7 +461,7 @@ Public Class frmModEntregasDetalle
         FileNta.Close()
 
         If varrutabase <> "" Then
-            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\ENTREGAS\" & lblEntrega.Text & "-" & lblfolio.Text & ".pdf")
         End If
     End Sub
 

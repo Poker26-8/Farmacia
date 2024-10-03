@@ -1358,15 +1358,15 @@ puerta:
     Public Sub printRecibo()
 
         'Dim FileOpen As New ProcessStartInfo
-        'crea_dir("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\CARTAPORTE\")
-        'Dim root_name_recibo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\CARTAPORTE\C_" & foliocarta & ".pdf"
+        'crea_dir("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\CARTAPORTE\")
+        'Dim root_name_recibo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\CARTAPORTE\C_" & foliocarta & ".pdf"
         'Dim FileNta As New CartaPorte
 
         'Try
         '    FileNta.SetDatabaseLogon("", "jipl22")
         '    FileNta.DataDefinition.FormulaFields("identificador").Text = "'" & varfoliocarta & "'"
         '    FileNta.DataDefinition.FormulaFields("FolioCarta").Text = "'Folio: " & foliocarta & "'"
-        '    Dim cadqr As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\cd\CARTAPORTE\CP" & foliocarta
+        '    Dim cadqr As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\cd\CARTAPORTE\CP" & foliocarta
         '    FileNta.DataDefinition.FormulaFields("qr").Text = "'" & cadqr & ".jpg'"
         '    Refresh()
         '    FileNta.Refresh()

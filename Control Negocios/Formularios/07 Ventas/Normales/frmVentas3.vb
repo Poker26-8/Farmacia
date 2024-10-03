@@ -1741,8 +1741,8 @@ doorcita:
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf")
             End If
         End If
 
@@ -1934,7 +1934,7 @@ doorcita:
         FileNta.Close()
 
         If varrutabase <> "" Then
-            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf")
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\PEDIDOS\" & MYFOLIO & ".pdf")
         End If
 
     End Sub
@@ -1950,22 +1950,22 @@ doorcita:
         Dim CrTables As Tables
         Dim CrTable As Table
 
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
-        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf"
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf"
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+        If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+            File.Delete("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
             End If
         End If
 
         With crConnectionInfo
-            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
-            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .ServerName = "C:\DelsscomFarmacias\DL1.mdb"
+            .DatabaseName = "C:\DelsscomFarmacias\DL1.mdb"
             .UserID = ""
             .Password = "jipl22"
         End With
@@ -2139,11 +2139,11 @@ doorcita:
 
         If varrutabase <> "" Then
 
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
             End If
 
-            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            System.IO.File.Copy("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
     End Sub
 
@@ -2158,22 +2158,22 @@ doorcita:
         Dim CrTables As Tables
         Dim CrTable As Table
 
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
-        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf"
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf"
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+        If File.Exists("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+            File.Delete("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
             End If
         End If
 
         With crConnectionInfo
-            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
-            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .ServerName = "C:\DelsscomFarmacias\DL1.mdb"
+            .DatabaseName = "C:\DelsscomFarmacias\DL1.mdb"
             .UserID = ""
             .Password = "jipl22"
         End With
@@ -2358,11 +2358,11 @@ doorcita:
 
         If varrutabase <> "" Then
 
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
             End If
 
-            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            System.IO.File.Copy("C:\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
     End Sub
 
@@ -6528,12 +6528,12 @@ kaka:
                     If codigo = "" Then GoTo doorcita
 
                     'Traa la imgen del producto para la cotización
-                    If File.Exists("C:\ControlNegociosPro\ProductosImg\" & codigo & ".jpg") Then
-                        ruta_imagen = "C:\ControlNegociosPro\ProductosImg\" & codigo & ".jpg"
+                    If File.Exists("C:\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg") Then
+                        ruta_imagen = "C:\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg"
                     Else
                         If varrutabase <> "" Then
-                            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & codigo & ".jpg") Then
-                                ruta_imagen = "\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & codigo & ".jpg"
+                            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg") Then
+                                ruta_imagen = "\\" & varrutabase & "\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg"
                             Else
                                 ruta_imagen = ""
                             End If
@@ -7072,8 +7072,8 @@ Door:
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
             End If
         End If
 
@@ -7156,7 +7156,7 @@ Door:
         FileNta.Close()
 
         If varrutabase <> "" Then
-            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
         End If
     End Sub
     Public Sub PDF_Cotizacion_Img()
@@ -7181,8 +7181,8 @@ Door:
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
+            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
             End If
         End If
 
@@ -7265,7 +7265,7 @@ Door:
         FileNta.Close()
 
         If varrutabase <> "" Then
-            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
         End If
     End Sub
     Public Sub Termina_Error_Coti()
@@ -15302,12 +15302,12 @@ rayos2:
                     If codigo = "" Then GoTo doorcita
 
                     'Traa la imgen del producto para la cotización
-                    If File.Exists("C:\ControlNegociosPro\ProductosImg\" & codigo & ".jpg") Then
-                        ruta_imagen = "C:\ControlNegociosPro\ProductosImg\" & codigo & ".jpg"
+                    If File.Exists("C:\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg") Then
+                        ruta_imagen = "C:\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg"
                     Else
                         If varrutabase <> "" Then
-                            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & codigo & ".jpg") Then
-                                ruta_imagen = "\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & codigo & ".jpg"
+                            If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg") Then
+                                ruta_imagen = "\\" & varrutabase & "\DelsscomFarmacias\ProductosImg\" & codigo & ".jpg"
                             Else
                                 ruta_imagen = ""
                             End If

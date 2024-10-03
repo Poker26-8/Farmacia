@@ -658,11 +658,11 @@ Public Class frmParcialidades
 
         Dim newcarpeta As String = Replace(txtEmiNombre.Text, Chr(34), "").ToString
 
-        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
+        crea_ruta("C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
 
-        Dim root_name_recibo As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+        Dim root_name_recibo As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
 
-        Dim cadqr As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\cd\PARCIALIDADES\" & FolioUnido & ".jpg"
+        Dim cadqr As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\cd\PARCIALIDADES\" & FolioUnido & ".jpg"
 
         If File.Exists(root_name_recibo) Then
             File.Delete(root_name_recibo)
@@ -1928,7 +1928,7 @@ Public Class frmParcialidades
         End If
         If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             Dim nombreCFD As String = FolioUnido & ".xml"
-            Dim xmla As String = "C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
+            Dim xmla As String = "C:\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
             ProgressBar1.Value = 90
             lbl_proceso.Text = "Enviando E-Mail ..."
             My.Application.DoEvents()
@@ -2494,8 +2494,8 @@ door:
                 crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
                 Dim root_name_recibo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
                 If varrutabase <> "" Then
-                    crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
-                    root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+                    crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\")
+                    root_name_recibo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
                 End If
                 If File.Exists(root_name_recibo) Then
                     FileOpen.UseShellExecute = True
@@ -2642,8 +2642,8 @@ door:
         Dim nombreCFD As String = FolioUnido & ".xml"
         Dim xmla As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
         If varrutabase <> "" Then
-            root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
-            xmla = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
+            root_name_recibo = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\PARCIALIDADES\" & FolioUnido & ".pdf"
+            xmla = "\\" & varrutabase & "\DelsscomFarmacias\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD
         End If
         ProgressBar1.Value = 90
         lbl_proceso.Text = "Enviando E-Mail ..."
@@ -3103,7 +3103,7 @@ door:
         Table1.SetWidths(widths)
 
 #Region "Tabla.Encabezado"
-        Dim imagenURL As String = "C:\ControlNegociosPro\Dls.jpg"
+        Dim imagenURL As String = "C:\DelsscomFarmacias\Dls.jpg"
         Dim imagenBMP As iTextSharp.text.Image
         imagenBMP = iTextSharp.text.Image.GetInstance(imagenURL)
         imagenBMP.ScaleToFit(150.0F, 90.0F)
@@ -4007,7 +4007,7 @@ door:
         Table61.AddCell(Col1)
 
 
-        Dim imagenURL2 As String = "C:\ControlNegociosPro\ARCHIVOSDL1\imagenes\PP12-1549.jpg"
+        Dim imagenURL2 As String = "C:\DelsscomFarmacias\ARCHIVOSDL1\imagenes\PP12-1549.jpg"
         Dim imagenBMP2 As iTextSharp.text.Image
         imagenBMP2 = iTextSharp.text.Image.GetInstance(imagenURL2)
         imagenBMP2.ScaleToFit(100.0F, 100.0F)
