@@ -230,6 +230,7 @@ Partial Class frmTraspSalida
         'cbo
         '
         Me.cbo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo.FormattingEnabled = True
         Me.cbo.Location = New System.Drawing.Point(8, 69)
         Me.cbo.Name = "cbo"

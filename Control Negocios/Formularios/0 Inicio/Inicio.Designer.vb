@@ -158,7 +158,6 @@ Partial Class Inicio
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button12 = New System.Windows.Forms.Button()
         Me.btnsalida = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
@@ -1204,25 +1203,12 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
-        Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Controls.Add(Me.btnsalida)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 114)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
-        '
-        'Button12
-        '
-        Me.Button12.BackColor = System.Drawing.Color.Moccasin
-        Me.Button12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button12.Location = New System.Drawing.Point(0, 63)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(90, 55)
-        Me.Button12.TabIndex = 0
-        Me.Button12.Text = "Formas Pagos"
-        Me.Button12.UseVisualStyleBackColor = False
         '
         'btnsalida
         '
@@ -1502,7 +1488,6 @@ Partial Class Inicio
     Friend WithEvents toolStripSeparator6 As ToolStripSeparator
     Friend WithEvents AcercadeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents repHistorialMesas As ToolStripMenuItem
-    Friend WithEvents Button12 As Button
     Friend WithEvents btnsalida As Button
     Friend WithEvents ReporteDeTraspasosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lblSuc As Label

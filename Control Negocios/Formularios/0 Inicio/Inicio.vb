@@ -2245,29 +2245,29 @@ Public Class Inicio
         frmPediatria.Show()
     End Sub
 
-    Private Sub Button12_Click_1(sender As Object, e As EventArgs) Handles Button12.Click
+    '    Private Sub Button12_Click_1(sender As Object, e As EventArgs) Handles Button12.Click
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "DELETE FROM formaspago"
-            cmd1.ExecuteNonQuery()
+    '        Try
+    '            cnn1.Close() : cnn1.Open()
+    '            cmd1 = cnn1.CreateCommand
+    '            cmd1.CommandText = "DELETE FROM formaspago"
+    '            cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO `formaspago` (`Id`, `FormaPago`, `Valor`) VALUES
-(1, 'TRANSFERENCIA', ''),
-(2, 'TARJETA', ''),
-(3, 'MONEDERO', ''),
-(4, 'SALDO A FAVOR', '');
-"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
-        Catch ex As Exception
-            MsgBox("Las formas ya fueron agregadas")
-            cnn1.Close()
-        End Try
+    '            cmd1 = cnn1.CreateCommand
+    '            cmd1.CommandText = "INSERT INTO `formaspago` (`Id`, `FormaPago`, `Valor`) VALUES
+    '(1, 'TRANSFERENCIA', ''),
+    '(2, 'TARJETA', ''),
+    '(3, 'MONEDERO', ''),
+    '(4, 'SALDO A FAVOR', '');
+    '"
+    '            cmd1.ExecuteNonQuery()
+    '            cnn1.Close()
+    '        Catch ex As Exception
+    '            MsgBox("Las formas ya fueron agregadas")
+    '            cnn1.Close()
+    '        End Try
 
-    End Sub
+    '    End Sub
 
     Private Sub btnsalida_Click(sender As Object, e As EventArgs) Handles btnsalida.Click
         frmTraspSalida.Show()
