@@ -5658,7 +5658,7 @@ kaka:
             txtprecio.Tag = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
             txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
             txtexistencia.Text = grdcaptura.Rows(index).Cells(6).Value.ToString
-            txtbarr.Text = grdcaptura.Rows(index).Cells(15).Value.ToString
+            'txtbarr.Text = grdcaptura.Rows(index).Cells(13).Value.ToString
 
             If grdcaptura.Rows.Count = 1 Then
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
