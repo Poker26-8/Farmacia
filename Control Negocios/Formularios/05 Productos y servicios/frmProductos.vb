@@ -912,9 +912,9 @@ Public Class frmProductos
         Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
 
         Dim img As String = ""
-        crea_ruta("C:\ControlNegociosPro\ProductosImg" & base)
+        crea_ruta("C:\DelsscomFarmacias\ProductosImg" & base)
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base)
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base)
         End If
 
         Try

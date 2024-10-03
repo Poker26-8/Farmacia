@@ -599,9 +599,9 @@ Public Class frmProductosS
         Dim img As String = ""
 
 
-        crea_ruta("C:\ControlNegociosPro\ProductosImg" & base)
+        crea_ruta("C:\DelsscomFarmacias\ProductosImg" & base)
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base)
+            crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base)
         End If
 
         Try
@@ -641,16 +641,16 @@ Public Class frmProductosS
                         Else
                             If txtrutaimagen.Text <> "" Then
                                 If varrutabase <> "" Then
-                                    If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
-                                        File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                    If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                        File.Delete("\\" & varrutabase & "\v\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                     End If
-                                    picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                    picImagen.Image.Save("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                                 End If
 
-                                If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                If File.Exists("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                 End If
-                                picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                picImagen.Image.Save("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
                         End If
 
@@ -677,16 +677,16 @@ Public Class frmProductosS
                     Else
                         If txtrutaimagen.Text <> "" Then
                             If varrutabase <> "" Then
-                                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                If File.Exists("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                 End If
-                                picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                picImagen.Image.Save("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
 
-                            If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
-                                File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                            If File.Exists("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                File.Delete("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                             End If
-                            picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                            picImagen.Image.Save("C:\DelsscomFarmacias\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                         End If
                     End If
 
