@@ -1,10 +1,12 @@
-﻿Public Class frmBuscaVentas
+﻿Imports MySql.Data.MySqlClient.Memcached
+
+Public Class frmBuscaVentas
 
     Public Vienna As String = ""
 
     Private Sub frmBuscaVentas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         optproveedor.PerformClick()
-        TextBox1.Focus.Equals(True)
+        txtBarras.Focus.Equals(True)
         My.Application.DoEvents()
     End Sub
 
@@ -294,6 +296,7 @@
                     End If
                     rd2.Close()
                     grdcaptura.Rows.Add(codigo, nombre, unidad, FormatNumber(precio_min, 2), FormatNumber(precio_ven, 2), (existencia / multiplo))
+
                 End If
             Loop
             rd3.Close()
@@ -306,7 +309,8 @@
     End Sub
 
     Private Sub frmBuscaVentas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        TextBox1.Focus.Equals(True)
+        txtBarras.Focus.Equals(True)
+        My.Application.DoEvents()
     End Sub
 
     Private Sub txtBarras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras.KeyPress
@@ -356,6 +360,7 @@
                         End If
                         rd2.Close()
                         grdcaptura.Rows.Add(codigo, nombre, unidad, FormatNumber(precio_min, 2), FormatNumber(precio_ven, 2), (existencia / multiplo))
+
                     End If
                 Loop
                 rd3.Close()
@@ -373,5 +378,31 @@
             grdcaptura.Rows.Clear()
             Exit Sub
         End If
+    End Sub
+
+    Private Sub txtdescripcion_TextChanged(sender As Object, e As EventArgs) Handles txtdescripcion.TextChanged
+        If txtdescripcion.Text = "" Then
+            grdcaptura.Rows.Clear()
+        Else
+            MostrarResultadosLike()
+        End If
+    End Sub
+    Public Sub MostrarResultadosLike()
+        Try
+            grdcaptura.Rows.Clear()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "select Codigo,Nombre,UVenta,PrecioMaximoPublico,PrecioVentaIVA,Existencia from Productos where Nombre LIKE '%" & txtdescripcion.Text & "%'"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("UVenta").ToString, rd1("PrecioMaximoPublico").ToString, rd1("PrecioVentaIVA").ToString, rd1("Existencia").ToString)
+            Loop
+            rd1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+        Finally
+            cnn1.Close()
+        End Try
     End Sub
 End Class
