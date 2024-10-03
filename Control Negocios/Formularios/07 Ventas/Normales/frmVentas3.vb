@@ -4167,7 +4167,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "' or CodBarras='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -15886,6 +15886,10 @@ doorcita:
             frmRepExistenciaSincronizador.Show()
             frmRepExistenciaSincronizador.BringToFront()
         End If
+
+    End Sub
+
+    Private Sub boxAntis_Enter(sender As Object, e As EventArgs) Handles boxAntis.Enter
 
     End Sub
 End Class

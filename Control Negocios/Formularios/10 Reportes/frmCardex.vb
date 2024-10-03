@@ -7,6 +7,7 @@ Public Class frmCardex
     Private Sub frmCardex_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         mCalendar1.SetDate(Now)
         mCalendar2.SetDate(Now)
+        txtBarras.Focus.Equals(True)
     End Sub
 
     Private Sub cbonombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cbonombre.DropDown
@@ -351,5 +352,53 @@ Public Class frmCardex
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub cbonombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbonombre.KeyPress
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
+
+        'kak:
+        '        rd1.Close()
+        '        cnn1.Close()
+        '        btnreporte.PerformClick()
+        '        My.Application.DoEvents()
+
+    End Sub
+
+    Private Sub txtBarras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras.KeyPress
+        Try
+            If AscW(e.KeyChar) = Keys.Enter Then
+                If txtBarras.Text = "" Then
+                    Exit Sub
+                End If
+                My.Application.DoEvents()
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select Nombre,Codigo from Productos where CodBarra='" & txtBarras.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    cbonombre.Text = rd1("Nombre").ToString
+                    cboCodigo.Text = rd1("Codigo").ToString
+                    My.Application.DoEvents()
+                    'GoTo kak
+                Else
+                    cbonombre.Text = ""
+                    cbonombre.Focus.Equals(True)
+                    My.Application.DoEvents()
+                End If
+                rd1.Close()
+                cnn1.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub frmCardex_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        txtBarras.Focus.Equals(True)
     End Sub
 End Class
