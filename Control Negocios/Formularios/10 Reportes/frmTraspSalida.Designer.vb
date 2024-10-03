@@ -24,6 +24,8 @@ Partial Class frmTraspSalida
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTraspSalida))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -59,6 +61,32 @@ Partial Class frmTraspSalida
         Me.cbodesc = New System.Windows.Forms.ComboBox()
         Me.cbocodigo = New System.Windows.Forms.TextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.txtcoment = New System.Windows.Forms.RichTextBox()
+        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.gbLotes = New System.Windows.Forms.GroupBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.txtnombrelote = New System.Windows.Forms.TextBox()
+        Me.txtcodlote = New System.Windows.Forms.TextBox()
+        Me.btnGuardarLote = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column32 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Column34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,13 +95,12 @@ Partial Class frmTraspSalida
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtcoment = New System.Windows.Forms.RichTextBox()
-        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbLotes.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -430,7 +457,7 @@ Partial Class frmTraspSalida
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
-        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
+        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(8, 138)
         Me.grdcaptura.Name = "grdcaptura"
@@ -438,6 +465,230 @@ Partial Class frmTraspSalida
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(788, 271)
         Me.grdcaptura.TabIndex = 291
+        '
+        'txtcoment
+        '
+        Me.txtcoment.BackColor = System.Drawing.Color.Pink
+        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
+        Me.txtcoment.Name = "txtcoment"
+        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
+        Me.txtcoment.TabIndex = 319
+        Me.txtcoment.Text = ""
+        Me.txtcoment.Visible = False
+        '
+        'pSalida80
+        '
+        '
+        'pSalida58
+        '
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(736, 415)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 77)
+        Me.Button1.TabIndex = 320
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'gbLotes
+        '
+        Me.gbLotes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.gbLotes.BackColor = System.Drawing.Color.SkyBlue
+        Me.gbLotes.Controls.Add(Me.Button14)
+        Me.gbLotes.Controls.Add(Me.TextBox1)
+        Me.gbLotes.Controls.Add(Me.Label13)
+        Me.gbLotes.Controls.Add(Me.DataGridView2)
+        Me.gbLotes.Controls.Add(Me.txtnombrelote)
+        Me.gbLotes.Controls.Add(Me.txtcodlote)
+        Me.gbLotes.Controls.Add(Me.btnGuardarLote)
+        Me.gbLotes.Controls.Add(Me.DataGridView1)
+        Me.gbLotes.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbLotes.Location = New System.Drawing.Point(205, 150)
+        Me.gbLotes.Name = "gbLotes"
+        Me.gbLotes.Size = New System.Drawing.Size(314, 296)
+        Me.gbLotes.TabIndex = 321
+        Me.gbLotes.TabStop = False
+        Me.gbLotes.Text = "Registro de Lotes"
+        Me.gbLotes.Visible = False
+        '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.SteelBlue
+        Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.Font = New System.Drawing.Font("Segoe UI", 7.0!)
+        Me.Button14.ForeColor = System.Drawing.Color.White
+        Me.Button14.Location = New System.Drawing.Point(218, 55)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(64, 69)
+        Me.Button14.TabIndex = 299
+        Me.Button14.Text = "CANCELAR."
+        Me.Button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button14.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(72, 77)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(55, 20)
+        Me.TextBox1.TabIndex = 237
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(17, 83)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(49, 12)
+        Me.Label13.TabIndex = 236
+        Me.Label13.Text = "Cantidad:"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column33, Me.Column35, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.DataGridView2.GridColor = System.Drawing.Color.White
+        Me.DataGridView2.Location = New System.Drawing.Point(336, 56)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.Size = New System.Drawing.Size(280, 213)
+        Me.DataGridView2.TabIndex = 235
+        '
+        'txtnombrelote
+        '
+        Me.txtnombrelote.Location = New System.Drawing.Point(82, 32)
+        Me.txtnombrelote.Name = "txtnombrelote"
+        Me.txtnombrelote.ReadOnly = True
+        Me.txtnombrelote.Size = New System.Drawing.Size(206, 20)
+        Me.txtnombrelote.TabIndex = 234
+        '
+        'txtcodlote
+        '
+        Me.txtcodlote.Location = New System.Drawing.Point(19, 32)
+        Me.txtcodlote.Name = "txtcodlote"
+        Me.txtcodlote.ReadOnly = True
+        Me.txtcodlote.Size = New System.Drawing.Size(64, 20)
+        Me.txtcodlote.TabIndex = 234
+        '
+        'btnGuardarLote
+        '
+        Me.btnGuardarLote.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnGuardarLote.BackgroundImage = CType(resources.GetObject("btnGuardarLote.BackgroundImage"), System.Drawing.Image)
+        Me.btnGuardarLote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnGuardarLote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardarLote.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardarLote.ForeColor = System.Drawing.Color.White
+        Me.btnGuardarLote.Location = New System.Drawing.Point(152, 56)
+        Me.btnGuardarLote.Name = "btnGuardarLote"
+        Me.btnGuardarLote.Size = New System.Drawing.Size(60, 68)
+        Me.btnGuardarLote.TabIndex = 178
+        Me.btnGuardarLote.Text = "GUARDAR"
+        Me.btnGuardarLote.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardarLote.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column32, Me.Column34, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.Column36})
+        Me.DataGridView1.GridColor = System.Drawing.Color.White
+        Me.DataGridView1.Location = New System.Drawing.Point(16, 128)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.Size = New System.Drawing.Size(285, 155)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'Column32
+        '
+        Me.Column32.HeaderText = ""
+        Me.Column32.Name = "Column32"
+        Me.Column32.Width = 20
+        '
+        'Column34
+        '
+        Me.Column34.HeaderText = "Id"
+        Me.Column34.Name = "Column34"
+        Me.Column34.Visible = False
+        Me.Column34.Width = 20
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Lote"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 70
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Caducidad"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 70
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 55
+        '
+        'Column36
+        '
+        Me.Column36.HeaderText = "Existencia"
+        Me.Column36.Name = "Column36"
+        '
+        'Column33
+        '
+        Me.Column33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column33.HeaderText = "Codigo"
+        Me.Column33.Name = "Column33"
+        Me.Column33.Width = 63
+        '
+        'Column35
+        '
+        Me.Column35.HeaderText = "Id"
+        Me.Column35.Name = "Column35"
+        Me.Column35.Width = 20
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Lote"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 50
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Caducidad"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.Width = 78
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 71
         '
         'Column1
         '
@@ -507,44 +758,26 @@ Partial Class frmTraspSalida
         Me.Column8.ReadOnly = True
         Me.Column8.Visible = False
         '
-        'txtcoment
+        'Column9
         '
-        Me.txtcoment.BackColor = System.Drawing.Color.Pink
-        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
-        Me.txtcoment.Name = "txtcoment"
-        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
-        Me.txtcoment.TabIndex = 319
-        Me.txtcoment.Text = ""
-        Me.txtcoment.Visible = False
+        Me.Column9.HeaderText = "Lote"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Visible = False
         '
-        'pSalida80
+        'Column10
         '
-        '
-        'pSalida58
-        '
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(736, 415)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(60, 77)
-        Me.Button1.TabIndex = 320
-        Me.Button1.Text = "Salir"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Column10.HeaderText = "FCaduca"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Visible = False
         '
         'frmTraspSalida
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(804, 499)
+        Me.Controls.Add(Me.gbLotes)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtcoment)
         Me.Controls.Add(Me.btnguardar)
@@ -585,6 +818,10 @@ Partial Class frmTraspSalida
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Traspaso de salida"
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbLotes.ResumeLayout(False)
+        Me.gbLotes.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -624,6 +861,27 @@ Partial Class frmTraspSalida
     Friend WithEvents pSalida58 As System.Drawing.Printing.PrintDocument
     Friend WithEvents pSalidaMediaCarta As System.Drawing.Printing.PrintDocument
     Friend WithEvents pSalidaCarta As System.Drawing.Printing.PrintDocument
+    Friend WithEvents Button1 As Button
+    Friend WithEvents gbLotes As GroupBox
+    Friend WithEvents Button14 As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents txtnombrelote As TextBox
+    Friend WithEvents txtcodlote As TextBox
+    Friend WithEvents btnGuardarLote As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Column32 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column34 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column36 As DataGridViewTextBoxColumn
+    Friend WithEvents Column33 As DataGridViewTextBoxColumn
+    Friend WithEvents Column35 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -632,5 +890,6 @@ Partial Class frmTraspSalida
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
 End Class

@@ -670,7 +670,7 @@ Public Class frmComprasS
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Codigo from ComprasDet where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    "select Codigo,Precio,Cantidad from ComprasDet where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
