@@ -1413,16 +1413,36 @@ milky:
             Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
-
+            Dim lote As String = ""
+            Dim caducidad As Date = Date.Now
+            Dim cantidadlote As Double = 0
 
             e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 36, Y)
-            Y += 9
+            Y += 15
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 30, Y, sf)
             e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 35, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 100, Y, sf)
             e.Graphics.DrawString(existencia, fuente_prods, Brushes.Black, 180, Y, sf)
-            Y += 11
+            Y += 17
+
+            If DataGridView2.Rows.Count > 0 Then
+                For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                    If codigo = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
+                        lote = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                        caducidad = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                        cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
+                        If lote <> "" Then
+                            e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                            e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 85, Y)
+                            e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                            Y += 15
+                        End If
+                    End If
+                Next
+            End If
+            Y += 10
+
             total_prods = total_prods + canti
         Next
         Y -= 1
