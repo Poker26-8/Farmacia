@@ -4799,10 +4799,9 @@ kaka:
             Dim lotexd As String = ""
 
             DataGridView1.Rows.Clear()
-            cnn7.Close()
-            cnn7.Open()
+            cnn7.Close() : cnn7.Open()
             cmd7 = cnn7.CreateCommand
-            cmd7.CommandText = "Select * from LoteCaducidad where Codigo='" & varcodigo & "'"
+            cmd7.CommandText = "Select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & varcodigo & "'"
             rd7 = cmd7.ExecuteReader
             Do While rd7.Read
                 lotexd = rd7("Lote").ToString
@@ -4810,8 +4809,9 @@ kaka:
                 Dim f As String = ""
                 f = Format(fechalote, "MM-yyyy")
 
-                My.Application.DoEvents()
+
                 DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "0", rd7("Cantidad").ToString)
+                My.Application.DoEvents()
             Loop
             rd7.Close()
             cnn7.Close()
