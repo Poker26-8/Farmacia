@@ -942,7 +942,7 @@ Public Class frmRepEntradas
                 VarEfectivo = rd1("Monto")
 
                 grdcaptura.Rows.Add(rd1("NumFolio").ToString, rd1("Cliente").ToString, rd1("Concepto").ToString, FormatDateTime(rd1("Fecha").ToString, DateFormat.ShortDate), rd1("FormaPago").ToString, FormatNumber(VarEfectivo, 2), rd1("Comentario").ToString, rd1("Usuario").ToString)
-
+                My.Application.DoEvents()
             Loop
             rd1.Close()
             cnn1.Close()

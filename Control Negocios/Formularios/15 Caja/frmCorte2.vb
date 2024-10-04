@@ -371,7 +371,7 @@ Public Class frmCorte2
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "SELECT SUM(Efectivo) FROM OtrosGastos WHERE Usuario='" & Usu & "' AND CorteU=0"
+                    "SELECT SUM(Total) FROM OtrosGastos WHERE Usuario='" & Usu & "' AND CorteU=0"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -492,7 +492,7 @@ Public Class frmCorte2
 
                 Dim Egresos As String = ""
                 'Egresos = CDec(txtEgrEfectivoU.Text) + CDec(txtegresosformapago.Text) + CDec(txtOtrosGastosU.Text) + CDec(txtTransporteU.Text) + CDec(txtNominaU.Text) + CDec(txtPresEmpU.Text) + CDec(txtComprasU.Text)
-                Egresos = CDec(txtComprasU.Text) + CDec(txtPresEmpU.Text) + CDec(txtNominaU.Text) + CDec(txtTransporteU.Text) + CDec(txtOtrosGastosU.Text)
+                Egresos = CDec(txtComprasU.Text) + CDec(txtPresEmpU.Text) + CDec(txtNominaU.Text) + CDec(txtTransporteU.Text) + CDec(txtOtrosGastosU.Text) + CDec(txtCanceDevoU.Text)
                 txtEgresosUsuario.Text = FormatNumber(Egresos, 2)
                 txtCanceDevoU.Text = FormatNumber(CanceDevo, 2)
 
