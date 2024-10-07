@@ -262,6 +262,9 @@ Public Class frmRecibeTraspaso
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
+            If grdcaptura.Rows.Count = 0 Then
+                Exit Sub
+            End If
             If lblusuario.Text = "" Then
                 MsgBox("Ingresa tu contraseña para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
                 txtcontraseña.Focus.Equals(True)
@@ -708,7 +711,7 @@ Public Class frmRecibeTraspaso
         Y += 18
 
         Y += 18
-        e.Graphics.DrawString("Movimiento realizado por ", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 142.5, Y, sc)
+        e.Graphics.DrawString("Traspaso aceptado por " & lblusuario.Text, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 142.5, Y, sc)
 
         e.HasMorePages = False
         Exit Sub
