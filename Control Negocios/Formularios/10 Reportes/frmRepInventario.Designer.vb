@@ -22,7 +22,7 @@ Partial Class frmRepInventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepInventario))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
@@ -80,6 +80,7 @@ Partial Class frmRepInventario
         Me.btncardex = New System.Windows.Forms.Button()
         Me.btnetiquetas = New System.Windows.Forms.Button()
         Me.btncatalogo = New System.Windows.Forms.Button()
+        Me.btnCaracteristicas = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -245,8 +246,8 @@ Partial Class frmRepInventario
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -641,16 +642,17 @@ Partial Class frmRepInventario
         'btnImpExis
         '
         Me.btnImpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnImpExis.BackgroundImage = CType(resources.GetObject("btnImpExis.BackgroundImage"), System.Drawing.Image)
         Me.btnImpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImpExis.Location = New System.Drawing.Point(424, 537)
+        Me.btnImpExis.Image = CType(resources.GetObject("btnImpExis.Image"), System.Drawing.Image)
+        Me.btnImpExis.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImpExis.Location = New System.Drawing.Point(348, 520)
         Me.btnImpExis.Name = "btnImpExis"
-        Me.btnImpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnImpExis.Size = New System.Drawing.Size(95, 65)
         Me.btnImpExis.TabIndex = 251
         Me.btnImpExis.Text = "Importar Existencias"
-        Me.btnImpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnImpExis.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnImpExis.UseVisualStyleBackColor = True
         '
         'btnExpExis
@@ -659,6 +661,8 @@ Partial Class frmRepInventario
         Me.btnExpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnExpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExpExis.Image = CType(resources.GetObject("btnExpExis.Image"), System.Drawing.Image)
+        Me.btnExpExis.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnExpExis.Location = New System.Drawing.Point(251, 520)
         Me.btnExpExis.Name = "btnExpExis"
         Me.btnExpExis.Size = New System.Drawing.Size(91, 65)
@@ -727,11 +731,28 @@ Partial Class frmRepInventario
         Me.btncatalogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncatalogo.UseVisualStyleBackColor = True
         '
+        'btnCaracteristicas
+        '
+        Me.btnCaracteristicas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnCaracteristicas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCaracteristicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCaracteristicas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCaracteristicas.Image = CType(resources.GetObject("btnCaracteristicas.Image"), System.Drawing.Image)
+        Me.btnCaracteristicas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCaracteristicas.Location = New System.Drawing.Point(449, 520)
+        Me.btnCaracteristicas.Name = "btnCaracteristicas"
+        Me.btnCaracteristicas.Size = New System.Drawing.Size(95, 65)
+        Me.btnCaracteristicas.TabIndex = 256
+        Me.btnCaracteristicas.Text = "Importar Caracteristicas"
+        Me.btnCaracteristicas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCaracteristicas.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1004, 595)
+        Me.Controls.Add(Me.btnCaracteristicas)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
@@ -836,4 +857,5 @@ Partial Class frmRepInventario
     Friend WithEvents Button1 As Button
     Friend WithEvents rbAjuste As RadioButton
     Friend WithEvents Button2 As Button
+    Friend WithEvents btnCaracteristicas As Button
 End Class
