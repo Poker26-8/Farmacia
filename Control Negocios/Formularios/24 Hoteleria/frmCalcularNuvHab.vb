@@ -204,9 +204,9 @@
                     cmd3.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
                     cmd3.ExecuteNonQuery()
 
-                    cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
-                    cmd3.ExecuteNonQuery()
+                    'cmd3 = cnn3.CreateCommand
+                    'cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
+                    'cmd3.ExecuteNonQuery()
                     cnn3.Close()
                 End If
                 rd1.Close()
@@ -244,9 +244,9 @@
                         cmd3.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
                         cmd3.ExecuteNonQuery()
 
-                        cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
-                        cmd3.ExecuteNonQuery()
+                        'cmd3 = cnn3.CreateCommand
+                        'cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
+                        'cmd3.ExecuteNonQuery()
 
                         cmd3 = cnn3.CreateCommand
                         cmd3.CommandText = "UPDATE Habitacion SET Estado='Desocupada' WHERE N_Habitacion='" & lblpc.Text & "'"
