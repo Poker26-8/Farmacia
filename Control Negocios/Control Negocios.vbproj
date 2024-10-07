@@ -749,6 +749,12 @@
     <Compile Include="Formularios\10 Reportes\frmMinMax.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\frmRecibeTraspaso.Designer.vb">
+      <DependentUpon>frmRecibeTraspaso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmRecibeTraspaso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\frmRepTraspasos.Designer.vb">
       <DependentUpon>frmRepTraspasos.vb</DependentUpon>
     </Compile>
@@ -2666,6 +2672,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmMinMax.resx">
       <DependentUpon>frmMinMax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmRecibeTraspaso.resx">
+      <DependentUpon>frmRecibeTraspaso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmRepTraspasos.resx">
       <DependentUpon>frmRepTraspasos.vb</DependentUpon>

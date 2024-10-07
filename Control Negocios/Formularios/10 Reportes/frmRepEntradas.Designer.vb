@@ -74,6 +74,8 @@ Partial Class frmRepEntradas
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.cboFormaPago = New System.Windows.Forms.ComboBox()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtOtrosgastos = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,7 +101,7 @@ Partial Class frmRepEntradas
         'Label9
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.Location = New System.Drawing.Point(521, 529)
+        Me.Label9.Location = New System.Drawing.Point(521, 544)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(117, 18)
         Me.Label9.TabIndex = 319
@@ -109,7 +111,7 @@ Partial Class frmRepEntradas
         'txtSalTarj
         '
         Me.txtSalTarj.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSalTarj.Location = New System.Drawing.Point(644, 526)
+        Me.txtSalTarj.Location = New System.Drawing.Point(644, 541)
         Me.txtSalTarj.Name = "txtSalTarj"
         Me.txtSalTarj.Size = New System.Drawing.Size(85, 23)
         Me.txtSalTarj.TabIndex = 318
@@ -120,7 +122,7 @@ Partial Class frmRepEntradas
         '
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(546, 501)
+        Me.Label10.Location = New System.Drawing.Point(546, 516)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(92, 15)
         Me.Label10.TabIndex = 317
@@ -129,7 +131,7 @@ Partial Class frmRepEntradas
         'txtEfeCaja
         '
         Me.txtEfeCaja.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 498)
+        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 513)
         Me.txtEfeCaja.Name = "txtEfeCaja"
         Me.txtEfeCaja.Size = New System.Drawing.Size(85, 23)
         Me.txtEfeCaja.TabIndex = 316
@@ -140,7 +142,7 @@ Partial Class frmRepEntradas
         '
         Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(569, 473)
+        Me.Label16.Location = New System.Drawing.Point(569, 488)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(65, 15)
         Me.Label16.TabIndex = 315
@@ -151,7 +153,7 @@ Partial Class frmRepEntradas
         Me.txtTotalAbono.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalAbono.BackColor = System.Drawing.SystemColors.HotTrack
         Me.txtTotalAbono.ForeColor = System.Drawing.Color.White
-        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 470)
+        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 485)
         Me.txtTotalAbono.Name = "txtTotalAbono"
         Me.txtTotalAbono.Size = New System.Drawing.Size(85, 23)
         Me.txtTotalAbono.TabIndex = 314
@@ -162,7 +164,7 @@ Partial Class frmRepEntradas
         '
         Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(556, 445)
+        Me.Label17.Location = New System.Drawing.Point(556, 460)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(78, 15)
         Me.Label17.TabIndex = 313
@@ -172,7 +174,7 @@ Partial Class frmRepEntradas
         '
         Me.txtEgresos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEgresos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtEgresos.Location = New System.Drawing.Point(644, 442)
+        Me.txtEgresos.Location = New System.Drawing.Point(644, 457)
         Me.txtEgresos.Name = "txtEgresos"
         Me.txtEgresos.Size = New System.Drawing.Size(85, 23)
         Me.txtEgresos.TabIndex = 312
@@ -183,7 +185,7 @@ Partial Class frmRepEntradas
         '
         Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(556, 417)
+        Me.Label18.Location = New System.Drawing.Point(556, 432)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(82, 15)
         Me.Label18.TabIndex = 311
@@ -193,7 +195,7 @@ Partial Class frmRepEntradas
         '
         Me.txtIngresos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtIngresos.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(134, Byte), Integer))
-        Me.txtIngresos.Location = New System.Drawing.Point(644, 414)
+        Me.txtIngresos.Location = New System.Drawing.Point(644, 429)
         Me.txtIngresos.Name = "txtIngresos"
         Me.txtIngresos.Size = New System.Drawing.Size(85, 23)
         Me.txtIngresos.TabIndex = 310
@@ -204,7 +206,7 @@ Partial Class frmRepEntradas
         '
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(818, 414)
+        Me.Label15.Location = New System.Drawing.Point(818, 429)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(99, 15)
         Me.Label15.TabIndex = 301
@@ -214,7 +216,7 @@ Partial Class frmRepEntradas
         '
         Me.txtEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEfectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(134, Byte), Integer))
-        Me.txtEfectivo.Location = New System.Drawing.Point(923, 411)
+        Me.txtEfectivo.Location = New System.Drawing.Point(923, 426)
         Me.txtEfectivo.Name = "txtEfectivo"
         Me.txtEfectivo.Size = New System.Drawing.Size(85, 23)
         Me.txtEfectivo.TabIndex = 300
@@ -225,7 +227,7 @@ Partial Class frmRepEntradas
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(791, 534)
+        Me.Label3.Location = New System.Drawing.Point(791, 549)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(126, 15)
         Me.Label3.TabIndex = 291
@@ -235,7 +237,7 @@ Partial Class frmRepEntradas
         '
         Me.txtDevoefectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDevoefectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtDevoefectivo.Location = New System.Drawing.Point(923, 532)
+        Me.txtDevoefectivo.Location = New System.Drawing.Point(923, 547)
         Me.txtDevoefectivo.Name = "txtDevoefectivo"
         Me.txtDevoefectivo.Size = New System.Drawing.Size(85, 23)
         Me.txtDevoefectivo.TabIndex = 290
@@ -246,7 +248,7 @@ Partial Class frmRepEntradas
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(786, 474)
+        Me.Label2.Location = New System.Drawing.Point(786, 489)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(131, 15)
         Me.Label2.TabIndex = 289
@@ -256,7 +258,7 @@ Partial Class frmRepEntradas
         '
         Me.txtCancelaefectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCancelaefectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtCancelaefectivo.Location = New System.Drawing.Point(923, 471)
+        Me.txtCancelaefectivo.Location = New System.Drawing.Point(923, 486)
         Me.txtCancelaefectivo.Name = "txtCancelaefectivo"
         Me.txtCancelaefectivo.Size = New System.Drawing.Size(85, 23)
         Me.txtCancelaefectivo.TabIndex = 288
@@ -414,7 +416,7 @@ Partial Class frmRepEntradas
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(998, 185)
+        Me.grdcaptura.Size = New System.Drawing.Size(998, 200)
         Me.grdcaptura.TabIndex = 285
         '
         'btnExportar
@@ -463,7 +465,7 @@ Partial Class frmRepEntradas
         '
         Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(766, 445)
+        Me.Label19.Location = New System.Drawing.Point(766, 460)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(151, 15)
         Me.Label19.TabIndex = 324
@@ -473,7 +475,7 @@ Partial Class frmRepEntradas
         '
         Me.txttotalformas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotalformas.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(134, Byte), Integer))
-        Me.txttotalformas.Location = New System.Drawing.Point(923, 441)
+        Me.txttotalformas.Location = New System.Drawing.Point(923, 456)
         Me.txttotalformas.Name = "txttotalformas"
         Me.txttotalformas.Size = New System.Drawing.Size(85, 23)
         Me.txttotalformas.TabIndex = 325
@@ -511,7 +513,7 @@ Partial Class frmRepEntradas
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(745, 502)
+        Me.Label20.Location = New System.Drawing.Point(745, 517)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(172, 15)
         Me.Label20.TabIndex = 328
@@ -521,7 +523,7 @@ Partial Class frmRepEntradas
         '
         Me.txtcancelacionestotales.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtcancelacionestotales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtcancelacionestotales.Location = New System.Drawing.Point(923, 501)
+        Me.txtcancelacionestotales.Location = New System.Drawing.Point(923, 516)
         Me.txtcancelacionestotales.Name = "txtcancelacionestotales"
         Me.txtcancelacionestotales.Size = New System.Drawing.Size(85, 23)
         Me.txtcancelacionestotales.TabIndex = 327
@@ -532,7 +534,7 @@ Partial Class frmRepEntradas
         '
         Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(750, 564)
+        Me.Label21.Location = New System.Drawing.Point(750, 579)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(167, 15)
         Me.Label21.TabIndex = 330
@@ -542,7 +544,7 @@ Partial Class frmRepEntradas
         '
         Me.txtdevolucionesformas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtdevolucionesformas.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtdevolucionesformas.Location = New System.Drawing.Point(923, 561)
+        Me.txtdevolucionesformas.Location = New System.Drawing.Point(923, 576)
         Me.txtdevolucionesformas.Name = "txtdevolucionesformas"
         Me.txtdevolucionesformas.Size = New System.Drawing.Size(85, 23)
         Me.txtdevolucionesformas.TabIndex = 329
@@ -554,7 +556,7 @@ Partial Class frmRepEntradas
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.grdpagos)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 405)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 420)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(250, 108)
         Me.GroupBox1.TabIndex = 333
@@ -566,7 +568,7 @@ Partial Class frmRepEntradas
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.grdCanceñlaciones)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(273, 406)
+        Me.GroupBox2.Location = New System.Drawing.Point(273, 421)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(249, 118)
         Me.GroupBox2.TabIndex = 334
@@ -605,7 +607,7 @@ Partial Class frmRepEntradas
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.grddevoluciones)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(5, 524)
+        Me.GroupBox3.Location = New System.Drawing.Point(5, 539)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(249, 109)
         Me.GroupBox3.TabIndex = 336
@@ -632,11 +634,34 @@ Partial Class frmRepEntradas
         Me.RadioButton2.Text = "Ver todos los registros"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(840, 611)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(77, 15)
+        Me.Label4.TabIndex = 341
+        Me.Label4.Text = "Otros Gastos:"
+        '
+        'txtOtrosgastos
+        '
+        Me.txtOtrosgastos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtOtrosgastos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
+        Me.txtOtrosgastos.Location = New System.Drawing.Point(923, 608)
+        Me.txtOtrosgastos.Name = "txtOtrosgastos"
+        Me.txtOtrosgastos.Size = New System.Drawing.Size(85, 23)
+        Me.txtOtrosgastos.TabIndex = 340
+        Me.txtOtrosgastos.Text = "0.00"
+        Me.txtOtrosgastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmRepEntradas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1015, 640)
+        Me.ClientSize = New System.Drawing.Size(1015, 655)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.txtOtrosgastos)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -747,4 +772,6 @@ Partial Class frmRepEntradas
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents cboFormaPago As ComboBox
     Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtOtrosgastos As TextBox
 End Class

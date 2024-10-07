@@ -158,15 +158,16 @@ Partial Class Inicio
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.btnsalida = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
         Me.POpciones = New System.Windows.Forms.Panel()
+        Me.lblSuc = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.lblSuc = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1203,12 +1204,28 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
+        Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.btnsalida)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 114)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(0, 63)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(90, 63)
+        Me.Button6.TabIndex = 237
+        Me.Button6.Text = "Recibe Traspaso"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'btnsalida
         '
@@ -1255,6 +1272,28 @@ Partial Class Inicio
         Me.POpciones.TabIndex = 13
         Me.POpciones.Visible = False
         '
+        'lblSuc
+        '
+        Me.lblSuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblSuc.AutoSize = True
+        Me.lblSuc.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSuc.Location = New System.Drawing.Point(1188, 117)
+        Me.lblSuc.Name = "lblSuc"
+        Me.lblSuc.Size = New System.Drawing.Size(0, 30)
+        Me.lblSuc.TabIndex = 14
+        Me.lblSuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(900, 754)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(318, 42)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Delsscom Farmacias Version 2.3"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1293,28 +1332,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'lblSuc
-        '
-        Me.lblSuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblSuc.AutoSize = True
-        Me.lblSuc.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSuc.Location = New System.Drawing.Point(1188, 117)
-        Me.lblSuc.Name = "lblSuc"
-        Me.lblSuc.Size = New System.Drawing.Size(0, 30)
-        Me.lblSuc.TabIndex = 14
-        Me.lblSuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(900, 754)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(318, 42)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Delsscom Farmacias Version 2.2"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Inicio
         '
@@ -1492,4 +1509,5 @@ Partial Class Inicio
     Friend WithEvents ReporteDeTraspasosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lblSuc As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button6 As Button
 End Class

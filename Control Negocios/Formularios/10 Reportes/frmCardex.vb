@@ -384,6 +384,7 @@ Public Class frmCardex
                     cboCodigo.Text = rd1("Codigo").ToString
                     My.Application.DoEvents()
                     'GoTo kak
+                    btnreporte.PerformClick()
                 Else
                     cbonombre.Text = ""
                     cbonombre.Focus.Equals(True)
