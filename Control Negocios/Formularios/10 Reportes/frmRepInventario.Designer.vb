@@ -344,7 +344,7 @@ Partial Class frmRepInventario
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(596, 541)
+        Me.Label4.Location = New System.Drawing.Point(666, 541)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 19)
@@ -357,7 +357,7 @@ Partial Class frmRepInventario
         Me.txtregistros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtregistros.BackColor = System.Drawing.Color.White
         Me.txtregistros.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtregistros.Location = New System.Drawing.Point(596, 562)
+        Me.txtregistros.Location = New System.Drawing.Point(666, 562)
         Me.txtregistros.Margin = New System.Windows.Forms.Padding(2)
         Me.txtregistros.Name = "txtregistros"
         Me.txtregistros.ReadOnly = True
@@ -656,16 +656,15 @@ Partial Class frmRepInventario
         'btnExpExis
         '
         Me.btnExpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnExpExis.BackgroundImage = CType(resources.GetObject("btnExpExis.BackgroundImage"), System.Drawing.Image)
         Me.btnExpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnExpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExpExis.Location = New System.Drawing.Point(251, 537)
+        Me.btnExpExis.Location = New System.Drawing.Point(251, 520)
         Me.btnExpExis.Name = "btnExpExis"
-        Me.btnExpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnExpExis.Size = New System.Drawing.Size(91, 65)
         Me.btnExpExis.TabIndex = 250
         Me.btnExpExis.Text = "Exportar Existencias"
-        Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnExpExis.UseVisualStyleBackColor = True
         '
         'btnexcel
