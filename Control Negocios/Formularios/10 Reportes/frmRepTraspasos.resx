@@ -121,7 +121,7 @@
   <data name="btnNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADEAAAArCAYAAADR0WDhAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAA/9JREFUaEPVmEtIFVEcxqVFQUFFu4JICloEhQQRFEEPCKJNYFBphBX0tBDLLItS
+        DQAACw0B7QfALAAAA/9JREFUaEPVmEtIFVEcxqVFQUFFu4JICloEhQQRFEEPCKJNYFBphBX0tBDLLItS
         87XIkogWYSVIUSSpKGRoplEtIsEIauPCTSBEpWbXZ53ON3ouZ2a+mXtm7hi2+M2985+5c77fzDlz5k6K
         EOK/x1U4VVBVIxFTdEsWOveZadhWHAL/jUj8iwzKBBQzWsRayIBVWmAvZqyItZDhOrSwfsxIEWshg5lK
         AGORN425u9vrzt5SvKo/k8/2SxZrIUNlaSFNSCiCwHmXr7l+2/wwr5PtnwzxL7KByES8BBRRi9hWZAPG
@@ -190,6 +190,9 @@
     <value>True</value>
   </metadata>
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
