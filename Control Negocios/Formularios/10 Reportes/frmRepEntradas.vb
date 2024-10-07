@@ -233,6 +233,14 @@ Public Class frmRepEntradas
                 Dim devoluciones As Double = 0
                 Dim sumadevoluciones As Double = 0
 
+                Dim devolucionesEFEC As Double = 0
+                Dim sumadevolucionesEFEC As Double = 0
+                Dim sumadevolucionesTOTALESEFEC As Double = 0
+
+                Dim devolucionesFORMAS As Double = 0
+                Dim sumadevolucionesFORMAS As Double = 0
+                Dim sumadevolucionesTOTALESFORMAS As Double = 0
+
 
                 grdpagos.Rows.Clear()
                 grdcaptura.Rows.Clear()
@@ -337,32 +345,98 @@ Public Class frmRepEntradas
                     End If
                 Loop
                 rd1.Close()
+                ''''''''''''''''''''''''''''''''
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario<>'' AND Concepto='DEVOLUCION'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        formapago = rd1(0).ToString
+
+                        If formapago = "EFECTIVO" Then
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<>'' AND Concepto='DEVOLUCION' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+
+                                    sumadevolucionesEFEC = rd2(0).ToString
+                                    sumadevolucionesTOTALESEFEC = sumadevolucionesTOTALESEFEC + CDbl(sumadevolucionesEFEC)
+                                End If
+                            End If
+                            rd2.Close()
+
+                        Else
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='" & formapago & "' AND FormaPago<>'EFECTIVO' AND Usuario<>'' AND Concepto='NOTA CANCELADA' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+
+                                    sumadevolucionesFORMAS = rd2(0).ToString
+                                    grddevoluciones.Rows.Add(formapago, sumadevolucionesFORMAS)
+                                    sumadevolucionesTOTALESFORMAS = sumadevolucionesTOTALESFORMAS + CDbl(sumadevolucionesFORMAS)
+                                End If
+                            End If
+                            rd2.Close()
+
+                        End If
+                        sumadevoluciones = sumadevolucionesTOTALESEFEC + sumadevolucionesTOTALESFORMAS
+                    End If
+                Loop
+                rd1.Close()
+
+                rd2.Close()
+
+                Dim otrosgastos As Double = 0
+                'Otros gastos
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select SUM(Total) from OtrosGastos where Usuario<>'' and CorteU=0 AND Concepto<>'NOMINA'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        otrosgastos = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
+                        otrosgastos = FormatNumber(otrosgastos, 2)
+                    End If
+                End If
+                rd2.Close()
+
+                ''''''''''''''''''''''''''''''''
                 cnn2.Close()
                 cnn1.Close()
 
 
                 txtEfectivo.Text = FormatNumber(SUMATOTALEFECTIVO, 2)
-                txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text), 2)
 
+                My.Application.DoEvents()
                 txttotalformas.Text = FormatNumber(sumatotalformas, 2)
                 txtSalTarj.Text = FormatNumber(CDec(txttotalformas.Text) - CDec(txtcancelacionestotales.Text), 2)
 
-
+                My.Application.DoEvents()
 
                 txtCancelaefectivo.Text = FormatNumber(sumacancelacionestotalesEFEC, 2)
                 txtcancelacionestotales.Text = IIf(sumacancelacionestotalesformas = 0, 0, sumacancelacionestotalesformas)
-
-                txtDevoefectivo.Text = FormatNumber(sumadevoluciones, 2)
-                txtdevolucionesformas.Text = FormatNumber(sumadevoluciones, 2)
-
+                My.Application.DoEvents()
+                txtDevoefectivo.Text = FormatNumber(sumadevolucionesEFEC, 2)
+                txtdevolucionesformas.Text = FormatNumber(sumadevolucionesTOTALESFORMAS, 2)
+                My.Application.DoEvents()
 
 
                 txtIngresos.Text = FormatNumber(CDec(txtEfectivo.Text) + CDec(txttotalformas.Text), 2)
-                txtEgresos.Text = FormatNumber(CDec(txtCancelaefectivo.Text) + CDec(txtDevoefectivo.Text) + CDec(IIf(txtcancelacionestotales.Text = 0, 0,
+                txtEgresos.Text = FormatNumber(CDec(txtCancelaefectivo.Text) + CDec(txtDevoefectivo.Text) + CDec(otrosgastos) + CDec(IIf(txtcancelacionestotales.Text = 0, 0,
                 txtcancelacionestotales.Text)) + CDec(txtdevolucionesformas.Text), 2)
-
+                My.Application.DoEvents()
                 txtTotalAbono.Text = FormatNumber(CDec(txtIngresos.Text) - CDec(txtEgresos.Text), 2)
+                My.Application.DoEvents()
 
+                txtOtrosgastos.Text = FormatNumber(otrosgastos, 2)
+                My.Application.DoEvents()
+                txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text) - CDec(txtOtrosgastos.Text), 2)
+                My.Application.DoEvents()
             End If
 
 

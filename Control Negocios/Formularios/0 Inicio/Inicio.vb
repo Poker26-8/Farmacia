@@ -2277,4 +2277,9 @@ Public Class Inicio
         frmRepTraspasos.BringToFront()
         frmRepTraspasos.Show()
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        frmRecibeTraspaso.BringToFront()
+        frmRecibeTraspaso.Show()
+    End Sub
 End Class
