@@ -363,7 +363,8 @@ Module Module1
 
     'Public sTargetlocal As String = "Data Source=" & dameIP2() & "; Integrated Security=true; initial catalog=CN1; user id=Delsscom; password=jipl22; timeout=300"
     ' Public sTargetlocal As String = "Server=" & ipserver & ";Database=" & database & ";User ID=" & userbd & ";Password=" & passbd & ";Connect Timeout=300;"
-    Public sTargetlocal As String = ""
+    ' Public sTargetlocal As String = ""
+    Public sTargetlocal As String = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
 
 
     Public Function conexionlocal()

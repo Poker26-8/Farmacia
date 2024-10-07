@@ -3621,7 +3621,7 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti from Productos where CodBarra='" & cbodesc.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Codigo,Nombre,UVenta,Multiplo,Min,Ubicacion,Anti,CodBarra from Productos where CodBarra='" & cbodesc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3662,7 +3662,8 @@ kaka:
                         Multiplo = rd1("Multiplo").ToString()
                         Minimo = rd1("Min").ToString()
                         txtubicacion.Text = rd1("Ubicacion").ToString()
-
+                        txtbarr.Text = rd1("CodBarra").ToString()
+                        cbocodigo.Text = rd1("Codigo").ToString()
                         If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
                             picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
                         End If
@@ -4151,7 +4152,11 @@ kaka:
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE LEFT(Codigo, 6) = LEFT('" & cbocodigo.Text & "', 6) ORDER BY Codigo"
+            If cbodesc.Text = "" Then
+                cmd1.CommandText = "SELECT DISTINCT Codigo FROM Productos ORDER BY Codigo"
+            Else
+                cmd1.CommandText = "SELECT DISTINCT Codigo FROM Productos where Nombre='" & cbodesc.Text & "' ORDER BY Codigo"
+            End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbocodigo.Items.Add(

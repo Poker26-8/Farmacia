@@ -1,4 +1,6 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Imports System.IO
 Imports Org.BouncyCastle.Math.EC.ECCurve
 
 Public Class frmRecibeTraspaso
@@ -89,7 +91,7 @@ Public Class frmRecibeTraspaso
         Try
             Dim numsucc As Integer = 0
             Dim cnn As MySqlConnection = New MySqlConnection
-            Dim sSQL As String = "SELECT distinct Origen FROM traspasos where destino=" & susursalr & ""
+            Dim sSQL As String = "SELECT distinct Origen FROM traspasos where destino=" & susursalr & " and CargadoE=0"
             Dim sSQL2 As String = "SELECT nombre FROM sucursales where Id=" & numsucc & ""
             Dim dr As DataRow
             Dim dt1 As New DataTable
@@ -126,9 +128,9 @@ Public Class frmRecibeTraspaso
             Dim cnn As MySqlConnection = New MySqlConnection
             Dim sSQL As String = ""
             If cbo.Text = "" Then
-                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & ""
+                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and CargadoE=0"
             Else
-                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & ""
+                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
             End If
             Dim dr As DataRow
             Dim dt1 As New DataTable
@@ -185,6 +187,569 @@ Public Class frmRecibeTraspaso
             End Try
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnreporte_Click(sender As Object, e As EventArgs) Handles btnreporte.Click
+        Try
+
+            consultaTraspasosEntrada()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub consultaTraspasosEntrada()
+
+        Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " and T.Origen=" & lblidorigen.Text & ""
+        Dim ssqlinsertal As String = ""
+        Dim ssql3 As String = ""
+        Dim dt As New DataTable
+        Dim dt2 As New DataTable
+        Dim dr As DataRow
+        Dim dr2 As DataRow
+        Dim sinfo As String = ""
+        Dim odata As New ToolKitSQL.myssql
+        Dim odata2 As New ToolKitSQL.myssql
+
+        Dim maxIdTraspaso As Integer = 0
+
+        If odata.dbOpen(cnn, sTargetlocal, sinfo) Then
+            If odata2.dbOpen(cnn2, sTargetdSincro, sinfo) Then
+                If odata2.getDt(cnn2, dt, sSQL, sinfo) Then
+                    For Each dr In dt.Rows
+                        My.Application.DoEvents()
+                        consultaDetalleTraspaso(dr("Id").ToString)
+                    Next
+                End If
+                cnn2.Close()
+            End If
+            cnn.Close()
+        End If
+    End Sub
+
+
+    Public Sub consultaDetalleTraspaso(ByVal Folio As String)
+        Dim cnn3 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn4 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "Select * from traspasosdetalle where IdTraspaso=" & Folio
+        Dim sSQL2 As String = ""
+        Dim ssqlinsertal As String = ""
+        Dim dt3 As New DataTable
+        Dim dt4 As New DataTable
+        Dim d3 As DataRow
+        Dim dr4 As DataRow
+        Dim sinfo As String = ""
+        Dim odata3 As New ToolKitSQL.myssql
+        Dim odata4 As New ToolKitSQL.myssql
+
+        If odata3.dbOpen(cnn3, sTargetlocal, sinfo) Then
+            If odata4.dbOpen(cnn4, sTargetdSincro, sinfo) Then
+                If odata4.getDt(cnn4, dt4, sSQL, sinfo) Then
+                    For Each dr4 In dt4.Rows
+                        My.Application.DoEvents()
+                        grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString)
+                    Next
+                End If
+                cnn4.Close()
+            End If
+            cnn3.Close()
+
+        End If
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        Try
+            If lblusuario.Text = "" Then
+                MsgBox("Ingresa tu contraseña para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                txtcontraseña.Focus.Equals(True)
+                Exit Sub
+            End If
+            If MsgBox("¿Deseas Guardar el Traspaso Entrante?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+                Exit Sub
+            End If
+            bajaTraspasosEntrada()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub bajaTraspasosEntrada()
+
+        Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " And T.NumTraspasosE=" & ComboBox1.Text & " and T.Origen=" & lblidorigen.Text & ""
+        Dim ssqlinsertal As String = ""
+        Dim ssql3 As String = ""
+        Dim dt As New DataTable
+        Dim dt2 As New DataTable
+        Dim dr As DataRow
+        Dim dr2 As DataRow
+        Dim sinfo As String = ""
+        Dim odata As New ToolKitSQL.myssql
+        Dim odata2 As New ToolKitSQL.myssql
+
+        Dim maxIdTraspaso As Integer = 0
+
+        If odata.dbOpen(cnn, sTargetlocal, sinfo) Then
+            If odata2.dbOpen(cnn2, sTargetdSincro, sinfo) Then
+                If odata2.getDt(cnn2, dt, sSQL, sinfo) Then
+                    For Each dr In dt.Rows
+                        My.Application.DoEvents()
+                        ssqlinsertal = ""
+                        'grid_eventos.Rows.Insert(0, "Bajando Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
+                        My.Application.DoEvents()
+                        Dim fechapago As Date = dr("Fecha").ToString
+                        Dim fechahora As Date = dr("Hora").ToString
+
+                        ssqlinsertal = "INSERT INTO Traslados(Cargado,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,concepto,NUM_TRASLADO) " &
+                                                   " VALUES (1,'INGRESO','0','0','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechahora, "yyyy-MM-dd HH:mm:ss") & "','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechapago, "yyyy-MM-dd HH:mm:ss") & "','PAGADO','" & dr("XD").ToString & "','ENTRADA'," & dr("NumTraspasosE").ToString & ")"
+
+                        If odata.runSp(cnn, ssqlinsertal, sinfo) Then
+                            odata.getDr(cnn, dr2, "select max(Folio) as XD from Traslados", "drdos")
+                            maxIdTraspaso = dr2(0).ToString
+                            bajaTrasEDetalle(dr("Id").ToString, maxIdTraspaso, dr("NumTraspasosE").ToString, dr("XD").ToString)
+                            ssql3 = "update traspasos set CargadoE=1 where Id=" & dr("Id").ToString
+                            If odata2.runSp(cnn2, ssql3, sinfo) Then
+                                'grid_eventos.Rows.Insert(0, "Finaliza Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
+                                bajaExitTrasEntrada()
+                            End If
+                        End If
+                    Next
+                End If
+                cnn2.Close()
+            End If
+            cnn.Close()
+        End If
+    End Sub
+
+    Private Sub bajaTrasEDetalle(ByVal Folio As String, ByVal maxId As String, ByVal numTras As String, ByVal vardestino As String)
+        Dim cnn3 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn4 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "Select * from traspasosdetalle where IdTraspaso=" & Folio
+        Dim sSQL2 As String = ""
+        Dim ssqlinsertal As String = ""
+        Dim dt3 As New DataTable
+        Dim dt4 As New DataTable
+        Dim d3 As DataRow
+        Dim dr4 As DataRow
+        Dim sinfo As String = ""
+        Dim odata3 As New ToolKitSQL.myssql
+        Dim odata4 As New ToolKitSQL.myssql
+
+        If odata3.dbOpen(cnn3, sTargetlocal, sinfo) Then
+            If odata4.dbOpen(cnn4, sTargetdSincro, sinfo) Then
+                If odata4.getDt(cnn4, dt4, sSQL, sinfo) Then
+                    For Each dr4 In dt4.Rows
+                        My.Application.DoEvents()
+                        ssqlinsertal = ""
+                        Dim fecha As Date = dr4("Fecha").ToString
+                        ssqlinsertal = "INSERT INTO TrasladosDet(Folio, Codigo, Nombre, Unidad, Cantidad, Precio, Total, Fecha, Comisionista, Depto, Grupo, concepto, num_traslado,Lote,FCaduca)" &
+                                        " VALUES (" & maxId & ",'" & dr4("Codigo").ToString & "','" & dr4("Nombre").ToString & "','" & dr4("UVenta").ToString & "'," & dr4("Cantidad").ToString & "," & dr4("Precio").ToString &
+                                        "," & dr4("Total").ToString & ",'" & Format(fecha, "yyyy-MM-dd") & "','" & vardestino &
+                                        "','" & dr4("Depto").ToString & "','" & dr4("Grupo").ToString & "','ENTRADA'," & numTras & ",'" & dr4("Lote").ToString & "','" & dr4("FechaCad").ToString & "')"
+                        odata3.runSp(cnn3, ssqlinsertal, sinfo)
+                    Next
+                End If
+                cnn4.Close()
+            End If
+            cnn3.Close()
+        End If
+
+    End Sub
+
+
+    Private Sub bajaExitTrasEntrada()
+
+        Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim odata2 As New ToolKitSQL.myssql
+        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA'"
+        Dim ssql2 As String = ""
+        Dim ssql3 As String = ""
+        Dim sinfo As String = ""
+        Dim ssqlinsertal As String = ""
+        Dim dt As New DataTable
+        Dim dt2 As New DataTable
+        Dim dr As DataRow
+        Dim dr2 As DataRow
+        Dim dr3 As DataRow
+        Dim MyExist As String = ""
+        Dim MyNewEsist As String = ""
+
+        Dim oData As New ToolKitSQL.myssql
+        With oData
+            If .dbOpen(cnn, sTargetlocal, sinfo) Then
+                If odata2.dbOpen(cnn2, sTargetdSincro, sinfo) Then
+                    If odata2.getDt(cnn2, dt, sSQL, sinfo) Then
+                        For Each dr In dt.Rows
+                            My.Application.DoEvents()
+                            If oData.getDr(cnn, dr2, "select Codigo,Existencia,Multiplo from Productos where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'", "drDOS") Then
+                                MyExist = 0
+                                If CDec(dr2("Multiplo").ToString) > 1 And CDec(dr2("Existencia").ToString) > 0 Then
+                                    MyExist = FormatNumber(CDec(dr2("Existencia").ToString), 2)
+                                    If Len(dr("Codigo").ToString) > 6 Then
+                                        MyNewEsist = CDec(MyExist) + CDec(dr("Cantidad").ToString)
+                                    Else
+                                        MyNewEsist = CDec(MyExist) + CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString))
+                                    End If
+
+                                Else
+                                    MyExist = dr2("Existencia").ToString
+                                    MyNewEsist = CDec(MyExist) + CDec(dr("Cantidad").ToString)
+                                End If
+
+                                Dim sqlnew As String = ""
+
+                                If Len(dr("Codigo").ToString) > 6 Then
+                                    sqlnew = "update Productos set Existencia = Existencia + " & CDec(dr("Cantidad").ToString) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
+                                Else
+                                    sqlnew = "update Productos set Existencia = Existencia + " & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
+                                End If
+                                If oData.runSp(cnn, sqlnew, sinfo) Then
+                                    If Len(dr("Codigo").ToString) > 6 Then
+                                        ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(dr("Cantidad").ToString) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+                                    Else
+                                        ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+                                    End If
+
+                                    'ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cant_Prod,Precio_prod,fecha,Usuario,Existencia,Diferencia,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Now & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+
+                                    oData.runSp(cnn, ssql3, sinfo)
+                                    If Trim(dr("Lote").ToString) <> "" Then
+                                        actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
+                                    End If
+                                    If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
+                                        MsgBox("Traspaso Registrado Correctamente")
+                                        pSalida80.Print()
+                                        My.Application.DoEvents()
+
+                                        btnNuevo.PerformClick()
+                                        My.Application.DoEvents()
+                                    End If
+                                    'grid_eventos.Rows.Insert(0, "Finaliza Ajuste de Inventario " & dr("Descripcion").ToString, Date.Now)
+                                End If
+                            Else
+                                If odata2.getDr(cnn2, dr3, "Select * from productos where Codigo='" & dr("Codigo").ToString & "'", sinfo) Then
+                                    ssqlinsertal = "Insert Into Productos(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,VentaMin,MCD,Multiplo,Departamento,Grupo,PrecioCompra,PorcentageMin,Porcentage,PrecioVenta,PrecioVentaIVA,PecioVentaMinIVA,IVA,Existencia,id_tbMoneda,PercentIVAret,NombreLargo,IIEPS,isr,ClaveSat,ClaveUnidadSat,MSeries,CargadoInv) " &
+                                                            "VALUES('" & dr3("Codigo").ToString & "','" & dr3("Nombre").ToString & "','" & dr3("proveedor").ToString & "',0,'" & dr3("UVenta").ToString & "','" & dr3("UVenta").ToString &
+                                                           "','" & dr3("UVenta").ToString & "',1,1,'" & dr3("Depto").ToString & "','" & dr3("Grupo").ToString & "','" & dr3("PrecioCompra").ToString &
+                                                          "','0','0','0','" & dr3("PrecioVentaIVA").ToString & "','0','" & dr3("IVA").ToString & "'," & dr("Cantidad").ToString &
+                                                         ",1,0,'',0,0,'" & dr3("clavesat").ToString & "','" & dr3("claveunisat").ToString & "',0,0)"
+                                    If oData.runSp(cnn, ssqlinsertal, sinfo) Then
+                                        MyExist = 0
+                                        MyNewEsist = CDec(MyExist) + CDec(dr("Cantidad").ToString)
+                                        ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr3("Codigo").ToString & "','" & dr3("Nombre").ToString & "','Entrada por Traspaso Nube'," & dr("Cantidad").ToString & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+                                        oData.runSp(cnn, ssql3, sinfo)
+                                        If Trim(dr("Lote").ToString) <> "" Then
+                                            actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
+                                        End If
+                                        If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
+                                            MsgBox("Traspaso Registrado Correctamente")
+                                            pSalida80.Print()
+                                            My.Application.DoEvents()
+                                            btnNuevo.PerformClick()
+                                            My.Application.DoEvents()
+                                        End If
+                                        'grid_eventos.Rows.Insert(0, "Finaliza Ajuste de Inventario " & dr3("Nombre").ToString, Date.Now)
+                                    End If
+                                End If
+                            End If
+                        Next
+                    End If
+                    cnn2.Close()
+                End If
+                cnn.Close()
+            End If
+        End With
+    End Sub
+
+    Private Sub actualizarLoteCad(ByVal codigo As String, ByVal lote As String, ByVal fechacad As String, ByVal cantidad As Integer, ByVal tipo As Integer)
+
+        Dim cnn100 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim cnn2100 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "Select * from LoteCaducidad where Codigo = '" & Trim(codigo) & "' and Cantidad > 0 and Lote='" & lote & "'"
+        Dim ssqlinsertal As String = ""
+        Dim ssql3 As String = ""
+        Dim dt100 As New DataTable
+        Dim dt2100 As New DataTable
+        Dim dr100 As DataRow
+        Dim sinfo As String = ""
+        Dim odata100 As New ToolKitSQL.myssql
+        Dim odata2100 As New ToolKitSQL.myssql
+        Dim banderaentra As Integer = 0
+
+        If odata100.dbOpen(cnn100, sTargetlocal, sinfo) Then
+            If odata2100.dbOpen(cnn2100, sTargetdSincro, sinfo) Then
+                If odata100.getDt(cnn100, dt100, sSQL, sinfo) Then
+                    For Each dr100 In dt100.Rows
+                        My.Application.DoEvents()
+                        ssqlinsertal = ""
+                        If tipo = 1 Then
+                            If Trim(dr100("Lote").ToString) = Trim(lote) Then
+                                banderaentra = 1
+                                ssqlinsertal = "Update LoteCaducidad set Cantidad = " & CInt(dr100("Cantidad").ToString) + cantidad & " where id = " & dr100("id").ToString & ""
+                            End If
+                        Else
+                            If Trim(dr100("Lote").ToString) = Trim(lote) Then
+                                banderaentra = 1
+                                ssqlinsertal = "Update LoteCaducidad set Cantidad = " & CInt(dr100("Cantidad").ToString) - cantidad & " where id = " & dr100("id").ToString & ""
+                            End If
+                        End If
+                        If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+                        End If
+                    Next
+                    If banderaentra = 0 Then
+                        ssqlinsertal = "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & Trim(codigo) & "','" & Trim(lote) & "','" & Trim(fechacad) & "'," & Trim(cantidad) & ")"
+                        If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+
+                        End If
+                    End If
+                Else
+                    ssqlinsertal = ""
+                    If tipo = 1 Then
+                        Dim fcad As Date = fechacad
+                        fechacad = Format(fcad, "yyyy-MM")
+                        ssqlinsertal = "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & Trim(codigo) & "','" & Trim(lote) & "','" & Trim(fechacad) & "'," & Trim(cantidad) & ")"
+                    Else
+                    End If
+                    If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+                    End If
+                End If
+                cnn2100.Close()
+            End If
+            cnn100.Close()
+        End If
+    End Sub
+
+    Public Sub limpiaTodo()
+        grdcaptura.Rows.Clear()
+        ComboBox1.Text = ""
+        cbo.Text = ""
+        lblidorigen.Text = ""
+    End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        limpiaTodo()
+    End Sub
+
+    Private Sub pSalida80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pSalida80.PrintPage
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+
+        On Error GoTo milky
+
+        '[°]. Logotipo
+        If tLogo <> "SIN" Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+            End If
+            If tLogo = "CUAD" Then
+                e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                Y += 130
+            End If
+            If tLogo = "RECT" Then
+                e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                Y += 120
+            End If
+        Else
+            Y = 0
+        End If
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select Pie2,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Pie = rd1("Pie2").ToString
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                Y += 17
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close()
+
+        '[1]. Datos de la venta
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString(" - T R A S P A S O - ", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 14
+        e.Graphics.DrawString("E N T R A D A", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 12
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        e.Graphics.DrawString("Folio: " & ComboBox1.Text, fuente_datos, Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
+        Y += 17
+        e.Graphics.DrawString("Origen: " & cbo.Text, fuente_datos, Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Destino: " & lblSuc.Text, fuente_datos, Brushes.Black, 1, Y)
+        Y += 12
+
+        Y += 4
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 12
+
+
+        e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 15
+        e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
+        e.Graphics.DrawString("TOTAL.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 235, Y)
+        Y += 6
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        Dim total_prods As Double = 0
+
+        For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+            If grdcaptura.Rows(miku).Cells(1).Value.ToString() <> "" And grdcaptura.Rows(miku).Cells(0).Value.ToString = "" Then
+                Y -= 5
+                e.Graphics.DrawString(Mid(grdcaptura.Rows(miku).Cells(1).Value.ToString(), 1, 25), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+                If Mid(grdcaptura.Rows(miku).Cells(1).Value.ToString(), 26, 50) <> "" Then
+                    Y += 11
+                    e.Graphics.DrawString(Mid(grdcaptura.Rows(miku).Cells(1).Value.ToString(), 26, 50), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+                End If
+                Y += 21
+                Continue For
+            End If
+            Dim codigo As String = grdcaptura.Rows(miku).Cells(0).Value.ToString()
+            Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+            Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
+            Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
+            Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+            Dim total As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+            'Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
+            'Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
+            Dim lote As String = ""
+            Dim caducidad As Date = Date.Now
+            Dim cantidadlote As Double = 0
+            lote = grdcaptura.Rows(miku).Cells(7).Value.ToString()
+            caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+
+            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 55, Y)
+            Y += 15
+
+            e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
+            e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 17
+
+            If lote <> "" Then
+                e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                e.Graphics.DrawString("Cant.: " & canti, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                Y += 18
+            End If
+            total_prods = total_prods + canti
+        Next
+        Y -= 1
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 7
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        Y += 18
+        e.Graphics.DrawString("Movimiento realizado por ", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 142.5, Y, sc)
+
+        e.HasMorePages = False
+        Exit Sub
+milky:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+    End Sub
+
+    Private Sub txtcontraseña_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontraseña.KeyPress
+        Try
+            If AscW(e.KeyChar) = Keys.Enter Then
+                If txtcontraseña.Text <> "" Then
+                    Try
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Alias,IdEmpleado from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                lblusuario.Text = rd1("Alias").ToString
+                            End If
+                        Else
+                            MsgBox("Contraseña incorrecta, revisa la información.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtcontraseña.SelectAll()
+                            rd1.Close() : cnn1.Close()
+                            Exit Sub
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.ToString)
+                        cnn1.Close()
+                    End Try
+                    btnGuardar.Focus().Equals(True)
+                End If
+            End If
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class
