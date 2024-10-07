@@ -833,6 +833,12 @@
     <Compile Include="Formularios\15 Caja\frmCorte3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\15 Caja\frmCorte4.Designer.vb">
+      <DependentUpon>frmCorte4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\15 Caja\frmCorte4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\15 Caja\frmEnvio_Corte.Designer.vb">
       <DependentUpon>frmEnvio_Corte.vb</DependentUpon>
     </Compile>
@@ -2714,6 +2720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\15 Caja\frmCorte3.resx">
       <DependentUpon>frmCorte3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\15 Caja\frmCorte4.resx">
+      <DependentUpon>frmCorte4.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\15 Caja\frmEnvio_Corte.resx">
       <DependentUpon>frmEnvio_Corte.vb</DependentUpon>
