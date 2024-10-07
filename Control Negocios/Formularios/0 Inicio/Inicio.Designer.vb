@@ -25,6 +25,17 @@ Partial Class Inicio
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnVentasN = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnProductos = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnClientes = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.pCatalogos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEmpleados = New System.Windows.Forms.ToolStripMenuItem()
@@ -147,27 +158,16 @@ Partial Class Inicio
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnsalida = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
         Me.POpciones = New System.Windows.Forms.Panel()
         Me.lblSuc = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.btnsalida = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.btnVentasN = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.btnProductos = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.btnClientes = New System.Windows.Forms.Button()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -193,6 +193,169 @@ Partial Class Inicio
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1230, 90)
         Me.Panel1.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.Location = New System.Drawing.Point(900, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 90)
+        Me.Button1.TabIndex = 12
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button11.FlatAppearance.BorderSize = 0
+        Me.Button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
+        Me.Button11.Location = New System.Drawing.Point(810, 0)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(90, 90)
+        Me.Button11.TabIndex = 10
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button10.FlatAppearance.BorderSize = 0
+        Me.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button10.Image = CType(resources.GetObject("Button10.Image"), System.Drawing.Image)
+        Me.Button10.Location = New System.Drawing.Point(720, 0)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(90, 90)
+        Me.Button10.TabIndex = 9
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button9.FlatAppearance.BorderSize = 0
+        Me.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
+        Me.Button9.Location = New System.Drawing.Point(630, 0)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(90, 90)
+        Me.Button9.TabIndex = 8
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
+        Me.Button7.Location = New System.Drawing.Point(540, 0)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(90, 90)
+        Me.Button7.TabIndex = 6
+        Me.ToolTip1.SetToolTip(Me.Button7, "Consulta de folios")
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'btnVentasN
+        '
+        Me.btnVentasN.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnVentasN.FlatAppearance.BorderSize = 0
+        Me.btnVentasN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnVentasN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnVentasN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentasN.Image = CType(resources.GetObject("btnVentasN.Image"), System.Drawing.Image)
+        Me.btnVentasN.Location = New System.Drawing.Point(450, 0)
+        Me.btnVentasN.Name = "btnVentasN"
+        Me.btnVentasN.Size = New System.Drawing.Size(90, 90)
+        Me.btnVentasN.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.btnVentasN, "Ventas mostrador")
+        Me.btnVentasN.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
+        Me.Button5.Location = New System.Drawing.Point(360, 0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(90, 90)
+        Me.Button5.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.Button5, "Ventas touch")
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.Location = New System.Drawing.Point(270, 0)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(90, 90)
+        Me.Button4.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.Button4, "Captura de compra")
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'btnProductos
+        '
+        Me.btnProductos.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnProductos.FlatAppearance.BorderSize = 0
+        Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProductos.Image = CType(resources.GetObject("btnProductos.Image"), System.Drawing.Image)
+        Me.btnProductos.Location = New System.Drawing.Point(180, 0)
+        Me.btnProductos.Name = "btnProductos"
+        Me.btnProductos.Size = New System.Drawing.Size(90, 90)
+        Me.btnProductos.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.btnProductos, "Catálogo de productos")
+        Me.btnProductos.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.Location = New System.Drawing.Point(90, 0)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 90)
+        Me.Button2.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.Button2, "Control de asistencia")
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
+        '
+        'btnClientes
+        '
+        Me.btnClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.btnClientes.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnClientes.FlatAppearance.BorderSize = 0
+        Me.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClientes.Image = CType(resources.GetObject("btnClientes.Image"), System.Drawing.Image)
+        Me.btnClientes.Location = New System.Drawing.Point(0, 0)
+        Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Size = New System.Drawing.Size(90, 90)
+        Me.btnClientes.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.btnClientes, "Catálogo de clientes constantes")
+        Me.btnClientes.UseVisualStyleBackColor = False
         '
         'MenuStrip1
         '
@@ -1049,6 +1212,36 @@ Partial Class Inicio
         Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
         '
+        'Button6
+        '
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(0, 63)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(90, 63)
+        Me.Button6.TabIndex = 237
+        Me.Button6.Text = "Recibe Traspaso"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'btnsalida
+        '
+        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
+        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnsalida.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalida.Location = New System.Drawing.Point(0, 0)
+        Me.btnsalida.Name = "btnsalida"
+        Me.btnsalida.Size = New System.Drawing.Size(90, 63)
+        Me.btnsalida.TabIndex = 236
+        Me.btnsalida.Text = "Traspaso Salida"
+        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnsalida.UseVisualStyleBackColor = True
+        '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1098,7 +1291,7 @@ Partial Class Inicio
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(318, 42)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Delsscom Farmacias Version 2.2"
+        Me.Label2.Text = "Delsscom Farmacias Version 2.3"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button3
@@ -1114,21 +1307,6 @@ Partial Class Inicio
         Me.Button3.UseVisualStyleBackColor = False
         Me.Button3.Visible = False
         '
-        'btnsalida
-        '
-        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
-        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnsalida.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(0, 0)
-        Me.btnsalida.Name = "btnsalida"
-        Me.btnsalida.Size = New System.Drawing.Size(90, 63)
-        Me.btnsalida.TabIndex = 236
-        Me.btnsalida.Text = "Traspaso Salida"
-        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalida.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -1142,169 +1320,6 @@ Partial Class Inicio
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
-        'Button1
-        '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(900, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 90)
-        Me.Button1.TabIndex = 12
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button11
-        '
-        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
-        Me.Button11.Location = New System.Drawing.Point(810, 0)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(90, 90)
-        Me.Button11.TabIndex = 10
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button10.Image = CType(resources.GetObject("Button10.Image"), System.Drawing.Image)
-        Me.Button10.Location = New System.Drawing.Point(720, 0)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(90, 90)
-        Me.Button10.TabIndex = 9
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
-        Me.Button9.Location = New System.Drawing.Point(630, 0)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(90, 90)
-        Me.Button9.TabIndex = 8
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(540, 0)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(90, 90)
-        Me.Button7.TabIndex = 6
-        Me.ToolTip1.SetToolTip(Me.Button7, "Consulta de folios")
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'btnVentasN
-        '
-        Me.btnVentasN.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnVentasN.FlatAppearance.BorderSize = 0
-        Me.btnVentasN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnVentasN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnVentasN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVentasN.Image = CType(resources.GetObject("btnVentasN.Image"), System.Drawing.Image)
-        Me.btnVentasN.Location = New System.Drawing.Point(450, 0)
-        Me.btnVentasN.Name = "btnVentasN"
-        Me.btnVentasN.Size = New System.Drawing.Size(90, 90)
-        Me.btnVentasN.TabIndex = 5
-        Me.ToolTip1.SetToolTip(Me.btnVentasN, "Ventas mostrador")
-        Me.btnVentasN.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.Location = New System.Drawing.Point(360, 0)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(90, 90)
-        Me.Button5.TabIndex = 4
-        Me.ToolTip1.SetToolTip(Me.Button5, "Ventas touch")
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(270, 0)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(90, 90)
-        Me.Button4.TabIndex = 3
-        Me.ToolTip1.SetToolTip(Me.Button4, "Captura de compra")
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'btnProductos
-        '
-        Me.btnProductos.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnProductos.FlatAppearance.BorderSize = 0
-        Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnProductos.Image = CType(resources.GetObject("btnProductos.Image"), System.Drawing.Image)
-        Me.btnProductos.Location = New System.Drawing.Point(180, 0)
-        Me.btnProductos.Name = "btnProductos"
-        Me.btnProductos.Size = New System.Drawing.Size(90, 90)
-        Me.btnProductos.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.btnProductos, "Catálogo de productos")
-        Me.btnProductos.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(90, 0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 90)
-        Me.Button2.TabIndex = 1
-        Me.ToolTip1.SetToolTip(Me.Button2, "Control de asistencia")
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
-        '
-        'btnClientes
-        '
-        Me.btnClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.btnClientes.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnClientes.FlatAppearance.BorderSize = 0
-        Me.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClientes.Image = CType(resources.GetObject("btnClientes.Image"), System.Drawing.Image)
-        Me.btnClientes.Location = New System.Drawing.Point(0, 0)
-        Me.btnClientes.Name = "btnClientes"
-        Me.btnClientes.Size = New System.Drawing.Size(90, 90)
-        Me.btnClientes.TabIndex = 0
-        Me.ToolTip1.SetToolTip(Me.btnClientes, "Catálogo de clientes constantes")
-        Me.btnClientes.UseVisualStyleBackColor = False
-        '
         'btnPagarComa
         '
         Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
@@ -1317,21 +1332,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(0, 63)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 63)
-        Me.Button6.TabIndex = 237
-        Me.Button6.Text = "Recibe Traspaso"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'Inicio
         '
