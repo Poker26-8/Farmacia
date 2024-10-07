@@ -262,6 +262,11 @@ Public Class frmRecibeTraspaso
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
+            If lblusuario.Text = "" Then
+                MsgBox("Ingresa tu contraseña para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                txtcontraseña.Focus.Equals(True)
+                Exit Sub
+            End If
             If MsgBox("¿Deseas Guardar el Traspaso Entrante?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
                 Exit Sub
             End If
@@ -711,5 +716,40 @@ milky:
         MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
         cnn1.Close()
         Exit Sub
+    End Sub
+
+    Private Sub txtcontraseña_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontraseña.KeyPress
+        Try
+            If AscW(e.KeyChar) = Keys.Enter Then
+                If txtcontraseña.Text <> "" Then
+                    Try
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Alias,IdEmpleado from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                lblusuario.Text = rd1("Alias").ToString
+                            End If
+                        Else
+                            MsgBox("Contraseña incorrecta, revisa la información.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtcontraseña.SelectAll()
+                            rd1.Close() : cnn1.Close()
+                            Exit Sub
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.ToString)
+                        cnn1.Close()
+                    End Try
+                    btnGuardar.Focus().Equals(True)
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
