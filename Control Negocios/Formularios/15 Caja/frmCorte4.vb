@@ -75,7 +75,7 @@
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = ""
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -122,6 +122,9 @@
             txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - CDec(txtDevolucionesC.Text), 2)
 
             txtTotal.Text = FormatNumber(CDec(txtTotalContado.Text) - CDec(txtCredito.Text), 2)
+
+
+            txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
