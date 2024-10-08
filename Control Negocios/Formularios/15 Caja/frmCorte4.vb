@@ -74,15 +74,15 @@
                         End If
                         rd2.Close()
 
-                        'cmd2 = cnn2.CreateCommand
-                        'cmd2.CommandText = ""
-                        'rd2 = cmd2.ExecuteReader
-                        'If rd2.HasRows Then
-                        '    If rd2.Read Then
-                        '        INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
-                        '    End If
-                        'End If
-                        'rd2.Close()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = ""
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
+                            End If
+                        End If
+                        rd2.Close()
 
                     Else
                         cmd2 = cnn2.CreateCommand
