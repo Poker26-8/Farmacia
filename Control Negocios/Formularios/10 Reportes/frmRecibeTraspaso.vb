@@ -265,12 +265,12 @@ Public Class frmRecibeTraspaso
             If grdcaptura.Rows.Count = 0 Then
                 Exit Sub
             End If
+            If MsgBox("¿Deseas Guardar el Traspaso Entrante?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+                Exit Sub
+            End If
             If lblusuario.Text = "" Then
                 MsgBox("Ingresa tu contraseña para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
                 txtcontraseña.Focus.Equals(True)
-                Exit Sub
-            End If
-            If MsgBox("¿Deseas Guardar el Traspaso Entrante?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
                 Exit Sub
             End If
             bajaTraspasosEntrada()
@@ -532,6 +532,8 @@ Public Class frmRecibeTraspaso
         ComboBox1.Text = ""
         cbo.Text = ""
         lblidorigen.Text = ""
+        txtcontraseña.Text = ""
+        lblusuario.Text = ""
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

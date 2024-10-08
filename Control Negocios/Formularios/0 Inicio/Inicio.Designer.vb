@@ -1214,14 +1214,15 @@ Partial Class Inicio
         '
         'Button6
         '
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button6.Dock = System.Windows.Forms.DockStyle.Top
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button6.Location = New System.Drawing.Point(0, 63)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 63)
+        Me.Button6.Size = New System.Drawing.Size(90, 75)
         Me.Button6.TabIndex = 237
         Me.Button6.Text = "Recibe Traspaso"
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
