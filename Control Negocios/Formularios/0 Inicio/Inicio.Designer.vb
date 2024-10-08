@@ -168,6 +168,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
+        Me.NUEVOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -912,7 +913,7 @@ Partial Class Inicio
         'pRepInventario
         '
         Me.pRepInventario.BackColor = System.Drawing.Color.White
-        Me.pRepInventario.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pInventario, Me.pAjuste, Me.ReporteCOFEPRISToolStripMenuItem})
+        Me.pRepInventario.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pInventario, Me.pAjuste, Me.ReporteCOFEPRISToolStripMenuItem, Me.NUEVOToolStripMenuItem})
         Me.pRepInventario.Name = "pRepInventario"
         Me.pRepInventario.Size = New System.Drawing.Size(236, 22)
         Me.pRepInventario.Text = "Reportes de inventario"
@@ -921,21 +922,21 @@ Partial Class Inicio
         '
         Me.pInventario.BackColor = System.Drawing.Color.White
         Me.pInventario.Name = "pInventario"
-        Me.pInventario.Size = New System.Drawing.Size(179, 22)
+        Me.pInventario.Size = New System.Drawing.Size(180, 22)
         Me.pInventario.Text = "Inventario"
         '
         'pAjuste
         '
         Me.pAjuste.BackColor = System.Drawing.Color.White
         Me.pAjuste.Name = "pAjuste"
-        Me.pAjuste.Size = New System.Drawing.Size(179, 22)
+        Me.pAjuste.Size = New System.Drawing.Size(180, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
         'ReporteCOFEPRISToolStripMenuItem
         '
         Me.ReporteCOFEPRISToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteCOFEPRISToolStripMenuItem.Name = "ReporteCOFEPRISToolStripMenuItem"
-        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteCOFEPRISToolStripMenuItem.Text = "Reporte COFEPRIS"
         '
         'pEstResultados
@@ -1334,6 +1335,12 @@ Partial Class Inicio
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
         '
+        'NUEVOToolStripMenuItem
+        '
+        Me.NUEVOToolStripMenuItem.Name = "NUEVOToolStripMenuItem"
+        Me.NUEVOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NUEVOToolStripMenuItem.Text = "NUEVO"
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1511,4 +1518,5 @@ Partial Class Inicio
     Friend WithEvents lblSuc As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button6 As Button
+    Friend WithEvents NUEVOToolStripMenuItem As ToolStripMenuItem
 End Class

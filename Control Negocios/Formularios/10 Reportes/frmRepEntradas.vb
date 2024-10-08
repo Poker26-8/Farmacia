@@ -1184,7 +1184,7 @@ Public Class frmRepEntradas
                         If rd2.HasRows Then
                             If rd2.Read Then
 
-                                sumadevolucionesFORMAS = rd2(0).ToString
+                                sumadevolucionesFORMAS = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
                                 grddevoluciones.Rows.Add(formapago, sumadevolucionesFORMAS)
                                 sumadevolucionesTOTALESFORMAS = sumadevolucionesTOTALESFORMAS + CDbl(sumadevolucionesFORMAS)
                             End If

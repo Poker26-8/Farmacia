@@ -731,6 +731,12 @@
     <Compile Include="Formularios\10 Reportes\Balance\frmDocCobrar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\Farmacia\frmActualizarTodo.Designer.vb">
+      <DependentUpon>frmActualizarTodo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Farmacia\frmActualizarTodo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\frmcofepris.Designer.vb">
       <DependentUpon>frmcofepris.vb</DependentUpon>
     </Compile>
@@ -2669,6 +2675,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Balance\frmBalance.resx">
       <DependentUpon>frmBalance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\Farmacia\frmActualizarTodo.resx">
+      <DependentUpon>frmActualizarTodo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmcofepris.resx">
       <DependentUpon>frmcofepris.vb</DependentUpon>

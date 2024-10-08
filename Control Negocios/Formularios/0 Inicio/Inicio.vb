@@ -2286,4 +2286,9 @@ Public Class Inicio
         frmRecibeTraspaso.BringToFront()
         frmRecibeTraspaso.Show()
     End Sub
+
+    Private Sub NUEVOToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NUEVOToolStripMenuItem.Click
+        frmActualizarTodo.BringToFront()
+        frmActualizarTodo.Show()
+    End Sub
 End Class

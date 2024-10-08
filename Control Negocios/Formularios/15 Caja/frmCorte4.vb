@@ -35,11 +35,15 @@
 
             Dim ventascontado As Double = 0
             Dim devolucionescontado As Double = 0
+
             Dim ventascredito As Double = 0
             Dim devolucionescredito As Double = 0
+            Dim abonoscreditos As Double = 0
 
             Dim INGRESOSEFECTIVO As Double = 0
             Dim DEVOLUCIONESEFECTIVO As Double = 0
+
+            Dim retiros As Double = 0
 
             'sacar las ventas que estan pagadas y no pagadas
             cnn1.Close() : cnn1.Open()
@@ -116,6 +120,16 @@
                         End If
                         rd2.Close()
 
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                abonoscreditos = abonoscreditos + CDec(rd2(0).ToString)
+                            End If
+                        End If
+                        rd2.Close()
+
 
                     End If
 
@@ -125,22 +139,57 @@
             cnn1.Close()
             cnn2.Close()
 
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Monto) FROM otrosgastos WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    retiros = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
             txtVentas.Text = FormatNumber(ventascontado, 2)
             txtDevolucionesV.Text = FormatNumber(devolucionescontado, 2)
             txtTotalContado.Text = CDec(txtVentas.Text) - CDec(txtDevolucionesV.Text)
 
             txtVentasC.Text = FormatNumber(ventascredito, 2)
+            txtAbonosCreditos.Text = FormatNumber(abonoscreditos, 2)
             txtDevolucionesC.Text = FormatNumber(devolucionescredito, 2)
             txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - CDec(txtDevolucionesC.Text), 2)
 
-            txtTotal.Text = FormatNumber(CDec(txtTotalContado.Text) - CDec(txtCredito.Text), 2)
+            txtTotal.Text = FormatNumber(CDec(txtTotalContado.Text) + CDec(txtCredito.Text), 2)
 
 
+            txtDevoluciones.Text = FormatNumber(CDec(txtDevolucionesC.Text) + CDec(txtDevolucionesV.Text), 2)
+            txtRetiros.Text = FormatNumber(retiros, 2)
             txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
+
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
             cnn2.Close()
         End Try
+    End Sub
+
+    Private Sub txtIngresos_TextChanged(sender As Object, e As EventArgs) Handles txtIngresos.TextChanged
+        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
+        txtSumSistema.Text = FormatNumber(total, 2)
+    End Sub
+
+    Private Sub txtSaldoInicial_TextChanged(sender As Object, e As EventArgs) Handles txtSaldoInicial.TextChanged
+
+        If txtSaldoInicial.Text = "" Then
+            txtSaldoInicial.Text = "0.00"
+            txtSaldoInicial.SelectAll()
+            Exit Sub
+        End If
+
+
+        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
+        txtSumSistema.Text = FormatNumber(total, 2)
     End Sub
 End Class
