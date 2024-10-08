@@ -166,27 +166,30 @@ Partial Class frmCorte4
         '
         'txtTotalDifeTar
         '
+        Me.txtTotalDifeTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalDifeTar.Location = New System.Drawing.Point(303, 691)
         Me.txtTotalDifeTar.Name = "txtTotalDifeTar"
-        Me.txtTotalDifeTar.Size = New System.Drawing.Size(58, 20)
+        Me.txtTotalDifeTar.Size = New System.Drawing.Size(58, 22)
         Me.txtTotalDifeTar.TabIndex = 60
         Me.txtTotalDifeTar.Text = "0.00"
         Me.txtTotalDifeTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTotalCajeroTar
         '
+        Me.txtTotalCajeroTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalCajeroTar.Location = New System.Drawing.Point(231, 691)
         Me.txtTotalCajeroTar.Name = "txtTotalCajeroTar"
-        Me.txtTotalCajeroTar.Size = New System.Drawing.Size(65, 20)
+        Me.txtTotalCajeroTar.Size = New System.Drawing.Size(65, 22)
         Me.txtTotalCajeroTar.TabIndex = 59
         Me.txtTotalCajeroTar.Text = "0.00"
         Me.txtTotalCajeroTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox24
         '
+        Me.TextBox24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox24.Location = New System.Drawing.Point(149, 691)
         Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox24.Size = New System.Drawing.Size(76, 22)
         Me.TextBox24.TabIndex = 58
         Me.TextBox24.Text = "0.00"
         Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -204,27 +207,30 @@ Partial Class frmCorte4
         '
         'txtSumDifeTarj
         '
+        Me.txtSumDifeTarj.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumDifeTarj.Location = New System.Drawing.Point(302, 655)
         Me.txtSumDifeTarj.Name = "txtSumDifeTarj"
-        Me.txtSumDifeTarj.Size = New System.Drawing.Size(58, 20)
+        Me.txtSumDifeTarj.Size = New System.Drawing.Size(58, 22)
         Me.txtSumDifeTarj.TabIndex = 56
         Me.txtSumDifeTarj.Text = "0.00"
         Me.txtSumDifeTarj.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSumCajeroTar
         '
+        Me.txtSumCajeroTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumCajeroTar.Location = New System.Drawing.Point(231, 655)
         Me.txtSumCajeroTar.Name = "txtSumCajeroTar"
-        Me.txtSumCajeroTar.Size = New System.Drawing.Size(65, 20)
+        Me.txtSumCajeroTar.Size = New System.Drawing.Size(65, 22)
         Me.txtSumCajeroTar.TabIndex = 55
         Me.txtSumCajeroTar.Text = "0.00"
         Me.txtSumCajeroTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSumSistemaTar
         '
+        Me.txtSumSistemaTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumSistemaTar.Location = New System.Drawing.Point(149, 655)
         Me.txtSumSistemaTar.Name = "txtSumSistemaTar"
-        Me.txtSumSistemaTar.Size = New System.Drawing.Size(76, 20)
+        Me.txtSumSistemaTar.Size = New System.Drawing.Size(76, 22)
         Me.txtSumSistemaTar.TabIndex = 54
         Me.txtSumSistemaTar.Text = "0.00"
         Me.txtSumSistemaTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -252,9 +258,10 @@ Partial Class frmCorte4
         '
         'txtDevoTarj
         '
+        Me.txtDevoTarj.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevoTarj.Location = New System.Drawing.Point(149, 617)
         Me.txtDevoTarj.Name = "txtDevoTarj"
-        Me.txtDevoTarj.Size = New System.Drawing.Size(76, 20)
+        Me.txtDevoTarj.Size = New System.Drawing.Size(76, 22)
         Me.txtDevoTarj.TabIndex = 50
         Me.txtDevoTarj.Text = "0.00"
         Me.txtDevoTarj.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -281,9 +288,10 @@ Partial Class frmCorte4
         '
         'txtIngresosTar
         '
+        Me.txtIngresosTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIngresosTar.Location = New System.Drawing.Point(149, 591)
         Me.txtIngresosTar.Name = "txtIngresosTar"
-        Me.txtIngresosTar.Size = New System.Drawing.Size(76, 20)
+        Me.txtIngresosTar.Size = New System.Drawing.Size(76, 22)
         Me.txtIngresosTar.TabIndex = 47
         Me.txtIngresosTar.Text = "0.00"
         Me.txtIngresosTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -297,7 +305,7 @@ Partial Class frmCorte4
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(150, 23)
         Me.Label28.TabIndex = 46
-        Me.Label28.Text = "TARJETA DE DEBITO"
+        Me.Label28.Text = "FORMAS DE PAGOS"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label27
@@ -325,27 +333,30 @@ Partial Class frmCorte4
         '
         'txtTotalDife
         '
+        Me.txtTotalDife.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalDife.Location = New System.Drawing.Point(303, 537)
         Me.txtTotalDife.Name = "txtTotalDife"
-        Me.txtTotalDife.Size = New System.Drawing.Size(58, 20)
+        Me.txtTotalDife.Size = New System.Drawing.Size(58, 22)
         Me.txtTotalDife.TabIndex = 43
         Me.txtTotalDife.Text = "0.00"
         Me.txtTotalDife.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTotalCajero
         '
+        Me.txtTotalCajero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalCajero.Location = New System.Drawing.Point(231, 537)
         Me.txtTotalCajero.Name = "txtTotalCajero"
-        Me.txtTotalCajero.Size = New System.Drawing.Size(65, 20)
+        Me.txtTotalCajero.Size = New System.Drawing.Size(65, 22)
         Me.txtTotalCajero.TabIndex = 42
         Me.txtTotalCajero.Text = "0.00"
         Me.txtTotalCajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTotalSistema
         '
+        Me.txtTotalSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalSistema.Location = New System.Drawing.Point(149, 537)
         Me.txtTotalSistema.Name = "txtTotalSistema"
-        Me.txtTotalSistema.Size = New System.Drawing.Size(76, 20)
+        Me.txtTotalSistema.Size = New System.Drawing.Size(76, 22)
         Me.txtTotalSistema.TabIndex = 41
         Me.txtTotalSistema.Text = "0.00"
         Me.txtTotalSistema.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -363,27 +374,30 @@ Partial Class frmCorte4
         '
         'txtSumDife
         '
+        Me.txtSumDife.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumDife.Location = New System.Drawing.Point(302, 501)
         Me.txtSumDife.Name = "txtSumDife"
-        Me.txtSumDife.Size = New System.Drawing.Size(58, 20)
+        Me.txtSumDife.Size = New System.Drawing.Size(58, 22)
         Me.txtSumDife.TabIndex = 39
         Me.txtSumDife.Text = "0.00"
         Me.txtSumDife.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSumaCajero
         '
+        Me.txtSumaCajero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumaCajero.Location = New System.Drawing.Point(231, 501)
         Me.txtSumaCajero.Name = "txtSumaCajero"
-        Me.txtSumaCajero.Size = New System.Drawing.Size(65, 20)
+        Me.txtSumaCajero.Size = New System.Drawing.Size(65, 22)
         Me.txtSumaCajero.TabIndex = 38
         Me.txtSumaCajero.Text = "0.00"
         Me.txtSumaCajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSumSistema
         '
+        Me.txtSumSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSumSistema.Location = New System.Drawing.Point(149, 501)
         Me.txtSumSistema.Name = "txtSumSistema"
-        Me.txtSumSistema.Size = New System.Drawing.Size(76, 20)
+        Me.txtSumSistema.Size = New System.Drawing.Size(76, 22)
         Me.txtSumSistema.TabIndex = 37
         Me.txtSumSistema.Text = "0.00"
         Me.txtSumSistema.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -431,36 +445,40 @@ Partial Class frmCorte4
         '
         'txtDevoluciones
         '
+        Me.txtDevoluciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevoluciones.Location = New System.Drawing.Point(149, 464)
         Me.txtDevoluciones.Name = "txtDevoluciones"
-        Me.txtDevoluciones.Size = New System.Drawing.Size(76, 20)
+        Me.txtDevoluciones.Size = New System.Drawing.Size(76, 22)
         Me.txtDevoluciones.TabIndex = 32
         Me.txtDevoluciones.Text = "0.00"
         Me.txtDevoluciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtRetiros
         '
+        Me.txtRetiros.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRetiros.Location = New System.Drawing.Point(149, 437)
         Me.txtRetiros.Name = "txtRetiros"
-        Me.txtRetiros.Size = New System.Drawing.Size(76, 20)
+        Me.txtRetiros.Size = New System.Drawing.Size(76, 22)
         Me.txtRetiros.TabIndex = 31
         Me.txtRetiros.Text = "0.00"
         Me.txtRetiros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtOtrosIngresos
         '
+        Me.txtOtrosIngresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOtrosIngresos.Location = New System.Drawing.Point(149, 412)
         Me.txtOtrosIngresos.Name = "txtOtrosIngresos"
-        Me.txtOtrosIngresos.Size = New System.Drawing.Size(76, 20)
+        Me.txtOtrosIngresos.Size = New System.Drawing.Size(76, 22)
         Me.txtOtrosIngresos.TabIndex = 30
         Me.txtOtrosIngresos.Text = "0.00"
         Me.txtOtrosIngresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtIngresos
         '
+        Me.txtIngresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIngresos.Location = New System.Drawing.Point(149, 385)
         Me.txtIngresos.Name = "txtIngresos"
-        Me.txtIngresos.Size = New System.Drawing.Size(76, 20)
+        Me.txtIngresos.Size = New System.Drawing.Size(76, 22)
         Me.txtIngresos.TabIndex = 29
         Me.txtIngresos.Text = "0.00"
         Me.txtIngresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -542,9 +560,10 @@ Partial Class frmCorte4
         '
         'txtTotal
         '
+        Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(189, 301)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(106, 20)
+        Me.txtTotal.Size = New System.Drawing.Size(106, 22)
         Me.txtTotal.TabIndex = 21
         Me.txtTotal.Text = "0.00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -562,9 +581,10 @@ Partial Class frmCorte4
         '
         'txtCredito
         '
+        Me.txtCredito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCredito.Location = New System.Drawing.Point(189, 265)
         Me.txtCredito.Name = "txtCredito"
-        Me.txtCredito.Size = New System.Drawing.Size(106, 20)
+        Me.txtCredito.Size = New System.Drawing.Size(106, 22)
         Me.txtCredito.TabIndex = 19
         Me.txtCredito.Text = "0.00"
         Me.txtCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -601,18 +621,20 @@ Partial Class frmCorte4
         '
         'txtDevolucionesC
         '
+        Me.txtDevolucionesC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevolucionesC.Location = New System.Drawing.Point(189, 229)
         Me.txtDevolucionesC.Name = "txtDevolucionesC"
-        Me.txtDevolucionesC.Size = New System.Drawing.Size(106, 20)
+        Me.txtDevolucionesC.Size = New System.Drawing.Size(106, 22)
         Me.txtDevolucionesC.TabIndex = 15
         Me.txtDevolucionesC.Text = "0.00"
         Me.txtDevolucionesC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtVentasC
         '
+        Me.txtVentasC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentasC.Location = New System.Drawing.Point(189, 203)
         Me.txtVentasC.Name = "txtVentasC"
-        Me.txtVentasC.Size = New System.Drawing.Size(106, 20)
+        Me.txtVentasC.Size = New System.Drawing.Size(106, 22)
         Me.txtVentasC.TabIndex = 14
         Me.txtVentasC.Text = "0.00"
         Me.txtVentasC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -641,9 +663,10 @@ Partial Class frmCorte4
         '
         'txtTotalContado
         '
+        Me.txtTotalContado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotalContado.Location = New System.Drawing.Point(189, 149)
         Me.txtTotalContado.Name = "txtTotalContado"
-        Me.txtTotalContado.Size = New System.Drawing.Size(106, 20)
+        Me.txtTotalContado.Size = New System.Drawing.Size(106, 22)
         Me.txtTotalContado.TabIndex = 11
         Me.txtTotalContado.Text = "0.00"
         Me.txtTotalContado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -680,9 +703,10 @@ Partial Class frmCorte4
         '
         'txtTiempo
         '
+        Me.txtTiempo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTiempo.Location = New System.Drawing.Point(189, 113)
         Me.txtTiempo.Name = "txtTiempo"
-        Me.txtTiempo.Size = New System.Drawing.Size(106, 20)
+        Me.txtTiempo.Size = New System.Drawing.Size(106, 22)
         Me.txtTiempo.TabIndex = 7
         Me.txtTiempo.Text = "0.00"
         Me.txtTiempo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -699,9 +723,10 @@ Partial Class frmCorte4
         '
         'txtServicios
         '
+        Me.txtServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtServicios.Location = New System.Drawing.Point(189, 86)
         Me.txtServicios.Name = "txtServicios"
-        Me.txtServicios.Size = New System.Drawing.Size(106, 20)
+        Me.txtServicios.Size = New System.Drawing.Size(106, 22)
         Me.txtServicios.TabIndex = 5
         Me.txtServicios.Text = "0.00"
         Me.txtServicios.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -718,18 +743,20 @@ Partial Class frmCorte4
         '
         'txtDevolucionesV
         '
+        Me.txtDevolucionesV.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevolucionesV.Location = New System.Drawing.Point(189, 59)
         Me.txtDevolucionesV.Name = "txtDevolucionesV"
-        Me.txtDevolucionesV.Size = New System.Drawing.Size(106, 20)
+        Me.txtDevolucionesV.Size = New System.Drawing.Size(106, 22)
         Me.txtDevolucionesV.TabIndex = 3
         Me.txtDevolucionesV.Text = "0.00"
         Me.txtDevolucionesV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtVentas
         '
+        Me.txtVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentas.Location = New System.Drawing.Point(189, 32)
         Me.txtVentas.Name = "txtVentas"
-        Me.txtVentas.Size = New System.Drawing.Size(106, 20)
+        Me.txtVentas.Size = New System.Drawing.Size(106, 22)
         Me.txtVentas.TabIndex = 2
         Me.txtVentas.Text = "0.00"
         Me.txtVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
