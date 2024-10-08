@@ -24,8 +24,8 @@ Partial Class frmCorte4
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCorte4))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.txtTotalDifeTar = New System.Windows.Forms.TextBox()
+        Me.txtTotalCajeroTar = New System.Windows.Forms.TextBox()
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.txtSumDifeTarj = New System.Windows.Forms.TextBox()
@@ -99,8 +99,8 @@ Partial Class frmCorte4
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.TextBox22)
-        Me.Panel1.Controls.Add(Me.TextBox23)
+        Me.Panel1.Controls.Add(Me.txtTotalDifeTar)
+        Me.Panel1.Controls.Add(Me.txtTotalCajeroTar)
         Me.Panel1.Controls.Add(Me.TextBox24)
         Me.Panel1.Controls.Add(Me.Label33)
         Me.Panel1.Controls.Add(Me.txtSumDifeTarj)
@@ -164,23 +164,23 @@ Partial Class frmCorte4
         Me.Panel1.Size = New System.Drawing.Size(363, 716)
         Me.Panel1.TabIndex = 0
         '
-        'TextBox22
+        'txtTotalDifeTar
         '
-        Me.TextBox22.Location = New System.Drawing.Point(303, 691)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(58, 20)
-        Me.TextBox22.TabIndex = 60
-        Me.TextBox22.Text = "0.00"
-        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtTotalDifeTar.Location = New System.Drawing.Point(303, 691)
+        Me.txtTotalDifeTar.Name = "txtTotalDifeTar"
+        Me.txtTotalDifeTar.Size = New System.Drawing.Size(58, 20)
+        Me.txtTotalDifeTar.TabIndex = 60
+        Me.txtTotalDifeTar.Text = "0.00"
+        Me.txtTotalDifeTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox23
+        'txtTotalCajeroTar
         '
-        Me.TextBox23.Location = New System.Drawing.Point(231, 691)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(65, 20)
-        Me.TextBox23.TabIndex = 59
-        Me.TextBox23.Text = "0.00"
-        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtTotalCajeroTar.Location = New System.Drawing.Point(231, 691)
+        Me.txtTotalCajeroTar.Name = "txtTotalCajeroTar"
+        Me.txtTotalCajeroTar.Size = New System.Drawing.Size(65, 20)
+        Me.txtTotalCajeroTar.TabIndex = 59
+        Me.txtTotalCajeroTar.Text = "0.00"
+        Me.txtTotalCajeroTar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox24
         '
@@ -923,8 +923,8 @@ Partial Class frmCorte4
     Friend WithEvents txtSumaCajero As TextBox
     Friend WithEvents txtSumSistema As TextBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents TextBox22 As TextBox
-    Friend WithEvents TextBox23 As TextBox
+    Friend WithEvents txtTotalDifeTar As TextBox
+    Friend WithEvents txtTotalCajeroTar As TextBox
     Friend WithEvents TextBox24 As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents txtSumDifeTarj As TextBox
