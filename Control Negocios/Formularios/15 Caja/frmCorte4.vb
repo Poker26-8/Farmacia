@@ -39,6 +39,7 @@
             Dim devolucionescredito As Double = 0
 
             Dim INGRESOSEFECTIVO As Double = 0
+            Dim DEVOLUCIONESEFECTIVO As Double = 0
 
             'sacar las ventas que estan pagadas y no pagadas
             cnn1.Close() : cnn1.Open()
