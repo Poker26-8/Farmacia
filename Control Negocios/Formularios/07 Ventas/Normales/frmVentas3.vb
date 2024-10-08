@@ -6236,32 +6236,32 @@ kaka:
     End Sub
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
 
-        Dim limpiar As Integer = DatosRecarga2("LimpiarV")
+        'Dim limpiar As Integer = DatosRecarga2("LimpiarV")
 
-        If limpiar = 1 Then
+        'If limpiar = 1 Then
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Area FROM usuarios WHERE Alias='" & lblusuario.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = "ADMINISTRACIÓN" Then
-                    Else
-                        MsgBox("No cuentas con permisos", vbInformation + vbOKOnly, titulocentral)
-                        txtcontraseña.Focus.Equals(True)
-                        Exit Sub
-                    End If
-                End If
-            Else
-                MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
-                txtcontraseña.Focus.Equals(True)
-                Exit Sub
-            End If
-            rd1.Close()
-            cnn1.Close()
+        '    cnn1.Close() : cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "SELECT Area FROM usuarios WHERE Alias='" & lblusuario.Text & "'"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.HasRows Then
+        '        If rd1.Read Then
+        '            If rd1(0).ToString = "ADMINISTRACIÓN" Then
+        '            Else
+        '                MsgBox("No cuentas con permisos", vbInformation + vbOKOnly, titulocentral)
+        '                txtcontraseña.Focus.Equals(True)
+        '                Exit Sub
+        '            End If
+        '        End If
+        '    Else
+        '        MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
+        '        txtcontraseña.Focus.Equals(True)
+        '        Exit Sub
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
 
-        End If
+        'End If
 
         Timer1.Stop()
         Button14.PerformClick()

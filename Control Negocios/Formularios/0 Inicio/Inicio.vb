@@ -2099,8 +2099,12 @@ Public Class Inicio
             frmCorteCaja.Show()
             frmCorteCaja.BringToFront()
         Else
-            frmCorte2.Show()
+            frmCorte4.BringToFront()
+            frmCorte4.Show()
+
             frmCorte2.BringToFront()
+            frmCorte2.Show()
+
         End If
     End Sub
 

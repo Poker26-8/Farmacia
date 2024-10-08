@@ -84,10 +84,16 @@ Partial Class frmCorte4
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnCalculadora = New System.Windows.Forms.Button()
         Me.PCalculo80 = New System.Drawing.Printing.PrintDocument()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboCajero = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -153,9 +159,9 @@ Partial Class frmCorte4
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(3, 62)
+        Me.Panel1.Location = New System.Drawing.Point(3, 75)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(363, 723)
+        Me.Panel1.Size = New System.Drawing.Size(363, 716)
         Me.Panel1.TabIndex = 0
         '
         'TextBox22
@@ -750,18 +756,18 @@ Partial Class frmCorte4
         Me.Label1.Text = "VENTAS DE CONTADO:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Button1
+        'btnCalculadora
         '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(283, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 57)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Calcular"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnCalculadora.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCalculadora.Image = CType(resources.GetObject("btnCalculadora.Image"), System.Drawing.Image)
+        Me.btnCalculadora.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCalculadora.Location = New System.Drawing.Point(283, 2)
+        Me.btnCalculadora.Name = "btnCalculadora"
+        Me.btnCalculadora.Size = New System.Drawing.Size(83, 70)
+        Me.btnCalculadora.TabIndex = 1
+        Me.btnCalculadora.Text = "Calcular"
+        Me.btnCalculadora.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCalculadora.UseVisualStyleBackColor = True
         '
         'PCalculo80
         '
@@ -776,13 +782,67 @@ Partial Class frmCorte4
         Me.Label32.TabIndex = 61
         Me.Label32.Text = "Cajero:"
         '
-        'ComboBox1
+        'cboCajero
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(75, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(124, 21)
-        Me.ComboBox1.TabIndex = 62
+        Me.cboCajero.FormattingEnabled = True
+        Me.cboCajero.Location = New System.Drawing.Point(75, 2)
+        Me.cboCajero.Name = "cboCajero"
+        Me.cboCajero.Size = New System.Drawing.Size(202, 21)
+        Me.cboCajero.TabIndex = 62
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(75, 29)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(110, 20)
+        Me.DateTimePicker1.TabIndex = 63
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(75, 52)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(110, 20)
+        Me.DateTimePicker2.TabIndex = 64
+        '
+        'DateTimePicker3
+        '
+        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePicker3.Location = New System.Drawing.Point(191, 29)
+        Me.DateTimePicker3.Name = "DateTimePicker3"
+        Me.DateTimePicker3.ShowUpDown = True
+        Me.DateTimePicker3.Size = New System.Drawing.Size(86, 20)
+        Me.DateTimePicker3.TabIndex = 65
+        '
+        'DateTimePicker4
+        '
+        Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePicker4.Location = New System.Drawing.Point(191, 52)
+        Me.DateTimePicker4.Name = "DateTimePicker4"
+        Me.DateTimePicker4.ShowUpDown = True
+        Me.DateTimePicker4.Size = New System.Drawing.Size(86, 20)
+        Me.DateTimePicker4.TabIndex = 66
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(4, 31)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(70, 15)
+        Me.Label35.TabIndex = 67
+        Me.Label35.Text = "F.INICIAL:"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(4, 52)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(61, 15)
+        Me.Label36.TabIndex = 68
+        Me.Label36.Text = "F.FINAL:"
         '
         'frmCorte4
         '
@@ -790,9 +850,15 @@ Partial Class frmCorte4
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(370, 797)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Label36)
+        Me.Controls.Add(Me.Label35)
+        Me.Controls.Add(Me.DateTimePicker4)
+        Me.Controls.Add(Me.DateTimePicker3)
+        Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.cboCajero)
         Me.Controls.Add(Me.Label32)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnCalculadora)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCorte4"
@@ -806,7 +872,7 @@ Partial Class frmCorte4
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnCalculadora As Button
     Friend WithEvents PCalculo80 As Printing.PrintDocument
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox3 As TextBox
@@ -869,5 +935,11 @@ Partial Class frmCorte4
     Friend WithEvents TextBox27 As TextBox
     Friend WithEvents Label34 As Label
     Friend WithEvents Label32 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboCajero As ComboBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents DateTimePicker4 As DateTimePicker
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Label36 As Label
 End Class
