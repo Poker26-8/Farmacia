@@ -22,12 +22,12 @@ Partial Class frmRecibeTraspaso
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecibeTraspaso))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -133,8 +133,8 @@ Partial Class frmRecibeTraspaso
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -165,8 +165,8 @@ Partial Class frmRecibeTraspaso
         '
         'Column3
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -174,8 +174,8 @@ Partial Class frmRecibeTraspaso
         '
         'Column4
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -183,9 +183,9 @@ Partial Class frmRecibeTraspaso
         '
         'Column5
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -193,9 +193,9 @@ Partial Class frmRecibeTraspaso
         '
         'Column6
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -203,8 +203,8 @@ Partial Class frmRecibeTraspaso
         '
         'Column7
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column7.HeaderText = "Fecha Traspaso"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -336,6 +336,7 @@ Partial Class frmRecibeTraspaso
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmRecibeTraspaso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Entrada de Mercancia"
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
