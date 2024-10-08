@@ -251,7 +251,30 @@ Public Class frmPagoServicios
     End Function
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
-        reservarServicioAsync()
+        If cboServicio.Text = "" Then
+            MsgBox("Selecciona el tipo de servicio para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
+        If txtReferencia.Text = "" Then
+            MsgBox("Ingresa el numero de referencia para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
+        If txtMonto.Text = "" Or txtMonto.Text = "0" Or txtMonto.Text = "0.0" Then
+            MsgBox("Ingresa un monto valido para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
+        Dim montoxd As Double = 0
+        Dim saldoxd As Double = 0
+
+        saldoxd = lblSaldo.Text
+        montoxd = txtMonto.Text
+        If montoxd > saldoxd Then
+            MsgBox("No cuentas con saldo suficiente para el pago del servvicio" & vbCrLf & "Contacte a Delsscom", vbCritical + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        Else
+            reservarServicioAsync()
+        End If
+
     End Sub
     Public Sub limpiaTodo()
         cboServicio.Text = ""
