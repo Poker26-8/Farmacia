@@ -86,6 +86,8 @@ Partial Class frmCorte4
         Me.TextBox26 = New System.Windows.Forms.TextBox()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -151,7 +153,7 @@ Partial Class frmCorte4
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(5, 12)
+        Me.Panel1.Location = New System.Drawing.Point(3, 62)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(363, 723)
         Me.Panel1.TabIndex = 0
@@ -430,9 +432,9 @@ Partial Class frmCorte4
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(282, 741)
+        Me.Button1.Location = New System.Drawing.Point(283, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 60)
+        Me.Button1.Size = New System.Drawing.Size(83, 57)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Calcular"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -457,7 +459,7 @@ Partial Class frmCorte4
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(17, 385)
+        Me.Label20.Location = New System.Drawing.Point(7, 385)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(78, 18)
         Me.Label20.TabIndex = 28
@@ -503,7 +505,7 @@ Partial Class frmCorte4
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(17, 412)
+        Me.Label21.Location = New System.Drawing.Point(7, 412)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(126, 18)
         Me.Label21.TabIndex = 33
@@ -513,7 +515,7 @@ Partial Class frmCorte4
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(17, 439)
+        Me.Label22.Location = New System.Drawing.Point(8, 439)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(68, 18)
         Me.Label22.TabIndex = 34
@@ -523,7 +525,7 @@ Partial Class frmCorte4
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(17, 466)
+        Me.Label23.Location = New System.Drawing.Point(8, 464)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(115, 18)
         Me.Label23.TabIndex = 35
@@ -764,12 +766,32 @@ Partial Class frmCorte4
         Me.Label34.TabIndex = 53
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(6, 2)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(63, 18)
+        Me.Label32.TabIndex = 61
+        Me.Label32.Text = "Cajero:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(75, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(124, 21)
+        Me.ComboBox1.TabIndex = 62
+        '
         'frmCorte4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(370, 797)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Label32)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -779,6 +801,7 @@ Partial Class frmCorte4
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -845,4 +868,6 @@ Partial Class frmCorte4
     Friend WithEvents TextBox26 As TextBox
     Friend WithEvents TextBox27 As TextBox
     Friend WithEvents Label34 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
