@@ -132,10 +132,20 @@ Public Class frmRecargas
         If MsgBox("¿Deseas realizar la recarga telefonica con los datos ingresados?", vbQuestion + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
             Exit Sub
         Else
-            varcompañia = cboCompañia.Text
-            varmonto = lblMonto.Text
-            vartelefono = txtTel1.Text
-            reservarRecargaAsync()
+            Dim saldoxd As Double = 0
+            Dim montoxd As Double = 0
+            saldoxd = lblSaldo.Text
+            montoxd = lblMonto.Text
+
+            If montoxd > saldoxd Then
+                MsgBox("No cuentas con saldo suficiente para realizar la recarga" & vbCrLf & "Contacta a Delsscom", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                Exit Sub
+            Else
+                varcompañia = cboCompañia.Text
+                varmonto = lblMonto.Text
+                vartelefono = txtTel1.Text
+                reservarRecargaAsync()
+            End If
         End If
     End Sub
 
