@@ -1353,7 +1353,7 @@ Partial Class Inicio
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Inicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Delsscom Solutions® Control Negocios Pro"
+        Me.Text = "Delsscom Solutions® Control Farmacias"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)

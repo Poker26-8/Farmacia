@@ -24,6 +24,39 @@ Partial Class frmCorte4
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCorte4))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.TextBox24 = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.TextBox26 = New System.Windows.Forms.TextBox()
+        Me.TextBox27 = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -53,39 +86,6 @@ Partial Class frmCorte4
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PCalculo80 = New System.Drawing.Printing.PrintDocument()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.TextBox24 = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
-        Me.TextBox26 = New System.Windows.Forms.TextBox()
-        Me.TextBox27 = New System.Windows.Forms.TextBox()
-        Me.Label34 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
@@ -158,6 +158,329 @@ Partial Class frmCorte4
         Me.Panel1.Size = New System.Drawing.Size(363, 723)
         Me.Panel1.TabIndex = 0
         '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(303, 691)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(58, 20)
+        Me.TextBox22.TabIndex = 60
+        Me.TextBox22.Text = "0.00"
+        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox23
+        '
+        Me.TextBox23.Location = New System.Drawing.Point(231, 691)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(65, 20)
+        Me.TextBox23.TabIndex = 59
+        Me.TextBox23.Text = "0.00"
+        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox24
+        '
+        Me.TextBox24.Location = New System.Drawing.Point(149, 691)
+        Me.TextBox24.Name = "TextBox24"
+        Me.TextBox24.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox24.TabIndex = 58
+        Me.TextBox24.Text = "0.00"
+        Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label33
+        '
+        Me.Label33.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.White
+        Me.Label33.Location = New System.Drawing.Point(1, 678)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(360, 10)
+        Me.Label33.TabIndex = 57
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox25
+        '
+        Me.TextBox25.Location = New System.Drawing.Point(302, 655)
+        Me.TextBox25.Name = "TextBox25"
+        Me.TextBox25.Size = New System.Drawing.Size(58, 20)
+        Me.TextBox25.TabIndex = 56
+        Me.TextBox25.Text = "0.00"
+        Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox26
+        '
+        Me.TextBox26.Location = New System.Drawing.Point(231, 655)
+        Me.TextBox26.Name = "TextBox26"
+        Me.TextBox26.Size = New System.Drawing.Size(65, 20)
+        Me.TextBox26.TabIndex = 55
+        Me.TextBox26.Text = "0.00"
+        Me.TextBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox27
+        '
+        Me.TextBox27.Location = New System.Drawing.Point(149, 655)
+        Me.TextBox27.Name = "TextBox27"
+        Me.TextBox27.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox27.TabIndex = 54
+        Me.TextBox27.Text = "0.00"
+        Me.TextBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label34
+        '
+        Me.Label34.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.White
+        Me.Label34.Location = New System.Drawing.Point(0, 642)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(360, 10)
+        Me.Label34.TabIndex = 53
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(7, 619)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(115, 18)
+        Me.Label31.TabIndex = 51
+        Me.Label31.Text = "Devoluciones:"
+        '
+        'TextBox21
+        '
+        Me.TextBox21.Location = New System.Drawing.Point(149, 617)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox21.TabIndex = 50
+        Me.TextBox21.Text = "0.00"
+        Me.TextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(7, 593)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(78, 18)
+        Me.Label30.TabIndex = 49
+        Me.Label30.Text = "Ingresos:"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(199, 570)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(128, 18)
+        Me.Label29.TabIndex = 48
+        Me.Label29.Text = "DOCUMENTOS"
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(149, 591)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox20.TabIndex = 47
+        Me.TextBox20.Text = "0.00"
+        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.White
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.Black
+        Me.Label28.Location = New System.Drawing.Point(5, 570)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(150, 23)
+        Me.Label28.TabIndex = 46
+        Me.Label28.Text = "TARJETA DE DEBITO"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(3, 560)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(360, 10)
+        Me.Label27.TabIndex = 45
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label26
+        '
+        Me.Label26.BackColor = System.Drawing.Color.White
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.Black
+        Me.Label26.Location = New System.Drawing.Point(3, 537)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(131, 23)
+        Me.Label26.TabIndex = 44
+        Me.Label26.Text = "TOTAL EFECTIVO:"
+        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(303, 537)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(58, 20)
+        Me.TextBox19.TabIndex = 43
+        Me.TextBox19.Text = "0.00"
+        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(231, 537)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.Size = New System.Drawing.Size(65, 20)
+        Me.TextBox18.TabIndex = 42
+        Me.TextBox18.Text = "0.00"
+        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Location = New System.Drawing.Point(149, 537)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox17.TabIndex = 41
+        Me.TextBox17.Text = "0.00"
+        Me.TextBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label25
+        '
+        Me.Label25.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.White
+        Me.Label25.Location = New System.Drawing.Point(1, 524)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(360, 10)
+        Me.Label25.TabIndex = 40
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(302, 501)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(58, 20)
+        Me.TextBox16.TabIndex = 39
+        Me.TextBox16.Text = "0.00"
+        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(231, 501)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(65, 20)
+        Me.TextBox15.TabIndex = 38
+        Me.TextBox15.Text = "0.00"
+        Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(149, 501)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox14.TabIndex = 37
+        Me.TextBox14.Text = "0.00"
+        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label24
+        '
+        Me.Label24.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.White
+        Me.Label24.Location = New System.Drawing.Point(0, 488)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(360, 10)
+        Me.Label24.TabIndex = 36
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(8, 464)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(115, 18)
+        Me.Label23.TabIndex = 35
+        Me.Label23.Text = "Devoluciones:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(8, 439)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(68, 18)
+        Me.Label22.TabIndex = 34
+        Me.Label22.Text = "Retiros:"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(7, 412)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(126, 18)
+        Me.Label21.TabIndex = 33
+        Me.Label21.Text = "Otros Ingresos:"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(149, 464)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox13.TabIndex = 32
+        Me.TextBox13.Text = "0.00"
+        Me.TextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(149, 437)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox12.TabIndex = 31
+        Me.TextBox12.Text = "0.00"
+        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(149, 412)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox11.TabIndex = 30
+        Me.TextBox11.Text = "0.00"
+        Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(149, 385)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox10.TabIndex = 29
+        Me.TextBox10.Text = "0.00"
+        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(7, 385)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(78, 18)
+        Me.Label20.TabIndex = 28
+        Me.Label20.Text = "Ingresos:"
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.White
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Black
+        Me.Label19.Location = New System.Drawing.Point(3, 362)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(131, 23)
+        Me.Label19.TabIndex = 27
+        Me.Label19.Text = "EFECTIVO/PESOS"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -204,9 +527,9 @@ Partial Class frmCorte4
         Me.Label14.BackColor = System.Drawing.Color.White
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Black
-        Me.Label14.Location = New System.Drawing.Point(1, 301)
+        Me.Label14.Location = New System.Drawing.Point(0, 301)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(182, 23)
+        Me.Label14.Size = New System.Drawing.Size(182, 20)
         Me.Label14.TabIndex = 22
         Me.Label14.Text = "TOTAL GENERAL:"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -442,329 +765,6 @@ Partial Class frmCorte4
         '
         'PCalculo80
         '
-        '
-        'Label19
-        '
-        Me.Label19.BackColor = System.Drawing.Color.White
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Black
-        Me.Label19.Location = New System.Drawing.Point(3, 362)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(131, 23)
-        Me.Label19.TabIndex = 27
-        Me.Label19.Text = "EFECTIVO/PESOS"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(7, 385)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(78, 18)
-        Me.Label20.TabIndex = 28
-        Me.Label20.Text = "Ingresos:"
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(149, 385)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox10.TabIndex = 29
-        Me.TextBox10.Text = "0.00"
-        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(149, 412)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox11.TabIndex = 30
-        Me.TextBox11.Text = "0.00"
-        Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Location = New System.Drawing.Point(149, 437)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox12.TabIndex = 31
-        Me.TextBox12.Text = "0.00"
-        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Location = New System.Drawing.Point(149, 464)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox13.TabIndex = 32
-        Me.TextBox13.Text = "0.00"
-        Me.TextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(7, 412)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(126, 18)
-        Me.Label21.TabIndex = 33
-        Me.Label21.Text = "Otros Ingresos:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(8, 439)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(68, 18)
-        Me.Label22.TabIndex = 34
-        Me.Label22.Text = "Retiros:"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(8, 464)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(115, 18)
-        Me.Label23.TabIndex = 35
-        Me.Label23.Text = "Devoluciones:"
-        '
-        'Label24
-        '
-        Me.Label24.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(0, 488)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(360, 10)
-        Me.Label24.TabIndex = 36
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox14
-        '
-        Me.TextBox14.Location = New System.Drawing.Point(149, 501)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox14.TabIndex = 37
-        Me.TextBox14.Text = "0.00"
-        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox15
-        '
-        Me.TextBox15.Location = New System.Drawing.Point(231, 501)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(65, 20)
-        Me.TextBox15.TabIndex = 38
-        Me.TextBox15.Text = "0.00"
-        Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Location = New System.Drawing.Point(302, 501)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(58, 20)
-        Me.TextBox16.TabIndex = 39
-        Me.TextBox16.Text = "0.00"
-        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label25
-        '
-        Me.Label25.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(1, 524)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(360, 10)
-        Me.Label25.TabIndex = 40
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox17
-        '
-        Me.TextBox17.Location = New System.Drawing.Point(149, 537)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox17.TabIndex = 41
-        Me.TextBox17.Text = "0.00"
-        Me.TextBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox18
-        '
-        Me.TextBox18.Location = New System.Drawing.Point(231, 537)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.Size = New System.Drawing.Size(65, 20)
-        Me.TextBox18.TabIndex = 42
-        Me.TextBox18.Text = "0.00"
-        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox19
-        '
-        Me.TextBox19.Location = New System.Drawing.Point(303, 537)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.Size = New System.Drawing.Size(58, 20)
-        Me.TextBox19.TabIndex = 43
-        Me.TextBox19.Text = "0.00"
-        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label26
-        '
-        Me.Label26.BackColor = System.Drawing.Color.White
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.Black
-        Me.Label26.Location = New System.Drawing.Point(3, 537)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(131, 23)
-        Me.Label26.TabIndex = 44
-        Me.Label26.Text = "TOTAL EFECTIVO:"
-        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label27
-        '
-        Me.Label27.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.White
-        Me.Label27.Location = New System.Drawing.Point(3, 560)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(360, 10)
-        Me.Label27.TabIndex = 45
-        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox20
-        '
-        Me.TextBox20.Location = New System.Drawing.Point(149, 591)
-        Me.TextBox20.Name = "TextBox20"
-        Me.TextBox20.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox20.TabIndex = 47
-        Me.TextBox20.Text = "0.00"
-        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label28
-        '
-        Me.Label28.BackColor = System.Drawing.Color.White
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.ForeColor = System.Drawing.Color.Black
-        Me.Label28.Location = New System.Drawing.Point(5, 570)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(150, 23)
-        Me.Label28.TabIndex = 46
-        Me.Label28.Text = "TARJETA DE DEBITO"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(199, 570)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(128, 18)
-        Me.Label29.TabIndex = 48
-        Me.Label29.Text = "DOCUMENTOS"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(7, 593)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(78, 18)
-        Me.Label30.TabIndex = 49
-        Me.Label30.Text = "Ingresos:"
-        '
-        'TextBox21
-        '
-        Me.TextBox21.Location = New System.Drawing.Point(149, 617)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox21.TabIndex = 50
-        Me.TextBox21.Text = "0.00"
-        Me.TextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(7, 619)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(115, 18)
-        Me.Label31.TabIndex = 51
-        Me.Label31.Text = "Devoluciones:"
-        '
-        'TextBox22
-        '
-        Me.TextBox22.Location = New System.Drawing.Point(303, 691)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(58, 20)
-        Me.TextBox22.TabIndex = 60
-        Me.TextBox22.Text = "0.00"
-        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox23
-        '
-        Me.TextBox23.Location = New System.Drawing.Point(231, 691)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(65, 20)
-        Me.TextBox23.TabIndex = 59
-        Me.TextBox23.Text = "0.00"
-        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox24
-        '
-        Me.TextBox24.Location = New System.Drawing.Point(149, 691)
-        Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox24.TabIndex = 58
-        Me.TextBox24.Text = "0.00"
-        Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label33
-        '
-        Me.Label33.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.White
-        Me.Label33.Location = New System.Drawing.Point(1, 678)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(360, 10)
-        Me.Label33.TabIndex = 57
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox25
-        '
-        Me.TextBox25.Location = New System.Drawing.Point(302, 655)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(58, 20)
-        Me.TextBox25.TabIndex = 56
-        Me.TextBox25.Text = "0.00"
-        Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox26
-        '
-        Me.TextBox26.Location = New System.Drawing.Point(231, 655)
-        Me.TextBox26.Name = "TextBox26"
-        Me.TextBox26.Size = New System.Drawing.Size(65, 20)
-        Me.TextBox26.TabIndex = 55
-        Me.TextBox26.Text = "0.00"
-        Me.TextBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox27
-        '
-        Me.TextBox27.Location = New System.Drawing.Point(149, 655)
-        Me.TextBox27.Name = "TextBox27"
-        Me.TextBox27.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox27.TabIndex = 54
-        Me.TextBox27.Text = "0.00"
-        Me.TextBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label34
-        '
-        Me.Label34.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.ForeColor = System.Drawing.Color.White
-        Me.Label34.Location = New System.Drawing.Point(0, 642)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(360, 10)
-        Me.Label34.TabIndex = 53
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label32
         '

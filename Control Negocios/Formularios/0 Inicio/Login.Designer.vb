@@ -490,7 +490,7 @@ Partial Class Login
         Me.Name = "Login"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Control Negocios Pro"
+        Me.Text = "Delsscom Farmacias"
         Me.TopMost = True
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
