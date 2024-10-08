@@ -724,9 +724,9 @@ Public Class frmVentas2
                         GoTo kak
                     End If
                 Next
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, txtbarr.Text)
             Else
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, soybarras)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, txtbarr.Text)
             End If
 
             grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
@@ -3845,6 +3845,8 @@ kaka:
                             cboLote.Text = ""
                             cboLote.Tag = 0
                             txtubicacion.Text = ""
+                            txtbarr.Text = ""
+                            My.Application.DoEvents()
                             cnn1.Close()
 
                             If CDbl(txtdescuento1.Text) <= 0 Then
@@ -4190,7 +4192,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti,CodBarra from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -4223,6 +4225,7 @@ kaka:
                             Multiplo = rd1("Multiplo").ToString()
                             Minimo = rd1("Min").ToString()
                             txtubicacion.Text = rd1("Ubicacion").ToString()
+                            txtbarr.Text = rd1("CodBarra").ToString
 
                             cnn2.Close() : cnn2.Open()
 
@@ -5310,6 +5313,8 @@ kaka:
             Call txtdescuento1_TextChanged(txtdescuento1, New EventArgs())
 
             cbodesc.Focus().Equals(True)
+            txtbarr.Text = ""
+            My.Application.DoEvents()
         End If
     End Sub
 

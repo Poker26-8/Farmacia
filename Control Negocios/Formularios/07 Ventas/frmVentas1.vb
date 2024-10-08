@@ -728,11 +728,11 @@ Public Class frmVentas1
                         GoTo kak
                     End If
                 Next
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, txtbarr.Text)
             Else
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, soybarras)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, txtbarr.Text)
             End If
-
+            My.Application.DoEvents()
             grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
 
 kak:
@@ -746,6 +746,7 @@ kak:
             MessageBox.Show(ex.ToString)
             cnn3.Close()
         End Try
+
         donde_va = "Descuento Porcentaje"
     End Sub
 
@@ -3851,7 +3852,9 @@ kaka:
                             cboLote.Text = ""
                             cboLote.Tag = 0
                             txtubicacion.Text = ""
+                            My.Application.DoEvents()
                             cnn1.Close()
+                            txtbarr.Text = ""
 
                             If CDbl(txtdescuento1.Text) <= 0 Then
                                 txtPagar.Text = CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text)
@@ -4196,7 +4199,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
+                        "select Status_Promocion,Grupo,Departamento,Nombre,PrecioVentaIVA,UVenta,Existencia,Codigo,Nombre,MCD,Multiplo,Min,Ubicacion,Anti,CodBarra from Productos where Codigo='" & cbocodigo.Text & "' or CodBarra='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -4229,6 +4232,7 @@ kaka:
                             Multiplo = rd1("Multiplo").ToString()
                             Minimo = rd1("Min").ToString()
                             txtubicacion.Text = rd1("Ubicacion").ToString()
+                            txtbarr.Text = rd1("CodBarra").ToString
 
                             cnn2.Close() : cnn2.Open()
 
@@ -5663,7 +5667,7 @@ kaka:
             txtprecio.Tag = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
             txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
             txtexistencia.Text = grdcaptura.Rows(index).Cells(6).Value.ToString
-            'txtbarr.Text = grdcaptura.Rows(index).Cells(13).Value.ToString
+            txtbarr.Text = grdcaptura.Rows(index).Cells(13).Value.ToString
 
             If grdcaptura.Rows.Count = 1 Then
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
