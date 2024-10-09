@@ -30,6 +30,19 @@
 
     Private Sub btnCalculadora_Click(sender As Object, e As EventArgs) Handles btnCalculadora.Click
         Try
+
+            Dim corteciego As Integer = DatosRecarga("CorteCiego")
+
+            If corteciego = 1 Then
+
+                MsgBox("Para continuar realice el cálculo de su efectivo en caja.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
+                    gbxCalculo.Visible = True
+                    txtCant500.Focus()
+                    rd1.Close()
+                    cnn1.Close()
+                    Exit Sub
+
+                End If
             Dim foliov As String = ""
             Dim status As String = ""
 
@@ -192,4 +205,30 @@
         Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
         txtSumSistema.Text = FormatNumber(total, 2)
     End Sub
+
+    Private Function TipoCorte() As Integer
+        Dim tipo As Integer = 0
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select NotasCred from Formatos where Facturas='CorteCiego'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    If rd3(0).ToString = "0" Then
+                        tipo = 0
+                    Else
+                        tipo = 1
+                    End If
+                End If
+            End If
+            rd3.Close() : cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+        Return tipo
+    End Function
 End Class

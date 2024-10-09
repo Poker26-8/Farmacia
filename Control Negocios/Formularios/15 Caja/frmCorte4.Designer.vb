@@ -96,11 +96,59 @@ Partial Class frmCorte4
         Me.dtpHFinal = New System.Windows.Forms.DateTimePicker()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
+        Me.gbxCalculo = New System.Windows.Forms.GroupBox()
+        Me.grpb = New System.Windows.Forms.GroupBox()
+        Me.btnOKCalculo = New System.Windows.Forms.Button()
+        Me.btnNOCalculo = New System.Windows.Forms.Button()
+        Me.txtTotalCalculo = New System.Windows.Forms.TextBox()
+        Me.Label100 = New System.Windows.Forms.Label()
+        Me.txtTotalCentavos = New System.Windows.Forms.TextBox()
+        Me.txtCantCentavos = New System.Windows.Forms.TextBox()
+        Me.Label101 = New System.Windows.Forms.Label()
+        Me.Label98 = New System.Windows.Forms.Label()
+        Me.txtTotal1 = New System.Windows.Forms.TextBox()
+        Me.txtCant1 = New System.Windows.Forms.TextBox()
+        Me.Label99 = New System.Windows.Forms.Label()
+        Me.Label96 = New System.Windows.Forms.Label()
+        Me.txtTotal2 = New System.Windows.Forms.TextBox()
+        Me.txtCant2 = New System.Windows.Forms.TextBox()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.txtTotal5 = New System.Windows.Forms.TextBox()
+        Me.txtCant5 = New System.Windows.Forms.TextBox()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.txtTotal10 = New System.Windows.Forms.TextBox()
+        Me.txtCant10 = New System.Windows.Forms.TextBox()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.Label90 = New System.Windows.Forms.Label()
+        Me.txtTotal20 = New System.Windows.Forms.TextBox()
+        Me.txtCant20 = New System.Windows.Forms.TextBox()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.txtTotal50 = New System.Windows.Forms.TextBox()
+        Me.txtCant50 = New System.Windows.Forms.TextBox()
+        Me.Label89 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.txtTotal100 = New System.Windows.Forms.TextBox()
+        Me.txtCant100 = New System.Windows.Forms.TextBox()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.txtTotal200 = New System.Windows.Forms.TextBox()
+        Me.txtCant200 = New System.Windows.Forms.TextBox()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.txtTotal500 = New System.Windows.Forms.TextBox()
+        Me.txtCant500 = New System.Windows.Forms.TextBox()
+        Me.Label82 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        Me.gbxCalculo.SuspendLayout()
+        Me.grpb.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.gbxCalculo)
         Me.Panel1.Controls.Add(Me.Label37)
         Me.Panel1.Controls.Add(Me.txtAbonosCreditos)
         Me.Panel1.Controls.Add(Me.txtTotalDifeTar)
@@ -912,6 +960,504 @@ Partial Class frmCorte4
         Me.Label36.TabIndex = 68
         Me.Label36.Text = "F.FINAL:"
         '
+        'gbxCalculo
+        '
+        Me.gbxCalculo.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.gbxCalculo.Controls.Add(Me.grpb)
+        Me.gbxCalculo.Location = New System.Drawing.Point(65, 188)
+        Me.gbxCalculo.Name = "gbxCalculo"
+        Me.gbxCalculo.Size = New System.Drawing.Size(232, 380)
+        Me.gbxCalculo.TabIndex = 175
+        Me.gbxCalculo.TabStop = False
+        Me.gbxCalculo.Visible = False
+        '
+        'grpb
+        '
+        Me.grpb.BackColor = System.Drawing.Color.White
+        Me.grpb.Controls.Add(Me.btnOKCalculo)
+        Me.grpb.Controls.Add(Me.btnNOCalculo)
+        Me.grpb.Controls.Add(Me.txtTotalCalculo)
+        Me.grpb.Controls.Add(Me.Label100)
+        Me.grpb.Controls.Add(Me.txtTotalCentavos)
+        Me.grpb.Controls.Add(Me.txtCantCentavos)
+        Me.grpb.Controls.Add(Me.Label101)
+        Me.grpb.Controls.Add(Me.Label98)
+        Me.grpb.Controls.Add(Me.txtTotal1)
+        Me.grpb.Controls.Add(Me.txtCant1)
+        Me.grpb.Controls.Add(Me.Label99)
+        Me.grpb.Controls.Add(Me.Label96)
+        Me.grpb.Controls.Add(Me.txtTotal2)
+        Me.grpb.Controls.Add(Me.txtCant2)
+        Me.grpb.Controls.Add(Me.Label97)
+        Me.grpb.Controls.Add(Me.Label94)
+        Me.grpb.Controls.Add(Me.txtTotal5)
+        Me.grpb.Controls.Add(Me.txtCant5)
+        Me.grpb.Controls.Add(Me.Label95)
+        Me.grpb.Controls.Add(Me.Label92)
+        Me.grpb.Controls.Add(Me.txtTotal10)
+        Me.grpb.Controls.Add(Me.txtCant10)
+        Me.grpb.Controls.Add(Me.Label93)
+        Me.grpb.Controls.Add(Me.Label90)
+        Me.grpb.Controls.Add(Me.txtTotal20)
+        Me.grpb.Controls.Add(Me.txtCant20)
+        Me.grpb.Controls.Add(Me.Label91)
+        Me.grpb.Controls.Add(Me.Label88)
+        Me.grpb.Controls.Add(Me.txtTotal50)
+        Me.grpb.Controls.Add(Me.txtCant50)
+        Me.grpb.Controls.Add(Me.Label89)
+        Me.grpb.Controls.Add(Me.Label86)
+        Me.grpb.Controls.Add(Me.txtTotal100)
+        Me.grpb.Controls.Add(Me.txtCant100)
+        Me.grpb.Controls.Add(Me.Label87)
+        Me.grpb.Controls.Add(Me.Label84)
+        Me.grpb.Controls.Add(Me.txtTotal200)
+        Me.grpb.Controls.Add(Me.txtCant200)
+        Me.grpb.Controls.Add(Me.Label85)
+        Me.grpb.Controls.Add(Me.Label83)
+        Me.grpb.Controls.Add(Me.txtTotal500)
+        Me.grpb.Controls.Add(Me.txtCant500)
+        Me.grpb.Controls.Add(Me.Label82)
+        Me.grpb.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.grpb.Location = New System.Drawing.Point(6, 10)
+        Me.grpb.Name = "grpb"
+        Me.grpb.Size = New System.Drawing.Size(220, 357)
+        Me.grpb.TabIndex = 160
+        Me.grpb.TabStop = False
+        Me.grpb.Text = "Cálculo de efetivo."
+        '
+        'btnOKCalculo
+        '
+        Me.btnOKCalculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOKCalculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnOKCalculo.Location = New System.Drawing.Point(55, 320)
+        Me.btnOKCalculo.Name = "btnOKCalculo"
+        Me.btnOKCalculo.Size = New System.Drawing.Size(41, 23)
+        Me.btnOKCalculo.TabIndex = 42
+        Me.btnOKCalculo.Text = "Aceptar"
+        Me.btnOKCalculo.UseVisualStyleBackColor = True
+        '
+        'btnNOCalculo
+        '
+        Me.btnNOCalculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNOCalculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnNOCalculo.Location = New System.Drawing.Point(11, 320)
+        Me.btnNOCalculo.Name = "btnNOCalculo"
+        Me.btnNOCalculo.Size = New System.Drawing.Size(41, 23)
+        Me.btnNOCalculo.TabIndex = 41
+        Me.btnNOCalculo.Text = "Salir"
+        Me.btnNOCalculo.UseVisualStyleBackColor = True
+        '
+        'txtTotalCalculo
+        '
+        Me.txtTotalCalculo.BackColor = System.Drawing.Color.White
+        Me.txtTotalCalculo.Location = New System.Drawing.Point(122, 320)
+        Me.txtTotalCalculo.Name = "txtTotalCalculo"
+        Me.txtTotalCalculo.ReadOnly = True
+        Me.txtTotalCalculo.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotalCalculo.TabIndex = 40
+        Me.txtTotalCalculo.Text = "0.00"
+        Me.txtTotalCalculo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label100
+        '
+        Me.Label100.AutoSize = True
+        Me.Label100.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label100.Location = New System.Drawing.Point(105, 281)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Size = New System.Drawing.Size(17, 18)
+        Me.Label100.TabIndex = 39
+        Me.Label100.Text = "="
+        '
+        'txtTotalCentavos
+        '
+        Me.txtTotalCentavos.BackColor = System.Drawing.Color.White
+        Me.txtTotalCentavos.Location = New System.Drawing.Point(122, 279)
+        Me.txtTotalCentavos.Name = "txtTotalCentavos"
+        Me.txtTotalCentavos.ReadOnly = True
+        Me.txtTotalCentavos.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotalCentavos.TabIndex = 38
+        Me.txtTotalCentavos.Text = "0.00"
+        Me.txtTotalCentavos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCantCentavos
+        '
+        Me.txtCantCentavos.Location = New System.Drawing.Point(11, 279)
+        Me.txtCantCentavos.Name = "txtCantCentavos"
+        Me.txtCantCentavos.Size = New System.Drawing.Size(52, 22)
+        Me.txtCantCentavos.TabIndex = 37
+        Me.txtCantCentavos.Text = "0"
+        Me.txtCantCentavos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label101
+        '
+        Me.Label101.AutoSize = True
+        Me.Label101.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label101.Location = New System.Drawing.Point(66, 281)
+        Me.Label101.Name = "Label101"
+        Me.Label101.Size = New System.Drawing.Size(43, 18)
+        Me.Label101.TabIndex = 36
+        Me.Label101.Text = "x 50¢"
+        '
+        'Label98
+        '
+        Me.Label98.AutoSize = True
+        Me.Label98.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label98.Location = New System.Drawing.Point(105, 253)
+        Me.Label98.Name = "Label98"
+        Me.Label98.Size = New System.Drawing.Size(17, 18)
+        Me.Label98.TabIndex = 35
+        Me.Label98.Text = "="
+        '
+        'txtTotal1
+        '
+        Me.txtTotal1.BackColor = System.Drawing.Color.White
+        Me.txtTotal1.Location = New System.Drawing.Point(122, 251)
+        Me.txtTotal1.Name = "txtTotal1"
+        Me.txtTotal1.ReadOnly = True
+        Me.txtTotal1.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal1.TabIndex = 34
+        Me.txtTotal1.Text = "0.00"
+        Me.txtTotal1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant1
+        '
+        Me.txtCant1.Location = New System.Drawing.Point(11, 251)
+        Me.txtCant1.Name = "txtCant1"
+        Me.txtCant1.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant1.TabIndex = 33
+        Me.txtCant1.Text = "0"
+        Me.txtCant1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label99
+        '
+        Me.Label99.AutoSize = True
+        Me.Label99.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label99.Location = New System.Drawing.Point(66, 253)
+        Me.Label99.Name = "Label99"
+        Me.Label99.Size = New System.Drawing.Size(39, 18)
+        Me.Label99.TabIndex = 32
+        Me.Label99.Text = "x    1"
+        '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label96.Location = New System.Drawing.Point(105, 225)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(17, 18)
+        Me.Label96.TabIndex = 31
+        Me.Label96.Text = "="
+        '
+        'txtTotal2
+        '
+        Me.txtTotal2.BackColor = System.Drawing.Color.White
+        Me.txtTotal2.Location = New System.Drawing.Point(122, 223)
+        Me.txtTotal2.Name = "txtTotal2"
+        Me.txtTotal2.ReadOnly = True
+        Me.txtTotal2.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal2.TabIndex = 30
+        Me.txtTotal2.Text = "0.00"
+        Me.txtTotal2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant2
+        '
+        Me.txtCant2.Location = New System.Drawing.Point(11, 223)
+        Me.txtCant2.Name = "txtCant2"
+        Me.txtCant2.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant2.TabIndex = 29
+        Me.txtCant2.Text = "0"
+        Me.txtCant2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label97
+        '
+        Me.Label97.AutoSize = True
+        Me.Label97.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label97.Location = New System.Drawing.Point(66, 225)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(39, 18)
+        Me.Label97.TabIndex = 28
+        Me.Label97.Text = "x    2"
+        '
+        'Label94
+        '
+        Me.Label94.AutoSize = True
+        Me.Label94.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label94.Location = New System.Drawing.Point(105, 197)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(17, 18)
+        Me.Label94.TabIndex = 27
+        Me.Label94.Text = "="
+        '
+        'txtTotal5
+        '
+        Me.txtTotal5.BackColor = System.Drawing.Color.White
+        Me.txtTotal5.Location = New System.Drawing.Point(122, 195)
+        Me.txtTotal5.Name = "txtTotal5"
+        Me.txtTotal5.ReadOnly = True
+        Me.txtTotal5.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal5.TabIndex = 26
+        Me.txtTotal5.Text = "0.00"
+        Me.txtTotal5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant5
+        '
+        Me.txtCant5.Location = New System.Drawing.Point(11, 195)
+        Me.txtCant5.Name = "txtCant5"
+        Me.txtCant5.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant5.TabIndex = 25
+        Me.txtCant5.Text = "0"
+        Me.txtCant5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label95.Location = New System.Drawing.Point(66, 197)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(39, 18)
+        Me.Label95.TabIndex = 24
+        Me.Label95.Text = "x    5"
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label92.Location = New System.Drawing.Point(105, 169)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(17, 18)
+        Me.Label92.TabIndex = 23
+        Me.Label92.Text = "="
+        '
+        'txtTotal10
+        '
+        Me.txtTotal10.BackColor = System.Drawing.Color.White
+        Me.txtTotal10.Location = New System.Drawing.Point(122, 167)
+        Me.txtTotal10.Name = "txtTotal10"
+        Me.txtTotal10.ReadOnly = True
+        Me.txtTotal10.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal10.TabIndex = 22
+        Me.txtTotal10.Text = "0.00"
+        Me.txtTotal10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant10
+        '
+        Me.txtCant10.Location = New System.Drawing.Point(11, 167)
+        Me.txtCant10.Name = "txtCant10"
+        Me.txtCant10.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant10.TabIndex = 21
+        Me.txtCant10.Text = "0"
+        Me.txtCant10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label93
+        '
+        Me.Label93.AutoSize = True
+        Me.Label93.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label93.Location = New System.Drawing.Point(66, 169)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(43, 18)
+        Me.Label93.TabIndex = 20
+        Me.Label93.Text = "x   10"
+        '
+        'Label90
+        '
+        Me.Label90.AutoSize = True
+        Me.Label90.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label90.Location = New System.Drawing.Point(105, 141)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(17, 18)
+        Me.Label90.TabIndex = 19
+        Me.Label90.Text = "="
+        '
+        'txtTotal20
+        '
+        Me.txtTotal20.BackColor = System.Drawing.Color.White
+        Me.txtTotal20.Location = New System.Drawing.Point(122, 139)
+        Me.txtTotal20.Name = "txtTotal20"
+        Me.txtTotal20.ReadOnly = True
+        Me.txtTotal20.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal20.TabIndex = 18
+        Me.txtTotal20.Text = "0.00"
+        Me.txtTotal20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant20
+        '
+        Me.txtCant20.Location = New System.Drawing.Point(11, 139)
+        Me.txtCant20.Name = "txtCant20"
+        Me.txtCant20.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant20.TabIndex = 17
+        Me.txtCant20.Text = "0"
+        Me.txtCant20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label91.Location = New System.Drawing.Point(66, 141)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(43, 18)
+        Me.Label91.TabIndex = 16
+        Me.Label91.Text = "x   20"
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label88.Location = New System.Drawing.Point(105, 113)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(17, 18)
+        Me.Label88.TabIndex = 15
+        Me.Label88.Text = "="
+        '
+        'txtTotal50
+        '
+        Me.txtTotal50.BackColor = System.Drawing.Color.White
+        Me.txtTotal50.Location = New System.Drawing.Point(122, 111)
+        Me.txtTotal50.Name = "txtTotal50"
+        Me.txtTotal50.ReadOnly = True
+        Me.txtTotal50.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal50.TabIndex = 14
+        Me.txtTotal50.Text = "0.00"
+        Me.txtTotal50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant50
+        '
+        Me.txtCant50.Location = New System.Drawing.Point(11, 111)
+        Me.txtCant50.Name = "txtCant50"
+        Me.txtCant50.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant50.TabIndex = 13
+        Me.txtCant50.Text = "0"
+        Me.txtCant50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label89
+        '
+        Me.Label89.AutoSize = True
+        Me.Label89.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label89.Location = New System.Drawing.Point(66, 113)
+        Me.Label89.Name = "Label89"
+        Me.Label89.Size = New System.Drawing.Size(43, 18)
+        Me.Label89.TabIndex = 12
+        Me.Label89.Text = "x   50"
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(105, 85)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(17, 18)
+        Me.Label86.TabIndex = 11
+        Me.Label86.Text = "="
+        '
+        'txtTotal100
+        '
+        Me.txtTotal100.BackColor = System.Drawing.Color.White
+        Me.txtTotal100.Location = New System.Drawing.Point(122, 83)
+        Me.txtTotal100.Name = "txtTotal100"
+        Me.txtTotal100.ReadOnly = True
+        Me.txtTotal100.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal100.TabIndex = 10
+        Me.txtTotal100.Text = "0.00"
+        Me.txtTotal100.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant100
+        '
+        Me.txtCant100.Location = New System.Drawing.Point(11, 83)
+        Me.txtCant100.Name = "txtCant100"
+        Me.txtCant100.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant100.TabIndex = 9
+        Me.txtCant100.Text = "0"
+        Me.txtCant100.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(66, 85)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(43, 18)
+        Me.Label87.TabIndex = 8
+        Me.Label87.Text = "x 100"
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(105, 57)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(17, 18)
+        Me.Label84.TabIndex = 7
+        Me.Label84.Text = "="
+        '
+        'txtTotal200
+        '
+        Me.txtTotal200.BackColor = System.Drawing.Color.White
+        Me.txtTotal200.Location = New System.Drawing.Point(122, 55)
+        Me.txtTotal200.Name = "txtTotal200"
+        Me.txtTotal200.ReadOnly = True
+        Me.txtTotal200.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal200.TabIndex = 6
+        Me.txtTotal200.Text = "0.00"
+        Me.txtTotal200.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant200
+        '
+        Me.txtCant200.Location = New System.Drawing.Point(11, 55)
+        Me.txtCant200.Name = "txtCant200"
+        Me.txtCant200.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant200.TabIndex = 5
+        Me.txtCant200.Text = "0"
+        Me.txtCant200.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(66, 57)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(43, 18)
+        Me.Label85.TabIndex = 4
+        Me.Label85.Text = "x 200"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(105, 29)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(17, 18)
+        Me.Label83.TabIndex = 3
+        Me.Label83.Text = "="
+        '
+        'txtTotal500
+        '
+        Me.txtTotal500.BackColor = System.Drawing.Color.White
+        Me.txtTotal500.Location = New System.Drawing.Point(122, 27)
+        Me.txtTotal500.Name = "txtTotal500"
+        Me.txtTotal500.ReadOnly = True
+        Me.txtTotal500.Size = New System.Drawing.Size(82, 22)
+        Me.txtTotal500.TabIndex = 2
+        Me.txtTotal500.Text = "0.00"
+        Me.txtTotal500.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCant500
+        '
+        Me.txtCant500.Location = New System.Drawing.Point(11, 27)
+        Me.txtCant500.Name = "txtCant500"
+        Me.txtCant500.Size = New System.Drawing.Size(52, 22)
+        Me.txtCant500.TabIndex = 1
+        Me.txtCant500.Text = "0"
+        Me.txtCant500.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label82.Location = New System.Drawing.Point(66, 29)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(43, 18)
+        Me.Label82.TabIndex = 0
+        Me.Label82.Text = "x 500"
+        '
         'frmCorte4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -934,6 +1480,9 @@ Partial Class frmCorte4
         Me.Text = "Corte"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.gbxCalculo.ResumeLayout(False)
+        Me.grpb.ResumeLayout(False)
+        Me.grpb.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1012,4 +1561,49 @@ Partial Class frmCorte4
     Friend WithEvents Label36 As Label
     Friend WithEvents Label37 As Label
     Friend WithEvents txtAbonosCreditos As TextBox
+    Friend WithEvents gbxCalculo As GroupBox
+    Friend WithEvents grpb As GroupBox
+    Friend WithEvents btnOKCalculo As Button
+    Friend WithEvents btnNOCalculo As Button
+    Friend WithEvents txtTotalCalculo As TextBox
+    Friend WithEvents Label100 As Label
+    Friend WithEvents txtTotalCentavos As TextBox
+    Friend WithEvents txtCantCentavos As TextBox
+    Friend WithEvents Label101 As Label
+    Friend WithEvents Label98 As Label
+    Friend WithEvents txtTotal1 As TextBox
+    Friend WithEvents txtCant1 As TextBox
+    Friend WithEvents Label99 As Label
+    Friend WithEvents Label96 As Label
+    Friend WithEvents txtTotal2 As TextBox
+    Friend WithEvents txtCant2 As TextBox
+    Friend WithEvents Label97 As Label
+    Friend WithEvents Label94 As Label
+    Friend WithEvents txtTotal5 As TextBox
+    Friend WithEvents txtCant5 As TextBox
+    Friend WithEvents Label95 As Label
+    Friend WithEvents Label92 As Label
+    Friend WithEvents txtTotal10 As TextBox
+    Friend WithEvents txtCant10 As TextBox
+    Friend WithEvents Label93 As Label
+    Friend WithEvents Label90 As Label
+    Friend WithEvents txtTotal20 As TextBox
+    Friend WithEvents txtCant20 As TextBox
+    Friend WithEvents Label91 As Label
+    Friend WithEvents Label88 As Label
+    Friend WithEvents txtTotal50 As TextBox
+    Friend WithEvents txtCant50 As TextBox
+    Friend WithEvents Label89 As Label
+    Friend WithEvents Label86 As Label
+    Friend WithEvents txtTotal100 As TextBox
+    Friend WithEvents txtCant100 As TextBox
+    Friend WithEvents Label87 As Label
+    Friend WithEvents Label84 As Label
+    Friend WithEvents txtTotal200 As TextBox
+    Friend WithEvents txtCant200 As TextBox
+    Friend WithEvents Label85 As Label
+    Friend WithEvents Label83 As Label
+    Friend WithEvents txtTotal500 As TextBox
+    Friend WithEvents txtCant500 As TextBox
+    Friend WithEvents Label82 As Label
 End Class
