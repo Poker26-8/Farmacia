@@ -1,6 +1,7 @@
 ﻿Public Class frmCorte4
 
     Dim Calculo As Boolean = False
+    Dim varcodunico As String = ""
     Private Sub frmCorte4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         dtpInicial.Value = Date.Now
@@ -32,6 +33,9 @@
 
     Private Sub btnCalculadora_Click(sender As Object, e As EventArgs) Handles btnCalculadora.Click
         Try
+            varcodunico = Format(CDate(Date.Now), "yyyy/MM/ddHH:mm:ss.fff")
+            varcodunico = QuitarCaracteresEspeciales(varcodunico)
+
 
             Dim corteciego As Integer = DatosRecarga("CorteCiego")
 
@@ -45,7 +49,7 @@
                     Exit Sub
                 End If
             End If
-                Dim foliov As String = ""
+            Dim foliov As String = ""
             Dim status As String = ""
 
             Dim ventascontado As Double = 0
@@ -228,6 +232,12 @@
             cnn2.Close()
         End Try
     End Sub
+
+    Function QuitarCaracteresEspeciales(ByVal input As String) As String
+        ' Utilizamos una expresión regular para reemplazar todos los caracteres que no son letras o números.
+        Dim regex As New System.Text.RegularExpressions.Regex("[^a-zA-Z0-9]")
+        Return regex.Replace(input, String.Empty)
+    End Function
 
     Private Sub txtIngresos_TextChanged(sender As Object, e As EventArgs) Handles txtIngresos.TextChanged
         Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
@@ -1105,6 +1115,84 @@
         e.Graphics.DrawString(txtTotalIngresosTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
         e.Graphics.DrawString(txtTotalCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
         e.Graphics.DrawString(txtTotalDifeTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-        Y += 13
+        Y += 17
+
+
+        GeneraBarras(PictureBox1, varcodunico)
+        Dim bm As New Bitmap(PictureBox1.Width, PictureBox1.Height)
+        PictureBox1.DrawToBitmap(bm, New Rectangle(0, 0, bm.Width, bm.Height))
+        e.Graphics.DrawImage(bm, 40, 750, 210, 40)
+        Y += 45
+        e.Graphics.DrawString(varcodunico, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 100
+        e.Graphics.DrawString("--------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+        Y += 15
+        e.Graphics.DrawString("Cajero", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        cboCajero.Text = ""
+        dtpInicial.Value = Date.Now
+        dtpHInicial.Text = "00:00:00"
+        dtpFin.Value = Date.Now
+        dtpHFinal.Text = "23:59:59"
+
+        txtVentas.Text = "0.00"
+        txtDevolucionesV.Text = "0.00"
+        txtServicios.Text = "0.00"
+        txtTiempo.Text = "0.00"
+        txtTotalContado.Text = "0.00"
+        txtVentasC.Text = "0.00"
+        txtAbonosCreditos.Text = "0.00"
+        txtDevolucionesC.Text = "0.00"
+        txtCredito.Text = "0.00"
+        txtTotal.Text = "0.00"
+        txtIngresos.Text = "0.00"
+        txtSaldoInicial.Text = "0.00"
+        txtRetiros.Text = "0.00"
+        txtDevoluciones.Text = "0.00"
+        txtSumSistema.Text = "0.00"
+        txtSumaCajero.Text = "0.00"
+        txtSumDife.Text = "0.00"
+        txtTotalSistema.Text = "0.00"
+        txtTotalCajero.Text = "0.00"
+        txtTotalDife.Text = "0.00"
+        txtIngresosTar.Text = "0.00"
+        txtDevoTarj.Text = "0.00"
+        txtSumSistemaTar.Text = "0.00"
+        txtSumCajeroTar.Text = "0.00"
+        txtSumDifeTarj.Text = "0.00"
+        txtTotalIngresosTar.Text = "0.00"
+        txtTotalCajeroTar.Text = "0.00"
+        txtTotalDifeTar.Text = "0.00"
+
+        txtCant500.Text = "0"
+        txtCant200.Text = "0"
+        txtCant100.Text = "0"
+        txtCant50.Text = "0"
+        txtCant20.Text = "0"
+        txtCant10.Text = "0"
+        txtCant5.Text = "0"
+        txtCant2.Text = "0"
+        txtCant1.Text = "0"
+        txtCantCentavos.Text = "0"
+        txtformas.Text = "0"
+
+        txtTotal500.Text = "0.00"
+        txtTotal200.Text = "0.00"
+        txtTotal100.Text = "0.00"
+        txtTotal50.Text = "0.00"
+        txtTotal20.Text = "0.00"
+        txtTotal10.Text = "0.00"
+        txtTotal5.Text = "0.00"
+        txtTotal2.Text = "0.00"
+        txtTotal1.Text = "0.00"
+        txtTotalCentavos.Text = "0.00"
+        txtTotalFormas.Text = "0.00"
+        txtTotalCalculo.Text = "0.00"
+
+        Calculo = False
+    End Sub
+
 End Class
