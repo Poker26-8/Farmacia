@@ -146,6 +146,8 @@ Partial Class frmCorte4
         Me.dtpHFinal = New System.Windows.Forms.DateTimePicker()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.gbxCalculo.SuspendLayout()
         Me.grpb.SuspendLayout()
@@ -780,7 +782,7 @@ Partial Class frmCorte4
         '
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(9, 229)
+        Me.Label37.Location = New System.Drawing.Point(9, 232)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(70, 18)
         Me.Label37.TabIndex = 62
@@ -1448,6 +1450,9 @@ Partial Class frmCorte4
         Me.btnCalculadora.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCalculadora.UseVisualStyleBackColor = True
         '
+        'PCalculo80
+        '
+        '
         'Label32
         '
         Me.Label32.AutoSize = True
@@ -1520,12 +1525,26 @@ Partial Class frmCorte4
         Me.Label36.TabIndex = 68
         Me.Label36.Text = "F.FINAL:"
         '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(372, 2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(83, 70)
+        Me.Button1.TabIndex = 69
+        Me.Button1.Text = "Limpiar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmCorte4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(381, 832)
+        Me.ClientSize = New System.Drawing.Size(452, 832)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label36)
         Me.Controls.Add(Me.Label35)
         Me.Controls.Add(Me.dtpHFinal)
@@ -1673,4 +1692,6 @@ Partial Class frmCorte4
     Friend WithEvents Label40 As Label
     Friend WithEvents Label39 As Label
     Friend WithEvents txtformas As TextBox
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents Button1 As Button
 End Class

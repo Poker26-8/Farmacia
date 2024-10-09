@@ -209,6 +209,19 @@
             txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
 
 
+            If MsgBox("¿Deseas imprimir el corte de caja?", vbInformation + vbOKOnly, "Delsscom Farmacias") = vbOK Then
+
+                Dim tami As Integer = TamImpre()
+                Dim impresora As String = ImpresoraImprimir()
+
+                If tami = "80" Then
+
+                    PCalculo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    PCalculo80.Print()
+                End If
+
+            End If
+            Calculo = False
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -903,5 +916,195 @@
         End If
     End Sub
 
+    Private Sub PCalculo80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PCalculo80.PrintPage
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_prods2 As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
 
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                Y += 6
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close() : cnn1.Close()
+
+        e.Graphics.DrawString("Atiende: " & cboCajero.Text & " " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 7
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("** CORTE PARCIAL DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 20
+
+        e.Graphics.DrawString("FOLIO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 17
+        e.Graphics.DrawString("FECHA CORTE: " & Format(dtpInicial.Value, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("CAJERO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("VENTAS DE CONTADO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtVentas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtDevolucionesV.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Servicios:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtServicios.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Venta de tiempo aire:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtTiempo.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL CONTADO:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtTotalContado.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 20
+
+        e.Graphics.DrawString("VENTAS DE CREDITO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtVentasC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Abonos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtAbonosCreditos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtDevolucionesC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL CREDITO:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtCredito.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL GENERAL:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotal.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 13
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("SISTEMA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("CAJERO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 190, Y)
+        e.Graphics.DrawString("DIF", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("EFECTIVO/PESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ingresos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtIngresos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Saldo Inicial:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtSaldoInicial.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Retiros:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtRetiros.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString(txtSumSistema.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtSumaCajero.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtSumDife.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("TOTAL EFECTIVO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotalSistema.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtTotalCajero.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtTotalDife.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 13
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+
+        e.Graphics.DrawString("DOCUMENTOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 190, Y, sc)
+        Y += 15
+        e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ingresos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtIngresosTar.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtDevoTarj.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString(txtSumSistemaTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtSumCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtSumDifeTarj.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("TOTAL DOCUMENTOS", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotalIngresosTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtTotalCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtTotalDifeTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 13
+    End Sub
 End Class
