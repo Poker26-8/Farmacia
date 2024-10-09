@@ -66,7 +66,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Folio,Status FROM ventas WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value) & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Usuario='" & cboCajero.Text & "'"
+            cmd1.CommandText = "SELECT Folio,Status FROM ventas WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Usuario='" & cboCajero.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -107,11 +107,11 @@
 
                         'Formas de pago
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT SUM() FROM abonoi WHERE Concepto='ABONO' AND Usuario='" & cboCajero.Text & "'"
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-
+                                INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
                             End If
                         End If
                         rd2.Close()
@@ -157,6 +157,17 @@
                         End If
                         rd2.Close()
 
+                        'Formas de pago
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
+                            End If
+                        End If
+                        rd2.Close()
+
 
                     End If
 
@@ -191,6 +202,7 @@
 
             txtTotal.Text = FormatNumber(CDec(txtTotalContado.Text) + CDec(txtCredito.Text), 2)
 
+            txtIngresosTar.Text = FormatNumber(INGRESOSFORMAS, 2)
 
             txtDevoluciones.Text = FormatNumber(CDec(txtDevolucionesC.Text) + CDec(txtDevolucionesV.Text), 2)
             txtRetiros.Text = FormatNumber(retiros, 2)
@@ -795,22 +807,44 @@
     End Sub
 
     Private Sub btnOKCalculo_Click(sender As Object, e As EventArgs) Handles btnOKCalculo.Click
-        If CDec(txtTotalCalculo.Text) = 0 Then
+        If CDec(txtTotalCalculo.Text) = 0 And CDec(txtTotalFormas.Text) = 0 Then
             MsgBox("No ha ingresado un cálculo válido", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
             Exit Sub
         End If
 
-        If MsgBox("Su cálculo de efectivo en caja es de: $" & FormatNumber(txtTotalCalculo.Text, 2) & vbNewLine & "¿La cantidad es correcta? Esta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
-            txtTotalCalculo.Focus()
-            txtTotalCalculo.SelectAll()
-            Exit Sub
-        Else
-            Calculo = True
-            txtSumaCajero.Text = txtTotalCalculo.Text
-            txtTotalCajero.Text = txtTotalCalculo.Text
-            gbxCalculo.Visible = False
-            btnCalculadora.PerformClick()
+        If txtTotalFormas.Text > 0 Then
+
+            If MsgBox("Su cálculo de formas de pago en caja es de: $" & FormatNumber(txtTotalFormas.Text, 2) & vbNewLine & "¿La cantidad es correcta? Esta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+                txtTotalCalculo.Focus()
+                txtTotalCalculo.SelectAll()
+                Exit Sub
+            Else
+
+                Calculo = True
+                txtSumCajeroTar.Text = txtTotalFormas.Text
+                txtTotalCajeroTar.Text = txtTotalFormas.Text
+                gbxCalculo.Visible = False
+            End If
+
         End If
+
+        If txtTotalCalculo.Text > 0 Then
+
+            If MsgBox("Su cálculo de efectivo en caja es de: $" & FormatNumber(txtTotalCalculo.Text, 2) & vbNewLine & "¿La cantidad es correcta? Esta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+                txtTotalCalculo.Focus()
+                txtTotalCalculo.SelectAll()
+                Exit Sub
+            Else
+
+                Calculo = True
+                txtSumaCajero.Text = txtTotalCalculo.Text
+                txtTotalCajero.Text = txtTotalCalculo.Text
+                gbxCalculo.Visible = False
+            End If
+
+        End If
+        btnCalculadora.PerformClick()
+
     End Sub
 
     Private Sub txtSumSistema_TextChanged(sender As Object, e As EventArgs) Handles txtSumSistema.TextChanged
@@ -826,4 +860,48 @@
         End If
 
     End Sub
+
+    Private Sub txtIngresosTar_TextChanged(sender As Object, e As EventArgs) Handles txtIngresosTar.TextChanged
+        Dim total As Double = CDbl(IIf(txtIngresosTar.Text = "", "0", txtIngresosTar.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
+        txtSumSistemaTar.Text = FormatNumber(total, 2)
+        txtTotalIngresosTar.Text = FormatNumber(total, 2)
+    End Sub
+
+    Private Sub txtformas_TextChanged(sender As Object, e As EventArgs) Handles txtformas.TextChanged
+        If txtformas.Text = "" Then
+            txtformas.Text = "0"
+        End If
+        txtTotalFormas.Text = CDec(txtformas.Text)
+        txtTotalFormas.Text = FormatNumber(txtformas.Text, 2)
+    End Sub
+
+    Private Sub txtformas_GotFocus(sender As Object, e As EventArgs) Handles txtformas.GotFocus
+        txtformas.SelectAll()
+    End Sub
+
+    Private Sub txtformas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtformas.KeyPress
+        If Asc(e.KeyChar) = Keys.Enter Then
+            If txtformas.Text = "" Then txtformas.Text = "0"
+            btnOKCalculo.Focus()
+        End If
+    End Sub
+
+    Private Sub txtTotalFormas_TextChanged(sender As Object, e As EventArgs) Handles txtTotalFormas.TextChanged
+
+    End Sub
+
+    Private Sub txtSumSistemaTar_TextChanged(sender As Object, e As EventArgs) Handles txtSumSistemaTar.TextChanged
+        Dim dife As Double = 0
+        dife = CDbl(IIf(txtSumSistemaTar.Text = "", "0", txtSumSistemaTar.Text)) - CDbl(IIf(txtSumCajeroTar.Text = "", "0", txtSumCajeroTar.Text))
+
+        If dife > 0 Then
+            txtSumDifeTarj.Text = FormatNumber(dife, 2)
+            txtTotalDifeTar.Text = FormatNumber(dife, 2)
+        Else
+            txtSumDifeTarj.Text = FormatNumber(-dife, 2)
+            txtTotalDifeTar.Text = FormatNumber(-dife, 2)
+        End If
+    End Sub
+
+
 End Class
