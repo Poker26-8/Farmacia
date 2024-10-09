@@ -213,7 +213,7 @@
             txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
 
 
-            If MsgBox("¿Deseas imprimir el corte de caja?", vbInformation + vbOKOnly, "Delsscom Farmacias") = vbOK Then
+            If MsgBox("¿Deseas imprimir el calculo del corte caja?", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbOK Then
 
                 Dim tami As Integer = TamImpre()
                 Dim impresora As String = ImpresoraImprimir()
