@@ -404,6 +404,62 @@ Public Class frmRepEntradas
                 End If
                 rd2.Close()
 
+
+                Dim efecompras As Double = 0
+                Dim trasnfecompras As Double = 0
+                Dim tarjecompras As Double = 0
+                Dim otrocompras As Double = 0
+                Dim sumatodocomppras As Double = 0
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        efecompras = CDec(efecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                    End If
+                End If
+                rd2.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        tarjecompras = CDec(tarjecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                    End If
+                End If
+                rd2.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        trasnfecompras = CDec(trasnfecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                    End If
+                End If
+                rd2.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        otrocompras = CDec(otrocompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                    End If
+                End If
+                rd2.Close()
+                sumatodocomppras = efecompras + tarjecompras + trasnfecompras + otrocompras
+
+
+                txtCompras.Text = FormatNumber(sumatodocomppras, 2)
+
+
                 ''''''''''''''''''''''''''''''''
                 cnn2.Close()
                 cnn1.Close()
@@ -429,12 +485,12 @@ Public Class frmRepEntradas
                 txtEgresos.Text = FormatNumber(CDec(txtCancelaefectivo.Text) + CDec(txtDevoefectivo.Text) + CDec(otrosgastos) + CDec(IIf(txtcancelacionestotales.Text = 0, 0,
                 txtcancelacionestotales.Text)) + CDec(txtdevolucionesformas.Text), 2)
                 My.Application.DoEvents()
-                txtTotalAbono.Text = FormatNumber(CDec(txtIngresos.Text) - CDec(txtEgresos.Text), 2)
+                txtTotalAbono.Text = FormatNumber(CDec(txtIngresos.Text) - CDec(txtEgresos.Text) - CDec(txtCompras.Text), 2)
                 My.Application.DoEvents()
 
                 txtOtrosgastos.Text = FormatNumber(otrosgastos, 2)
                 My.Application.DoEvents()
-                txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text) - CDec(txtOtrosgastos.Text), 2)
+                txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text) - CDec(txtOtrosgastos.Text) - efecompras, 2)
                 My.Application.DoEvents()
             End If
 
@@ -1214,6 +1270,61 @@ Public Class frmRepEntradas
             End If
             rd2.Close()
 
+
+            Dim efecompras As Double = 0
+            Dim trasnfecompras As Double = 0
+            Dim tarjecompras As Double = 0
+            Dim otrocompras As Double = 0
+            Dim sumatodocomppras As Double = 0
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    efecompras = CDec(efecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    tarjecompras = CDec(tarjecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    trasnfecompras = CDec(trasnfecompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    otrocompras = CDec(otrocompras) + CDec(IIf(rd2(0).ToString = "", "0", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+            sumatodocomppras = efecompras + tarjecompras + trasnfecompras + otrocompras
+
+
+            txtCompras.Text = FormatNumber(sumatodocomppras, 2)
+
             cnn2.Close()
             cnn1.Close()
 
@@ -1260,12 +1371,12 @@ Public Class frmRepEntradas
             txtEgresos.Text = FormatNumber(CDec(txtCancelaefectivo.Text) + CDec(txtDevoefectivo.Text) + CDec(otrosgastos) + CDec(IIf(txtcancelacionestotales.Text = 0, 0,
             txtcancelacionestotales.Text)) + CDec(txtdevolucionesformas.Text), 2)
             My.Application.DoEvents()
-            txtTotalAbono.Text = FormatNumber(CDec(txtIngresos.Text) - CDec(txtEgresos.Text), 2)
+            txtTotalAbono.Text = FormatNumber(CDec(txtIngresos.Text) - CDec(txtEgresos.Text) - CDec(txtCompras.Text), 2)
             My.Application.DoEvents()
 
             txtOtrosgastos.Text = FormatNumber(otrosgastos, 2)
             My.Application.DoEvents()
-            txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text) - CDec(txtOtrosgastos.Text), 2)
+            txtEfeCaja.Text = FormatNumber(CDec(txtEfectivo.Text) - CDec(txtCancelaefectivo.Text) - CDec(txtDevoefectivo.Text) - CDec(txtOtrosgastos.Text) - efecompras, 2)
             My.Application.DoEvents()
 
         End If
