@@ -3,6 +3,9 @@ Imports System.IO
 Imports System.Net
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+
 
 Public Class frmCorte2
 
@@ -3384,4 +3387,205 @@ Public Class frmCorte2
     Private Sub tCorte_Tick(sender As Object, e As EventArgs) Handles tCorte.Tick
 
     End Sub
+
+
+
+    '    Private Sub GenerarPDF()
+    '        Dim tipografia As String = "Lucida Sans Typewriter"
+    '        'Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+    '        'Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+    '        'Dim fuente_prods2 As New Drawing.Font(tipografia, 11, FontStyle.Regular)
+    '        'Variables
+    '        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+    '        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+    '        Dim pen As New Pen(Brushes.Black, 1)
+    '        Dim Y As Double = 0
+    '        Dim nLogo As String = DatosRecarga("LogoG")
+    '        ' Dim Logotipo As Drawing.Image = Nothing
+    '        Dim tLogo As String = DatosRecarga("TipoLogo")
+    '        Dim simbolo As String = DatosRecarga("Simbolo")
+    '        Dim Pie As String = ""
+    '        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+    '        ' Archivo de salida
+
+
+    '        Dim rutaPDF As String = "C:\00\Ticket.pdf"
+
+
+    '        Dim doc As New Document(PageSize.A4, 10, 10, 10, 10)
+
+
+
+    '        Try
+
+
+    '            ' Crea el archivo PDF
+    '            PdfWriter.GetInstance(doc, New FileStream(rutaPDF, FileMode.Create))
+    '            doc.Open()
+
+    '            ' Tipografías
+
+
+    '            'Dim fuenteDatos As Font = FontFactory.GetFont("Lucida Sans Typewriter", 10, Font.Italic)
+    '            Dim fuenteDatos As New iTextSharp.text.Font(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.NORMAL))
+
+
+    '            'Dim fuenteProds As Font = FontFactory.GetFont("Lucida Sans Typewriter", 9, Color.Black)
+    '            Dim fuenteProds As New iTextSharp.text.Font(FontFactory.GetFont(FontFactory.HELVETICA, 9, iTextSharp.text.Font.NORMAL))
+
+    '            ' Dim fuenteProdsBold As Font = FontFactory.GetFont("Lucida Sans Typewriter", 9, Color.Black)
+    '            Dim fuenteProdsBold As New iTextSharp.text.Font(FontFactory.GetFont(FontFactory.HELVETICA, 9, iTextSharp.text.Font.NORMAL))
+
+
+
+
+
+    '            ' Logotipo
+
+
+    '            If tLogo <> "SIN" AndAlso File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+    '                Dim logotipo As Image = Image.GetInstance(My.Application.Info.DirectoryPath & "\" & nLogo)
+    '                If tLogo = "CUAD" Then
+    '                    logotipo.ScaleToFit(
+    '120.0F, 120.0F)
+    '                ElseIf tLogo = "RECT" Then
+    '                    logotipo.ScaleToFit(
+    '240.0F, 110.0F)
+
+
+    '                End If
+    '                doc.Add(logotipo)
+
+    '            End If
+
+
+
+
+
+
+    '            ' Datos del negocio
+
+    '            cnn1.Close() : cnn1.Open()
+    '            cmd1 = cnn1.CreateCommand
+    '            cmd1.CommandText = "SELECT * FROM Ticket"
+    '            rd1 = cmd1.ExecuteReader()
+
+    '            If rd1.HasRows Then
+
+    '                If rd1.Read() Then
+
+
+    '                    If rd1("Cab0").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab0").ToString(), fuenteProdsBold))
+
+
+    '                    If rd1("Cab1").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab1").ToString(), fuenteProdsBold))
+    '                    If rd1("Cab2").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab2").ToString(), fuenteProds))
+
+
+    '                    If rd1("Cab3").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab3").ToString(), fuenteProds))
+
+
+    '                    If rd1("Cab4").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab4").ToString(), fuenteProds))
+    '                    If rd1("Cab5").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab5").ToString(), fuenteProds))
+    '                    If rd1("Cab6").ToString() <> "" Then doc.Add(New Paragraph(rd1("Cab6").ToString(), fuenteProds))
+    '                    doc.Add(
+    'New Paragraph(" "))
+    '                End If
+
+
+    '            End If
+    '            rd1.Close() : cnn1.Close()
+
+    '            ' Datos de la venta
+    '            doc.Add(
+    'New Paragraph("--------------------------------------------------------", fuenteProdsBold))
+    '            doc.Add(
+    'New Paragraph("CÁLCULO USUARIO", fuenteDatos))
+
+
+    '            doc.Add(
+    'New Paragraph("--------------------------------------------------------", fuenteProdsBold))
+
+
+
+    '            ' Agrega los datos del usuario y la fecha
+    '            doc.Add(
+    'New Paragraph("Usuario: " & cboUsuario.Text, fuenteDatos))
+    '            doc.Add(
+    'New Paragraph("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuenteProds))
+    '            doc.Add(
+    'New Paragraph("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuenteProdsBold))
+
+
+
+
+
+
+    '            ' Ingresos y Egresos
+    '            doc.Add(
+    'New Paragraph("SALDO INICIAL: " & simbolo & FormatNumber(txtSaldoUsuario.Text, 2), fuenteProdsBold))
+    '            doc.Add(
+    'New Paragraph("TOTAL DE INGRESOS: " & simbolo & FormatNumber(txtIngresosUsuario.Text, 2), fuenteProdsBold))
+
+
+
+
+    '            ' Agrega los ingresos
+
+
+    '            For Each fila As DataGridViewRow In grdIngresos.Rows
+
+
+    '                Dim forma As String = fila.Cells(0).Value.ToString()
+
+
+    '                Dim monto As Double = Convert.ToDouble(fila.Cells(1).Value)
+    '                doc.Add(
+    'New Paragraph(" ING. " & forma & ": " & FormatNumber(monto, 2), fuenteProds))
+    '            Next
+
+    '            doc.Add(
+    'New Paragraph("TOTAL DE EGRESOS: " & simbolo & FormatNumber(txtEgresosUsuario.Text, 2), fuenteProdsBold))
+
+
+
+
+
+
+    '            ' Agrega los egresos
+    '            For Each fila As DataGridViewRow In grdEgresos.Rows
+
+
+    '                Dim forma As String = fila.Cells(0).Value.ToString()
+
+
+    '                Dim monto As Double = Convert.ToDouble(fila.Cells(1).Value)
+    '                doc.Add(
+    'New Paragraph(" EGR. " & forma & ": " & FormatNumber(monto, 2), fuenteProds))
+
+    '            Next
+
+    '            doc.Add(New Paragraph("SALDO FINAL: " & simbolo & FormatNumber(txtSaldoFinalU.Text, 2), fuenteProdsBold))
+    '            doc.Add(New Paragraph("EFECTIVO EN CAJA: " & FormatNumber(txtEfectivoCajaU.Text, 2), fuenteProdsBold))
+
+
+
+    '            ' Firma
+    '            doc.Add(New Paragraph("____________________________", fuenteProdsBold))
+    '            doc.Add(New Paragraph("FIRMA", fuenteProdsBold))
+
+
+
+
+    '        Catch ex As Exception
+
+    '        Finally
+    '            doc.Close()
+
+
+    '        End Try
+
+    '        MessageBox.Show("PDF generado en: " & rutaPDF)
+    '    End Sub
 End Class
