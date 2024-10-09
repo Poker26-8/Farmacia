@@ -2102,8 +2102,8 @@ Public Class Inicio
             frmCorte4.BringToFront()
             frmCorte4.Show()
 
-            frmCorte2.BringToFront()
-            frmCorte2.Show()
+            'frmCorte2.BringToFront()
+            'frmCorte2.Show()
 
         End If
     End Sub

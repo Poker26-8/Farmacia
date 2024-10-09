@@ -116,6 +116,7 @@ Partial Class Inicio
         Me.pInventario = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAjuste = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteCOFEPRISToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NUEVOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEstResultados = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
@@ -168,7 +169,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.NUEVOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -922,22 +922,28 @@ Partial Class Inicio
         '
         Me.pInventario.BackColor = System.Drawing.Color.White
         Me.pInventario.Name = "pInventario"
-        Me.pInventario.Size = New System.Drawing.Size(180, 22)
+        Me.pInventario.Size = New System.Drawing.Size(183, 22)
         Me.pInventario.Text = "Inventario"
         '
         'pAjuste
         '
         Me.pAjuste.BackColor = System.Drawing.Color.White
         Me.pAjuste.Name = "pAjuste"
-        Me.pAjuste.Size = New System.Drawing.Size(180, 22)
+        Me.pAjuste.Size = New System.Drawing.Size(183, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
         'ReporteCOFEPRISToolStripMenuItem
         '
         Me.ReporteCOFEPRISToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteCOFEPRISToolStripMenuItem.Name = "ReporteCOFEPRISToolStripMenuItem"
-        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.ReporteCOFEPRISToolStripMenuItem.Text = "Reporte COFEPRIS"
+        '
+        'NUEVOToolStripMenuItem
+        '
+        Me.NUEVOToolStripMenuItem.Name = "NUEVOToolStripMenuItem"
+        Me.NUEVOToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.NUEVOToolStripMenuItem.Text = "Actualizar Productos"
         '
         'pEstResultados
         '
@@ -1120,20 +1126,20 @@ Partial Class Inicio
         'CorteDeCajaToolStripMenuItem
         '
         Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
         'CORTEMESERO
         '
         Me.CORTEMESERO.Name = "CORTEMESERO"
-        Me.CORTEMESERO.Size = New System.Drawing.Size(166, 22)
+        Me.CORTEMESERO.Size = New System.Drawing.Size(180, 22)
         Me.CORTEMESERO.Text = "Corte por mesero"
         Me.CORTEMESERO.Visible = False
         '
         'CorteDeCajaNToolStripMenuItem
         '
         Me.CorteDeCajaNToolStripMenuItem.Name = "CorteDeCajaNToolStripMenuItem"
-        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CorteDeCajaNToolStripMenuItem.Text = "Corte de Caja N"
         Me.CorteDeCajaNToolStripMenuItem.Visible = False
         '
@@ -1334,12 +1340,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'NUEVOToolStripMenuItem
-        '
-        Me.NUEVOToolStripMenuItem.Name = "NUEVOToolStripMenuItem"
-        Me.NUEVOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.NUEVOToolStripMenuItem.Text = "NUEVO"
         '
         'Inicio
         '

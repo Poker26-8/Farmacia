@@ -4507,16 +4507,20 @@ kaka:
                 rd1.Close()
                 cnn1.Close()
 
-                If VSE = True Then
-                    If txtunidad.Text <> "N/A" Then
-                        Dim canti As Double = txtcantidad.Text
-                        Dim exis As Double = txtexistencia.Text
-                        If canti > exis Then
-                            MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
-                            txtcantidad.Focus.Equals(True)
-                            Exit Sub
+                If cbonota.Text = "" Then
+                    If VSE = True Then
+                        If txtunidad.Text <> "N/A" Then
+                            Dim canti As Double = txtcantidad.Text
+                            Dim exis As Double = txtexistencia.Text
+                            If canti > exis Then
+                                MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
+                                txtcantidad.Focus.Equals(True)
+                                Exit Sub
+                            End If
                         End If
                     End If
+                Else
+
                 End If
 
 
@@ -4867,16 +4871,20 @@ kaka:
             rd1.Close()
             cnn1.Close()
 
-            If VSE = True Then
-                If txtunidad.Text <> "N/A" Then
-                    Dim canti As Double = txtcantidad.Text
-                    Dim exis As Double = txtexistencia.Text
-                    If canti > exis Then
-                        MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
-                        txtcantidad.Focus.Equals(True)
-                        Exit Sub
+            If cbonota.Text = "" Then
+                If VSE = True Then
+                    If txtunidad.Text <> "N/A" Then
+                        Dim canti As Double = txtcantidad.Text
+                        Dim exis As Double = txtexistencia.Text
+                        If canti > exis Then
+                            MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
+                            txtcantidad.Focus.Equals(True)
+                            Exit Sub
+                        End If
                     End If
                 End If
+            Else
+
             End If
 
 
