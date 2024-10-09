@@ -102,6 +102,7 @@ Partial Class frmRepTraspasos
         Me.dtpinicio.ShowUpDown = True
         Me.dtpinicio.Size = New System.Drawing.Size(101, 26)
         Me.dtpinicio.TabIndex = 212
+        Me.dtpinicio.Visible = False
         '
         'mcDesde
         '
@@ -127,6 +128,7 @@ Partial Class frmRepTraspasos
         Me.dtpFin.ShowUpDown = True
         Me.dtpFin.Size = New System.Drawing.Size(100, 26)
         Me.dtpFin.TabIndex = 213
+        Me.dtpFin.Visible = False
         '
         'Panel2
         '

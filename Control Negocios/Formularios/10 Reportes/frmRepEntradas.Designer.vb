@@ -76,6 +76,8 @@ Partial Class frmRepEntradas
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtOtrosgastos = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCompras = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +103,7 @@ Partial Class frmRepEntradas
         'Label9
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.Location = New System.Drawing.Point(521, 544)
+        Me.Label9.Location = New System.Drawing.Point(521, 571)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(117, 18)
         Me.Label9.TabIndex = 319
@@ -111,7 +113,7 @@ Partial Class frmRepEntradas
         'txtSalTarj
         '
         Me.txtSalTarj.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSalTarj.Location = New System.Drawing.Point(644, 541)
+        Me.txtSalTarj.Location = New System.Drawing.Point(644, 568)
         Me.txtSalTarj.Name = "txtSalTarj"
         Me.txtSalTarj.Size = New System.Drawing.Size(85, 23)
         Me.txtSalTarj.TabIndex = 318
@@ -122,7 +124,7 @@ Partial Class frmRepEntradas
         '
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(546, 516)
+        Me.Label10.Location = New System.Drawing.Point(546, 543)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(92, 15)
         Me.Label10.TabIndex = 317
@@ -131,7 +133,7 @@ Partial Class frmRepEntradas
         'txtEfeCaja
         '
         Me.txtEfeCaja.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 513)
+        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 540)
         Me.txtEfeCaja.Name = "txtEfeCaja"
         Me.txtEfeCaja.Size = New System.Drawing.Size(85, 23)
         Me.txtEfeCaja.TabIndex = 316
@@ -142,7 +144,7 @@ Partial Class frmRepEntradas
         '
         Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(569, 488)
+        Me.Label16.Location = New System.Drawing.Point(569, 515)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(65, 15)
         Me.Label16.TabIndex = 315
@@ -153,7 +155,7 @@ Partial Class frmRepEntradas
         Me.txtTotalAbono.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalAbono.BackColor = System.Drawing.SystemColors.HotTrack
         Me.txtTotalAbono.ForeColor = System.Drawing.Color.White
-        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 485)
+        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 512)
         Me.txtTotalAbono.Name = "txtTotalAbono"
         Me.txtTotalAbono.Size = New System.Drawing.Size(85, 23)
         Me.txtTotalAbono.TabIndex = 314
@@ -655,11 +657,34 @@ Partial Class frmRepEntradas
         Me.txtOtrosgastos.Text = "0.00"
         Me.txtOtrosgastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(576, 489)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(58, 15)
+        Me.Label5.TabIndex = 343
+        Me.Label5.Text = "Compras:"
+        '
+        'txtCompras
+        '
+        Me.txtCompras.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCompras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
+        Me.txtCompras.Location = New System.Drawing.Point(644, 486)
+        Me.txtCompras.Name = "txtCompras"
+        Me.txtCompras.Size = New System.Drawing.Size(85, 23)
+        Me.txtCompras.TabIndex = 342
+        Me.txtCompras.Text = "0.00"
+        Me.txtCompras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmRepEntradas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1015, 655)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtCompras)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtOtrosgastos)
         Me.Controls.Add(Me.RadioButton2)
@@ -774,4 +799,6 @@ Partial Class frmRepEntradas
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents Label4 As Label
     Friend WithEvents txtOtrosgastos As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtCompras As TextBox
 End Class
