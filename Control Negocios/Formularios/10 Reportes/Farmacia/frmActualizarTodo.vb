@@ -6,6 +6,12 @@ Public Class frmActualizarTodo
         If (optTodos.Checked) Then
             Try
 
+                grdCaptura.Rows.Clear()
+                cboFiltro.Visible = False
+                cboFiltro.Text = ""
+                rbDepartamento.Checked = False
+                dbGrupo.Checked = False
+
                 Dim codigo As String = ""
                 Dim codbarra As String = ""
                 Dim descripcion As String = ""
@@ -257,5 +263,136 @@ Public Class frmActualizarTodo
         lblprod.Visible = False
         ProgressBar1.Visible = False
         ProgressBar1.Value = 0
+    End Sub
+
+    Private Sub rbDepartamento_Click(sender As Object, e As EventArgs) Handles rbDepartamento.Click
+        If (rbDepartamento.Checked) Then
+            grdCaptura.Rows.Clear()
+            cboFiltro.Text = ""
+            cboFiltro.Visible = True
+            dbGrupo.Checked = False
+            optTodos.Checked = False
+        End If
+    End Sub
+
+    Private Sub dbGrupo_Click(sender As Object, e As EventArgs) Handles dbGrupo.Click
+        If (dbGrupo.Checked) Then
+            grdCaptura.Rows.Clear()
+            cboFiltro.Text = ""
+            cboFiltro.Visible = True
+            rbDepartamento.Checked = False
+            optTodos.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub cboFiltro_DropDown(sender As Object, e As EventArgs) Handles cboFiltro.DropDown
+        Try
+            cboFiltro.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+
+            If (rbDepartamento.Checked) Then
+                cmd5.CommandText = "SELECT DISTINCT Departamento FROM productos WHERE Departamento<>'' ORDER BY Departamento"
+            End If
+
+            If (dbGrupo.Checked) Then
+                cmd5.CommandText = "SELECT DISTINCT Grupo FROM productos WHERE Grupo<>'' ORDER BY Grupo"
+            End If
+
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboFiltro.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub frmActualizarTodo_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        rbDepartamento.Checked = True
+    End Sub
+
+    Private Sub rbDepartamento_CheckedChanged(sender As Object, e As EventArgs) Handles rbDepartamento.CheckedChanged
+        If (rbDepartamento.Checked) Then
+            cboFiltro.Text = ""
+            cboFiltro.Visible = True
+            grdCaptura.Rows.Clear()
+        End If
+    End Sub
+
+    Private Sub cboFiltro_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboFiltro.SelectedValueChanged
+        Try
+            grdCaptura.Rows.Clear()
+            Dim codigo As String = ""
+            Dim codbarra As String = ""
+            Dim descripcion As String = ""
+            Dim IVA As Double = 0
+            Dim UNIDAD As String = ""
+            Dim preciocompra As Double = 0
+            Dim preciomaximo As Double = 0
+            Dim precioventa As Double = 0
+            Dim proveedor As String = ""
+            Dim departamento As String = ""
+            Dim grupo As String = ""
+            Dim clavesat As String = ""
+            Dim unidadsat As String = ""
+            Dim existencia As Double = 0
+            Dim antibiotico As Integer = 0
+            Dim caduca As Integer = 0
+            Dim controlado As Integer = 0
+            Dim laboratorio As String = ""
+            Dim principio As String = ""
+            Dim ubicacion As String = ""
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+
+            If (rbDepartamento.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,IVA,UVenta,PrecioCompra,PrecioMaximoPublico,PrecioVentaIVA,ProvPri,Departamento,Grupo,ClaveSat,UnidadSat,Existencia,Anti,Caduca,controlado,Laboratorio,PrincipioActivo,Ubicacion FROM productos WHERE Departamento='" & cboFiltro.Text & "'"
+            End If
+
+            If (dbGrupo.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,IVA,UVenta,PrecioCompra,PrecioMaximoPublico,PrecioVentaIVA,ProvPri,Departamento,Grupo,ClaveSat,UnidadSat,Existencia,Anti,Caduca,controlado,Laboratorio,PrincipioActivo,Ubicacion FROM productos WHERE Grupo='" & cboFiltro.Text & "'"
+            End If
+
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+                    codigo = rd1("Codigo").ToString
+                    codbarra = rd1("CodBarra").ToString
+                    descripcion = rd1("Nombre").ToString
+                    IVA = rd1("IVA").ToString
+                    UNIDAD = rd1("UVenta").ToString
+                    preciocompra = rd1("PrecioCompra").ToString
+                    preciomaximo = rd1("PrecioMaximoPublico").ToString
+                    precioventa = rd1("PrecioVentaIVA").ToString
+                    proveedor = rd1("ProvPri").ToString
+                    departamento = rd1("Departamento").ToString
+                    grupo = rd1("Grupo").ToString
+                    clavesat = rd1("ClaveSat").ToString
+                    unidadsat = rd1("UnidadSat").ToString
+                    existencia = rd1("Existencia").ToString
+                    antibiotico = rd1("Anti").ToString
+                    caduca = rd1("Caduca").ToString
+                    controlado = rd1("controlado").ToString
+                    laboratorio = rd1("Laboratorio").ToString
+                    principio = rd1("PrincipioActivo").ToString
+                    ubicacion = rd1("Ubicacion").ToString
+
+                    grdCaptura.Rows.Add(codigo, codbarra, descripcion, IVA, UNIDAD, preciocompra, preciomaximo, precioventa, proveedor, departamento, grupo, clavesat, unidadsat, existencia, antibiotico, caduca, controlado, laboratorio, principio, ubicacion)
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

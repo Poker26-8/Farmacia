@@ -22,15 +22,22 @@ Partial Class frmActualizarTodo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmActualizarTodo))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.cboFiltro = New System.Windows.Forms.ComboBox()
+        Me.lblprod = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.btnImportar = New System.Windows.Forms.Button()
+        Me.btnExportar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.dbGrupo = New System.Windows.Forms.RadioButton()
+        Me.rbDepartamento = New System.Windows.Forms.RadioButton()
         Me.optTodos = New System.Windows.Forms.RadioButton()
-        Me.btnExportar = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,20 +58,17 @@ Partial Class frmActualizarTodo
         Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnImportar = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.lblprod = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.cboFiltro)
         Me.Panel1.Controls.Add(Me.lblprod)
         Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Controls.Add(Me.ProgressBar1)
@@ -76,6 +80,135 @@ Partial Class frmActualizarTodo
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1258, 110)
         Me.Panel1.TabIndex = 0
+        '
+        'cboFiltro
+        '
+        Me.cboFiltro.FormattingEnabled = True
+        Me.cboFiltro.Location = New System.Drawing.Point(214, 78)
+        Me.cboFiltro.Name = "cboFiltro"
+        Me.cboFiltro.Size = New System.Drawing.Size(210, 21)
+        Me.cboFiltro.TabIndex = 254
+        Me.cboFiltro.Visible = False
+        '
+        'lblprod
+        '
+        Me.lblprod.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblprod.Location = New System.Drawing.Point(848, 83)
+        Me.lblprod.Name = "lblprod"
+        Me.lblprod.Size = New System.Drawing.Size(205, 18)
+        Me.lblprod.TabIndex = 253
+        Me.lblprod.Text = "Label2"
+        Me.lblprod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblprod.Visible = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(214, 11)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(58, 61)
+        Me.DataGridView1.TabIndex = 252
+        Me.DataGridView1.Visible = False
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.Location = New System.Drawing.Point(1059, 81)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(196, 23)
+        Me.ProgressBar1.TabIndex = 250
+        Me.ProgressBar1.Visible = False
+        '
+        'btnImportar
+        '
+        Me.btnImportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
+        Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImportar.Location = New System.Drawing.Point(1160, 6)
+        Me.btnImportar.Name = "btnImportar"
+        Me.btnImportar.Size = New System.Drawing.Size(95, 74)
+        Me.btnImportar.TabIndex = 2
+        Me.btnImportar.Text = "Importar"
+        Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImportar.UseVisualStyleBackColor = True
+        '
+        'btnExportar
+        '
+        Me.btnExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
+        Me.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExportar.Location = New System.Drawing.Point(1059, 6)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(95, 74)
+        Me.btnExportar.TabIndex = 1
+        Me.btnExportar.Text = "Exportar"
+        Me.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExportar.UseVisualStyleBackColor = True
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 3)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(200, 100)
+        Me.TabControl1.TabIndex = 0
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.dbGrupo)
+        Me.TabPage1.Controls.Add(Me.rbDepartamento)
+        Me.TabPage1.Controls.Add(Me.optTodos)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(192, 74)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Opciones"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'dbGrupo
+        '
+        Me.dbGrupo.AutoSize = True
+        Me.dbGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dbGrupo.Location = New System.Drawing.Point(6, 28)
+        Me.dbGrupo.Name = "dbGrupo"
+        Me.dbGrupo.Size = New System.Drawing.Size(62, 20)
+        Me.dbGrupo.TabIndex = 59
+        Me.dbGrupo.TabStop = True
+        Me.dbGrupo.Text = "Grupo"
+        Me.dbGrupo.UseVisualStyleBackColor = True
+        '
+        'rbDepartamento
+        '
+        Me.rbDepartamento.AutoSize = True
+        Me.rbDepartamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbDepartamento.Location = New System.Drawing.Point(6, 6)
+        Me.rbDepartamento.Name = "rbDepartamento"
+        Me.rbDepartamento.Size = New System.Drawing.Size(111, 20)
+        Me.rbDepartamento.TabIndex = 58
+        Me.rbDepartamento.TabStop = True
+        Me.rbDepartamento.Text = "Departamento"
+        Me.rbDepartamento.UseVisualStyleBackColor = True
+        '
+        'optTodos
+        '
+        Me.optTodos.AutoSize = True
+        Me.optTodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optTodos.Location = New System.Drawing.Point(6, 51)
+        Me.optTodos.Name = "optTodos"
+        Me.optTodos.Size = New System.Drawing.Size(167, 20)
+        Me.optTodos.TabIndex = 57
+        Me.optTodos.TabStop = True
+        Me.optTodos.Text = "Ver todos los productos"
+        Me.optTodos.UseVisualStyleBackColor = True
         '
         'Panel3
         '
@@ -91,14 +224,14 @@ Partial Class frmActualizarTodo
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16, Me.Column17, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column20, Me.Column21, Me.Column22})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
@@ -108,52 +241,6 @@ Partial Class frmActualizarTodo
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(1258, 445)
         Me.grdCaptura.TabIndex = 0
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 3)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(200, 100)
-        Me.TabControl1.TabIndex = 0
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.optTodos)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(192, 74)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Opciones"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'optTodos
-        '
-        Me.optTodos.AutoSize = True
-        Me.optTodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optTodos.Location = New System.Drawing.Point(6, 15)
-        Me.optTodos.Name = "optTodos"
-        Me.optTodos.Size = New System.Drawing.Size(167, 20)
-        Me.optTodos.TabIndex = 57
-        Me.optTodos.TabStop = True
-        Me.optTodos.Text = "Ver todos los productos"
-        Me.optTodos.UseVisualStyleBackColor = True
-        '
-        'btnExportar
-        '
-        Me.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
-        Me.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExportar.Location = New System.Drawing.Point(230, 25)
-        Me.btnExportar.Name = "btnExportar"
-        Me.btnExportar.Size = New System.Drawing.Size(95, 74)
-        Me.btnExportar.TabIndex = 1
-        Me.btnExportar.Text = "Exportar"
-        Me.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnExportar.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -169,6 +256,7 @@ Partial Class frmActualizarTodo
         Me.Column2.HeaderText = "Cod Barras"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        Me.Column2.Width = 92
         '
         'Column3
         '
@@ -314,53 +402,6 @@ Partial Class frmActualizarTodo
         Me.Column22.ReadOnly = True
         Me.Column22.Width = 93
         '
-        'btnImportar
-        '
-        Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
-        Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImportar.Location = New System.Drawing.Point(331, 25)
-        Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(95, 74)
-        Me.btnImportar.TabIndex = 2
-        Me.btnImportar.Text = "Importar"
-        Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnImportar.UseVisualStyleBackColor = True
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(435, 76)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(202, 23)
-        Me.ProgressBar1.TabIndex = 250
-        Me.ProgressBar1.Visible = False
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(706, 12)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(58, 61)
-        Me.DataGridView1.TabIndex = 252
-        Me.DataGridView1.Visible = False
-        '
-        'lblprod
-        '
-        Me.lblprod.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblprod.Location = New System.Drawing.Point(432, 55)
-        Me.lblprod.Name = "lblprod"
-        Me.lblprod.Size = New System.Drawing.Size(205, 18)
-        Me.lblprod.TabIndex = 253
-        Me.lblprod.Text = "Label2"
-        Me.lblprod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblprod.Visible = False
-        '
         'frmActualizarTodo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -374,12 +415,12 @@ Partial Class frmActualizarTodo
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Actualizar"
         Me.Panel1.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -415,4 +456,7 @@ Partial Class frmActualizarTodo
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents lblprod As Label
+    Friend WithEvents dbGrupo As RadioButton
+    Friend WithEvents rbDepartamento As RadioButton
+    Friend WithEvents cboFiltro As ComboBox
 End Class
