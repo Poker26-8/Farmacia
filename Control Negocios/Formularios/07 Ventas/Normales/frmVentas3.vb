@@ -10489,6 +10489,7 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+                Dim barras As Double = grdcaptura.Rows(miku).Cells(15).Value.ToString()
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
@@ -10509,8 +10510,8 @@ ecomoda:
 
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
-                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 60, Y)
+                e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 120, Y)
                 Y += 12.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
