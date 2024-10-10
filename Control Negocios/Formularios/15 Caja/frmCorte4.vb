@@ -1333,7 +1333,7 @@
         End If
         rd1.Close() : cnn1.Close()
 
-        e.Graphics.DrawString("Atiende: " & cboCajero.Text & " " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Atiende: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         Y += 12
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 7
@@ -1342,8 +1342,9 @@
         e.Graphics.DrawString("** CORTE PARCIAL DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 20
 
-        e.Graphics.DrawString("FOLIO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
-        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("FOLIO: " & varcodunico, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
         e.Graphics.DrawString("FECHA CORTE: " & Format(dtpInicial.Value, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17

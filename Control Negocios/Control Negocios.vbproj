@@ -833,6 +833,12 @@
     <Compile Include="Formularios\13 Facturación\frmUnidadSat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\15 Caja\FfmConsultaCorte.Designer.vb">
+      <DependentUpon>FfmConsultaCorte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\15 Caja\FfmConsultaCorte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\15 Caja\frmCorte3.Designer.vb">
       <DependentUpon>frmCorte3.vb</DependentUpon>
     </Compile>
@@ -2726,6 +2732,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\13 Facturación\frmUnidadSat.resx">
       <DependentUpon>frmUnidadSat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\15 Caja\FfmConsultaCorte.resx">
+      <DependentUpon>FfmConsultaCorte.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\15 Caja\frmCorte3.resx">
       <DependentUpon>frmCorte3.vb</DependentUpon>
