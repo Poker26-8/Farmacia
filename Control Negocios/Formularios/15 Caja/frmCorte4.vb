@@ -202,7 +202,8 @@
             txtVentasC.Text = FormatNumber(ventascredito, 2)
             txtAbonosCreditos.Text = FormatNumber(abonoscreditos, 2)
             txtDevolucionesC.Text = FormatNumber(devolucionescredito, 2)
-            txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - CDec(txtDevolucionesC.Text), 2)
+            'txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - CDec(txtDevolucionesC.Text), 2)
+            txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - (CDec(txtDevolucionesC.Text) + CDec(txtAbonosCreditos.Text)), 2)
 
             txtTotal.Text = FormatNumber(CDec(txtTotalContado.Text) + CDec(txtCredito.Text), 2)
 
@@ -921,11 +922,19 @@
         Dim Y As Double = 0
         Dim otraY As Integer = 0
 
+        Dim fechainicial As Date = dtpHInicial.Value
+        Dim horainicial As Date = dtpHInicial.Value
+        Dim finiciala As String = Format(fechainicial, "yyyy/MM/dd") & " " & Format(horainicial, "HH:mm:ss")
+
+        Dim fechafinal As Date = dtpFin.Value
+        Dim horafinal As Date = dtpHFinal.Value
+        Dim ffinal As String = Format(fechafinal, "yyyy/MM/dd") & " " & Format(horafinal, "HH:mm:ss")
+
 
         e.Graphics.DrawString("Nombre de la farmacia", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 15
         e.Graphics.DrawString(farmaciaseleccionada, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-        Y += 12
+        Y += 10
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 12
 
@@ -971,28 +980,27 @@
                 'Correo
                 If rd1("Cab6").ToString() <> "" Then
                     e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                    Y += 12
+                    Y += 10
                 End If
-                Y += 6
+                Y += 2
             End If
         Else
             Y += 0
         End If
         rd1.Close() : cnn1.Close()
 
-        e.Graphics.DrawString("Atiende: " & cboCajero.Text & " " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-        Y += 12
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
-        Y += 7
+        Y += 8
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 15
         e.Graphics.DrawString("** CALCULO PARCIAL DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 20
 
-        e.Graphics.DrawString("FOLIO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
-        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("FECHA CORTE: " & Format(dtpInicial.Value, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA CORTE INICIAL: " & finiciala, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("FECHA CORTE FINAL: " & ffinal, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
         e.Graphics.DrawString("CAJERO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 12
@@ -1193,20 +1201,20 @@
 
                         foliov = rd1(0).ToString
 
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                        cmd2.ExecuteNonQuery()
+                        'cmd2 = cnn2.CreateCommand
+                        'cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                        'cmd2.ExecuteNonQuery()
 
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                        cmd2.ExecuteNonQuery()
+                        'cmd2 = cnn2.CreateCommand
+                        'cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                        'cmd2.ExecuteNonQuery()
                     End If
                 Loop
                 rd1.Close()
 
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
-                cmd2.ExecuteNonQuery()
+                'cmd2 = cnn2.CreateCommand
+                'cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+                'cmd2.ExecuteNonQuery()
 
 
                 Dim ventasconta As Double = txtVentas.Text
@@ -1239,7 +1247,7 @@
                 Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
+                cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,Cajero,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & cboCajero.Text & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
                 If cmd1.ExecuteNonQuery() Then
                     MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                 End If
@@ -1273,6 +1281,14 @@
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
         Dim otraY As Integer = 0
+
+        Dim fechainicial As Date = dtpHInicial.Value
+        Dim horainicial As Date = dtpHInicial.Value
+        Dim finiciala As String = Format(fechainicial, "yyyy/MM/dd") & " " & Format(horainicial, "HH:mm:ss")
+
+        Dim fechafinal As Date = dtpFin.Value
+        Dim horafinal As Date = dtpHFinal.Value
+        Dim ffinal As String = Format(fechafinal, "yyyy/MM/dd") & " " & Format(horafinal, "HH:mm:ss")
 
 
         e.Graphics.DrawString("Nombre de la farmacia", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -1324,9 +1340,9 @@
                 'Correo
                 If rd1("Cab6").ToString() <> "" Then
                     e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                    Y += 12
+                    Y += 10
                 End If
-                Y += 6
+                Y += 4
             End If
         Else
             Y += 0
@@ -1334,19 +1350,21 @@
         rd1.Close() : cnn1.Close()
 
         e.Graphics.DrawString("Atiende: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-        Y += 12
+        Y += 10
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 7
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 15
-        e.Graphics.DrawString("** CORTE PARCIAL DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        e.Graphics.DrawString("** CORTE FINAL DE CAJERO **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 20
 
         e.Graphics.DrawString("FOLIO: " & varcodunico, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("FECHA CORTE: " & Format(dtpInicial.Value, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA CORTE INICIAL: " & finiciala, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("FECHA CORTE FINAL: " & ffinal, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
         e.Graphics.DrawString("CAJERO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 12
