@@ -312,7 +312,20 @@ Public Class frmLoad
     End Sub
 
     Public Sub verif()
+        ' vartabladispositivos
+        'Try
+        '    cnn1.Close()
+        '    cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = vartabladispositivos
+        '    If cmd1.ExecuteNonQuery Then
+        '    Else
 
+        '    End If
+
+        '    cnn1.Close()
+        'Catch ex As Exception
+        'End Try
         'trasladosdet
         Try
             cnn1.Close()
