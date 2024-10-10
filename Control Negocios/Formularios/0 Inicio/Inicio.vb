@@ -2292,4 +2292,9 @@ Public Class Inicio
         frmActualizarTodo.BringToFront()
         frmActualizarTodo.Show()
     End Sub
+
+    Private Sub ConsultaDeCorteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaDeCorteToolStripMenuItem.Click
+        FfmConsultaCorte.Show()
+        FfmConsultaCorte.BringToFront()
+    End Sub
 End Class
