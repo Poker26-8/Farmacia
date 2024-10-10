@@ -1,5 +1,41 @@
 ﻿Module CrearBD
 
+    'CORTEFARMACIA
+    Public VartablaCorteUsuarioFar As String = "CREATE TABLE `corteusuariofar` (
+                                                          `Id` int(11) NOT NULL,
+                                                          `Folio` varchar(100) NOT NULL DEFAULT '',
+                                                          `FInicial` datetime NOT NULL,
+                                                          `FFinal` datetime NOT NULL,
+                                                          `VentasC` double NOT NULL DEFAULT '0',
+                                                          `DevolucionesC` double NOT NULL DEFAULT '0',
+                                                          `ServiciosC` double NOT NULL DEFAULT '0',
+                                                          `RecargasC` double NOT NULL DEFAULT '0',
+                                                          `TotalContado` double NOT NULL DEFAULT '0',
+                                                          `VentasCre` double NOT NULL DEFAULT '0',
+                                                          `AbonosCre` double NOT NULL DEFAULT '0',
+                                                          `DevolucionesCre` double NOT NULL DEFAULT '0',
+                                                          `TotalCredito` double NOT NULL DEFAULT '0',
+                                                          `TotalGeneral` double NOT NULL DEFAULT '0',
+                                                          `Ingresos` double NOT NULL DEFAULT '0',
+                                                          `SaldoInicial` double NOT NULL DEFAULT '0',
+                                                          `Retiros` double NOT NULL DEFAULT '0',
+                                                          `DevolucionesT` double NOT NULL DEFAULT '0',
+                                                          `SumaIngresos` double NOT NULL DEFAULT '0',
+                                                          `SumaCajero` double NOT NULL DEFAULT '0',
+                                                          `SumaDiferencia` double NOT NULL DEFAULT '0',
+                                                          `TotalIngresos` double NOT NULL DEFAULT '0',
+                                                          `TotalCajero` double NOT NULL DEFAULT '0',
+                                                          `TotalDiferencia` double NOT NULL DEFAULT '0',
+                                                          `IngresosF` double NOT NULL DEFAULT '0',
+                                                          `DevolucionesF` double NOT NULL DEFAULT '0',
+                                                          `SumaIngresosF` double NOT NULL DEFAULT '0',
+                                                          `SumaCajeroF` double NOT NULL DEFAULT '0',
+                                                          `SumaDiferenciaF` double NOT NULL DEFAULT '0',
+                                                          `TotalIngresosF` double NOT NULL DEFAULT '0',
+                                                          `TotalCajeroF` double NOT NULL DEFAULT '0',
+                                                          `TotalDiferenciaF` double NOT NULL DEFAULT '0'
+                                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                                                        "
     'prescripcion
     Public VartablaPrescripcion As String = "CREATE TABLE `prescripcion` (
                                               `Folio` int(11) NOT NULL,
