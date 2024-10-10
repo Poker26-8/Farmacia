@@ -1008,7 +1008,7 @@
         Y += 12
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 15
-        e.Graphics.DrawString("VENTAS DE CONTADO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("VENTAS DE CONTADO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         Y += 15
         e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         e.Graphics.DrawString(txtVentas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
@@ -1028,7 +1028,7 @@
         e.Graphics.DrawString(txtTotalContado.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 20
 
-        e.Graphics.DrawString("VENTAS DE CREDITO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("VENTAS DE CREDITO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         Y += 15
         e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         e.Graphics.DrawString(txtVentasC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
