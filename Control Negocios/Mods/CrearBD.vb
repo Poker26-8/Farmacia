@@ -6978,6 +6978,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeycorteusuariofar As String = "ALTER TABLE `corteusuariofar`ADD PRIMARY KEY (`Id`);"
     Public VarKeyPrescripcion As String = "ALTER TABLE `prescripcion`ADD PRIMARY KEY (`Folio`);"
     Public VarKeyhisclinica As String = "ALTER TABLE `hisclinica`ADD PRIMARY KEY (`Id`);"
     Public VarKeydepartamentos As String = "ALTER TABLE `departamentos`ADD PRIMARY KEY (`Id`);"
@@ -7151,6 +7152,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutocorteusuariofar As String = "ALTER TABLE `corteusuariofar`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutoPrescripcion As String = "ALTER TABLE `prescripcion`MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutohiscliente As String = "ALTER TABLE `hisclinica`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutodepartamentos As String = "ALTER TABLE `departamentos`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

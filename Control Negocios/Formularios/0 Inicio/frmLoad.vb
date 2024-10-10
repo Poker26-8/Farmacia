@@ -312,21 +312,27 @@ Public Class frmLoad
     End Sub
 
     Public Sub verif()
-        ' vartabladispositivos
-        'Try
-        '    cnn1.Close()
-        '    cnn1.Open()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = vartabladispositivos
-        '    If cmd1.ExecuteNonQuery Then
-        '    Else
+        ' VartablaCorteUsuarioFar
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VartablaCorteUsuarioFar
+            cmd1.ExecuteNonQuery()
 
-        '    End If
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VarKeycorteusuariofar
+            cmd1.ExecuteNonQuery()
 
-        '    cnn1.Close()
-        'Catch ex As Exception
-        'End Try
-        'trasladosdet
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = varAutocorteusuariofar
+            cmd1.ExecuteNonQuery()
+
+            cnn1.Close()
+        Catch ex As Exception
+        End Try
+
+        '  trasladosdet
         Try
             cnn1.Close()
             cnn1.Open()
