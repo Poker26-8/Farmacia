@@ -192,7 +192,9 @@ Public Class frmRecibeTraspaso
 
     Private Sub btnreporte_Click(sender As Object, e As EventArgs) Handles btnreporte.Click
         Try
-
+            btnreporte.Enabled = False
+            Label5.Visible = True
+            My.Application.DoEvents()
             consultaTraspasosEntrada()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -239,24 +241,35 @@ Public Class frmRecibeTraspaso
         Dim ssqlinsertal As String = ""
         Dim dt3 As New DataTable
         Dim dt4 As New DataTable
+        Dim dt5 As New DataTable
         Dim d3 As DataRow
         Dim dr4 As DataRow
+        Dim dr5 As DataRow
         Dim sinfo As String = ""
         Dim odata3 As New ToolKitSQL.myssql
         Dim odata4 As New ToolKitSQL.myssql
+        Dim barras As String = ""
 
         If odata3.dbOpen(cnn3, sTargetlocal, sinfo) Then
             If odata4.dbOpen(cnn4, sTargetdSincro, sinfo) Then
                 If odata4.getDt(cnn4, dt4, sSQL, sinfo) Then
                     For Each dr4 In dt4.Rows
+                        If odata4.getDt(cnn4, dt5, "Select CodBarra from productos where COdigo='" & dr4("Codigo").ToString & "'", sinfo) Then
+                            For Each dr5 In dt5.Rows
+                                barras = dr5(0).ToString
+                            Next
+                        End If
                         My.Application.DoEvents()
-                        grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString)
+                        grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString, barras)
                     Next
                 End If
                 cnn4.Close()
             End If
             cnn3.Close()
-
+            My.Application.DoEvents()
+            btnreporte.Enabled = True
+            Label5.Visible = False
+            My.Application.DoEvents()
         End If
     End Sub
 
@@ -545,6 +558,7 @@ Public Class frmRecibeTraspaso
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 8, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -637,12 +651,13 @@ Public Class frmRecibeTraspaso
         e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
         Y += 18
 
-        e.Graphics.DrawString("Folio: " & ComboBox1.Text, fuente_datos, Brushes.Black, 285, Y, sf)
-        e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Folio: " & ComboBox1.Text, fuente_fecha, Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("Fecha: " & Format(Date.Now, "d/MM/yyyy HH:mm:ss"), fuente_fecha, Brushes.Black, 1, Y)
+
         Y += 17
-        e.Graphics.DrawString("Origen: " & cbo.Text, fuente_datos, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Origen: " & cbo.Text, fuente_fecha, Brushes.Black, 1, Y)
         Y += 15
-        e.Graphics.DrawString("Destino: " & lblSuc.Text, fuente_datos, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Destino: " & lblSuc.Text, fuente_fecha, Brushes.Black, 1, Y)
         Y += 12
 
         Y += 4
@@ -678,6 +693,7 @@ Public Class frmRecibeTraspaso
             Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim total As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+            Dim barras As Double = grdcaptura.Rows(miku).Cells(9).Value.ToString()
             'Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
             'Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
             Dim lote As String = ""
@@ -686,8 +702,8 @@ Public Class frmRecibeTraspaso
             lote = grdcaptura.Rows(miku).Cells(7).Value.ToString()
             caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
 
-            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 55, Y)
+            e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
             Y += 15
 
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
@@ -756,5 +772,9 @@ milky:
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        pSalida80.Print()
     End Sub
 End Class

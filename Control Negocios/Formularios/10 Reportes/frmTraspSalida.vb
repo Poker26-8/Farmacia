@@ -1011,6 +1011,7 @@ Nota:
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 8, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -1103,10 +1104,10 @@ Nota:
         e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
         Y += 18
 
-        e.Graphics.DrawString("Folio: " & lblfolio.Text, fuente_datos, Brushes.Black, 285, Y, sf)
-        e.Graphics.DrawString("Fecha: " & FormatDateTime(dtpfecha.Value, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Folio: " & lblfolio.Text, fuente_fecha, Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/yyyy HH:mm:ss"), fuente_fecha, Brushes.Black, 1, Y)
         Y += 17
-        e.Graphics.DrawString("Destino: " & cbo.Text, fuente_datos, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Destino: " & cbo.Text, fuente_fecha, Brushes.Black, 1, Y)
         Y += 12
 
         Y += 4
