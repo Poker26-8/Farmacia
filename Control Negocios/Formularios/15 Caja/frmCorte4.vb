@@ -15,7 +15,7 @@
         Try
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Usuario FROM abonoi WHERE Usuario<>'' AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' ORDER BY Usuario"
+            cmd5.CommandText = "SELECT DISTINCT Usuario FROM abonoi WHERE Usuario<>'' AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND CorteU<>1 ORDER BY Usuario"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -33,15 +33,15 @@
 
     Private Sub btnCalculadora_Click(sender As Object, e As EventArgs) Handles btnCalculadora.Click
         Try
-            varcodunico = Format(CDate(Date.Now), "yyyy/MM/ddHH:mm:ss.fff")
-            varcodunico = QuitarCaracteresEspeciales(varcodunico)
+
+            If cboCajero.Text = "" Then MsgBox("Seleccione el cajero para continuar", vbInformation + vbOKOnly, titulocentral) : cboCajero.Focus.Equals(True) : Exit Sub
 
 
             Dim corteciego As Integer = DatosRecarga("CorteCiego")
 
             If corteciego = 1 Then
                 If Calculo = False Then
-                    MsgBox("Para continuar realice el cálculo de su efectivo en caja.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
+                    MsgBox("Para continuar realice el cálculo de su efectivo en caja.", vbInformation + vbOKOnly, titulocentral)
                     gbxCalculo.Visible = True
                     txtCant500.Focus()
                     rd1.Close()
@@ -70,7 +70,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Folio,Status FROM ventas WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Usuario='" & cboCajero.Text & "'"
+            cmd1.CommandText = "SELECT Folio,Status FROM ventas WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Usuario='" & cboCajero.Text & "' AND CorteU<>1"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -183,7 +183,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Monto) FROM otrosgastos WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT SUM(Monto) FROM otrosgastos WHERE Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' AND CorteU<>1"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -830,26 +830,26 @@
     End Sub
 
     Private Sub btnOKCalculo_Click(sender As Object, e As EventArgs) Handles btnOKCalculo.Click
-        If CDec(txtTotalCalculo.Text) = 0 And CDec(txtTotalFormas.Text) = 0 Then
+        If CDec(txtTotalCalculo.Text) = 0 Then
             MsgBox("No ha ingresado un cálculo válido", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
             Exit Sub
         End If
 
-        If txtTotalFormas.Text > 0 Then
+        'If txtTotalFormas.Text > 0 Then
 
-            If MsgBox("Su cálculo de formas de pago en caja es de: $" & FormatNumber(txtTotalFormas.Text, 2) & vbNewLine & "¿La cantidad es correcta? Esta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
-                txtTotalCalculo.Focus()
-                txtTotalCalculo.SelectAll()
-                Exit Sub
-            Else
+        '    If MsgBox("Su cálculo de formas de pago en caja es de: $" & FormatNumber(txtTotalFormas.Text, 2) & vbNewLine & "¿La cantidad es correcta? Esta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+        '        txtTotalCalculo.Focus()
+        '        txtTotalCalculo.SelectAll()
+        '        Exit Sub
+        '    Else
 
-                Calculo = True
-                txtSumCajeroTar.Text = txtTotalFormas.Text
-                txtTotalCajeroTar.Text = txtTotalFormas.Text
-                gbxCalculo.Visible = False
-            End If
+        '        Calculo = True
+        '        txtSumCajeroTar.Text = txtTotalFormas.Text
+        '        txtTotalCajeroTar.Text = txtTotalFormas.Text
+        '        gbxCalculo.Visible = False
+        '    End If
 
-        End If
+        'End If
 
         If txtTotalCalculo.Text > 0 Then
 
@@ -886,30 +886,12 @@
 
     Private Sub txtIngresosTar_TextChanged(sender As Object, e As EventArgs) Handles txtIngresosTar.TextChanged
         Dim total As Double = CDbl(IIf(txtIngresosTar.Text = "", "0", txtIngresosTar.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
-        txtSumSistemaTar.Text = FormatNumber(total, 2)
+
         txtTotalIngresosTar.Text = FormatNumber(total, 2)
-    End Sub
+        txtTotalCajeroTar.Text = FormatNumber(total, 2)
+        txtSumCajeroTar.Text = FormatNumber(total, 2)
+        txtSumSistemaTar.Text = FormatNumber(total, 2)
 
-    Private Sub txtformas_TextChanged(sender As Object, e As EventArgs) Handles txtformas.TextChanged
-        If txtformas.Text = "" Then
-            txtformas.Text = "0"
-        End If
-        txtTotalFormas.Text = CDec(txtformas.Text)
-        txtTotalFormas.Text = FormatNumber(txtformas.Text, 2)
-    End Sub
-
-    Private Sub txtformas_GotFocus(sender As Object, e As EventArgs) Handles txtformas.GotFocus
-        txtformas.SelectAll()
-    End Sub
-
-    Private Sub txtformas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtformas.KeyPress
-        If Asc(e.KeyChar) = Keys.Enter Then
-            If txtformas.Text = "" Then txtformas.Text = "0"
-            btnOKCalculo.Focus()
-        End If
-    End Sub
-
-    Private Sub txtTotalFormas_TextChanged(sender As Object, e As EventArgs) Handles txtTotalFormas.TextChanged
 
     End Sub
 
@@ -937,7 +919,368 @@
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim pen As New Pen(Brushes.Black, 1)
         Dim Y As Double = 0
+        Dim otraY As Integer = 0
 
+
+        e.Graphics.DrawString("Nombre de la farmacia", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 15
+        e.Graphics.DrawString(farmaciaseleccionada, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 12
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                Y += 6
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close() : cnn1.Close()
+
+        e.Graphics.DrawString("Atiende: " & cboCajero.Text & " " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 7
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("** CALCULO PARCIAL DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 20
+
+        e.Graphics.DrawString("FOLIO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 17
+        e.Graphics.DrawString("FECHA CORTE: " & Format(dtpInicial.Value, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("CAJERO: " & cboCajero.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("VENTAS DE CONTADO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtVentas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("-" & txtDevolucionesV.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Servicios:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtServicios.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Venta de tiempo aire:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtTiempo.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL CONTADO:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtTotalContado.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 20
+
+        e.Graphics.DrawString("VENTAS DE CREDITO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ventas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtVentasC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Abonos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("-" & txtAbonosCreditos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("-" & txtDevolucionesC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL CREDITO:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString(txtCredito.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 20
+        e.Graphics.DrawString("TOTAL GENERAL:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotal.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 13
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+        e.Graphics.DrawString("SISTEMA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("CAJERO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 190, Y)
+        e.Graphics.DrawString("DIF", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("EFECTIVO/PESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ingresos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtIngresos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Saldo Inicial:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtSaldoInicial.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Retiros:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtRetiros.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString(txtSumSistema.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtSumaCajero.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtSumDife.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("TOTAL EFECTIVO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotalSistema.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtTotalCajero.Text, New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtTotalDife.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 13
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 15
+
+        e.Graphics.DrawString("DOCUMENTOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 190, Y, sc)
+        Y += 15
+        e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("Ingresos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(" " & txtIngresosTar.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        Y += 15
+        e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtDevoTarj.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString(txtSumSistemaTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtSumCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtSumDifeTarj.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
+        e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+        Y += 15
+        e.Graphics.DrawString("TOTAL DOCUMENTOS", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString(txtTotalIngresosTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(txtTotalCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
+        e.Graphics.DrawString(txtTotalDifeTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        cboCajero.Text = ""
+        dtpInicial.Value = Date.Now
+        dtpHInicial.Text = "00:00:00"
+        dtpFin.Value = Date.Now
+        dtpHFinal.Text = "23:59:59"
+
+        txtVentas.Text = "0.00"
+        txtDevolucionesV.Text = "0.00"
+        txtServicios.Text = "0.00"
+        txtTiempo.Text = "0.00"
+        txtTotalContado.Text = "0.00"
+        txtVentasC.Text = "0.00"
+        txtAbonosCreditos.Text = "0.00"
+        txtDevolucionesC.Text = "0.00"
+        txtCredito.Text = "0.00"
+        txtTotal.Text = "0.00"
+        txtIngresos.Text = "0.00"
+        txtSaldoInicial.Text = "0.00"
+        txtRetiros.Text = "0.00"
+        txtDevoluciones.Text = "0.00"
+        txtSumSistema.Text = "0.00"
+        txtSumaCajero.Text = "0.00"
+        txtSumDife.Text = "0.00"
+        txtTotalSistema.Text = "0.00"
+        txtTotalCajero.Text = "0.00"
+        txtTotalDife.Text = "0.00"
+        txtIngresosTar.Text = "0.00"
+        txtDevoTarj.Text = "0.00"
+        txtSumSistemaTar.Text = "0.00"
+        txtSumCajeroTar.Text = "0.00"
+        txtSumDifeTarj.Text = "0.00"
+        txtTotalIngresosTar.Text = "0.00"
+        txtTotalCajeroTar.Text = "0.00"
+        txtTotalDifeTar.Text = "0.00"
+
+        txtCant500.Text = "0"
+        txtCant200.Text = "0"
+        txtCant100.Text = "0"
+        txtCant50.Text = "0"
+        txtCant20.Text = "0"
+        txtCant10.Text = "0"
+        txtCant5.Text = "0"
+        txtCant2.Text = "0"
+        txtCant1.Text = "0"
+        txtCantCentavos.Text = "0"
+
+
+        txtTotal500.Text = "0.00"
+        txtTotal200.Text = "0.00"
+        txtTotal100.Text = "0.00"
+        txtTotal50.Text = "0.00"
+        txtTotal20.Text = "0.00"
+        txtTotal10.Text = "0.00"
+        txtTotal5.Text = "0.00"
+        txtTotal2.Text = "0.00"
+        txtTotal1.Text = "0.00"
+        txtTotalCentavos.Text = "0.00"
+        txtTotalCalculo.Text = "0.00"
+
+        Calculo = False
+    End Sub
+
+    Private Sub btnCierre_Click(sender As Object, e As EventArgs) Handles btnCierre.Click
+        Try
+
+            varcodunico = Format(CDate(Date.Now), "yyyy/MM/ddHH:mm:ss.fff")
+            varcodunico = QuitarCaracteresEspeciales(varcodunico)
+
+            Dim foliov As Integer = 0
+
+            If MsgBox("¿Deseas realizar el corte de los días seleccionados?", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbOK Then
+
+                cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        foliov = rd1(0).ToString
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                        cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                        cmd2.ExecuteNonQuery()
+                    End If
+                Loop
+                rd1.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+                cmd2.ExecuteNonQuery()
+
+
+                Dim ventasconta As Double = txtVentas.Text
+                Dim devoconta As Double = txtDevolucionesV.Text
+                Dim serconta As Double = txtServicios.Text
+                Dim tiempoconta As Double = txtTiempo.Text
+                Dim totalcontado As Double = txtTotalContado.Text
+                Dim ventascre As Double = txtVentasC.Text
+                Dim abonoscre As Double = txtAbonosCreditos.Text
+                Dim devolucionescre As Double = txtDevolucionesC.Text
+                Dim totalcredito As Double = txtCredito.Text
+                Dim totalgeneral As Double = txtTotal.Text
+                Dim ingresos As Double = txtIngresos.Text
+                Dim saldoinicial As Double = txtSaldoInicial.Text
+                Dim retiros As Double = txtRetiros.Text
+                Dim devoluciones As Double = txtDevoluciones.Text
+                Dim sumaingresos As Double = txtSumSistema.Text
+                Dim sumacajero As Double = txtSumaCajero.Text
+                Dim sumadiferencia As Double = txtSumDife.Text
+                Dim totalsistema As Double = txtTotalSistema.Text
+                Dim totalcajero As Double = txtTotalCajero.Text
+                Dim totaldiferencia As Double = txtTotalDife.Text
+                Dim ingresostarjeta As Double = txtIngresosTar.Text
+                Dim devolucionestarjeta As Double = txtDevoTarj.Text
+                Dim sumasistematar As Double = txtSumSistemaTar.Text
+                Dim sumacajerotar As Double = txtSumCajeroTar.Text
+                Dim sumadiferenciatar As Double = txtSumDifeTarj.Text
+                Dim totalingresostar As Double = txtTotalIngresosTar.Text
+                Dim totalcajerotar As Double = txtTotalCajeroTar.Text
+                Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
+                If cmd1.ExecuteNonQuery() Then
+                    MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
+                End If
+                cnn2.Close()
+                cnn1.Close()
+
+                Dim impre As Integer = TamImpre()
+                Dim impresora As String = ImpresoraImprimir()
+                If impre = "80" Then
+                    PCierre80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    PCierre80.Print()
+                End If
+
+            End If
+            Button1.PerformClick()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub PCierre80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PCierre80.PrintPage
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_prods2 As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim otraY As Integer = 0
+
+
+        e.Graphics.DrawString("Nombre de la farmacia", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 15
+        e.Graphics.DrawString(farmaciaseleccionada, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 12
+        e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
+        Y += 12
 
         '[°]. Datos del negocio
         cnn1.Close() : cnn1.Open()
@@ -1014,7 +1357,7 @@
         e.Graphics.DrawString(txtVentas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 15
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
-        e.Graphics.DrawString(txtDevolucionesV.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("-" & txtDevolucionesV.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 15
         e.Graphics.DrawString("Servicios:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
         e.Graphics.DrawString(txtServicios.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
@@ -1034,10 +1377,10 @@
         e.Graphics.DrawString(txtVentasC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 15
         e.Graphics.DrawString("Abonos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
-        e.Graphics.DrawString(txtAbonosCreditos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("-" & txtAbonosCreditos.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 15
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
-        e.Graphics.DrawString(txtDevolucionesC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+        e.Graphics.DrawString("-" & txtDevolucionesC.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
         Y += 15
         e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
         Y += 20
@@ -1064,10 +1407,10 @@
         e.Graphics.DrawString(txtSaldoInicial.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
         e.Graphics.DrawString("Retiros:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString(txtRetiros.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        e.Graphics.DrawString("-" & txtRetiros.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString(txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
@@ -1094,10 +1437,10 @@
         e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         Y += 15
         e.Graphics.DrawString("Ingresos:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString(txtIngresosTar.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString(" " & txtIngresosTar.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
         Y += 15
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString(txtDevoTarj.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
+        e.Graphics.DrawString("-" & txtDevoTarj.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 120, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
@@ -1115,13 +1458,14 @@
         e.Graphics.DrawString(txtTotalIngresosTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 120, Y)
         e.Graphics.DrawString(txtTotalCajeroTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y)
         e.Graphics.DrawString(txtTotalDifeTar.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-        Y += 17
+        Y += 30
+        otraY = Y
 
 
         GeneraBarras(PictureBox1, varcodunico)
         Dim bm As New Bitmap(PictureBox1.Width, PictureBox1.Height)
         PictureBox1.DrawToBitmap(bm, New Rectangle(0, 0, bm.Width, bm.Height))
-        e.Graphics.DrawImage(bm, 40, 750, 210, 40)
+        e.Graphics.DrawImage(bm, 40, otraY, 210, 40)
         Y += 45
         e.Graphics.DrawString(varcodunico, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 100
@@ -1131,86 +1475,17 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        cboCajero.Text = ""
-        dtpInicial.Value = Date.Now
-        dtpHInicial.Text = "00:00:00"
-        dtpFin.Value = Date.Now
-        dtpHFinal.Text = "23:59:59"
+    Private Sub txtSumaCajero_TextChanged(sender As Object, e As EventArgs) Handles txtSumaCajero.TextChanged
+        Dim dife As Double = 0
 
-        txtVentas.Text = "0.00"
-        txtDevolucionesV.Text = "0.00"
-        txtServicios.Text = "0.00"
-        txtTiempo.Text = "0.00"
-        txtTotalContado.Text = "0.00"
-        txtVentasC.Text = "0.00"
-        txtAbonosCreditos.Text = "0.00"
-        txtDevolucionesC.Text = "0.00"
-        txtCredito.Text = "0.00"
-        txtTotal.Text = "0.00"
-        txtIngresos.Text = "0.00"
-        txtSaldoInicial.Text = "0.00"
-        txtRetiros.Text = "0.00"
-        txtDevoluciones.Text = "0.00"
-        txtSumSistema.Text = "0.00"
-        txtSumaCajero.Text = "0.00"
-        txtSumDife.Text = "0.00"
-        txtTotalSistema.Text = "0.00"
-        txtTotalCajero.Text = "0.00"
-        txtTotalDife.Text = "0.00"
-        txtIngresosTar.Text = "0.00"
-        txtDevoTarj.Text = "0.00"
-        txtSumSistemaTar.Text = "0.00"
-        txtSumCajeroTar.Text = "0.00"
-        txtSumDifeTarj.Text = "0.00"
-        txtTotalIngresosTar.Text = "0.00"
-        txtTotalCajeroTar.Text = "0.00"
-        txtTotalDifeTar.Text = "0.00"
+        dife = CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text)) - CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text))
 
-        txtCant500.Text = "0"
-        txtCant200.Text = "0"
-        txtCant100.Text = "0"
-        txtCant50.Text = "0"
-        txtCant20.Text = "0"
-        txtCant10.Text = "0"
-        txtCant5.Text = "0"
-        txtCant2.Text = "0"
-        txtCant1.Text = "0"
-        txtCantCentavos.Text = "0"
-        txtformas.Text = "0"
-
-        txtTotal500.Text = "0.00"
-        txtTotal200.Text = "0.00"
-        txtTotal100.Text = "0.00"
-        txtTotal50.Text = "0.00"
-        txtTotal20.Text = "0.00"
-        txtTotal10.Text = "0.00"
-        txtTotal5.Text = "0.00"
-        txtTotal2.Text = "0.00"
-        txtTotal1.Text = "0.00"
-        txtTotalCentavos.Text = "0.00"
-        txtTotalFormas.Text = "0.00"
-        txtTotalCalculo.Text = "0.00"
-
-        Calculo = False
-    End Sub
-
-    Private Sub btnCierre_Click(sender As Object, e As EventArgs) Handles btnCierre.Click
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "'"
-            If rd1.HasRows Then
-                If rd1.Read Then
-
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        If dife > 0 Then
+            txtSumDife.Text = FormatNumber(dife, 2)
+            txtTotalDife.Text = FormatNumber(dife, 2)
+        Else
+            txtSumDife.Text = FormatNumber(-dife, 2)
+            txtTotalDife.Text = FormatNumber(-dife, 2)
+        End If
     End Sub
 End Class

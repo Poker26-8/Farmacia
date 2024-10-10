@@ -27,10 +27,6 @@ Partial Class frmCorte4
         Me.Label38 = New System.Windows.Forms.Label()
         Me.gbxCalculo = New System.Windows.Forms.GroupBox()
         Me.grpb = New System.Windows.Forms.GroupBox()
-        Me.txtTotalFormas = New System.Windows.Forms.TextBox()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.txtformas = New System.Windows.Forms.TextBox()
         Me.btnOKCalculo = New System.Windows.Forms.Button()
         Me.btnNOCalculo = New System.Windows.Forms.Button()
         Me.txtTotalCalculo = New System.Windows.Forms.TextBox()
@@ -146,7 +142,7 @@ Partial Class frmCorte4
         Me.dtpHFinal = New System.Windows.Forms.DateTimePicker()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PCierre80 = New System.Drawing.Printing.PrintDocument()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCierre = New System.Windows.Forms.Button()
@@ -245,7 +241,7 @@ Partial Class frmCorte4
         Me.gbxCalculo.Controls.Add(Me.grpb)
         Me.gbxCalculo.Location = New System.Drawing.Point(116, 109)
         Me.gbxCalculo.Name = "gbxCalculo"
-        Me.gbxCalculo.Size = New System.Drawing.Size(233, 401)
+        Me.gbxCalculo.Size = New System.Drawing.Size(233, 363)
         Me.gbxCalculo.TabIndex = 175
         Me.gbxCalculo.TabStop = False
         Me.gbxCalculo.Visible = False
@@ -253,10 +249,6 @@ Partial Class frmCorte4
         'grpb
         '
         Me.grpb.BackColor = System.Drawing.Color.White
-        Me.grpb.Controls.Add(Me.txtTotalFormas)
-        Me.grpb.Controls.Add(Me.Label40)
-        Me.grpb.Controls.Add(Me.Label39)
-        Me.grpb.Controls.Add(Me.txtformas)
         Me.grpb.Controls.Add(Me.btnOKCalculo)
         Me.grpb.Controls.Add(Me.btnNOCalculo)
         Me.grpb.Controls.Add(Me.txtTotalCalculo)
@@ -303,56 +295,16 @@ Partial Class frmCorte4
         Me.grpb.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.grpb.Location = New System.Drawing.Point(6, 10)
         Me.grpb.Name = "grpb"
-        Me.grpb.Size = New System.Drawing.Size(220, 378)
+        Me.grpb.Size = New System.Drawing.Size(220, 340)
         Me.grpb.TabIndex = 160
         Me.grpb.TabStop = False
         Me.grpb.Text = "Cálculo de efetivo."
-        '
-        'txtTotalFormas
-        '
-        Me.txtTotalFormas.BackColor = System.Drawing.Color.White
-        Me.txtTotalFormas.Location = New System.Drawing.Point(122, 307)
-        Me.txtTotalFormas.Name = "txtTotalFormas"
-        Me.txtTotalFormas.ReadOnly = True
-        Me.txtTotalFormas.Size = New System.Drawing.Size(82, 22)
-        Me.txtTotalFormas.TabIndex = 46
-        Me.txtTotalFormas.Text = "0.00"
-        Me.txtTotalFormas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label40.Location = New System.Drawing.Point(105, 311)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(17, 18)
-        Me.Label40.TabIndex = 45
-        Me.Label40.Text = "="
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(69, 311)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(27, 18)
-        Me.Label39.TabIndex = 44
-        Me.Label39.Text = "FP"
-        '
-        'txtformas
-        '
-        Me.txtformas.Location = New System.Drawing.Point(11, 307)
-        Me.txtformas.Name = "txtformas"
-        Me.txtformas.Size = New System.Drawing.Size(52, 22)
-        Me.txtformas.TabIndex = 43
-        Me.txtformas.Text = "0"
-        Me.txtformas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnOKCalculo
         '
         Me.btnOKCalculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOKCalculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnOKCalculo.Location = New System.Drawing.Point(55, 345)
+        Me.btnOKCalculo.Location = New System.Drawing.Point(55, 307)
         Me.btnOKCalculo.Name = "btnOKCalculo"
         Me.btnOKCalculo.Size = New System.Drawing.Size(41, 23)
         Me.btnOKCalculo.TabIndex = 42
@@ -363,7 +315,7 @@ Partial Class frmCorte4
         '
         Me.btnNOCalculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNOCalculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnNOCalculo.Location = New System.Drawing.Point(11, 345)
+        Me.btnNOCalculo.Location = New System.Drawing.Point(11, 307)
         Me.btnNOCalculo.Name = "btnNOCalculo"
         Me.btnNOCalculo.Size = New System.Drawing.Size(41, 23)
         Me.btnNOCalculo.TabIndex = 41
@@ -373,7 +325,7 @@ Partial Class frmCorte4
         'txtTotalCalculo
         '
         Me.txtTotalCalculo.BackColor = System.Drawing.Color.White
-        Me.txtTotalCalculo.Location = New System.Drawing.Point(122, 345)
+        Me.txtTotalCalculo.Location = New System.Drawing.Point(122, 307)
         Me.txtTotalCalculo.Name = "txtTotalCalculo"
         Me.txtTotalCalculo.ReadOnly = True
         Me.txtTotalCalculo.Size = New System.Drawing.Size(82, 22)
@@ -1529,6 +1481,9 @@ Partial Class frmCorte4
         Me.Label36.TabIndex = 68
         Me.Label36.Text = "F.FINAL:"
         '
+        'PCierre80
+        '
+        '
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -1719,11 +1674,7 @@ Partial Class frmCorte4
     Friend WithEvents txtCant500 As TextBox
     Friend WithEvents Label82 As Label
     Friend WithEvents Label38 As Label
-    Friend WithEvents txtTotalFormas As TextBox
-    Friend WithEvents Label40 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents txtformas As TextBox
-    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PCierre80 As Printing.PrintDocument
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnCierre As Button

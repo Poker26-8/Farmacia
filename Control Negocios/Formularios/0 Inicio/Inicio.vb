@@ -249,6 +249,7 @@ Public Class Inicio
                     If odata.getDr(cnn, dr, ssql, sInfo) Then
                         banderasientro += 1
                         Label1.Text = "SUCURSAL: " & dr("nombre").ToString
+                        farmaciaseleccionada = dr("nombre").ToString
                         'frmSincro.lbl_direccion.Text = dr("direccion").ToString
                         'frmSincro.grid_eventos.Rows.Insert(0, "Conectado a Delsscom", Date.Now)
                     End If
