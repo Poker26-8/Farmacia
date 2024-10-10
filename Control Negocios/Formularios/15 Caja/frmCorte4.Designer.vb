@@ -149,7 +149,7 @@ Partial Class frmCorte4
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCierre = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.gbxCalculo.SuspendLayout()
         Me.grpb.SuspendLayout()
@@ -1553,18 +1553,18 @@ Partial Class frmCorte4
         Me.PictureBox1.TabIndex = 257
         Me.PictureBox1.TabStop = False
         '
-        'Button2
+        'btnCierre
         '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(372, 2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(68, 70)
-        Me.Button2.TabIndex = 258
-        Me.Button2.Text = "Realizar cierre"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCierre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCierre.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCierre.Location = New System.Drawing.Point(372, 2)
+        Me.btnCierre.Name = "btnCierre"
+        Me.btnCierre.Size = New System.Drawing.Size(68, 70)
+        Me.btnCierre.TabIndex = 258
+        Me.btnCierre.Text = "Realizar cierre"
+        Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCierre.UseVisualStyleBackColor = True
         '
         'frmCorte4
         '
@@ -1572,7 +1572,7 @@ Partial Class frmCorte4
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(520, 823)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnCierre)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label36)
@@ -1726,5 +1726,5 @@ Partial Class frmCorte4
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnCierre As Button
 End Class
