@@ -2,6 +2,8 @@
 
     Dim Calculo As Boolean = False
     Dim varcodunico As String = ""
+    Dim usuario As String = ""
+
     Private Sub frmCorte4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         dtpInicial.Value = Date.Now
@@ -1186,83 +1188,91 @@
             varcodunico = Format(CDate(Date.Now), "yyyy/MM/ddHH:mm:ss.fff")
             varcodunico = QuitarCaracteresEspeciales(varcodunico)
 
-            Dim foliov As Integer = 0
+            If usuario = "" Then
+                pcontra.Visible = True
+                txtContraseña.Focus.Equals(True)
 
-            If MsgBox("¿Deseas realizar el corte de los días seleccionados?", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbOK Then
+            Else
+                Dim foliov As Integer = 0
 
-                cnn1.Close() : cnn1.Open()
-                cnn2.Close() : cnn2.Open()
+                If MsgBox("¿Deseas realizar el corte de los días seleccionados?", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbOK Then
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                rd1 = cmd1.ExecuteReader
-                Do While rd1.Read
-                    If rd1.HasRows Then
+                    cnn1.Close() : cnn1.Open()
+                    cnn2.Close() : cnn2.Open()
 
-                        foliov = rd1(0).ToString
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then
 
-                        'cmd2 = cnn2.CreateCommand
-                        'cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                        'cmd2.ExecuteNonQuery()
+                            foliov = rd1(0).ToString
 
-                        'cmd2 = cnn2.CreateCommand
-                        'cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                        'cmd2.ExecuteNonQuery()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                            cmd2.ExecuteNonQuery()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
+                            cmd2.ExecuteNonQuery()
+                        End If
+                    Loop
+                    rd1.Close()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+                    cmd2.ExecuteNonQuery()
+
+
+                    Dim ventasconta As Double = txtVentas.Text
+                    Dim devoconta As Double = txtDevolucionesV.Text
+                    Dim serconta As Double = txtServicios.Text
+                    Dim tiempoconta As Double = txtTiempo.Text
+                    Dim totalcontado As Double = txtTotalContado.Text
+                    Dim ventascre As Double = txtVentasC.Text
+                    Dim abonoscre As Double = txtAbonosCreditos.Text
+                    Dim devolucionescre As Double = txtDevolucionesC.Text
+                    Dim totalcredito As Double = txtCredito.Text
+                    Dim totalgeneral As Double = txtTotal.Text
+                    Dim ingresos As Double = txtIngresos.Text
+                    Dim saldoinicial As Double = txtSaldoInicial.Text
+                    Dim retiros As Double = txtRetiros.Text
+                    Dim devoluciones As Double = txtDevoluciones.Text
+                    Dim sumaingresos As Double = txtSumSistema.Text
+                    Dim sumacajero As Double = txtSumaCajero.Text
+                    Dim sumadiferencia As Double = txtSumDife.Text
+                    Dim totalsistema As Double = txtTotalSistema.Text
+                    Dim totalcajero As Double = txtTotalCajero.Text
+                    Dim totaldiferencia As Double = txtTotalDife.Text
+                    Dim ingresostarjeta As Double = txtIngresosTar.Text
+                    Dim devolucionestarjeta As Double = txtDevoTarj.Text
+                    Dim sumasistematar As Double = txtSumSistemaTar.Text
+                    Dim sumacajerotar As Double = txtSumCajeroTar.Text
+                    Dim sumadiferenciatar As Double = txtSumDifeTarj.Text
+                    Dim totalingresostar As Double = txtTotalIngresosTar.Text
+                    Dim totalcajerotar As Double = txtTotalCajeroTar.Text
+                    Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
+                    If cmd1.ExecuteNonQuery() Then
+                        MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                     End If
-                Loop
-                rd1.Close()
+                    cnn2.Close()
+                    cnn1.Close()
 
-                'cmd2 = cnn2.CreateCommand
-                'cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
-                'cmd2.ExecuteNonQuery()
+                    Dim impre As Integer = TamImpre()
+                    Dim impresora As String = ImpresoraImprimir()
+                    If impre = "80" Then
+                        PCierre80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        PCierre80.Print()
+                    End If
 
-
-                Dim ventasconta As Double = txtVentas.Text
-                Dim devoconta As Double = txtDevolucionesV.Text
-                Dim serconta As Double = txtServicios.Text
-                Dim tiempoconta As Double = txtTiempo.Text
-                Dim totalcontado As Double = txtTotalContado.Text
-                Dim ventascre As Double = txtVentasC.Text
-                Dim abonoscre As Double = txtAbonosCreditos.Text
-                Dim devolucionescre As Double = txtDevolucionesC.Text
-                Dim totalcredito As Double = txtCredito.Text
-                Dim totalgeneral As Double = txtTotal.Text
-                Dim ingresos As Double = txtIngresos.Text
-                Dim saldoinicial As Double = txtSaldoInicial.Text
-                Dim retiros As Double = txtRetiros.Text
-                Dim devoluciones As Double = txtDevoluciones.Text
-                Dim sumaingresos As Double = txtSumSistema.Text
-                Dim sumacajero As Double = txtSumaCajero.Text
-                Dim sumadiferencia As Double = txtSumDife.Text
-                Dim totalsistema As Double = txtTotalSistema.Text
-                Dim totalcajero As Double = txtTotalCajero.Text
-                Dim totaldiferencia As Double = txtTotalDife.Text
-                Dim ingresostarjeta As Double = txtIngresosTar.Text
-                Dim devolucionestarjeta As Double = txtDevoTarj.Text
-                Dim sumasistematar As Double = txtSumSistemaTar.Text
-                Dim sumacajerotar As Double = txtSumCajeroTar.Text
-                Dim sumadiferenciatar As Double = txtSumDifeTarj.Text
-                Dim totalingresostar As Double = txtTotalIngresosTar.Text
-                Dim totalcajerotar As Double = txtTotalCajeroTar.Text
-                Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,Cajero,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & cboCajero.Text & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
-                If cmd1.ExecuteNonQuery() Then
-                    MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                 End If
-                cnn2.Close()
-                cnn1.Close()
-
-                Dim impre As Integer = TamImpre()
-                Dim impresora As String = ImpresoraImprimir()
-                If impre = "80" Then
-                    PCierre80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                    PCierre80.Print()
-                End If
-
+                Button1.PerformClick()
             End If
-            Button1.PerformClick()
+
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -1506,5 +1516,34 @@
             txtSumDife.Text = FormatNumber(-dife, 2)
             txtTotalDife.Text = FormatNumber(-dife, 2)
         End If
+    End Sub
+
+    Private Sub txtContraseña_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContraseña.KeyPress
+
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Alias from Usuarios where Clave='" & txtContraseña.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    usuario = rd1("Alias").ToString
+                    pcontra.Visible = False
+                End If
+            Else
+                MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulocentral)
+                txtContraseña.Text = ""
+                txtContraseña.Focus.Equals(True)
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
     End Sub
 End Class

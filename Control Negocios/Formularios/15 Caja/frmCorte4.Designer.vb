@@ -146,14 +146,18 @@ Partial Class frmCorte4
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCierre = New System.Windows.Forms.Button()
+        Me.pcontra = New System.Windows.Forms.Panel()
+        Me.txtContraseña = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.gbxCalculo.SuspendLayout()
         Me.grpb.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pcontra.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.pcontra)
         Me.Panel1.Controls.Add(Me.Label38)
         Me.Panel1.Controls.Add(Me.gbxCalculo)
         Me.Panel1.Controls.Add(Me.Label37)
@@ -1521,6 +1525,25 @@ Partial Class frmCorte4
         Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCierre.UseVisualStyleBackColor = True
         '
+        'pcontra
+        '
+        Me.pcontra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pcontra.Controls.Add(Me.txtContraseña)
+        Me.pcontra.Location = New System.Drawing.Point(144, 300)
+        Me.pcontra.Name = "pcontra"
+        Me.pcontra.Size = New System.Drawing.Size(198, 50)
+        Me.pcontra.TabIndex = 177
+        Me.pcontra.Visible = False
+        '
+        'txtContraseña
+        '
+        Me.txtContraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContraseña.Location = New System.Drawing.Point(17, 15)
+        Me.txtContraseña.Name = "txtContraseña"
+        Me.txtContraseña.Size = New System.Drawing.Size(162, 24)
+        Me.txtContraseña.TabIndex = 0
+        Me.txtContraseña.UseSystemPasswordChar = True
+        '
         'frmCorte4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1550,6 +1573,8 @@ Partial Class frmCorte4
         Me.grpb.ResumeLayout(False)
         Me.grpb.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pcontra.ResumeLayout(False)
+        Me.pcontra.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1678,4 +1703,6 @@ Partial Class frmCorte4
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnCierre As Button
+    Friend WithEvents pcontra As Panel
+    Friend WithEvents txtContraseña As TextBox
 End Class
