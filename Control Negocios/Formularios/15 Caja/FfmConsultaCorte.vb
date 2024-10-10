@@ -2,6 +2,7 @@
 
 Public Class FfmConsultaCorte
     Public VentasC, DevolucionesC, ServiciosC, RecargasC, TotalContado, VentasCre, AbonosCre, DevolucionesCre, TotalCredito, TotalGeneral, Ingresos, SaldoInicial, Retiros, DevolucionesT, SumaIngresos, SumaCajero, SumaDiferencia, TotalIngresos, TotalCajero, TotalDiferencia, IngresosF, DevolucionesF, SumaIngresosF, SumaCajeroF, SumaDiferenciaF, TotalIngresosF, TotalCajeroF, TotalDiferenciaF As Double
+    Public fechainicio, fechafinal As Date
     Public Sub GeneraBarras(ByVal pic As PictureBox, ByVal codigo As String)
         Dim barcod As New Barcode128
 
@@ -102,13 +103,15 @@ Public Class FfmConsultaCorte
         e.Graphics.DrawString("** CORTE DE CAJA **", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
         Y += 20
 
-        e.Graphics.DrawString("FOLIO: " & txtCodigo.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FOLIO: " & txtCodigo.Text, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("FECHA: " & Format(Date.Now, "yyyy/MM/dd"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA:" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("FECHA CORTE: " & Format(Date.Now, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA CORTE INICIAl:" & Format(fechainicio, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 17
-        e.Graphics.DrawString("CAJERO: ", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 15, Y)
+        e.Graphics.DrawString("FECHA CORTE FINAL:" & Format(fechafinal, "yyyy/MM/dd HH:mm:ss"), New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
+        Y += 17
+        e.Graphics.DrawString("CAJERO: ", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 15, Y)
         Y += 12
         e.Graphics.DrawString("-------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 5, Y)
         Y += 15
@@ -286,6 +289,8 @@ Public Class FfmConsultaCorte
                         TotalCajeroF = rd1("TotalCajeroF").ToString
                         TotalDiferenciaF = rd1("TotalDiferenciaF").ToString
 
+                        fechainicio = rd1("FInicial").ToString
+                        fechafinal = rd1("FFinal").ToString
 
                         Dim impre As Integer = TamImpre()
                         Dim impresora As String = ImpresoraImprimir()
