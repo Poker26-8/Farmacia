@@ -510,15 +510,15 @@
     End Sub
 
     Private Sub txtCant20_TextChanged(sender As Object, e As EventArgs) Handles txtCant20.TextChanged
-        txtCant20.SelectAll()
-    End Sub
-
-    Private Sub txtCant20_GotFocus(sender As Object, e As EventArgs) Handles txtCant20.GotFocus
         If txtCant20.Text = "" Then
             txtCant20.Text = "0"
         End If
         txtTotal20.Text = CDec(txtCant20.Text) * 20
         txtTotal20.Text = FormatNumber(txtTotal20.Text, 2)
+    End Sub
+
+    Private Sub txtCant20_GotFocus(sender As Object, e As EventArgs) Handles txtCant20.GotFocus
+        txtCant20.SelectAll()
     End Sub
 
     Private Sub txtCant20_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCant20.KeyPress
@@ -1520,30 +1520,35 @@
 
     Private Sub txtContraseña_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContraseña.KeyPress
 
-        Try
-            cnn1.Close() : cnn1.Open()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select Alias from Usuarios where Clave='" & txtContraseña.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    usuario = rd1("Alias").ToString
-                    pcontra.Visible = False
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                If txtContraseña.Text = "" Then
+                    Exit Sub
                 End If
-            Else
-                MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulocentral)
-                txtContraseña.Text = ""
-                txtContraseña.Focus.Equals(True)
-                Exit Sub
-            End If
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select Alias from Usuarios where Clave='" & txtContraseña.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        usuario = rd1("Alias").ToString
+                        pcontra.Visible = False
+                    End If
+                Else
+                    MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulocentral)
+                    txtContraseña.Text = ""
+                    txtContraseña.Focus.Equals(True)
+                    Exit Sub
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
 
     End Sub
 End Class
