@@ -301,11 +301,7 @@ Public Class frmRepInventario
             Dim part As Integer = Await ValidarAsync("Partes")
             Dim refaccion As Integer = Await ValidarAsync("Refaccionaria")
 
-            If restaurante = 1 Then
-                Button1.Visible = True
-            Else
-                Button1.Visible = False
-            End If
+
 
             If copas = 1 Then
                 copeo = 1
@@ -2492,21 +2488,48 @@ quepaso_wey:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
 
-            If (optProveedor.Checked) Then
-                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE ProvPri='" & cbofiltro.Text & "'"
+            If (rbPositivas.Checked) Then
+
+                If (optProveedor.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE ProvPri='" & cbofiltro.Text & "' AND Existencia>0"
+                End If
+
+                If (optDepartamento.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Departamento='" & cbofiltro.Text & "' AND Existencia>0"
+                End If
+
+                If (optGrupo.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Grupo='" & cbofiltro.Text & "' AND Existencia>0"
+                End If
+
+                If (optTodos.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Existencia>0"
+                End If
+
+
             End If
 
-            If (optDepartamento.Checked) Then
-                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Departamento='" & cbofiltro.Text & "'"
+            If (rbNegativas.Checked) Then
+
+                If (optProveedor.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE ProvPri='" & cbofiltro.Text & "' AND Existencia<=0"
+                End If
+
+                If (optDepartamento.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Departamento='" & cbofiltro.Text & "' AND Existencia<=0"
+                End If
+
+                If (optGrupo.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Grupo='" & cbofiltro.Text & "' AND Existencia<=0"
+                End If
+
+                If (optTodos.Checked) Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Existencia<=0"
+                End If
+
             End If
 
-            If (optGrupo.Checked) Then
-                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Grupo='" & cbofiltro.Text & "'"
-            End If
 
-            If (optTodos.Checked) Then
-                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos"
-            End If
 
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -2942,10 +2965,7 @@ kaka:
         End If
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmRepCopeo.Show()
-        frmRepCopeo.BringToFront()
-    End Sub
+
 
     Private Sub rbAjuste_CheckedChanged(sender As Object, e As EventArgs) Handles rbAjuste.CheckedChanged
         Try

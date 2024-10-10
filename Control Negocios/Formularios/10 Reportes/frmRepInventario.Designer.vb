@@ -22,7 +22,7 @@ Partial Class frmRepInventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepInventario))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
@@ -72,7 +72,6 @@ Partial Class frmRepInventario
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnExistencia = New System.Windows.Forms.Button()
         Me.btnImpExis = New System.Windows.Forms.Button()
         Me.btnExpExis = New System.Windows.Forms.Button()
@@ -81,6 +80,9 @@ Partial Class frmRepInventario
         Me.btnetiquetas = New System.Windows.Forms.Button()
         Me.btncatalogo = New System.Windows.Forms.Button()
         Me.btnCaracteristicas = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.rbPositivas = New System.Windows.Forms.RadioButton()
+        Me.rbNegativas = New System.Windows.Forms.RadioButton()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -89,6 +91,7 @@ Partial Class frmRepInventario
         Me.GroupBox1.SuspendLayout()
         CType(Me.grdestado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -246,8 +249,8 @@ Partial Class frmRepInventario
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -268,7 +271,7 @@ Partial Class frmRepInventario
         Me.boxcaduca.Controls.Add(Me.dtpIni)
         Me.boxcaduca.Enabled = False
         Me.boxcaduca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxcaduca.Location = New System.Drawing.Point(298, 38)
+        Me.boxcaduca.Location = New System.Drawing.Point(294, 38)
         Me.boxcaduca.Margin = New System.Windows.Forms.Padding(2)
         Me.boxcaduca.Name = "boxcaduca"
         Me.boxcaduca.Padding = New System.Windows.Forms.Padding(2)
@@ -336,7 +339,7 @@ Partial Class frmRepInventario
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofiltro.FormattingEnabled = True
-        Me.cbofiltro.Location = New System.Drawing.Point(298, 123)
+        Me.cbofiltro.Location = New System.Drawing.Point(294, 123)
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(247, 25)
         Me.cbofiltro.TabIndex = 237
@@ -591,7 +594,7 @@ Partial Class frmRepInventario
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(298, 154)
+        Me.DataGridView1.Location = New System.Drawing.Point(546, 52)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(23, 15)
         Me.DataGridView1.TabIndex = 253
@@ -610,20 +613,6 @@ Partial Class frmRepInventario
         Me.Button2.Text = "Mínimos y máximos"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(752, 123)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 63)
-        Me.Button1.TabIndex = 254
-        Me.Button1.Text = "Copeo"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'btnExistencia
         '
@@ -747,14 +736,46 @@ Partial Class frmRepInventario
         Me.btnCaracteristicas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCaracteristicas.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.rbNegativas)
+        Me.GroupBox2.Controls.Add(Me.rbPositivas)
+        Me.GroupBox2.Location = New System.Drawing.Point(294, 152)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(275, 45)
+        Me.GroupBox2.TabIndex = 257
+        Me.GroupBox2.TabStop = False
+        '
+        'rbPositivas
+        '
+        Me.rbPositivas.AutoSize = True
+        Me.rbPositivas.Location = New System.Drawing.Point(6, 18)
+        Me.rbPositivas.Name = "rbPositivas"
+        Me.rbPositivas.Size = New System.Drawing.Size(126, 19)
+        Me.rbPositivas.TabIndex = 54
+        Me.rbPositivas.TabStop = True
+        Me.rbPositivas.Text = "Existencia positivas"
+        Me.rbPositivas.UseVisualStyleBackColor = True
+        '
+        'rbNegativas
+        '
+        Me.rbNegativas.AutoSize = True
+        Me.rbNegativas.Location = New System.Drawing.Point(138, 18)
+        Me.rbNegativas.Name = "rbNegativas"
+        Me.rbNegativas.Size = New System.Drawing.Size(130, 19)
+        Me.rbNegativas.TabIndex = 55
+        Me.rbNegativas.TabStop = True
+        Me.rbNegativas.Text = "Existencia negativas"
+        Me.rbNegativas.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1004, 595)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnCaracteristicas)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnExistencia)
         Me.Controls.Add(Me.btnImpExis)
@@ -797,6 +818,8 @@ Partial Class frmRepInventario
         Me.GroupBox1.PerformLayout()
         CType(Me.grdestado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -854,8 +877,10 @@ Partial Class frmRepInventario
     Friend WithEvents btnImpExis As Button
     Friend WithEvents btnExistencia As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button1 As Button
     Friend WithEvents rbAjuste As RadioButton
     Friend WithEvents Button2 As Button
     Friend WithEvents btnCaracteristicas As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents rbNegativas As RadioButton
+    Friend WithEvents rbPositivas As RadioButton
 End Class
