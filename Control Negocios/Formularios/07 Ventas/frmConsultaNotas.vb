@@ -4730,6 +4730,25 @@ doorcita:
                     End If
                 Loop
                 rd1.Close()
+            Else
+                If lblNumCliente.Text <> "MOSTRADOR" Then
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "select Saldo from AbonoI where Id=(select max(Id) from AbonoI where IdCliente=" & lblNumCliente.Text & ")"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            mysaldo2 = CDbl(IIf(rd3(0).ToString() = "", 0, rd3(0).ToString())) - CDbl(txttotal.Text)
+                        End If
+                    Else
+                        mysaldo2 = -CDbl(txttotal.Text)
+                    End If
+                    rd3.Close()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                 "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & txttota & ",0," & mysaldo2 & ",'EFECTIVO'," & acuenta & ",'','','" & lblusuario.Text & "',0,0)"
+                    cmd4.ExecuteNonQuery()
+                End If
             End If
 
             cmd1 = cnn1.CreateCommand
