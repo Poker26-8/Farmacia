@@ -2411,12 +2411,6 @@
     <Compile Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\37 Pediatria\frmPediatria.Designer.vb">
-      <DependentUpon>frmPediatria.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\37 Pediatria\frmPediatria.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -3540,9 +3534,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.resx">
       <DependentUpon>frmTraspasosAndroid.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\37 Pediatria\frmPediatria.resx">
-      <DependentUpon>frmPediatria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
