@@ -2506,7 +2506,6 @@ quepaso_wey:
                     cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Existencia>0"
                 End If
 
-
             End If
 
             If (rbNegativas.Checked) Then
