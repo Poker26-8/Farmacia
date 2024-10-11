@@ -875,14 +875,14 @@
 
     Private Sub txtSumSistema_TextChanged(sender As Object, e As EventArgs) Handles txtSumSistema.TextChanged
         Dim dife As Double = 0
-        dife = CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text)) - CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text))
-
+        ' dife = CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text)) - CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text))
+        dife = CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text)) - CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text))
         If dife > 0 Then
             txtSumDife.Text = FormatNumber(dife, 2)
             txtTotalDife.Text = FormatNumber(dife, 2)
         Else
-            txtSumDife.Text = FormatNumber(-dife, 2)
-            txtTotalDife.Text = FormatNumber(-dife, 2)
+            txtSumDife.Text = FormatNumber(dife, 2)
+            txtTotalDife.Text = FormatNumber(dife, 2)
         End If
 
     End Sub
@@ -906,8 +906,8 @@
             txtSumDifeTarj.Text = FormatNumber(dife, 2)
             txtTotalDifeTar.Text = FormatNumber(dife, 2)
         Else
-            txtSumDifeTarj.Text = FormatNumber(-dife, 2)
-            txtTotalDifeTar.Text = FormatNumber(-dife, 2)
+            txtSumDifeTarj.Text = FormatNumber(dife, 2)
+            txtTotalDifeTar.Text = FormatNumber(dife, 2)
         End If
     End Sub
 
