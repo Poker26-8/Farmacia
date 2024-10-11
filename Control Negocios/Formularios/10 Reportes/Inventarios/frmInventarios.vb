@@ -6,15 +6,18 @@ Public Class frmInventarios
 
     Private Sub DataGridView1_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
         ' Verificar si la celda en edición pertenece a una columna específica (opcional)
-        If TypeOf e.Control Is TextBox Then
-            Dim txt As TextBox = CType(e.Control, TextBox)
+        If DataGridView1.CurrentCell.ColumnIndex = 3 Then
+            If TypeOf e.Control Is TextBox Then
+                Dim txt As TextBox = CType(e.Control, TextBox)
 
-            ' Eliminar cualquier controlador previo del evento KeyPress
-            RemoveHandler txt.KeyPress, AddressOf TextBox_KeyPress
+                ' Eliminar cualquier controlador previo del evento KeyPress
+                RemoveHandler txt.KeyPress, AddressOf TextBox_KeyPress
 
-            ' Agregar el controlador para el evento KeyPress
-            AddHandler txt.KeyPress, AddressOf TextBox_KeyPress
+                ' Agregar el controlador para el evento KeyPress
+                AddHandler txt.KeyPress, AddressOf TextBox_KeyPress
+            End If
         End If
+
     End Sub
 
     ' Controlador para restringir la entrada solo a números y un punto decimal
