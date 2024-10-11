@@ -2268,4 +2268,9 @@ Public Class Inicio
         FfmConsultaCorte.Show()
         FfmConsultaCorte.BringToFront()
     End Sub
+
+    Private Sub InventariosSelectivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventariosSelectivosToolStripMenuItem.Click
+        frmInventarios.BringToFront()
+        frmInventarios.Show
+    End Sub
 End Class
