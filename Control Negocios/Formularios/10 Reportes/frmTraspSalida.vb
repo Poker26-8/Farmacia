@@ -12,6 +12,8 @@ Public Class frmTraspSalida
     Private filenum As Integer
     Private recordLen As String
     Dim barras As String = ""
+
+    Dim ban As Integer = 0
     Private Sub frmTraspSalida_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Folio()
         cbodesc.Focus().Equals(True)
@@ -187,9 +189,15 @@ Public Class frmTraspSalida
             If cbodesc.Text = "" Then cbocodigo.Focus().Equals(True) : Exit Sub
 
             If (CodBarras()) Then
-                cbodesc.Focus.Equals(True)
-            Else
                 cbocodigo.Focus().Equals(True)
+            Else
+                If ban = 1 Then
+                    cbocodigo.Focus.Equals(True)
+                Else
+                    cbocodigo.Focus().Equals(True)
+                End If
+
+
             End If
 
 
@@ -216,6 +224,7 @@ Public Class frmTraspSalida
                             cbodesc.Text = rd1("Nombre").ToString
                             txtprecio.Text = rd1("PrecioCompra").ToString
                             barras = rd1("CodBarra").ToString
+                            ban = 1
                         End If
                     Else
                         Exit Function
@@ -278,24 +287,23 @@ Public Class frmTraspSalida
                 tot = CDec(canti) * CDec(precio)
                 txttotal.Text = tot
 
-                grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
+                'grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
 
-                cbocodigo.Text = ""
-                cbodesc.Text = ""
-                txtunidad.Text = ""
-                txtcantidad.Text = ""
-                txtprecio.Text = ""
-                txttotal.Text = ""
-                txtexistencia.Text = ""
+                'cbocodigo.Text = ""
+                'cbodesc.Text = ""
+                'txtunidad.Text = ""
+                'txtcantidad.Text = "1"
+                'txtprecio.Text = "0.00"
+                'txttotal.Text = "0.00"
+                'txtexistencia.Text = ""
 
 
-                cbodesc.Focus.Equals(True)
+                cbocodigo.Focus.Equals(True)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
-        cbocodigo.Focus().Equals(True)
 
     End Function
 
