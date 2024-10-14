@@ -2321,78 +2321,6 @@
     <Compile Include="Formularios\33 Mov_Cuentas\frmMovCuentas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\34 Opticas\frmOptica.Designer.vb">
-      <DependentUpon>frmOptica.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmOptica.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmOptometria.Designer.vb">
-      <DependentUpon>frmOptometria.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmOptometria.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmPaciente.Designer.vb">
-      <DependentUpon>frmPaciente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmPaciente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmRegistros.Designer.vb">
-      <DependentUpon>frmRegistros.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\34 Opticas\frmRegistros.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmCambio.Designer.vb">
-      <DependentUpon>frmCambio.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmCambio.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmCitasD.Designer.vb">
-      <DependentUpon>frmCitasD.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmCitasD.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\FrmDentistas.Designer.vb">
-      <DependentUpon>FrmDentistas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\FrmDentistas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmHClinica.Designer.vb">
-      <DependentUpon>frmHClinica.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmHClinica.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmHisClinica.Designer.vb">
-      <DependentUpon>frmHisClinica.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmHisClinica.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmMedicosD.Designer.vb">
-      <DependentUpon>frmMedicosD.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmMedicosD.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmPagarD.Designer.vb">
-      <DependentUpon>frmPagarD.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmPagarD.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmRepCitas.Designer.vb">
-      <DependentUpon>frmRepCitas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmRepCitas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\36 Traspasos Android\frmAsignarusuarios.Designer.vb">
       <DependentUpon>frmAsignarusuarios.vb</DependentUpon>
     </Compile>
@@ -3495,42 +3423,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\33 Mov_Cuentas\frmMovCuentas.resx">
       <DependentUpon>frmMovCuentas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\34 Opticas\frmOptica.resx">
-      <DependentUpon>frmOptica.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\34 Opticas\frmOptometria.resx">
-      <DependentUpon>frmOptometria.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\34 Opticas\frmPaciente.resx">
-      <DependentUpon>frmPaciente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\34 Opticas\frmRegistros.resx">
-      <DependentUpon>frmRegistros.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmCambio.resx">
-      <DependentUpon>frmCambio.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmCitasD.resx">
-      <DependentUpon>frmCitasD.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\FrmDentistas.resx">
-      <DependentUpon>FrmDentistas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmHClinica.resx">
-      <DependentUpon>frmHClinica.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmHisClinica.resx">
-      <DependentUpon>frmHisClinica.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmMedicosD.resx">
-      <DependentUpon>frmMedicosD.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmPagarD.resx">
-      <DependentUpon>frmPagarD.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmRepCitas.resx">
-      <DependentUpon>frmRepCitas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmAsignarusuarios.resx">
       <DependentUpon>frmAsignarusuarios.vb</DependentUpon>
