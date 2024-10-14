@@ -1009,7 +1009,6 @@ Public Class Inicio
 
         Dim partes As Integer = DatosRecarga2("Partes")
         Dim restaurante As Integer = DatosRecarga2("Restaurante")
-        Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
 
         If partes = 1 Then
             frmProductosSSerie.Show()
@@ -1018,10 +1017,6 @@ Public Class Inicio
         ElseIf restaurante = 1 Then
             frmProductosSR.Show()
             frmProductosSR.BringToFront()
-
-        ElseIf refaccionaria = 1 Then
-            frmProRefaccionaria.Show()
-            frmProRefaccionaria.BringToFront()
         Else
 
             frmProductosS.Show()
@@ -2005,25 +2000,6 @@ Public Class Inicio
 
 
 
-    Private Sub RegistroDeHuellaToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
-        frmHuellaCliente.Show()
-        frmHuellaCliente.BringToFront()
-    End Sub
-
-    Private Sub RegistroDeAsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        frmRegistroAsistencia.Show()
-        frmRegistroAsistencia.BringToFront()
-    End Sub
-
-    Private Sub ReporteDeAsistenciaToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
-        frmRepAsistenciaGym.Show()
-        frmRepAsistenciaGym.BringToFront()
-    End Sub
-
-    Private Sub RegistroDeMembresiasToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        frmRegistro.Show()
-        frmRegistro.BringToFront()
-    End Sub
 
     Private Sub ControlDeServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlDeServiciosToolStripMenuItem.Click
         frmControlServicios.Show()
