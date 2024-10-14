@@ -679,7 +679,7 @@ Public Class frmTraspSalida
             Else
                 CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
                 CantDX = grdcaptura.Rows(index).Cells(3).Value.ToString
-                grdcaptura.Rows.Remove(grdcaptura.Rows(index))
+
                 If grdcaptura.Rows(index).Cells(1).Value.ToString <> "" And grdcaptura.Rows(index).Cells(0).Value.ToString = "" Then
                     MyNota = grdcaptura.Rows(index).Cells(1).Value.ToString
                     If grdcaptura.Rows.Count = 1 Then
@@ -687,6 +687,8 @@ Public Class frmTraspSalida
                     Else
                         grdcaptura.Rows.Remove(grdcaptura.Rows(index))
                     End If
+                Else
+                    grdcaptura.Rows.Remove(grdcaptura.Rows(index))
                 End If
             End If
         End If
