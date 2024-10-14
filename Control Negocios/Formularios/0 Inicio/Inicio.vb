@@ -820,8 +820,6 @@ Public Class Inicio
             frmCompras.Show()
             frmCompras.BringToFront()
 
-            ' frmNuvCompras.Show()
-            ' frmNuvCompras.BringToFront()
         End If
 
     End Sub

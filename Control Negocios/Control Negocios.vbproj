@@ -1025,48 +1025,6 @@
     <Compile Include="Formularios\18 Restaurantes\Traspasar\frmTraspasarProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.Designer.vb">
-      <DependentUpon>frmConsultarRefaccion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmMarcas.Designer.vb">
-      <DependentUpon>frmMarcas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmMarcas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmModelos.Designer.vb">
-      <DependentUpon>frmModelos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmModelos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.Designer.vb">
-      <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.Designer.vb">
-      <DependentUpon>frmAsignacionRef.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.Designer.vb">
-      <DependentUpon>frmAsignarRefa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.Designer.vb">
-      <DependentUpon>frmVehiculoTa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\03 Catálogos\frmHuella.Designer.vb">
       <DependentUpon>frmHuella.vb</DependentUpon>
     </Compile>
@@ -1931,114 +1889,6 @@
     <Compile Include="Formularios\19 Recargas\frmRecargas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmAsignaRefaccion.Designer.vb">
-      <DependentUpon>frmAsignaRefaccion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmAsignaRefaccion.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmConsultaR.Designer.vb">
-      <DependentUpon>frmConsultaR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmConsultaR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmMenuPrincipal.Designer.vb">
-      <DependentUpon>frmMenuPrincipal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmMenuPrincipal.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmProductoR.Designer.vb">
-      <DependentUpon>frmProductoR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmProductoR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmTallerR.Designer.vb">
-      <DependentUpon>frmTallerR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmTallerR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmVehiculoR.Designer.vb">
-      <DependentUpon>frmVehiculoR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmVehiculoR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmVentas_refa.Designer.vb">
-      <DependentUpon>frmVentas_refa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\20 Refaccionaria\frmVentas_refa.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmCanibaleo.Designer.vb">
-      <DependentUpon>frmCanibaleo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmCanibaleo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmEquiposTaller.Designer.vb">
-      <DependentUpon>frmEquiposTaller.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmEquiposTaller.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmIngreso.Designer.vb">
-      <DependentUpon>frmIngreso.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmIngreso.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmIngresoDispositivo.Designer.vb">
-      <DependentUpon>frmIngresoDispositivo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmIngresoDispositivo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmTallerT.Designer.vb">
-      <DependentUpon>frmTallerT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\21 Telefonica\frmTallerT.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmHuellaCliente.Designer.vb">
-      <DependentUpon>frmHuellaCliente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmHuellaCliente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRegistro.Designer.vb">
-      <DependentUpon>frmRegistro.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRegistro.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRegistroAsistencia.Designer.vb">
-      <DependentUpon>frmRegistroAsistencia.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRegistroAsistencia.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRenovacion.Designer.vb">
-      <DependentUpon>frmRenovacion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRenovacion.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRepAsistenciaGym.Designer.vb">
-      <DependentUpon>frmRepAsistenciaGym.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmRepAsistenciaGym.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmReporte.Designer.vb">
-      <DependentUpon>frmReporte.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\22 Gimnasios\frmReporte.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\23 Nomina\frmDeducciones.Designer.vb">
       <DependentUpon>frmDeducciones.vb</DependentUpon>
     </Compile>
@@ -2638,27 +2488,6 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\Traspasar\frmTraspasarProducto.resx">
       <DependentUpon>frmTraspasarProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.resx">
-      <DependentUpon>frmConsultarRefaccion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmMarcas.resx">
-      <DependentUpon>frmMarcas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmModelos.resx">
-      <DependentUpon>frmModelos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProRefaccionaria.resx">
-      <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.resx">
-      <DependentUpon>frmAsignacionRef.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.resx">
-      <DependentUpon>frmAsignarRefa.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.resx">
-      <DependentUpon>frmVehiculoTa.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\03 Catálogos\frmHuella.resx">
       <DependentUpon>frmHuella.vb</DependentUpon>
     </EmbeddedResource>
@@ -3108,60 +2937,6 @@
     <EmbeddedResource Include="Formularios\19 Recargas\frmRecargas.resx">
       <DependentUpon>frmRecargas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmAsignaRefaccion.resx">
-      <DependentUpon>frmAsignaRefaccion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmConsultaR.resx">
-      <DependentUpon>frmConsultaR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmMenuPrincipal.resx">
-      <DependentUpon>frmMenuPrincipal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProductoR.resx">
-      <DependentUpon>frmProductoR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmTallerR.resx">
-      <DependentUpon>frmTallerR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmVehiculoR.resx">
-      <DependentUpon>frmVehiculoR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmVentas_refa.resx">
-      <DependentUpon>frmVentas_refa.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\21 Telefonica\frmCanibaleo.resx">
-      <DependentUpon>frmCanibaleo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\21 Telefonica\frmEquiposTaller.resx">
-      <DependentUpon>frmEquiposTaller.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\21 Telefonica\frmIngreso.resx">
-      <DependentUpon>frmIngreso.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\21 Telefonica\frmIngresoDispositivo.resx">
-      <DependentUpon>frmIngresoDispositivo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\21 Telefonica\frmTallerT.resx">
-      <DependentUpon>frmTallerT.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmHuellaCliente.resx">
-      <DependentUpon>frmHuellaCliente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmRegistro.resx">
-      <DependentUpon>frmRegistro.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmRegistroAsistencia.resx">
-      <DependentUpon>frmRegistroAsistencia.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmRenovacion.resx">
-      <DependentUpon>frmRenovacion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmRepAsistenciaGym.resx">
-      <DependentUpon>frmRepAsistenciaGym.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\22 Gimnasios\frmReporte.resx">
-      <DependentUpon>frmReporte.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\23 Nomina\frmDeducciones.resx">
       <DependentUpon>frmDeducciones.vb</DependentUpon>
     </EmbeddedResource>
@@ -3383,7 +3158,6 @@
     <None Include="Resources\confirmar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formularios\20 Refaccionaria\OrdenServicio\" />
     <Folder Include="Resorces\" />
   </ItemGroup>
   <ItemGroup>
