@@ -649,7 +649,7 @@ Public Class frmTraspSalida
     End Sub
 
     Private Sub grdcaptura_CellDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
-        Dim index As Integer = 0
+        Dim index As Integer = grdcaptura.CurrentRow.Index
         Dim CODx As String = ""
         Dim CantDX As Double = 0
         Dim MyNota As String = ""

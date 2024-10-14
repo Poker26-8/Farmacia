@@ -115,6 +115,7 @@ Partial Class Inicio
         Me.pRepInventario = New System.Windows.Forms.ToolStripMenuItem()
         Me.pInventario = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAjuste = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventariosSelectivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteCOFEPRISToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NUEVOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEstResultados = New System.Windows.Forms.ToolStripMenuItem()
@@ -170,7 +171,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.InventariosSelectivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -934,6 +934,12 @@ Partial Class Inicio
         Me.pAjuste.Size = New System.Drawing.Size(187, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
+        'InventariosSelectivosToolStripMenuItem
+        '
+        Me.InventariosSelectivosToolStripMenuItem.Name = "InventariosSelectivosToolStripMenuItem"
+        Me.InventariosSelectivosToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.InventariosSelectivosToolStripMenuItem.Text = "Inventarios Selectivos"
+        '
         'ReporteCOFEPRISToolStripMenuItem
         '
         Me.ReporteCOFEPRISToolStripMenuItem.BackColor = System.Drawing.Color.White
@@ -1307,7 +1313,7 @@ Partial Class Inicio
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(318, 42)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Delsscom Farmacias Version 2.5"
+        Me.Label2.Text = "Delsscom Farmacias Version 2.6"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button3
@@ -1348,12 +1354,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'InventariosSelectivosToolStripMenuItem
-        '
-        Me.InventariosSelectivosToolStripMenuItem.Name = "InventariosSelectivosToolStripMenuItem"
-        Me.InventariosSelectivosToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.InventariosSelectivosToolStripMenuItem.Text = "Inventarios Selectivos"
         '
         'Inicio
         '
