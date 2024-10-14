@@ -784,15 +784,10 @@ Public Class Inicio
 
 
         Dim partes As Integer = DatosRecarga2("Partes")
-        Dim escuelas As Integer = DatosRecarga2("Escuelas")
 
         If partes = 1 Then
             frmProductosSerie.Show()
             frmProductosSerie.BringToFront()
-
-        ElseIf escuelas = 1 Then
-            frmProductos_Escuelas.Show()
-            frmProductos_Escuelas.BringToFront()
         Else
             frmProductosS.Show()
             frmProductosS.BringToFront()
@@ -1949,35 +1944,12 @@ Public Class Inicio
         frmPermisosRestaurant.BringToFront()
     End Sub
 
-    Private Sub ProductosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ProductosToolStripMenuItem.Click
-        frmProductos_Escuelas.Show()
-        frmProductos_Escuelas.BringToFront()
-    End Sub
-
-    Private Sub InscripciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InscripciónToolStripMenuItem.Click
-        frmInscripcion.Show()
-        frmInscripcion.BringToFront()
-    End Sub
-
-    Private Sub AlumnosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlumnosToolStripMenuItem.Click
-        frmAlumnos.Show()
-        frmAlumnos.BringToFront()
-    End Sub
-
-    Private Sub GruposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruposToolStripMenuItem.Click
-        frmCatGrupos.Show()
-        frmCatGrupos.BringToFront()
-    End Sub
-
     Private Sub ComprasTouchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComprasTouchToolStripMenuItem.Click
         frmComprasTouch.Show()
         frmComprasTouch.BringToFront()
     End Sub
 
-    Private Sub AlumnosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AlumnosToolStripMenuItem1.Click
-        frmRepCuentas.Show()
-        frmRepCuentas.BringToFront()
-    End Sub
+
 
     Private Sub Button6_Click_1(sender As Object, e As EventArgs)
         frmConfigRecargas.Show()
@@ -2072,10 +2044,7 @@ Public Class Inicio
         frmRepSeries.BringToFront()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs)
-        frmPolleria.Show()
-        frmPolleria.BringToFront()
-    End Sub
+
 
     Private Sub ControlServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmControlServ.Show()
@@ -2226,12 +2195,6 @@ Public Class Inicio
     Private Sub ReporteHistorialDeMesasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles repHistorialMesas.Click
         frmHisMesas.BringToFront()
         frmHisMesas.Show()
-    End Sub
-
-    Private Sub btnDentista_Click(sender As Object, e As EventArgs)
-        FrmDentistas.BringToFront()
-        FrmDentistas.Show()
-
     End Sub
 
     Private Sub btnBodegas_Click(sender As Object, e As EventArgs)

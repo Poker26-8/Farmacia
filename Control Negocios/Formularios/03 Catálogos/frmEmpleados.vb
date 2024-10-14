@@ -727,12 +727,7 @@ Public Class frmEmpleados
         Return Nothing
     End Function
 
-    Private Sub lkmédico_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lkmédico.LinkClicked
 
-        frmMedicosD.lblNombre.Text = cboNombre.Text
-        frmMedicosD.BringToFront()
-        frmMedicosD.Show()
-    End Sub
 
     Private Sub cboArea_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboArea.SelectedValueChanged
         If cboArea.Text = "MEDICO" Then
