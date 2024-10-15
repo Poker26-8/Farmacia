@@ -53,6 +53,11 @@ Public Class frmRecibeTraspaso
                 passbdF = ""
             End If
             soySucursal()
+            If varrutabase = "" Then
+                sTargetlocal = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+            Else
+                sTargetlocal = "server=" & varrutabase & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+            End If
         End If
     End Sub
 
@@ -225,12 +230,19 @@ Public Class frmRecibeTraspaso
                 If odata2.getDt(cnn2, dt, sSQL, sinfo) Then
                     For Each dr In dt.Rows
                         My.Application.DoEvents()
+
                         consultaDetalleTraspaso(dr("Id").ToString)
                     Next
+                Else
+                    MsgBox(sinfo)
                 End If
                 cnn2.Close()
+            Else
+                MsgBox(sinfo)
             End If
             cnn.Close()
+        Else
+            MsgBox(sinfo)
         End If
     End Sub
 
@@ -260,12 +272,18 @@ Public Class frmRecibeTraspaso
                             For Each dr5 In dt5.Rows
                                 barras = dr5(0).ToString
                             Next
+                        Else
+
                         End If
                         My.Application.DoEvents()
                         grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString, barras)
                     Next
+                Else
+                    MsgBox(sinfo)
                 End If
                 cnn4.Close()
+            Else
+                MsgBox(sinfo)
             End If
             cnn3.Close()
             My.Application.DoEvents()
@@ -299,7 +317,8 @@ Public Class frmRecibeTraspaso
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " And T.NumTraspasosE=" & ComboBox1.Text & " and T.Origen=" & lblidorigen.Text & ""
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " And T.NumTraspasosS=" & ComboBox1.Text & " and T.Origen=" & lblidorigen.Text & ""
+
         Dim ssqlinsertal As String = ""
         Dim ssql3 As String = ""
         Dim dt As New DataTable
@@ -335,6 +354,8 @@ Public Class frmRecibeTraspaso
                                 'grid_eventos.Rows.Insert(0, "Finaliza Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
                                 bajaExitTrasEntrada()
                             End If
+                        Else
+                            MsgBox("inserta " & sinfo)
                         End If
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
@@ -342,10 +363,16 @@ Public Class frmRecibeTraspaso
                     My.Application.DoEvents()
                     btnNuevo.PerformClick()
                     My.Application.DoEvents()
+                Else
+                    MsgBox("con consulta " & sinfo)
                 End If
                 cnn2.Close()
+            Else
+                MsgBox("con sincro " & sinfo)
             End If
             cnn.Close()
+        Else
+            MsgBox("con local " & sinfo)
         End If
     End Sub
 
@@ -701,9 +728,11 @@ Public Class frmRecibeTraspaso
             Dim lote As String = ""
             Dim caducidad As Date = Date.Now
             Dim cantidadlote As Double = 0
-            lote = grdcaptura.Rows(miku).Cells(7).Value.ToString()
-            caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
 
+            If lote <> "" Then
+                lote = grdcaptura.Rows(miku).Cells(7).Value.ToString()
+                caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+            End If
             e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
             Y += 15
