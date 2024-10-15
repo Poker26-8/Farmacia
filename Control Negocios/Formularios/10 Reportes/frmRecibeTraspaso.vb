@@ -193,7 +193,9 @@ Public Class frmRecibeTraspaso
     Private Sub btnreporte_Click(sender As Object, e As EventArgs) Handles btnreporte.Click
         Try
             btnreporte.Enabled = False
+            btnGuardar.Enabled = False
             Label5.Visible = True
+            grdcaptura.Rows.Clear()
             My.Application.DoEvents()
             consultaTraspasosEntrada()
         Catch ex As Exception
@@ -205,7 +207,7 @@ Public Class frmRecibeTraspaso
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " and T.Origen=" & lblidorigen.Text & ""
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " and T.Origen=" & lblidorigen.Text & " and NumTraspasosS=" & ComboBox1.Text & ""
         Dim ssqlinsertal As String = ""
         Dim ssql3 As String = ""
         Dim dt As New DataTable
@@ -269,6 +271,7 @@ Public Class frmRecibeTraspaso
             My.Application.DoEvents()
             btnreporte.Enabled = True
             Label5.Visible = False
+            btnGuardar.Enabled = True
             My.Application.DoEvents()
         End If
     End Sub
@@ -334,6 +337,11 @@ Public Class frmRecibeTraspaso
                             End If
                         End If
                     Next
+                    MsgBox("Traspaso Registrado Correctamente")
+                    pSalida80.Print()
+                    My.Application.DoEvents()
+                    btnNuevo.PerformClick()
+                    My.Application.DoEvents()
                 End If
                 cnn2.Close()
             End If
@@ -438,12 +446,7 @@ Public Class frmRecibeTraspaso
                                         actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
                                     End If
                                     If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
-                                        MsgBox("Traspaso Registrado Correctamente")
-                                        pSalida80.Print()
-                                        My.Application.DoEvents()
 
-                                        btnNuevo.PerformClick()
-                                        My.Application.DoEvents()
                                     End If
                                     'grid_eventos.Rows.Insert(0, "Finaliza Ajuste de Inventario " & dr("Descripcion").ToString, Date.Now)
                                 End If
@@ -463,11 +466,7 @@ Public Class frmRecibeTraspaso
                                             actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
                                         End If
                                         If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
-                                            MsgBox("Traspaso Registrado Correctamente")
-                                            pSalida80.Print()
-                                            My.Application.DoEvents()
-                                            btnNuevo.PerformClick()
-                                            My.Application.DoEvents()
+
                                         End If
                                         'grid_eventos.Rows.Insert(0, "Finaliza Ajuste de Inventario " & dr3("Nombre").ToString, Date.Now)
                                     End If
@@ -547,6 +546,9 @@ Public Class frmRecibeTraspaso
         lblidorigen.Text = ""
         txtcontraseña.Text = ""
         lblusuario.Text = ""
+        Label5.Visible = False
+        ComboBox1.Items.Clear()
+        cbo.Items.Clear()
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -693,7 +695,7 @@ Public Class frmRecibeTraspaso
             Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
             Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
             Dim total As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
-            Dim barras As Double = grdcaptura.Rows(miku).Cells(9).Value.ToString()
+            Dim barras As String = grdcaptura.Rows(miku).Cells(9).Value.ToString()
             'Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
             'Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
             Dim lote As String = ""
