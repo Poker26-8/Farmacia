@@ -480,10 +480,12 @@ Public Class frmTraspSalida
                                 TextBox1.Text = txtcantidad.Text
                                 ConsultaLotes(cbocodigo.Text)
                                 My.Application.DoEvents()
-                                grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
+
 
 
                             End If
+                        Else
+                            MsgBox("Revisa la cantidad de lotes del  producto para poder continuar", vbExclamation + vbOKOnly, "Delsscom Farmacias")
                         End If
                         rd2.Close()
                     Else
@@ -1526,6 +1528,7 @@ milky:
             End If
         Next
         If DataGridView2.Rows.Count <> 0 Then
+            grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
             ' cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
             cbocodigo.Text = ""
             cbodesc.Text = ""
@@ -1537,16 +1540,17 @@ milky:
             cbodesc.Focus().Equals(True)
 
             gbLotes.Visible = False
+
         End If
 
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        DataGridView2.Rows.Clear()
-        DataGridView1.Rows.Clear()
-        txtcodlote.Text = ""
-        txtnombrelote.Text = ""
-        TextBox1.Text = ""
+        'DataGridView2.Rows.Clear()
+        'DataGridView1.Rows.Clear()
+        'txtcodlote.Text = ""
+        'txtnombrelote.Text = ""
+        'TextBox1.Text = ""
         gbLotes.Visible = False
     End Sub
 End Class

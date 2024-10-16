@@ -166,6 +166,7 @@ Partial Class frmAjusteInv
         Me.txtsistema.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsistema.Location = New System.Drawing.Point(7, 94)
         Me.txtsistema.Name = "txtsistema"
+        Me.txtsistema.ReadOnly = True
         Me.txtsistema.Size = New System.Drawing.Size(124, 23)
         Me.txtsistema.TabIndex = 75
         '
@@ -208,6 +209,7 @@ Partial Class frmAjusteInv
         Me.txtdiferencia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdiferencia.Location = New System.Drawing.Point(253, 94)
         Me.txtdiferencia.Name = "txtdiferencia"
+        Me.txtdiferencia.ReadOnly = True
         Me.txtdiferencia.Size = New System.Drawing.Size(124, 23)
         Me.txtdiferencia.TabIndex = 79
         '
