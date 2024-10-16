@@ -15972,7 +15972,7 @@ doorcita:
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        DataGridView2.Rows.Clear()
+        'DataGridView2.Rows.Clear()
         DataGridView1.Rows.Clear()
         txtcodlote.Text = ""
         txtnombrelote.Text = ""
