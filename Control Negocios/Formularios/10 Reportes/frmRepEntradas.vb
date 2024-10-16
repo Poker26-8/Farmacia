@@ -1260,7 +1260,7 @@ Public Class frmRepEntradas
             'Otros gastos
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "select SUM(Total) from OtrosGastos where Usuario<>'' and CorteU=0 AND Concepto<>'NOMINA'"
+                    "select SUM(Total) from OtrosGastos where Usuario<>'' and CorteU=0 AND Concepto<>'NOMINA' and Usuario='" & ComboBox1.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
