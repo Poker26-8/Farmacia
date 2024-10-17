@@ -10548,7 +10548,7 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
-                Dim barras As Double = grdcaptura.Rows(miku).Cells(15).Value.ToString()
+                Dim barras As Double = grdcaptura.Rows(miku).Cells(15).Value
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
