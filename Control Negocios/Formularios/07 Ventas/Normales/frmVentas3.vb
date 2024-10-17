@@ -9902,7 +9902,7 @@ Door:
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "select Folio,Codigo from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
+                        cmd1.CommandText = "select Id,Folio,Codigo from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
                         '"select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
@@ -10069,7 +10069,7 @@ ecomoda:
                 If MyDepto <> "SERVICIOS" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Nombre from Kits where Nombre='" & MyDesc & "'"
+                        "select Codigo,Nombre from Kits where Nombre='" & MyDesc & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         cnn2.Close() : cnn2.Open()
