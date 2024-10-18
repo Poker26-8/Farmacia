@@ -845,6 +845,7 @@ Public Class frmTraspSalida
                     For xd As Integer = 0 To DataGridView2.Rows.Count - 1
                         Dim idLote As Integer = DataGridView2.Rows(xd).Cells(1).Value.ToString
                         lote = DataGridView2.Rows(xd).Cells(2).Value.ToString
+                        ' Dim co As String = DataGridView2.Rows(xd).Cells(0).Value.ToString
 
                         Dim cant_lote As Double = GetCantLote(codigo, lote)
                         cantidad = DataGridView2.Rows(xd).Cells(4).Value.ToString
@@ -855,10 +856,12 @@ Public Class frmTraspSalida
                                     "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
                             cmd1.ExecuteNonQuery()
                         Else
+                            Dim nueva_cant As Double = cant_lote - cantidad
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
+                                    "update LoteCaducidad set Cantidad=" & nueva_cant & " where Codigo='" & codigo & "' AND Id=" & idLote
                             cmd1.ExecuteNonQuery()
+
                         End If
                     Next
                 End If

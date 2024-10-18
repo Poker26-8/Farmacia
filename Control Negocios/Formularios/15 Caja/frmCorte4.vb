@@ -65,6 +65,7 @@
             Dim DEVOLUCIONESEFECTIVO As Double = 0
 
             Dim retiros As Double = 0
+            Dim compras As Double = 0
 
             Dim INGRESOSFORMAS As Double = 0
             'sacar las ventas que estan pagadas y no pagadas
@@ -165,7 +166,7 @@
 
                         'Formas de pago
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND Usuario='" & cboCajero.Text & "' AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -195,6 +196,15 @@
             rd1.Close()
 
 
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='Abono' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    compras = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
             cnn1.Close()
 
             txtVentas.Text = FormatNumber(ventascontado, 2)
@@ -213,6 +223,8 @@
 
             txtDevoluciones.Text = FormatNumber(CDec(txtDevolucionesC.Text) + CDec(txtDevolucionesV.Text), 2)
             txtRetiros.Text = FormatNumber(retiros, 2)
+            txtCompras.Text = FormatNumber(compras, 2)
+
             txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
 
 
@@ -243,7 +255,8 @@
     End Function
 
     Private Sub txtIngresos_TextChanged(sender As Object, e As EventArgs) Handles txtIngresos.TextChanged
-        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
+        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text))
+
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
     End Sub
@@ -257,7 +270,7 @@
         End If
 
 
-        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text))
+        Dim total As Double = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text))
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
     End Sub
@@ -1136,6 +1149,7 @@
         txtDevolucionesC.Text = "0.00"
         txtCredito.Text = "0.00"
         txtTotal.Text = "0.00"
+        txtCompras.Text = "0.00"
         txtIngresos.Text = "0.00"
         txtSaldoInicial.Text = "0.00"
         txtRetiros.Text = "0.00"

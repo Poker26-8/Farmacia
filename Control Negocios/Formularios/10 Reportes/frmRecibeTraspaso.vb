@@ -725,7 +725,7 @@ Public Class frmRecibeTraspaso
             Dim barras As String = grdcaptura.Rows(miku).Cells(9).Value.ToString()
             'Dim existencia As Double = grdcaptura.Rows(miku).Cells(6).Value.ToString()
             'Dim barras As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
-            Dim lote As String = ""
+            Dim lote As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
             Dim caducidad As Date = Date.Now
             Dim cantidadlote As Double = 0
 
