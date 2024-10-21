@@ -814,7 +814,7 @@ Public Class frmTraspSalida
                 If voy = 0 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca,Lote,FCaduca) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','')"
+                        "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','')"
                     cmd1.ExecuteNonQuery()
                 End If
 
