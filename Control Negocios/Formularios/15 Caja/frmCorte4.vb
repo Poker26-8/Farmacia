@@ -197,11 +197,11 @@
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='Abono' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='Abono' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    compras = rd1(0).ToString
+                    compras = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
                 End If
             End If
             rd1.Close()
