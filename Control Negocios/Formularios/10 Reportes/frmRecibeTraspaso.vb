@@ -234,15 +234,15 @@ Public Class frmRecibeTraspaso
                         consultaDetalleTraspaso(dr("Id").ToString)
                     Next
                 Else
-                    MsgBox(sinfo)
+                    'MsgBox(sinfo)
                 End If
                 cnn2.Close()
             Else
-                MsgBox(sinfo)
+                'MsgBox(sinfo)
             End If
             cnn.Close()
         Else
-            MsgBox(sinfo)
+            'MsgBox(sinfo)
         End If
     End Sub
 
@@ -279,11 +279,11 @@ Public Class frmRecibeTraspaso
                         grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString, barras)
                     Next
                 Else
-                    MsgBox(sinfo)
+                    'MsgBox(sinfo)
                 End If
                 cnn4.Close()
             Else
-                MsgBox(sinfo)
+                ' MsgBox(sinfo)
             End If
             cnn3.Close()
             My.Application.DoEvents()
@@ -355,7 +355,7 @@ Public Class frmRecibeTraspaso
                                 bajaExitTrasEntrada()
                             End If
                         Else
-                            MsgBox("inserta " & sinfo)
+                            'MsgBox("inserta " & sinfo)
                         End If
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
@@ -364,15 +364,15 @@ Public Class frmRecibeTraspaso
                     btnNuevo.PerformClick()
                     My.Application.DoEvents()
                 Else
-                    MsgBox("con consulta " & sinfo)
+                    'MsgBox("con consulta " & sinfo)
                 End If
                 cnn2.Close()
             Else
-                MsgBox("con sincro " & sinfo)
+                'MsgBox("con sincro " & sinfo)
             End If
             cnn.Close()
         Else
-            MsgBox("con local " & sinfo)
+            'MsgBox("con local " & sinfo)
         End If
     End Sub
 
