@@ -693,7 +693,16 @@ Public Class frmTraspSalida
                     grdcaptura.Rows.Remove(grdcaptura.Rows(index))
                 End If
             End If
+            My.Application.DoEvents()
+
+
+            For i As Integer = DataGridView2.Rows.Count - 1 To 0 Step -1
+                If DataGridView2.Rows(i).Cells(0).Value.ToString() = CODx Then
+                    DataGridView2.Rows.Remove(DataGridView2.Rows(i))
+                End If
+            Next
         End If
+
     End Sub
 
     Private Sub btnguardar_Click(sender As System.Object, e As System.EventArgs) Handles btnguardar.Click

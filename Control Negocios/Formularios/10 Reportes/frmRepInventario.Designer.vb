@@ -27,6 +27,7 @@ Partial Class frmRepInventario
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
         Me.tpInv = New System.Windows.Forms.TabPage()
+        Me.rbLotes = New System.Windows.Forms.RadioButton()
         Me.rbAjuste = New System.Windows.Forms.RadioButton()
         Me.optperdidas = New System.Windows.Forms.RadioButton()
         Me.optTodos = New System.Windows.Forms.RadioButton()
@@ -81,8 +82,8 @@ Partial Class frmRepInventario
         Me.btncatalogo = New System.Windows.Forms.Button()
         Me.btnCaracteristicas = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.rbPositivas = New System.Windows.Forms.RadioButton()
         Me.rbNegativas = New System.Windows.Forms.RadioButton()
+        Me.rbPositivas = New System.Windows.Forms.RadioButton()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -119,6 +120,7 @@ Partial Class frmRepInventario
         '
         'tpInv
         '
+        Me.tpInv.Controls.Add(Me.rbLotes)
         Me.tpInv.Controls.Add(Me.rbAjuste)
         Me.tpInv.Controls.Add(Me.optperdidas)
         Me.tpInv.Controls.Add(Me.optTodos)
@@ -132,6 +134,17 @@ Partial Class frmRepInventario
         Me.tpInv.TabIndex = 0
         Me.tpInv.Text = "      Inventario      "
         Me.tpInv.UseVisualStyleBackColor = True
+        '
+        'rbLotes
+        '
+        Me.rbLotes.AutoSize = True
+        Me.rbLotes.Location = New System.Drawing.Point(125, 37)
+        Me.rbLotes.Name = "rbLotes"
+        Me.rbLotes.Size = New System.Drawing.Size(114, 19)
+        Me.rbLotes.TabIndex = 59
+        Me.rbLotes.TabStop = True
+        Me.rbLotes.Text = "Faltantes de Lote"
+        Me.rbLotes.UseVisualStyleBackColor = True
         '
         'rbAjuste
         '
@@ -746,17 +759,6 @@ Partial Class frmRepInventario
         Me.GroupBox2.TabIndex = 257
         Me.GroupBox2.TabStop = False
         '
-        'rbPositivas
-        '
-        Me.rbPositivas.AutoSize = True
-        Me.rbPositivas.Location = New System.Drawing.Point(6, 18)
-        Me.rbPositivas.Name = "rbPositivas"
-        Me.rbPositivas.Size = New System.Drawing.Size(126, 19)
-        Me.rbPositivas.TabIndex = 54
-        Me.rbPositivas.TabStop = True
-        Me.rbPositivas.Text = "Existencia positivas"
-        Me.rbPositivas.UseVisualStyleBackColor = True
-        '
         'rbNegativas
         '
         Me.rbNegativas.AutoSize = True
@@ -767,6 +769,17 @@ Partial Class frmRepInventario
         Me.rbNegativas.TabStop = True
         Me.rbNegativas.Text = "Existencia negativas"
         Me.rbNegativas.UseVisualStyleBackColor = True
+        '
+        'rbPositivas
+        '
+        Me.rbPositivas.AutoSize = True
+        Me.rbPositivas.Location = New System.Drawing.Point(6, 18)
+        Me.rbPositivas.Name = "rbPositivas"
+        Me.rbPositivas.Size = New System.Drawing.Size(126, 19)
+        Me.rbPositivas.TabIndex = 54
+        Me.rbPositivas.TabStop = True
+        Me.rbPositivas.Text = "Existencia positivas"
+        Me.rbPositivas.UseVisualStyleBackColor = True
         '
         'frmRepInventario
         '
@@ -883,4 +896,5 @@ Partial Class frmRepInventario
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents rbNegativas As RadioButton
     Friend WithEvents rbPositivas As RadioButton
+    Friend WithEvents rbLotes As RadioButton
 End Class

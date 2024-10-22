@@ -3304,4 +3304,113 @@ kaka:
         End If
 
     End Sub
+
+    Private Sub rbLotes_Click(sender As Object, e As EventArgs) Handles rbLotes.Click
+        If (rbLotes.Checked) Then
+            cbofiltro.Text = ""
+            cbofiltro.Items.Clear()
+            cbofiltro.Enabled = False
+            boxcaduca.Enabled = False
+            txtCompraTot.Text = "0.00"
+            txtVentaTot.Text = "0.00"
+
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+            My.Application.DoEvents()
+            grdcaptura.ColumnCount = 6
+            With grdcaptura
+                With .Columns(0)
+                    .HeaderText = "Código"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Cod. Barras"
+                    .Width = 180
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                End With
+                With .Columns(3)
+                    .HeaderText = "Existencia Total"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Existencia Lotes"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Faltante en Lotes"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+            End With
+        End If
+        My.Application.DoEvents()
+        Try
+            Dim cod As String = ""
+            Dim barras As String = ""
+            Dim nombre As String = ""
+            Dim existencia As Double = 0
+            Dim existencialote As Double = 0
+            Dim diferencia As Double = 0
+
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Codigo,CodBarra,Nombre,Existencia from Productos where Caduca=1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                Do While rd1.Read
+                    cod = rd1(0).ToString
+                    barras = rd1(1).ToString
+                    nombre = rd1(2).ToString
+                    existencia = rd1(3).ToString
+
+                    cnn2.Close()
+                    cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "Select Sum(Cantidad) from lotecaducidad where Codigo='" & cod & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            existencialote = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+
+                            diferencia = existencia - existencialote
+                            diferencia = FormatNumber(diferencia, 2)
+                        End If
+                    End If
+                    rd2.Close()
+                    grdcaptura.Rows.Add(cod, barras, nombre, existencia, existencialote, diferencia)
+                    My.Application.DoEvents()
+                Loop
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

@@ -5707,6 +5707,13 @@ kaka:
             End If
             cbocodigo.Focus().Equals(True)
             txtPagar.Text = FormatNumber(txtPagar.Text, 2)
+
+
+            For i As Integer = DataGridView2.Rows.Count - 1 To 0 Step -1
+                If DataGridView2.Rows(i).Cells(0).Value.ToString() = CODx Then
+                    DataGridView2.Rows.Remove(DataGridView2.Rows(i))
+                End If
+            Next
         End If
         If CDbl(txtdescuento1.Text) <= 0 Then
             txtSubTotal.Text = txtResta.Text
