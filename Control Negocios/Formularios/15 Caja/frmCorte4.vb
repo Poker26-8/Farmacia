@@ -197,7 +197,7 @@
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='Abono' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='Abono' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "' and CorteU=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1084,6 +1084,9 @@
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
+        e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
@@ -1231,9 +1234,15 @@
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
                             cmd2.ExecuteNonQuery()
+
+
                         End If
                     Loop
                     rd1.Close()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE Abonoe SET CorteU=1 WHERE CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' and Usuario='" & cboCajero.Text & "'"
+                    cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
@@ -1456,6 +1465,9 @@
         Y += 15
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
