@@ -10196,6 +10196,47 @@ ecomoda:
                                     "update Productos set Cargado=0, CargadoInv=0,Existencia=Existencia+" & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
                                 cmd3.ExecuteNonQuery()
 
+
+                                If DataGridView2.Rows.Count <> 0 Then
+                                    For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                                        Dim codx As String = DataGridView2.Rows(asd).Cells(0).Value.ToString
+                                        Dim lote As String = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                                        Dim fechalote As Date = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                                        Dim cantlote As Double = DataGridView2.Rows(asd).Cells(4).Value.ToString
+                                        Dim f As String = ""
+                                        f = Format(fechalote, "MM-yyyy")
+
+                                        cmd3 = cnn3.CreateCommand
+                                        cmd3.CommandText = "Select Lote from lotecaducidad where Codigo='" & codx & "'"
+                                        rd3 = cmd3.ExecuteReader
+                                        Do While rd3.Read
+                                            If lote = rd3(0).ToString Then
+                                                cnn4.Close()
+                                                cnn4.Open()
+                                                cmd4 = cnn4.CreateCommand
+                                                cmd4.CommandText = "Update lotecaducidad set Cantidad=Cantidad+" & cantlote & " where Codigo='" & codx & "' and Lote='" & lote & "'"
+                                                If cmd4.ExecuteNonQuery Then
+                                                Else
+
+                                                End If
+                                                cnn4.Close()
+                                                Exit Do
+                                            Else
+                                                cnn4.Close()
+                                                cnn4.Open()
+                                                cmd4 = cnn4.CreateCommand
+                                                cmd4.CommandText = "Insert into lotecaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codx & "','" & lote & "','" & fechalote & "'," & cantlote & " )"
+                                                If cmd4.ExecuteNonQuery Then
+                                                Else
+
+                                                End If
+                                                cnn4.Close()
+                                            End If
+                                        Loop
+                                        rd3.Close()
+                                    Next
+                                End If
+
                                 '**************************** Configurable ****************************************
                                 ActualizaPEPS(cbonota.Text, mycode, Mycant)
 

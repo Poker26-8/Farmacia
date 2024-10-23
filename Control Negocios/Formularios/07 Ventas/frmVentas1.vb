@@ -4832,6 +4832,33 @@ kaka:
             cnn7.Close()
         End Try
     End Sub
+    Public Sub ConsultaLotesVenta(varcodigo As String)
+        Try
+            Dim lotexd As String = ""
+
+            DataGridView1.Rows.Clear()
+            cnn7.Close() : cnn7.Open()
+            cmd7 = cnn7.CreateCommand
+            cmd7.CommandText = "Select Lote,Caducidad,Cantidad from VentasDetalle where Codigo='" & varcodigo & "' and Folio=" & cbonota.Text & ""
+            rd7 = cmd7.ExecuteReader
+            Do While rd7.Read
+                lotexd = rd7("Lote").ToString
+                Dim fechalote As Date = rd7("Caducidad").ToString
+                Dim f As String = ""
+                f = Format(fechalote, "MM-yyyy")
+
+
+                DataGridView1.Rows.Add(False, "", lotexd, f, "0", rd7("Cantidad").ToString)
+                My.Application.DoEvents()
+            Loop
+            rd7.Close()
+            cnn7.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn7.Close()
+        End Try
+    End Sub
+
 
     Public Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
@@ -5002,16 +5029,30 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.HasRows Then
-                                    If cadxd = 1 Then
-                                        cboLote.Focus().Equals(True)
-                                        gbLotes.Visible = True
-                                        txtcodlote.Text = cbocodigo.Text
-                                        txtnombrelote.Text = cbodesc.Text
-                                        TextBox1.Text = txtcantidad.Text
-                                        ConsultaLotes(cbocodigo.Text)
-                                        My.Application.DoEvents()
+                                    If cbonota.Text <> "" Then
+                                        If cadxd = 1 Then
+                                            cboLote.Focus().Equals(True)
+                                            gbLotes.Visible = True
+                                            txtcodlote.Text = cbocodigo.Text
+                                            txtnombrelote.Text = cbodesc.Text
+                                            TextBox1.Text = txtcantidad.Text
+                                            ConsultaLotesVenta(cbocodigo.Text)
+                                            My.Application.DoEvents()
+                                        Else
+                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        End If
                                     Else
-                                        cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        If cadxd = 1 Then
+                                            cboLote.Focus().Equals(True)
+                                            gbLotes.Visible = True
+                                            txtcodlote.Text = cbocodigo.Text
+                                            txtnombrelote.Text = cbodesc.Text
+                                            TextBox1.Text = txtcantidad.Text
+                                            ConsultaLotes(cbocodigo.Text)
+                                            My.Application.DoEvents()
+                                        Else
+                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        End If
                                     End If
                                 Else
                                     rd1.Close() : cnn1.Close()
@@ -10159,6 +10200,10 @@ ecomoda:
                                         "update Productos set Cargado=0, CargadoInv=0, Existencia=Existencia+" & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
                                     cmd3.ExecuteNonQuery()
 
+
+
+
+
                                     '****** Configurable
                                     ActualizaPEPS(cbonota.Text, mycode, Mycant)
 
@@ -10200,6 +10245,47 @@ ecomoda:
                                 cmd3.CommandText =
                                     "update Productos set Cargado=0, CargadoInv=0,Existencia=Existencia+" & (Mycant * MyMult2) & " where Codigo='" & Strings.Left(rd2("Codigo").ToString(), 6) & "'"
                                 cmd3.ExecuteNonQuery()
+
+                                If DataGridView2.Rows.Count <> 0 Then
+                                    For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                                        Dim codx As String = DataGridView2.Rows(asd).Cells(0).Value.ToString
+                                        Dim lote As String = DataGridView2.Rows(asd).Cells(2).Value.ToString
+                                        Dim fechalote As Date = DataGridView2.Rows(asd).Cells(3).Value.ToString
+                                        Dim cantlote As Double = DataGridView2.Rows(asd).Cells(4).Value.ToString
+                                        Dim f As String = ""
+                                        f = Format(fechalote, "MM-yyyy")
+
+                                        cmd3 = cnn3.CreateCommand
+                                        cmd3.CommandText = "Select Lote from lotecaducidad where Codigo='" & codx & "'"
+                                        rd3 = cmd3.ExecuteReader
+                                        Do While rd3.Read
+                                            If lote = rd3(0).ToString Then
+                                                cnn4.Close()
+                                                cnn4.Open()
+                                                cmd4 = cnn4.CreateCommand
+                                                cmd4.CommandText = "Update lotecaducidad set Cantidad=Cantidad+" & cantlote & " where Codigo='" & codx & "' and Lote='" & lote & "'"
+                                                If cmd4.ExecuteNonQuery Then
+                                                Else
+
+                                                End If
+                                                cnn4.Close()
+                                                Exit Do
+                                            Else
+                                                cnn4.Close()
+                                                cnn4.Open()
+                                                cmd4 = cnn4.CreateCommand
+                                                cmd4.CommandText = "Insert into lotecaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codx & "','" & lote & "','" & fechalote & "'," & cantlote & " )"
+                                                If cmd4.ExecuteNonQuery Then
+                                                Else
+
+                                                End If
+                                                cnn4.Close()
+                                            End If
+                                        Loop
+                                        rd3.Close()
+                                    Next
+                                End If
+
 
                                 '**************************** Configurable ****************************************
                                 ActualizaPEPS(cbonota.Text, mycode, Mycant)
@@ -15978,7 +16064,7 @@ doorcita:
         Next
         If DataGridView2.Rows.Count <> 0 Then
             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
-            gbLotes.Visible = False
+            'gbLotes.Visible = False
         End If
     End Sub
 
