@@ -16064,7 +16064,7 @@ doorcita:
         Next
         If DataGridView2.Rows.Count <> 0 Then
             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
-            'gbLotes.Visible = False
+            gbLotes.Visible = False
         End If
     End Sub
 
