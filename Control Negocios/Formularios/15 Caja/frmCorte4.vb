@@ -1245,7 +1245,7 @@
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "'"
+                    cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "'"
                     cmd2.ExecuteNonQuery()
 
 
