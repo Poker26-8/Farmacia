@@ -188,7 +188,8 @@ Public Class frmOtrosGastos
 
                 End If
                 MsgBox("Registro agregado correctamente", vbInformation + vbOKOnly, titulocentral)
-
+                egreso80.Print()
+                My.Application.DoEvents()
                 btnnuevo.PerformClick()
 
                 cnn1.Close()
@@ -564,7 +565,5 @@ Public Class frmOtrosGastos
         End Try
     End Sub
 
-    Private Sub Label17_Click(sender As Object, e As EventArgs) Handles Label17.Click
-        egreso80.Print()
-    End Sub
+
 End Class
