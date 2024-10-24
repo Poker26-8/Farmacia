@@ -604,6 +604,12 @@ Public Class frmProductosS
             crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base)
         End If
 
+        If (CompruebaBarras(txtbarras.Text)) Then
+
+        Else
+            Exit Sub
+        End If
+
         Try
             cnn1.Close() : cnn1.Open()
 
@@ -1059,6 +1065,35 @@ Public Class frmProductosS
                 End If
             End If
             rd2.Close()
+
+            cnn2.Close()
+            Return valida
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
+        Return Nothing
+    End Function
+
+    Private Function CompruebaBarras(ByVal barras As String) As Boolean
+        Try
+            Dim valida As Boolean = True
+            cnn2.Close() : cnn2.Open()
+
+            If barras <> "" Then
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select CodBarra from Productos where CodBarra='" & barras & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        MsgBox("Ya cuentas con un producto registrado con el código de barras " & barras & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        valida = False
+
+                    End If
+                End If
+                rd2.Close()
+            End If
 
             cnn2.Close()
             Return valida

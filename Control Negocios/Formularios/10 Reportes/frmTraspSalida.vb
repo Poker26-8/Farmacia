@@ -598,6 +598,9 @@ Public Class frmTraspSalida
         btncopia.Enabled = False
         btnguardar.Enabled = True
         barras = ""
+        DataGridView2.Rows.Clear()
+        DataGridView1.Rows.Clear()
+        gbLotes.Visible = False
         Folio()
     End Sub
 

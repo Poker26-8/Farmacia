@@ -72,6 +72,7 @@ Partial Class frmOtrosGastos
         Me.cbotpago = New System.Windows.Forms.ComboBox()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.egreso80 = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox2.SuspendLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -548,11 +549,14 @@ Partial Class frmOtrosGastos
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'egreso80
+        '
+        '
         'frmOtrosGastos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(431, 508)
+        Me.ClientSize = New System.Drawing.Size(431, 285)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label43)
@@ -586,7 +590,9 @@ Partial Class frmOtrosGastos
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(447, 324)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(447, 324)
         Me.Name = "frmOtrosGastos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Otros gastos"
@@ -646,4 +652,5 @@ Partial Class frmOtrosGastos
     Friend WithEvents Column28 As DataGridViewTextBoxColumn
     Friend WithEvents Column27 As DataGridViewTextBoxColumn
     Friend WithEvents btnSalir As Button
+    Friend WithEvents egreso80 As Printing.PrintDocument
 End Class
