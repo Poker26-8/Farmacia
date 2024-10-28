@@ -352,7 +352,7 @@ Public Class frmRecibeTraspaso
                             ssql3 = "update traspasos set CargadoE=1 where Id=" & dr("Id").ToString
                             If odata2.runSp(cnn2, ssql3, sinfo) Then
                                 'grid_eventos.Rows.Insert(0, "Finaliza Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
-                                bajaExitTrasEntrada()
+
                             End If
                         Else
                             'MsgBox("inserta " & sinfo)
@@ -402,6 +402,7 @@ Public Class frmRecibeTraspaso
                                         "," & dr4("Total").ToString & ",'" & Format(fecha, "yyyy-MM-dd") & "','" & vardestino &
                                         "','" & dr4("Depto").ToString & "','" & dr4("Grupo").ToString & "','ENTRADA'," & numTras & ",'" & dr4("Lote").ToString & "','" & dr4("FechaCad").ToString & "')"
                         odata3.runSp(cnn3, ssqlinsertal, sinfo)
+                        bajaExitTrasEntrada(dr4("Codigo").ToString)
                     Next
                 End If
                 cnn4.Close()
@@ -412,12 +413,12 @@ Public Class frmRecibeTraspaso
     End Sub
 
 
-    Private Sub bajaExitTrasEntrada()
+    Private Sub bajaExitTrasEntrada(ByRef codxd As String)
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata2 As New ToolKitSQL.myssql
-        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA'"
+        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA' and Codigo='" & codxd & "'"
         Dim ssql2 As String = ""
         Dim ssql3 As String = ""
         Dim sinfo As String = ""
