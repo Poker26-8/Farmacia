@@ -307,6 +307,8 @@ Public Class frmRecibeTraspaso
                 txtcontraseña.Focus.Equals(True)
                 Exit Sub
             End If
+            btnGuardar.Enabled = False
+            My.Application.DoEvents()
             bajaTraspasosEntrada()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -359,10 +361,13 @@ Public Class frmRecibeTraspaso
                         End If
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
+
                     pSalida80.Print()
+                    btnGuardar.Enabled = True
                     My.Application.DoEvents()
                     btnNuevo.PerformClick()
                     My.Application.DoEvents()
+
                 Else
                     'MsgBox("con consulta " & sinfo)
                 End If
@@ -541,15 +546,21 @@ Public Class frmRecibeTraspaso
                                 ssqlinsertal = "Update LoteCaducidad set Cantidad = " & CInt(dr100("Cantidad").ToString) - cantidad & " where id = " & dr100("id").ToString & ""
                             End If
                         End If
-                        If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+                        If banderaentra = 1 Then
+                            If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+                            Else
+                                MsgBox(sinfo)
+                            End If
+                        End If
+
+                        If banderaentra = 0 Then
+                            ssqlinsertal = "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & Trim(codigo) & "','" & Trim(lote) & "','" & Trim(fechacad) & "'," & Trim(cantidad) & ")"
+                            If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
+
+                            End If
                         End If
                     Next
-                    If banderaentra = 0 Then
-                        ssqlinsertal = "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & Trim(codigo) & "','" & Trim(lote) & "','" & Trim(fechacad) & "'," & Trim(cantidad) & ")"
-                        If odata100.runSp(cnn100, ssqlinsertal, sinfo) Then
 
-                        End If
-                    End If
                 Else
                     ssqlinsertal = ""
                     If tipo = 1 Then
