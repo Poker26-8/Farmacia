@@ -414,97 +414,98 @@ Public Class frmCompras
             cbomoneda.Tag = "0"
         End If
         rd1.Close()
-        If cnn1.State = 0 Then cnn1.Open()
-        'Variables de cálculo
-        Dim varTotal As Double = 0
-        Dim varTotalIVA As Double = 0
-        Dim varTotalIEPS As Double = 0
-        Dim varConteo As Double = 0
-
-        cnn2.Close() : cnn2.Open()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText =
-            "select Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Caducidad,Lote,CP from AuxCompras order by Id"
-        rd1 = cmd1.ExecuteReader
-        Do While rd1.Read
-            If rd1.HasRows Then
-                cboremision.Text = rd1("Rem").ToString
-                cbofactura.Text = rd1("Fac").ToString
-                cbopedido.Text = rd1("Ped").ToString
-                cboproveedor.Text = rd1("Proveedor").ToString
-
-                Dim codigo As String = rd1("Codigo").ToString
-                Dim nombre As String = rd1("Nombre").ToString
-                Dim unidad As String = rd1("Unidad").ToString
-                Dim cantidad As Double = rd1("Cantidad").ToString
-                Dim precio As Double = rd1("Precio").ToString
-                Dim total As Double = cantidad * precio
-                Dim caducidad As String = rd1("Caducidad").ToString
-                Dim lote As String = rd1("Lote").ToString
-                Dim cp As Boolean = rd1("CP").ToString
-                Dim existencia As Double = 0
-                Dim IVA As Double = 0
-
-                varTotalIEPS = varTotalIEPS + CDbl(total * ProdsIEPS(codigo))
-
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "select Existencia,IVA from Productos where Codigo='" & codigo & "'"
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        existencia = rd2("Existencia").ToString
-                        IVA = rd2("IVA").ToString
-                        If IVA > 0 Then
-                            If rd1("Fac").ToString <> "" Then
-                                varTotalIVA = varTotalIVA + CDbl(0.16 * ((total) + (total * ProdsIEPS(codigo))))
-                            End If
-                        End If
-                    End If
-                End If
-                rd2.Close()
-
-                grdcaptura.Rows.Add(
-                    codigo,
-                    nombre,
-                    unidad,
-                    cantidad,
-                    FormatNumber(precio, 4),
-                    FormatNumber(total, 2),
-                    existencia,
-                    caducidad,
-                    lote,
-                    cp
-                    )
-
-                varConteo = varConteo + cantidad
-                varTotal = varTotal + total
-            End If
-        Loop
-        rd1.Close()
         cnn1.Close()
-        cnn2.Close()
+        'If cnn1.State = 0 Then cnn1.Open()
+        ''Variables de cálculo
+        'Dim varTotal As Double = 0
+        'Dim varTotalIVA As Double = 0
+        'Dim varTotalIEPS As Double = 0
+        'Dim varConteo As Double = 0
 
-        Call cboproveedor_SelectedValueChanged(cboproveedor, New EventArgs())
+        'cnn2.Close() : cnn2.Open()
 
-        If cboremision.Text <> "" And cbofactura.Text <> "" Then
-            txtieps.Text = FormatNumber("0", 2)
-            txtsub1.Text = FormatNumber(varTotal, 2)
-            txtsub2.Text = FormatNumber(varTotal, 2)
-            txtiva.Text = FormatNumber(varTotalIVA, 2)
-            txtTotalC.Text = FormatNumber(varTotal + varTotalIVA, 2)
-            txtapagar.Text = FormatNumber(varTotal + varTotalIVA, 2)
-            txtresta.Text = FormatNumber(varTotal + varTotalIVA, 2)
-        Else
-            txtieps.Text = FormatNumber(varTotalIEPS, 2)
-            txtsub1.Text = FormatNumber(varTotal + varTotalIEPS, 2)
-            txtsub2.Text = FormatNumber(varTotal + varTotalIEPS, 2)
-            txtiva.Text = FormatNumber(varTotalIVA, 2)
-            txtTotalC.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
-            txtapagar.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
-            txtresta.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
-        End If
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Caducidad,Lote,CP from AuxCompras order by Id"
+        'rd1 = cmd1.ExecuteReader
+        'Do While rd1.Read
+        '    If rd1.HasRows Then
+        '        cboremision.Text = rd1("Rem").ToString
+        '        cbofactura.Text = rd1("Fac").ToString
+        '        cbopedido.Text = rd1("Ped").ToString
+        '        cboproveedor.Text = rd1("Proveedor").ToString
+
+        '        Dim codigo As String = rd1("Codigo").ToString
+        '        Dim nombre As String = rd1("Nombre").ToString
+        '        Dim unidad As String = rd1("Unidad").ToString
+        '        Dim cantidad As Double = rd1("Cantidad").ToString
+        '        Dim precio As Double = rd1("Precio").ToString
+        '        Dim total As Double = cantidad * precio
+        '        Dim caducidad As String = rd1("Caducidad").ToString
+        '        Dim lote As String = rd1("Lote").ToString
+        '        Dim cp As Boolean = rd1("CP").ToString
+        '        Dim existencia As Double = 0
+        '        Dim IVA As Double = 0
+
+        '        varTotalIEPS = varTotalIEPS + CDbl(total * ProdsIEPS(codigo))
+
+        '        cmd2 = cnn2.CreateCommand
+        '        cmd2.CommandText =
+        '            "select Existencia,IVA from Productos where Codigo='" & codigo & "'"
+        '        rd2 = cmd2.ExecuteReader
+        '        If rd2.HasRows Then
+        '            If rd2.Read Then
+        '                existencia = rd2("Existencia").ToString
+        '                IVA = rd2("IVA").ToString
+        '                If IVA > 0 Then
+        '                    If rd1("Fac").ToString <> "" Then
+        '                        varTotalIVA = varTotalIVA + CDbl(0.16 * ((total) + (total * ProdsIEPS(codigo))))
+        '                    End If
+        '                End If
+        '            End If
+        '        End If
+        '        rd2.Close()
+
+        '        grdcaptura.Rows.Add(
+        '            codigo,
+        '            nombre,
+        '            unidad,
+        '            cantidad,
+        '            FormatNumber(precio, 4),
+        '            FormatNumber(total, 2),
+        '            existencia,
+        '            caducidad,
+        '            lote,
+        '            cp
+        '            )
+
+        '        varConteo = varConteo + cantidad
+        '        varTotal = varTotal + total
+        '    End If
+        'Loop
+        'rd1.Close()
+        ' cnn1.Close()
+        'cnn2.Close()
+
+        'Call cboproveedor_SelectedValueChanged(cboproveedor, New EventArgs())
+
+        'If cboremision.Text <> "" And cbofactura.Text <> "" Then
+        '    txtieps.Text = FormatNumber("0", 2)
+        '    txtsub1.Text = FormatNumber(varTotal, 2)
+        '    txtsub2.Text = FormatNumber(varTotal, 2)
+        '    txtiva.Text = FormatNumber(varTotalIVA, 2)
+        '    txtTotalC.Text = FormatNumber(varTotal + varTotalIVA, 2)
+        '    txtapagar.Text = FormatNumber(varTotal + varTotalIVA, 2)
+        '    txtresta.Text = FormatNumber(varTotal + varTotalIVA, 2)
+        'Else
+        '    txtieps.Text = FormatNumber(varTotalIEPS, 2)
+        '    txtsub1.Text = FormatNumber(varTotal + varTotalIEPS, 2)
+        '    txtsub2.Text = FormatNumber(varTotal + varTotalIEPS, 2)
+        '    txtiva.Text = FormatNumber(varTotalIVA, 2)
+        '    txtTotalC.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
+        '    txtapagar.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
+        '    txtresta.Text = FormatNumber(varTotal + varTotalIVA + varTotalIEPS, 2)
+        'End If
 
         cbonombre.Focus().Equals(True)
     End Sub

@@ -2075,6 +2075,12 @@
     <Compile Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\37 FANASA\frmFanasa.Designer.vb">
+      <DependentUpon>frmFanasa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\37 FANASA\frmFanasa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -3029,6 +3035,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.resx">
       <DependentUpon>frmTraspasosAndroid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\37 FANASA\frmFanasa.resx">
+      <DependentUpon>frmFanasa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

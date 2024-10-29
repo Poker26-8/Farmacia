@@ -2210,4 +2210,9 @@ Public Class Inicio
         frmInventarios.BringToFront()
         frmInventarios.Show
     End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        'frmFanasa.Show()
+        'frmFanasa.BringToFront()
+    End Sub
 End Class
