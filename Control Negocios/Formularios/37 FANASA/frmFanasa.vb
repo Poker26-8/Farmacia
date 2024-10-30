@@ -138,7 +138,7 @@ Public Class frmFanasa
             ' Crear el encabezado de autenticación en Base64
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
             client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
-
+            Dim xd As String = ""
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
             ""contactList"": {
