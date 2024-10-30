@@ -530,6 +530,6 @@ Public Class frmFanasa
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ValidarTarjeta6()
+        ConsultarSaldo13()
     End Sub
 End Class
