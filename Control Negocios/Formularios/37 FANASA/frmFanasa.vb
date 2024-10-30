@@ -20,11 +20,11 @@ Public Class frmFanasa
 
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
-            ""subsidiaryId"": ""99997"",
+            ""subsidiaryId"": ""99998"",
             ""pos"": ""SAV, PHARMACYLITE, PHARMACYSOFT, STOKEWARE, ETC"",
             ""address"": ""TOLUCA"",
             ""status"": ""Activo"",
-            ""token"": ""1234""
+            ""token"": ""1235""
         }"
 
             ' Crear el contenido para el PUT con JSON
@@ -215,7 +215,7 @@ Public Class frmFanasa
             ' Crear el encabezado de autenticación en Base64
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
             client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
-
+            Dim xd As String = "132245"
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
             ""transaction"": ""COT869439"",
@@ -530,6 +530,6 @@ Public Class frmFanasa
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        DetalleProducto12()
+        ValidarTarjeta6()
     End Sub
 End Class
