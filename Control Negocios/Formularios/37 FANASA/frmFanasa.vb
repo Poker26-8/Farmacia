@@ -531,5 +531,9 @@ Public Class frmFanasa
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ConsultarSaldo13()
+        My.Application.DoEvents()
+        DetalleProducto12()
+        My.Application.DoEvents()
+        RegistrarClientes5()
     End Sub
 End Class
