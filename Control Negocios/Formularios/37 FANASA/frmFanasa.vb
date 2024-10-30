@@ -302,6 +302,210 @@ Public Class frmFanasa
         End Using
     End Function
 
+    Public Async Function AplicarVenta8() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": ""COT-35635"",
+            ""programData"": {
+                ""id"": ""529"",
+                ""type"": ""Laboratorios exclusivos""
+            },
+            ""user"": ""alecks.garcia"",
+            ""cardAuthNum"": ""1943771"",
+            ""giftAuthNum"": ""56156735"",
+            ""itemList"": {
+                ""item"": [
+                    {
+                        ""sku"": ""7501125189111"",
+                        ""quantity"": 3,
+                        ""originQuantity"": 3,
+                        ""unitPrice"": 1000
+                    }
+                ]
+            },
+            ""giftList"": {
+                ""combo"": [
+                    {
+                        ""idCombo"": ""1"",
+                        ""giftType"": ""Pieza"",
+                        ""selection"": ""Todos"",
+                        ""skuPurchase"": ""7501125189111"",
+                        ""giftItemList"": {
+                            ""giftItem"": [
+                                {
+                                    ""sku"": ""7501125189111"",
+                                    ""discount"": 0,
+                                    ""minGiftPieces"": 1,
+                                    ""maxGiftPieces"": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }"
+
+            ' Crear el contenido para el POST con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud POST
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Public Async Function CancelarVenta9() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": ""COT-35635"",
+            ""user"": ""alecks.garcia"",
+            ""cardAuthNum"": ""1943771"",
+            ""giftAuthNum"": ""56156735""
+        }"
+
+            ' Crear el contenido para el PUT con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud PUT
+            Dim response As HttpResponseMessage = Await client.PutAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Public Async Function RechazarBeneficios10() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/gifts"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": ""COT-35635"",
+            ""cardAuthNum"": ""1943771"",
+            ""giftAuthNum"": ""56156735"",
+            ""giftList"": {
+                ""combo"": [
+                    {
+                        ""idCombo"": ""1"",
+                        ""giftItemList"": {
+                            ""giftItem"": [
+                                {
+                                    ""sku"": ""7501089801173"",
+                                    ""minGiftPieces"": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }"
+
+            ' Crear el contenido para el PUT con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud PUT
+            Dim response As HttpResponseMessage = Await client.PutAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Public Async Function ReglasdelProducto11() As Task
+        Dim idProgram As String = "529"
+        Dim idCX As String = "4954390"
+        Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/products/rules?idProgram={idProgram}&idCX={idCX}"
+
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Realizar la solicitud GET
+            Dim response As HttpResponseMessage = Await client.GetAsync(url)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Public Async Function DetalleProducto12() As Task
+        Dim idProgram As String = "529"
+        Dim idCX As String = "3985009"
+        Dim sku As String = "7501125189111"
+        Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/products/details?idProgram={idProgram}&idCX={idCX}"
+
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Realizar la solicitud GET
+            Dim response As HttpResponseMessage = Await client.GetAsync(url)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+
     Public Async Function ConsultarSaldo13() As Task
         Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/balances/99997?&pos=SAV"
         Dim usuario As String = "userTest"
@@ -326,6 +530,6 @@ Public Class frmFanasa
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        RegistrarSucursales()
+        DetalleProducto12()
     End Sub
 End Class
