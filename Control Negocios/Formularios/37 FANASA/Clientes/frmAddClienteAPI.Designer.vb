@@ -917,6 +917,7 @@ Partial Class frmAddClienteAPI
         Me.lblidcrm.Name = "lblidcrm"
         Me.lblidcrm.Size = New System.Drawing.Size(153, 20)
         Me.lblidcrm.TabIndex = 3
+        Me.lblidcrm.Text = "4954408"
         '
         'Label4
         '

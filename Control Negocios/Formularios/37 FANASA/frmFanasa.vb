@@ -97,12 +97,12 @@ Public Class frmFanasa
 
     Public Async Function ConsultaCliente4() As Task
         Dim origin As String = "fanasa"
-        Dim idCRM As String = "4954390"
-        Dim name As String = "ALECKS"
-        Dim lastName1 As String = "GARCIA"
+        Dim idCRM As String = "4954408"
+        Dim name As String = "CARLOS"
+        Dim lastName1 As String = "AGUIRRE"
 
 
-        Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&name={name}&lastName1={lastName1}"
+        Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&idCRM={idCRM}"
 
         Dim usuario As String = "userTest"
         Dim contraseña As String = "Vwq5MYEUtesVwYtK"
@@ -120,8 +120,9 @@ Public Class frmFanasa
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
 
                 Dim jsonResponse As JObject = JObject.Parse(responseData)
-                Dim idCRM2 As String = jsonResponse("idCRM")?.ToString()
-                MsgBox("ID CRM extraído: " & idCRM)
+                Dim idCRM2 As String = jsonResponse("contact")?(0)?("generalData")?("idCRM")?.ToString()
+                My.Application.DoEvents()
+                MsgBox("ID CRM extraído: " & idCRM2)
                 MsgBox("Respuesta de la API: " & responseData)
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
@@ -537,6 +538,10 @@ Public Class frmFanasa
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ConsultarSaldo13()
+        ConsultaCliente4()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        frmAddClienteAPI.Show()
     End Sub
 End Class
