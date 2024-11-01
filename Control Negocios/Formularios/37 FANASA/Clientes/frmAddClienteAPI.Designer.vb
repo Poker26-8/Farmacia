@@ -26,6 +26,8 @@ Partial Class frmAddClienteAPI
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cboStatusTel = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.optPrincipalTel = New System.Windows.Forms.CheckBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.cboTipoTel = New System.Windows.Forms.ComboBox()
@@ -43,7 +45,6 @@ Partial Class frmAddClienteAPI
         Me.txtReferencias = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.optPrincipalDir = New System.Windows.Forms.CheckBox()
-        Me.Label40 = New System.Windows.Forms.Label()
         Me.txtLongitud = New System.Windows.Forms.TextBox()
         Me.txtLatitud = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
@@ -67,6 +68,7 @@ Partial Class frmAddClienteAPI
         Me.Label30 = New System.Windows.Forms.Label()
         Me.txtIdDire = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtcpC = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -106,8 +108,6 @@ Partial Class frmAddClienteAPI
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cboStatusTel = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -190,6 +190,27 @@ Partial Class frmAddClienteAPI
         Me.GroupBox2.TabIndex = 45
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Teléfono"
+        '
+        'cboStatusTel
+        '
+        Me.cboStatusTel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.cboStatusTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboStatusTel.FormattingEnabled = True
+        Me.cboStatusTel.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cboStatusTel.Location = New System.Drawing.Point(354, 55)
+        Me.cboStatusTel.Name = "cboStatusTel"
+        Me.cboStatusTel.Size = New System.Drawing.Size(110, 23)
+        Me.cboStatusTel.TabIndex = 45
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(293, 58)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(61, 18)
+        Me.Label3.TabIndex = 44
+        Me.Label3.Text = "Status:"
         '
         'optPrincipalTel
         '
@@ -390,16 +411,6 @@ Partial Class frmAddClienteAPI
         Me.optPrincipalDir.TabIndex = 62
         Me.optPrincipalDir.Text = "Principal"
         Me.optPrincipalDir.UseVisualStyleBackColor = True
-        '
-        'Label40
-        '
-        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.Location = New System.Drawing.Point(306, 109)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(79, 23)
-        Me.Label40.TabIndex = 61
-        Me.Label40.Text = "Longitud:"
-        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtLongitud
         '
@@ -618,6 +629,16 @@ Partial Class frmAddClienteAPI
         Me.Label29.Size = New System.Drawing.Size(26, 20)
         Me.Label29.TabIndex = 39
         Me.Label29.Text = "Id:"
+        '
+        'Label40
+        '
+        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.Location = New System.Drawing.Point(306, 109)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(79, 23)
+        Me.Label40.TabIndex = 61
+        Me.Label40.Text = "Longitud:"
+        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label24
         '
@@ -1001,27 +1022,6 @@ Partial Class frmAddClienteAPI
         Me.Button1.Text = "Salir"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(293, 58)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 18)
-        Me.Label3.TabIndex = 44
-        Me.Label3.Text = "Status:"
-        '
-        'cboStatusTel
-        '
-        Me.cboStatusTel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.cboStatusTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboStatusTel.FormattingEnabled = True
-        Me.cboStatusTel.Items.AddRange(New Object() {"Activo", "Inactivo"})
-        Me.cboStatusTel.Location = New System.Drawing.Point(354, 55)
-        Me.cboStatusTel.Name = "cboStatusTel"
-        Me.cboStatusTel.Size = New System.Drawing.Size(110, 23)
-        Me.cboStatusTel.TabIndex = 45
         '
         'frmAddClienteAPI
         '

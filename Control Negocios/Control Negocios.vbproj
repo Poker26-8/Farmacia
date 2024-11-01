@@ -2081,6 +2081,18 @@
     <Compile Include="Formularios\37 FANASA\Clientes\frmAddClienteAPI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\37 FANASA\Clientes\frmBuscaCliente.Designer.vb">
+      <DependentUpon>frmBuscaCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\37 FANASA\Clientes\frmBuscaCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\37 FANASA\Clientes\frmNuevoCliente.Designer.vb">
+      <DependentUpon>frmNuevoCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\37 FANASA\Clientes\frmNuevoCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\37 FANASA\frmFanasa.Designer.vb">
       <DependentUpon>frmFanasa.vb</DependentUpon>
     </Compile>
@@ -3044,6 +3056,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\37 FANASA\Clientes\frmAddClienteAPI.resx">
       <DependentUpon>frmAddClienteAPI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\37 FANASA\Clientes\frmBuscaCliente.resx">
+      <DependentUpon>frmBuscaCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\37 FANASA\Clientes\frmNuevoCliente.resx">
+      <DependentUpon>frmNuevoCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\37 FANASA\frmFanasa.resx">
       <DependentUpon>frmFanasa.vb</DependentUpon>
