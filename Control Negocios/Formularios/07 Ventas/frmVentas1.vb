@@ -14,6 +14,8 @@ Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Public Class frmVentas1
 
     Private WithEvents editingControl As DataGridViewTextBoxEditingControl
+
+    Public vienedexd As Integer = 0
     ''' variablesm para terminal bancaria
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
@@ -4130,6 +4132,7 @@ kaka:
                 End If
                 rd1.Close()
                 cnn1.Close()
+                txtprecio.Focus.Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -5119,17 +5122,35 @@ kaka:
         Dim chec As Boolean = False
         Dim renta As Boolean = False
 
+
         If cboLote.Text = "" Then
             If cboLote.Items.Count > 0 Then
                 If DataGridView2.Rows.Count = 0 Then
+                    If vienedexd = 0 Then
+                        gbLotes.Visible = True
+                        txtcodlote.Text = cbocodigo.Text
+                        txtnombrelote.Text = cbodesc.Text
+                        TextBox1.Text = txtcantidad.Text
+                        ConsultaLotes(cbocodigo.Text)
+                        My.Application.DoEvents()
+                        Exit Sub
+                    Else
+
+                    End If
                     'MsgBox("Necesitas seleccionar un lote de producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    gbLotes.Visible = True
-                    txtcodlote.Text = cbocodigo.Text
-                    txtnombrelote.Text = cbodesc.Text
-                    TextBox1.Text = txtcantidad.Text
-                    ConsultaLotes(cbocodigo.Text)
-                    My.Application.DoEvents()
-                    Exit Sub
+
+                Else
+                    If vienedexd = 0 Then
+                        gbLotes.Visible = True
+                        txtcodlote.Text = cbocodigo.Text
+                        txtnombrelote.Text = cbodesc.Text
+                        TextBox1.Text = txtcantidad.Text
+                        ConsultaLotes(cbocodigo.Text)
+                        My.Application.DoEvents()
+                        Exit Sub
+                    Else
+
+                    End If
                 End If
 
                 'If DataGridView2.Rows.Count > 0 Then
@@ -5354,6 +5375,7 @@ kaka:
             picProd.Image = Nothing
             cboLote.Items.Clear()
             cnn1.Close()
+            vienedexd = 0
             donde_va = "Descuento Porcentaje"
 
             If CDbl(txtdescuento1.Text) <= 0 Then
@@ -6377,6 +6399,7 @@ kaka:
 
         Timer1.Stop()
         Button14.PerformClick()
+        vienedexd = 0
         txtbarr.Text = ""
         gbLotes.Visible = False
         DataGridView1.Rows.Clear()
@@ -16063,6 +16086,7 @@ doorcita:
             End If
         Next
         If DataGridView2.Rows.Count <> 0 Then
+            vienedexd = 1
             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
             gbLotes.Visible = False
         End If
@@ -16085,5 +16109,9 @@ doorcita:
             frmRepExistenciaSincronizador.Show()
             frmRepExistenciaSincronizador.BringToFront()
         End If
+    End Sub
+
+    Private Sub cboLote_KeyUp(sender As Object, e As KeyEventArgs) Handles cboLote.KeyUp
+
     End Sub
 End Class

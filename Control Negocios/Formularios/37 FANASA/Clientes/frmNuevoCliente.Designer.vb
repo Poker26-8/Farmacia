@@ -67,6 +67,7 @@ Partial Class frmNuevoCliente
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblEstatus = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -515,12 +516,24 @@ Partial Class frmNuevoCliente
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'lblEstatus
+        '
+        Me.lblEstatus.AutoSize = True
+        Me.lblEstatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblEstatus.Location = New System.Drawing.Point(10, 420)
+        Me.lblEstatus.Name = "lblEstatus"
+        Me.lblEstatus.Size = New System.Drawing.Size(300, 25)
+        Me.lblEstatus.TabIndex = 308
+        Me.lblEstatus.Text = "GUARDANDO REGISTRO..."
+        '
         'frmNuevoCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(561, 476)
+        Me.Controls.Add(Me.lblEstatus)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.cboTipoDir)
@@ -616,4 +629,5 @@ Partial Class frmNuevoCliente
     Friend WithEvents Label21 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents lblEstatus As Label
 End Class
