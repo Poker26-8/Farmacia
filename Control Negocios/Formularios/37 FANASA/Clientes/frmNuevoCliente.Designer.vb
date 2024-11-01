@@ -22,41 +22,51 @@ Partial Class frmNuevoCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoCliente))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtApellido1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtApellido2 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.txtNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.cboSex = New System.Windows.Forms.ComboBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtTarjeta = New System.Windows.Forms.TextBox()
+        Me.txtCalle = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtExtDir = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.txtIntDir = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.txtColonia = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.txtCpDir = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.txtDelegacion = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.txtCiudad = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.txtPais = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.cboTipoTel = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cboStatusTel = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.cboTipoDir = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -91,14 +101,14 @@ Partial Class frmNuevoCliente
         Me.Label3.TabIndex = 263
         Me.Label3.Text = "NOMBRE:"
         '
-        'TextBox1
+        'txtApellido1
         '
-        Me.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(106, 109)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox1.TabIndex = 266
+        Me.txtApellido1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtApellido1.Location = New System.Drawing.Point(106, 109)
+        Me.txtApellido1.Name = "txtApellido1"
+        Me.txtApellido1.Size = New System.Drawing.Size(175, 22)
+        Me.txtApellido1.TabIndex = 266
         '
         'Label2
         '
@@ -110,14 +120,14 @@ Partial Class frmNuevoCliente
         Me.Label2.TabIndex = 265
         Me.Label2.Text = "A. PATERNO:"
         '
-        'TextBox2
+        'txtApellido2
         '
-        Me.TextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(380, 109)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox2.TabIndex = 268
+        Me.txtApellido2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtApellido2.Location = New System.Drawing.Point(380, 109)
+        Me.txtApellido2.Name = "txtApellido2"
+        Me.txtApellido2.Size = New System.Drawing.Size(175, 22)
+        Me.txtApellido2.TabIndex = 268
         '
         'Label4
         '
@@ -139,14 +149,14 @@ Partial Class frmNuevoCliente
         Me.Label5.TabIndex = 269
         Me.Label5.Text = "FECHA NAC."
         '
-        'DateTimePicker1
+        'txtNacimiento
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(106, 139)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(175, 22)
-        Me.DateTimePicker1.TabIndex = 270
+        Me.txtNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txtNacimiento.Location = New System.Drawing.Point(106, 139)
+        Me.txtNacimiento.Name = "txtNacimiento"
+        Me.txtNacimiento.Size = New System.Drawing.Size(175, 22)
+        Me.txtNacimiento.TabIndex = 270
         '
         'Label6
         '
@@ -158,23 +168,25 @@ Partial Class frmNuevoCliente
         Me.Label6.TabIndex = 271
         Me.Label6.Text = "GENERO:"
         '
-        'ComboBox1
+        'cboSex
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(380, 137)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(175, 24)
-        Me.ComboBox1.TabIndex = 272
+        Me.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSex.FormattingEnabled = True
+        Me.cboSex.Items.AddRange(New Object() {"Masculino", "Femenino", "Otro"})
+        Me.cboSex.Location = New System.Drawing.Point(380, 137)
+        Me.cboSex.Name = "cboSex"
+        Me.cboSex.Size = New System.Drawing.Size(175, 24)
+        Me.cboSex.TabIndex = 272
         '
-        'TextBox3
+        'txtEmail
         '
-        Me.TextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(106, 167)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox3.TabIndex = 274
+        Me.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
+        Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.Location = New System.Drawing.Point(106, 167)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(175, 22)
+        Me.txtEmail.TabIndex = 274
         '
         'Label7
         '
@@ -186,14 +198,14 @@ Partial Class frmNuevoCliente
         Me.Label7.TabIndex = 273
         Me.Label7.Text = "CORREO:"
         '
-        'TextBox4
+        'txtTelefono
         '
-        Me.TextBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(380, 167)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox4.TabIndex = 276
+        Me.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTelefono.Location = New System.Drawing.Point(380, 167)
+        Me.txtTelefono.Name = "txtTelefono"
+        Me.txtTelefono.Size = New System.Drawing.Size(175, 22)
+        Me.txtTelefono.TabIndex = 276
         '
         'Label8
         '
@@ -215,24 +227,24 @@ Partial Class frmNuevoCliente
         Me.Label10.TabIndex = 279
         Me.Label10.Text = "FOLIO TARJETA:"
         '
-        'TextBox6
+        'txtTarjeta
         '
-        Me.TextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox6.Enabled = False
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(168, 35)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(224, 26)
-        Me.TextBox6.TabIndex = 280
+        Me.txtTarjeta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTarjeta.Enabled = False
+        Me.txtTarjeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTarjeta.Location = New System.Drawing.Point(168, 35)
+        Me.txtTarjeta.Name = "txtTarjeta"
+        Me.txtTarjeta.Size = New System.Drawing.Size(224, 26)
+        Me.txtTarjeta.TabIndex = 280
         '
-        'TextBox7
+        'txtCalle
         '
-        Me.TextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(86, 247)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox7.TabIndex = 282
+        Me.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCalle.Location = New System.Drawing.Point(86, 247)
+        Me.txtCalle.Name = "txtCalle"
+        Me.txtCalle.Size = New System.Drawing.Size(175, 22)
+        Me.txtCalle.TabIndex = 282
         '
         'Label11
         '
@@ -244,14 +256,14 @@ Partial Class frmNuevoCliente
         Me.Label11.TabIndex = 281
         Me.Label11.Text = "CALLE:"
         '
-        'TextBox8
+        'txtExtDir
         '
-        Me.TextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(340, 247)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(59, 22)
-        Me.TextBox8.TabIndex = 284
+        Me.txtExtDir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtExtDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtExtDir.Location = New System.Drawing.Point(340, 247)
+        Me.txtExtDir.Name = "txtExtDir"
+        Me.txtExtDir.Size = New System.Drawing.Size(59, 22)
+        Me.txtExtDir.TabIndex = 284
         '
         'Label12
         '
@@ -263,14 +275,14 @@ Partial Class frmNuevoCliente
         Me.Label12.TabIndex = 283
         Me.Label12.Text = "NUM. EXT.:"
         '
-        'TextBox9
+        'txtIntDir
         '
-        Me.TextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(478, 247)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(71, 22)
-        Me.TextBox9.TabIndex = 286
+        Me.txtIntDir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtIntDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIntDir.Location = New System.Drawing.Point(478, 247)
+        Me.txtIntDir.Name = "txtIntDir"
+        Me.txtIntDir.Size = New System.Drawing.Size(71, 22)
+        Me.txtIntDir.TabIndex = 286
         '
         'Label13
         '
@@ -282,14 +294,14 @@ Partial Class frmNuevoCliente
         Me.Label13.TabIndex = 285
         Me.Label13.Text = "NUM. INT.:"
         '
-        'TextBox10
+        'txtColonia
         '
-        Me.TextBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(86, 275)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(229, 22)
-        Me.TextBox10.TabIndex = 288
+        Me.txtColonia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtColonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtColonia.Location = New System.Drawing.Point(86, 275)
+        Me.txtColonia.Name = "txtColonia"
+        Me.txtColonia.Size = New System.Drawing.Size(229, 22)
+        Me.txtColonia.TabIndex = 288
         '
         'Label14
         '
@@ -301,14 +313,14 @@ Partial Class frmNuevoCliente
         Me.Label14.TabIndex = 287
         Me.Label14.Text = "COLONIA:"
         '
-        'TextBox11
+        'txtCpDir
         '
-        Me.TextBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(374, 275)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(175, 22)
-        Me.TextBox11.TabIndex = 290
+        Me.txtCpDir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCpDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCpDir.Location = New System.Drawing.Point(374, 275)
+        Me.txtCpDir.Name = "txtCpDir"
+        Me.txtCpDir.Size = New System.Drawing.Size(175, 22)
+        Me.txtCpDir.TabIndex = 290
         '
         'Label15
         '
@@ -320,14 +332,14 @@ Partial Class frmNuevoCliente
         Me.Label15.TabIndex = 289
         Me.Label15.Text = "CP:"
         '
-        'TextBox12
+        'txtDelegacion
         '
-        Me.TextBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(183, 303)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(366, 22)
-        Me.TextBox12.TabIndex = 292
+        Me.txtDelegacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDelegacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDelegacion.Location = New System.Drawing.Point(183, 303)
+        Me.txtDelegacion.Name = "txtDelegacion"
+        Me.txtDelegacion.Size = New System.Drawing.Size(366, 22)
+        Me.txtDelegacion.TabIndex = 292
         '
         'Label16
         '
@@ -339,14 +351,14 @@ Partial Class frmNuevoCliente
         Me.Label16.TabIndex = 291
         Me.Label16.Text = "DELEGACION / MUNICIPIO"
         '
-        'TextBox13
+        'txtCiudad
         '
-        Me.TextBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(86, 331)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(201, 22)
-        Me.TextBox13.TabIndex = 294
+        Me.txtCiudad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCiudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCiudad.Location = New System.Drawing.Point(86, 331)
+        Me.txtCiudad.Name = "txtCiudad"
+        Me.txtCiudad.Size = New System.Drawing.Size(201, 22)
+        Me.txtCiudad.TabIndex = 294
         '
         'Label17
         '
@@ -358,14 +370,16 @@ Partial Class frmNuevoCliente
         Me.Label17.TabIndex = 293
         Me.Label17.Text = "CIUDAD:"
         '
-        'ComboBox2
+        'cboEstado
         '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(374, 329)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(175, 24)
-        Me.ComboBox2.TabIndex = 296
+        Me.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Items.AddRange(New Object() {"AGUASCALIENTES", "BAJA CALIFORNIA", "BAJA CALIFORNIA SUR", "CAMPECHE", "CHIAPAS", "CHIHUAHUA", "CIUDAD DE MEXICO", "COAHUILA", "COLIMA", "DURANGO", "EXTRANJERO", "GUANAJUATO", "GUERRERO", "HIDALGO", "JALISCO", "MEXICO", "MICHOACAN", "MORELOS", "NAYARIT", "NUEVO LEON", "OAXACA", "PUEBLA", "QUERETARO", "QUINTANA ROO", "SAN LUIS POTOSI", "SINALOA", "SONORA", "TABASCO", "TAMAULIPAS", "TLAXCALA", "VERACRUZ", "YUCATAN", "ZACATECAS"})
+        Me.cboEstado.Location = New System.Drawing.Point(374, 329)
+        Me.cboEstado.Name = "cboEstado"
+        Me.cboEstado.Size = New System.Drawing.Size(175, 24)
+        Me.cboEstado.TabIndex = 296
         '
         'Label18
         '
@@ -377,14 +391,14 @@ Partial Class frmNuevoCliente
         Me.Label18.TabIndex = 295
         Me.Label18.Text = "ESTADO:"
         '
-        'TextBox14
+        'txtPais
         '
-        Me.TextBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox14.Location = New System.Drawing.Point(86, 359)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(201, 22)
-        Me.TextBox14.TabIndex = 298
+        Me.txtPais.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPais.Location = New System.Drawing.Point(86, 359)
+        Me.txtPais.Name = "txtPais"
+        Me.txtPais.Size = New System.Drawing.Size(201, 22)
+        Me.txtPais.TabIndex = 298
         '
         'Label19
         '
@@ -396,43 +410,157 @@ Partial Class frmNuevoCliente
         Me.Label19.TabIndex = 297
         Me.Label19.Text = "PAIS:"
         '
+        'cboTipoTel
+        '
+        Me.cboTipoTel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTipoTel.FormattingEnabled = True
+        Me.cboTipoTel.Items.AddRange(New Object() {"Casa", "Celular", "Trabajo", "Recados", "Otros"})
+        Me.cboTipoTel.Location = New System.Drawing.Point(380, 195)
+        Me.cboTipoTel.Name = "cboTipoTel"
+        Me.cboTipoTel.Size = New System.Drawing.Size(175, 24)
+        Me.cboTipoTel.TabIndex = 300
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(230, 203)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(138, 16)
+        Me.Label9.TabIndex = 299
+        Me.Label9.Text = "TIPO DE TELEFONO:"
+        '
+        'cboStatusTel
+        '
+        Me.cboStatusTel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboStatusTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboStatusTel.FormattingEnabled = True
+        Me.cboStatusTel.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cboStatusTel.Location = New System.Drawing.Point(106, 195)
+        Me.cboStatusTel.Name = "cboStatusTel"
+        Me.cboStatusTel.Size = New System.Drawing.Size(118, 24)
+        Me.cboStatusTel.TabIndex = 302
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(13, 203)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(74, 16)
+        Me.Label20.TabIndex = 301
+        Me.Label20.Text = "ESTATUS:"
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(397, 396)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 68)
+        Me.Button2.TabIndex = 303
+        Me.Button2.Text = "Guardar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'cboTipoDir
+        '
+        Me.cboTipoDir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTipoDir.FormattingEnabled = True
+        Me.cboTipoDir.Items.AddRange(New Object() {"Envíos", "Facturación"})
+        Me.cboTipoDir.Location = New System.Drawing.Point(374, 359)
+        Me.cboTipoDir.Name = "cboTipoDir"
+        Me.cboTipoDir.Size = New System.Drawing.Size(175, 24)
+        Me.cboTipoDir.TabIndex = 305
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(293, 367)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(41, 16)
+        Me.Label21.TabIndex = 304
+        Me.Label21.Text = "TIPO:"
+        '
+        'Button3
+        '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Location = New System.Drawing.Point(317, 396)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 68)
+        Me.Button3.TabIndex = 307
+        Me.Button3.Text = "Limpiar"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(478, 396)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 68)
+        Me.Button1.TabIndex = 306
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmNuevoCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(561, 450)
-        Me.Controls.Add(Me.TextBox14)
+        Me.ClientSize = New System.Drawing.Size(561, 476)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cboTipoDir)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.cboStatusTel)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.cboTipoTel)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txtPais)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cboEstado)
         Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.TextBox13)
+        Me.Controls.Add(Me.txtCiudad)
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.TextBox12)
+        Me.Controls.Add(Me.txtDelegacion)
         Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.TextBox11)
+        Me.Controls.Add(Me.txtCpDir)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.TextBox10)
+        Me.Controls.Add(Me.txtColonia)
         Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.TextBox9)
+        Me.Controls.Add(Me.txtIntDir)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.txtExtDir)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.txtCalle)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.TextBox6)
+        Me.Controls.Add(Me.txtTarjeta)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cboSex)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.txtNacimiento)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtApellido2)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtApellido1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label3)
@@ -447,36 +575,45 @@ Partial Class frmNuevoCliente
     Friend WithEvents Label1 As Label
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtApellido1 As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtApellido2 As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents txtNacimiento As DateTimePicker
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents cboSex As ComboBox
+    Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtTelefono As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtTarjeta As TextBox
+    Friend WithEvents txtCalle As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtExtDir As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents txtIntDir As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents txtColonia As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents txtCpDir As TextBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents txtDelegacion As TextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents txtCiudad As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cboEstado As ComboBox
     Friend WithEvents Label18 As Label
-    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents txtPais As TextBox
     Friend WithEvents Label19 As Label
+    Friend WithEvents cboTipoTel As ComboBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents cboStatusTel As ComboBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents cboTipoDir As ComboBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button1 As Button
 End Class
