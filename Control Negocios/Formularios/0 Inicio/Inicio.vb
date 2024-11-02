@@ -2176,12 +2176,6 @@ Public Class Inicio
         frmMapa.Show()
     End Sub
 
-
-
-
-
-
-
     Private Sub btnsalida_Click(sender As Object, e As EventArgs) Handles btnsalida.Click
         frmTraspSalida.Show()
     End Sub
@@ -2212,7 +2206,7 @@ Public Class Inicio
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-        frmFanasa.Show()
-        frmFanasa.BringToFront()
+        'frmFanasa.Show()
+        'frmFanasa.BringToFront()
     End Sub
 End Class
