@@ -15456,11 +15456,11 @@ doorcita:
 
     End Sub
     Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
-        frmOrdenTrabajo.Show()
-        frmOrdenTrabajo.BringToFront()
-        'vienede = "Ventas3"
-        'frmBuscaCliente.Show()
-        'frmBuscaCliente.BringToFront()
+        'frmOrdenTrabajo.Show()
+        'frmOrdenTrabajo.BringToFront()
+        vienede = "Ventas3"
+        frmBuscaCliente.Show()
+        frmBuscaCliente.BringToFront()
     End Sub
     Private Sub pVentaMatriz80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMatriz80.PrintPage
         'Fuentes prederminadas
