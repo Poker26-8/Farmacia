@@ -219,6 +219,8 @@ Public Class frmFanasa
         Dim usuario As String = "userTest"
         Dim contraseña As String = "Vwq5MYEUtesVwYtK"
 
+
+
         Using client As New HttpClient()
             ' Crear el encabezado de autenticación en Base64
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
@@ -488,7 +490,8 @@ Public Class frmFanasa
 
     Public Async Function DetalleProducto12() As Task
         Dim idProgram As String = "529"
-        Dim idCX As String = "3985009"
+        'Dim idCX As String = "3985009"
+        Dim idCX As String = "4954390"
         Dim sku As String = "7501125189111"
         Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/products/details?idProgram={idProgram}&idCX={idCX}"
 
@@ -538,7 +541,7 @@ Public Class frmFanasa
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ConsultaPrograma2()
+        ReglasdelProducto11()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

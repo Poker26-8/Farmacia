@@ -40,7 +40,7 @@ Module Module1
     'android
     Public ARCHIVO_DE_CONFIGURACION_A = My.Application.Info.DirectoryPath & "\ConfiguraAndroid.dat"
 
-
+    Public vienede As String = ""
     Public farmaciaseleccionada As String = ""
 
     Public sTargett As String = ""

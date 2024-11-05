@@ -11,6 +11,11 @@ Imports System.Threading.Tasks
 Imports System.Xml
 Imports System.Text
 Imports Gma.QrCodeNet.Encoding.Windows.Forms
+Imports System.Net.Http
+
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
+
 Public Class frmVentas3
     Private WithEvents editingControl As DataGridViewTextBoxEditingControl
 
@@ -75,6 +80,8 @@ Public Class frmVentas3
     Public franquicia As Integer = 0
     Public cadenafact As String = ""
     Dim soybarras As String = ""
+
+
 
     Private Sub frmVentas3_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         txtdia.Text = Weekday(Date.Now)
@@ -6303,6 +6310,17 @@ kaka:
 
         Timer1.Stop()
         vienedexd = 0
+
+        '''''''''
+        lblsesion.Visible = False
+        lblidcmr.Text = ""
+        lblcardaunt.Text = ""
+        lblcardaunt.BackColor = Color.White
+        Label49.Visible = False
+        If lblgift.Text <> "" Then
+            btncancelatrans.PerformClick()
+        End If
+        ''''''''
         Button14.PerformClick()
         txtbarr.Text = ""
         gbLotes.Visible = False
@@ -15440,6 +15458,9 @@ doorcita:
     Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
         frmOrdenTrabajo.Show()
         frmOrdenTrabajo.BringToFront()
+        'vienede = "Ventas3"
+        'frmBuscaCliente.Show()
+        'frmBuscaCliente.BringToFront()
     End Sub
     Private Sub pVentaMatriz80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMatriz80.PrintPage
         'Fuentes prederminadas
@@ -15981,7 +16002,213 @@ doorcita:
 
     End Sub
 
-    Private Sub boxAntis_Enter(sender As Object, e As EventArgs) Handles boxAntis.Enter
+    Private Sub btniniciar_Click(sender As Object, e As EventArgs) Handles btniniciar.Click
+        ValidarTarjeta()
+    End Sub
+    Public Async Function ValidarTarjeta() As Task
+        My.Application.DoEvents()
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/cards"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        Dim FOLIOCDRM As String = lblidcmr.Text
+        Dim userxd As String = ""
+        userxd = Replace(cboNombre.Text, " ", ".")
+
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+            Dim xd As String = "132245"
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": """ & lblfolio.Text & """,
+            ""segment"": ""MOSTRADOR"",
+            ""subSegment"": ""MOSTRADOR"",
+            ""operativeUnit"": ""FANASA"",
+            ""subsidiaryId"": ""99997"",
+            ""user"": """ & userxd & """,
+            ""folio"": """ & FOLIOCDRM & """,
+            ""programData"": {
+                ""id"": ""529"",
+                ""type"": ""Laboratorios exclusivos""
+            },
+            ""laboratory"": ""Varios"",
+            ""channel"": ""Sucursal"",
+            ""pos"": ""SAV""
+        }"
+
+            ' Crear el contenido para el POST con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud POST
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                'MsgBox("Respuesta de la API: " & responseData)
+                Dim message As String
+                Dim cardAuthNum As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+
+                ' Extraer el valor de "cardAuthNum"
+                startPos = InStr(responseData, """cardAuthNum"" : """) + Len("""cardAuthNum"" : """)
+                endPos = InStr(startPos, responseData, """")
+                cardAuthNum = Mid(responseData, startPos, endPos - startPos)
+                If message = "Success" Then
+                    lblcardaunt.Text = cardAuthNum
+                    lblcardaunt.BackColor = Color.LightGreen
+                    lblsesion.Visible = True
+                End If
+                My.Application.DoEvents()
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Private Sub lblcardaunt_Click(sender As Object, e As EventArgs) Handles lblcardaunt.Click
 
     End Sub
+
+    Private Sub Label34_Click(sender As Object, e As EventArgs) Handles Label34.Click
+        obtenerbeneficios()
+    End Sub
+
+    Public Async Function obtenerbeneficios() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/gifts"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": """ & lblfolio.Text & """,
+            ""programData"": {
+                ""id"": ""529"",
+                ""type"": ""Laboratorios exclusivos""
+            },
+            ""subsidiaryId"": ""99997"",
+            ""user"": ""alecks.garcia"",
+            ""cardAuthNum"": """ & lblcardaunt.Text & """,
+            ""folio"": """ & lblidcmr.Text & """,
+            ""channel"": ""99997"",
+            ""level1"": ""0"",
+            ""level2"": ""0"",
+            ""itemList"": {
+                ""item"": [
+                    {
+                        ""sku"": ""7501125189111"",
+                        ""quantity"": ""1"",
+                        ""originQuantity"": ""1"",
+                        ""unitPrice"": ""1000""
+                    }
+                ]
+            }
+        }"
+
+            ' Crear el contenido para el POST con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud POST
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+
+                Dim message As String
+                Dim giftAuthNum As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+
+                ' Extraer el valor de "message"
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+
+                ' Extraer el valor de "giftAuthNum"
+                startPos = InStr(responseData, """giftAuthNum"" : """) + Len("""giftAuthNum"" : """)
+                endPos = InStr(startPos, responseData, """")
+                giftAuthNum = Mid(responseData, startPos, endPos - startPos)
+
+                If message = "Success" Then
+                    lblgift.Text = giftAuthNum
+                    lblgift.BackColor = Color.LightGreen
+                    btncancelatrans.Visible = True
+                Else
+                End If
+                My.Application.DoEvents()
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+    Private Sub btncancelatrans_Click(sender As Object, e As EventArgs) Handles btncancelatrans.Click
+        CancelarVenta()
+    End Sub
+    Public Async Function CancelarVenta() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        My.Application.DoEvents()
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": """ & lblfolio.Text & """,
+            ""user"": ""alecks.garcia"",
+            ""cardAuthNum"": """ & lblcardaunt.Text & """,
+            ""giftAuthNum"": """ & lblgift.Text & """
+        }"
+
+            ' Crear el contenido para el PUT con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud PUT
+            Dim response As HttpResponseMessage = Await client.PutAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+
+                Dim message As String
+                Dim giftAuthNum As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+
+                ' Extraer el valor de "message"
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+
+                If message = "Success" Then
+                    lblgift.Text = ""
+                    lblgift.BackColor = Color.White
+                    btncancelatrans.Visible = False
+                Else
+                End If
+                My.Application.DoEvents()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
 End Class

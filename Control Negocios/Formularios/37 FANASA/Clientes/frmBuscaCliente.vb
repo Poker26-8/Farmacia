@@ -208,4 +208,42 @@ Public Class frmBuscaCliente
         frmNuevoCliente.Show()
         frmNuevoCliente.BringToFront()
     End Sub
+
+    Private Async Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
+        If grdcaptura.Rows.Count = 0 Then
+            Exit Sub
+        End If
+        My.Application.DoEvents()
+        Dim index As Integer = grdcaptura.CurrentRow.Index
+        If vienede = "Ventas1" Then
+            'frmVentas1.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " " & grdcaptura.Rows(index).Cells(2).Value.ToString
+            'frmVentas1.txtObservaciones.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
+            'frmVentas1.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
+            'My.Application.DoEvents()
+            'frmVentas1.Show()
+            'frmVentas1.BringToFront()
+            'Me.Close()
+        ElseIf vienede = "Ventas2" Then
+            'frmVentas2.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " " & grdcaptura.Rows(index).Cells(2).Value.ToString
+            'frmVentas2.txtObservaciones.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
+            'frmVentas2.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
+            'My.Application.DoEvents()
+            'frmVentas2.Show()
+            'frmVentas2.BringToFront()
+            'Me.Close()
+        ElseIf vienede = "Ventas3" Then
+            frmVentas3.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " "
+            frmVentas3.lblidcmr.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
+            frmVentas3.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
+            frmVentas3.Label49.Visible = True
+            My.Application.DoEvents()
+            frmVentas3.Show()
+            frmVentas3.BringToFront()
+            My.Application.DoEvents()
+            '  Await LlamarValidacionTarjeta()
+            frmVentas3.btniniciar.PerformClick()
+            Me.Close()
+        End If
+    End Sub
+
 End Class

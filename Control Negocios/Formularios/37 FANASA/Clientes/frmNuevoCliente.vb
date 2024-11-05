@@ -104,6 +104,9 @@ Public Class frmNuevoCliente
             cboTipoDir.Focus.Equals(True)
             Exit Sub
         End If
+        If MsgBox("¿Deseas registrar el nuevo cliente?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+            Exit Sub
+        End If
         My.Application.DoEvents()
         lblEstatus.Visible = True
         Button2.Enabled = False
@@ -221,11 +224,119 @@ Public Class frmNuevoCliente
         If txtCpDir.Text.Length >= 5 AndAlso Not e.KeyChar = ChrW(Keys.Back) Then
             e.Handled = True
         End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtDelegacion.Focus.Equals(True)
+        End If
     End Sub
 
     Private Sub txtTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
             e.Handled = True
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboStatusTel.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtApellido1.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtApellido1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido1.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtApellido2.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtApellido2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido2.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtNacimiento.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtNacimiento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNacimiento.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboSex.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboSex_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboSex.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtEmail.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtEmail_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEmail.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtTelefono.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboStatusTel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStatusTel.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboTipoTel.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboTipoTel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTipoTel.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCalle.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtCalle_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCalle.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtExtDir.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtExtDir_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtExtDir.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtIntDir.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtIntDir_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtIntDir.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtColonia.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtColonia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtColonia.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCpDir.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtDelegacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDelegacion.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCiudad.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtCiudad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCiudad.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboEstado.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboEstado_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboEstado.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtPais.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtPais_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPais.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboTipoDir.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboTipoDir_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTipoDir.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Button2.Focus.Equals(True)
         End If
     End Sub
 End Class

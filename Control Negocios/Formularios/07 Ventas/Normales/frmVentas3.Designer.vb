@@ -47,6 +47,11 @@ Partial Class frmVentas3
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.lblcardaunt = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.lblidcmr = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.btnOrdenes = New System.Windows.Forms.Button()
         Me.picProd = New System.Windows.Forms.PictureBox()
@@ -72,10 +77,13 @@ Partial Class frmVentas3
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label34 = New System.Windows.Forms.Label()
+        Me.btncancelatrans = New System.Windows.Forms.Button()
+        Me.lblgift = New System.Windows.Forms.Label()
         Me.pArriba = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblusuario = New System.Windows.Forms.Label()
         Me.pCentral = New System.Windows.Forms.Panel()
+        Me.lblsesion = New System.Windows.Forms.Label()
         Me.gbLotes = New System.Windows.Forms.GroupBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -265,6 +273,7 @@ Partial Class frmVentas3
         Me.Label36 = New System.Windows.Forms.Label()
         Me.chkBuscaCliente = New System.Windows.Forms.CheckBox()
         Me.lblmonedero = New System.Windows.Forms.Label()
+        Me.btniniciar = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.pVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.pVenta58 = New System.Drawing.Printing.PrintDocument()
@@ -361,6 +370,11 @@ Partial Class frmVentas3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Button17, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblcardaunt, 5, 13)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label49, 1, 13)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblidcmr, 3, 13)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label48, 0, 12)
         Me.TableLayoutPanel1.Controls.Add(Me.Button15, 1, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.btnOrdenes, 5, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.picProd, 3, 6)
@@ -386,10 +400,12 @@ Partial Class frmVentas3
         Me.TableLayoutPanel1.Controls.Add(Me.Button8, 3, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Button12, 5, 11)
         Me.TableLayoutPanel1.Controls.Add(Me.Label34, 1, 11)
+        Me.TableLayoutPanel1.Controls.Add(Me.btncancelatrans, 1, 14)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblgift, 5, 14)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 13
+        Me.TableLayoutPanel1.RowCount = 14
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.22368!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
@@ -401,9 +417,10 @@ Partial Class frmVentas3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
@@ -439,6 +456,60 @@ Partial Class frmVentas3
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(318, 550)
         Me.TableLayoutPanel1.TabIndex = 191
         '
+        'Button17
+        '
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Button17, 5)
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button17.Location = New System.Drawing.Point(3, 3)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(203, 1)
+        Me.Button17.TabIndex = 253
+        Me.Button17.Text = "Button17"
+        Me.Button17.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'lblcardaunt
+        '
+        Me.lblcardaunt.BackColor = System.Drawing.Color.White
+        Me.lblcardaunt.Location = New System.Drawing.Point(217, 502)
+        Me.lblcardaunt.Name = "lblcardaunt"
+        Me.lblcardaunt.Size = New System.Drawing.Size(89, 18)
+        Me.lblcardaunt.TabIndex = 249
+        Me.lblcardaunt.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label49
+        '
+        Me.Label49.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label49.Location = New System.Drawing.Point(11, 502)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(89, 18)
+        Me.Label49.TabIndex = 248
+        Me.Label49.Text = "ID CRM:"
+        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label49.Visible = False
+        '
+        'lblidcmr
+        '
+        Me.lblidcmr.Enabled = False
+        Me.lblidcmr.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblidcmr.Location = New System.Drawing.Point(114, 502)
+        Me.lblidcmr.Name = "lblidcmr"
+        Me.lblidcmr.Size = New System.Drawing.Size(89, 18)
+        Me.lblidcmr.TabIndex = 247
+        Me.lblidcmr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label48
+        '
+        Me.Label48.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label48.Location = New System.Drawing.Point(3, 497)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(2, 5)
+        Me.Label48.TabIndex = 246
+        Me.Label48.Text = "0.00"
+        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label48.Visible = False
+        '
         'Button15
         '
         Me.Button15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -447,7 +518,7 @@ Partial Class frmVentas3
         Me.Button15.ForeColor = System.Drawing.Color.Black
         Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
         Me.Button15.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button15.Location = New System.Drawing.Point(16, 332)
+        Me.Button15.Location = New System.Drawing.Point(16, 292)
         Me.Button15.Margin = New System.Windows.Forms.Padding(8)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(79, 107)
@@ -464,7 +535,7 @@ Partial Class frmVentas3
         Me.btnOrdenes.ForeColor = System.Drawing.Color.Black
         Me.btnOrdenes.Image = CType(resources.GetObject("btnOrdenes.Image"), System.Drawing.Image)
         Me.btnOrdenes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnOrdenes.Location = New System.Drawing.Point(222, 332)
+        Me.btnOrdenes.Location = New System.Drawing.Point(222, 292)
         Me.btnOrdenes.Margin = New System.Windows.Forms.Padding(8)
         Me.btnOrdenes.Name = "btnOrdenes"
         Me.btnOrdenes.Size = New System.Drawing.Size(79, 107)
@@ -478,7 +549,7 @@ Partial Class frmVentas3
         Me.picProd.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.picProd, 2)
         Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picProd.Location = New System.Drawing.Point(121, 329)
+        Me.picProd.Location = New System.Drawing.Point(121, 289)
         Me.picProd.Margin = New System.Windows.Forms.Padding(10)
         Me.picProd.Name = "picProd"
         Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
@@ -497,10 +568,10 @@ Partial Class frmVentas3
         Me.Button16.ForeColor = System.Drawing.Color.Black
         Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
         Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button16.Location = New System.Drawing.Point(222, 228)
+        Me.Button16.Location = New System.Drawing.Point(222, 201)
         Me.Button16.Margin = New System.Windows.Forms.Padding(8)
         Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(79, 83)
+        Me.Button16.Size = New System.Drawing.Size(79, 70)
         Me.Button16.TabIndex = 236
         Me.Button16.Text = "PAGO DE SERVICIOS"
         Me.Button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -512,7 +583,7 @@ Partial Class frmVentas3
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button13.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.ForeColor = System.Drawing.Color.Black
-        Me.Button13.Location = New System.Drawing.Point(8, 524)
+        Me.Button13.Location = New System.Drawing.Point(8, 484)
         Me.Button13.Margin = New System.Windows.Forms.Padding(8)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(1, 1)
@@ -526,7 +597,7 @@ Partial Class frmVentas3
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Black
-        Me.Button6.Location = New System.Drawing.Point(8, 519)
+        Me.Button6.Location = New System.Drawing.Point(8, 479)
         Me.Button6.Margin = New System.Windows.Forms.Padding(8)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(1, 1)
@@ -538,7 +609,7 @@ Partial Class frmVentas3
         '
         Me.lbldevo.AutoSize = True
         Me.lbldevo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbldevo.Location = New System.Drawing.Point(18, 469)
+        Me.lbldevo.Location = New System.Drawing.Point(18, 429)
         Me.lbldevo.Margin = New System.Windows.Forms.Padding(10, 0, 5, 0)
         Me.lbldevo.Name = "lbldevo"
         Me.lbldevo.Size = New System.Drawing.Size(80, 18)
@@ -554,7 +625,7 @@ Partial Class frmVentas3
         Me.cbonota.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbonota.FormattingEnabled = True
-        Me.cbonota.Location = New System.Drawing.Point(13, 487)
+        Me.cbonota.Location = New System.Drawing.Point(13, 447)
         Me.cbonota.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.cbonota.Name = "cbonota"
         Me.cbonota.Size = New System.Drawing.Size(85, 23)
@@ -573,7 +644,7 @@ Partial Class frmVentas3
         Me.Button1.Location = New System.Drawing.Point(222, 13)
         Me.Button1.Margin = New System.Windows.Forms.Padding(8)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 85)
+        Me.Button1.Size = New System.Drawing.Size(79, 72)
         Me.Button1.TabIndex = 148
         Me.Button1.Text = "VENTAS"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -588,10 +659,10 @@ Partial Class frmVentas3
         Me.btndevo.ForeColor = System.Drawing.Color.Black
         Me.btndevo.Image = Global.Control_Negocios.My.Resources.Resources.DEVO1Recurso_78
         Me.btndevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btndevo.Location = New System.Drawing.Point(222, 119)
+        Me.btndevo.Location = New System.Drawing.Point(222, 106)
         Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
         Me.btndevo.Name = "btndevo"
-        Me.btndevo.Size = New System.Drawing.Size(79, 88)
+        Me.btndevo.Size = New System.Drawing.Size(79, 74)
         Me.btndevo.TabIndex = 149
         Me.btndevo.Text = "DEVOLUCIÓN"
         Me.btndevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -601,7 +672,7 @@ Partial Class frmVentas3
         '
         Me.lblentrega.AutoSize = True
         Me.lblentrega.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblentrega.Location = New System.Drawing.Point(114, 469)
+        Me.lblentrega.Location = New System.Drawing.Point(114, 429)
         Me.lblentrega.Name = "lblentrega"
         Me.lblentrega.Size = New System.Drawing.Size(89, 18)
         Me.lblentrega.TabIndex = 152
@@ -613,7 +684,7 @@ Partial Class frmVentas3
         '
         Me.dtpFecha_E.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtpFecha_E.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha_E.Location = New System.Drawing.Point(111, 487)
+        Me.dtpFecha_E.Location = New System.Drawing.Point(111, 447)
         Me.dtpFecha_E.Margin = New System.Windows.Forms.Padding(0)
         Me.dtpFecha_E.Name = "dtpFecha_E"
         Me.dtpFecha_E.Size = New System.Drawing.Size(95, 20)
@@ -632,7 +703,7 @@ Partial Class frmVentas3
         Me.Button7.Location = New System.Drawing.Point(119, 13)
         Me.Button7.Margin = New System.Windows.Forms.Padding(8)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(79, 85)
+        Me.Button7.Size = New System.Drawing.Size(79, 72)
         Me.Button7.TabIndex = 176
         Me.Button7.Text = "CONSULTAR FOLIOS"
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -647,10 +718,10 @@ Partial Class frmVentas3
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Image = Global.Control_Negocios.My.Resources.Resources.monedero1Recurso_79
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(119, 119)
+        Me.Button2.Location = New System.Drawing.Point(119, 106)
         Me.Button2.Margin = New System.Windows.Forms.Padding(8)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(79, 88)
+        Me.Button2.Size = New System.Drawing.Size(79, 74)
         Me.Button2.TabIndex = 190
         Me.Button2.Text = "MONEDERO"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -665,10 +736,10 @@ Partial Class frmVentas3
         Me.Button4.ForeColor = System.Drawing.Color.Black
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(16, 119)
+        Me.Button4.Location = New System.Drawing.Point(16, 106)
         Me.Button4.Margin = New System.Windows.Forms.Padding(8)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(79, 88)
+        Me.Button4.Size = New System.Drawing.Size(79, 74)
         Me.Button4.TabIndex = 191
         Me.Button4.Text = "ENTREGA DE PEDIDOS"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -686,7 +757,7 @@ Partial Class frmVentas3
         Me.Button5.Location = New System.Drawing.Point(16, 13)
         Me.Button5.Margin = New System.Windows.Forms.Padding(8)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(79, 85)
+        Me.Button5.Size = New System.Drawing.Size(79, 72)
         Me.Button5.TabIndex = 192
         Me.Button5.Text = "ABONO A VENTAS"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -695,7 +766,7 @@ Partial Class frmVentas3
         'lblfecha
         '
         Me.lblfecha.AutoSize = True
-        Me.lblfecha.Location = New System.Drawing.Point(11, 319)
+        Me.lblfecha.Location = New System.Drawing.Point(11, 279)
         Me.lblfecha.Name = "lblfecha"
         Me.lblfecha.Size = New System.Drawing.Size(41, 5)
         Me.lblfecha.TabIndex = 187
@@ -708,7 +779,7 @@ Partial Class frmVentas3
         Me.TableLayoutPanel1.SetColumnSpan(Me.cboimpresion, 4)
         Me.cboimpresion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboimpresion.FormattingEnabled = True
-        Me.cboimpresion.Location = New System.Drawing.Point(106, 519)
+        Me.cboimpresion.Location = New System.Drawing.Point(106, 479)
         Me.cboimpresion.Name = "cboimpresion"
         Me.cboimpresion.Size = New System.Drawing.Size(200, 21)
         Me.cboimpresion.TabIndex = 194
@@ -717,7 +788,7 @@ Partial Class frmVentas3
         '
         Me.cbocomisionista.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cbocomisionista.FormattingEnabled = True
-        Me.cbocomisionista.Location = New System.Drawing.Point(214, 487)
+        Me.cbocomisionista.Location = New System.Drawing.Point(214, 447)
         Me.cbocomisionista.Margin = New System.Windows.Forms.Padding(0)
         Me.cbocomisionista.Name = "cbocomisionista"
         Me.cbocomisionista.Size = New System.Drawing.Size(95, 21)
@@ -726,7 +797,7 @@ Partial Class frmVentas3
         'Label13
         '
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(217, 474)
+        Me.Label13.Location = New System.Drawing.Point(217, 434)
         Me.Label13.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(89, 13)
@@ -736,7 +807,7 @@ Partial Class frmVentas3
         '
         'txtcotped
         '
-        Me.txtcotped.Location = New System.Drawing.Point(312, 322)
+        Me.txtcotped.Location = New System.Drawing.Point(312, 282)
         Me.txtcotped.Name = "txtcotped"
         Me.txtcotped.Size = New System.Drawing.Size(3, 20)
         Me.txtcotped.TabIndex = 193
@@ -751,10 +822,10 @@ Partial Class frmVentas3
         Me.Button11.ForeColor = System.Drawing.Color.Black
         Me.Button11.Image = Global.Control_Negocios.My.Resources.Resources.entrega1Recurso_82
         Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button11.Location = New System.Drawing.Point(16, 228)
+        Me.Button11.Location = New System.Drawing.Point(16, 201)
         Me.Button11.Margin = New System.Windows.Forms.Padding(8)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(79, 83)
+        Me.Button11.Size = New System.Drawing.Size(79, 70)
         Me.Button11.TabIndex = 184
         Me.Button11.Text = "ENTREGAS"
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -769,10 +840,10 @@ Partial Class frmVentas3
         Me.Button8.ForeColor = System.Drawing.Color.Black
         Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button8.Location = New System.Drawing.Point(119, 228)
+        Me.Button8.Location = New System.Drawing.Point(119, 201)
         Me.Button8.Margin = New System.Windows.Forms.Padding(8)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(79, 83)
+        Me.Button8.Size = New System.Drawing.Size(79, 70)
         Me.Button8.TabIndex = 217
         Me.Button8.Text = "RECARGAS TELEFONICAS"
         Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -784,7 +855,7 @@ Partial Class frmVentas3
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button12.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.ForeColor = System.Drawing.Color.Black
-        Me.Button12.Location = New System.Drawing.Point(317, 524)
+        Me.Button12.Location = New System.Drawing.Point(317, 484)
         Me.Button12.Margin = New System.Windows.Forms.Padding(8)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(1, 1)
@@ -795,12 +866,33 @@ Partial Class frmVentas3
         'Label34
         '
         Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label34.Location = New System.Drawing.Point(11, 516)
+        Me.Label34.Location = New System.Drawing.Point(11, 476)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(89, 28)
+        Me.Label34.Size = New System.Drawing.Size(89, 21)
         Me.Label34.TabIndex = 193
         Me.Label34.Text = "Imprimir en:"
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btncancelatrans
+        '
+        Me.btncancelatrans.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TableLayoutPanel1.SetColumnSpan(Me.btncancelatrans, 4)
+        Me.btncancelatrans.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btncancelatrans.Location = New System.Drawing.Point(11, 523)
+        Me.btncancelatrans.Name = "btncancelatrans"
+        Me.btncancelatrans.Size = New System.Drawing.Size(200, 24)
+        Me.btncancelatrans.TabIndex = 254
+        Me.btncancelatrans.Text = "Cancelar Transacción"
+        Me.btncancelatrans.UseVisualStyleBackColor = False
+        Me.btncancelatrans.Visible = False
+        '
+        'lblgift
+        '
+        Me.lblgift.Location = New System.Drawing.Point(217, 520)
+        Me.lblgift.Name = "lblgift"
+        Me.lblgift.Size = New System.Drawing.Size(89, 21)
+        Me.lblgift.TabIndex = 250
+        Me.lblgift.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'pArriba
         '
@@ -838,6 +930,7 @@ Partial Class frmVentas3
         '
         'pCentral
         '
+        Me.pCentral.Controls.Add(Me.lblsesion)
         Me.pCentral.Controls.Add(Me.gbLotes)
         Me.pCentral.Controls.Add(Me.boxAntis)
         Me.pCentral.Controls.Add(Me.Panel5)
@@ -926,11 +1019,24 @@ Partial Class frmVentas3
         Me.pCentral.Controls.Add(Me.GroupBox4)
         Me.pCentral.Controls.Add(Me.lblcorreocli)
         Me.pCentral.Controls.Add(Me.GroupBox3)
+        Me.pCentral.Controls.Add(Me.btniniciar)
         Me.pCentral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pCentral.Location = New System.Drawing.Point(0, 0)
         Me.pCentral.Name = "pCentral"
         Me.pCentral.Size = New System.Drawing.Size(966, 690)
         Me.pCentral.TabIndex = 1
+        '
+        'lblsesion
+        '
+        Me.lblsesion.AutoSize = True
+        Me.lblsesion.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblsesion.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsesion.Location = New System.Drawing.Point(584, 137)
+        Me.lblsesion.Name = "lblsesion"
+        Me.lblsesion.Size = New System.Drawing.Size(235, 21)
+        Me.lblsesion.TabIndex = 324
+        Me.lblsesion.Text = "SESION INICIADA EN FANASA"
+        Me.lblsesion.Visible = False
         '
         'gbLotes
         '
@@ -3012,6 +3118,17 @@ Partial Class frmVentas3
         Me.lblmonedero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblmonedero.Visible = False
         '
+        'btniniciar
+        '
+        Me.btniniciar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btniniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btniniciar.Location = New System.Drawing.Point(939, 6)
+        Me.btniniciar.Name = "btniniciar"
+        Me.btniniciar.Size = New System.Drawing.Size(10, 10)
+        Me.btniniciar.TabIndex = 323
+        Me.btniniciar.Text = "Button17"
+        Me.btniniciar.UseVisualStyleBackColor = True
+        '
         'Timer1
         '
         '
@@ -3350,4 +3467,13 @@ Partial Class frmVentas3
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
     Friend WithEvents Column37 As DataGridViewTextBoxColumn
     Friend WithEvents Button15 As Button
+    Friend WithEvents Label48 As Label
+    Friend WithEvents Label49 As Label
+    Friend WithEvents lblidcmr As Label
+    Friend WithEvents lblcardaunt As Label
+    Friend WithEvents btniniciar As Button
+    Friend WithEvents lblsesion As Label
+    Friend WithEvents lblgift As Label
+    Friend WithEvents Button17 As Button
+    Friend WithEvents btncancelatrans As Button
 End Class
