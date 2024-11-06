@@ -50,6 +50,18 @@ Public Class frmVentasTouch
     Dim tLogo As String = ""
     Dim simbolo As String = ""
     Dim DesglosaIVA As String = ""
+
+    Dim desplazamiento As Integer = 10
+    Dim INCREMENTO_V As Integer = 10
+    Dim cmdDeptos As New List(Of Button)
+
+    Public currentIndex As Integer = 0
+
+    ' Tamaño del panel (especificado en píxeles)
+    Public panelHeight As Integer = 0
+
+    ' Número de controles a mostrar por clic
+    Public controlsPerClick As Integer = 6
     Public Sub Folio()
         If cnn9.State = 1 Then cnn9.Close()
         cnn9.Open()
@@ -171,6 +183,7 @@ Public Class frmVentasTouch
         pGrupos.Controls.Clear()
         pProductos.Controls.Clear()
         Departamentos()
+        panelHeight = pDeptos.Height
     End Sub
 
     Private Sub Departamentos()
@@ -203,6 +216,7 @@ Public Class frmVentasTouch
                     btnDepto.FlatAppearance.BorderSize = 0
                     AddHandler btnDepto.Click, AddressOf btnDepto_Click
                     pDeptos.Controls.Add(btnDepto)
+                    cmdDeptos.Add(btnDepto)
                     If deptos = 0 Then
                         Grupos(departamento)
                     End If
@@ -3059,6 +3073,55 @@ Door:
     Private Sub frmVentasTouch_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         txtbarras.Focus.Equals(True)
     End Sub
+
+    'Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    '    Dim controlsToShow As Integer = Math.Min(controlsPerClick, pDeptos.Controls.Count - currentIndex)
+
+    '    For i As Integer = currentIndex To currentIndex + controlsToShow - 1
+    '        pDeptos.Controls(i).Visible = True
+    '    Next
+
+    '    ' Actualizamos el índice para el siguiente clic
+    '    currentIndex += controlsToShow
+
+    '    ' Si hemos mostrado todos los controles, deshabilitamos el botón
+
+
+    '    ' Desplazar el panel hacia abajo en una cantidad fija
+    '    ' Este valor depende de la altura de los controles (40px) y el número de controles visibles por clic
+    '    If pDeptos.VerticalScroll.Visible Then
+    '        pDeptos.AutoScrollPosition = New Point(0, pDeptos.VerticalScroll.Value + 40)
+    '    End If
+
+    'End Sub
+
+    'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+
+    'End Sub
+    'Public Sub DesplazarBotonesHastaElLimite(ByRef cmdDeptos As List(Of Button), ByVal desplazamientoV As Integer, ByVal contenedor As Panel)
+    '    ' Verifica que haya al menos un botón en la lista
+    '    If cmdDeptos.Count > 0 Then
+    '        Dim ultimoBoton As Button = cmdDeptos(cmdDeptos.Count - 1)
+
+    '        ' Calcula la posición máxima permitida para el último botón
+    '        Dim posicionMaxima As Integer = contenedor.Height - ultimoBoton.Height
+
+    '        ' Solo desplaza si el último botón no excede el límite
+    '        If ultimoBoton.Top + desplazamientoV <= posicionMaxima Then
+    '            For Each boton As Button In cmdDeptos
+    '                ' Ajusta la posición del botón sumando el desplazamiento
+    '                boton.Top += desplazamientoV
+    '            Next
+    '        Else
+    '            ' Si excede el límite, coloca todos los botones en la posición máxima posible
+    '            Dim ajusteFinal As Integer = posicionMaxima - ultimoBoton.Top
+    '            For Each boton As Button In cmdDeptos
+    '                boton.Top += ajusteFinal
+    '            Next
+    '        End If
+    '    End If
+    'End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If TextBox1.Text = "" Then TextBox1.Text = "0" : lblTotal.Text = FormatNumber(lblTotal.Text, 2)
