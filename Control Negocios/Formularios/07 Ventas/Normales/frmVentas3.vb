@@ -6497,31 +6497,9 @@ kaka:
         frmConsultaNotas.BringToFront()
     End Sub
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Entregas'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = 1 Then
-                        frmModEntregas.Show()
-                        frmModEntregas.BringToFront()
-                    Else
-                        MsgBox("Para usar este modulo se tiene que activar, Contacte a Delsscom", vbInformation + vbOKOnly, titulocentral).ToString()
-                        Exit Sub
-                        cbodesc.Focus.Equals(True)
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        vienede = "Ventas3"
+        frmBuscaCliente.Show()
+        frmBuscaCliente.BringToFront()
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmMonederos.Show()
@@ -15458,9 +15436,7 @@ doorcita:
     Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
         'frmOrdenTrabajo.Show()
         'frmOrdenTrabajo.BringToFront()
-        vienede = "Ventas3"
-        frmBuscaCliente.Show()
-        frmBuscaCliente.BringToFront()
+        obtenerbeneficios()
     End Sub
     Private Sub pVentaMatriz80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMatriz80.PrintPage
         'Fuentes prederminadas
@@ -16093,7 +16069,7 @@ doorcita:
 
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
-            ""transaction"": """ & lblfolio.Text & """,
+            ""transaction"": ""COT-201487"",
             ""programData"": {
                 ""id"": ""529"",
                 ""type"": ""Laboratorios exclusivos""
@@ -16109,9 +16085,9 @@ doorcita:
                 ""item"": [
                     {
                         ""sku"": ""7501125189111"",
-                        ""quantity"": ""1"",
-                        ""originQuantity"": ""1"",
-                        ""unitPrice"": ""1000""
+                        ""quantity"": ""3"",
+                        ""originQuantity"": ""3"",
+                        ""unitPrice"": ""2000""
                     }
                 ]
             }
@@ -16119,11 +16095,11 @@ doorcita:
 
             ' Crear el contenido para el POST con JSON
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
-
+            MsgBox(jsonData)
             ' Realizar la solicitud POST
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-            ' Verificar si la solicitud fue exitosa
+            ' Verificar si la solicitud fue exitosa 
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
@@ -16202,6 +16178,7 @@ doorcita:
                     lblgift.Text = ""
                     lblgift.BackColor = Color.White
                     btncancelatrans.Visible = False
+                    btniniciar.PerformClick()
                 Else
                 End If
                 My.Application.DoEvents()
