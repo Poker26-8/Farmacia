@@ -68,6 +68,8 @@
             Dim compras As Double = 0
 
             Dim INGRESOSFORMAS As Double = 0
+
+            Dim CANCELACIONESNOTAS As Double = 0
             'sacar las ventas que estan pagadas y no pagadas
             cnn1.Close() : cnn1.Open()
             cnn2.Close() : cnn2.Open()
@@ -122,6 +124,37 @@
                         If rd2.HasRows Then
                             Do While rd2.Read
                                 INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
+                            Loop
+                        End If
+                        rd2.Close()
+                    ElseIf status = "CANCELADA" Then
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            Do While rd2.Read
+                                ventascontado = ventascontado + CDec(rd2(0).ToString)
+                            Loop
+                        End If
+                        rd2.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            Do While rd2.Read
+                                INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
+                            Loop
+                        End If
+                        rd2.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            Do While rd2.Read
+                                CANCELACIONESNOTAS = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
                             Loop
                         End If
                         rd2.Close()
@@ -217,6 +250,7 @@
             txtVentasC.Text = FormatNumber(ventascredito, 2)
             txtAbonosCreditos.Text = FormatNumber(abonoscreditos, 2)
             txtDevolucionesC.Text = FormatNumber(devolucionescredito, 2)
+            txtCancelaciones.Text = FormatNumber(CANCELACIONESNOTAS, 2)
             'txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - CDec(txtDevolucionesC.Text), 2)
             txtCredito.Text = FormatNumber(CDec(txtVentasC.Text) - (CDec(txtDevolucionesC.Text) + CDec(txtAbonosCreditos.Text)), 2)
 
@@ -259,7 +293,7 @@
 
     Private Sub txtIngresos_TextChanged(sender As Object, e As EventArgs) Handles txtIngresos.TextChanged
         Dim total As Double = 0
-        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text))
+        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text))
 
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
@@ -275,7 +309,7 @@
 
 
         Dim total As Double = 0
-        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text))
+        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text))
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
     End Sub
