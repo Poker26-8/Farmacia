@@ -16053,14 +16053,14 @@ doorcita:
 
     End Sub
 
-    Private Sub Label34_Click(sender As Object, e As EventArgs) Handles Label34.Click
-        obtenerbeneficios()
-    End Sub
+
 
     Public Async Function obtenerbeneficios() As Task
         Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/gifts"
         Dim usuario As String = "userTest"
         Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        Dim userxd As String = ""
+        userxd = Replace(cboNombre.Text, " ", ".")
 
         Using client As New HttpClient()
             ' Crear el encabezado de autenticación en Base64
@@ -16069,29 +16069,47 @@ doorcita:
 
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
-            ""transaction"": ""COT-201487"",
+            ""transaction"": """ & lblfolio.Text & """,
             ""programData"": {
                 ""id"": ""529"",
                 ""type"": ""Laboratorios exclusivos""
             },
             ""subsidiaryId"": ""99997"",
-            ""user"": ""alecks.garcia"",
+            ""user"": """ & userxd & """,
             ""cardAuthNum"": """ & lblcardaunt.Text & """,
             ""folio"": """ & lblidcmr.Text & """,
             ""channel"": ""99997"",
             ""level1"": ""0"",
             ""level2"": ""0"",
             ""itemList"": {
-                ""item"": [
-                    {
-                        ""sku"": ""7501125189111"",
-                        ""quantity"": ""3"",
-                        ""originQuantity"": ""3"",
-                        ""unitPrice"": ""2000""
-                    }
-                ]
-            }
-        }"
+               ""item"": ["
+
+            ' Iterar sobre las filas del DataGridView y agregar los elementos
+            For Each row As DataGridViewRow In grdcaptura.Rows
+                If Not row.IsNewRow Then
+                    Dim sku As String = row.Cells(15).Value.ToString()
+                    Dim quantity As String = row.Cells(3).Value.ToString()
+                    Dim originQuantity As String = row.Cells(3).Value.ToString()
+                    Dim unitPrice As String = row.Cells(4).Value.ToString()
+
+                    ' Agregar el item al JSON con el escalado de llaves y saltos de línea
+                    jsonData &= "{
+                ""sku"": """ & sku & """,
+                ""quantity"": """ & quantity & """,
+                ""originQuantity"": """ & originQuantity & """,
+                ""unitPrice"": """ & unitPrice & """
+            },"
+                End If
+            Next
+
+            ' Eliminar la última coma y cerrar el array y el JSON
+            jsonData = jsonData.TrimEnd(","c) & "
+        ]
+}"
+
+            ' Cerrar el JSON principal
+            jsonData &= "
+}"
 
             ' Crear el contenido para el POST con JSON
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
@@ -16139,6 +16157,8 @@ doorcita:
         Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
         Dim usuario As String = "userTest"
         Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        Dim userxd As String = ""
+        userxd = Replace(cboNombre.Text, " ", ".")
         My.Application.DoEvents()
 
         Using client As New HttpClient()
@@ -16149,7 +16169,7 @@ doorcita:
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
             ""transaction"": """ & lblfolio.Text & """,
-            ""user"": ""alecks.garcia"",
+            ""user"": """ & userxd & """,
             ""cardAuthNum"": """ & lblcardaunt.Text & """,
             ""giftAuthNum"": """ & lblgift.Text & """
         }"
