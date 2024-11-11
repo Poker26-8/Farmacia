@@ -1,7 +1,7 @@
 ﻿Imports iTextSharp.text.pdf
 
 Public Class FfmConsultaCorte
-    Public VentasC, DevolucionesC, ServiciosC, RecargasC, TotalContado, VentasCre, AbonosCre, DevolucionesCre, TotalCredito, TotalGeneral, Ingresos, SaldoInicial, Retiros, DevolucionesT, SumaIngresos, SumaCajero, SumaDiferencia, TotalIngresos, TotalCajero, TotalDiferencia, IngresosF, DevolucionesF, SumaIngresosF, SumaCajeroF, SumaDiferenciaF, TotalIngresosF, TotalCajeroF, TotalDiferenciaF As Double
+    Public VentasC, DevolucionesC, ServiciosC, RecargasC, TotalContado, VentasCre, AbonosCre, DevolucionesCre, TotalCredito, TotalGeneral, Ingresos, SaldoInicial, Retiros, DevolucionesT, SumaIngresos, SumaCajero, SumaDiferencia, TotalIngresos, TotalCajero, TotalDiferencia, IngresosF, DevolucionesF, SumaIngresosF, SumaCajeroF, SumaDiferenciaF, TotalIngresosF, TotalCajeroF, TotalDiferenciaF, TotalCancelaciones As Double
     Public fechainicio, fechafinal, fechacorte As Date
     Dim cajero, atiende As String
     Public Sub GeneraBarras(ByVal pic As PictureBox, ByVal codigo As String)
@@ -177,6 +177,9 @@ Public Class FfmConsultaCorte
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & FormatNumber(DevolucionesT, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
+        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & FormatNumber(TotalCancelaciones, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
@@ -294,6 +297,7 @@ Public Class FfmConsultaCorte
                         atiende = rd1("Usuario").ToString
                         fechainicio = rd1("FInicial").ToString
                         fechafinal = rd1("FFinal").ToString
+                        TotalCancelaciones = rd1("TotalCancelaciones").ToString
 
                         Dim impre As Integer = TamImpre()
                         Dim impresora As String = ImpresoraImprimir()
