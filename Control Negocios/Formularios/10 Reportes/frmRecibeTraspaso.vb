@@ -361,9 +361,25 @@ Public Class frmRecibeTraspaso
                         End If
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
-
-                    pSalida80.Print()
                     btnGuardar.Enabled = True
+                    My.Application.DoEvents()
+                    Dim TPrint As String = "TICKET"
+                    Dim Impresora As String = ""
+                    cnn1.Close()
+                    cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            Impresora = rd1(0).ToString
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                    pSalida80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pSalida80.Print()
                     My.Application.DoEvents()
                     btnNuevo.PerformClick()
                     My.Application.DoEvents()

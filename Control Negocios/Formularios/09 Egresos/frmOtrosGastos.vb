@@ -188,11 +188,26 @@ Public Class frmOtrosGastos
 
                 End If
                 MsgBox("Registro agregado correctamente", vbInformation + vbOKOnly, titulocentral)
+                My.Application.DoEvents()
+                Dim TPrint As String = "TICKET"
+                Dim Impresora As String = ""
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Impresora = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+                egreso80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
                 egreso80.Print()
                 My.Application.DoEvents()
                 btnnuevo.PerformClick()
-
-                cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
