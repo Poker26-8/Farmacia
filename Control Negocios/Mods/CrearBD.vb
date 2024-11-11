@@ -36,7 +36,8 @@
                                                           `SumaDiferenciaF` double NOT NULL DEFAULT '0',
                                                           `TotalIngresosF` double NOT NULL DEFAULT '0',
                                                           `TotalCajeroF` double NOT NULL DEFAULT '0',
-                                                          `TotalDiferenciaF` double NOT NULL DEFAULT '0'
+                                                          `TotalDiferenciaF` double NOT NULL DEFAULT '0',
+                                                          `TotalCancelaciones` double NOT NULL DEFAULT '0'
                                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
                                                         "
     'prescripcion

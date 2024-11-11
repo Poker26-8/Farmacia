@@ -1124,6 +1124,9 @@
         e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
+        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 285, Y, sf)
@@ -1192,6 +1195,7 @@
         txtCredito.Text = "0.00"
         txtTotal.Text = "0.00"
         txtCompras.Text = "0.00"
+        txtCancelaciones.Text = "0.00"
         txtIngresos.Text = "0.00"
         txtSaldoInicial.Text = "0.00"
         txtRetiros.Text = "0.00"
@@ -1314,9 +1318,10 @@
                     Dim totalingresostar As Double = txtTotalIngresosTar.Text
                     Dim totalcajerotar As Double = txtTotalCajeroTar.Text
                     Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
+                    Dim TOTALCANCELACIONES As Double = txtCancelaciones.Text
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & ")"
+                    cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF,TotalCancelaciones) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & "," & TOTALCANCELACIONES & ")"
                     If cmd1.ExecuteNonQuery() Then
                         MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                     End If
@@ -1505,6 +1510,9 @@
         Y += 15
         e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
+        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
