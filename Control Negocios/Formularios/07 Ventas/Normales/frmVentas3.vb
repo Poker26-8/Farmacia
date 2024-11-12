@@ -16127,6 +16127,7 @@ doorcita:
                 Dim startPos As Integer
                 Dim endPos As Integer
 
+
                 ' Extraer el valor de "message"
                 startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
                 endPos = InStr(startPos, responseData, """")
@@ -16137,10 +16138,111 @@ doorcita:
                 endPos = InStr(startPos, responseData, """")
                 giftAuthNum = Mid(responseData, startPos, endPos - startPos)
 
+
+                Dim jsonObject As JObject = JObject.Parse(jsonData)
+                Dim soyNulo As Integer = 0
+                Dim idCombo As String = ""
+                Dim totalPieces As Double = 0
+                Dim description As String = ""
+                Dim giftType As String = ""
+                Dim selection As String = ""
+                Dim skuPurchase As String = ""
+                Dim giftSku As String = ""
+                Dim discount As Integer = 0
+                Dim minGiftPieces As Integer = 0
+                Dim maxGiftPieces As Integer = 0
+                Dim errordeProducto As String = ""
+
+                If jsonObject("productoError") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
+
+                Else
+                    startPos = InStr(responseData, """productError"" : """) + Len("""productError"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    errordeProducto = Mid(responseData, startPos, endPos - startPos)
+                End If
+
+
+                ' Verificar si "giftList" es nulo
+                If jsonObject("giftList") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
+                    soyNulo = 1
+                Else
+                    soyNulo = 0
+                End If
+
+                If soyNulo = 0 Then
+
+                    startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    idCombo = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "totalPieces"
+                    startPos = InStr(responseData, """totalPieces"" : ") + Len("""totalPieces"" : ")
+                    endPos = InStr(startPos, responseData, ",")
+                    totalPieces = CDbl(Mid(responseData, startPos, endPos - startPos))
+
+                    ' Extraer "description"
+                    startPos = InStr(responseData, """description"" : """) + Len("""description"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    description = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "giftType"
+                    startPos = InStr(responseData, """giftType"" : """) + Len("""giftType"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    giftType = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "selection"
+                    startPos = InStr(responseData, """selection"" : """) + Len("""selection"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    selection = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "skuPurchase"
+                    startPos = InStr(responseData, """skuPurchase"" : """) + Len("""skuPurchase"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    skuPurchase = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "giftSku" (dentro de "giftItemList" -> "giftItem")
+                    startPos = InStr(responseData, """sku"" : """) + Len("""sku"" : """)
+                    endPos = InStr(startPos, responseData, """")
+                    giftSku = Mid(responseData, startPos, endPos - startPos)
+
+                    ' Extraer "discount"
+                    startPos = InStr(responseData, """discount"" : ") + Len("""discount"" : ")
+                    endPos = InStr(startPos, responseData, ",")
+                    discount = CInt(Mid(responseData, startPos, endPos - startPos))
+
+                    ' Extraer "minGiftPieces"
+                    startPos = InStr(responseData, """minGiftPieces"" : ") + Len("""minGiftPieces"" : ")
+                    endPos = InStr(startPos, responseData, ",")
+                    minGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
+
+                    ' Extraer "maxGiftPieces"
+                    startPos = InStr(responseData, """maxGiftPieces"" : ") + Len("""maxGiftPieces"" : ")
+                    endPos = InStr(startPos, responseData, "}")
+                    maxGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
+                End If
+                My.Application.DoEvents()
+
                 If message = "Success" Then
-                    lblgift.Text = giftAuthNum
-                    lblgift.BackColor = Color.LightGreen
-                    btncancelatrans.Visible = True
+                    If soyNulo = 0 Then
+                        lblgift.Text = giftAuthNum
+                        lblgift.BackColor = Color.LightGreen
+                        btncancelatrans.Visible = True
+
+                        frmConsultaBeneficios.Show()
+                        frmConsultaBeneficios.BringToFront()
+                        My.Application.DoEvents()
+
+                        If giftType = "Porcentaje" Then
+                            frmConsultaBeneficios.CreaPorcentaje()
+                            My.Application.DoEvents()
+                            frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
+                            My.Application.DoEvents()
+                        End If
+                    Else
+                        lblgift.Text = giftAuthNum
+                        lblgift.BackColor = Color.LightGreen
+                        btncancelatrans.Visible = True
+                    End If
                 Else
                 End If
                 My.Application.DoEvents()
@@ -16202,6 +16304,77 @@ doorcita:
                 Else
                 End If
                 My.Application.DoEvents()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+
+
+    Public Async Function AplicarVenta8() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        Dim userxd As String = ""
+        userxd = Replace(cboNombre.Text, " ", ".")
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": """ & lblfolio.Text & """,
+            ""programData"": {
+                ""id"": ""529"",
+                ""type"": ""Laboratorios exclusivos""
+            },
+            ""user"": """ & userxd & """,
+            ""cardAuthNum"": """ & lblcardaunt.Text & """,
+            ""giftAuthNum"": """ & lblgift.Text & """,
+            ""itemList"": {
+                ""item"": [
+                    {
+                        ""sku"": ""7501125189111"",
+                        ""quantity"": 1,
+                        ""originQuantity"": 1,
+                        ""unitPrice"": 1000
+                    }
+                ]
+            },
+            ""giftList"": {
+                ""combo"": [
+                    {
+                        ""idCombo"": ""1"",
+                        ""giftType"": ""Pieza"",
+                        ""selection"": ""Todos"",
+                        ""skuPurchase"": ""7501125189111"",
+                        ""giftItemList"": {
+                            ""giftItem"": [
+                                {
+                                    ""sku"": ""7501125189111"",
+                                    ""discount"": 0,
+                                    ""minGiftPieces"": 1,
+                                    ""maxGiftPieces"": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }"
+
+            ' Crear el contenido para el POST con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud POST
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)

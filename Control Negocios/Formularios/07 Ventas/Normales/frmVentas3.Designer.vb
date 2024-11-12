@@ -540,7 +540,7 @@ Partial Class frmVentas3
         Me.btnOrdenes.Name = "btnOrdenes"
         Me.btnOrdenes.Size = New System.Drawing.Size(79, 90)
         Me.btnOrdenes.TabIndex = 244
-        Me.btnOrdenes.Text = "Aplicar Beneficios"
+        Me.btnOrdenes.Text = "Obtener Beneficios"
         Me.btnOrdenes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnOrdenes.UseVisualStyleBackColor = False
         '
@@ -884,7 +884,6 @@ Partial Class frmVentas3
         Me.btncancelatrans.TabIndex = 254
         Me.btncancelatrans.Text = "Cancelar Transacción"
         Me.btncancelatrans.UseVisualStyleBackColor = False
-        Me.btncancelatrans.Visible = False
         '
         'lblgift
         '
