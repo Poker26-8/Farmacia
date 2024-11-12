@@ -16127,6 +16127,7 @@ doorcita:
                 Dim giftAuthNum As String
                 Dim startPos As Integer
                 Dim endPos As Integer
+                Dim productoerror As String = ""
 
 
                 ' Extraer el valor de "message"
@@ -16138,8 +16139,6 @@ doorcita:
                 startPos = InStr(responseData, """giftAuthNum"" : """) + Len("""giftAuthNum"" : """)
                 endPos = InStr(startPos, responseData, """")
                 giftAuthNum = Mid(responseData, startPos, endPos - startPos)
-
-
 
                 Dim soyNulo As Integer = 0
                 Dim idCombo As String = ""
