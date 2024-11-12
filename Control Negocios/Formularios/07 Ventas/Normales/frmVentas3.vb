@@ -16055,6 +16055,7 @@ doorcita:
 
 
 
+
     Public Async Function obtenerbeneficios() As Task
         Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/gifts"
         Dim usuario As String = "userTest"
@@ -16174,7 +16175,7 @@ doorcita:
                 Else
                     MessageBox.Show("El campo 'giftList' está vacío o no contiene elementos en 'combo'.")
                 End If
-
+                GoTo kaka
 
                 startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
                 endPos = InStr(startPos, responseData, """")
@@ -16226,7 +16227,7 @@ doorcita:
                 maxGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
                 'End If
                 My.Application.DoEvents()
-
+kaka:
                 If message = "Success" Then
                     lblgift.Text = giftAuthNum
                     lblgift.BackColor = Color.LightGreen
