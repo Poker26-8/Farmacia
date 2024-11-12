@@ -16153,30 +16153,6 @@ doorcita:
                 Dim minGiftPieces As Integer = 0
                 Dim maxGiftPieces As Integer = 0
 
-
-                Dim jsonObject As JObject = JObject.Parse(jsonData)
-
-                ' Variable para verificar si giftList tiene elementos
-                Dim hasGiftListItems As Boolean = False
-
-                ' Verificar si giftList no es nulo y contiene al menos un elemento en "combo"
-                If jsonObject("giftList") IsNot Nothing AndAlso jsonObject("giftList").Type <> JTokenType.Null Then
-                    Dim comboItems As JArray = jsonObject("giftList")("combo")
-
-                    ' Verificar si "combo" tiene elementos
-                    If comboItems IsNot Nothing AndAlso comboItems.Count > 0 Then
-                        hasGiftListItems = True
-                    End If
-                End If
-
-                ' Mostrar el resultado de la validación
-                If hasGiftListItems Then
-                    MessageBox.Show("El campo 'giftList' contiene elementos en 'combo'.")
-                Else
-                    MessageBox.Show("El campo 'giftList' está vacío o no contiene elementos en 'combo'.")
-                End If
-                GoTo kaka
-
                 startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
                 endPos = InStr(startPos, responseData, """")
                 idCombo = Mid(responseData, startPos, endPos - startPos)
