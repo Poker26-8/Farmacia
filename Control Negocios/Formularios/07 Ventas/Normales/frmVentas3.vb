@@ -16152,21 +16152,57 @@ doorcita:
                 Dim minGiftPieces As Integer = 0
                 Dim maxGiftPieces As Integer = 0
                 Dim errordeProducto As String = ""
+                Dim soyerror As Integer = 0
 
-                If jsonObject("productoError") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
 
+
+                ' Inicializar la variable de error
+                Dim errorMensaje As String = ""
+
+                ' Verificar si existe "itemList" y tiene al menos un "item"
+                If jsonObject("itemList") IsNot Nothing AndAlso jsonObject("itemList")("item") IsNot Nothing Then
+                    ' Tomar el primer elemento en la lista "item"
+                    Dim firstItem As JObject = jsonObject("itemList")("item")(0)
+
+                    ' Verificar si "productError" no es nulo
+                    If firstItem("productError") IsNot Nothing AndAlso firstItem("productError").Type <> JTokenType.Null Then
+                        ' Guardar el mensaje de error en la variable
+                        errorMensaje = firstItem("productError").ToString()
+                    End If
+                End If
+
+                ' Mostrar el mensaje de error si existe
+                If errorMensaje <> "" Then
+                    MessageBox.Show("Error encontrado: " & errorMensaje)
+                    soyerror = 1
                 Else
-                    startPos = InStr(responseData, """productError"" : """) + Len("""productError"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    errordeProducto = Mid(responseData, startPos, endPos - startPos)
+
+                    soyerror = 0
                 End If
 
 
-                ' Verificar si "giftList" es nulo
+
+                ' Verificar si giftList es nulo
                 If jsonObject("giftList") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
                     soyNulo = 1
                 Else
                     soyNulo = 0
+                End If
+
+
+                ' Verificar si "giftList" es nulo
+                Dim giftListIsNull As Boolean = False
+
+                ' Verificar si giftList es nulo
+                If jsonObject("giftList") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
+                    giftListIsNull = True
+                End If
+
+                ' Mostrar el resultado de la validaciónk
+                If giftListIsNull Then
+                    MessageBox.Show("El campo 'giftList' es nulo.")
+                Else
+                    MessageBox.Show("El campo 'giftList' no es nulo.")
                 End If
 
                 If soyNulo = 0 Then
@@ -16238,6 +16274,13 @@ doorcita:
                             frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
                             My.Application.DoEvents()
                         End If
+                    Else
+
+                    End If
+                    If soyerror = 0 Then
+                        lblgift.Text = giftAuthNum
+                        lblgift.BackColor = Color.LightGreen
+                        btncancelatrans.Visible = True
                     Else
                         lblgift.Text = giftAuthNum
                         lblgift.BackColor = Color.LightGreen
