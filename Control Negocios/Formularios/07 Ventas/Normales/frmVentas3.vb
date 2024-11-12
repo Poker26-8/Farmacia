@@ -16139,7 +16139,7 @@ doorcita:
                 giftAuthNum = Mid(responseData, startPos, endPos - startPos)
 
 
-                Dim jsonObject As JObject = JObject.Parse(jsonData)
+
                 Dim soyNulo As Integer = 0
                 Dim idCombo As String = ""
                 Dim totalPieces As Double = 0
@@ -16151,140 +16151,96 @@ doorcita:
                 Dim discount As Integer = 0
                 Dim minGiftPieces As Integer = 0
                 Dim maxGiftPieces As Integer = 0
-                Dim errordeProducto As String = ""
-                Dim soyerror As Integer = 0
 
 
+                Dim jsonObject As JObject = JObject.Parse(jsonData)
 
-                ' Inicializar la variable de error
-                Dim errorMensaje As String = ""
+                ' Variable para verificar si giftList tiene elementos
+                Dim hasGiftListItems As Boolean = False
 
-                ' Verificar si existe "itemList" y tiene al menos un "item"
-                If jsonObject("itemList") IsNot Nothing AndAlso jsonObject("itemList")("item") IsNot Nothing Then
-                    ' Tomar el primer elemento en la lista "item"
-                    Dim firstItem As JObject = jsonObject("itemList")("item")(0)
+                ' Verificar si giftList no es nulo y contiene al menos un elemento en "combo"
+                If jsonObject("giftList") IsNot Nothing AndAlso jsonObject("giftList").Type <> JTokenType.Null Then
+                    Dim comboItems As JArray = jsonObject("giftList")("combo")
 
-                    ' Verificar si "productError" no es nulo
-                    If firstItem("productError") IsNot Nothing AndAlso firstItem("productError").Type <> JTokenType.Null Then
-                        ' Guardar el mensaje de error en la variable
-                        errorMensaje = firstItem("productError").ToString()
+                    ' Verificar si "combo" tiene elementos
+                    If comboItems IsNot Nothing AndAlso comboItems.Count > 0 Then
+                        hasGiftListItems = True
                     End If
                 End If
 
-                ' Mostrar el mensaje de error si existe
-                If errorMensaje <> "" Then
-                    MessageBox.Show("Error encontrado: " & errorMensaje)
-                    soyerror = 1
+                ' Mostrar el resultado de la validación
+                If hasGiftListItems Then
+                    MessageBox.Show("El campo 'giftList' contiene elementos en 'combo'.")
                 Else
-
-                    soyerror = 0
+                    MessageBox.Show("El campo 'giftList' está vacío o no contiene elementos en 'combo'.")
                 End If
 
 
+                startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
+                endPos = InStr(startPos, responseData, """")
+                idCombo = Mid(responseData, startPos, endPos - startPos)
 
-                ' Verificar si giftList es nulo
-                If jsonObject("giftList") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
-                    soyNulo = 1
-                Else
-                    soyNulo = 0
-                End If
+                ' Extraer "totalPieces"
+                startPos = InStr(responseData, """totalPieces"" : ") + Len("""totalPieces"" : ")
+                endPos = InStr(startPos, responseData, ",")
+                totalPieces = CDbl(Mid(responseData, startPos, endPos - startPos))
 
+                ' Extraer "description"
+                startPos = InStr(responseData, """description"" : """) + Len("""description"" : """)
+                endPos = InStr(startPos, responseData, """")
+                description = Mid(responseData, startPos, endPos - startPos)
 
-                ' Verificar si "giftList" es nulo
-                Dim giftListIsNull As Boolean = False
+                ' Extraer "giftType"
+                startPos = InStr(responseData, """giftType"" : """) + Len("""giftType"" : """)
+                endPos = InStr(startPos, responseData, """")
+                giftType = Mid(responseData, startPos, endPos - startPos)
 
-                ' Verificar si giftList es nulo
-                If jsonObject("giftList") Is Nothing OrElse jsonObject("giftList").Type = JTokenType.Null Then
-                    giftListIsNull = True
-                End If
+                ' Extraer "selection"
+                startPos = InStr(responseData, """selection"" : """) + Len("""selection"" : """)
+                endPos = InStr(startPos, responseData, """")
+                selection = Mid(responseData, startPos, endPos - startPos)
 
-                ' Mostrar el resultado de la validaciónk
-                If giftListIsNull Then
-                    MessageBox.Show("El campo 'giftList' es nulo.")
-                Else
-                    MessageBox.Show("El campo 'giftList' no es nulo.")
-                End If
+                ' Extraer "skuPurchase"
+                startPos = InStr(responseData, """skuPurchase"" : """) + Len("""skuPurchase"" : """)
+                endPos = InStr(startPos, responseData, """")
+                skuPurchase = Mid(responseData, startPos, endPos - startPos)
 
-                If soyNulo = 0 Then
+                ' Extraer "giftSku" (dentro de "giftItemList" -> "giftItem")
+                startPos = InStr(responseData, """sku"" : """) + Len("""sku"" : """)
+                endPos = InStr(startPos, responseData, """")
+                giftSku = Mid(responseData, startPos, endPos - startPos)
 
-                    startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    idCombo = Mid(responseData, startPos, endPos - startPos)
+                ' Extraer "discount"
+                startPos = InStr(responseData, """discount"" : ") + Len("""discount"" : ")
+                endPos = InStr(startPos, responseData, ",")
+                discount = CInt(Mid(responseData, startPos, endPos - startPos))
 
-                    ' Extraer "totalPieces"
-                    startPos = InStr(responseData, """totalPieces"" : ") + Len("""totalPieces"" : ")
-                    endPos = InStr(startPos, responseData, ",")
-                    totalPieces = CDbl(Mid(responseData, startPos, endPos - startPos))
+                ' Extraer "minGiftPieces"
+                startPos = InStr(responseData, """minGiftPieces"" : ") + Len("""minGiftPieces"" : ")
+                endPos = InStr(startPos, responseData, ",")
+                minGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
 
-                    ' Extraer "description"
-                    startPos = InStr(responseData, """description"" : """) + Len("""description"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    description = Mid(responseData, startPos, endPos - startPos)
-
-                    ' Extraer "giftType"
-                    startPos = InStr(responseData, """giftType"" : """) + Len("""giftType"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    giftType = Mid(responseData, startPos, endPos - startPos)
-
-                    ' Extraer "selection"
-                    startPos = InStr(responseData, """selection"" : """) + Len("""selection"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    selection = Mid(responseData, startPos, endPos - startPos)
-
-                    ' Extraer "skuPurchase"
-                    startPos = InStr(responseData, """skuPurchase"" : """) + Len("""skuPurchase"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    skuPurchase = Mid(responseData, startPos, endPos - startPos)
-
-                    ' Extraer "giftSku" (dentro de "giftItemList" -> "giftItem")
-                    startPos = InStr(responseData, """sku"" : """) + Len("""sku"" : """)
-                    endPos = InStr(startPos, responseData, """")
-                    giftSku = Mid(responseData, startPos, endPos - startPos)
-
-                    ' Extraer "discount"
-                    startPos = InStr(responseData, """discount"" : ") + Len("""discount"" : ")
-                    endPos = InStr(startPos, responseData, ",")
-                    discount = CInt(Mid(responseData, startPos, endPos - startPos))
-
-                    ' Extraer "minGiftPieces"
-                    startPos = InStr(responseData, """minGiftPieces"" : ") + Len("""minGiftPieces"" : ")
-                    endPos = InStr(startPos, responseData, ",")
-                    minGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
-
-                    ' Extraer "maxGiftPieces"
-                    startPos = InStr(responseData, """maxGiftPieces"" : ") + Len("""maxGiftPieces"" : ")
-                    endPos = InStr(startPos, responseData, "}")
-                    maxGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
-                End If
+                ' Extraer "maxGiftPieces"
+                startPos = InStr(responseData, """maxGiftPieces"" : ") + Len("""maxGiftPieces"" : ")
+                endPos = InStr(startPos, responseData, "}")
+                maxGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
+                'End If
                 My.Application.DoEvents()
 
                 If message = "Success" Then
-                    If soyNulo = 0 Then
-                        lblgift.Text = giftAuthNum
-                        lblgift.BackColor = Color.LightGreen
-                        btncancelatrans.Visible = True
+                    lblgift.Text = giftAuthNum
+                    lblgift.BackColor = Color.LightGreen
+                    btncancelatrans.Visible = True
 
-                        frmConsultaBeneficios.Show()
-                        frmConsultaBeneficios.BringToFront()
+                    frmConsultaBeneficios.Show()
+                    frmConsultaBeneficios.BringToFront()
+                    My.Application.DoEvents()
+
+                    If giftType = "Porcentaje" Then
+                        frmConsultaBeneficios.CreaPorcentaje()
                         My.Application.DoEvents()
-
-                        If giftType = "Porcentaje" Then
-                            frmConsultaBeneficios.CreaPorcentaje()
-                            My.Application.DoEvents()
-                            frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
-                            My.Application.DoEvents()
-                        End If
-                    Else
-
-                    End If
-                    If soyerror = 0 Then
-                        lblgift.Text = giftAuthNum
-                        lblgift.BackColor = Color.LightGreen
-                        btncancelatrans.Visible = True
-                    Else
-                        lblgift.Text = giftAuthNum
-                        lblgift.BackColor = Color.LightGreen
-                        btncancelatrans.Visible = True
+                        frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
+                        My.Application.DoEvents()
                     End If
                 Else
                 End If
