@@ -16127,7 +16127,49 @@ doorcita:
                 Dim giftAuthNum As String
                 Dim startPos As Integer
                 Dim endPos As Integer
-                Dim productoerror As String = ""
+                Dim soyError As Integer = 0
+                Dim soyNulo As Integer = 0
+
+                Dim jsonObject As JObject = JObject.Parse(responseData)
+
+                Dim productErrorValue As String = ""
+
+                Dim itemList As JArray = jsonObject("itemList")("item")
+                For Each item As JObject In itemList
+                    If item.ContainsKey("productError") AndAlso Not item("productError").Type = JTokenType.Null Then
+                        productErrorValue = item("productError").ToString()
+                    End If
+                Next
+
+                If productErrorValue <> "" Then
+                    MessageBox.Show("El valor de 'productError' es: " & productErrorValue)
+                    soyError = 1
+                Else
+                    soyError = 0
+                End If
+
+
+                Dim hasGiftListItems As Boolean = False
+
+                If jsonObject("giftList") IsNot Nothing AndAlso jsonObject("giftList").Type <> JTokenType.Null Then
+                    Dim comboItems As JArray = jsonObject("giftList")("combo")
+
+                    If comboItems IsNot Nothing AndAlso comboItems.Count > 0 Then
+                        hasGiftListItems = True
+                        soyNulo = 0
+                    Else
+                        soyNulo = 1
+                    End If
+                Else
+                    soyNulo = 1
+                End If
+
+                ' Mostrar el resultado de la validación
+                If hasGiftListItems Then
+                    'si tiene elementos
+                Else
+
+                End If
 
 
                 ' Extraer el valor de "message"
@@ -16140,7 +16182,7 @@ doorcita:
                 endPos = InStr(startPos, responseData, """")
                 giftAuthNum = Mid(responseData, startPos, endPos - startPos)
 
-                Dim soyNulo As Integer = 0
+
                 Dim idCombo As String = ""
                 Dim totalPieces As Double = 0
                 Dim description As String = ""
@@ -16151,59 +16193,94 @@ doorcita:
                 Dim discount As Integer = 0
                 Dim minGiftPieces As Integer = 0
                 Dim maxGiftPieces As Integer = 0
+                Dim comboData As String
+                startPos = 1
 
-                startPos = InStr(responseData, """idCombo"" : """) + Len("""idCombo"" : """)
-                endPos = InStr(startPos, responseData, """")
-                idCombo = Mid(responseData, startPos, endPos - startPos)
 
-                ' Extraer "totalPieces"
-                startPos = InStr(responseData, """totalPieces"" : ") + Len("""totalPieces"" : ")
-                endPos = InStr(startPos, responseData, ",")
-                totalPieces = CDbl(Mid(responseData, startPos, endPos - startPos))
+                Do
+                    ' Buscar el próximo bloque de "combo" en el JSON
+                    startPos = InStr(startPos, responseData, """combo""")
+                    If startPos = 0 Then Exit Do ' Si no se encuentra más combos, salir del bucle
 
-                ' Extraer "description"
-                startPos = InStr(responseData, """description"" : """) + Len("""description"" : """)
-                endPos = InStr(startPos, responseData, """")
-                description = Mid(responseData, startPos, endPos - startPos)
+                    ' Ajustar para empezar justo después de "combo" para este bloque
+                    startPos = InStr(startPos, responseData, "[{") + 2
+                    endPos = InStr(startPos, responseData, "}]") ' Buscar el fin del bloque de este combo
 
-                ' Extraer "giftType"
-                startPos = InStr(responseData, """giftType"" : """) + Len("""giftType"" : """)
-                endPos = InStr(startPos, responseData, """")
-                giftType = Mid(responseData, startPos, endPos - startPos)
+                    If endPos = 0 Then Exit Do
 
-                ' Extraer "selection"
-                startPos = InStr(responseData, """selection"" : """) + Len("""selection"" : """)
-                endPos = InStr(startPos, responseData, """")
-                selection = Mid(responseData, startPos, endPos - startPos)
+                    ' Extraer el bloque completo de este combo
+                    comboData = Mid(responseData, startPos, endPos - startPos)
 
-                ' Extraer "skuPurchase"
-                startPos = InStr(responseData, """skuPurchase"" : """) + Len("""skuPurchase"" : """)
-                endPos = InStr(startPos, responseData, """")
-                skuPurchase = Mid(responseData, startPos, endPos - startPos)
+                    ' Extraer "idCombo"
+                    startPos = InStr(comboData, """idCombo"" : """) + Len("""idCombo"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        idCombo = Mid(comboData, startPos, endPos - startPos)
+                    End If
 
-                ' Extraer "giftSku" (dentro de "giftItemList" -> "giftItem")
-                startPos = InStr(responseData, """sku"" : """) + Len("""sku"" : """)
-                endPos = InStr(startPos, responseData, """")
-                giftSku = Mid(responseData, startPos, endPos - startPos)
+                    ' Extraer "totalPieces"
+                    startPos = InStr(comboData, """totalPieces"" : ") + Len("""totalPieces"" : ")
+                    endPos = InStr(startPos, comboData, ",")
+                    If startPos > 0 And endPos > 0 Then
+                        totalPieces = CDbl(Mid(comboData, startPos, endPos - startPos))
+                    End If
 
-                ' Extraer "discount"
-                startPos = InStr(responseData, """discount"" : ") + Len("""discount"" : ")
-                endPos = InStr(startPos, responseData, ",")
-                discount = CInt(Mid(responseData, startPos, endPos - startPos))
+                    ' Extraer "description"
+                    startPos = InStr(comboData, """description"" : """) + Len("""description"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        description = Mid(comboData, startPos, endPos - startPos)
+                    End If
 
-                ' Extraer "minGiftPieces"
-                startPos = InStr(responseData, """minGiftPieces"" : ") + Len("""minGiftPieces"" : ")
-                endPos = InStr(startPos, responseData, ",")
-                minGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
+                    ' Extraer "giftType"
+                    startPos = InStr(comboData, """giftType"" : """) + Len("""giftType"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        giftType = Mid(comboData, startPos, endPos - startPos)
+                    End If
 
-                ' Extraer "maxGiftPieces"
-                startPos = InStr(responseData, """maxGiftPieces"" : ") + Len("""maxGiftPieces"" : ")
-                endPos = InStr(startPos, responseData, "}")
-                maxGiftPieces = CInt(Mid(responseData, startPos, endPos - startPos))
-                'End If
-                My.Application.DoEvents()
-kaka:
-                If message = "Success" Then
+                    ' Extraer "selection"
+                    startPos = InStr(comboData, """selection"" : """) + Len("""selection"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        selection = Mid(comboData, startPos, endPos - startPos)
+                    End If
+
+                    ' Extraer "skuPurchase"
+                    startPos = InStr(comboData, """skuPurchase"" : """) + Len("""skuPurchase"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        skuPurchase = Mid(comboData, startPos, endPos - startPos)
+                    End If
+
+                    ' Extraer "giftSku" (dentro de "giftItemList" -> "giftItem")
+                    startPos = InStr(comboData, """sku"" : """) + Len("""sku"" : """)
+                    endPos = InStr(startPos, comboData, """")
+                    If startPos > 0 And endPos > 0 Then
+                        giftSku = Mid(comboData, startPos, endPos - startPos)
+                    End If
+
+                    ' Extraer "discount"
+                    startPos = InStr(comboData, """discount"" : ") + Len("""discount"" : ")
+                    endPos = InStr(startPos, comboData, ",")
+                    If startPos > 0 And endPos > 0 Then
+                        discount = CInt(Mid(comboData, startPos, endPos - startPos))
+                    End If
+
+                    ' Extraer "minGiftPieces"
+                    startPos = InStr(comboData, """minGiftPieces"" : ") + Len("""minGiftPieces"" : ")
+                    endPos = InStr(startPos, comboData, ",")
+                    If startPos > 0 And endPos > 0 Then
+                        minGiftPieces = CInt(Mid(comboData, startPos, endPos - startPos))
+                    End If
+
+                    ' Extraer "maxGiftPieces"
+                    startPos = InStr(comboData, """maxGiftPieces"" : ") + Len("""maxGiftPieces"" : ")
+                    endPos = InStr(startPos, comboData, "}")
+                    If startPos > 0 And endPos > 0 Then
+                        maxGiftPieces = CInt(Mid(comboData, startPos, endPos - startPos))
+                    End If
+
                     lblgift.Text = giftAuthNum
                     lblgift.BackColor = Color.LightGreen
                     btncancelatrans.Visible = True
@@ -16217,6 +16294,39 @@ kaka:
                         My.Application.DoEvents()
                         frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
                         My.Application.DoEvents()
+                    End If
+
+                    ' Aquí puedes imprimir o almacenar cada combo
+
+                    ' Avanzar a la siguiente posición después del fin del bloque actual
+                    startPos = endPos + 1
+
+                Loop
+
+
+                My.Application.DoEvents()
+kaka:
+                If message = "Success" Then
+                    If soyNulo = 0 Then
+                        lblgift.Text = giftAuthNum
+                        lblgift.BackColor = Color.LightGreen
+                        btncancelatrans.Visible = True
+
+                        frmConsultaBeneficios.Show()
+                        frmConsultaBeneficios.BringToFront()
+                        My.Application.DoEvents()
+
+                        If giftType = "Porcentaje" Then
+                            frmConsultaBeneficios.CreaPorcentaje()
+                            My.Application.DoEvents()
+                            frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, description, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
+                            My.Application.DoEvents()
+                        End If
+                    Else
+                        ' aqui se debe de cancelar o rechazar una de las dos, no se cual todavia
+                        lblgift.Text = giftAuthNum
+                        lblgift.BackColor = Color.LightGreen
+                        btncancelatrans.Visible = True
                     End If
                 Else
                 End If
