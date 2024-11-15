@@ -4,7 +4,7 @@ Imports System.Threading.Tasks
 
 Public Class frmConsultaBeneficios
     Private Sub frmConsultaBeneficios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CreaPorcentaje()
     End Sub
     Public Sub CreaPorcentaje()
         grdcaptura.Rows.Clear()
@@ -16,59 +16,59 @@ Public Class frmConsultaBeneficios
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                .Visible = True
+                .Visible = False
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(1)
                 .HeaderText = "TotalPieces"
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                .Visible = True
+                .Visible = False
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(2)
                 .HeaderText = "Descripcion"
-                .Width = 75
+                .Width = 300
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(3)
                 .HeaderText = "Tipo"
-                .Width = 75
+                .Width = 100
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(4)
                 .HeaderText = "Seleccion"
-                .Width = 75
+                .Width = 120
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
-                .Visible = True
+                .Visible = False
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(5)
-                .HeaderText = "sku1"
-                .Width = 75
+                .HeaderText = "Producto Cotizado"
+                .Width = 150
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(6)
-                .HeaderText = "sku2"
-                .Width = 75
+                .HeaderText = "Producto con Beneficio"
+                .Width = 150
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(7)
-                .HeaderText = "discount"
-                .Width = 75
+                .HeaderText = "Monto"
+                .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                 .Visible = True
@@ -79,7 +79,7 @@ Public Class frmConsultaBeneficios
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                .Visible = True
+                .Visible = False
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(9)
@@ -87,7 +87,7 @@ Public Class frmConsultaBeneficios
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                .Visible = True
+                .Visible = False
                 .Resizable = DataGridViewTriState.False
             End With
         End With
@@ -105,18 +105,18 @@ Public Class frmConsultaBeneficios
         userxd = Replace(frmVentas3.cboNombre.Text, " ", ".")
         Dim porDescuento As String = ""
         Using client As New HttpClient()
-            ' Crear el encabezado de autenticación en Base64
+
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
             client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
 
-            ' Crear el contenido JSON con los datos proporcionados
+
             Dim combos As New List(Of Object)
 
             For Each row As DataGridViewRow In grdcaptura.Rows
                 If Not row.IsNewRow Then
                     porDescuento = CInt(row.Cells(7).Value)
 
-                    ' Crear un objeto para cada giftItem en el giftItemList basado en las columnas del DataGridView
+
                     Dim giftItem As New Dictionary(Of String, Object) From {
             {"sku", row.Cells(6).Value.ToString()},
             {"discount", CInt(row.Cells(7).Value)},
@@ -124,7 +124,7 @@ Public Class frmConsultaBeneficios
             {"maxGiftPieces", CInt(row.Cells(9).Value)}
         }
 
-                    ' Crear el combo con el giftItemList
+
                     Dim combo As New Dictionary(Of String, Object) From {
             {"idCombo", row.Cells(0).Value.ToString()},
             {"giftType", row.Cells(3).Value.ToString()},
@@ -135,7 +135,7 @@ Public Class frmConsultaBeneficios
             }}
         }
 
-                    ' Añadir el combo a la lista de combos
+
                     combos.Add(combo)
                 End If
             Next
@@ -210,4 +210,8 @@ Public Class frmConsultaBeneficios
             End If
         End Using
     End Function
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
 End Class
