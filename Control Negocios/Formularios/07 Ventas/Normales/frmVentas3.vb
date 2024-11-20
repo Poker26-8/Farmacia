@@ -80,6 +80,7 @@ Public Class frmVentas3
     Public franquicia As Integer = 0
     Public cadenafact As String = ""
     Dim soybarras As String = ""
+    Public mensajeerror As String = ""
 
 
 
@@ -16122,6 +16123,7 @@ doorcita:
                 For Each item As JObject In itemList
                     If item.ContainsKey("productError") AndAlso Not item("productError").Type = JTokenType.Null Then
                         productErrorValue = item("productError").ToString()
+                        mensajeerror = productErrorValue
                         MessageBox.Show("El valor de 'productError' es: " & productErrorValue)
                     End If
                 Next
@@ -16322,8 +16324,56 @@ doorcita:
     End Function
 
     Private Sub Label34_Click(sender As Object, e As EventArgs) Handles Label34.Click
-        frmConsultaBeneficios.Show()
-        frmConsultaBeneficios.BringToFront()
+        AplicarVenta()
     End Sub
+    Public Async Function AplicarVenta() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
 
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+            ""transaction"": """ & lblfolio.Text & """,
+            ""programData"": {
+                ""id"": ""529"",
+                ""type"": ""Laboratorios exclusivos""
+            },
+            ""user"": ""alecks.garcia"",
+            ""cardAuthNum"": """ & lblcardaunt.Text & """,
+            ""giftAuthNum"": """ & lblgift.Text & """,
+            & 
+            ""itemList"": {
+                ""item"": [
+                    {
+                        ""sku"": ""7501125189111"",
+                        ""quantity"": 3,
+                        ""originQuantity"": 3,
+                        ""unitPrice"": 1000,
+                        ""productError"": """ & mensajeerror & """
+                    }
+                ]
+            },
+            ""giftList"": null
+        }"
+            MsgBox(jsonData)
+            ' Crear el contenido para el POST con JSON
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud POST
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
 End Class

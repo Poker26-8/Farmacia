@@ -1,6 +1,9 @@
 ﻿Imports System.Net.Http
 Imports System.Text
 Imports System.Threading.Tasks
+Imports System.Xml
+Imports Newtonsoft.Json.Linq
+Imports Org.BouncyCastle.Math.EC
 
 Public Class frmConsultaBeneficios
     Private Sub frmConsultaBeneficios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -197,7 +200,6 @@ Public Class frmConsultaBeneficios
 
                 If message = "Success" Then
                     MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
-                    frmVentas3.txtdescuento1.Text = porDescuento
                     My.Application.DoEvents()
                     frmVentas3.lblgift.Text = ""
                     frmVentas3.lblgift.BackColor = Color.White
@@ -212,6 +214,96 @@ Public Class frmConsultaBeneficios
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        RechazarBeneficios10()
     End Sub
+
+    Public Async Function RechazarBeneficios10() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/gifts"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+        Using client As New HttpClient()
+            ' Crear el encabezado de autenticación en Base64
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim jsonData As String = "{
+    ""transaction"": """ & frmVentas3.lblfolio.Text & """,
+    ""cardAuthNum"": """ & frmVentas3.lblcardaunt.Text & """,
+    ""giftAuthNum"": """ & frmVentas3.lblgift.Text & """,
+    ""giftList"": {
+        ""combo"": []
+    }
+}"
+
+            ' Deserializar el JSON original
+            Dim jsonObject As JObject = JObject.Parse(jsonData)
+
+            ' Obtener el arreglo "combo" del JSON
+            Dim comboArray As JArray = jsonObject("giftList")("combo")
+
+            ' Llenar los datos desde el DataGridView
+            For Each row As DataGridViewRow In grdcaptura.Rows
+                If Not row.IsNewRow Then
+                    Dim idCombo As String = row.Cells(0).Value.ToString()
+                    Dim sku As String = row.Cells(6).Value.ToString()
+                    Dim minGiftPieces As Integer = CInt(row.Cells(9).Value)
+
+                    ' Crear el objeto "combo"
+                    Dim comboObject As New JObject(
+            New JProperty("idCombo", idCombo),
+            New JProperty("giftItemList", New JObject(
+                New JProperty("giftItem", New JArray(
+                    New JObject(
+                        New JProperty("sku", sku),
+                        New JProperty("minGiftPieces", minGiftPieces)
+                    )
+                ))
+            ))
+        )
+
+                    ' Añadir el objeto al array "combo"
+                    comboArray.Add(comboObject)
+                End If
+            Next
+
+            ' Convertir el JSON actualizado a String
+            Dim updatedJson As String = jsonObject.ToString(Formatting.Indented)
+
+            ' Crear el contenido para el PUT con JSON
+            Dim content As New StringContent(updatedJson, Encoding.UTF8, "application/json")
+
+            ' Realizar la solicitud PUT
+            Dim response As HttpResponseMessage = Await client.PutAsync(url, content)
+
+            ' Verificar si la solicitud fue exitosa
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                Dim message As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+                MsgBox("Respuesta de la API: " & responseData)
+
+
+                If message = "Success" Then
+                    frmVentas3.lblgift.Text = ""
+                    frmVentas3.lblgift.BackColor = Color.White
+                    frmVentas3.btncancelatrans.Visible = False
+                    frmVentas3.btniniciar.PerformClick()
+
+                    MsgBox("Beneficio Rechazado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    grdcaptura.Rows.Clear()
+                    Me.Close()
+
+                Else
+                End If
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
 End Class
