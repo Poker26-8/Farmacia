@@ -1101,4 +1101,5 @@ Public Class frmClientes
         frmClientesW.Show()
         frmClientesW.BringToFront()
     End Sub
+
 End Class

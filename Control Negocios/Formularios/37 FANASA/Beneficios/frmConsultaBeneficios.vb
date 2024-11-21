@@ -205,6 +205,54 @@ Public Class frmConsultaBeneficios
                     frmVentas3.lblgift.BackColor = Color.White
                     frmVentas3.btncancelatrans.Visible = False
                     frmVentas3.btniniciar.PerformClick()
+                    Dim tipodescuento As String = ""
+                    Dim productoApplica As String = ""
+                    Dim monto As Double = 0
+                    Dim montocondescuento As Double = 0
+                    For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                        tipodescuento = grdcaptura.Rows(xxx).Cells(3).Value.ToString
+                        productoApplica = grdcaptura.Rows(xxx).Cells(6).Value.ToString
+                        monto = grdcaptura.Rows(xxx).Cells(7).Value.ToString
+                        If tipodescuento = "RestaPrecio" Then
+                            For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                                If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
+                                    frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(monto)
+                                    My.Application.DoEvents()
+                                    Exit For
+                                End If
+                            Next
+                        ElseIf tipodescuento = "Porcentaje" Then
+                            For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                                If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
+
+                                    montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
+                                    frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
+                                    My.Application.DoEvents()
+                                    Exit For
+                                End If
+                            Next
+                        End If
+                    Next
+
+                    My.Application.DoEvents()
+                    Dim voy As Double = 0
+                    Dim VarSumXD As Double = 0
+                    For w = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                        If frmVentas3.grdcaptura.Rows(w).Cells(6).Value.ToString = "" Then
+                        Else
+                            VarSumXD = VarSumXD + CDbl(frmVentas3.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                            voy = voy + CDec(frmVentas3.grdcaptura.Rows(w).Cells(3).Value)
+                        End If
+                        frmVentas3.txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                        My.Application.DoEvents()
+
+                    Next
+                    If CDbl(frmVentas3.txtdescuento1.Text) <= 0 Then
+                        frmVentas3.txtPagar.Text = CDbl(frmVentas3.txtSubTotal.Text) - CDbl(frmVentas3.txtdescuento2.Text)
+                        frmVentas3.txtPagar.Text = FormatNumber(frmVentas3.txtPagar.Text, 2)
+                    End If
+                    My.Application.DoEvents()
+                    Call frmVentas3.txtdescuento1_TextChanged(frmVentas3.txtdescuento1, New EventArgs())
                     Me.Close()
                 End If
             Else

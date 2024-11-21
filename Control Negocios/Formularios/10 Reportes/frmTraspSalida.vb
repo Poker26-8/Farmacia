@@ -1554,7 +1554,7 @@ milky:
             txtexistencia.Text = ""
             cbodesc.Focus().Equals(True)
 
-            'gbLotes.Visible = False
+            gbLotes.Visible = False
 
         End If
 
@@ -1566,6 +1566,6 @@ milky:
         'txtcodlote.Text = ""
         'txtnombrelote.Text = ""
         'TextBox1.Text = ""
-        'gbLotes.Visible = False
+        gbLotes.Visible = False
     End Sub
 End Class

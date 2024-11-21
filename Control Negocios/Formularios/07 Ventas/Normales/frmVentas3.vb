@@ -4403,7 +4403,7 @@ kaka:
         If AscW(e.KeyChar) = Keys.Enter And btndevo.Text = "GUARDAR DEVOLUCIÓN" And cbocodigo.Text = "" Then btndevo.Focus().Equals(True)
     End Sub
 
-    Private Sub txtdescuento1_TextChanged(sender As Object, e As EventArgs) Handles txtdescuento1.TextChanged
+    Public Sub txtdescuento1_TextChanged(sender As Object, e As EventArgs) Handles txtdescuento1.TextChanged
         If donde_va = "Descuento Porcentaje" Then
             If txtdescuento1.Text = "" Then
                 txtdescuento1.Text = "0"
@@ -16099,6 +16099,7 @@ doorcita:
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
             If response.IsSuccessStatusCode Then
+                MsgBox(jsonData)
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
 
@@ -16154,6 +16155,10 @@ doorcita:
                 Dim textoDespuesDelBarra As String = ""
                 Dim jobjectxd As JObject = JObject.Parse(responseData)
 
+                If soyNulo = 1 And productErrorValue <> "" Then
+                    '''''' aqui se manda la venta vacia
+                End If
+
                 If soyNulo = 0 Then
                     lblgift.Text = giftAuthNum
                     lblgift.BackColor = Color.LightGreen
@@ -16178,6 +16183,7 @@ doorcita:
                         Next
                         My.Application.DoEvents()
                         frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, textoRecortado, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
+                        MsgBox(textoDespuesDelBarra, vbInformation + vbOKOnly, "Delsscom Farmacias")
                         My.Application.DoEvents()
                     Next
                 Else
@@ -16186,7 +16192,7 @@ doorcita:
                     btncancelatrans.Visible = True
                 End If
                 My.Application.DoEvents()
-                MsgBox(textoDespuesDelBarra, vbInformation + vbOKOnly, "Delsscom Farmacias")
+
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
             End If
@@ -16324,19 +16330,23 @@ doorcita:
     End Function
 
     Private Sub Label34_Click(sender As Object, e As EventArgs) Handles Label34.Click
-        AplicarVenta()
+        'frmVentas1_Descuentos.Show()
+        'frmVentas1_Descuentos.BringToFront()
+
+        'AplicarVentaVacia()
     End Sub
-    Public Async Function AplicarVenta() As Task
+    Public Async Function AplicarVentaVacia() As Task
         Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
         Dim usuario As String = "userTest"
         Dim contraseña As String = "Vwq5MYEUtesVwYtK"
 
         Using client As New HttpClient()
-            ' Crear el encabezado de autenticación en Base64
+
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
             client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
 
             ' Crear el contenido JSON con los datos proporcionados
+
             Dim jsonData As String = "{
             ""transaction"": """ & lblfolio.Text & """,
             ""programData"": {
@@ -16346,34 +16356,56 @@ doorcita:
             ""user"": ""alecks.garcia"",
             ""cardAuthNum"": """ & lblcardaunt.Text & """,
             ""giftAuthNum"": """ & lblgift.Text & """,
-            & 
             ""itemList"": {
                 ""item"": [
                     {
                         ""sku"": ""7501125189111"",
                         ""quantity"": 3,
                         ""originQuantity"": 3,
-                        ""unitPrice"": 1000,
-                        ""productError"": """ & mensajeerror & """
+                        ""unitPrice"": 1000
                     }
                 ]
             },
             ""giftList"": null
         }"
+
             MsgBox(jsonData)
-            ' Crear el contenido para el POST con JSON
+
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
 
-            ' Realizar la solicitud POST
+
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-            ' Verificar si la solicitud fue exitosa
+
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
+
+                Dim message As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+                Dim numventa As String
+
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+
+                startPos = InStr(responseData, """saleNumber"" : """) + Len("""saleNumber"" : """)
+                endPos = InStr(startPos, responseData, """")
+                numventa = Mid(responseData, startPos, endPos - startPos)
+
+                If message = "Success" Then
+                    MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    My.Application.DoEvents()
+                    lblgift.Text = ""
+                    lblgift.BackColor = Color.White
+                    btncancelatrans.Visible = False
+                    btniniciar.PerformClick()
+                End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
             End If
         End Using
     End Function
+
 End Class
