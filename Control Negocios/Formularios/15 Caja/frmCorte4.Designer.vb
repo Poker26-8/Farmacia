@@ -24,18 +24,16 @@ Partial Class frmCorte4
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCorte4))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtCancelaciones = New System.Windows.Forms.TextBox()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.txtCompras = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.pcontra = New System.Windows.Forms.Panel()
-        Me.txtContraseña = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.gbxCalculo = New System.Windows.Forms.GroupBox()
         Me.grpb = New System.Windows.Forms.GroupBox()
         Me.btnOKCalculo = New System.Windows.Forms.Button()
         Me.btnNOCalculo = New System.Windows.Forms.Button()
         Me.txtTotalCalculo = New System.Windows.Forms.TextBox()
+        Me.pcontra = New System.Windows.Forms.Panel()
+        Me.txtContraseña = New System.Windows.Forms.TextBox()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.txtTotalCentavos = New System.Windows.Forms.TextBox()
         Me.txtCantCentavos = New System.Windows.Forms.TextBox()
@@ -127,7 +125,6 @@ Partial Class frmCorte4
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtTotalContado = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTiempo = New System.Windows.Forms.TextBox()
@@ -138,6 +135,9 @@ Partial Class frmCorte4
         Me.txtVentas = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtCancelaciones = New System.Windows.Forms.TextBox()
+        Me.txtCompras = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.btnCalculadora = New System.Windows.Forms.Button()
         Me.PCalculo80 = New System.Drawing.Printing.PrintDocument()
         Me.Label32 = New System.Windows.Forms.Label()
@@ -153,14 +153,15 @@ Partial Class frmCorte4
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCierre = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.pcontra.SuspendLayout()
         Me.gbxCalculo.SuspendLayout()
         Me.grpb.SuspendLayout()
+        Me.pcontra.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.pcontra)
         Me.Panel1.Controls.Add(Me.Label40)
         Me.Panel1.Controls.Add(Me.Label39)
         Me.Panel1.Controls.Add(Me.Label38)
@@ -234,16 +235,6 @@ Partial Class frmCorte4
         Me.Panel1.Size = New System.Drawing.Size(581, 658)
         Me.Panel1.TabIndex = 0
         '
-        'txtCancelaciones
-        '
-        Me.txtCancelaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCancelaciones.Location = New System.Drawing.Point(186, 397)
-        Me.txtCancelaciones.Name = "txtCancelaciones"
-        Me.txtCancelaciones.Size = New System.Drawing.Size(74, 22)
-        Me.txtCancelaciones.TabIndex = 181
-        Me.txtCancelaciones.Text = "0.00"
-        Me.txtCancelaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label40
         '
         Me.Label40.BackColor = System.Drawing.Color.White
@@ -256,16 +247,6 @@ Partial Class frmCorte4
         Me.Label40.Text = "Cancelaciones"
         Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtCompras
-        '
-        Me.txtCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCompras.Location = New System.Drawing.Point(186, 369)
-        Me.txtCompras.Name = "txtCompras"
-        Me.txtCompras.Size = New System.Drawing.Size(74, 22)
-        Me.txtCompras.TabIndex = 179
-        Me.txtCompras.Text = "0.00"
-        Me.txtCompras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label39
         '
         Me.Label39.AutoSize = True
@@ -275,25 +256,6 @@ Partial Class frmCorte4
         Me.Label39.Size = New System.Drawing.Size(82, 18)
         Me.Label39.TabIndex = 178
         Me.Label39.Text = "Compras:"
-        '
-        'pcontra
-        '
-        Me.pcontra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.pcontra.Controls.Add(Me.txtContraseña)
-        Me.pcontra.Location = New System.Drawing.Point(16, 83)
-        Me.pcontra.Name = "pcontra"
-        Me.pcontra.Size = New System.Drawing.Size(188, 50)
-        Me.pcontra.TabIndex = 177
-        Me.pcontra.Visible = False
-        '
-        'txtContraseña
-        '
-        Me.txtContraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContraseña.Location = New System.Drawing.Point(17, 15)
-        Me.txtContraseña.Name = "txtContraseña"
-        Me.txtContraseña.Size = New System.Drawing.Size(162, 24)
-        Me.txtContraseña.TabIndex = 0
-        Me.txtContraseña.UseSystemPasswordChar = True
         '
         'Label38
         '
@@ -324,7 +286,6 @@ Partial Class frmCorte4
         Me.grpb.Controls.Add(Me.btnOKCalculo)
         Me.grpb.Controls.Add(Me.btnNOCalculo)
         Me.grpb.Controls.Add(Me.txtTotalCalculo)
-        Me.grpb.Controls.Add(Me.pcontra)
         Me.grpb.Controls.Add(Me.Label100)
         Me.grpb.Controls.Add(Me.txtTotalCentavos)
         Me.grpb.Controls.Add(Me.txtCantCentavos)
@@ -405,6 +366,25 @@ Partial Class frmCorte4
         Me.txtTotalCalculo.TabIndex = 40
         Me.txtTotalCalculo.Text = "0.00"
         Me.txtTotalCalculo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'pcontra
+        '
+        Me.pcontra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pcontra.Controls.Add(Me.txtContraseña)
+        Me.pcontra.Location = New System.Drawing.Point(193, 261)
+        Me.pcontra.Name = "pcontra"
+        Me.pcontra.Size = New System.Drawing.Size(188, 50)
+        Me.pcontra.TabIndex = 177
+        Me.pcontra.Visible = False
+        '
+        'txtContraseña
+        '
+        Me.txtContraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContraseña.Location = New System.Drawing.Point(17, 15)
+        Me.txtContraseña.Name = "txtContraseña"
+        Me.txtContraseña.Size = New System.Drawing.Size(162, 24)
+        Me.txtContraseña.TabIndex = 0
+        Me.txtContraseña.UseSystemPasswordChar = True
         '
         'Label100
         '
@@ -1345,17 +1325,6 @@ Partial Class frmCorte4
         Me.txtTotalContado.Text = "0.00"
         Me.txtTotalContado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label7
-        '
-        Me.Label7.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(298, 11)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(13, 168)
-        Me.Label7.TabIndex = 10
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1464,6 +1433,37 @@ Partial Class frmCorte4
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "VENTAS DE CONTADO"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCancelaciones
+        '
+        Me.txtCancelaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCancelaciones.Location = New System.Drawing.Point(186, 397)
+        Me.txtCancelaciones.Name = "txtCancelaciones"
+        Me.txtCancelaciones.Size = New System.Drawing.Size(74, 22)
+        Me.txtCancelaciones.TabIndex = 181
+        Me.txtCancelaciones.Text = "0.00"
+        Me.txtCancelaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCompras
+        '
+        Me.txtCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCompras.Location = New System.Drawing.Point(186, 369)
+        Me.txtCompras.Name = "txtCompras"
+        Me.txtCompras.Size = New System.Drawing.Size(74, 22)
+        Me.txtCompras.TabIndex = 179
+        Me.txtCompras.Text = "0.00"
+        Me.txtCompras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(298, 11)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(13, 168)
+        Me.Label7.TabIndex = 10
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnCalculadora
         '
@@ -1574,7 +1574,7 @@ Partial Class frmCorte4
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(520, 4)
+        Me.PictureBox1.Location = New System.Drawing.Point(664, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(212, 46)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1621,11 +1621,11 @@ Partial Class frmCorte4
         Me.Text = "Corte"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.pcontra.ResumeLayout(False)
-        Me.pcontra.PerformLayout()
         Me.gbxCalculo.ResumeLayout(False)
         Me.grpb.ResumeLayout(False)
         Me.grpb.PerformLayout()
+        Me.pcontra.ResumeLayout(False)
+        Me.pcontra.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -5299,4 +5299,8 @@ Public Class frmNuvRepVentas
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
+
+    Private Sub lblPropina_Click(sender As Object, e As EventArgs) Handles lblPropina.Click
+
+    End Sub
 End Class

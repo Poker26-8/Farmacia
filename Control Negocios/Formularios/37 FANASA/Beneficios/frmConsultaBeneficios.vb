@@ -170,17 +170,10 @@ Public Class frmConsultaBeneficios
 
             ' Serializar el JSON a una cadena
             Dim jsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented)
-
-            ' Muestra o usa jsonString según sea necesario
             MessageBox.Show(jsonString)
-
-            ' Crear el contenido para el POST con JSON
             Dim content As New StringContent(jsonString, Encoding.UTF8, "application/json")
-
-            ' Realizar la solicitud POST
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-            ' Verificar si la solicitud fue exitosa
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
@@ -200,62 +193,66 @@ Public Class frmConsultaBeneficios
 
                 If message = "Success" Then
                     MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
-                    My.Application.DoEvents()
-                    frmVentas3.lblgift.Text = ""
-                    frmVentas3.lblgift.BackColor = Color.White
-                    frmVentas3.btncancelatrans.Visible = False
-                    frmVentas3.btniniciar.PerformClick()
-                    Dim tipodescuento As String = ""
-                    Dim productoApplica As String = ""
-                    Dim monto As Double = 0
-                    Dim montocondescuento As Double = 0
-                    For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
-                        tipodescuento = grdcaptura.Rows(xxx).Cells(3).Value.ToString
-                        productoApplica = grdcaptura.Rows(xxx).Cells(6).Value.ToString
-                        monto = grdcaptura.Rows(xxx).Cells(7).Value.ToString
-                        If tipodescuento = "RestaPrecio" Then
-                            For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
-                                If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
-                                    frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(monto)
-                                    My.Application.DoEvents()
-                                    Exit For
-                                End If
-                            Next
-                        ElseIf tipodescuento = "Porcentaje" Then
-                            For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
-                                If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
-
-                                    montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
-                                    frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
-                                    My.Application.DoEvents()
-                                    Exit For
-                                End If
-                            Next
-                        End If
-                    Next
-
-                    My.Application.DoEvents()
-                    Dim voy As Double = 0
-                    Dim VarSumXD As Double = 0
-                    For w = 0 To frmVentas3.grdcaptura.Rows.Count - 1
-                        If frmVentas3.grdcaptura.Rows(w).Cells(6).Value.ToString = "" Then
-                        Else
-                            VarSumXD = VarSumXD + CDbl(frmVentas3.grdcaptura.Rows(w).Cells(5).Value.ToString)
-                            voy = voy + CDec(frmVentas3.grdcaptura.Rows(w).Cells(3).Value)
-                        End If
-                        frmVentas3.txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                    If vienede = "Ventas1" Then
+                    ElseIf vienede = "Ventas2" Then
+                    ElseIf vienede = "Ventas3" Then
                         My.Application.DoEvents()
+                        frmVentas3.lblgift.Text = ""
+                        frmVentas3.lblgift.BackColor = Color.White
+                        frmVentas3.btncancelatrans.Visible = False
+                        frmVentas3.btniniciar.PerformClick()
+                        Dim tipodescuento As String = ""
+                        Dim productoApplica As String = ""
+                        Dim monto As Double = 0
+                        Dim montocondescuento As Double = 0
+                        For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                            tipodescuento = grdcaptura.Rows(xxx).Cells(3).Value.ToString
+                            productoApplica = grdcaptura.Rows(xxx).Cells(6).Value.ToString
+                            monto = grdcaptura.Rows(xxx).Cells(7).Value.ToString
+                            If tipodescuento = "RestaPrecio" Then
+                                For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                                    If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
+                                        frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(monto)
+                                        My.Application.DoEvents()
+                                        Exit For
+                                    End If
+                                Next
+                            ElseIf tipodescuento = "Porcentaje" Then
+                                For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                                    If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
+                                        montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
+                                        frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
+                                        My.Application.DoEvents()
+                                        Exit For
+                                    End If
+                                Next
+                            ElseIf tipodescuento = "Pieza" Then
 
-                    Next
-                    If CDbl(frmVentas3.txtdescuento1.Text) <= 0 Then
-                        frmVentas3.txtPagar.Text = CDbl(frmVentas3.txtSubTotal.Text) - CDbl(frmVentas3.txtdescuento2.Text)
-                        frmVentas3.txtPagar.Text = FormatNumber(frmVentas3.txtPagar.Text, 2)
+                                Exit For
+                            End If
+                        Next
+                        My.Application.DoEvents()
+                        Dim voy As Double = 0
+                        Dim VarSumXD As Double = 0
+                        For w = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                            If frmVentas3.grdcaptura.Rows(w).Cells(6).Value.ToString = "" Then
+                            Else
+                                VarSumXD = VarSumXD + CDbl(frmVentas3.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                                voy = voy + CDec(frmVentas3.grdcaptura.Rows(w).Cells(3).Value)
+                            End If
+                            frmVentas3.txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                            My.Application.DoEvents()
+                        Next
+                        If CDbl(frmVentas3.txtdescuento1.Text) <= 0 Then
+                            frmVentas3.txtPagar.Text = CDbl(frmVentas3.txtSubTotal.Text) - CDbl(frmVentas3.txtdescuento2.Text)
+                            frmVentas3.txtPagar.Text = FormatNumber(frmVentas3.txtPagar.Text, 2)
+                        End If
+                        My.Application.DoEvents()
+                        Call frmVentas3.txtdescuento1_TextChanged(frmVentas3.txtdescuento1, New EventArgs())
+                        Me.Close()
                     End If
-                    My.Application.DoEvents()
-                    Call frmVentas3.txtdescuento1_TextChanged(frmVentas3.txtdescuento1, New EventArgs())
-                    Me.Close()
                 End If
-            Else
+                Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
             End If
         End Using
