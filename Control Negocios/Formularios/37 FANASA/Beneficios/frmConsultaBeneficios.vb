@@ -229,6 +229,15 @@ Public Class frmConsultaBeneficios
                             ElseIf tipodescuento = "Pieza" Then
 
                                 Exit For
+                            ElseIf tipodescuento = "PrecioFijo" Then
+                                For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
+                                    If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
+                                        frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value = CDec(monto)
+                                        frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(monto)
+                                        My.Application.DoEvents()
+                                        Exit For
+                                    End If
+                                Next
                             End If
                         Next
                         My.Application.DoEvents()
@@ -252,7 +261,7 @@ Public Class frmConsultaBeneficios
                         Me.Close()
                     End If
                 End If
-                Else
+            Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
             End If
         End Using

@@ -2075,6 +2075,12 @@
     <Compile Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\37 FANASA\Beneficios\frmBeneficios.Designer.vb">
+      <DependentUpon>frmBeneficios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\37 FANASA\Beneficios\frmBeneficios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\37 FANASA\Beneficios\frmConsultaBeneficios.Designer.vb">
       <DependentUpon>frmConsultaBeneficios.vb</DependentUpon>
     </Compile>
@@ -3059,6 +3065,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\36 Traspasos Android\frmTraspasosAndroid.resx">
       <DependentUpon>frmTraspasosAndroid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\37 FANASA\Beneficios\frmBeneficios.resx">
+      <DependentUpon>frmBeneficios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\37 FANASA\Beneficios\frmConsultaBeneficios.resx">
       <DependentUpon>frmConsultaBeneficios.vb</DependentUpon>
