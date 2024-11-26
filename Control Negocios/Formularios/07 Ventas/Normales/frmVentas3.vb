@@ -16168,11 +16168,16 @@ doorcita:
                     lblgift.Text = giftAuthNum
                     lblgift.BackColor = Color.LightGreen
                     btncancelatrans.Visible = True
-                    frmBeneficios.Show()
-                    frmBeneficios.BringToFront()
+
                     My.Application.DoEvents()
+                    For Each itemxd As JObject In jobjectxd.SelectToken("itemList.item")
+                        frmConsultaBeneficios.grd1.Rows.Add(itemxd("sku").ToString(), "", itemxd("quantity").ToString(), itemxd("unitPrice").ToString())
+                    Next
+                    My.Application.DoEvents()
+
                     For Each combo As JObject In jobjectxd.SelectToken("giftList.combo")
                         idCombo = combo("idCombo").ToString()
+                        totalPieces = combo("totalPieces").ToString()
                         description = combo("description").ToString()
                         giftType = combo("giftType").ToString()
                         selection = combo("selection").ToString()
@@ -16180,13 +16185,6 @@ doorcita:
                         Dim textoRecortado As String = description.Split("|"c)(0)
                         Dim partes As String() = description.Split("|"c)
                         textoDespuesDelBarra = String.Join("|", partes.Skip(1)).Trim()
-
-                        frmBeneficios.lblidcombo.Text = idCombo
-                        frmBeneficios.lblProducto.Text = textoRecortado
-                        frmBeneficios.lblgifttyype.Text = giftType
-                        frmBeneficios.lblseleccion.Text = selection
-                        frmBeneficios.lblskupurchase.Text = skuPurchase
-                        frmBeneficios.lblCodigo.Text = skuPurchase
 
                         My.Application.DoEvents()
 
@@ -16199,23 +16197,34 @@ doorcita:
                             My.Application.DoEvents()
                             Dim montofinal As Double = 0
 
-                            If giftType = "Porcentaje" Then
-                                montofinal = CDec(preciounitario) / CDec(100) * CDec(discount)
-                                frmBeneficios.grddescuentos.Rows.Add(preciounitario, discount, 0, CDec(preciounitario) - CDec(montofinal))
-                            End If
+                            'If giftType = "Porcentaje" Then
+                            '    montofinal = CDec(preciounitario) / CDec(100) * CDec(discount)
+                            '    frmBeneficios.grddescuentos.Rows.Add(preciounitario, discount, 0, CDec(preciounitario) - CDec(montofinal))
+                            'End If
 
-                            If giftType = "RestaPrecio" Then
-                                frmBeneficios.grddescuentos.Rows.Add(preciounitario, 0, discount, CDec(preciounitario) - CDec(discount))
-                            End If
+                            'If giftType = "RestaPrecio" Then
+                            '    frmBeneficios.grddescuentos.Rows.Add(preciounitario, 0, discount, CDec(preciounitario) - CDec(discount))
+                            'End If
 
-                            If giftType = "PrecioFijo" Then
-                                frmBeneficios.grdPrecioFijo.Rows.Add(skuPurchase, textoRecortado, discount, discount)
-                            End If
+                            'If giftType = "PrecioFijo" Then
+                            '    frmBeneficios.grdPrecioFijo.Rows.Add(skuPurchase, textoRecortado, discount, discount)
+                            'End If
                             My.Application.DoEvents()
-                            ' frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, totalPieces, textoRecortado, giftType, selection, skuPurchase, giftSku, discount, minGiftPieces, maxGiftPieces)
+                            If selection = "Algunos" Then
+                                frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, False)
+                            Else
+                                frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
+                            End If
+
 
                         Next
-
+                        My.Application.DoEvents()
+                        frmConsultaBeneficios.ConsultaArriba()
+                        My.Application.DoEvents()
+                        frmConsultaBeneficios.ConsultaAbajo()
+                        My.Application.DoEvents()
+                        frmConsultaBeneficios.Show()
+                        frmConsultaBeneficios.BringToFront()
                         MsgBox(textoDespuesDelBarra, vbInformation + vbOKOnly, "Delsscom Farmacias")
                         My.Application.DoEvents()
                     Next

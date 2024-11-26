@@ -7,7 +7,48 @@ Imports Org.BouncyCastle.Math.EC
 
 Public Class frmConsultaBeneficios
     Private Sub frmConsultaBeneficios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CreaPorcentaje()
+
+    End Sub
+
+    Public Sub ConsultaArriba()
+        Try
+            For xxx As Integer = 0 To grd1.Rows.Count - 1
+                cnn3.Clone()
+                cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "Select Nombre from Productos where CodBarra='" & grd1.Rows(xxx).Cells(0).Value.ToString & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.Read Then
+                    grd1.Rows(xxx).Cells(1).Value = rd3(0).ToString
+                End If
+                rd3.Close()
+                cnn3.Close()
+            Next
+
+        Catch ex As Exception
+            cnn3.Close()
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+    Public Sub ConsultaAbajo()
+        Try
+            For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                cnn4.Clone()
+                cnn4.Open()
+                cmd4 = cnn4.CreateCommand
+                cmd4.CommandText = "Select Nombre from Productos where CodBarra='" & grdcaptura.Rows(xxx).Cells(4).Value.ToString & "'"
+                rd4 = cmd4.ExecuteReader
+                If rd4.Read Then
+                    grdcaptura.Rows(xxx).Cells(6).Value = rd4(0).ToString
+                End If
+                rd4.Close()
+                cnn4.Close()
+            Next
+
+        Catch ex As Exception
+            cnn4.Close()
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
     Public Sub CreaPorcentaje()
         grdcaptura.Rows.Clear()
@@ -19,14 +60,14 @@ Public Class frmConsultaBeneficios
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                .Visible = False
+                .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(1)
                 .HeaderText = "TotalPieces"
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                .Visible = False
+                .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(2)
@@ -50,7 +91,7 @@ Public Class frmConsultaBeneficios
                 .Width = 120
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
-                .Visible = False
+                .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(5)
@@ -82,7 +123,7 @@ Public Class frmConsultaBeneficios
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                .Visible = False
+                .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(9)
@@ -90,7 +131,7 @@ Public Class frmConsultaBeneficios
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                .Visible = False
+                .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
         End With
