@@ -244,13 +244,13 @@ Public Class frmConsultaBeneficios
 
             ' Serializar el JSON a una cadena
             Dim jsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented)
-            MessageBox.Show(jsonString)
+            'MessageBox.Show(jsonString)
             Dim content As New StringContent(jsonString, Encoding.UTF8, "application/json")
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
-                MsgBox("Respuesta de la API: " & responseData)
+                'MsgBox("Respuesta de la API: " & responseData)
 
                 Dim message As String
                 Dim startPos As Integer
@@ -508,4 +508,26 @@ Public Class frmConsultaBeneficios
             End If
         End Using
     End Function
+
+    Private Sub grdcaptura_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles grdcaptura.CurrentCellDirtyStateChanged
+        If grdcaptura.IsCurrentCellDirty Then
+            grdcaptura.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+    End Sub
+
+    Private Sub grdcaptura_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellValueChanged
+        If e.ColumnIndex = 8 AndAlso e.RowIndex >= 0 Then
+            Dim currentValue As Boolean = CBool(grdcaptura.Rows(e.RowIndex).Cells(8).Value) ' Columna del CheckBox
+            Dim currentValueCol1 As String = grdcaptura.Rows(e.RowIndex).Cells(0).Value.ToString() ' Columna 1
+
+            ' Si el CheckBox está seleccionado, deselecciona otros con la misma Columna 1
+            If currentValue Then
+                For Each row As DataGridViewRow In grdcaptura.Rows
+                    If row.Index <> e.RowIndex AndAlso row.Cells(0).Value.ToString() = currentValueCol1 Then
+                        row.Cells(8).Value = False
+                    End If
+                Next
+            End If
+        End If
+    End Sub
 End Class

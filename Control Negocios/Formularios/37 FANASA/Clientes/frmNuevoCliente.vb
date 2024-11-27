@@ -199,6 +199,7 @@ Public Class frmNuevoCliente
                     Dim jsonObject As Object = Newtonsoft.Json.JsonConvert.DeserializeObject(responseData)
                     Dim detail As String = jsonObject("detail").ToString()
                     txtTarjeta.Text = detail
+                    frmBuscaCliente.txtFolio.Text = detail
                     My.Application.DoEvents()
                 Else
                     MsgBox("Error al consumir la API: " & response.ReasonPhrase)

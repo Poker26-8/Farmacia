@@ -578,7 +578,10 @@ Partial Class frmNuevoCliente
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
+        Me.MaximumSize = New System.Drawing.Size(577, 515)
+        Me.MinimumSize = New System.Drawing.Size(577, 515)
         Me.Name = "frmNuevoCliente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Nuevo Cliente FANASA"
         Me.ResumeLayout(False)
         Me.PerformLayout()

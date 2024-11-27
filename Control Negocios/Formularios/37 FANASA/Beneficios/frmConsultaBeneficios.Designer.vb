@@ -24,15 +24,6 @@ Partial Class frmConsultaBeneficios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaBeneficios))
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -44,6 +35,15 @@ Partial Class frmConsultaBeneficios
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,56 +62,6 @@ Partial Class frmConsultaBeneficios
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(823, 200)
         Me.grdcaptura.TabIndex = 0
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "IdCombo"
-        Me.Column4.Name = "Column4"
-        Me.Column4.Visible = False
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Tipo de Descuento"
-        Me.Column5.Name = "Column5"
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Descuento"
-        Me.Column8.Name = "Column8"
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Seleccion"
-        Me.Column6.Name = "Column6"
-        Me.Column6.Visible = False
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Codigo"
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 150
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "max"
-        Me.Column10.Name = "Column10"
-        Me.Column10.Visible = False
-        '
-        'Column12
-        '
-        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column12.HeaderText = "Descipcion"
-        Me.Column12.Name = "Column12"
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Cantidad"
-        Me.Column9.Name = "Column9"
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Selecciona"
-        Me.Column13.Name = "Column13"
         '
         'Button1
         '
@@ -223,6 +173,55 @@ Partial Class frmConsultaBeneficios
         Me.Label4.Size = New System.Drawing.Size(204, 20)
         Me.Label4.TabIndex = 266
         Me.Label4.Text = "Productos con Beneficio"
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "IdCombo"
+        Me.Column4.Name = "Column4"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Tipo de Descuento"
+        Me.Column5.Name = "Column5"
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Descuento"
+        Me.Column8.Name = "Column8"
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Seleccion"
+        Me.Column6.Name = "Column6"
+        Me.Column6.Visible = False
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Codigo"
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 150
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "max"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Visible = False
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column12.HeaderText = "Descipcion"
+        Me.Column12.Name = "Column12"
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Cantidad"
+        Me.Column9.Name = "Column9"
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Selecciona"
+        Me.Column13.Name = "Column13"
         '
         'frmConsultaBeneficios
         '

@@ -347,6 +347,8 @@ Partial Class frmBuscaCliente
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.Label1)
+        Me.MaximumSize = New System.Drawing.Size(849, 653)
+        Me.MinimumSize = New System.Drawing.Size(849, 653)
         Me.Name = "frmBuscaCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Busqueda de Clientes FANASA"

@@ -16139,7 +16139,7 @@ doorcita:
 
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
-                MsgBox("Respuesta de la API: " & responseData)
+                'MsgBox("Respuesta de la API: " & responseData)
 
                 Dim message As String
                 Dim giftAuthNum As String
@@ -16236,11 +16236,15 @@ doorcita:
 
                             My.Application.DoEvents()
                             If selection = "Algunos" Then
-                                frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = False
-                                frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, False)
+                                'frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = False
+                                'frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, False)
+                                Dim rowIndex As Integer = frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, False)
+                                frmConsultaBeneficios.grdcaptura.Rows(rowIndex).Cells(8).ReadOnly = False
                             Else
-                                frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
-                                frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = True
+                                'frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
+                                'frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = True
+                                Dim rowIndex As Integer = frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
+                                frmConsultaBeneficios.grdcaptura.Rows(rowIndex).Cells(8).ReadOnly = True
                             End If
 
 

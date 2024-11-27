@@ -91,48 +91,115 @@ Public Class frmBuscaCliente
             MessageBox.Show(ex.ToString)
         End Try
     End Function
+    Public Async Function ConsultaClienteSinTelefono() As Task
+        Try
+
+            Dim origin As String = "fanasa"
+            Dim nombrexd As String = txtNombre.Text
+            Dim paternoxd As String = txtPaterno.Text
+
+
+
+            Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&name={nombrexd}&lastName1={paternoxd}"
+
+            Dim usuario As String = "userTest"
+            Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+
+            Using client As New HttpClient()
+                ' Crear el encabezado de autenticación en Base64
+                Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+                client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+                ' Realizar la solicitud GET
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
+
+                ' Verificar si la solicitud fue exitosa
+                If response.IsSuccessStatusCode Then
+                    grdcaptura.Rows.Clear()
+                    Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                    Dim jsonResponse As JObject = JObject.Parse(responseData)
+                    For Each contact In jsonResponse("contact")
+                        Dim idCRM2 As String = contact?("generalData")?("idCRM")?.ToString()
+                        Dim nombre As String = contact?("generalData")?("name")?.ToString()
+                        Dim paterno As String = contact?("generalData")?("lastName1")?.ToString()
+                        Dim materno As String = contact?("generalData")?("lastName2")?.ToString()
+                        Dim nacimiento As String = contact?("generalData")?("birthDate")?.ToString()
+                        Dim cp As String = contact.SelectToken("addressList.address[0].zipCode")?.ToString()
+                        If String.IsNullOrEmpty(cp) Then
+                            cp = ""
+                        End If
+
+                        'Dim cp As String = contact?("addressList")?("address")?(0)?("zipCode")?.ToString()
+                        Dim email As String = contact?("emailList")?("email")?(0)?.ToString()
+                        Dim telefono As String = contact?("phoneList")?("phone")?(0)?("phone")?.ToString()
+
+                        ' Agregar la fila al DataGridView
+                        grdcaptura.Rows.Add(nombre, paterno, materno, nacimiento, cp, telefono, email, idCRM2)
+                        My.Application.DoEvents()
+                    Next
+                Else
+                    MsgBox("Cliente no encontrado", vbExclamation + vbOKOnly, "Delsscom Farmacias")
+                End If
+            End Using
+            My.Application.DoEvents()
+            txtFolio.Enabled = True
+            txtFolio.Focus.Equals(True)
+            btnBuscar.Enabled = True
+        Catch ex As Exception
+            btnBuscar.Enabled = True
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Function
 
     Public Async Function ConsultaClienteID() As Task
-        Dim origin As String = "fanasa"
-        Dim idCRM As String = txtFolio.Text
+        Try
+
+
+            Dim origin As String = "fanasa"
+            Dim idCRM As String = txtFolio.Text
 
 
 
-        Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&idCRM={idCRM}"
+            Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&idCRM={idCRM}"
 
-        Dim usuario As String = "userTest"
-        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+            Dim usuario As String = "userTest"
+            Dim contraseña As String = "Vwq5MYEUtesVwYtK"
 
-        Using client As New HttpClient()
-            ' Crear el encabezado de autenticación en Base64
-            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
-            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+            Using client As New HttpClient()
+                ' Crear el encabezado de autenticación en Base64
+                Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+                client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
 
-            ' Realizar la solicitud GET
-            Dim response As HttpResponseMessage = Await client.GetAsync(url)
+                ' Realizar la solicitud GET
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
 
-            ' Verificar si la solicitud fue exitosa
-            If response.IsSuccessStatusCode Then
-                grdcaptura.Rows.Clear()
-                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                ' Verificar si la solicitud fue exitosa
+                If response.IsSuccessStatusCode Then
+                    grdcaptura.Rows.Clear()
+                    Dim responseData As String = Await response.Content.ReadAsStringAsync()
 
-                Dim jsonResponse As JObject = JObject.Parse(responseData)
-                Dim idCRM2 As String = jsonResponse("contact")?(0)?("generalData")?("idCRM")?.ToString()
-                Dim nombre As String = jsonResponse("contact")?(0)?("generalData")?("name")?.ToString()
-                Dim paterno As String = jsonResponse("contact")?(0)?("generalData")?("lastName1")?.ToString()
-                Dim materno As String = jsonResponse("contact")?(0)?("generalData")?("lastName2")?.ToString()
-                Dim nacimiento As String = jsonResponse("contact")?(0)?("generalData")?("birthDate")?.ToString()
-                Dim cp As String = jsonResponse("contact")?(0)?("addressList")?("address")?(0)?("zipCode")?.ToString()
-                Dim email As String = jsonResponse("contact")?(0)?("emailList")?("email")?(0)?.ToString()
-                Dim telefono As String = jsonResponse("contact")?(0)?("phoneList")?("phone")?(0)?("phone")?.ToString()
-                My.Application.DoEvents()
-                grdcaptura.Rows.Add(nombre, paterno, materno, nacimiento, cp, telefono, email, idCRM2)
-                My.Application.DoEvents()
-            Else
-                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
-            End If
-        End Using
-        txtFolio.Enabled = True
+                    Dim jsonResponse As JObject = JObject.Parse(responseData)
+                    Dim idCRM2 As String = jsonResponse("contact")?(0)?("generalData")?("idCRM")?.ToString()
+                    Dim nombre As String = jsonResponse("contact")?(0)?("generalData")?("name")?.ToString()
+                    Dim paterno As String = jsonResponse("contact")?(0)?("generalData")?("lastName1")?.ToString()
+                    Dim materno As String = jsonResponse("contact")?(0)?("generalData")?("lastName2")?.ToString()
+                    Dim nacimiento As String = jsonResponse("contact")?(0)?("generalData")?("birthDate")?.ToString()
+                    Dim cp As String = jsonResponse("contact")?(0)?("addressList")?("address")?(0)?("zipCode")?.ToString()
+                    Dim email As String = jsonResponse("contact")?(0)?("emailList")?("email")?(0)?.ToString()
+                    Dim telefono As String = jsonResponse("contact")?(0)?("phoneList")?("phone")?(0)?("phone")?.ToString()
+                    My.Application.DoEvents()
+                    grdcaptura.Rows.Add(nombre, paterno, materno, nacimiento, cp, telefono, email, idCRM2)
+                    My.Application.DoEvents()
+                Else
+                    MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+                End If
+            End Using
+            txtFolio.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            txtFolio.Enabled = True
+            btnBuscar.Enabled = True
+        End Try
     End Function
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -146,20 +213,15 @@ Public Class frmBuscaCliente
             txtPaterno.Focus.Equals(True)
             Exit Sub
         End If
-        If txtTelefono.TextLength <> 10 Then
-            MsgBox("Ingresa el Número de Télefono a 10 Digitos para continuar con la busqueda", vbExclamation + vbOKOnly, "Delsscom Farmacias")
-            txtNombre.Focus.Equals(True)
-            Exit Sub
-        End If
         If txtTelefono.Text = "" Then
-            MsgBox("Ingresa el Número de Télefono para continuar con la busqueda", vbExclamation + vbOKOnly, "Delsscom Farmacias")
-            txtTelefono.Focus.Equals(True)
-            Exit Sub
+            My.Application.DoEvents()
+            btnBuscar.Enabled = False
+            ConsultaClienteSinTelefono()
+        Else
+            My.Application.DoEvents()
+            btnBuscar.Enabled = False
+            ConsultaCliente()
         End If
-        My.Application.DoEvents()
-        btnBuscar.Enabled = False
-        ConsultaCliente()
-
     End Sub
 
     Private Sub txtTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
@@ -216,21 +278,9 @@ Public Class frmBuscaCliente
         My.Application.DoEvents()
         Dim index As Integer = grdcaptura.CurrentRow.Index
         If vienede = "Ventas1" Then
-            'frmVentas1.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " " & grdcaptura.Rows(index).Cells(2).Value.ToString
-            'frmVentas1.txtObservaciones.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
-            'frmVentas1.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
-            'My.Application.DoEvents()
-            'frmVentas1.Show()
-            'frmVentas1.BringToFront()
-            'Me.Close()
+
         ElseIf vienede = "Ventas2" Then
-            'frmVentas2.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " " & grdcaptura.Rows(index).Cells(2).Value.ToString
-            'frmVentas2.txtObservaciones.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
-            'frmVentas2.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
-            'My.Application.DoEvents()
-            'frmVentas2.Show()
-            'frmVentas2.BringToFront()
-            'Me.Close()
+
         ElseIf vienede = "Ventas3" Then
             frmVentas3.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " "
             frmVentas3.lblidcmr.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
