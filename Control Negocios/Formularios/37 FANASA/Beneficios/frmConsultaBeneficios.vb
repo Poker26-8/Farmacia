@@ -138,7 +138,24 @@ Public Class frmConsultaBeneficios
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AplicarVenta8()
+        Try
+            Dim voy As Integer = 0
+            For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                If grdcaptura.Rows(xxx).Cells(8).Value Then
+                    voy += 1
+                Else
+
+                End If
+            Next
+            If voy = 0 Then
+                MsgBox("Selecciona un producto de los beneficios Obtenidos para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                Exit Sub
+            Else
+                AplicarVenta8()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 
     Public Async Function AplicarVenta8() As Task
@@ -158,22 +175,26 @@ Public Class frmConsultaBeneficios
 
             For Each row As DataGridViewRow In grdcaptura.Rows
                 If Not row.IsNewRow Then
-                    porDescuento = CInt(row.Cells(7).Value)
-
+                    porDescuento = CInt(row.Cells(2).Value)
+                    Dim isChecked As Boolean = Convert.ToBoolean(row.Cells(8).Value)
+                    If isChecked Then
+                    Else
+                        Continue For
+                    End If
 
                     Dim giftItem As New Dictionary(Of String, Object) From {
-            {"sku", row.Cells(6).Value.ToString()},
-            {"discount", CInt(row.Cells(7).Value)},
-            {"minGiftPieces", CInt(row.Cells(8).Value)},
-            {"maxGiftPieces", CInt(row.Cells(9).Value)}
+            {"sku", row.Cells(4).Value.ToString()},
+            {"discount", CInt(row.Cells(2).Value)},
+            {"minGiftPieces", CInt(row.Cells(7).Value)},
+            {"maxGiftPieces", CInt(row.Cells(5).Value)}
         }
 
 
                     Dim combo As New Dictionary(Of String, Object) From {
             {"idCombo", row.Cells(0).Value.ToString()},
-            {"giftType", row.Cells(3).Value.ToString()},
-            {"selection", row.Cells(4).Value.ToString()},
-            {"skuPurchase", row.Cells(5).Value.ToString()},
+            {"giftType", row.Cells(1).Value.ToString()},
+            {"selection", row.Cells(3).Value.ToString()},
+            {"skuPurchase", row.Cells(4).Value.ToString()},
             {"giftItemList", New Dictionary(Of String, Object) From {
                 {"giftItem", New List(Of Object) From {giftItem}}
             }}
@@ -183,6 +204,8 @@ Public Class frmConsultaBeneficios
                     combos.Add(combo)
                 End If
             Next
+
+
 
             ' Crear el JSON completo
             Dim jsonData As New Dictionary(Of String, Object) From {
@@ -195,19 +218,29 @@ Public Class frmConsultaBeneficios
     {"cardAuthNum", frmVentas3.lblcardaunt.Text},
     {"giftAuthNum", frmVentas3.lblgift.Text},
     {"itemList", New Dictionary(Of String, Object) From {
-        {"item", New List(Of Object) From {
-            New Dictionary(Of String, Object) From {
-                {"sku", "7501125189111"},
-                {"quantity", 1},
-                {"originQuantity", 1},
-                {"unitPrice", 1000}
-            }
-        }}
+        {"item", New List(Of Object)()}
     }},
     {"giftList", New Dictionary(Of String, Object) From {
         {"combo", combos}
     }}
 }
+
+            Dim itemList As List(Of Object) = CType(jsonData("itemList")("item"), List(Of Object))
+
+            For Each row As DataGridViewRow In grd1.Rows
+                ' Verificar que no sea una fila nueva
+                If Not row.IsNewRow Then
+                    ' Construir el objeto del artículo desde los valores del DataGridView
+                    Dim item As New Dictionary(Of String, Object) From {
+            {"sku", row.Cells(0).Value.ToString()},
+            {"quantity", Convert.ToInt32(row.Cells(2).Value)},
+            {"originQuantity", Convert.ToInt32(row.Cells(2).Value)},
+            {"unitPrice", Convert.ToDecimal(row.Cells(3).Value)}
+        }
+                    ' Agregar el artículo a la lista
+                    itemList.Add(item)
+                End If
+            Next
 
             ' Serializar el JSON a una cadena
             Dim jsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented)
@@ -233,7 +266,7 @@ Public Class frmConsultaBeneficios
                 numventa = Mid(responseData, startPos, endPos - startPos)
 
                 If message = "Success" Then
-                    MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+
                     If vienede = "Ventas1" Then
                     ElseIf vienede = "Ventas2" Then
                     ElseIf vienede = "Ventas3" Then
@@ -247,13 +280,20 @@ Public Class frmConsultaBeneficios
                         Dim monto As Double = 0
                         Dim montocondescuento As Double = 0
                         For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
-                            tipodescuento = grdcaptura.Rows(xxx).Cells(3).Value.ToString
-                            productoApplica = grdcaptura.Rows(xxx).Cells(6).Value.ToString
-                            monto = grdcaptura.Rows(xxx).Cells(7).Value.ToString
+                            Dim isChecked As Boolean = Convert.ToBoolean(grdcaptura.Rows(xxx).Cells(8).Value)
+                            If isChecked Then
+                            Else
+                                Continue For
+                            End If
+                            tipodescuento = grdcaptura.Rows(xxx).Cells(1).Value.ToString
+                            productoApplica = grdcaptura.Rows(xxx).Cells(4).Value.ToString
+                            monto = grdcaptura.Rows(xxx).Cells(2).Value.ToString
                             If tipodescuento = "RestaPrecio" Then
                                 For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
                                     If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(monto)
+                                        leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
+                                        detallePesos = "Se aplico un descuento de: $ " & monto
                                         My.Application.DoEvents()
                                         Exit For
                                     End If
@@ -263,18 +303,26 @@ Public Class frmConsultaBeneficios
                                     If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
                                         montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
+                                        leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
+                                        detallePorcentaje = "Se obtuvo un descuento de: " & monto & " %"
                                         My.Application.DoEvents()
                                         Exit For
                                     End If
                                 Next
                             ElseIf tipodescuento = "Pieza" Then
-
-                                Exit For
+                                soygratis = 1
+                                frmVentas3.cbodesc.Text = productoApplica
+                                leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
+                                detallePieza = "Se obtuvo una pieza de regalo"
+                                My.Application.DoEvents()
+                                Call frmVentas3.cbodesc_KeyPress(frmVentas3.cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                             ElseIf tipodescuento = "PrecioFijo" Then
                                 For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
                                     If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value = CDec(monto)
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(monto)
+                                        leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
+                                        detallePrecioFijo = "Se obtuvvo un precio fijo de: $ " & monto
                                         My.Application.DoEvents()
                                         Exit For
                                     End If
@@ -298,7 +346,12 @@ Public Class frmConsultaBeneficios
                             frmVentas3.txtPagar.Text = FormatNumber(frmVentas3.txtPagar.Text, 2)
                         End If
                         My.Application.DoEvents()
+                        MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                        My.Application.DoEvents()
                         Call frmVentas3.txtdescuento1_TextChanged(frmVentas3.txtdescuento1, New EventArgs())
+                        My.Application.DoEvents()
+                        frmVentas3.txtefectivo.Focus.Equals(True)
+                        My.Application.DoEvents()
                         Me.Close()
                     End If
                 End If
@@ -341,9 +394,14 @@ Public Class frmConsultaBeneficios
             ' Llenar los datos desde el DataGridView
             For Each row As DataGridViewRow In grdcaptura.Rows
                 If Not row.IsNewRow Then
+                    Dim isChecked As Boolean = Convert.ToBoolean(row.Cells(8).Value)
+                    If isChecked Then
+                    Else
+                        Continue For
+                    End If
                     Dim idCombo As String = row.Cells(0).Value.ToString()
-                    Dim sku As String = row.Cells(6).Value.ToString()
-                    Dim minGiftPieces As Integer = CInt(row.Cells(9).Value)
+                    Dim sku As String = row.Cells(4).Value.ToString()
+                    Dim minGiftPieces As Integer = CInt(row.Cells(7).Value)
 
                     ' Crear el objeto "combo"
                     Dim comboObject As New JObject(
@@ -365,7 +423,7 @@ Public Class frmConsultaBeneficios
 
             ' Convertir el JSON actualizado a String
             Dim updatedJson As String = jsonObject.ToString(Formatting.Indented)
-
+            MsgBox(updatedJson)
             ' Crear el contenido para el PUT con JSON
             Dim content As New StringContent(updatedJson, Encoding.UTF8, "application/json")
 

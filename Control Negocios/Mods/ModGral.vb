@@ -35,6 +35,12 @@ Module ModGral
     Dim servidor As String = ""
     Dim puerto As String = ""
     Dim seguridad As Boolean = False
+    Public soygratis As Integer = 0
+    Public leyendafanasa As String = ""
+    Public detallePorcentaje As String = ""
+    Public detallePesos As String = ""
+    Public detallePieza As String = ""
+    Public detallePrecioFijo As String = ""
 
 
 

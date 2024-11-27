@@ -24,17 +24,6 @@ Partial Class frmConsultaBeneficios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaBeneficios))
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.grd1 = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +33,17 @@ Partial Class frmConsultaBeneficios
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.grd1 = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,10 +59,59 @@ Partial Class frmConsultaBeneficios
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column4, Me.Column5, Me.Column8, Me.Column6, Me.Column7, Me.Column10, Me.Column12, Me.Column9, Me.Column13})
         Me.grdcaptura.Location = New System.Drawing.Point(12, 376)
         Me.grdcaptura.Name = "grdcaptura"
-        Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(823, 200)
         Me.grdcaptura.TabIndex = 0
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "IdCombo"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Visible = False
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Tipo de Descuento"
+        Me.Column5.Name = "Column5"
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Descuento"
+        Me.Column8.Name = "Column8"
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Seleccion"
+        Me.Column6.Name = "Column6"
+        Me.Column6.Visible = False
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Codigo"
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 150
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "max"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Visible = False
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column12.HeaderText = "Descipcion"
+        Me.Column12.Name = "Column12"
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Cantidad"
+        Me.Column9.Name = "Column9"
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Selecciona"
+        Me.Column13.Name = "Column13"
         '
         'Button1
         '
@@ -129,26 +178,6 @@ Partial Class frmConsultaBeneficios
         Me.grd1.Size = New System.Drawing.Size(665, 198)
         Me.grd1.TabIndex = 264
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 105)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(183, 20)
-        Me.Label3.TabIndex = 265
-        Me.Label3.Text = "Productos Solicitados"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 353)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(204, 20)
-        Me.Label4.TabIndex = 266
-        Me.Label4.Text = "Productos con Beneficio"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Codigo"
@@ -175,64 +204,25 @@ Partial Class frmConsultaBeneficios
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
-        'Column4
+        'Label3
         '
-        Me.Column4.HeaderText = "IdCombo"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Visible = False
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(12, 105)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(183, 20)
+        Me.Label3.TabIndex = 265
+        Me.Label3.Text = "Productos Solicitados"
         '
-        'Column5
+        'Label4
         '
-        Me.Column5.HeaderText = "Tipo de Descuento"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Descuento"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Seleccion"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Visible = False
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Codigo"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 150
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "max"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Visible = False
-        '
-        'Column12
-        '
-        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column12.HeaderText = "Descipcion"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Cantidad"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Selecciona"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(12, 353)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(204, 20)
+        Me.Label4.TabIndex = 266
+        Me.Label4.Text = "Productos con Beneficio"
         '
         'frmConsultaBeneficios
         '

@@ -721,7 +721,10 @@ Public Class frmVentas3
             rd1.Close()
             cnn1.Close()
 
-
+            If soygratis = 1 Then
+                precio = 0
+                total = 0
+            End If
             If acumulaxd = 1 Then
                 For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
                     If codigo = grdcaptura.Rows(xxx).Cells(0).Value.ToString Then
@@ -734,7 +737,7 @@ Public Class frmVentas3
             Else
                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero, txtbarr.Text)
             End If
-
+            soygratis = 0
             grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
 
 kak:
@@ -3125,7 +3128,7 @@ doorcita:
                 chkBuscaProd.Checked = True
         End Select
     End Sub
-    Private Sub cbodesc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbodesc.KeyPress
+    Public Sub cbodesc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbodesc.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         Dim Multiplica As String = ""
         Dim VSE As Boolean = False
@@ -6313,6 +6316,12 @@ kaka:
         vienedexd = 0
 
         '''''''''
+        soygratis = 0
+        leyendafanasa = ""
+        detallePrecioFijo = ""
+        detallePesos = ""
+        detallePieza = ""
+        detallePorcentaje = ""
         lblsesion.Visible = False
         lblidcmr.Text = ""
         lblcardaunt.Text = ""
@@ -9072,11 +9081,13 @@ Door:
                                 cmd1.CommandText =
                                     "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
                                 cmd1.ExecuteNonQuery()
+                                Exit For
                             Else
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
-                                cmd1.ExecuteNonQuery()
+                                Continue For
+                                'cmd1 = cnn1.CreateCommand
+                                'cmd1.CommandText =
+                                '    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
+                                'cmd1.ExecuteNonQuery()
                             End If
                         Next
                     End If
@@ -10944,6 +10955,28 @@ ecomoda:
 
             Else
 
+            End If
+
+            If leyendafanasa <> "" Then
+                Y += 20
+                e.Graphics.DrawString(leyendafanasa, New Drawing.Font(tipografia, 6.5, FontStyle.Italic), Brushes.Black, 137, Y, sc)
+                Y += 10
+                If detallePorcentaje <> "" Then
+                    Y += 10
+                    e.Graphics.DrawString(detallePorcentaje, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
+                End If
+                If detallePesos <> "" Then
+                    Y += 10
+                    e.Graphics.DrawString(detallePesos, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
+                End If
+                If detallePieza <> "" Then
+                    Y += 10
+                    e.Graphics.DrawString(detallePieza, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
+                End If
+                If detallePrecioFijo <> "" Then
+                    Y += 10
+                    e.Graphics.DrawString(detallePrecioFijo, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
+                End If
             End If
 
             e.HasMorePages = False
@@ -15942,6 +15975,7 @@ doorcita:
             If DataGridView1.Rows(xxx).Cells(0).Value Then
                 If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then
                     MsgBox("La cantidad del lote seleccionado no puede ser 0, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Exit Sub
                 Else
                     DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
                 End If
@@ -16100,7 +16134,6 @@ doorcita:
 
 
             If response.IsSuccessStatusCode Then
-                MsgBox(jsonData)
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
 
@@ -16197,27 +16230,26 @@ doorcita:
                             My.Application.DoEvents()
                             Dim montofinal As Double = 0
 
-                            'If giftType = "Porcentaje" Then
-                            '    montofinal = CDec(preciounitario) / CDec(100) * CDec(discount)
-                            '    frmBeneficios.grddescuentos.Rows.Add(preciounitario, discount, 0, CDec(preciounitario) - CDec(montofinal))
-                            'End If
-
-                            'If giftType = "RestaPrecio" Then
-                            '    frmBeneficios.grddescuentos.Rows.Add(preciounitario, 0, discount, CDec(preciounitario) - CDec(discount))
-                            'End If
-
-                            'If giftType = "PrecioFijo" Then
-                            '    frmBeneficios.grdPrecioFijo.Rows.Add(skuPurchase, textoRecortado, discount, discount)
-                            'End If
                             My.Application.DoEvents()
                             If selection = "Algunos" Then
+                                frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = False
                                 frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, False)
                             Else
                                 frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
+                                frmConsultaBeneficios.grdcaptura.Columns(8).ReadOnly = True
                             End If
 
 
                         Next
+                        My.Application.DoEvents()
+                        frmConsultaBeneficios.grdcaptura.Columns(0).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(1).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(2).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(3).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(4).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(5).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(6).ReadOnly = True
+                        frmConsultaBeneficios.grdcaptura.Columns(7).ReadOnly = True
                         My.Application.DoEvents()
                         frmConsultaBeneficios.ConsultaArriba()
                         My.Application.DoEvents()
