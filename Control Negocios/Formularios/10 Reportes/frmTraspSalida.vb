@@ -1622,7 +1622,7 @@ milky:
             txtexistencia.Text = ""
             cbodesc.Focus().Equals(True)
 
-            '    gbLotes.Visible = False
+            gbLotes.Visible = False
 
 
 
