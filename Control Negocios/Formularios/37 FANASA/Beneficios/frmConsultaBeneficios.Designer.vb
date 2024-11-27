@@ -24,6 +24,15 @@ Partial Class frmConsultaBeneficios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaBeneficios))
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,15 +44,6 @@ Partial Class frmConsultaBeneficios
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,10 +63,61 @@ Partial Class frmConsultaBeneficios
         Me.grdcaptura.Size = New System.Drawing.Size(823, 200)
         Me.grdcaptura.TabIndex = 0
         '
+        'Column4
+        '
+        Me.Column4.HeaderText = "IdCombo"
+        Me.Column4.Name = "Column4"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Tipo de Descuento"
+        Me.Column5.Name = "Column5"
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Descuento"
+        Me.Column8.Name = "Column8"
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Seleccion"
+        Me.Column6.Name = "Column6"
+        Me.Column6.Visible = False
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Codigo"
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 150
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "max"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Visible = False
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column12.HeaderText = "Descipcion"
+        Me.Column12.Name = "Column12"
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Cantidad"
+        Me.Column9.Name = "Column9"
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Selecciona"
+        Me.Column13.Name = "Column13"
+        '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(666, 582)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 83)
@@ -79,6 +130,8 @@ Partial Class frmConsultaBeneficios
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button2.Location = New System.Drawing.Point(760, 582)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 83)
@@ -174,55 +227,6 @@ Partial Class frmConsultaBeneficios
         Me.Label4.TabIndex = 266
         Me.Label4.Text = "Productos con Beneficio"
         '
-        'Column4
-        '
-        Me.Column4.HeaderText = "IdCombo"
-        Me.Column4.Name = "Column4"
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Tipo de Descuento"
-        Me.Column5.Name = "Column5"
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Descuento"
-        Me.Column8.Name = "Column8"
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Seleccion"
-        Me.Column6.Name = "Column6"
-        Me.Column6.Visible = False
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Codigo"
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 150
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "max"
-        Me.Column10.Name = "Column10"
-        Me.Column10.Visible = False
-        '
-        'Column12
-        '
-        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column12.HeaderText = "Descipcion"
-        Me.Column12.Name = "Column12"
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Cantidad"
-        Me.Column9.Name = "Column9"
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Selecciona"
-        Me.Column13.Name = "Column13"
-        '
         'frmConsultaBeneficios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -238,6 +242,8 @@ Partial Class frmConsultaBeneficios
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.grdcaptura)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(863, 709)
+        Me.MinimumSize = New System.Drawing.Size(863, 709)
         Me.Name = "frmConsultaBeneficios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consultar Beneficios Obtenidos"

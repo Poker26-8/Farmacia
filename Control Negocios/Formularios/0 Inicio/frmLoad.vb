@@ -374,7 +374,47 @@ Public Class frmLoad
 
     Public Sub verif()
 
-        '  trasladosdet
+        ' VartablaCorteUsuarioFar
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VartablaCorteUsuarioFar
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VarKeycorteusuariofar
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = varAutocorteusuariofar
+            cmd1.ExecuteNonQuery()
+
+            cnn1.Close()
+        Catch ex As Exception
+        End Try
+        My.Application.DoEvents()
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VartablaBeneficiosFanasa
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VarKeybeneficiosfanasa
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = varAutobeneficiosfanasa
+            cmd1.ExecuteNonQuery()
+
+            cnn1.Close()
+        Catch ex As Exception
+        End Try
+        My.Application.DoEvents()
+
         Try
             cnn1.Close()
             cnn1.Open()
@@ -427,45 +467,6 @@ Public Class frmLoad
             cmd1.CommandText = "ALTER TABLE corteusuariofar add ComprasCanceladas double NOT NULL DEFAULT '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
-        End Try
-        ' VartablaCorteUsuarioFar
-        Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = VartablaCorteUsuarioFar
-            cmd1.ExecuteNonQuery()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = VarKeycorteusuariofar
-            cmd1.ExecuteNonQuery()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = varAutocorteusuariofar
-            cmd1.ExecuteNonQuery()
-
-            cnn1.Close()
-        Catch ex As Exception
-        End Try
-
-        Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = VartablaBeneficiosFanasa
-            cmd1.ExecuteNonQuery()
-            My.Application.DoEvents()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = VarKeybeneficiosfanasa
-            cmd1.ExecuteNonQuery()
-            My.Application.DoEvents()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = varAutobeneficiosfanasa
-            cmd1.ExecuteNonQuery()
-            My.Application.DoEvents()
-            cnn1.Close()
-        Catch ex As Exception
-
         End Try
 
         '  trasladosdet

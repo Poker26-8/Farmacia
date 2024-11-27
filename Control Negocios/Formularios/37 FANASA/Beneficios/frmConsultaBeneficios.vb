@@ -423,7 +423,6 @@ Public Class frmConsultaBeneficios
             ' Crear el encabezado de autenticación en Base64
             Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
             client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
-
             ' Crear el contenido JSON con los datos proporcionados
             Dim jsonData As String = "{
     ""transaction"": """ & frmVentas3.lblfolio.Text & """,
