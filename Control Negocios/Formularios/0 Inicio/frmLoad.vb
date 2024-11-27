@@ -318,6 +318,24 @@ Public Class frmLoad
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Compras FROM corteusuariofar"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE corteusuariofar add Compras double NOT NULL DEFAULT '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT TotalCancelaciones FROM corteusuariofar"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
@@ -328,6 +346,24 @@ Public Class frmLoad
             rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE corteusuariofar add TotalCancelaciones double NOT NULL DEFAULT '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT ComprasCanceladas FROM corteusuariofar"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE corteusuariofar add ComprasCanceladas double NOT NULL DEFAULT '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try

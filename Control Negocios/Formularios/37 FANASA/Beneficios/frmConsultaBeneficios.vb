@@ -271,6 +271,7 @@ Public Class frmConsultaBeneficios
                     ElseIf vienede = "Ventas2" Then
                     ElseIf vienede = "Ventas3" Then
                         My.Application.DoEvents()
+                        frmVentas3.lblFolioFanasa.Text = numventa
                         frmVentas3.lblgift.Text = ""
                         frmVentas3.lblgift.BackColor = Color.White
                         frmVentas3.btncancelatrans.Visible = False
@@ -294,6 +295,18 @@ Public Class frmConsultaBeneficios
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(monto)
                                         leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
                                         detallePesos = "Se aplico un descuento de: $ " & monto
+                                        Try
+                                            cnn1.Close()
+                                            cnn1.Open()
+                                            cmd1 = cnn1.CreateCommand
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePesos & "','" & productoApplica & "')"
+                                            If cmd1.ExecuteNonQuery Then
+
+                                            End If
+                                            cnn1.Close()
+                                        Catch ex As Exception
+
+                                        End Try
                                         My.Application.DoEvents()
                                         Exit For
                                     End If
@@ -304,7 +317,19 @@ Public Class frmConsultaBeneficios
                                         montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
                                         leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
-                                        detallePorcentaje = "Se obtuvo un descuento de: " & monto & " %"
+                                        detallePorcentaje = "Se aplico un descuento de: " & monto & " %"
+                                        Try
+                                            cnn1.Close()
+                                            cnn1.Open()
+                                            cmd1 = cnn1.CreateCommand
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePorcentaje & "','" & productoApplica & "')"
+                                            If cmd1.ExecuteNonQuery Then
+
+                                            End If
+                                            cnn1.Close()
+                                        Catch ex As Exception
+
+                                        End Try
                                         My.Application.DoEvents()
                                         Exit For
                                     End If
@@ -314,6 +339,18 @@ Public Class frmConsultaBeneficios
                                 frmVentas3.cbodesc.Text = productoApplica
                                 leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
                                 detallePieza = "Se obtuvo una pieza de regalo"
+                                Try
+                                    cnn1.Close()
+                                    cnn1.Open()
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePieza & "','" & productoApplica & "')"
+                                    If cmd1.ExecuteNonQuery Then
+
+                                    End If
+                                    cnn1.Close()
+                                Catch ex As Exception
+
+                                End Try
                                 My.Application.DoEvents()
                                 Call frmVentas3.cbodesc_KeyPress(frmVentas3.cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                             ElseIf tipodescuento = "PrecioFijo" Then
@@ -322,7 +359,19 @@ Public Class frmConsultaBeneficios
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value = CDec(monto)
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(monto)
                                         leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
-                                        detallePrecioFijo = "Se obtuvvo un precio fijo de: $ " & monto
+                                        detallePrecioFijo = "Se aplico un precio fijo de: $ " & monto
+                                        Try
+                                            cnn1.Close()
+                                            cnn1.Open()
+                                            cmd1 = cnn1.CreateCommand
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePrecioFijo & "','" & productoApplica & "')"
+                                            If cmd1.ExecuteNonQuery Then
+
+                                            End If
+                                            cnn1.Close()
+                                        Catch ex As Exception
+
+                                        End Try
                                         My.Application.DoEvents()
                                         Exit For
                                     End If

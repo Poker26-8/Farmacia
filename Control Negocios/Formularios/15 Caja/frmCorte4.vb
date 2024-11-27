@@ -66,6 +66,7 @@
 
             Dim retiros As Double = 0
             Dim compras As Double = 0
+            Dim comprascanceladas As Double = 0
 
             Dim INGRESOSFORMAS As Double = 0
 
@@ -241,6 +242,17 @@
                 End If
             End If
             rd1.Close()
+
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='CANCELACION' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "' and CorteU=0"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    comprascanceladas = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
             cnn1.Close()
 
             txtVentas.Text = FormatNumber(ventascontado, 2)
@@ -261,6 +273,7 @@
             txtDevoluciones.Text = FormatNumber(CDec(txtDevolucionesC.Text) + CDec(txtDevolucionesV.Text), 2)
             txtRetiros.Text = FormatNumber(retiros, 2)
             txtCompras.Text = FormatNumber(compras, 2)
+            txtComprasCanceladas.Text = FormatNumber(comprascanceladas, 2)
 
             txtIngresos.Text = FormatNumber(INGRESOSEFECTIVO, 2)
 
@@ -293,7 +306,7 @@
 
     Private Sub txtIngresos_TextChanged(sender As Object, e As EventArgs) Handles txtIngresos.TextChanged
         Dim total As Double = 0
-        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text))
+        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text)) + CDbl(IIf(txtComprasCanceladas.Text = "", "0", txtComprasCanceladas.Text))
 
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
@@ -309,7 +322,7 @@
 
 
         Dim total As Double = 0
-        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text))
+        total = CDbl(IIf(txtIngresos.Text = "", "0", txtIngresos.Text)) + CDbl(IIf(txtSaldoInicial.Text = "", "0", txtSaldoInicial.Text)) - CDbl(IIf(txtRetiros.Text = "", "0", txtRetiros.Text)) - CDbl(IIf(txtDevoluciones.Text = "", "0", txtDevoluciones.Text)) - CDbl(IIf(txtCompras.Text = "", "0", txtCompras.Text)) - CDbl(IIf(txtCancelaciones.Text = "", "0", txtCancelaciones.Text)) + CDbl(IIf(txtComprasCanceladas.Text = "", "0", txtComprasCanceladas.Text))
         txtSumSistema.Text = FormatNumber(total, 2)
         txtTotalSistema.Text = FormatNumber(total, 2)
     End Sub
@@ -1121,11 +1134,14 @@
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
+        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
         e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
-        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        e.Graphics.DrawString("Compras Canceladas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtComprasCanceladas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 175, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
@@ -1238,6 +1254,7 @@
         txtTotal1.Text = "0.00"
         txtTotalCentavos.Text = "0.00"
         txtTotalCalculo.Text = "0.00"
+        txtComprasCanceladas.Text = "0.00"
 
         Calculo = False
     End Sub
@@ -1319,9 +1336,10 @@
                     Dim totalcajerotar As Double = txtTotalCajeroTar.Text
                     Dim totaldiferenciatar As Double = txtTotalDifeTar.Text
                     Dim TOTALCANCELACIONES As Double = txtCancelaciones.Text
+                    Dim COmprasCanceladas As Double = txtComprasCanceladas.Text
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF,TotalCancelaciones) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & "," & TOTALCANCELACIONES & ")"
+                    cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF,TotalCancelaciones,ComprasCanceladas) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & "," & TOTALCANCELACIONES & "," & COmprasCanceladas & ")"
                     If cmd1.ExecuteNonQuery() Then
                         MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                     End If
@@ -1508,11 +1526,14 @@
         e.Graphics.DrawString("Devoluciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtDevoluciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
+        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        Y += 15
         e.Graphics.DrawString("Compras:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
         e.Graphics.DrawString("-" & txtCompras.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
         Y += 15
-        e.Graphics.DrawString("Cancelaciones:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
-        e.Graphics.DrawString("-" & txtCancelaciones.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 130, Y)
+        e.Graphics.DrawString("Compras Canceladas:", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 13, Y)
+        e.Graphics.DrawString(txtComprasCanceladas.Text, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 175, Y)
         Y += 15
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 120, Y)
         e.Graphics.DrawString("----", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y)
@@ -1622,6 +1643,10 @@
                 cnn1.Close()
             End Try
         End If
+
+    End Sub
+
+    Private Sub txtIngresos_Validated(sender As Object, e As EventArgs) Handles txtIngresos.Validated
 
     End Sub
 End Class

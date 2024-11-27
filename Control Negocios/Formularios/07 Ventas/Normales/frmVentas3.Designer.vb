@@ -24,24 +24,24 @@ Partial Class frmVentas3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas3))
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pAbajo = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -257,6 +257,7 @@ Partial Class frmVentas3
         Me.txtcontraseña = New System.Windows.Forms.TextBox()
         Me.lblcorreocli = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lblsesion = New System.Windows.Forms.Label()
         Me.lblmonedero_saldo = New System.Windows.Forms.Label()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
@@ -289,7 +290,7 @@ Partial Class frmVentas3
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pPedidoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pVentaMatriz80 = New System.Drawing.Printing.PrintDocument()
-        Me.lblsesion = New System.Windows.Forms.Label()
+        Me.lblFolioFanasa = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pAbajo.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -326,7 +327,7 @@ Partial Class frmVentas3
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(966, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(318, 690)
+        Me.Panel1.Size = New System.Drawing.Size(318, 714)
         Me.Panel1.TabIndex = 0
         '
         'pAbajo
@@ -335,7 +336,7 @@ Partial Class frmVentas3
         Me.pAbajo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pAbajo.Location = New System.Drawing.Point(0, 676)
         Me.pAbajo.Name = "pAbajo"
-        Me.pAbajo.Size = New System.Drawing.Size(318, 14)
+        Me.pAbajo.Size = New System.Drawing.Size(318, 38)
         Me.pAbajo.TabIndex = 1
         '
         'PictureBox2
@@ -346,7 +347,7 @@ Partial Class frmVentas3
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(10)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox2.Size = New System.Drawing.Size(318, 14)
+        Me.PictureBox2.Size = New System.Drawing.Size(318, 38)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 162
         Me.PictureBox2.TabStop = False
@@ -930,6 +931,7 @@ Partial Class frmVentas3
         '
         'pCentral
         '
+        Me.pCentral.Controls.Add(Me.lblFolioFanasa)
         Me.pCentral.Controls.Add(Me.gbLotes)
         Me.pCentral.Controls.Add(Me.boxAntis)
         Me.pCentral.Controls.Add(Me.Panel5)
@@ -1022,7 +1024,7 @@ Partial Class frmVentas3
         Me.pCentral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pCentral.Location = New System.Drawing.Point(0, 0)
         Me.pCentral.Name = "pCentral"
-        Me.pCentral.Size = New System.Drawing.Size(966, 690)
+        Me.pCentral.Size = New System.Drawing.Size(966, 714)
         Me.pCentral.TabIndex = 1
         '
         'gbLotes
@@ -1038,7 +1040,7 @@ Partial Class frmVentas3
         Me.gbLotes.Controls.Add(Me.Button10)
         Me.gbLotes.Controls.Add(Me.DataGridView1)
         Me.gbLotes.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbLotes.Location = New System.Drawing.Point(317, 240)
+        Me.gbLotes.Location = New System.Drawing.Point(317, 273)
         Me.gbLotes.Name = "gbLotes"
         Me.gbLotes.Size = New System.Drawing.Size(319, 296)
         Me.gbLotes.TabIndex = 279
@@ -1119,8 +1121,8 @@ Partial Class frmVentas3
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.Width = 50
@@ -1200,8 +1202,8 @@ Partial Class frmVentas3
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Width = 55
@@ -1227,7 +1229,7 @@ Partial Class frmVentas3
         Me.boxAntis.Controls.Add(Me.Label38)
         Me.boxAntis.Controls.Add(Me.grdantis)
         Me.boxAntis.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxAntis.Location = New System.Drawing.Point(212, 224)
+        Me.boxAntis.Location = New System.Drawing.Point(212, 257)
         Me.boxAntis.Name = "boxAntis"
         Me.boxAntis.Size = New System.Drawing.Size(532, 276)
         Me.boxAntis.TabIndex = 278
@@ -1370,8 +1372,8 @@ Partial Class frmVentas3
         '
         'Column24
         '
-        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column24.DefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column24.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column24.HeaderText = "Unidad"
         Me.Column24.Name = "Column24"
         Me.Column24.ReadOnly = True
@@ -1379,8 +1381,8 @@ Partial Class frmVentas3
         '
         'Column23
         '
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column23.DefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column23.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column23.HeaderText = "Cant"
         Me.Column23.Name = "Column23"
         Me.Column23.ReadOnly = True
@@ -1388,8 +1390,8 @@ Partial Class frmVentas3
         '
         'Column22
         '
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column22.DefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column22.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column22.HeaderText = "Precio"
         Me.Column22.Name = "Column22"
         Me.Column22.ReadOnly = True
@@ -1397,8 +1399,8 @@ Partial Class frmVentas3
         '
         'Column25
         '
-        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column25.DefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column25.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column25.HeaderText = "Total"
         Me.Column25.Name = "Column25"
         Me.Column25.ReadOnly = True
@@ -1411,7 +1413,7 @@ Partial Class frmVentas3
         Me.Panel5.BackColor = System.Drawing.Color.Orchid
         Me.Panel5.Controls.Add(Me.Label12)
         Me.Panel5.Controls.Add(Me.txtProdClave)
-        Me.Panel5.Location = New System.Drawing.Point(100, 213)
+        Me.Panel5.Location = New System.Drawing.Point(100, 234)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(301, 66)
         Me.Panel5.TabIndex = 274
@@ -1444,7 +1446,7 @@ Partial Class frmVentas3
         Me.txtbarr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtbarr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtbarr.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbarr.Location = New System.Drawing.Point(836, 186)
+        Me.txtbarr.Location = New System.Drawing.Point(836, 207)
         Me.txtbarr.Name = "txtbarr"
         Me.txtbarr.Size = New System.Drawing.Size(116, 28)
         Me.txtbarr.TabIndex = 321
@@ -1456,7 +1458,7 @@ Partial Class frmVentas3
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(836, 167)
+        Me.Label8.Location = New System.Drawing.Point(836, 188)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(116, 20)
         Me.Label8.TabIndex = 322
@@ -1487,7 +1489,7 @@ Partial Class frmVentas3
         Me.lblpedido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblpedido.BackColor = System.Drawing.Color.LightGreen
         Me.lblpedido.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpedido.Location = New System.Drawing.Point(428, 504)
+        Me.lblpedido.Location = New System.Drawing.Point(428, 528)
         Me.lblpedido.Name = "lblpedido"
         Me.lblpedido.Size = New System.Drawing.Size(65, 22)
         Me.lblpedido.TabIndex = 318
@@ -1503,7 +1505,7 @@ Partial Class frmVentas3
         Me.btnPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPedido.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPedido.Location = New System.Drawing.Point(796, 619)
+        Me.btnPedido.Location = New System.Drawing.Point(796, 643)
         Me.btnPedido.Name = "btnPedido"
         Me.btnPedido.Size = New System.Drawing.Size(86, 69)
         Me.btnPedido.TabIndex = 317
@@ -1516,7 +1518,7 @@ Partial Class frmVentas3
         Me.txtequivale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtequivale.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtequivale.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtequivale.Location = New System.Drawing.Point(423, 661)
+        Me.txtequivale.Location = New System.Drawing.Point(423, 685)
         Me.txtequivale.Name = "txtequivale"
         Me.txtequivale.ReadOnly = True
         Me.txtequivale.Size = New System.Drawing.Size(84, 25)
@@ -1529,7 +1531,7 @@ Partial Class frmVentas3
         Me.Label46.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Label46.Location = New System.Drawing.Point(428, 638)
+        Me.Label46.Location = New System.Drawing.Point(428, 662)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(75, 15)
         Me.Label46.TabIndex = 315
@@ -1540,7 +1542,7 @@ Partial Class frmVentas3
         Me.txtvalor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtvalor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtvalor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvalor.Location = New System.Drawing.Point(423, 607)
+        Me.txtvalor.Location = New System.Drawing.Point(423, 631)
         Me.txtvalor.Name = "txtvalor"
         Me.txtvalor.ReadOnly = True
         Me.txtvalor.Size = New System.Drawing.Size(84, 25)
@@ -1553,7 +1555,7 @@ Partial Class frmVentas3
         Me.Label45.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label45.AutoSize = True
         Me.Label45.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label45.Location = New System.Drawing.Point(435, 584)
+        Me.Label45.Location = New System.Drawing.Point(435, 608)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(61, 19)
         Me.Label45.TabIndex = 313
@@ -1564,7 +1566,7 @@ Partial Class frmVentas3
         Me.Label42.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label42.Location = New System.Drawing.Point(427, 530)
+        Me.Label42.Location = New System.Drawing.Point(427, 554)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(77, 19)
         Me.Label42.TabIndex = 312
@@ -1575,7 +1577,7 @@ Partial Class frmVentas3
         Me.txtcant_productos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtcant_productos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcant_productos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.txtcant_productos.Location = New System.Drawing.Point(423, 554)
+        Me.txtcant_productos.Location = New System.Drawing.Point(423, 578)
         Me.txtcant_productos.Name = "txtcant_productos"
         Me.txtcant_productos.ReadOnly = True
         Me.txtcant_productos.Size = New System.Drawing.Size(84, 25)
@@ -1586,7 +1588,7 @@ Partial Class frmVentas3
         'cboBancoRecepcion
         '
         Me.cboBancoRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cboBancoRecepcion.Location = New System.Drawing.Point(289, 526)
+        Me.cboBancoRecepcion.Location = New System.Drawing.Point(289, 550)
         Me.cboBancoRecepcion.Name = "cboBancoRecepcion"
         Me.cboBancoRecepcion.Size = New System.Drawing.Size(130, 20)
         Me.cboBancoRecepcion.TabIndex = 310
@@ -1596,7 +1598,7 @@ Partial Class frmVentas3
         Me.Label43.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label43.Location = New System.Drawing.Point(1, 528)
+        Me.Label43.Location = New System.Drawing.Point(1, 552)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(59, 19)
         Me.Label43.TabIndex = 309
@@ -1606,7 +1608,7 @@ Partial Class frmVentas3
         '
         Me.cboCuentaRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cboCuentaRecepcion.FormattingEnabled = True
-        Me.cboCuentaRecepcion.Location = New System.Drawing.Point(89, 526)
+        Me.cboCuentaRecepcion.Location = New System.Drawing.Point(89, 550)
         Me.cboCuentaRecepcion.Name = "cboCuentaRecepcion"
         Me.cboCuentaRecepcion.Size = New System.Drawing.Size(135, 21)
         Me.cboCuentaRecepcion.TabIndex = 308
@@ -1616,7 +1618,7 @@ Partial Class frmVentas3
         Me.txtComentarioPago.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtComentarioPago.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtComentarioPago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComentarioPago.Location = New System.Drawing.Point(89, 499)
+        Me.txtComentarioPago.Location = New System.Drawing.Point(89, 523)
         Me.txtComentarioPago.Name = "txtComentarioPago"
         Me.txtComentarioPago.Size = New System.Drawing.Size(330, 25)
         Me.txtComentarioPago.TabIndex = 306
@@ -1626,7 +1628,7 @@ Partial Class frmVentas3
         Me.Label40.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label40.Location = New System.Drawing.Point(1, 502)
+        Me.Label40.Location = New System.Drawing.Point(1, 526)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(92, 19)
         Me.Label40.TabIndex = 305
@@ -1637,7 +1639,7 @@ Partial Class frmVentas3
         Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(230, 551)
+        Me.Button9.Location = New System.Drawing.Point(230, 575)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(189, 24)
         Me.Button9.TabIndex = 303
@@ -1650,7 +1652,7 @@ Partial Class frmVentas3
         Me.btncomentario.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btncomentario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncomentario.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncomentario.Location = New System.Drawing.Point(796, 510)
+        Me.btncomentario.Location = New System.Drawing.Point(796, 534)
         Me.btncomentario.Name = "btncomentario"
         Me.btncomentario.Size = New System.Drawing.Size(156, 30)
         Me.btncomentario.TabIndex = 304
@@ -1665,7 +1667,7 @@ Partial Class frmVentas3
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(888, 619)
+        Me.btnnuevo.Location = New System.Drawing.Point(888, 643)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(64, 69)
         Me.btnnuevo.TabIndex = 298
@@ -1681,7 +1683,7 @@ Partial Class frmVentas3
         Me.btnventa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnventa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnventa.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnventa.Location = New System.Drawing.Point(888, 544)
+        Me.btnventa.Location = New System.Drawing.Point(888, 568)
         Me.btnventa.Name = "btnventa"
         Me.btnventa.Size = New System.Drawing.Size(64, 69)
         Me.btnventa.TabIndex = 297
@@ -1698,7 +1700,7 @@ Partial Class frmVentas3
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(796, 544)
+        Me.Button3.Location = New System.Drawing.Point(796, 568)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(86, 69)
         Me.Button3.TabIndex = 296
@@ -1715,7 +1717,7 @@ Partial Class frmVentas3
         Me.grdpago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdpago.ColumnHeadersVisible = False
         Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27, Me.Column29, Me.Column30, Me.Column31})
-        Me.grdpago.Location = New System.Drawing.Point(3, 579)
+        Me.grdpago.Location = New System.Drawing.Point(3, 603)
         Me.grdpago.Name = "grdpago"
         Me.grdpago.ReadOnly = True
         Me.grdpago.RowHeadersVisible = False
@@ -1806,7 +1808,7 @@ Partial Class frmVentas3
         Me.Label30.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label30.Location = New System.Drawing.Point(1, 554)
+        Me.Label30.Location = New System.Drawing.Point(1, 578)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(51, 19)
         Me.Label30.TabIndex = 301
@@ -1817,7 +1819,7 @@ Partial Class frmVentas3
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(481, 442)
+        Me.Label28.Location = New System.Drawing.Point(481, 466)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(94, 20)
         Me.Label28.TabIndex = 295
@@ -1830,7 +1832,7 @@ Partial Class frmVentas3
         Me.txtMontoP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMontoP.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMontoP.ForeColor = System.Drawing.Color.Black
-        Me.txtMontoP.Location = New System.Drawing.Point(478, 467)
+        Me.txtMontoP.Location = New System.Drawing.Point(478, 491)
         Me.txtMontoP.Name = "txtMontoP"
         Me.txtMontoP.ReadOnly = True
         Me.txtMontoP.Size = New System.Drawing.Size(100, 31)
@@ -1843,7 +1845,7 @@ Partial Class frmVentas3
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(598, 442)
+        Me.Label27.Location = New System.Drawing.Point(598, 466)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(72, 20)
         Me.Label27.TabIndex = 293
@@ -1854,7 +1856,7 @@ Partial Class frmVentas3
         Me.dtpFecha_P.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dtpFecha_P.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha_P.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha_P.Location = New System.Drawing.Point(89, 551)
+        Me.dtpFecha_P.Location = New System.Drawing.Point(89, 575)
         Me.dtpFecha_P.Name = "dtpFecha_P"
         Me.dtpFecha_P.Size = New System.Drawing.Size(135, 25)
         Me.dtpFecha_P.TabIndex = 300
@@ -1866,7 +1868,7 @@ Partial Class frmVentas3
         Me.txtSubTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtSubTotal.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubTotal.ForeColor = System.Drawing.Color.Black
-        Me.txtSubTotal.Location = New System.Drawing.Point(581, 467)
+        Me.txtSubTotal.Location = New System.Drawing.Point(581, 491)
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.ReadOnly = True
         Me.txtSubTotal.Size = New System.Drawing.Size(107, 31)
@@ -1879,7 +1881,7 @@ Partial Class frmVentas3
         Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(691, 442)
+        Me.Label26.Location = New System.Drawing.Point(691, 466)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(112, 20)
         Me.Label26.TabIndex = 291
@@ -1892,7 +1894,7 @@ Partial Class frmVentas3
         Me.txtdescuento2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdescuento2.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdescuento2.ForeColor = System.Drawing.Color.Black
-        Me.txtdescuento2.Location = New System.Drawing.Point(691, 467)
+        Me.txtdescuento2.Location = New System.Drawing.Point(691, 491)
         Me.txtdescuento2.Name = "txtdescuento2"
         Me.txtdescuento2.ReadOnly = True
         Me.txtdescuento2.Size = New System.Drawing.Size(113, 31)
@@ -1905,7 +1907,7 @@ Partial Class frmVentas3
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(847, 442)
+        Me.Label25.Location = New System.Drawing.Point(847, 466)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(105, 20)
         Me.Label25.TabIndex = 289
@@ -1918,7 +1920,7 @@ Partial Class frmVentas3
         Me.txtPagar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPagar.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPagar.ForeColor = System.Drawing.Color.White
-        Me.txtPagar.Location = New System.Drawing.Point(807, 467)
+        Me.txtPagar.Location = New System.Drawing.Point(807, 491)
         Me.txtPagar.Name = "txtPagar"
         Me.txtPagar.ReadOnly = True
         Me.txtPagar.Size = New System.Drawing.Size(145, 39)
@@ -1940,7 +1942,7 @@ Partial Class frmVentas3
         Me.GroupBox5.Controls.Add(Me.Label31)
         Me.GroupBox5.Controls.Add(Me.txtResta)
         Me.GroupBox5.Controls.Add(Me.Label29)
-        Me.GroupBox5.Location = New System.Drawing.Point(578, 511)
+        Me.GroupBox5.Location = New System.Drawing.Point(578, 535)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(212, 175)
         Me.GroupBox5.TabIndex = 299
@@ -2078,7 +2080,7 @@ Partial Class frmVentas3
         Me.cbotpago.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbotpago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbotpago.FormattingEnabled = True
-        Me.cbotpago.Location = New System.Drawing.Point(89, 445)
+        Me.cbotpago.Location = New System.Drawing.Point(89, 469)
         Me.cbotpago.Name = "cbotpago"
         Me.cbotpago.Size = New System.Drawing.Size(135, 25)
         Me.cbotpago.TabIndex = 280
@@ -2088,7 +2090,7 @@ Partial Class frmVentas3
         Me.txtmonto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtmonto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtmonto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmonto.Location = New System.Drawing.Point(289, 472)
+        Me.txtmonto.Location = New System.Drawing.Point(289, 496)
         Me.txtmonto.Name = "txtmonto"
         Me.txtmonto.Size = New System.Drawing.Size(130, 25)
         Me.txtmonto.TabIndex = 287
@@ -2100,7 +2102,7 @@ Partial Class frmVentas3
         Me.cbobanco.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbobanco.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbobanco.FormattingEnabled = True
-        Me.cbobanco.Location = New System.Drawing.Point(289, 445)
+        Me.cbobanco.Location = New System.Drawing.Point(289, 469)
         Me.cbobanco.Name = "cbobanco"
         Me.cbobanco.Size = New System.Drawing.Size(130, 25)
         Me.cbobanco.TabIndex = 282
@@ -2110,7 +2112,7 @@ Partial Class frmVentas3
         Me.Label24.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label24.Location = New System.Drawing.Point(230, 475)
+        Me.Label24.Location = New System.Drawing.Point(230, 499)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(57, 19)
         Me.Label24.TabIndex = 286
@@ -2121,7 +2123,7 @@ Partial Class frmVentas3
         Me.Label22.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label22.Location = New System.Drawing.Point(230, 448)
+        Me.Label22.Location = New System.Drawing.Point(230, 472)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(54, 19)
         Me.Label22.TabIndex = 283
@@ -2132,7 +2134,7 @@ Partial Class frmVentas3
         Me.txtnumref.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtnumref.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtnumref.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnumref.Location = New System.Drawing.Point(89, 472)
+        Me.txtnumref.Location = New System.Drawing.Point(89, 496)
         Me.txtnumref.Name = "txtnumref"
         Me.txtnumref.Size = New System.Drawing.Size(135, 25)
         Me.txtnumref.TabIndex = 285
@@ -2142,7 +2144,7 @@ Partial Class frmVentas3
         Me.Label23.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label23.Location = New System.Drawing.Point(1, 475)
+        Me.Label23.Location = New System.Drawing.Point(1, 499)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(68, 19)
         Me.Label23.TabIndex = 284
@@ -2153,7 +2155,7 @@ Partial Class frmVentas3
         Me.Label41.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label41.AutoSize = True
         Me.Label41.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label41.Location = New System.Drawing.Point(230, 528)
+        Me.Label41.Location = New System.Drawing.Point(230, 552)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(54, 19)
         Me.Label41.TabIndex = 307
@@ -2164,7 +2166,7 @@ Partial Class frmVentas3
         Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label21.Location = New System.Drawing.Point(1, 448)
+        Me.Label21.Location = New System.Drawing.Point(1, 472)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(82, 19)
         Me.Label21.TabIndex = 281
@@ -2180,7 +2182,7 @@ Partial Class frmVentas3
         Me.Panel3.Controls.Add(Me.lblDevolucion)
         Me.Panel3.Controls.Add(Me.lblTotalDevo)
         Me.Panel3.Controls.Add(Me.btnGeneraSaldo)
-        Me.Panel3.Location = New System.Drawing.Point(356, 255)
+        Me.Panel3.Location = New System.Drawing.Point(356, 267)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(241, 89)
         Me.Panel3.TabIndex = 279
@@ -2253,7 +2255,7 @@ Partial Class frmVentas3
         Me.Panel6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel6.BackColor = System.Drawing.Color.LightCoral
         Me.Panel6.Controls.Add(Me.Panel7)
-        Me.Panel6.Location = New System.Drawing.Point(337, 255)
+        Me.Panel6.Location = New System.Drawing.Point(337, 267)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(282, 88)
         Me.Panel6.TabIndex = 275
@@ -2287,7 +2289,7 @@ Partial Class frmVentas3
         Me.cboLote.BackColor = System.Drawing.Color.White
         Me.cboLote.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboLote.FormattingEnabled = True
-        Me.cboLote.Location = New System.Drawing.Point(948, 186)
+        Me.cboLote.Location = New System.Drawing.Point(948, 207)
         Me.cboLote.Name = "cboLote"
         Me.cboLote.Size = New System.Drawing.Size(1, 28)
         Me.cboLote.TabIndex = 277
@@ -2299,7 +2301,7 @@ Partial Class frmVentas3
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(948, 167)
+        Me.Label10.Location = New System.Drawing.Point(948, 188)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(1, 20)
         Me.Label10.TabIndex = 276
@@ -2311,7 +2313,7 @@ Partial Class frmVentas3
         Me.chkBuscaProd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkBuscaProd.AutoSize = True
         Me.chkBuscaProd.BackColor = System.Drawing.Color.Transparent
-        Me.chkBuscaProd.Location = New System.Drawing.Point(385, 170)
+        Me.chkBuscaProd.Location = New System.Drawing.Point(385, 191)
         Me.chkBuscaProd.Name = "chkBuscaProd"
         Me.chkBuscaProd.Size = New System.Drawing.Size(15, 14)
         Me.chkBuscaProd.TabIndex = 273
@@ -2322,7 +2324,7 @@ Partial Class frmVentas3
         Me.boxcomentario.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.boxcomentario.BackColor = System.Drawing.Color.Orange
         Me.boxcomentario.Controls.Add(Me.txtcomentario)
-        Me.boxcomentario.Location = New System.Drawing.Point(280, 259)
+        Me.boxcomentario.Location = New System.Drawing.Point(280, 271)
         Me.boxcomentario.Name = "boxcomentario"
         Me.boxcomentario.Size = New System.Drawing.Size(397, 175)
         Me.boxcomentario.TabIndex = 270
@@ -2342,7 +2344,7 @@ Partial Class frmVentas3
         Me.cbocodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbocodigo.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbocodigo.FormattingEnabled = True
-        Me.cbocodigo.Location = New System.Drawing.Point(3, 186)
+        Me.cbocodigo.Location = New System.Drawing.Point(3, 207)
         Me.cbocodigo.Name = "cbocodigo"
         Me.cbocodigo.Size = New System.Drawing.Size(102, 28)
         Me.cbocodigo.TabIndex = 267
@@ -2354,7 +2356,7 @@ Partial Class frmVentas3
         Me.cbodesc.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbodesc.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbodesc.FormattingEnabled = True
-        Me.cbodesc.Location = New System.Drawing.Point(105, 186)
+        Me.cbodesc.Location = New System.Drawing.Point(105, 207)
         Me.cbodesc.Name = "cbodesc"
         Me.cbodesc.Size = New System.Drawing.Size(301, 28)
         Me.cbodesc.TabIndex = 254
@@ -2364,7 +2366,7 @@ Partial Class frmVentas3
         Me.txtunidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtunidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtunidad.Location = New System.Drawing.Point(405, 186)
+        Me.txtunidad.Location = New System.Drawing.Point(405, 207)
         Me.txtunidad.Name = "txtunidad"
         Me.txtunidad.Size = New System.Drawing.Size(66, 28)
         Me.txtunidad.TabIndex = 255
@@ -2376,7 +2378,7 @@ Partial Class frmVentas3
         Me.txtcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtcantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(471, 186)
+        Me.txtcantidad.Location = New System.Drawing.Point(471, 207)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(79, 28)
         Me.txtcantidad.TabIndex = 256
@@ -2389,7 +2391,7 @@ Partial Class frmVentas3
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(3, 167)
+        Me.Label3.Location = New System.Drawing.Point(3, 188)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(102, 20)
         Me.Label3.TabIndex = 257
@@ -2404,7 +2406,7 @@ Partial Class frmVentas3
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(105, 167)
+        Me.Label2.Location = New System.Drawing.Point(105, 188)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(301, 20)
         Me.Label2.TabIndex = 258
@@ -2417,7 +2419,7 @@ Partial Class frmVentas3
         Me.txtprecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtprecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio.Location = New System.Drawing.Point(550, 186)
+        Me.txtprecio.Location = New System.Drawing.Point(550, 207)
         Me.txtprecio.Name = "txtprecio"
         Me.txtprecio.Size = New System.Drawing.Size(105, 28)
         Me.txtprecio.TabIndex = 259
@@ -2429,7 +2431,7 @@ Partial Class frmVentas3
         Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotal.Location = New System.Drawing.Point(655, 186)
+        Me.txttotal.Location = New System.Drawing.Point(655, 207)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Size = New System.Drawing.Size(105, 28)
         Me.txttotal.TabIndex = 260
@@ -2441,7 +2443,7 @@ Partial Class frmVentas3
         Me.txtexistencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtexistencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtexistencia.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtexistencia.Location = New System.Drawing.Point(758, 186)
+        Me.txtexistencia.Location = New System.Drawing.Point(758, 207)
         Me.txtexistencia.Name = "txtexistencia"
         Me.txtexistencia.Size = New System.Drawing.Size(80, 28)
         Me.txtexistencia.TabIndex = 261
@@ -2453,7 +2455,7 @@ Partial Class frmVentas3
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(405, 167)
+        Me.Label4.Location = New System.Drawing.Point(405, 188)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(66, 20)
         Me.Label4.TabIndex = 262
@@ -2467,7 +2469,7 @@ Partial Class frmVentas3
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(471, 167)
+        Me.Label5.Location = New System.Drawing.Point(471, 188)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 20)
         Me.Label5.TabIndex = 263
@@ -2481,7 +2483,7 @@ Partial Class frmVentas3
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(550, 167)
+        Me.Label6.Location = New System.Drawing.Point(550, 188)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(105, 20)
         Me.Label6.TabIndex = 264
@@ -2495,7 +2497,7 @@ Partial Class frmVentas3
         Me.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblTotal.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.lblTotal.ForeColor = System.Drawing.Color.White
-        Me.lblTotal.Location = New System.Drawing.Point(655, 167)
+        Me.lblTotal.Location = New System.Drawing.Point(655, 188)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(105, 20)
         Me.lblTotal.TabIndex = 265
@@ -2509,7 +2511,7 @@ Partial Class frmVentas3
         Me.lblExistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblExistencia.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.lblExistencia.ForeColor = System.Drawing.Color.White
-        Me.lblExistencia.Location = New System.Drawing.Point(758, 167)
+        Me.lblExistencia.Location = New System.Drawing.Point(758, 188)
         Me.lblExistencia.Name = "lblExistencia"
         Me.lblExistencia.Size = New System.Drawing.Size(80, 20)
         Me.lblExistencia.TabIndex = 266
@@ -2524,7 +2526,7 @@ Partial Class frmVentas3
         Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtcoment.Font = New System.Drawing.Font("Segoe UI", 11.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcoment.ForeColor = System.Drawing.Color.White
-        Me.txtcoment.Location = New System.Drawing.Point(3, 213)
+        Me.txtcoment.Location = New System.Drawing.Point(3, 234)
         Me.txtcoment.Name = "txtcoment"
         Me.txtcoment.Size = New System.Drawing.Size(398, 120)
         Me.txtcoment.TabIndex = 269
@@ -2535,9 +2537,9 @@ Partial Class frmVentas3
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.AliceBlue
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2545,31 +2547,31 @@ Partial Class frmVentas3
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column14, Me.Column20, Me.Column8, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26, Me.Column37})
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle29.BackColor = System.Drawing.Color.IndianRed
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.IndianRed
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle17
         Me.grdcaptura.GridColor = System.Drawing.Color.White
-        Me.grdcaptura.Location = New System.Drawing.Point(3, 213)
+        Me.grdcaptura.Location = New System.Drawing.Point(3, 234)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        DataGridViewCellStyle30.BackColor = System.Drawing.Color.Red
-        Me.grdcaptura.RowsDefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.Red
+        Me.grdcaptura.RowsDefaultCellStyle = DataGridViewCellStyle18
         Me.grdcaptura.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White
         Me.grdcaptura.RowTemplate.Height = 30
-        Me.grdcaptura.Size = New System.Drawing.Size(949, 222)
+        Me.grdcaptura.Size = New System.Drawing.Size(949, 225)
         Me.grdcaptura.TabIndex = 253
         '
         'Column1
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -2578,17 +2580,17 @@ Partial Class frmVentas3
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column2.HeaderText = "Descipcion"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
         'Column3
         '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -2596,9 +2598,9 @@ Partial Class frmVentas3
         '
         'Column4
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -2606,9 +2608,9 @@ Partial Class frmVentas3
         '
         'Column5
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle24.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle12
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -2616,9 +2618,9 @@ Partial Class frmVentas3
         '
         'Column6
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle25.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle13
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -2626,9 +2628,9 @@ Partial Class frmVentas3
         '
         'Column7
         '
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle14
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -2643,8 +2645,8 @@ Partial Class frmVentas3
         '
         'Column20
         '
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column20.DefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column20.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column20.HeaderText = "Lote"
         Me.Column20.Name = "Column20"
         Me.Column20.ReadOnly = True
@@ -2695,8 +2697,8 @@ Partial Class frmVentas3
         '
         'Column37
         '
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column37.DefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column37.DefaultCellStyle = DataGridViewCellStyle16
         Me.Column37.HeaderText = "Barras"
         Me.Column37.Name = "Column37"
         Me.Column37.ReadOnly = True
@@ -2705,7 +2707,7 @@ Partial Class frmVentas3
         'txtdia
         '
         Me.txtdia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtdia.Location = New System.Drawing.Point(890, 265)
+        Me.txtdia.Location = New System.Drawing.Point(890, 286)
         Me.txtdia.Name = "txtdia"
         Me.txtdia.Size = New System.Drawing.Size(59, 20)
         Me.txtdia.TabIndex = 268
@@ -2716,7 +2718,7 @@ Partial Class frmVentas3
         Me.txtsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtsaldo_monedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsaldo_monedero.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsaldo_monedero.Location = New System.Drawing.Point(275, 391)
+        Me.txtsaldo_monedero.Location = New System.Drawing.Point(275, 415)
         Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
         Me.txtsaldo_monedero.Size = New System.Drawing.Size(144, 25)
         Me.txtsaldo_monedero.TabIndex = 272
@@ -2728,7 +2730,7 @@ Partial Class frmVentas3
         '
         Me.lblsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblsaldo_monedero.AutoSize = True
-        Me.lblsaldo_monedero.Location = New System.Drawing.Point(230, 396)
+        Me.lblsaldo_monedero.Location = New System.Drawing.Point(230, 420)
         Me.lblsaldo_monedero.Name = "lblsaldo_monedero"
         Me.lblsaldo_monedero.Size = New System.Drawing.Size(37, 13)
         Me.lblsaldo_monedero.TabIndex = 271
@@ -2900,9 +2902,9 @@ Partial Class frmVentas3
         '
         Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Controls.Add(Me.txtcontraseña)
-        Me.GroupBox4.Location = New System.Drawing.Point(836, 48)
+        Me.GroupBox4.Location = New System.Drawing.Point(836, 66)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(116, 47)
+        Me.GroupBox4.Size = New System.Drawing.Size(116, 43)
         Me.GroupBox4.TabIndex = 237
         Me.GroupBox4.TabStop = False
         '
@@ -2946,10 +2948,22 @@ Partial Class frmVentas3
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(570, 161)
+        Me.GroupBox3.Size = New System.Drawing.Size(570, 182)
         Me.GroupBox3.TabIndex = 147
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "CLIENTE"
+        '
+        'lblsesion
+        '
+        Me.lblsesion.AutoSize = True
+        Me.lblsesion.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblsesion.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsesion.Location = New System.Drawing.Point(93, 157)
+        Me.lblsesion.Name = "lblsesion"
+        Me.lblsesion.Size = New System.Drawing.Size(235, 21)
+        Me.lblsesion.TabIndex = 325
+        Me.lblsesion.Text = "SESION INICIADA EN FANASA"
+        Me.lblsesion.Visible = False
         '
         'lblmonedero_saldo
         '
@@ -3159,24 +3173,24 @@ Partial Class frmVentas3
         'pVentaMatriz80
         '
         '
-        'lblsesion
+        'lblFolioFanasa
         '
-        Me.lblsesion.AutoSize = True
-        Me.lblsesion.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblsesion.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblsesion.Location = New System.Drawing.Point(326, 133)
-        Me.lblsesion.Name = "lblsesion"
-        Me.lblsesion.Size = New System.Drawing.Size(235, 21)
-        Me.lblsesion.TabIndex = 325
-        Me.lblsesion.Text = "SESION INICIADA EN FANASA"
-        Me.lblsesion.Visible = False
+        Me.lblFolioFanasa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblFolioFanasa.BackColor = System.Drawing.Color.Navy
+        Me.lblFolioFanasa.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFolioFanasa.ForeColor = System.Drawing.Color.White
+        Me.lblFolioFanasa.Location = New System.Drawing.Point(836, 52)
+        Me.lblFolioFanasa.Name = "lblFolioFanasa"
+        Me.lblFolioFanasa.Size = New System.Drawing.Size(116, 25)
+        Me.lblFolioFanasa.TabIndex = 324
+        Me.lblFolioFanasa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmVentas3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1284, 690)
+        Me.ClientSize = New System.Drawing.Size(1284, 714)
         Me.Controls.Add(Me.pCentral)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -3473,4 +3487,5 @@ Partial Class frmVentas3
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
     Friend WithEvents Column37 As DataGridViewTextBoxColumn
     Friend WithEvents lblsesion As Label
+    Friend WithEvents lblFolioFanasa As Label
 End Class

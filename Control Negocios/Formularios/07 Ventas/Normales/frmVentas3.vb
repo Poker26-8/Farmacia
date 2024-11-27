@@ -6317,6 +6317,7 @@ kaka:
 
         '''''''''
         soygratis = 0
+        lblFolioFanasa.Text = ""
         leyendafanasa = ""
         detallePrecioFijo = ""
         detallePesos = ""
@@ -10539,6 +10540,12 @@ ecomoda:
 
                 End If
                 Y += 8
+                If lblidcmr.Text <> "" Then
+                    e.Graphics.DrawString("Credencial Fanasa: " & lblidcmr.Text, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    e.Graphics.DrawString("Num. Transacción: " & lblFolioFanasa.Text, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                End If
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else
@@ -10575,21 +10582,7 @@ ecomoda:
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
 
-                'If ordetrabajo = 0 Then
-                '    If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
-                '    Else
-                '        lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
-                '        caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
-                '        fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                '    End If
-                'Else
-                '    lote = ""
-                '    caducidad = caducidad
-                '    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                'End If
-
-
-                Dim total As Double = FormatNumber(canti * precio, 4)
+                Dim total As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString() 'FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 120, Y)
@@ -10616,6 +10609,23 @@ ecomoda:
                     Next
                 End If
                 Y += 6
+
+                Try
+                    cnn3.Close()
+                    cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "Select Detalle from BeneficiosFanasa where Codigo='" & barras & "' and Transaccion='" & lblFolioFanasa.Text & "'"
+                    rd3 = cmd3.ExecuteReader
+                    Do While rd3.Read
+                        e.Graphics.DrawString(rd3(0).ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Loop
+                    rd3.Close()
+                    cnn3.Close()
+                    Y += 15
+                Catch ex As Exception
+
+                End Try
+
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
                     Y += 21
@@ -10766,11 +10776,11 @@ ecomoda:
                 Y += 20
             End If
 
-            If txttel.Text <> "" Then
-                e.Graphics.DrawString("Saldo de Monedero:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(FormatNumber(saldomonedero, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 20
-            End If
+            'If txttel.Text <> "" Then
+            '    e.Graphics.DrawString("Saldo de Monedero:", fuente_prods, Brushes.Black, 1, Y)
+            '    e.Graphics.DrawString(FormatNumber(saldomonedero, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+            '    Y += 20
+            'End If
 
             Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
             If DesglosaIVA = "1" Then
@@ -10791,13 +10801,13 @@ ecomoda:
 
             Y += 8
 
-            If lblmonedero_saldo.Visible = True Then
-                Y += 10
-                e.Graphics.DrawString("Saldo monedero", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                e.Graphics.DrawString(FormatNumber(nuevo_saldo_monedero, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
-                Y += 13.5
-                Y += 8
-            End If
+            'If lblmonedero_saldo.Visible = True Then
+            '    Y += 10
+            '    e.Graphics.DrawString("Saldo monedero", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '    e.Graphics.DrawString(FormatNumber(nuevo_saldo_monedero, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
+            '    Y += 13.5
+            '    Y += 8
+            'End If
 
             Y += 8
 
@@ -10958,28 +10968,22 @@ ecomoda:
             End If
 
             If leyendafanasa <> "" Then
-                Y += 20
-                e.Graphics.DrawString(leyendafanasa, New Drawing.Font(tipografia, 6.5, FontStyle.Italic), Brushes.Black, 137, Y, sc)
                 Y += 10
-                If detallePorcentaje <> "" Then
-                    Y += 10
-                    e.Graphics.DrawString(detallePorcentaje, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
-                End If
-                If detallePesos <> "" Then
-                    Y += 10
-                    e.Graphics.DrawString(detallePesos, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
-                End If
-                If detallePieza <> "" Then
-                    Y += 10
-                    e.Graphics.DrawString(detallePieza, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
-                End If
-                If detallePrecioFijo <> "" Then
-                    Y += 10
-                    e.Graphics.DrawString(detallePrecioFijo, New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 137, Y, sc)
-                End If
+                e.Graphics.DrawString(leyendafanasa, New Drawing.Font(tipografia, 6.5, FontStyle.Italic), Brushes.Black, 137, Y, sc)
             End If
 
             e.HasMorePages = False
+
+            Try
+                cnn3.Close()
+                cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "delete from BeneficiosFanasa where Transaccion='" & lblFolioFanasa.Text & "'"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            End Try
         Catch ex As Exception
             MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
             cnn1.Close()

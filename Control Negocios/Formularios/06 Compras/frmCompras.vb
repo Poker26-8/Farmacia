@@ -4580,6 +4580,10 @@ kaka:
                     End If
                 End If
             End If
+
+            If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Exit Sub
+
+
             rd1.Close() : cnn1.Close()
 
             Dim id_compra As Double = 0
@@ -4608,7 +4612,7 @@ kaka:
                 rd1.Close()
 
                 If status = "CANCELADA" Then MsgBox("Esta compra ya fue cancelada anteriormente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn1.Close() : Exit Sub
-
+                btncancela.Enabled = False
                 Dim peps As Boolean = True
 
                 For rm As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -4631,7 +4635,7 @@ kaka:
                     rd1.Close()
                 Next
 
-                If peps = False Then MsgBox("No puedes cancelar esta compra ya que uno o varios productos de la misma ya tuvieron ventas.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn1.Close() : Exit Sub
+                If peps = False Then MsgBox("No puedes cancelar esta compra ya que uno o varios productos de la misma ya tuvieron ventas.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn1.Close() : btncancela.Enabled = True : Exit Sub
 
                 cnn1.Close()
             Catch ex As Exception
@@ -4794,25 +4798,8 @@ kaka:
                             End If
                         End If
                         rd1.Close()
-
-                        If ImprimeEn <> "" Then
-                            cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText =
-                                "select NotasCred from Formatos where Facturas='" & ImprimeEn & "'"
-                            rd1 = cmd1.ExecuteReader
-                            If rd1.HasRows Then
-                                If rd1.Read Then
-                                    Impresora = rd1(0).ToString
-                                End If
-                            End If
-                            rd1.Close()
-                        Else
-                            MsgBox("No tienes una impresora configurada para imprimir en formato " & tPapel & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                            cnn1.Close()
-                            btnnuevo.PerformClick()
-                            Exit Sub
-                        End If
                         cnn1.Close()
+                        Impresora = ImpresoraImprimir()
 
                         If tPapel = "TICKET" Then
                             If tMilimetros = "80" Then
@@ -4839,12 +4826,14 @@ kaka:
                     End If
                     MsgBox("Compra cancelada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     btnnuevo.PerformClick()
+                    btncancela.Enabled = True
                 End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
             cnn2.Close()
+            btncancela.Enabled = True
         End Try
     End Sub
 
