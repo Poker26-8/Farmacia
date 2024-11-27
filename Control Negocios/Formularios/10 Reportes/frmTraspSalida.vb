@@ -452,6 +452,9 @@ Public Class frmTraspSalida
     Private Sub txtprecio_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtprecio.KeyPress
         If Not IsNumeric(txtprecio.Text) Then txtprecio.Text = ""
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            Dim existenciareal As Double = 0
+
             If txtcantidad.Text = "" Then txtcantidad.Focus() : Exit Sub
             If txtprecio.Text = "" Then txtprecio.Focus() : Exit Sub
 
@@ -462,7 +465,7 @@ Public Class frmTraspSalida
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Caduca FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
+            cmd1.CommandText = "SELECT Caduca,Existencia FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -473,6 +476,20 @@ Public Class frmTraspSalida
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
+
+                                For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+                                    Dim c As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+
+                                    If cbocodigo.Text = c Then
+                                        Dim ca As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                                        Dim sumc As Double = CDec(sumc) + CDec(ca)
+                                        Dim totsuma As Double = CDec(txtcantidad.Text) + sumc
+                                        If totsuma > CDec(txtexistencia.Text) Then
+                                            MsgBox("La suma de las cantidades es mayor a la existencia, Favor de modificar el dato.", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                                            Exit Sub
+                                        End If
+                                    End If
+                                Next
 
                                 gbLotes.Visible = True
                                 txtcodlote.Text = cbocodigo.Text
@@ -489,6 +506,31 @@ Public Class frmTraspSalida
                         End If
                         rd2.Close()
                     Else
+
+                        existenciareal = rd1("Existencia").ToString
+                        If txtcantidad.Text > existenciareal Then
+                            MsgBox("La cantidad es mayor a la existencia, Debe de ser menor", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                            Exit Sub
+                        End If
+
+                        For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                            Dim cod As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+
+                            If cbocodigo.Text = cod Then
+                                Dim cant As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+
+                                Dim canti As Double = CDec(canti) + CDec(cant)
+                                Dim totalsuma As Double = txtcantidad.Text + CDec(canti)
+
+                                If totalsuma > existenciareal Then
+                                    MsgBox("Esta por revasar la existencia, Necesita modificar la cantidad del registro", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                                    Exit Sub
+                                End If
+                            End If
+
+
+                        Next
                         grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
 
                         cbocodigo.Text = ""
@@ -519,18 +561,38 @@ Public Class frmTraspSalida
             cmd7 = cnn7.CreateCommand
             cmd7.CommandText = "Select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & varcodigo & "'"
             rd7 = cmd7.ExecuteReader
-            Do While rd7.Read
-                lotexd = rd7("Lote").ToString
-                Dim fechalote As Date = rd7("Caducidad").ToString
-                Dim f As String = ""
-                f = Format(fechalote, "MM-yyyy")
+            If rd7.HasRows Then
+                Do While rd7.Read
+                    lotexd = rd7("Lote").ToString
+                    Dim fechalote As Date = rd7("Caducidad").ToString
+                    Dim f As String = ""
+                    f = Format(fechalote, "MM-yyyy")
 
 
-                DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "0", rd7("Cantidad").ToString)
-                My.Application.DoEvents()
-            Loop
+
+
+                    DataGridView1.Rows.Add(False, rd7("Id").ToString, lotexd, f, "0", rd7("Cantidad").ToString)
+                    My.Application.DoEvents()
+                Loop
+            End If
             rd7.Close()
             cnn7.Close()
+
+            For deku As Integer = 0 To DataGridView2.Rows.Count - 1
+                If DataGridView2.Rows(deku).Cells(0).Value.ToString = cbocodigo.Text Then
+                    Dim lote As String = DataGridView2.Rows(deku).Cells(2).Value.ToString
+                    Dim cant As Double = DataGridView2.Rows(deku).Cells(4).Value.ToString
+
+                    For bachira As Integer = 0 To DataGridView1.Rows.Count - 1
+                        If lote = DataGridView1.Rows(bachira).Cells(2).Value.ToString Then
+                            DataGridView1.Rows(bachira).Cells(5).Value = CDec(DataGridView1.Rows(bachira).Cells(5).Value) - cant
+                        End If
+                    Next
+
+                End If
+
+            Next
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn7.Close()
@@ -1516,7 +1578,7 @@ milky:
             tengo = DataGridView1.Rows(lucas).Cells(5).Value
             If DataGridView1.Rows(lucas).Cells(0).Value Then
                 If senecesita > tengo Then
-                    MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("La Cantidad es mayor a la existencia del lote, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
                     Exit Sub
                 End If
             End If
@@ -1529,20 +1591,26 @@ milky:
         Next
 
         If voyconteo > ventatotal Then
-            MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+            MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
             Exit Sub
         End If
 
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
                 If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then
-                    MsgBox("La cantidad del lote seleccionado no puede ser 0, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("La cantidad del lote seleccionado no puede ser 0, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
                 Else
                     DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
                 End If
             End If
         Next
         If DataGridView2.Rows.Count <> 0 Then
+
+            If CDec(txtcantidad.Text) > CDec(txtexistencia.Text) Then
+                MsgBox("La cantidad es mayor a la existencia, Modifique el dato", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                Exit Sub
+            End If
+
             grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
             ' cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
             cbocodigo.Text = ""
@@ -1554,7 +1622,9 @@ milky:
             txtexistencia.Text = ""
             cbodesc.Focus().Equals(True)
 
-            gbLotes.Visible = False
+            '    gbLotes.Visible = False
+
+
 
         End If
 
@@ -1568,4 +1638,6 @@ milky:
         'TextBox1.Text = ""
         gbLotes.Visible = False
     End Sub
+
+
 End Class
