@@ -1,7 +1,16 @@
 ﻿Imports Core.DAL.DE
 Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Math.EC.ECCurve
+Imports System.IO
 
 Public Class frmLoad
+    Private config As datosSincronizador
+    Private configF As datosAutoFac
+    Private filenum As Integer
+    Private recordLen As String
+    Private currentRecord As Long
+    Private lastRecord As Long
 
     Private Sub frmLoad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -13,6 +22,58 @@ Public Class frmLoad
 
         'Timer1.Enabled = True
     End Sub
+    Public Sub TraeSucursal()
+        If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
+
+            filenum = FreeFile()
+            FileOpen(filenum, ARCHIVO_DE_CONFIGURACION, OpenMode.Random, OpenAccess.ReadWrite)
+            recordLen = Len(Config)
+            FileGet(filenum, Config, 1)
+            ipserver = Trim(Config.ipr)
+            database = Trim(Config.baser)
+            userbd = Trim(Config.usuarior)
+            passbd = Trim(Config.passr)
+            If IsNumeric(Trim(Config.sucursalr)) Then
+                susursalr = Trim(Config.sucursalr)
+            End If
+
+            sTargetdSincro = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
+
+            FileClose()
+
+            sTargetdAutoFac = ""
+
+
+        End If
+        My.Application.DoEvents()
+        Dim banderanoentro As Integer = 0
+        Dim banderasientro As Integer = 0
+
+        Dim sInfo As String = ""
+        Dim cnn As MySqlConnection = New MySqlConnection
+        Dim dr As DataRow
+        Dim odata As New ToolKitSQL.myssql
+        Dim tta As Integer = 1
+        Dim ssql As String = ""
+        With odata
+            If sTargetdSincro <> "" Then
+
+                ssql = "Select * from sucursales where id=" & susursalr
+
+                If odata.dbOpen(cnn, sTargetdSincro, sInfo) Then
+                    If odata.getDr(cnn, dr, ssql, sInfo) Then
+                        banderasientro += 1
+                        Inicio.Label1.Text = "SUCURSAL: " & dr("nombre").ToString
+                        farmaciaseleccionada = dr("nombre").ToString
+                    End If
+                    cnn.Close()
+                Else
+                    banderanoentro += 1
+                End If
+            Else
+            End If
+        End With
+    End Sub
 
     Public Sub cargaTodo()
 
@@ -23,7 +84,7 @@ Public Class frmLoad
         My.Application.DoEvents()
 
         verif()
-
+        TraeSucursal()
         ProgressBar1.Value = 50
         Label1.Text = "Actualizando base de datos..."
         My.Application.DoEvents()
@@ -385,6 +446,26 @@ Public Class frmLoad
 
             cnn1.Close()
         Catch ex As Exception
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VartablaBeneficiosFanasa
+            cmd1.ExecuteNonQuery()
+            My.Application.DoEvents()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = VarKeybeneficiosfanasa
+            cmd1.ExecuteNonQuery()
+            My.Application.DoEvents()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = varAutobeneficiosfanasa
+            cmd1.ExecuteNonQuery()
+            My.Application.DoEvents()
+            cnn1.Close()
+        Catch ex As Exception
+
         End Try
 
         '  trasladosdet
