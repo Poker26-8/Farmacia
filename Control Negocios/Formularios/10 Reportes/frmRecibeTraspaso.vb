@@ -366,9 +366,6 @@ Public Class frmRecibeTraspaso
                             Else
                             End If
                         End If
-
-
-
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
                     btnGuardar.Enabled = True
@@ -493,18 +490,18 @@ Public Class frmRecibeTraspaso
                                     Else
                                         MyNewEsist = CDec(MyExist) + CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString))
                                     End If
-
                                 Else
                                     MyExist = dr2("Existencia").ToString
                                     MyNewEsist = CDec(MyExist) + CDec(dr("Cantidad").ToString)
                                 End If
-
                                 Dim sqlnew As String = ""
-
                                 Dim SQLBUSCADETALLE As String = ""
                                 SQLBUSCADETALLE = "SELECT IdNube FROM cardex where IdNube=" & dr("Id").ToString & ""
                                 If oData.getDt(cnn, dt, SQLBUSCADETALLE, sinfo) Then
-                                    ' CONSULTA ID DE CARDEX, SI YA EXISTE YA NO LO INSERTA
+                                    If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
+                                    Else
+                                    End If
+                                    ' CONSULTA ID DE CARDEX, SI YA EXISTE YA NO LO INSERTA, SOLO ELIMINA EL INVV DE LA NUBE
                                 Else
                                     If Len(dr("Codigo").ToString) > 6 Then
                                         sqlnew = "update Productos set Existencia = Existencia + " & CDec(dr("Cantidad").ToString) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
@@ -518,19 +515,15 @@ Public Class frmRecibeTraspaso
                                             ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio,IdNube) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "',''," & dr("Id").ToString & ")"
                                         End If
 
-
                                         oData.runSp(cnn, ssql3, sinfo)
                                         If Trim(dr("Lote").ToString) <> "" Then
                                             actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
                                         End If
                                         If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
-
                                         Else
-
                                         End If
                                     End If
                                 End If
-
                             Else
                                 If odata2.getDr(cnn2, dr3, "Select * from productos where Codigo='" & dr("Codigo").ToString & "'", sinfo) Then
                                     ssqlinsertal = "Insert Into Productos(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,VentaMin,MCD,Multiplo,Departamento,Grupo,PrecioCompra,PorcentageMin,Porcentage,PrecioVenta,PrecioVentaIVA,PecioVentaMinIVA,IVA,Existencia,id_tbMoneda,PercentIVAret,NombreLargo,IIEPS,isr,ClaveSat,ClaveUnidadSat,MSeries,CargadoInv) " &
