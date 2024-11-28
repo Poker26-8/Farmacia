@@ -361,7 +361,6 @@ Public Class frmRecibeTraspaso
                             ssql3 = "update traspasos set CargadoE=1 where Id=" & dr("Id").ToString
                             If odata2.runSp(cnn2, ssql3, sinfo) Then
                                 'grid_eventos.Rows.Insert(0, "Finaliza Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
-                                odata2.runSp(cnn2, "DELETE FROM actuinvtraspasos WHERE Cargado=1", sinfo)
                             End If
                         Else
                             'MsgBox("inserta " & sinfo)
@@ -433,45 +432,45 @@ Public Class frmRecibeTraspaso
                         ssqlinsertal = ""
                         Dim fecha As Date = dr4("Fecha").ToString
 
-                        SQLBUSCADETALLE = "SELECT Codigo,Num_Traslado FROM trasladosdet WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
+                        'SQLBUSCADETALLE = "SELECT Codigo,Num_Traslado FROM trasladosdet WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
 
-                        If odata3.getDt(cnn3, dt3, SQLBUSCADETALLE, sinfo) Then
+                        'If odata3.getDt(cnn3, dt3, SQLBUSCADETALLE, sinfo) Then
 
-                            sqlactualizafoliodetalle = "UPDATE trasladosdet SET Folio=" & maxId & " WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
-                            If odata3.runSp(cnn3, sqlactualizafoliodetalle, sinfo) Then
+                        '    sqlactualizafoliodetalle = "UPDATE trasladosdet SET Folio=" & maxId & " WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
+                        '    If odata3.runSp(cnn3, sqlactualizafoliodetalle, sinfo) Then
 
-                                If odata4.runSp(cnn4, "UPDATE traspasosdetalle SET Cargado=1 WHERE IdTraspaso=" & Folio & " AND Codigo='" & dr4("Codigo").ToString & "'", sinfo) Then
+                        '        If odata4.runSp(cnn4, "UPDATE traspasosdetalle SET Cargado=1 WHERE IdTraspaso=" & Folio & " AND Codigo='" & dr4("Codigo").ToString & "'", sinfo) Then
 
-                                End If
-                            End If
+                        '        End If
+                        '    End If
 
-                            sqlbuscarlote = "SELECT Codigo,Lote,Cantidad,FechaCad FROM actuinvtraspasos WHERE Codigo='" & dr4("Codigo").ToString & "' AND Cargado=1"
+                        '    sqlbuscarlote = "SELECT Codigo,Lote,Cantidad,FechaCad FROM actuinvtraspasos WHERE Codigo='" & dr4("Codigo").ToString & "' AND Cargado=1"
 
-                            If odata4.getDr(cnn4, dr44, sqlbuscarlote, sinfo) Then
+                        '    If odata4.getDr(cnn4, dr44, sqlbuscarlote, sinfo) Then
 
-                                If odata3.getDr(cnn3, d3, "SELECT * FROM lotecaducidad WHERE Codigo='" & dr44("Codigo").ToString & "' AND Lote='" & dr44("Lote").ToString & "'", sinfo) Then
-                                Else
+                        '        If odata3.getDr(cnn3, d3, "SELECT * FROM lotecaducidad WHERE Codigo='" & dr44("Codigo").ToString & "' AND Lote='" & dr44("Lote").ToString & "'", sinfo) Then
+                        '        Else
 
-                                    If dr44("Lote").ToString <> "" Then
+                        '            If dr44("Lote").ToString <> "" Then
 
-                                        Dim fcad As Date = dr44("FechaCad").ToString
-                                        Dim fechaca2 As String = ""
-                                        fechaca2 = Format(fcad, "yyyy-MM")
+                        '                Dim fcad As Date = dr44("FechaCad").ToString
+                        '                Dim fechaca2 As String = ""
+                        '                fechaca2 = Format(fcad, "yyyy-MM")
 
-                                        If odata3.runSp(cnn3, "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & dr44("Codigo").ToString & "','" & dr44("Lote").ToString & "','" & fechaca2 & "'," & dr44("Cantidad").ToString & ")", sinfo) Then
+                        '                If odata3.runSp(cnn3, "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & dr44("Codigo").ToString & "','" & dr44("Lote").ToString & "','" & fechaca2 & "'," & dr44("Cantidad").ToString & ")", sinfo) Then
 
-                                        End If
+                        '                End If
 
-                                    End If
+                        '            End If
 
-                                End If
+                        '        End If
 
 
-                            End If
+                        '    End If
 
-                        Else
+                        'Else
 
-                            ssqlinsertal = "INSERT INTO TrasladosDet(Folio, Codigo, Nombre, Unidad, Cantidad, Precio, Total, Fecha, Comisionista, Depto, Grupo, concepto, num_traslado,Lote,FCaduca)" &
+                        ssqlinsertal = "INSERT INTO TrasladosDet(Folio, Codigo, Nombre, Unidad, Cantidad, Precio, Total, Fecha, Comisionista, Depto, Grupo, concepto, num_traslado,Lote,FCaduca)" &
                                        " VALUES (" & maxId & ",'" & dr4("Codigo").ToString & "','" & dr4("Nombre").ToString & "','" & dr4("UVenta").ToString & "'," & dr4("Cantidad").ToString & "," & dr4("Precio").ToString &
                                        "," & dr4("Total").ToString & ",'" & Format(fecha, "yyyy-MM-dd") & "','" & vardestino &
                                        "','" & dr4("Depto").ToString & "','" & dr4("Grupo").ToString & "','ENTRADA'," & numTras & ",'" & dr4("Lote").ToString & "','" & dr4("FechaCad").ToString & "')"
@@ -486,7 +485,7 @@ Public Class frmRecibeTraspaso
                             End If
                             bajaExitTrasEntrada(dr4("Codigo").ToString)
 
-                        End If
+                      '  End If
 
 
 
@@ -505,7 +504,7 @@ Public Class frmRecibeTraspaso
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata2 As New ToolKitSQL.myssql
-        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA' and Codigo='" & codxd & "' AND Cargado=0"
+        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA' and Codigo='" & codxd & "'"
         Dim ssql2 As String = ""
         Dim ssql3 As String = ""
         Dim sinfo As String = ""
@@ -557,9 +556,9 @@ Public Class frmRecibeTraspaso
                                         ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
                                     End If
 
-                                    If odata2.runSp(cnn2, "UPDATE actuinvtraspasos SET Cargado=1 where Codigo='" & dr("Codigo").ToString & "' AND Id = " & dr("Id").ToString & "", sinfo) Then
+                                    'If odata2.runSp(cnn2, "UPDATE actuinvtraspasos SET Cargado=1 where Codigo='" & dr("Codigo").ToString & "' AND Id = " & dr("Id").ToString & "", sinfo) Then
 
-                                    End If
+                                    'End If
 
                                     oData.runSp(cnn, ssql3, sinfo)
                                     If Trim(dr("Lote").ToString) <> "" Then
