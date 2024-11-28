@@ -339,32 +339,35 @@ Public Class frmRecibeTraspaso
                     For Each dr In dt.Rows
                         My.Application.DoEvents()
                         ssqlinsertal = ""
-                        'grid_eventos.Rows.Insert(0, "Bajando Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
                         My.Application.DoEvents()
                         Dim fechapago As Date = dr("Fecha").ToString
                         Dim fechahora As Date = dr("Hora").ToString
 
                         If odata.runSp(cnn, "SELECT NUM_TRASLADO FROM traslados WHERE NUM_TRASLADO=" & ComboBox1.Text & "", sinfo) Then
-
-                            If odata.runSp(cnn, "DELETE FROM traslados WHERE NUM_TRASLADO=" & ComboBox1.Text & "", sinfo) Then
-
-                            End If
-                        End If
-
-                        ssqlinsertal = "INSERT INTO Traslados(Cargado,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,concepto,NUM_TRASLADO) " &
-                                                 " VALUES (1,'INGRESO','0','0','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechahora, "yyyy-MM-dd HH:mm:ss") & "','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechapago, "yyyy-MM-dd HH:mm:ss") & "','PAGADO','" & dr("XD").ToString & "','ENTRADA'," & dr("NumTraspasosE").ToString & ")"
-
-                        If odata.runSp(cnn, ssqlinsertal, sinfo) Then
+                            ' YA NO INSERTA TRASPASO, SOLO VALIDA EL DETALLE
                             odata.getDr(cnn, dr2, "select max(Folio) as XD from Traslados", "drdos")
                             maxIdTraspaso = dr2(0).ToString
                             bajaTrasEDetalle(dr("Id").ToString, maxIdTraspaso, dr("NumTraspasosE").ToString, dr("XD").ToString)
                             ssql3 = "update traspasos set CargadoE=1 where Id=" & dr("Id").ToString
                             If odata2.runSp(cnn2, ssql3, sinfo) Then
-                                'grid_eventos.Rows.Insert(0, "Finaliza Traspaso Entrada folio " & dr("NumTraspasosE").ToString, Date.Now)
                             End If
                         Else
-                            'MsgBox("inserta " & sinfo)
+                            ' INSERTA EL TRASPASO
+                            ssqlinsertal = "INSERT INTO Traslados(Cargado,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,concepto,NUM_TRASLADO) " &
+                         " VALUES (1,'INGRESO','0','0','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechahora, "yyyy-MM-dd HH:mm:ss") & "','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechapago, "yyyy-MM-dd HH:mm:ss") & "','PAGADO','" & dr("XD").ToString & "','ENTRADA'," & dr("NumTraspasosE").ToString & ")"
+
+                            If odata.runSp(cnn, ssqlinsertal, sinfo) Then
+                                odata.getDr(cnn, dr2, "select max(Folio) as XD from Traslados", "drdos")
+                                maxIdTraspaso = dr2(0).ToString
+                                bajaTrasEDetalle(dr("Id").ToString, maxIdTraspaso, dr("NumTraspasosE").ToString, dr("XD").ToString)
+                                ssql3 = "update traspasos set CargadoE=1 where Id=" & dr("Id").ToString
+                                If odata2.runSp(cnn2, ssql3, sinfo) Then
+                                End If
+                            Else
+                            End If
                         End If
+
+
 
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
@@ -432,63 +435,20 @@ Public Class frmRecibeTraspaso
                         ssqlinsertal = ""
                         Dim fecha As Date = dr4("Fecha").ToString
 
-                        'SQLBUSCADETALLE = "SELECT Codigo,Num_Traslado FROM trasladosdet WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
-
-                        'If odata3.getDt(cnn3, dt3, SQLBUSCADETALLE, sinfo) Then
-
-                        '    sqlactualizafoliodetalle = "UPDATE trasladosdet SET Folio=" & maxId & " WHERE Codigo='" & dr4("Codigo").ToString & "' AND Num_Traslado=" & numTras & ""
-                        '    If odata3.runSp(cnn3, sqlactualizafoliodetalle, sinfo) Then
-
-                        '        If odata4.runSp(cnn4, "UPDATE traspasosdetalle SET Cargado=1 WHERE IdTraspaso=" & Folio & " AND Codigo='" & dr4("Codigo").ToString & "'", sinfo) Then
-
-                        '        End If
-                        '    End If
-
-                        '    sqlbuscarlote = "SELECT Codigo,Lote,Cantidad,FechaCad FROM actuinvtraspasos WHERE Codigo='" & dr4("Codigo").ToString & "' AND Cargado=1"
-
-                        '    If odata4.getDr(cnn4, dr44, sqlbuscarlote, sinfo) Then
-
-                        '        If odata3.getDr(cnn3, d3, "SELECT * FROM lotecaducidad WHERE Codigo='" & dr44("Codigo").ToString & "' AND Lote='" & dr44("Lote").ToString & "'", sinfo) Then
-                        '        Else
-
-                        '            If dr44("Lote").ToString <> "" Then
-
-                        '                Dim fcad As Date = dr44("FechaCad").ToString
-                        '                Dim fechaca2 As String = ""
-                        '                fechaca2 = Format(fcad, "yyyy-MM")
-
-                        '                If odata3.runSp(cnn3, "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & dr44("Codigo").ToString & "','" & dr44("Lote").ToString & "','" & fechaca2 & "'," & dr44("Cantidad").ToString & ")", sinfo) Then
-
-                        '                End If
-
-                        '            End If
-
-                        '        End If
-
-
-                        '    End If
-
-                        'Else
-
-                        ssqlinsertal = "INSERT INTO TrasladosDet(Folio, Codigo, Nombre, Unidad, Cantidad, Precio, Total, Fecha, Comisionista, Depto, Grupo, concepto, num_traslado,Lote,FCaduca)" &
-                                       " VALUES (" & maxId & ",'" & dr4("Codigo").ToString & "','" & dr4("Nombre").ToString & "','" & dr4("UVenta").ToString & "'," & dr4("Cantidad").ToString & "," & dr4("Precio").ToString &
-                                       "," & dr4("Total").ToString & ",'" & Format(fecha, "yyyy-MM-dd") & "','" & vardestino &
-                                       "','" & dr4("Depto").ToString & "','" & dr4("Grupo").ToString & "','ENTRADA'," & numTras & ",'" & dr4("Lote").ToString & "','" & dr4("FechaCad").ToString & "')"
+                        SQLBUSCADETALLE = "SELECT IdNube FROM trasladosdet WHERE Num_Traslado=" & numTras & " and IdNube=" & dr4("Id").ToString & ""
+                        If odata3.getDt(cnn3, dt3, SQLBUSCADETALLE, sinfo) Then
+                            'CONSULTA EL ID SI YA EXISTE NO LO INSERTA
+                        Else
+                            ssqlinsertal = "INSERT INTO TrasladosDet(Folio, Codigo, Nombre, Unidad, Cantidad, Precio, Total, Fecha, Comisionista, Depto, Grupo, concepto, num_traslado,Lote,FCaduca,IdNube)" &
+                                      " VALUES (" & maxId & ",'" & dr4("Codigo").ToString & "','" & dr4("Nombre").ToString & "','" & dr4("UVenta").ToString & "'," & dr4("Cantidad").ToString & "," & dr4("Precio").ToString &
+                                      "," & dr4("Total").ToString & ",'" & Format(fecha, "yyyy-MM-dd") & "','" & vardestino &
+                                      "','" & dr4("Depto").ToString & "','" & dr4("Grupo").ToString & "','ENTRADA'," & numTras & ",'" & dr4("Lote").ToString & "','" & dr4("FechaCad").ToString & "'," & dr4("Id").ToString & ")"
 
                             If odata3.runSp(cnn3, ssqlinsertal, sinfo) Then
-
-                                sqlactualizarcargado = "UPDATE traspasosdetalle SET Cargado=1 WHERE Codigo='" & dr4("Codigo").ToString & "' AND IdTraspaso=" & Folio & ""
-                                If odata4.runSp(cnn4, sqlactualizarcargado, sinfo) Then
-
-                                End If
-
+                                bajaExitTrasEntrada(dr4("Codigo").ToString)
                             End If
-                            bajaExitTrasEntrada(dr4("Codigo").ToString)
-
-                      '  End If
-
-
-
+                        End If
+                        '  End If
                     Next
                 End If
                 cnn4.Close()
@@ -541,35 +501,35 @@ Public Class frmRecibeTraspaso
 
                                 Dim sqlnew As String = ""
 
-                                If Len(dr("Codigo").ToString) > 6 Then
-                                    sqlnew = "update Productos set Existencia = Existencia + " & CDec(dr("Cantidad").ToString) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
+                                Dim SQLBUSCADETALLE As String = ""
+                                SQLBUSCADETALLE = "SELECT IdNube FROM cardex where IdNube=" & dr("Id").ToString & ""
+                                If oData.getDt(cnn, dt, SQLBUSCADETALLE, sinfo) Then
+                                    ' CONSULTA ID DE CARDEX, SI YA EXISTE YA NO LO INSERTA
                                 Else
-                                    sqlnew = "update Productos set Existencia = Existencia + " & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
-                                End If
-
-
-
-                                If oData.runSp(cnn, sqlnew, sinfo) Then
                                     If Len(dr("Codigo").ToString) > 6 Then
-                                        ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(dr("Cantidad").ToString) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+                                        sqlnew = "update Productos set Existencia = Existencia + " & CDec(dr("Cantidad").ToString) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
                                     Else
-                                        ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "','')"
+                                        sqlnew = "update Productos set Existencia = Existencia + " & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ", CargadoInv = 0  where Codigo = '" & Mid(dr("Codigo").ToString, 1, 6) & "'"
                                     End If
+                                    If oData.runSp(cnn, sqlnew, sinfo) Then
+                                        If Len(dr("Codigo").ToString) > 6 Then
+                                            ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio,IdNube) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(dr("Cantidad").ToString) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "',''," & dr("Id").ToString & ")"
+                                        Else
+                                            ssql3 = "insert into Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,fecha,Usuario,Inicial,Final,Folio,IdNube) values('" & dr("Codigo").ToString & "','" & dr("Descripcion").ToString & "','Entrada por Traspaso Nube'," & CDec(CDec(dr("Cantidad").ToString) * CDec(dr2("Multiplo").ToString)) & ",'0','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','Nube','" & MyExist & "','" & MyNewEsist & "',''," & dr("Id").ToString & ")"
+                                        End If
 
-                                    'If odata2.runSp(cnn2, "UPDATE actuinvtraspasos SET Cargado=1 where Codigo='" & dr("Codigo").ToString & "' AND Id = " & dr("Id").ToString & "", sinfo) Then
 
-                                    'End If
+                                        oData.runSp(cnn, ssql3, sinfo)
+                                        If Trim(dr("Lote").ToString) <> "" Then
+                                            actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
+                                        End If
+                                        If odata2.runSp(cnn2, "delete from actuinvtraspasos where Id = " & dr("Id").ToString & "", sinfo) Then
 
-                                    oData.runSp(cnn, ssql3, sinfo)
-                                    If Trim(dr("Lote").ToString) <> "" Then
-                                        actualizarLoteCad(dr("Codigo").ToString, dr("Lote").ToString, dr("FechaCad").ToString, dr("Cantidad").ToString, 1)
-                                    End If
-                                    If odata2.runSp(cnn2, "delete from actuinvtraspasos where Cargado=1 AND Id = " & dr("Id").ToString & "", sinfo) Then
+                                        Else
 
+                                        End If
                                     End If
                                 End If
-
-
 
                             Else
                                 If odata2.getDr(cnn2, dr3, "Select * from productos where Codigo='" & dr("Codigo").ToString & "'", sinfo) Then
