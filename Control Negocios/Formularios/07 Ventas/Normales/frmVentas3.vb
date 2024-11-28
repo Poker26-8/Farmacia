@@ -3809,6 +3809,7 @@ kaka:
                             If rd2.HasRows Then
                                 If rd2.Read Then
                                     cboLote.Focus.Equals(True)
+                                    Call cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                     rd2.Close() : cnn2.Close()
                                     Exit Sub
                                 End If

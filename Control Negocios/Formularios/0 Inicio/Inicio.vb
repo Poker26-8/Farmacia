@@ -205,67 +205,7 @@ Public Class Inicio
     End Sub
 
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
 
-            filenum = FreeFile()
-            FileOpen(filenum, ARCHIVO_DE_CONFIGURACION, OpenMode.Random, OpenAccess.ReadWrite)
-
-            recordLen = Len(config)
-
-            FileGet(filenum, config, 1)
-
-            ipserver = Trim(config.ipr)
-            database = Trim(config.baser)
-            userbd = Trim(config.usuarior)
-            passbd = Trim(config.passr)
-            If IsNumeric(Trim(config.sucursalr)) Then
-                susursalr = Trim(config.sucursalr)
-            End If
-
-            sTargetdSincro = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
-
-            FileClose()
-
-            sTargetdAutoFac = ""
-
-
-        End If
-        My.Application.DoEvents()
-        Dim banderanoentro As Integer = 0
-        Dim banderasientro As Integer = 0
-
-        Dim sInfo As String = ""
-        Dim cnn As MySqlConnection = New MySqlConnection
-        Dim dr As DataRow
-        Dim odata As New ToolKitSQL.myssql
-        Dim tta As Integer = 1
-        Dim ssql As String = ""
-        With odata
-            If sTargetdSincro <> "" Then
-
-                ssql = "Select * from sucursales where id=" & susursalr
-
-                If odata.dbOpen(cnn, sTargetdSincro, sInfo) Then
-                    If odata.getDr(cnn, dr, ssql, sInfo) Then
-                        banderasientro += 1
-                        Label1.Text = "SUCURSAL: " & dr("nombre").ToString
-                        farmaciaseleccionada = dr("nombre").ToString
-                        'frmSincro.lbl_direccion.Text = dr("direccion").ToString
-                        'frmSincro.grid_eventos.Rows.Insert(0, "Conectado a Delsscom", Date.Now)
-                    End If
-                    cnn.Close()
-                Else
-                    banderanoentro += 1
-                    'frmSincro.lbl_nombre.Text = ""
-                    'frmSincro.lbl_direccion.Text = ""
-                    'frmSincro.grid_eventos.Rows.Insert(0, "No se pudo Conectar a Delsscom", Date.Now)
-                    'Return False
-                End If
-            Else
-                'frmSincro.lbl_nombre.Text = ""
-                'frmSincro.lbl_direccion.Text = ""
-            End If
-        End With
         'PrimeraConfig = ""
         'Login.Hide()
 

@@ -782,13 +782,21 @@ Public Class Login
                     'Dim sTargetprueba = "Server=localhost;user id = root; password=;"
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
-
+                            'CorteUsuarioFar
+                            .runSp(cnnprueba, VartablaCorteUsuarioFar, sinfo)
+                            .runSp(cnnprueba, VarKeycorteusuariofar, sinfo)
+                            .runSp(cnnprueba, varAutocorteusuariofar, sinfo)
+                            'Grupos
+                            'BeneficiosFanasa
+                            .runSp(cnnprueba, VartablaBeneficiosFanasa, sinfo)
+                            .runSp(cnnprueba, VarKeybeneficiosfanasa, sinfo)
+                            .runSp(cnnprueba, varAutobeneficiosfanasa, sinfo)
                             'Departamentos
-                            .runSp(cnnprueba, vartabladepartamentos, sinfo)
+                            .runSp(cnnprueba, Vartabladepartamentos, sinfo)
                             .runSp(cnnprueba, VarKeydepartamentos, sinfo)
                             .runSp(cnnprueba, VarAutodepartamentos, sinfo)
                             'Grupos
-                            .runSp(cnnprueba, vartablagrupo, sinfo)
+                            .runSp(cnnprueba, Vartablagrupo, sinfo)
                             .runSp(cnnprueba, VarKeygrupo, sinfo)
                             .runSp(cnnprueba, VarAutogrupo, sinfo)
                             'hisclinica

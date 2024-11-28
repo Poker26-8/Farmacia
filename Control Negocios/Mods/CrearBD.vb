@@ -1,7 +1,14 @@
 ﻿Module CrearBD
-
+    'beneficios fanasa <summary>
+    Public VartablaBeneficiosFanasa As String = "CREATE TABLE IF NOT EXISTS `beneficiosfanasa` (
+                                                          `Id` int(11) NOT NULL,
+                                                          `Transaccion` varchar(255) NOT NULL DEFAULT '',
+                                                          `Detalle` varchar(255) NOT NULL DEFAULT '',
+                                                          `Codigo` varchar(255) NOT NULL DEFAULT ''
+                                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                                                        "
     'CORTEFARMACIA
-    Public VartablaCorteUsuarioFar As String = "CREATE TABLE `corteusuariofar` (
+    Public VartablaCorteUsuarioFar As String = "CREATE TABLE IF NOT EXISTS `corteusuariofar` (
                                                           `Id` int(11) NOT NULL,
                                                           `Folio` varchar(100) NOT NULL DEFAULT '',
                                                           `FInicial` datetime NOT NULL,
@@ -6982,6 +6989,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeybeneficiosfanasa As String = "ALTER TABLE `beneficiosfanasa`ADD PRIMARY KEY (`Id`);"
     Public VarKeycorteusuariofar As String = "ALTER TABLE `corteusuariofar`ADD PRIMARY KEY (`Id`);"
     Public VarKeyPrescripcion As String = "ALTER TABLE `prescripcion`ADD PRIMARY KEY (`Folio`);"
     Public VarKeyhisclinica As String = "ALTER TABLE `hisclinica`ADD PRIMARY KEY (`Id`);"
@@ -7156,6 +7164,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutobeneficiosfanasa As String = "ALTER TABLE `beneficiosfanasa`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutocorteusuariofar As String = "ALTER TABLE `corteusuariofar`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutoPrescripcion As String = "ALTER TABLE `prescripcion`MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public VarAutohiscliente As String = "ALTER TABLE `hisclinica`MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
