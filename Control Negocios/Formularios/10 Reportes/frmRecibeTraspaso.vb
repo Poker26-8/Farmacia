@@ -337,7 +337,6 @@ Public Class frmRecibeTraspaso
             If odata2.dbOpen(cnn2, sTargetdSincro, sinfo) Then
                 If odata2.getDt(cnn2, dt, sSQL, sinfo) Then
                     For Each dr In dt.Rows
-                        My.Application.DoEvents()
                         ssqlinsertal = ""
                         My.Application.DoEvents()
                         Dim fechapago As Date = dr("Fecha").ToString
