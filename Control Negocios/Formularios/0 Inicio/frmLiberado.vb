@@ -4,7 +4,7 @@ Imports MySql.Data
 Public Class frmLiberado
 
     Private Sub frmLiberado_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        lblSerie.Text = GenLicencia(MyNumPC)
+        lblSerie.Text = GenerateAndValidateKey2(MyNumPC)
 
         Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
         Dim coma As OleDbCommand = New OleDbCommand

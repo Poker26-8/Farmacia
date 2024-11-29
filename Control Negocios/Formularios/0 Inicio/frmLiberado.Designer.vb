@@ -25,9 +25,9 @@ Partial Class frmLiberado
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLiberado))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblSerie = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblfecha = New System.Windows.Forms.Label()
+        Me.lblSerie = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -56,18 +56,6 @@ Partial Class frmLiberado
         Me.Label1.Text = resources.GetString("Label1.Text")
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblSerie
-        '
-        Me.lblSerie.BackColor = System.Drawing.Color.White
-        Me.lblSerie.Font = New System.Drawing.Font("Segoe UI Light", 17.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSerie.ForeColor = System.Drawing.Color.Black
-        Me.lblSerie.Location = New System.Drawing.Point(36, 272)
-        Me.lblSerie.Name = "lblSerie"
-        Me.lblSerie.Size = New System.Drawing.Size(348, 32)
-        Me.lblSerie.TabIndex = 14
-        Me.lblSerie.Text = "L I B E R A C I O N"
-        Me.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
@@ -89,14 +77,25 @@ Partial Class frmLiberado
         Me.lblfecha.Text = "F E C H A"
         Me.lblfecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblSerie
+        '
+        Me.lblSerie.BackColor = System.Drawing.Color.White
+        Me.lblSerie.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSerie.Location = New System.Drawing.Point(3, 272)
+        Me.lblSerie.Name = "lblSerie"
+        Me.lblSerie.Size = New System.Drawing.Size(414, 25)
+        Me.lblSerie.TabIndex = 17
+        Me.lblSerie.Text = "Label2"
+        Me.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmLiberado
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(420, 339)
+        Me.Controls.Add(Me.lblSerie)
         Me.Controls.Add(Me.lblfecha)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.lblSerie)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -111,7 +110,7 @@ Partial Class frmLiberado
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents lblSerie As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents lblfecha As System.Windows.Forms.Label
+    Friend WithEvents lblSerie As Label
 End Class

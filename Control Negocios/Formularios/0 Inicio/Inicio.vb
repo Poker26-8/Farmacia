@@ -5,6 +5,10 @@ Imports Microsoft.Office.Core
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 
+Imports System.Management
+Imports System.Security.Cryptography
+Imports System.Text
+
 Public Class Inicio
 
     Private config As datosSincronizador
@@ -21,6 +25,9 @@ Public Class Inicio
     Dim codigopro As String = ""
     Public CONTRASEÑAA As String = ""
     Public perRuta As Integer = 0
+
+
+
 
     Private Sub Inicio_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
 
@@ -203,9 +210,15 @@ Public Class Inicio
         '    cnn4.Close()
         'End Try
     End Sub
+    Function ValidateKey(storedKey As String) As Boolean
+        Dim currentKey As String = GenerateHash(GetDiskSerial())
+        Return currentKey = storedKey
+    End Function
 
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        '  GenerateAndValidateKey()
 
+        Licencia()
         'PrimeraConfig = ""
         'Login.Hide()
 
@@ -621,7 +634,7 @@ Public Class Inicio
                 End If
             End If
         Else
-            SerieLib = frmPagado.GenLicencia(MyNumPC)
+            SerieLib = GenerateAndValidateKey2(MyNumPC)
             SFile = redSerie(FileSerie)
             If SerieLib <> SFile Then
                 MsgBox("La licencia de este sistema es incorrecta.", vbInformation)
@@ -639,7 +652,7 @@ Public Class Inicio
         Dim SFile As String
         FileSerie = My.Computer.FileSystem.SpecialDirectories.Programs & "\DelsscomControlNegocios\Lib3r4c10n.dll"
         If System.IO.File.Exists(FileSerie) Then
-            SerieLib = frmPagado.GenLicencia(MyNumPC)
+            SerieLib = GenerateAndValidateKey2(MyNumPC)
             SFile = redSerie(FileSerie)
             If SerieLib = SFile Then
                 frmLiberado.Show()

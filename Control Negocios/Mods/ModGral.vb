@@ -5,6 +5,10 @@ Imports System.Threading.Tasks
 Imports ThoughtWorks.QRCode.Codec.Util
 Imports System.Data.SqlClient
 
+Imports System.Management
+Imports System.Security.Cryptography
+Imports System.Text
+
 Module ModGral
     Public ordetrabajo As Integer = 0
     Public HrTiempo As String = ""
@@ -41,8 +45,56 @@ Module ModGral
     Public detallePesos As String = ""
     Public detallePieza As String = ""
     Public detallePrecioFijo As String = ""
+    Sub GenerateAndValidateKey()
+        ' Obtén el identificador único
+        Dim diskSerial As String = GetDiskSerial()
 
+        If String.IsNullOrEmpty(diskSerial) Then
+            MessageBox.Show("No se pudo obtener el número de serie del disco.")
+            Exit Sub
+        End If
 
+        ' Genera el hash único
+        Dim uniqueKey As String = GenerateHash(diskSerial)
+        frmPagado.lblSerie.Text = uniqueKey
+        ' Muestra la clave
+        'MessageBox.Show("Clave generada para esta máquina: " & uniqueKey)
+    End Sub
+    Public Function GenerateAndValidateKey2(ByVal ser As String)
+        ' Obtén el identificador único
+        Dim diskSerial As String = ser
+        If String.IsNullOrEmpty(diskSerial) Then
+            MessageBox.Show("No se pudo obtener el número de serie del disco.")
+            Exit Function
+        End If
+
+        ' Genera el hash único
+        Dim uniqueKey As String = GenerateHash(diskSerial)
+        Return uniqueKey
+        ' Muestra la clave
+        'MessageBox.Show("Clave generada para esta máquina: " & uniqueKey)
+    End Function
+
+    Public Function GetDiskSerial() As String
+        Try
+            Dim searcher As New ManagementObjectSearcher("SELECT SerialNumber FROM Win32_PhysicalMedia")
+            For Each wmiObject As ManagementObject In searcher.Get()
+                Dim serialNumber As String = wmiObject("SerialNumber").ToString()
+                Return serialNumber.Trim()
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error obteniendo el número de serie: " & ex.Message)
+        End Try
+        Return String.Empty
+    End Function
+
+    Public Function GenerateHash(input As String) As String
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim bytes As Byte() = Encoding.UTF8.GetBytes(input)
+            Dim hash As Byte() = sha256.ComputeHash(bytes)
+            Return BitConverter.ToString(hash).Replace("-", "").ToUpper()
+        End Using
+    End Function
 
     Public Function TraerFormatoImpresion() As String
 

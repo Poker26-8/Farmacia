@@ -159,7 +159,7 @@ Public Class Login
         Dim lector As OleDbDataReader
 
         MyIP = dameIP2() ' dameIP2()
-        MyNumPC = SerialNumber()
+        MyNumPC = GetDiskSerial()
 
         Try
             conexion.Close() : conexion.Open()

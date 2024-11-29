@@ -47,7 +47,7 @@ Partial Class frmPagado
         'LabelProductName
         '
         Me.LabelProductName.Font = New System.Drawing.Font("Segoe UI Light", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelProductName.Location = New System.Drawing.Point(12, 262)
+        Me.LabelProductName.Location = New System.Drawing.Point(17, 280)
         Me.LabelProductName.Margin = New System.Windows.Forms.Padding(0)
         Me.LabelProductName.Name = "LabelProductName"
         Me.LabelProductName.Size = New System.Drawing.Size(402, 34)
@@ -171,14 +171,13 @@ Partial Class frmPagado
         'lblSerie
         '
         Me.lblSerie.BackColor = System.Drawing.Color.White
-        Me.lblSerie.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSerie.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSerie.ForeColor = System.Drawing.Color.Black
-        Me.lblSerie.Location = New System.Drawing.Point(31, 173)
+        Me.lblSerie.Location = New System.Drawing.Point(12, 259)
         Me.lblSerie.Name = "lblSerie"
-        Me.lblSerie.Size = New System.Drawing.Size(337, 28)
+        Me.lblSerie.Size = New System.Drawing.Size(402, 26)
         Me.lblSerie.TabIndex = 13
         Me.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblSerie.Visible = False
         '
         'Panel1
         '
@@ -213,6 +212,7 @@ Partial Class frmPagado
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(426, 454)
+        Me.Controls.Add(Me.lblSerie)
         Me.Controls.Add(Me.lblLiberacion)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -224,7 +224,6 @@ Partial Class frmPagado
         Me.Controls.Add(Me.LabelVersion)
         Me.Controls.Add(Me.LabelCopyright)
         Me.Controls.Add(Me.LabelCompanyName)
-        Me.Controls.Add(Me.lblSerie)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
