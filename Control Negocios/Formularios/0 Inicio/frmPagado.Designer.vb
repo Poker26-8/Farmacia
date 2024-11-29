@@ -178,6 +178,7 @@ Partial Class frmPagado
         Me.lblSerie.Size = New System.Drawing.Size(402, 26)
         Me.lblSerie.TabIndex = 13
         Me.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblSerie.Visible = False
         '
         'Panel1
         '

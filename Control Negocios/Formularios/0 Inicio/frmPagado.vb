@@ -202,4 +202,8 @@ Public NotInheritable Class frmPagado
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         End
     End Sub
+
+    Private Sub frmPagado_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        End
+    End Sub
 End Class
