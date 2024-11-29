@@ -555,7 +555,7 @@ Public Class Inicio
                         If WriteCont(Linea, ULocal) = False Then
                             End
                         End If
-                        MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Control Negocios Pro")
+                        MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Farmacias")
                     End If
                 Else
 
@@ -575,7 +575,7 @@ Public Class Inicio
 
                     If cnn3.State = 1 Then cnn3.Close()
 
-                    MsgBox("Perido de evaluación: 1 de 30", vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("Perido de evaluación: 1 de 30", vbOKOnly, "Delsscom Farmacias")
                     If WriteCont(1, ULocal) = False Then
                         End
                     End If
@@ -592,7 +592,7 @@ Public Class Inicio
                             If WriteCont(Linea, ULocal) = False Then
                                 End
                             End If
-                            MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Control Negocios Pro")
+                            MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Farmacias")
                         End If
                     Else
                         Try
@@ -608,7 +608,7 @@ Public Class Inicio
                             cnn3.Close()
                         End Try
 
-                        MsgBox("Perido de evaluación: 1 de 30", vbOKOnly, "Delsscom Control Negocios Pro")
+                        MsgBox("Perido de evaluación: 1 de 30", vbOKOnly, "Delsscom Farmacias")
                         If WriteCont(1, ULocal) = False Then
                             End
                         End If
@@ -624,7 +624,7 @@ Public Class Inicio
                             If WriteCont(Linea, ULocal) = False Then
                                 End
                             End If
-                            MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Control Negocios Pro")
+                            MsgBox("Perido de evaluación: " & Linea & " de 30", vbOKOnly, "Delsscom Farmacias")
                         End If
                     Else
                         frmPagado.Show()
@@ -637,7 +637,7 @@ Public Class Inicio
             SerieLib = GenerateAndValidateKey2(MyNumPC)
             SFile = redSerie(FileSerie)
             If SerieLib <> SFile Then
-                MsgBox("La licencia de este sistema es incorrecta.", vbInformation)
+                MsgBox("La licencia de este sistema es incorrecta.", vbInformation + vbOKOnly, "Delsscom Farmacias")
                 End
             End If
         End If
