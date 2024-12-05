@@ -604,7 +604,7 @@ Public Class frmProductosS
             crea_ruta("\\" & varrutabase & "\DelsscomFarmacias\ProductosImg" & base)
         End If
 
-        If (CompruebaBarras(txtbarras.Text)) Then
+        If (CompruebaBarras(txtbarras.Text, cboNombre.Text)) Then
 
         Else
             Exit Sub
@@ -1075,7 +1075,7 @@ Public Class frmProductosS
         Return Nothing
     End Function
 
-    Private Function CompruebaBarras(ByVal barras As String) As Boolean
+    Private Function CompruebaBarras(ByVal barras As String, ByVal nombre As String) As Boolean
         Try
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
@@ -1083,7 +1083,7 @@ Public Class frmProductosS
             If barras <> "" Then
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select CodBarra from Productos where CodBarra='" & barras & "'"
+                    "select CodBarra from Productos where CodBarra='" & barras & "' and Nombre<>'" & nombre & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then

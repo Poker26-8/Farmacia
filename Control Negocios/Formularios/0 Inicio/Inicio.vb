@@ -218,7 +218,7 @@ Public Class Inicio
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         '  GenerateAndValidateKey()
 
-        Licencia()
+        'Licencia()
         'PrimeraConfig = ""
         'Login.Hide()
 
@@ -2161,7 +2161,7 @@ Public Class Inicio
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         'frmFanasa.Show()
         'frmFanasa.BringToFront()
-        frmVentas3.Show()
-        frmVentas3.BringToFront()
+        '    frmVentas3.Show()
+        '    frmVentas3.BringToFront()
     End Sub
 End Class
