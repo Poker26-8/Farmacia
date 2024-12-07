@@ -736,15 +736,10 @@ Public Class Inicio
     Private Sub btnProductos_Click(sender As System.Object, e As System.EventArgs) Handles btnProductos.Click
 
 
-        Dim partes As Integer = DatosRecarga2("Partes")
 
-        If partes = 1 Then
-            frmProductosSerie.Show()
-            frmProductosSerie.BringToFront()
-        Else
-            frmProductosS.Show()
+        frmProductosS.Show()
             frmProductosS.BringToFront()
-        End If
+
     End Sub
 
     Private Sub btnClientes_Click(sender As System.Object, e As System.EventArgs) Handles btnClientes.Click
@@ -960,21 +955,11 @@ Public Class Inicio
 
     Private Sub SencillaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pSencilla.Click
 
-        Dim partes As Integer = DatosRecarga2("Partes")
-        Dim restaurante As Integer = DatosRecarga2("Restaurante")
 
-        If partes = 1 Then
-            frmProductosSSerie.Show()
-            frmProductosSSerie.BringToFront()
 
-        ElseIf restaurante = 1 Then
-            frmProductosSR.Show()
-            frmProductosSR.BringToFront()
-        Else
-
-            frmProductosS.Show()
+        frmProductosS.Show()
             frmProductosS.BringToFront()
-        End If
+
 
     End Sub
 
