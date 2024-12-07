@@ -749,27 +749,8 @@ Public Class Inicio
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
 
-        Dim parte As Integer = DatosRecarga2("Partes")
-        Dim series As Integer = DatosRecarga2("Series")
-        Dim refaccion As Integer = DatosRecarga2("Refaccionaria")
-
-
-        If parte = 1 Then
-            frmComprasS.Show()
-            frmComprasS.BringToFront()
-        ElseIf series = 1 Then
-            frmComprasSeries.Show()
-            frmComprasSeries.BringToFront()
-
-        ElseIf refaccion = 1 Then
-            frmComprasS.Show()
-            frmComprasS.BringToFront()
-        Else
-            frmCompras.Show()
-            frmCompras.BringToFront()
-
-        End If
-
+        frmCompras.Show()
+        frmCompras.BringToFront()
     End Sub
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
