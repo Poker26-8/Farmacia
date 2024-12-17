@@ -342,7 +342,7 @@ Public Class frmRecibeTraspaso
                         Dim fechapago As Date = dr("Fecha").ToString
                         Dim fechahora As Date = dr("Hora").ToString
 
-                        If odata.runSp(cnn, "SELECT NUM_TRASLADO FROM traslados WHERE NUM_TRASLADO=" & ComboBox1.Text & "", sinfo) Then
+                        If odata.getDr(cnn, dr2, "SELECT Folio FROM traslados WHERE NUM_TRASLADO=" & dr("NumTraspasosE").ToString & "", sinfo) Then
                             ' YA NO INSERTA TRASPASO, SOLO VALIDA EL DETALLE
                             odata.getDr(cnn, dr2, "select max(Folio) as XD from Traslados", "drdos")
                             maxIdTraspaso = dr2(0).ToString

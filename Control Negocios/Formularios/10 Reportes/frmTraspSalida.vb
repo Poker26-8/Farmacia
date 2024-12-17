@@ -531,8 +531,18 @@ Public Class frmTraspSalida
 
 
                         Next
+
+                        For xsd As Integer = 0 To grdcaptura.Rows.Count - 1
+                            If cbocodigo.Text = grdcaptura.Rows(xsd).Cells(0).Value.ToString Then
+                                grdcaptura.Rows(xsd).Cells(3).Value = grdcaptura.Rows(xsd).Cells(3).Value + CDec(txtcantidad.Text)
+                                grdcaptura.Rows(xsd).Cells(5).Value = grdcaptura.Rows(xsd).Cells(5).Value + CDec(txttotal.Text)
+                                GoTo kaka
+                            End If
+                        Next
                         grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
 
+                        '
+kaka:
                         cbocodigo.Text = ""
                         cbodesc.Text = ""
                         txtunidad.Text = ""
@@ -559,7 +569,7 @@ Public Class frmTraspSalida
             DataGridView1.Rows.Clear()
             cnn7.Close() : cnn7.Open()
             cmd7 = cnn7.CreateCommand
-            cmd7.CommandText = "Select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & varcodigo & "'"
+            cmd7.CommandText = "Select Id,Lote,Caducidad,Cantidad from LoteCaducidad where Codigo='" & varcodigo & "' and Cantidad >0"
             rd7 = cmd7.ExecuteReader
             If rd7.HasRows Then
                 Do While rd7.Read
@@ -663,6 +673,7 @@ Public Class frmTraspSalida
         DataGridView2.Rows.Clear()
         DataGridView1.Rows.Clear()
         gbLotes.Visible = False
+        btnguardar.Enabled = True
         Folio()
     End Sub
 
@@ -776,7 +787,7 @@ Public Class frmTraspSalida
         If grdcaptura.Rows.Count = 0 Then MsgBox("Carga productos al traspaso para poder guardarlo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbodesc.Focus().Equals(True) : Exit Sub
         If lblfolio.Text = "" Then Folio()
         If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Exit Sub
-
+        btnguardar.Enabled = False
         Dim MYFOLIO As Integer = 0
 
         Try
@@ -956,6 +967,7 @@ Nota:
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
+            btnguardar.Enabled = True
         End Try
 
         Dim Imprime As Boolean = False
@@ -985,6 +997,7 @@ Nota:
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
+            btnguardar.Enabled = True
         End Try
 
         cnn1.Close() : cnn1.Open()
@@ -1062,11 +1075,12 @@ Nota:
                 End If
             End If
             btnnuevo.PerformClick()
-
+            btnguardar.Enabled = True
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
             cnn2.Close()
+            btnguardar.Enabled = True
         End Try
     End Sub
 
@@ -1247,7 +1261,7 @@ Nota:
             e.Graphics.DrawString(existencia, fuente_prods, Brushes.Black, 285, Y, sf)
             Y += 17
             If DataGridView2.Rows.Count > 0 Then
-                For asd As Integer = 0 To DataGridView2.Rows.Count - 1
+                For asd As Integer = DataGridView2.Rows.Count - 1 To 0 Step -1
                     If codigo = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
                         lote = DataGridView2.Rows(asd).Cells(2).Value.ToString
                         caducidad = DataGridView2.Rows(asd).Cells(3).Value.ToString
@@ -1257,6 +1271,7 @@ Nota:
                             e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
                             e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
                             Y += 15
+                            DataGridView2.Rows.RemoveAt(asd)
                         End If
                     End If
                 Next
@@ -1567,6 +1582,7 @@ milky:
             Exit Sub
         End If
         Dim ventatotal As Double = 0
+        Dim voy As Integer = 0
         Dim voyconteo As Double = 0
         Dim senecesita As Double = 0
         Dim tengo As Double = 0
@@ -1587,8 +1603,13 @@ milky:
         For yuta As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(yuta).Cells(0).Value Then
                 voyconteo = voyconteo + CDec(DataGridView1.Rows(yuta).Cells(4).Value)
+                voy += 1
             End If
         Next
+        If voy = 0 Then
+            MsgBox("Selecciona un lote, y agrega una cantidad valida para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
 
         If voyconteo > ventatotal Then
             MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
@@ -1611,7 +1632,17 @@ milky:
                 Exit Sub
             End If
 
+            For xsd As Integer = 0 To grdcaptura.Rows.Count - 1
+                If cbocodigo.Text = grdcaptura.Rows(xsd).Cells(0).Value.ToString Then
+                    grdcaptura.Rows(xsd).Cells(3).Value = grdcaptura.Rows(xsd).Cells(3).Value + CDec(txtcantidad.Text)
+                    grdcaptura.Rows(xsd).Cells(5).Value = grdcaptura.Rows(xsd).Cells(5).Value + CDec(txttotal.Text)
+                    GoTo kaka
+                End If
+            Next
             grdcaptura.Rows.Add(cbocodigo.Text, cbodesc.Text, txtunidad.Text, txtcantidad.Text, FormatNumber(txtprecio.Text, 2), FormatNumber(txttotal.Text, 2), txtexistencia.Text, barras)
+
+kaka:
+            ' 
             ' cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
             cbocodigo.Text = ""
             cbodesc.Text = ""
