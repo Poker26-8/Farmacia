@@ -1252,72 +1252,63 @@ Public Class frmRepInventario
             End Try
         End If
     End Sub
+    Public Sub ExportarDataGridViewAExcelxd(dgv As DataGridView)
+        If grdcaptura.Rows.Count = 0 Then MsgBox("Genera el reporte para poder exportar los datos a Excel.", vbInformation + vbOKOnly, titulocentral) : Exit Sub
+        If MsgBox("¿Deseas exportar la información a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+            Dim voy As Integer = 0
+            ' Crea un nuevo libro de trabajo de Excel
+            Using workbook As New XLWorkbook()
+
+                ' Añade una nueva hoja de trabajo
+                Dim worksheet As IXLWorksheet = workbook.Worksheets.Add("Datos")
+
+                ' Escribe los encabezados de columna
+                For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                    Dim headerCell As IXLCell = worksheet.Cell(1, colIndex + 1)
+                    worksheet.Cell(1, colIndex + 1).Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Value = dgv.Columns(colIndex).HeaderText
+                    headerCell.Style.Font.Bold = True  ' Aplica negrita a los encabezados
+                Next
+
+
+                For rowIndex As Integer = 0 To dgv.Rows.Count - 1
+                    For colIndex As Integer = 0 To dgv.Columns.Count - 1
+                        Dim cellValue As Object = dgv.Rows(rowIndex).Cells(colIndex).Value
+                        Dim cellValueString As String = If(cellValue Is Nothing, String.Empty, cellValue.ToString())
+                        worksheet.Cell(rowIndex + 2, colIndex + 1).Value = cellValueString
+                        Dim cell As IXLCell = worksheet.Cell(rowIndex + 2, colIndex + 1)
+                        cell.Value = cellValueString
+                        cell.Style.NumberFormat.Format = "@"
+                    Next
+                    voy = voy + 1
+                    My.Application.DoEvents()
+                Next
+
+                worksheet.Columns().AdjustToContents()
+                ' Usa MemoryStream para guardar el archivo en memoria y abrirlo
+                Using memoryStream As New System.IO.MemoryStream()
+                    ' Guarda el libro de trabajo en el MemoryStream
+                    workbook.SaveAs(memoryStream)
+
+                    ' Guarda el MemoryStream en un archivo temporal para abrirlo
+                    Dim tempFilePath As String = IO.Path.GetTempPath() & Guid.NewGuid().ToString() & ".xlsx"
+                    System.IO.File.WriteAllBytes(tempFilePath, memoryStream.ToArray())
+
+                    ' Abre el archivo temporal en Excel
+                    Process.Start(tempFilePath)
+                End Using
+
+                'workbook.SaveAs(filePath)
+            End Using
+            MessageBox.Show("Datos exportados exitosamente")
+
+        End If
+    End Sub
 
     Private Sub btnexcel_Click(sender As System.Object, e As System.EventArgs) Handles btnexcel.Click
         If grdcaptura.Rows.Count = 0 Then Exit Sub
-        If MsgBox("¿Deseas exportar esta información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocio Pro") = vbOK Then
-            Dim exApp As New Microsoft.Office.Interop.Excel.Application
-            Dim exBook As Microsoft.Office.Interop.Excel.Workbook
-            Dim exSheet As Microsoft.Office.Interop.Excel.Worksheet
-
-            Try
-                exBook = exApp.Workbooks.Add
-                exSheet = exBook.Application.ActiveSheet
-
-                exSheet.Columns("A").NumberFormat = "@"
-                exSheet.Columns("B").NumberFormat = "@"
-                If (optCaducos.Checked) Or (optCaducidad.Checked) Or (optCaducidades.Checked) Then
-                Else
-                    exSheet.Columns("F").NumberFormat = "$#,##0.00"
-                    exSheet.Columns("G").NumberFormat = "$#,##0.00"
-                    exSheet.Columns("H").NumberFormat = "$#,##0.00"
-                    exSheet.Columns("I").NumberFormat = "$#,##0.00"
-                End If
-
-                Dim Fila As Integer = 0
-                Dim Col As Integer = 0
-
-                Dim NCol As Integer = grdcaptura.ColumnCount
-                Dim NRow As Integer = grdcaptura.RowCount
-
-                For i As Integer = 1 To NCol
-                    exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
-                Next
-
-                For Fila = 0 To NRow - 1
-                    For Col = 0 To NCol - 1
-                        exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
-                    Next
-                Next
-
-                If (optCaducos.Checked) Or (optCaducidad.Checked) Or (optCaducidades.Checked) Then
-                Else
-                    Dim Fila2 As Integer = Fila + 2
-                    exSheet.Cells.Item(Fila2 + 2, Col - 1) = "Valor de Compra Total"
-                    exSheet.Cells.Item(Fila2 + 2, Col - 1).Font.Bold = 1
-                    exSheet.Cells.Item(Fila2 + 3, Col - 1) = "Valor de Venta Total"
-                    exSheet.Cells.Item(Fila2 + 3, Col - 1).Font.Bold = 1
-
-                    exSheet.Cells.Item(Fila2 + 2, Col) = FormatNumber(txtCompraTot.Text, 2)
-                    exSheet.Cells.Item(Fila2 + 3, Col) = FormatNumber(txtVentaTot.Text, 2)
-                End If
-
-                exSheet.Rows.Item(1).Font.Bold = 1
-                exSheet.Rows.Item(1).HorizontalAlignment = 3
-                exSheet.Columns.AutoFit()
-
-                exApp.Application.Visible = True
-                exSheet = Nothing
-                exBook = Nothing
-                exApp = Nothing
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-            End Try
-            barCarga.Value = 0
-            barCarga.Visible = False
-
-            MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-        End If
+        ExportarDataGridViewAExcelxd(grdcaptura)
     End Sub
 
     Private Sub btncatalogo_Click(sender As System.Object, e As System.EventArgs) Handles btncatalogo.Click
