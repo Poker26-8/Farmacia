@@ -1313,7 +1313,7 @@ Partial Class Inicio
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(318, 42)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Delsscom Farmacias Version 2.22"
+        Me.Label2.Text = "Delsscom Farmacias Version 2.23"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button3

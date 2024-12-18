@@ -9180,10 +9180,11 @@ Door:
                                     "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
                                 cmd1.ExecuteNonQuery()
                             Else
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
-                                cmd1.ExecuteNonQuery()
+                                Continue For
+                                'cmd1 = cnn1.CreateCommand
+                                'cmd1.CommandText =
+                                '    "update LoteCaducidad set Cantidad=0 where Id=" & idLote
+                                'cmd1.ExecuteNonQuery()
                             End If
                         Next
                     End If
