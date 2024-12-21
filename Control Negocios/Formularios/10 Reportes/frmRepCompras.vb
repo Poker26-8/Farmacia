@@ -173,7 +173,7 @@ Public Class frmRepCompras
             ComboBox1.Visible = False
             cms1.Enabled = False
             TXTTOTAL.Text = "0"
-            grdcaptura.ColumnCount = 10
+            grdcaptura.ColumnCount = 12
             With grdcaptura
                 With .Columns(0)
                     .HeaderText = "Factura"
@@ -248,6 +248,22 @@ Public Class frmRepCompras
                 End With
                 With .Columns(9)
                     .HeaderText = "Fecha"
+                    .Width = 100
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(10)
+                    .HeaderText = "Lote"
+                    .Width = 100
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(11)
+                    .HeaderText = "Caducidad"
                     .Width = 100
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -906,7 +922,7 @@ Public Class frmRepCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select NumFactura,NumRemision,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0"
+                "select NumFactura,NumRemision,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC,Caducidad,Lote from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -920,8 +936,10 @@ Public Class frmRepCompras
                     Dim MyPrec As Double = rd1("Precio").ToString
                     Dim MyTota As Double = MyCant * MyPrec
                     Dim MyFech As String = rd1("FechaC").ToString
+                    Dim caduca As String = rd1("Caducidad").ToString
+                    Dim lote As String = rd1("Lote").ToString
 
-                    grdcaptura.Rows.Add(MyRemi, MyFact, MyProv, MyCodi, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
+                    grdcaptura.Rows.Add(MyRemi, MyFact, MyProv, MyCodi, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate), lote, caduca)
                     barcarga.Value = barcarga.Value + 1
 
                     totpro = totpro + CDec(MyCant)

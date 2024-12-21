@@ -28,15 +28,16 @@ Public Class frmRepTraspasos
             cmd1 = cnn1.CreateCommand
 
             If cboDatos.Text = "SALIDA" Then
-                cmd1.CommandText = "Select Folio,FVenta,Comisionista from Traslados where Concepto='SALIDA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "Select Folio,FVenta,Comisionista,NUM_TRASLADO from Traslados where Concepto='SALIDA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
             Else
-                cmd1.CommandText = "Select Folio,FVenta,Comisionista from Traslados where Concepto='ENTRADA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "Select Folio,FVenta,Comisionista,NUM_TRASLADO from Traslados where Concepto='ENTRADA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 Dim idtraspaso As Integer = rd1("Folio").ToString
                 Dim fechatraspaso As Date = rd1("FVenta").ToString
                 Dim Comisionistaxd As String = rd1("Comisionista").ToString
+                Dim folioxd As String = rd1("NUM_TRASLADO").ToString
 
                 fechanueva = Format(fechatraspaso, "dd-MM-yyyy")
 
@@ -52,7 +53,7 @@ Public Class frmRepTraspasos
                     uventa = rd2("Unidad").ToString
                     precio = rd2("Precio").ToString
                     total = rd2("Total").ToString
-                    grdCaptura.Rows.Add(codigo, descripcion, cantidad & " " & uventa, precio, total, fechanueva, Comisionistaxd)
+                    grdCaptura.Rows.Add(codigo, descripcion, cantidad & " " & uventa, precio, total, fechanueva, Comisionistaxd, folioxd)
                     subtotal = subtotal + total
                 Loop
                 rd2.Close()

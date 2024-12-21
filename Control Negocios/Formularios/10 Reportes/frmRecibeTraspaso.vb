@@ -135,7 +135,8 @@ Public Class frmRecibeTraspaso
             If cbo.Text = "" Then
                 sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and CargadoE=0"
             Else
-                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
+                ' sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
+                sSQL = "SELECT distinct Comentario FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
             End If
             Dim dr As DataRow
             Dim dt1 As New DataTable
@@ -148,7 +149,7 @@ Public Class frmRecibeTraspaso
                 If .dbOpen(cnn, sTargetdSincro, sinfo) Then
                     If .getDt(cnn, dt1, sSQL, "etres") Then
                         For Each dr In dt1.Rows
-                            ComboBox1.Items.Add((dr("NumTraspasosS").ToString))
+                            ComboBox1.Items.Add((dr("Comentario").ToString))
                         Next
                     End If
                     cnn.Close()
@@ -199,6 +200,7 @@ Public Class frmRecibeTraspaso
         Try
             btnreporte.Enabled = False
             btnGuardar.Enabled = False
+            btnNuevo.Enabled = False
             Label5.Visible = True
             grdcaptura.Rows.Clear()
             My.Application.DoEvents()
@@ -212,7 +214,7 @@ Public Class frmRecibeTraspaso
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " and T.Origen=" & lblidorigen.Text & " and NumTraspasosS=" & ComboBox1.Text & ""
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " and T.Origen=" & lblidorigen.Text & " and NumTraspasosS=" & lblxd.Text & ""
         Dim ssqlinsertal As String = ""
         Dim ssql3 As String = ""
         Dim dt As New DataTable
@@ -290,6 +292,7 @@ Public Class frmRecibeTraspaso
             btnreporte.Enabled = True
             Label5.Visible = False
             btnGuardar.Enabled = True
+            btnNuevo.Enabled = True
             My.Application.DoEvents()
         End If
     End Sub
@@ -307,7 +310,10 @@ Public Class frmRecibeTraspaso
                 txtcontraseña.Focus.Equals(True)
                 Exit Sub
             End If
+            lblguarda.Visible = True
             btnGuardar.Enabled = False
+            btnreporte.Enabled = False
+            btnNuevo.Enabled = False
             My.Application.DoEvents()
             bajaTraspasosEntrada()
         Catch ex As Exception
@@ -319,7 +325,7 @@ Public Class frmRecibeTraspaso
 
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " And T.NumTraspasosS=" & ComboBox1.Text & " and T.Origen=" & lblidorigen.Text & ""
+        Dim sSQL As String = "Select T.*, S.nombre as XD from traspasos T, sucursales S  where S.id = T.Origen and T.CargadoE=0 and T.Destino = " & susursalr & " And T.NumTraspasosS=" & lblxd.Text & " and T.Origen=" & lblidorigen.Text & ""
 
         Dim ssqlinsertal As String = ""
         Dim ssql3 As String = ""
@@ -353,7 +359,7 @@ Public Class frmRecibeTraspaso
                         Else
                             ' INSERTA EL TRASPASO
                             ssqlinsertal = "INSERT INTO Traslados(Cargado,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,concepto,NUM_TRASLADO) " &
-                         " VALUES (1,'INGRESO','0','0','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechahora, "yyyy-MM-dd HH:mm:ss") & "','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechapago, "yyyy-MM-dd HH:mm:ss") & "','PAGADO','" & dr("XD").ToString & "','ENTRADA'," & dr("NumTraspasosE").ToString & ")"
+                         " VALUES (1,'INGRESO','0','0','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechahora, "yyyy-MM-dd HH:mm:ss") & "','" & Format(fechapago, "yyyy-MM-dd") & "','" & Format(fechapago, "yyyy-MM-dd HH:mm:ss") & "','PAGADO','" & dr("XD").ToString & "','ENTRADA'," & ComboBox1.Text & ")"
 
                             If odata.runSp(cnn, ssqlinsertal, sinfo) Then
                                 odata.getDr(cnn, dr2, "select max(Folio) as XD from Traslados", "drdos")
@@ -367,7 +373,10 @@ Public Class frmRecibeTraspaso
                         End If
                     Next
                     MsgBox("Traspaso Registrado Correctamente")
+                    lblguarda.Visible = False
                     btnGuardar.Enabled = True
+                    btnNuevo.Enabled = True
+                    btnreporte.Enabled = True
                     My.Application.DoEvents()
                     Dim TPrint As String = "TICKET"
                     Dim Impresora As String = ""
@@ -628,6 +637,12 @@ Public Class frmRecibeTraspaso
         Label5.Visible = False
         ComboBox1.Items.Clear()
         cbo.Items.Clear()
+
+        btnreporte.Enabled = True
+        btnNuevo.Enabled = True
+        btnGuardar.Enabled = True
+        lblxd.Text = ""
+        lblguarda.Visible = False
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -859,5 +874,35 @@ milky:
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
         pSalida80.Print()
+    End Sub
+
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        Try
+            Dim numsucc As Integer = 0
+            Dim cnn As MySqlConnection = New MySqlConnection
+            Dim sSQL As String = ""
+
+            sSQL = "SELECT NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0 and Comentario='" & ComboBox1.Text & "'"
+
+            Dim dr As DataRow
+            Dim dt1 As New DataTable
+
+            Dim dr2 As DataRow
+            Dim dt2 As New DataTable
+            Dim sinfo As String = ""
+            Dim oData As New ToolKitSQL.myssql
+            With oData
+                If .dbOpen(cnn, sTargetdSincro, sinfo) Then
+                    If .getDt(cnn, dt1, sSQL, "etres") Then
+                        For Each dr In dt1.Rows
+                            lblxd.Text = dr(0).ToString
+                        Next
+                    End If
+                    cnn.Close()
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 End Class

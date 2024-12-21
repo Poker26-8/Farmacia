@@ -40,15 +40,45 @@
             Dim M1 As Date = mcdesde.SelectionStart.ToShortDateString
             Dim M2 As Date = mchasta.SelectionStart.ToShortDateString
 
+            If (rbLotes.Checked) Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+
+                If cbofiltro.Text = "" Then
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario,Inicial FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Movimiento='Ajuste de lotes' order by Id"
+                Else
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario,Inicial FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' and Movimiento='Ajuste de lotes' order by Id"
+                End If
+
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        grdCaptura.Rows.Add(rd1("Codigo").ToString,
+                                            rd1("Nombre").ToString,
+                                            rd1("Movimiento").ToString,
+                                            rd1("Inicial").ToString,
+                                            rd1("Final").ToString,
+                                            rd1("Fecha").ToString,
+                                            rd1("Usuario").ToString
+)
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
+            End If
             If (rbexistencias.Checked) Then
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
 
                 If cbofiltro.Text = "" Then
-                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Movimiento<>'Ajuste de lotes' order by Id"
                 Else
-                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' order by Id"
+                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' and Movimiento<>'Ajuste de lotes' order by Id"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -232,6 +262,7 @@
         cbofiltro.Text = ""
         rbexistencias.Checked = True
         rbprecios.Checked = False
+        rbLotes.Checked = False
     End Sub
 
     Private Sub btnexportar_Click(sender As Object, e As EventArgs) Handles btnexportar.Click
@@ -296,5 +327,81 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
         End Try
 
+    End Sub
+
+    Private Sub rbLotes_CheckedChanged(sender As Object, e As EventArgs) Handles rbLotes.CheckedChanged
+        If (rbLotes.Checked) Then
+            cbofiltro.Text = ""
+            grdCaptura.Rows.Clear()
+            grdCaptura.ColumnCount = 0
+
+            grdCaptura.ColumnCount = 7
+            With grdCaptura
+                With .Columns(0)
+                    .HeaderText = "Codigo"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(1)
+                    .HeaderText = "Descripción"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
+                    .HeaderText = "Movimiento"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Cantidad Inicial"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(4)
+                    .HeaderText = "Cantidad Final"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(5)
+                    .HeaderText = "Fecha"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(6)
+                    .HeaderText = "Usuario"
+                    .Width = 80
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+
+            End With
+
+        End If
     End Sub
 End Class

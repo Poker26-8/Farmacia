@@ -873,6 +873,7 @@ kaka:
                 Dim mycant2 As Double = cantidad
                 Dim caduca As String = ""
                 Dim lote As String = ""
+                Dim mycantfinal As Double = cantidad
 
                 If DataGridView2.Rows.Count > 0 Then
                     For cuca As Integer = 0 To DataGridView2.Rows.Count - 1
@@ -953,7 +954,7 @@ kaka:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Traspaso de salida'," & MyExiste & "," & cantidad & "," & mynuevaexis & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblusuario.Text & "','" & lblfolio.Text & "','','','','','')"
+                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Traspaso de salida'," & MyExiste & "," & mycantfinal & "," & mynuevaexis & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblusuario.Text & "','" & lblfolio.Text & "','','','','','')"
                 cmd1.ExecuteNonQuery()
                 Continue For
 Nota:

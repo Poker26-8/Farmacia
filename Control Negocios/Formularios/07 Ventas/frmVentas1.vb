@@ -14665,6 +14665,9 @@ ecomoda:
         If e.Control AndAlso e.KeyCode = Keys.A Then
             btnventa.PerformClick()
         End If
+        'If e.KeyCode = Keys.F1 Then
+        '    btnventa.PerformClick()
+        'End If
     End Sub
 
     Private Sub pComanda80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda80.PrintPage
@@ -16113,6 +16116,10 @@ doorcita:
     End Sub
 
     Private Sub cboLote_KeyUp(sender As Object, e As KeyEventArgs) Handles cboLote.KeyUp
+
+    End Sub
+
+    Private Sub txtPagar_TextChanged(sender As Object, e As EventArgs) Handles txtPagar.TextChanged
 
     End Sub
 End Class

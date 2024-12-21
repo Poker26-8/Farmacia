@@ -219,6 +219,7 @@
                     cnn1.Close()
                 End Try
                 txtfisica.Focus().Equals(True)
+                txtfinal.Text = txtsistema.Text
             End If
         End If
     End Sub
@@ -408,6 +409,7 @@
         txtfisica.Text = ""
         txtdiferencia.Text = ""
         chkmerma.Checked = False
+        txtfinal.Text = "0"
         btnlimpia_lote.PerformClick()
     End Sub
 
@@ -510,22 +512,25 @@
                             AJUSTAINVENTARIO()
                             MessageAgreagarlotes()
 
-                            txtfisica.Text = ""
-                            txtdiferencia.Text = ""
-                            cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
+                            'txtfisica.Text = ""
+                            'txtdiferencia.Text = ""
+                            'cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
                             txtlote.Focus.Equals(True)
+                            txtfinal.Text = txtfisica.Text
                             My.Application.DoEvents()
                         End If
 
                     Else
-                            AJUSTAINVENTARIO()
+                        AJUSTAINVENTARIO()
                         MessageBoxTimer()
-                        txtfisica.Text = ""
-                        txtdiferencia.Text = ""
-                        cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
+                        'txtfisica.Text = ""
+                        'txtdiferencia.Text = ""
+                        'cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(ControlChars.Cr))
+                        txtfinal.Text = txtfisica.Text
                         Exit Sub
                     End If
                 Else
+                    txtfinal.Text = txtfisica.Text
                     AJUSTAINVENTARIO()
                     btnlimpia_lote.PerformClick()
                 End If
@@ -675,7 +680,7 @@
 
             txtid.Text = CDbl(txtid.Text) + CDbl(txtcantidad.Text)
             sumalotes = txtid.Text
-            existencias = txtsistema.Text
+            existencias = txtfinal.Text
             If sumalotes > existencias Then
                 MsgBox("La suma de los lotes es mayor a la existencia del producto,verifica la información", vbInformation + vbOKOnly, titulocentral)
                 txtid.Text = CDbl(txtid.Text) - CDbl(txtcantidad.Text)
@@ -749,13 +754,17 @@
         Return NUV
     End Function
     Private Sub btnguarda_lote_Click(sender As System.Object, e As System.EventArgs) Handles btnguarda_lote.Click
-
+        If lblusuario.Text = "" Then
+            MsgBox("Ingresa tu contraseña para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            txtcontraseña.Focus.Equals(True)
+            Exit Sub
+        End If
         Try
             Dim totallotes As Double = 0
             Dim existencia As Double = 0
             Dim cant_lotes As Double = 0
 
-            Dim existenciasistema As Double = txtsistema.Text
+            Dim existenciasistema As Double = txtfinal.Text
             cnn1.Close() : cnn1.Open()
             cnn2.Close() : cnn2.Open()
 
@@ -773,14 +782,14 @@
                 Exit Sub
             Else
 
-
+                Dim cantivoy As Double = 0
                 For deku As Integer = 0 To grdcaptura.Rows.Count - 1
 
 
                     Dim lote As String = grdcaptura.Rows(deku).Cells(1).Value.ToString
                     Dim caducidad As Date = grdcaptura.Rows(deku).Cells(2).Value.ToString
                     Dim cantidadl As Double = grdcaptura.Rows(deku).Cells(3).Value.ToString
-
+                    cantivoy = cantivoy + cantidadl
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "SELECT Lote FROM lotecaducidad WHERE Lote='" & lote & "'"
                     rd2 = cmd2.ExecuteReader
@@ -801,7 +810,29 @@
                     End If
                     rd2.Close()
                 Next
-                MsgBox("Datos de los lores registrados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                Dim MyPreci As Double = 0
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select PrecioVentaIVA from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        MyPreci = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+                    End If
+                End If
+                rd1.Close()
+                If txtdiferencia.Text = "" Then
+                    txtdiferencia.Text = "0"
+                Else
+                    txtdiferencia.Text = txtdiferencia.Text
+                End If
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & cbocodigo.Text & "','" & cbodesc.Text & "','Ajuste de lotes'," & CDbl(txtsistema.Text) & "," & CDbl(txtdiferencia.Text) & "," & cantivoy & "," & FormatNumber(MyPreci, 2) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','','','','','','')"
+                cmd1.ExecuteNonQuery()
+
+
+                MsgBox("Datos de los lotes registrados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 txtcantidad.Text = "0"
                 txtlote.Text = ""
                 grdcaptura.Rows.Clear()
