@@ -54,8 +54,20 @@
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
+                        Dim codxd As String = rd1("Codigo").ToString
+                        Dim barras As String = ""
+                        cnn2.Clone()
+                        cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select CodBarra from Productos where Codigo='" & codxd & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.Read Then
+                            barras = rd2(0).ToString
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
 
-                        grdCaptura.Rows.Add(rd1("Codigo").ToString,
+                        grdCaptura.Rows.Add(barras,
                                             rd1("Nombre").ToString,
                                             rd1("Movimiento").ToString,
                                             rd1("Inicial").ToString,
@@ -76,8 +88,8 @@
                 cmd1 = cnn1.CreateCommand
 
                 If cbofiltro.Text = "" Then
-                    cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Movimiento<>'Ajuste de lotes' order by Id"
-                Else
+                    cmd1.CommandText = "SELECT Codigo, Nombre, Movimiento, Final, Fecha, Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Movimiento<>'Ajuste de lotes' order by Id"
+                    Else
                     cmd1.CommandText = "SELECT Codigo,Nombre,Movimiento,Final,Fecha,Usuario FROM cardex WHERE Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Usuario='" & cbofiltro.Text & "' and Movimiento<>'Ajuste de lotes' order by Id"
                 End If
 
@@ -339,7 +351,7 @@
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Codigo"
-                    .Width = 80
+                    .Width = 135
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True

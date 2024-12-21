@@ -201,7 +201,7 @@ Public Class frmRepCompras
                 End With
                 With .Columns(3)
                     .HeaderText = "Código"
-                    .Width = 80
+                    .Width = 135
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
@@ -939,7 +939,19 @@ Public Class frmRepCompras
                     Dim caduca As String = rd1("Caducidad").ToString
                     Dim lote As String = rd1("Lote").ToString
 
-                    grdcaptura.Rows.Add(MyRemi, MyFact, MyProv, MyCodi, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate), lote, caduca)
+                    Dim barras As String = ""
+                    cnn2.Clone()
+                    cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "Select CodBarra from Productos where Codigo='" & MyCodi & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.Read Then
+                        barras = rd2(0).ToString
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+                    grdcaptura.Rows.Add(MyRemi, MyFact, MyProv, barras, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate), lote, caduca)
                     barcarga.Value = barcarga.Value + 1
 
                     totpro = totpro + CDec(MyCant)
