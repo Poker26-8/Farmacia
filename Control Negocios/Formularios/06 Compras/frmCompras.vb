@@ -6274,20 +6274,20 @@ quepasowey:
                 End If
                 My.Application.DoEvents()
                 Dim codCorto As String = ""
-                'cnn1.Close()
-                'cnn1.Open()
-                'cmd1 = cnn1.CreateCommand
-                'cmd1.CommandText = "Select Codigo from Productos where CodBarra='" & noIdentificacion & "'"
-                'rd1 = cmd1.ExecuteReader
-                'If rd1.Read Then
-                '    codCorto = rd1(0).ToString
-                '    rd1.Close()
-                'Else
-                '    MsgBox("El producto con codigo de barras " & noIdentificacion & " no esta registrado en la base de datos", vbInformation + vbOKOnly, "Delsscom Farmacias")
-                '    rd1.Close()
-                '    cnn1.Close()
-                '    Continue For
-                'End If
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select Codigo from Productos where CodBarra='" & noIdentificacion & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    codCorto = rd1(0).ToString
+                    rd1.Close()
+                Else
+                    MsgBox("El producto con codigo de barras " & noIdentificacion & " no esta registrado en la base de datos", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    rd1.Close()
+                    cnn1.Close()
+                    Continue For
+                End If
 
                 cnn1.Close()
 
@@ -6438,6 +6438,9 @@ quepasowey:
     End Sub
 
     Private Sub txtcantidadxd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidadxd.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtcantidadxd.Text = "" Or txtcantidadxd.Text = "0" Then
                 txtcantidadxd.Focus.Equals(True)
@@ -6477,10 +6480,19 @@ quepasowey:
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim soytotal As Double = 0
+        Dim voytotal As Double = 0
+        soytotal = txtcanttotal.Text
+
         Try
             For xxx As Integer = 0 To DataGridView3.Rows.Count - 1
                 DataGridView2.Rows.Add(DataGridView3.Rows(xxx).Cells(0).Value.ToString, DataGridView3.Rows(xxx).Cells(1).Value.ToString, DataGridView3.Rows(xxx).Cells(2).Value.ToString, DataGridView3.Rows(xxx).Cells(3).Value.ToString)
+                voytotal = CDec(voytotal) + CDec(DataGridView3.Rows(xxx).Cells(3).Value)
             Next
+            If soytotal > voytotal Then
+                MsgBox("La suma de los lotes no coincide con el total de la compra", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                Exit Sub
+            End If
             DataGridView3.Rows.Clear()
 
             gbLotes.Visible = False

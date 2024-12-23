@@ -9085,7 +9085,7 @@ Door:
 
                             Dim cant_lote As Double = GetCantLote(mycode, lote)
                             mycant = DataGridView2.Rows(xd).Cells(4).Value.ToString
-                            If cant_lote > mycant Then
+                            If cant_lote >= mycant Then
                                 Dim nueva_cant As Double = cant_lote - mycant
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
