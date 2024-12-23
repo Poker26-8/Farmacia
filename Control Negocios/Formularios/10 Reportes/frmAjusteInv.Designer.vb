@@ -426,6 +426,7 @@ Partial Class frmAjusteInv
         Me.txtfinal.Size = New System.Drawing.Size(56, 23)
         Me.txtfinal.TabIndex = 185
         Me.txtfinal.Text = "0"
+        Me.txtfinal.Visible = False
         '
         'frmAjusteInv
         '

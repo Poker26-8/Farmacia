@@ -6173,7 +6173,7 @@ quepasowey:
     End Sub
 
     Public Sub ImportarXML()
-
+        crea_ruta("C:\DelsscomFarmacias\Archivos de importación")
         ' Especifica la ruta del archivo XML
         Dim rutaArchivoXML As String = "C:\DelsscomFarmacias\Archivos de importación\Compras.xml"
         ' Crea una nueva instancia de XmlDocument
@@ -6273,6 +6273,7 @@ quepasowey:
     Private Sub txtlotexd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtlotexd.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtlotexd.Text = "" Then
+                MsgBox("Lote Obligatorio" & vbCrLf & "Ingresa el lote para continuar", vbCritical + vbOKOnly, "Delsscom Farmacias")
                 txtlotexd.Focus.Equals(True)
                 Exit Sub
             End If
@@ -6293,6 +6294,11 @@ quepasowey:
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtcantidadxd.Text = "" Or txtcantidadxd.Text = "0" Then
                 txtcantidadxd.Focus.Equals(True)
+                Exit Sub
+            End If
+            If txtlotexd.Text = "" Then
+                MsgBox("Ingresa el lote para continuar con la compra", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                txtlotexd.Focus.Equals(True)
                 Exit Sub
             End If
             Dim fechaaa As Date = dtpxd.Value

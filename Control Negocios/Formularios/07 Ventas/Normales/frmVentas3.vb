@@ -13368,7 +13368,7 @@ ecomoda:
     End Sub
     Private Sub btnantis_Click(sender As Object, e As EventArgs) Handles btnantis.Click
         If cbocedula.Text = "" Then MsgBox("Introduce los datos del médico para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbocedula.Focus().Equals(True) : Exit Sub
-        If txtreceta.Text = "" Then MsgBox("Introduce el número de la receta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtreceta.Focus().Equals(True) : Exit Sub
+        'If txtreceta.Text = "" Then MsgBox("Introduce el número de la receta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtreceta.Focus().Equals(True) : Exit Sub
 
         Try
             cnn1.Close() : cnn1.Open()
