@@ -17,6 +17,7 @@ Public Class frmCompras
 
     Dim tLogo As String = ""
     Dim simbolo As String = ""
+    Public rutaArchivoXML As String = ""
 
     Public Structure Pagos
         Shared pc_porpagar As Double = 0
@@ -2073,6 +2074,11 @@ kaka:
         End If
         If grdcaptura.Rows.Count = 0 Then
             DataGridView2.Rows.Clear()
+            txtsub1.Text = "0.00"
+            txtdesc1.Text = "0.00"
+            txtiva.Text = "0.00"
+            txtieps.Text = "0.00"
+            txtTotalC.Text = "0.00"
         End If
     End Sub
 
@@ -6169,9 +6175,150 @@ quepasowey:
     End Sub
 
     Private Sub btnimportarxml_Click(sender As Object, e As EventArgs) Handles btnimportarxml.Click
-        ImportarXML()
-    End Sub
+        ' Crear una instancia del cuadro de diálogo
+        txtdesc1.Text = "0"
+        Dim openFileDialog As New OpenFileDialog()
 
+        openFileDialog.Filter = "Archivos XML (*.xml)|*.xml"
+        openFileDialog.Title = "Seleccionar un archivo XML"
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            rutaArchivoXML = openFileDialog.FileName
+            cargaXML()
+        Else
+            MessageBox.Show("No se seleccionó ningún archivo.", "Aviso")
+        End If
+    End Sub
+    Public Sub hagoCuentas()
+        Dim PrecioU As Double = 0
+        Dim PrecioC As Double = 0
+        Dim ProductoIEPS As Double = 0
+        Dim Conteo As Double = 0
+        Dim CantidadP As Double = 0
+        Dim TotalP As Double = 0
+
+        Dim Pi As Double = 0
+        Dim Pil As Double = 0
+        Dim CP As Integer = 0
+
+        Dim varOperacion As Double = 0
+
+        For i As Integer = 0 To grdcaptura.Rows.Count - 1
+            varOperacion = varOperacion + CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString)
+            Conteo = Conteo + CDbl(grdcaptura.Rows(i).Cells(3).Value.ToString)
+        Next
+
+        txtsub1.Text = FormatNumber(varOperacion, 2)
+
+        'CantidadP = txtcantidad.Text
+        'PrecioU = txtprecio.Text
+        'TotalP = PrecioU * CantidadP
+        'PrecioC = txtprecio.Text
+        'Pi = ProdsIEPS(txtcodigo.Text)
+        'Pil = FormatNumber(PrecioU * Pi, 4)
+        'ProductoIEPS = CDbl(txtcantidad.Text) * Pil
+        My.Application.DoEvents()
+
+        'If cboremision.Text <> "" And cbofactura.Text = "" Then
+        '    txtieps.Text = "0.00"
+        'Else
+        '    txtieps.Text = FormatNumber(CDbl(txtieps.Text) + ProductoIEPS, 2)
+        'End If
+        txtprods.Text = Conteo
+
+        If txtlote.Text <> "" Then
+            cnn1.Close() : cnn1.Open() : cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "insert into AuxCompras(Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Caducidad,Lote,CP) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & cboproveedor.Text & "','" & txtcodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & CantidadP & "," & PrecioU & "," & TotalP & ",'" & Format(dtpcaducidad.Value, "yyyy-MM-dd") & "','" & txtlote.Text & "'," & CP & ")"
+            cmd1.ExecuteNonQuery() : cnn1.Close()
+        Else
+            cnn1.Close() : cnn1.Open() : cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "insert into AuxCompras(Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Caducidad,Lote,CP) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & cboproveedor.Text & "','" & txtcodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & CantidadP & "," & PrecioU & "," & TotalP & ",'',''," & CP & ")"
+            cmd1.ExecuteNonQuery() : cnn1.Close()
+        End If
+
+        pasa_pago = False
+    End Sub
+    Public Sub cargaXML()
+        Try
+
+
+            Dim doc As XDocument = XDocument.Load(rutaArchivoXML)
+            Dim ns As XNamespace = "http://www.sat.gob.mx/cfd/4"
+
+            Dim conceptos = doc.Descendants(ns + "Concepto")
+            For Each concepto In conceptos
+                Dim claveProdServ As String = concepto.Attribute("ClaveProdServ")?.Value
+                Dim noIdentificacion As String = concepto.Attribute("NoIdentificacion")?.Value
+                Dim cantidad As String = concepto.Attribute("Cantidad")?.Value
+                Dim claveUnidad As String = concepto.Attribute("ClaveUnidad")?.Value
+                Dim unidad As String = concepto.Attribute("Unidad")?.Value
+                Dim descripcion As String = concepto.Attribute("Descripcion")?.Value
+                Dim valorUnitario As String = concepto.Attribute("ValorUnitario")?.Value
+                Dim importe As String = concepto.Attribute("Importe")?.Value
+                Dim descuento As String = concepto.Attribute("Descuento")?.Value
+                Dim tipoimpuesto As String = ""
+                Dim totalImpuestos As Decimal = 0
+                Dim impuestos = concepto.Element(ns + "Impuestos")
+                If impuestos IsNot Nothing Then
+                    Dim traslados = impuestos.Element(ns + "Traslados")?.Elements(ns + "Traslado")
+                    If traslados IsNot Nothing Then
+                        For Each traslado In traslados
+                            tipoimpuesto = traslado.Attribute("Impuesto")?.Value
+                            Dim impuestoImporte As String = traslado.Attribute("Importe")?.Value
+                            If Not String.IsNullOrEmpty(impuestoImporte) Then
+                                totalImpuestos += CDec(impuestoImporte)
+                            End If
+                        Next
+                    End If
+                End If
+                My.Application.DoEvents()
+                Dim codCorto As String = ""
+                'cnn1.Close()
+                'cnn1.Open()
+                'cmd1 = cnn1.CreateCommand
+                'cmd1.CommandText = "Select Codigo from Productos where CodBarra='" & noIdentificacion & "'"
+                'rd1 = cmd1.ExecuteReader
+                'If rd1.Read Then
+                '    codCorto = rd1(0).ToString
+                '    rd1.Close()
+                'Else
+                '    MsgBox("El producto con codigo de barras " & noIdentificacion & " no esta registrado en la base de datos", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                '    rd1.Close()
+                '    cnn1.Close()
+                '    Continue For
+                'End If
+
+                cnn1.Close()
+
+                My.Application.DoEvents()
+
+                grdcaptura.Rows.Add(codCorto, descripcion, unidad, cantidad, valorUnitario, importe, "", "", "")
+                My.Application.DoEvents()
+                hagoCuentas()
+                My.Application.DoEvents()
+
+                If descuento <> "" Then
+                    txtdesc1.Text = CDec(txtdesc1.Text) + CDec(descuento)
+                End If
+                If tipoimpuesto = "002" Then
+                    txtiva.Text = CDec(txtiva.Text) + totalImpuestos
+                ElseIf tipoimpuesto = "003" Then
+                    txtieps.Text = CDec(txtieps.Text) + totalImpuestos
+                End If
+
+            Next
+            txtdesc1.Text = FormatNumber(txtdesc1.Text, 2)
+            My.Application.DoEvents()
+            txtiva.Text = FormatNumber(txtiva.Text, 2)
+            txtieps.Text = FormatNumber(txtieps.Text, 2)
+            My.Application.DoEvents()
+            txtTotalC.Text = CDec(txtTotalC.Text) + CDec(txtieps.Text)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
     Public Sub ImportarXML()
         crea_ruta("C:\DelsscomFarmacias\Archivos de importación")
         ' Especifica la ruta del archivo XML

@@ -4128,6 +4128,13 @@ kaka:
                             rd2.Close() : cnn2.Close()
                         End If
                         cnn2.Close()
+                    Else
+                        MsgBox("Producto no encontrado en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        cbodesc.Text = ""
+                        cbodesc.Focus.Equals(True)
+                        rd1.Close()
+                        cnn1.Close()
+                        Exit Sub
                     End If
                 End If
                 rd1.Close()

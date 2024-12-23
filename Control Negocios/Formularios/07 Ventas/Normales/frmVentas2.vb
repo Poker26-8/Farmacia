@@ -4122,10 +4122,18 @@ kaka:
                             rd2.Close() : cnn2.Close()
                         End If
                         cnn2.Close()
+                    Else
+                        MsgBox("Producto no encontrado en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        cbodesc.Text = ""
+                        cbodesc.Focus.Equals(True)
+                        rd1.Close()
+                        cnn1.Close()
+                        Exit Sub
                     End If
                 End If
                 rd1.Close()
                 cnn1.Close()
+                txtprecio.Focus.Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -16060,5 +16068,9 @@ doorcita:
             frmRepExistenciaSincronizador.Show()
             frmRepExistenciaSincronizador.BringToFront()
         End If
+    End Sub
+
+    Private Sub cbodesc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbodesc.SelectedIndexChanged
+
     End Sub
 End Class
