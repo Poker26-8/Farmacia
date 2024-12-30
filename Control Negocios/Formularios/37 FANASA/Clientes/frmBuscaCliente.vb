@@ -3,6 +3,7 @@ Imports System.Net.Http
 Imports System.Text
 Imports System.Threading.Tasks
 Imports Newtonsoft.Json
+Imports QRCoder.PayloadGenerator.SwissQrCode
 
 
 Public Class frmBuscaCliente
@@ -154,11 +155,8 @@ Public Class frmBuscaCliente
     Public Async Function ConsultaClienteID() As Task
         Try
 
-
             Dim origin As String = "fanasa"
             Dim idCRM As String = txtFolio.Text
-
-
 
             Dim url As String = $"https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/contacts?origin={origin}&idCRM={idCRM}"
 
@@ -184,7 +182,25 @@ Public Class frmBuscaCliente
                     Dim paterno As String = jsonResponse("contact")?(0)?("generalData")?("lastName1")?.ToString()
                     Dim materno As String = jsonResponse("contact")?(0)?("generalData")?("lastName2")?.ToString()
                     Dim nacimiento As String = jsonResponse("contact")?(0)?("generalData")?("birthDate")?.ToString()
-                    Dim cp As String = jsonResponse("contact")?(0)?("addressList")?("address")?(0)?("zipCode")?.ToString()
+                    Dim cp As String = ""
+                    Dim contact = jsonResponse("contact")
+                    If contact IsNot Nothing AndAlso contact.HasValues Then
+                        Dim addressList = contact(0)("addressList")
+                        If addressList IsNot Nothing AndAlso addressList.HasValues Then
+                            Dim address = addressList("address")
+                            If address IsNot Nothing AndAlso address.HasValues Then
+                                Dim zipCode = address(0)("zipCode")
+                                If zipCode IsNot Nothing Then
+                                    cp = zipCode.ToString()
+                                End If
+                            End If
+                        End If
+                    End If
+
+                    ' Si zipCode es nulo o vacío, asigna una cadena vacía
+                    If String.IsNullOrEmpty(cp) Then
+                        cp = ""
+                    End If
                     Dim email As String = jsonResponse("contact")?(0)?("emailList")?("email")?(0)?.ToString()
                     Dim telefono As String = jsonResponse("contact")?(0)?("phoneList")?("phone")?(0)?("phone")?.ToString()
                     My.Application.DoEvents()
@@ -282,6 +298,7 @@ Public Class frmBuscaCliente
         ElseIf vienede = "Ventas2" Then
 
         ElseIf vienede = "Ventas3" Then
+            frmVentas3.btnOrdenes.Visible = True
             frmVentas3.cboNombre.Text = grdcaptura.Rows(index).Cells(0).Value.ToString & " " & grdcaptura.Rows(index).Cells(1).Value.ToString & " "
             frmVentas3.lblidcmr.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
             frmVentas3.txttel.Text = grdcaptura.Rows(index).Cells(5).Value.ToString

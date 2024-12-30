@@ -18,7 +18,7 @@ Imports Newtonsoft.Json.Linq
 
 Public Class frmVentas3
     Private WithEvents editingControl As DataGridViewTextBoxEditingControl
-
+    Public jsonVentaVacia As String = ""
 
     Public vienedexd As Integer = 0
     ''' variablesm para terminal bancaria
@@ -16089,6 +16089,8 @@ doorcita:
                     lblcardaunt.Text = cardAuthNum
                     lblcardaunt.BackColor = Color.LightGreen
                     lblsesion.Visible = True
+                Else
+                    MsgBox(message)
                 End If
                 My.Application.DoEvents()
             Else
@@ -16145,10 +16147,10 @@ doorcita:
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-
+            MsgBox(jsonData)
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
-                'MsgBox("Respuesta de la API: " & responseData)
+                MsgBox("Respuesta de la API: " & responseData)
 
                 Dim message As String
                 Dim giftAuthNum As String
@@ -16206,7 +16208,16 @@ doorcita:
                 Dim textoDespuesDelBarra As String = ""
                 Dim jobjectxd As JObject = JObject.Parse(responseData)
 
-                If soyNulo = 1 And productErrorValue <> "" Then
+                If soyNulo = 1 Then
+                    My.Application.DoEvents()
+                    lblgift.Text = giftAuthNum
+                    lblgift.BackColor = Color.LightGreen
+                    btncancelatrans.Visible = True
+                    My.Application.DoEvents()
+                    'AplicarVentaVacia()
+                    My.Application.DoEvents()
+
+
                     '''''' aqui se manda la venta vacia
                 End If
 
@@ -16284,6 +16295,86 @@ doorcita:
                 End If
                 My.Application.DoEvents()
 
+            Else
+                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+            End If
+        End Using
+    End Function
+    Public Async Function AplicarVentaVacia() As Task
+        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+        Dim usuario As String = "userTest"
+        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+        Dim userxd As String = ""
+        userxd = Replace(cboNombre.Text, " ", ".")
+
+        Using client As New HttpClient()
+
+            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+
+            ' Crear el contenido JSON con los datos proporcionados
+            Dim items As New List(Of String)
+
+            ' Recorrer las filas del DataGridView y construir los items
+            For Each row As DataGridViewRow In grdcaptura.Rows
+                If Not row.IsNewRow Then
+                    Dim sku As String = row.Cells(15).Value.ToString()
+                    Dim quantity As Integer = Convert.ToInt32(row.Cells(3).Value)
+                    Dim originQuantity As Integer = Convert.ToInt32(row.Cells(3).Value)
+                    Dim unitPrice As Decimal = Convert.ToDecimal(row.Cells(4).Value)
+
+                    items.Add($"{{""sku"": ""{sku}"", ""quantity"": {quantity}, ""originQuantity"": {originQuantity}, ""unitPrice"": {unitPrice}}}")
+                End If
+            Next
+
+            Dim jsonItems As String = String.Join(",", items)
+
+            Dim jsonData As String = "{
+        ""transaction"": """ & lblfolio.Text & """,
+        ""programData"": {
+            ""id"": ""529"",
+            ""type"": ""Laboratorios exclusivos""
+        },
+        ""user"": """ & userxd & """,
+        ""cardAuthNum"": """ & lblcardaunt.Text & """,
+        ""giftAuthNum"": """ & lblgift.Text & """,
+        ""itemList"": {
+            ""item"": [" & jsonItems & "]
+        },
+        ""giftList"": null
+    }"
+
+            MsgBox(jsonData)
+
+            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+
+            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+
+            If response.IsSuccessStatusCode Then
+                Dim responseData As String = Await response.Content.ReadAsStringAsync()
+                MsgBox("Respuesta de la API: " & responseData)
+
+                Dim message As String
+                Dim startPos As Integer
+                Dim endPos As Integer
+                Dim numventa As String
+
+                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+                endPos = InStr(startPos, responseData, """")
+                message = Mid(responseData, startPos, endPos - startPos)
+
+                startPos = InStr(responseData, """saleNumber"" : """) + Len("""saleNumber"" : """)
+                endPos = InStr(startPos, responseData, """")
+                numventa = Mid(responseData, startPos, endPos - startPos)
+
+                If message = "Success" Then
+                    MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    My.Application.DoEvents()
+                    lblgift.Text = ""
+                    lblgift.BackColor = Color.White
+                    btncancelatrans.Visible = False
+                    btniniciar.PerformClick()
+                End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
             End If
@@ -16421,87 +16512,90 @@ doorcita:
     End Function
 
     Private Sub Label34_Click(sender As Object, e As EventArgs) Handles Label34.Click
-        'frmVentas1_Descuentos.Show()
-        'frmVentas1_Descuentos.BringToFront()
-
-        'AplicarVentaVacia()
+        AplicarVentaVacia()
     End Sub
-    Public Async Function AplicarVentaVacia() As Task
-        Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
-        Dim usuario As String = "userTest"
-        Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+    'Public Async Function AplicarVentaVacia() As Task
+    '    Dim url As String = "https://tsoagobiernogrfe-pub-oci.opc.oracleoutsourcing.com/Farmacos/Programs/LoyaltyFanFanasa/v2/sales"
+    '    Dim usuario As String = "userTest"
+    '    Dim contraseña As String = "Vwq5MYEUtesVwYtK"
+    '    Dim userxd As String = ""
+    '    userxd = Replace(cboNombre.Text, " ", ".")
 
-        Using client As New HttpClient()
+    '    Using client As New HttpClient()
 
-            Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
-            client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
+    '        Dim credenciales As String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{usuario}:{contraseña}"))
+    '        client.DefaultRequestHeaders.Authorization = New Headers.AuthenticationHeaderValue("Basic", credenciales)
 
-            ' Crear el contenido JSON con los datos proporcionados
+    '        ' Crear el contenido JSON con los datos proporcionados
 
-            Dim jsonData As String = "{
-            ""transaction"": """ & lblfolio.Text & """,
-            ""programData"": {
-                ""id"": ""529"",
-                ""type"": ""Laboratorios exclusivos""
-            },
-            ""user"": ""alecks.garcia"",
-            ""cardAuthNum"": """ & lblcardaunt.Text & """,
-            ""giftAuthNum"": """ & lblgift.Text & """,
-            ""itemList"": {
-                ""item"": [
-                    {
-                        ""sku"": ""7501125189111"",
-                        ""quantity"": 3,
-                        ""originQuantity"": 3,
-                        ""unitPrice"": 1000
-                    }
-                ]
-            },
-            ""giftList"": null
-        }"
+    '        Dim jsonData As String = "{
+    '        ""transaction"": """ & lblfolio.Text & """,
+    '        ""programData"": {
+    '            ""id"": ""529"",
+    '            ""type"": ""Laboratorios exclusivos""
+    '        },
+    '        ""user"": """ & userxd & """,
+    '        ""cardAuthNum"": """ & lblcardaunt.Text & """,
+    '        ""giftAuthNum"": """ & lblgift.Text & """,
+    '        ""itemList"": {
+    '            ""item"": [
+    '                {
+    '                    ""sku"": ""7501125189111"",
+    '                    ""quantity"": 3,
+    '                    ""originQuantity"": 3,
+    '                    ""unitPrice"": 1000
+    '                }
+    '            ]
+    '        },
+    '        ""giftList"": null
+    '    }"
 
-            MsgBox(jsonData)
+    '        MsgBox(jsonData)
 
-            Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
-
-
-            Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
+    '        Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
 
 
-            If response.IsSuccessStatusCode Then
-                Dim responseData As String = Await response.Content.ReadAsStringAsync()
-                MsgBox("Respuesta de la API: " & responseData)
+    '        Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-                Dim message As String
-                Dim startPos As Integer
-                Dim endPos As Integer
-                Dim numventa As String
 
-                startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
-                endPos = InStr(startPos, responseData, """")
-                message = Mid(responseData, startPos, endPos - startPos)
+    '        If response.IsSuccessStatusCode Then
+    '            Dim responseData As String = Await response.Content.ReadAsStringAsync()
+    '            MsgBox("Respuesta de la API: " & responseData)
 
-                startPos = InStr(responseData, """saleNumber"" : """) + Len("""saleNumber"" : """)
-                endPos = InStr(startPos, responseData, """")
-                numventa = Mid(responseData, startPos, endPos - startPos)
+    '            Dim message As String
+    '            Dim startPos As Integer
+    '            Dim endPos As Integer
+    '            Dim numventa As String
 
-                If message = "Success" Then
-                    MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
-                    My.Application.DoEvents()
-                    lblgift.Text = ""
-                    lblgift.BackColor = Color.White
-                    btncancelatrans.Visible = False
-                    btniniciar.PerformClick()
-                End If
-            Else
-                MsgBox("Error al consumir la API: " & response.ReasonPhrase)
-            End If
-        End Using
-    End Function
+    '            startPos = InStr(responseData, """message"" : """) + Len("""message"" : """)
+    '            endPos = InStr(startPos, responseData, """")
+    '            message = Mid(responseData, startPos, endPos - startPos)
+
+    '            startPos = InStr(responseData, """saleNumber"" : """) + Len("""saleNumber"" : """)
+    '            endPos = InStr(startPos, responseData, """")
+    '            numventa = Mid(responseData, startPos, endPos - startPos)
+
+    '            If message = "Success" Then
+    '                MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+    '                My.Application.DoEvents()
+    '                lblgift.Text = ""
+    '                lblgift.BackColor = Color.White
+    '                btncancelatrans.Visible = False
+    '                btniniciar.PerformClick()
+    '            End If
+    '        Else
+    '            MsgBox("Error al consumir la API: " & response.ReasonPhrase)
+    '        End If
+    '    End Using
+    'End Function
 
     Private Sub frmVentas3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If lblgift.Text <> "" Then
             btncancelatrans.PerformClick()
         End If
+    End Sub
+
+    Private Sub lblcardaunt_Click(sender As Object, e As EventArgs) Handles lblcardaunt.Click
+
     End Sub
 End Class

@@ -171,6 +171,7 @@ Partial Class frmNuevoCliente
         '
         'cboSex
         '
+        Me.cboSex.BackColor = System.Drawing.Color.IndianRed
         Me.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboSex.FormattingEnabled = True

@@ -185,7 +185,7 @@ Public Class frmNuevoCliente
                 ]
             }
         }"
-
+                MsgBox(jsonData)
                 ' Crear el contenido para el PUT con JSON
                 Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
 
