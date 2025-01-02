@@ -10623,10 +10623,11 @@ ecomoda:
                     cnn3.Close()
                     cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "Select Detalle from BeneficiosFanasa where Codigo='" & barras & "' and Transaccion='" & lblFolioFanasa.Text & "'"
+                    cmd3.CommandText = "Select Detalle,Cantidad from BeneficiosFanasa where Codigo='" & barras & "' and Transaccion='" & lblFolioFanasa.Text & "'"
                     rd3 = cmd3.ExecuteReader
                     Do While rd3.Read
-                        e.Graphics.DrawString(rd3(0).ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(rd3(0).ToString & " a " & rd3(1).ToString & " " & unidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 15
                     Loop
                     rd3.Close()
                     cnn3.Close()
@@ -16214,10 +16215,8 @@ doorcita:
                     lblgift.BackColor = Color.LightGreen
                     btncancelatrans.Visible = True
                     My.Application.DoEvents()
-                    'AplicarVentaVacia()
+                    AplicarVentaVacia()
                     My.Application.DoEvents()
-
-
                     '''''' aqui se manda la venta vacia
                 End If
 
@@ -16266,8 +16265,6 @@ doorcita:
                                 Dim rowIndex As Integer = frmConsultaBeneficios.grdcaptura.Rows.Add(idCombo, giftType, discount, selection, giftSku, maxGiftPieces, "", minGiftPieces, True)
                                 frmConsultaBeneficios.grdcaptura.Rows(rowIndex).Cells(8).ReadOnly = True
                             End If
-
-
                         Next
                         My.Application.DoEvents()
                         frmConsultaBeneficios.grdcaptura.Columns(0).ReadOnly = True
@@ -16368,7 +16365,7 @@ doorcita:
                 numventa = Mid(responseData, startPos, endPos - startPos)
 
                 If message = "Success" Then
-                    MsgBox("Beneficio FANASA Aplicado Correctamente", vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    MsgBox("Sin Beneficios Obtenidos", vbInformation + vbOKOnly, "Delsscom Farmacias")
                     My.Application.DoEvents()
                     lblgift.Text = ""
                     lblgift.BackColor = Color.White

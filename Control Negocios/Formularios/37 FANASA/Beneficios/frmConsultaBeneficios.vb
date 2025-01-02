@@ -151,6 +151,9 @@ Public Class frmConsultaBeneficios
                 MsgBox("Selecciona un producto de los beneficios Obtenidos para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
                 Exit Sub
             Else
+                If MsgBox("¿Deseas aplicar los beneficios obtenidos por parte de FANASA?", vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+                    Exit Sub
+                End If
                 AplicarVenta8()
             End If
         Catch ex As Exception
@@ -244,7 +247,7 @@ Public Class frmConsultaBeneficios
 
             ' Serializar el JSON a una cadena
             Dim jsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented)
-            'MessageBox.Show(jsonString)
+            MessageBox.Show(jsonString)
             Dim content As New StringContent(jsonString, Encoding.UTF8, "application/json")
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
@@ -280,6 +283,7 @@ Public Class frmConsultaBeneficios
                         Dim productoApplica As String = ""
                         Dim monto As Double = 0
                         Dim montocondescuento As Double = 0
+                        Dim totalpieces As Double = 0
                         For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
                             Dim isChecked As Boolean = Convert.ToBoolean(grdcaptura.Rows(xxx).Cells(8).Value)
                             If isChecked Then
@@ -289,6 +293,7 @@ Public Class frmConsultaBeneficios
                             tipodescuento = grdcaptura.Rows(xxx).Cells(1).Value.ToString
                             productoApplica = grdcaptura.Rows(xxx).Cells(4).Value.ToString
                             monto = grdcaptura.Rows(xxx).Cells(2).Value.ToString
+                            totalpieces = grdcaptura.Rows(xxx).Cells(7).Value.ToString
                             If tipodescuento = "RestaPrecio" Then
                                 For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
                                     If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
@@ -299,7 +304,7 @@ Public Class frmConsultaBeneficios
                                             cnn1.Close()
                                             cnn1.Open()
                                             cmd1 = cnn1.CreateCommand
-                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePesos & "','" & productoApplica & "')"
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo,Cantidad) values('" & numventa & "','" & detallePesos & "','" & productoApplica & "'," & totalpieces & ")"
                                             If cmd1.ExecuteNonQuery Then
 
                                             End If
@@ -308,13 +313,14 @@ Public Class frmConsultaBeneficios
 
                                         End Try
                                         My.Application.DoEvents()
-                                        Exit For
+                                        'Exit For
                                     End If
                                 Next
                             ElseIf tipodescuento = "Porcentaje" Then
                                 For xxxx As Integer = 0 To frmVentas3.grdcaptura.Rows.Count - 1
                                     If frmVentas3.grdcaptura.Rows(xxxx).Cells(15).Value.ToString = productoApplica Then
                                         montocondescuento = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(4).Value) / CDec(100) * CDec(monto)
+                                        montocondescuento = CDec(montocondescuento * totalpieces)
                                         frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value = CDec(frmVentas3.grdcaptura.Rows(xxxx).Cells(5).Value) - CDec(montocondescuento)
                                         leyendafanasa = "*** Se obtuvo un beneficio por parte de fanasa ***"
                                         detallePorcentaje = "Se aplico un descuento de: " & monto & " %"
@@ -322,7 +328,7 @@ Public Class frmConsultaBeneficios
                                             cnn1.Close()
                                             cnn1.Open()
                                             cmd1 = cnn1.CreateCommand
-                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePorcentaje & "','" & productoApplica & "')"
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo,Cantidad) values('" & numventa & "','" & detallePorcentaje & "','" & productoApplica & "'," & totalpieces & ")"
                                             If cmd1.ExecuteNonQuery Then
 
                                             End If
@@ -331,7 +337,7 @@ Public Class frmConsultaBeneficios
 
                                         End Try
                                         My.Application.DoEvents()
-                                        Exit For
+
                                     End If
                                 Next
                             ElseIf tipodescuento = "Pieza" Then
@@ -343,7 +349,7 @@ Public Class frmConsultaBeneficios
                                     cnn1.Close()
                                     cnn1.Open()
                                     cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePieza & "','" & productoApplica & "')"
+                                    cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo,Cantidad) values('" & numventa & "','" & detallePieza & "','" & productoApplica & "'," & totalpieces & ")"
                                     If cmd1.ExecuteNonQuery Then
 
                                     End If
@@ -364,7 +370,7 @@ Public Class frmConsultaBeneficios
                                             cnn1.Close()
                                             cnn1.Open()
                                             cmd1 = cnn1.CreateCommand
-                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo) values('" & numventa & "','" & detallePrecioFijo & "','" & productoApplica & "')"
+                                            cmd1.CommandText = "Insert into BeneficiosFanasa(Transaccion,Detalle,Codigo,Cantidad) values('" & numventa & "','" & detallePrecioFijo & "','" & productoApplica & "', " & totalpieces & ")"
                                             If cmd1.ExecuteNonQuery Then
 
                                             End If
@@ -373,7 +379,7 @@ Public Class frmConsultaBeneficios
 
                                         End Try
                                         My.Application.DoEvents()
-                                        Exit For
+                                        'Exit For
                                     End If
                                 Next
                             End If
@@ -403,6 +409,9 @@ Public Class frmConsultaBeneficios
                         My.Application.DoEvents()
                         Me.Close()
                     End If
+                Else
+                    MsgBox(message)
+
                 End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)

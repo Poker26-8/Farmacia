@@ -527,6 +527,7 @@ Partial Class frmNuevoCliente
         Me.lblEstatus.Size = New System.Drawing.Size(300, 25)
         Me.lblEstatus.TabIndex = 308
         Me.lblEstatus.Text = "GUARDANDO REGISTRO..."
+        Me.lblEstatus.Visible = False
         '
         'frmNuevoCliente
         '

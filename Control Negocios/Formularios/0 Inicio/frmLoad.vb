@@ -311,10 +311,6 @@ Public Class frmLoad
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
-
-
-
-
         ProgressBar1.Value = ProgressBar1.Value + 1
         My.Application.DoEvents()
 
@@ -378,6 +374,7 @@ Public Class frmLoad
         Try
             cnn1.Close()
             cnn1.Open()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = VartablaCorteUsuarioFar
             cmd1.ExecuteNonQuery()
@@ -398,6 +395,7 @@ Public Class frmLoad
         Try
             cnn1.Close()
             cnn1.Open()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = VartablaBeneficiosFanasa
             cmd1.ExecuteNonQuery()

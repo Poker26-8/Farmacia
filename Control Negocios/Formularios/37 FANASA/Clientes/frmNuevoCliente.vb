@@ -199,6 +199,7 @@ Public Class frmNuevoCliente
                     Dim jsonObject As Object = Newtonsoft.Json.JsonConvert.DeserializeObject(responseData)
                     Dim detail As String = jsonObject("detail").ToString()
                     txtTarjeta.Text = detail
+                    lblEstatus.Visible = False
                     frmBuscaCliente.txtFolio.Text = detail
                     My.Application.DoEvents()
                 Else
@@ -339,5 +340,9 @@ Public Class frmNuevoCliente
         If AscW(e.KeyChar) = Keys.Enter Then
             Button2.Focus.Equals(True)
         End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
     End Sub
 End Class
