@@ -269,7 +269,6 @@ Public Class frmConsultaBeneficios
                 numventa = Mid(responseData, startPos, endPos - startPos)
 
                 If message = "Success" Then
-
                     If vienede = "Ventas1" Then
                     ElseIf vienede = "Ventas2" Then
                     ElseIf vienede = "Ventas3" Then
@@ -411,7 +410,6 @@ Public Class frmConsultaBeneficios
                     End If
                 Else
                     MsgBox(message)
-
                 End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)

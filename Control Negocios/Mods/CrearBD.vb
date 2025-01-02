@@ -4,7 +4,8 @@
                                                           `Id` int(11) NOT NULL,
                                                           `Transaccion` varchar(255) NOT NULL DEFAULT '',
                                                           `Detalle` varchar(255) NOT NULL DEFAULT '',
-                                                          `Codigo` varchar(255) NOT NULL DEFAULT ''
+                                                          `Codigo` varchar(255) NOT NULL DEFAULT '',
+                                                          `Cantidad` double NOT NULL DEFAULT '0'
                                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
                                                         "
     'CORTEFARMACIA
