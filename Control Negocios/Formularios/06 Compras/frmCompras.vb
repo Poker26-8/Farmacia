@@ -1603,6 +1603,13 @@ kaka:
         Dim Pil As Double = 0
 
         If Trim(txtlote.Text) <> "" Then
+            For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                If txtcodigo.Text = grdcaptura.Rows(xxx).Cells(0).Value.ToString Then
+                    grdcaptura.Rows(xxx).Cells(3).Value = grdcaptura.Rows(xxx).Cells(3).Value + CDec(txtcantidad.Text)
+                    grdcaptura.Rows(xxx).Cells(5).Value = grdcaptura.Rows(xxx).Cells(5).Value + CDec(txttotal.Text)
+                    GoTo kaka
+                End If
+            Next
             grdcaptura.Rows.Add(
                 txtcodigo.Text,
                 cbonombre.Text,
@@ -1616,6 +1623,13 @@ kaka:
                 CP
                 )
         Else
+            For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                If txtcodigo.Text = grdcaptura.Rows(xxx).Cells(0).Value.ToString Then
+                    grdcaptura.Rows(xxx).Cells(3).Value = grdcaptura.Rows(xxx).Cells(3).Value + CDec(txtcantidad.Text)
+                    grdcaptura.Rows(xxx).Cells(5).Value = grdcaptura.Rows(xxx).Cells(5).Value + CDec(txttotal.Text)
+                    GoTo kaka
+                End If
+            Next
             grdcaptura.Rows.Add(
                 txtcodigo.Text,
                 cbonombre.Text,
@@ -1629,7 +1643,7 @@ kaka:
                 CP
                 )
         End If
-
+kaka:
         Dim varOperacion As Double = 0
 
         For i As Integer = 0 To grdcaptura.Rows.Count - 1

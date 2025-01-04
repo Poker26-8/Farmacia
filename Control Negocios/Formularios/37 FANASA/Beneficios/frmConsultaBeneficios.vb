@@ -247,7 +247,7 @@ Public Class frmConsultaBeneficios
 
             ' Serializar el JSON a una cadena
             Dim jsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented)
-            MessageBox.Show(jsonString)
+            'MessageBox.Show(jsonString)
             Dim content As New StringContent(jsonString, Encoding.UTF8, "application/json")
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
@@ -309,7 +309,7 @@ Public Class frmConsultaBeneficios
                                             End If
                                             cnn1.Close()
                                         Catch ex As Exception
-
+                                            MessageBox.Show(ex.ToString)
                                         End Try
                                         My.Application.DoEvents()
                                         'Exit For
@@ -333,7 +333,7 @@ Public Class frmConsultaBeneficios
                                             End If
                                             cnn1.Close()
                                         Catch ex As Exception
-
+                                            MessageBox.Show(ex.ToString)
                                         End Try
                                         My.Application.DoEvents()
 
@@ -354,7 +354,7 @@ Public Class frmConsultaBeneficios
                                     End If
                                     cnn1.Close()
                                 Catch ex As Exception
-
+                                    MessageBox.Show(ex.ToString)
                                 End Try
                                 My.Application.DoEvents()
                                 Call frmVentas3.cbodesc_KeyPress(frmVentas3.cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
@@ -375,7 +375,7 @@ Public Class frmConsultaBeneficios
                                             End If
                                             cnn1.Close()
                                         Catch ex As Exception
-
+                                            MessageBox.Show(ex.ToString)
                                         End Try
                                         My.Application.DoEvents()
                                         'Exit For
@@ -418,6 +418,9 @@ Public Class frmConsultaBeneficios
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If MsgBox("¿Deseas rechazar los beneficios obtenidos?", vbQuestion + vbOKCancel, "Delsscom Farmacias") = vbCancel Then
+            Exit Sub
+        End If
         RechazarBeneficios10()
     End Sub
 
@@ -508,6 +511,7 @@ Public Class frmConsultaBeneficios
                     Me.Close()
 
                 Else
+                    MsgBox(message)
                 End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)

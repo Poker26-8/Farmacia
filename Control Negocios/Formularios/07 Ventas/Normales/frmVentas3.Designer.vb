@@ -832,6 +832,7 @@ Partial Class frmVentas3
         Me.Button11.Text = "Busca Cliente FANASA"
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button11.UseVisualStyleBackColor = False
+        Me.Button11.Visible = False
         '
         'Button8
         '

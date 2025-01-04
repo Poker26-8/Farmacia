@@ -812,8 +812,8 @@ Public Class Inicio
         '    frmVentas1.Show()
         '    frmVentas1.BringToFront()
         'End If
-        frmVentas3.Show()
-        frmVentas3.BringToFront()
+        frmVentas1.Show()
+        frmVentas1.BringToFront()
     End Sub
 
     Private Sub RegistroDeEmpleadoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pHorariosEmp.Click

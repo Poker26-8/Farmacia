@@ -10626,7 +10626,7 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
-                Dim barras As Double = grdcaptura.Rows(miku).Cells(15).Value.ToString()
+                Dim barras As String = grdcaptura.Rows(miku).Cells(15).Value.ToString()
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
@@ -16033,6 +16033,10 @@ doorcita:
         Next
         If voyconteo > ventatotal Then
             MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+            Exit Sub
+        End If
+        If voyconteo < ventatotal Then
+            MsgBox("La suma de las cantidades es menor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
             Exit Sub
         End If
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1

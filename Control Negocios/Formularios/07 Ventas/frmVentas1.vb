@@ -16087,6 +16087,10 @@ doorcita:
             MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
             Exit Sub
         End If
+        If voyconteo < ventatotal Then
+            MsgBox("La suma de las cantidades es menor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+            Exit Sub
+        End If
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
                 If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then

@@ -6325,6 +6325,8 @@ kaka:
         vienedexd = 0
 
         '''''''''
+
+        vienede = ""
         soygratis = 0
         lblFolioFanasa.Text = ""
         leyendafanasa = ""
@@ -9091,7 +9093,7 @@ Door:
                                 cmd1.CommandText =
                                     "update LoteCaducidad set Cantidad=" & nueva_cant & " where Id=" & idLote
                                 cmd1.ExecuteNonQuery()
-                                Exit For
+
                             Else
                                 Continue For
                                 'cmd1 = cnn1.CreateCommand
@@ -10586,7 +10588,7 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
-                Dim barras As Double = grdcaptura.Rows(miku).Cells(15).Value.ToString()
+                Dim barras As String = grdcaptura.Rows(miku).Cells(15).Value.ToString()
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
@@ -15985,6 +15987,10 @@ doorcita:
             MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
             Exit Sub
         End If
+        If voyconteo < ventatotal Then
+            MsgBox("La suma de las cantidades es menor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+            Exit Sub
+        End If
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
                 If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then
@@ -16148,7 +16154,7 @@ doorcita:
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
             Dim response As HttpResponseMessage = Await client.PostAsync(url, content)
 
-            MsgBox(jsonData)
+            'MsgBox(jsonData)
             If response.IsSuccessStatusCode Then
                 Dim responseData As String = Await response.Content.ReadAsStringAsync()
                 MsgBox("Respuesta de la API: " & responseData)
@@ -16341,7 +16347,7 @@ doorcita:
         ""giftList"": null
     }"
 
-            MsgBox(jsonData)
+            'MsgBox(jsonData)
 
             Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
 
@@ -16371,6 +16377,8 @@ doorcita:
                     lblgift.BackColor = Color.White
                     btncancelatrans.Visible = False
                     btniniciar.PerformClick()
+                Else
+                    MsgBox(message)
                 End If
             Else
                 MsgBox("Error al consumir la API: " & response.ReasonPhrase)
@@ -16593,6 +16601,10 @@ doorcita:
     End Sub
 
     Private Sub lblcardaunt_Click(sender As Object, e As EventArgs) Handles lblcardaunt.Click
+
+    End Sub
+
+    Private Sub lblFolioFanasa_Click(sender As Object, e As EventArgs) Handles lblFolioFanasa.Click
 
     End Sub
 End Class
