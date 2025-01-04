@@ -4837,6 +4837,21 @@ kaka:
             Loop
             rd7.Close()
             cnn7.Close()
+
+            For deku As Integer = 0 To DataGridView2.Rows.Count - 1
+                If DataGridView2.Rows(deku).Cells(0).Value.ToString = cbocodigo.Text Then
+                    Dim lote As String = DataGridView2.Rows(deku).Cells(2).Value.ToString
+                    Dim cant As Double = DataGridView2.Rows(deku).Cells(4).Value.ToString
+
+                    For bachira As Integer = 0 To DataGridView1.Rows.Count - 1
+                        If lote = DataGridView1.Rows(bachira).Cells(2).Value.ToString Then
+                            DataGridView1.Rows(bachira).Cells(5).Value = CDec(DataGridView1.Rows(bachira).Cells(5).Value) - cant
+                        End If
+                    Next
+
+                End If
+
+            Next
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn7.Close()
