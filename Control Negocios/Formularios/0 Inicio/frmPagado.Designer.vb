@@ -159,7 +159,6 @@ Partial Class frmPagado
         '
         'txtNumPC
         '
-        Me.txtNumPC.Enabled = False
         Me.txtNumPC.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumPC.Location = New System.Drawing.Point(12, 344)
         Me.txtNumPC.Name = "txtNumPC"
