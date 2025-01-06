@@ -218,7 +218,7 @@ Public Class Inicio
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         '  GenerateAndValidateKey()
 
-        Licencia()
+        'Licencia()
         'PrimeraConfig = ""
         'Login.Hide()
 
