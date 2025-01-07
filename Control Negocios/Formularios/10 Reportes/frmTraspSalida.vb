@@ -12,7 +12,7 @@ Public Class frmTraspSalida
     Private filenum As Integer
     Private recordLen As String
     Dim barras As String = ""
-
+    Dim Serchixd As Boolean = False
     Dim ban As Integer = 0
     Private Sub frmTraspSalida_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Folio()
@@ -164,24 +164,28 @@ Public Class frmTraspSalida
     End Sub
 
     Private Sub cbodesc_DropDown(sender As System.Object, e As System.EventArgs) Handles cbodesc.DropDown
-        cbodesc.Items.Clear()
-        Try
-            cnn1.Close() : cnn1.Open()
+        If Serchixd = True Then
+            Serchixd = False
+        Else
+            cbodesc.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Nombre from Productos where Departamento<>'SERVICIOS' ORDER BY Nombre"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cbodesc.Items.Add(
-                    rd1(0).ToString
-                    )
-            Loop
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select distinct Nombre from Productos where Departamento<>'SERVICIOS' ORDER BY Nombre"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbodesc.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close() : cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub cbodesc_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbodesc.KeyPress
@@ -1223,7 +1227,7 @@ Nota:
         Y += 15
         e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
         e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
-        e.Graphics.DrawString("EXIST.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 235, Y)
+
         Y += 6
         e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
         Y += 18
@@ -1259,7 +1263,7 @@ Nota:
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
             e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
-            e.Graphics.DrawString(existencia, fuente_prods, Brushes.Black, 285, Y, sf)
+
             Y += 17
             If DataGridView2.Rows.Count > 0 Then
                 For asd As Integer = DataGridView2.Rows.Count - 1 To 0 Step -1
@@ -1269,7 +1273,7 @@ Nota:
                         cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
                         If lote <> "" Then
                             e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                            e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                            e.Graphics.DrawString(Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
                             e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
                             Y += 15
                             DataGridView2.Rows.RemoveAt(asd)
@@ -1303,6 +1307,8 @@ milky:
     Private Sub cbodocumento_DropDown(sender As System.Object, e As System.EventArgs) Handles cbodocumento.DropDown
         cbodocumento.Items.Clear()
         grdcaptura.Rows.Clear()
+        DataGridView2.Rows.Clear()
+
         Try
             cnn1.Close() : cnn1.Open()
 
@@ -1671,5 +1677,42 @@ kaka:
         gbLotes.Visible = False
     End Sub
 
+    Private Sub chkBuscaProd_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaProd.CheckedChanged
+        If (chkBuscaProd.Checked) Then
+            txtProdClave.Text = ""
+            Serchixd = False
+            Panel5.Visible = True
+            txtProdClave.Focus().Equals(True)
+            Panel5.BringToFront()
+            My.Application.DoEvents()
+        End If
+    End Sub
 
+    Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cbodesc.Items.Clear()
+
+            Try
+                cnn3.Close() : cnn3.Open()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                    "select distinct Nombre from Productos where Nombre like '%" & txtProdClave.Text & "%' order by Nombre"
+                rd3 = cmd3.ExecuteReader
+                Do While rd3.Read
+                    If rd3.HasRows Then cbodesc.Items.Add(rd3(0).ToString())
+                Loop
+                rd3.Close() : cnn3.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn3.Close()
+            End Try
+            Serchixd = True
+            Panel5.Visible = False
+            My.Application.DoEvents()
+            chkBuscaProd.Checked = False
+            cbodesc.Focus().Equals(True)
+            cbodesc.DroppedDown = True
+        End If
+    End Sub
 End Class

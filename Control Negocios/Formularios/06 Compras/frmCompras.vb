@@ -18,6 +18,7 @@ Public Class frmCompras
     Dim tLogo As String = ""
     Dim simbolo As String = ""
     Public rutaArchivoXML As String = ""
+    Dim Serchixd As Boolean = False
 
     Public Structure Pagos
         Shared pc_porpagar As Double = 0
@@ -222,25 +223,29 @@ Public Class frmCompras
     End Function
 
     Private Sub cbonombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cbonombre.DropDown
-        cbonombre.Items.Clear()
-        Try
-            cnn1.Close() : cnn1.Open()
+        If Serchixd = True Then
+            Serchixd = False
+        Else
+            cbonombre.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-            "select distinct Nombre from Productos where Length(Codigo)<7 and Departamento <> 'SERVICIOS' and ProvRes<>1 order by Nombre"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cbonombre.Items.Add(
-                    rd1(0).ToString
-                    )
-            Loop
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                "select distinct Nombre from Productos where Length(Codigo)<7 and Departamento <> 'SERVICIOS' and ProvRes<>1 order by Nombre"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbonombre.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbonombre.SelectedValueChanged
@@ -6531,5 +6536,42 @@ quepasowey:
         End If
     End Sub
 
+    Private Sub chkBuscaProd_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaProd.CheckedChanged
+        If (chkBuscaProd.Checked) Then
+            txtProdClave.Text = ""
+            Serchixd = False
+            Panel5.Visible = True
+            txtProdClave.Focus().Equals(True)
+            Panel5.BringToFront()
+            My.Application.DoEvents()
+        End If
+    End Sub
 
+    Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cbonombre.Items.Clear()
+
+            Try
+                cnn3.Close() : cnn3.Open()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                    "select distinct Nombre from Productos where Nombre like '%" & txtProdClave.Text & "%' order by Nombre"
+                rd3 = cmd3.ExecuteReader
+                Do While rd3.Read
+                    If rd3.HasRows Then cbonombre.Items.Add(rd3(0).ToString())
+                Loop
+                rd3.Close() : cnn3.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn3.Close()
+            End Try
+            Serchixd = True
+            Panel5.Visible = False
+            My.Application.DoEvents()
+            chkBuscaProd.Checked = False
+            cbonombre.Focus().Equals(True)
+            cbonombre.DroppedDown = True
+        End If
+    End Sub
 End Class

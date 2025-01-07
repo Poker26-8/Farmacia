@@ -90,8 +90,20 @@ Public Class frmCardex
                 Dim final As Double = rd1("Final").ToString
                 Dim usuario As String = rd1("Usuario").ToString
                 Dim fecha As String = rd1("Fecha").ToString
+                Dim codbarra As String = ""
 
-                grdcaptura.Rows.Add(codigo, nombre, folio, movimi, FormatNumber(precio, 2), inicia, cantidad, final, usuario, FormatDateTime(fecha, DateFormat.GeneralDate))
+                cnn2.Close()
+                cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "Select CodBarra from Productos where Codigo='" & codigo & "' and Nombre='" & nombre & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.Read Then
+                    codbarra = rd2(0).ToString
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+                grdcaptura.Rows.Add(codigo, codbarra, nombre, folio, movimi, FormatNumber(precio, 2), inicia, cantidad, final, usuario, FormatDateTime(fecha, DateFormat.GeneralDate))
             Loop
             rd1.Close() : cnn1.Close()
         Catch ex As Exception
