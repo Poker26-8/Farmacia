@@ -542,6 +542,6 @@ Public Class frmConsultaBeneficios
     End Sub
 
     Private Sub frmConsultaBeneficios_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        RechazarBeneficios10()
+        'RechazarBeneficios10()
     End Sub
 End Class

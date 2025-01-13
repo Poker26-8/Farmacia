@@ -399,8 +399,10 @@ Partial Class frmNuevoCliente
         Me.txtPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPais.Location = New System.Drawing.Point(86, 359)
         Me.txtPais.Name = "txtPais"
+        Me.txtPais.ReadOnly = True
         Me.txtPais.Size = New System.Drawing.Size(201, 22)
         Me.txtPais.TabIndex = 298
+        Me.txtPais.Text = "MX"
         '
         'Label19
         '

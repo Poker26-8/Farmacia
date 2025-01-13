@@ -7,7 +7,7 @@ Imports System.Threading.Tasks
 
 Public Class frmNuevoCliente
     Private Sub frmNuevoCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        cboStatusTel.Text = "Activo"
     End Sub
     Public Function EsCorreoValido(ByVal correo As String) As Boolean
         ' Expresión regular para validar un correo electrónico
