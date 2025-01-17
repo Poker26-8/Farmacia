@@ -22,8 +22,8 @@ Partial Class frmActualizarTodo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmActualizarTodo))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmActualizarTodo))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cboFiltro = New System.Windows.Forms.ComboBox()
         Me.lblprod = New System.Windows.Forms.Label()
@@ -58,6 +58,7 @@ Partial Class frmActualizarTodo
         Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -68,6 +69,7 @@ Partial Class frmActualizarTodo
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnAgregar)
         Me.Panel1.Controls.Add(Me.cboFiltro)
         Me.Panel1.Controls.Add(Me.lblprod)
         Me.Panel1.Controls.Add(Me.DataGridView1)
@@ -93,7 +95,7 @@ Partial Class frmActualizarTodo
         'lblprod
         '
         Me.lblprod.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblprod.Location = New System.Drawing.Point(848, 83)
+        Me.lblprod.Location = New System.Drawing.Point(813, 81)
         Me.lblprod.Name = "lblprod"
         Me.lblprod.Size = New System.Drawing.Size(205, 18)
         Me.lblprod.TabIndex = 253
@@ -116,9 +118,9 @@ Partial Class frmActualizarTodo
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(1059, 81)
+        Me.ProgressBar1.Location = New System.Drawing.Point(1018, 81)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(196, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(237, 23)
         Me.ProgressBar1.TabIndex = 250
         Me.ProgressBar1.Visible = False
         '
@@ -129,11 +131,11 @@ Partial Class frmActualizarTodo
         Me.btnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
         Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImportar.Location = New System.Drawing.Point(1160, 6)
+        Me.btnImportar.Location = New System.Drawing.Point(1058, 3)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(95, 74)
         Me.btnImportar.TabIndex = 2
-        Me.btnImportar.Text = "Importar"
+        Me.btnImportar.Text = "Actualizar"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnImportar.UseVisualStyleBackColor = True
         '
@@ -144,7 +146,7 @@ Partial Class frmActualizarTodo
         Me.btnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
         Me.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExportar.Location = New System.Drawing.Point(1059, 6)
+        Me.btnExportar.Location = New System.Drawing.Point(957, 3)
         Me.btnExportar.Name = "btnExportar"
         Me.btnExportar.Size = New System.Drawing.Size(95, 74)
         Me.btnExportar.TabIndex = 1
@@ -402,6 +404,21 @@ Partial Class frmActualizarTodo
         Me.Column22.ReadOnly = True
         Me.Column22.Width = 93
         '
+        'btnAgregar
+        '
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
+        Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAgregar.Location = New System.Drawing.Point(1159, 3)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(95, 74)
+        Me.btnAgregar.TabIndex = 255
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAgregar.UseVisualStyleBackColor = True
+        '
         'frmActualizarTodo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -459,4 +476,5 @@ Partial Class frmActualizarTodo
     Friend WithEvents dbGrupo As RadioButton
     Friend WithEvents rbDepartamento As RadioButton
     Friend WithEvents cboFiltro As ComboBox
+    Friend WithEvents btnAgregar As Button
 End Class

@@ -105,6 +105,7 @@ Public Class frmActualizarTodo
                         cell.Style.NumberFormat.Format = "@"
                     Next
                     voy = voy + 1
+                    'txtCod.Text = voy
                     My.Application.DoEvents()
                 Next
 
@@ -316,7 +317,7 @@ Public Class frmActualizarTodo
     End Sub
 
     Private Sub frmActualizarTodo_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        rbDepartamento.Checked = True
+
     End Sub
 
     Private Sub rbDepartamento_CheckedChanged(sender As Object, e As EventArgs) Handles rbDepartamento.CheckedChanged
@@ -394,5 +395,146 @@ Public Class frmActualizarTodo
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmActualizarTodo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        rbDepartamento.Checked = True
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        InsertarDesdeExcel
+    End Sub
+
+    Private Sub InsertarDesdeExcel()
+        ' Crear el OpenFileDialog para seleccionar el archivo Excel
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "Archivos de Excel|*.xlsx"
+        openFileDialog.Title = "Seleccionar archivo Excel"
+
+        ' Si el usuario selecciona un archivo
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Ruta del archivo Excel seleccionado
+            Dim filePath As String = openFileDialog.FileName
+
+            ' Crear un DataTable para almacenar los datos
+            Dim dt As New DataTable()
+
+            ' Abrir el archivo de Excel usando ClosedXML
+            Using workbook As New XLWorkbook(filePath)
+                ' Asumimos que los datos están en la primera hoja
+                Dim worksheet As IXLWorksheet = workbook.Worksheet(1)
+
+                ' Obtener la primera fila como encabezados y añadir columnas al DataTable
+                Dim firstRow As IXLRow = worksheet.Row(1)
+                For Each cell As IXLCell In firstRow.CellsUsed()
+                    dt.Columns.Add(cell.Value.ToString())
+                Next
+
+                ' Recorrer las filas restantes y añadirlas al DataTable
+                For rowIndex As Integer = 2 To worksheet.RowsUsed().Count()
+                    Dim row As DataRow = dt.NewRow()
+                    Dim currentRow As IXLRow = worksheet.Row(rowIndex)
+
+                    For colIndex As Integer = 1 To dt.Columns.Count
+                        row(colIndex - 1) = currentRow.Cell(colIndex).GetValue(Of String)()
+                    Next
+
+                    dt.Rows.Add(row)
+                Next
+            End Using
+
+            ' Asignar el DataTable al DataGridView para mostrar los datos
+            DataGridView1.DataSource = dt
+
+            Dim codigo As String = ""
+            Dim barras As String = ""
+            Dim nombre As String = ""
+            Dim iva As Double = 0
+            Dim unidad As String = ""
+            Dim preciocompra As Double = 0
+            Dim preciomaximo As Double = 0
+            Dim precioventa As Double = 0
+            Dim proveedor As String = ""
+            Dim departamento As String = ""
+            Dim grupo As String = ""
+            Dim claveproducto As String = ""
+            Dim claveunidad As String = ""
+            Dim existencia As Double = 0
+            Dim antibiotico As Integer = 0
+            Dim caduca As Integer = 0
+            Dim controlado As Integer = 0
+            Dim laboratorio As String = ""
+            Dim principioactivo As String = ""
+            Dim ubicacion As String = ""
+
+            ProgressBar1.Value = 0
+            ProgressBar1.Visible = True
+            ProgressBar1.Maximum = DataGridView1.Rows.Count
+
+            lblprod.Visible = True
+            lblprod.Text = ""
+
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+
+            For X As Integer = 0 To DataGridView1.Rows.Count - 1
+
+                codigo = Convert.ToString(DataGridView1.Rows.Item(X).Cells(0).Value)
+                barras = Convert.ToString(DataGridView1.Rows.Item(X).Cells(1).Value)
+                nombre = Convert.ToString(DataGridView1.Rows.Item(X).Cells(2).Value)
+                If codigo = "" Then Exit For
+                iva = Convert.ToDouble(DataGridView1.Rows.Item(X).Cells(3).Value)
+                unidad = Convert.ToString(DataGridView1.Rows.Item(X).Cells(4).Value)
+                preciocompra = Convert.ToDouble(DataGridView1.Rows.Item(X).Cells(5).Value)
+                preciomaximo = Convert.ToDouble(DataGridView1.Rows.Item(X).Cells(6).Value)
+                precioventa = Convert.ToDouble(DataGridView1.Rows.Item(X).Cells(7).Value)
+                proveedor = Convert.ToString(DataGridView1.Rows.Item(X).Cells(8).Value)
+                departamento = Convert.ToString(DataGridView1.Rows.Item(X).Cells(9).Value)
+                grupo = Convert.ToString(DataGridView1.Rows.Item(X).Cells(10).Value)
+                claveproducto = Convert.ToString(DataGridView1.Rows.Item(X).Cells(11).Value)
+                claveunidad = Convert.ToString(DataGridView1.Rows.Item(X).Cells(12).Value)
+                existencia = Convert.ToDouble(DataGridView1.Rows.Item(X).Cells(13).Value)
+                antibiotico = Convert.ToInt32(DataGridView1.Rows.Item(X).Cells(14).Value)
+                caduca = Convert.ToInt32(DataGridView1.Rows.Item(X).Cells(15).Value)
+                controlado = Convert.ToInt32(DataGridView1.Rows.Item(X).Cells(16).Value)
+                laboratorio = Convert.ToString(DataGridView1.Rows.Item(X).Cells(17).Value)
+                principioactivo = Convert.ToString(DataGridView1.Rows.Item(X).Cells(18).Value)
+                ubicacion = Convert.ToString(DataGridView1.Rows.Item(X).Cells(19).Value)
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "SELECT * FROM Productos WHERE Codigo='" & codigo & "' AND CodBarra='" & barras & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                    End If
+                Else
+
+                    lblprod.Text = "Importando producto: " & nombre
+                    My.Application.DoEvents()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO productos(Codigo,CodBarra,Nombre,NombreLargo,IVA,UCompra,UVenta,UMinima,MCD,Multiplo,ProvPri,Departamento,Grupo,Ubicacion,Min,Max,PrecioCompra,PrecioVentaIVA,PrecioMaximoPublico,Existencia,Almacen3,Id_tbMoneda,Fecha,Fecha_Inicial,Fecha_Final,ClaveSat,UnidadSat,Anti,Caduca,Controlado,Laboratorio,PrincipioActivo) VALUES('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "'," & iva & ",'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & proveedor & "','" & departamento & "','" & grupo & "','" & ubicacion & "',1,1," & preciocompra & "," & precioventa & "," & preciomaximo & "," & existencia & "," & preciocompra & ",1,'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-mm-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & claveproducto & "','" & claveunidad & "'," & antibiotico & "," & caduca & "," & controlado & ",'" & laboratorio & "','" & principioactivo & "')"
+
+
+                    If cmd2.ExecuteNonQuery Then
+                    Else
+                        MsgBox("No se pudieron insertar los datos del producto " & nombre, vbInformation + vbOKOnly, "Delsscom Farmacias")
+                    End If
+                    ProgressBar1.Value = ProgressBar1.Value + 1
+                    My.Application.DoEvents()
+
+                End If
+                rd1.Close()
+            Next
+
+        End If
+        cnn2.Close()
+        MsgBox("Datos importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        lblprod.Text = ""
+        lblprod.Visible = False
+        ProgressBar1.Visible = False
+        ProgressBar1.Value = 0
     End Sub
 End Class
