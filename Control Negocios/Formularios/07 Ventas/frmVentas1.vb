@@ -413,6 +413,7 @@ Public Class frmVentas1
         txtdia.Text = Weekday(Date.Now)
     End Sub
 
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Timer1.Stop()
         Folio()
@@ -3822,8 +3823,21 @@ kaka:
                                 End If
                             End If
                             rd2.Close() : cnn2.Close()
+                            Dim quiero As Double = txtcantidad.Text
+                            Dim tengo As Double = 0
+                            Dim voy As Double = 0
+                            tengo = txtexistencia.Text
+                            For xd As Integer = 0 To grdcaptura.Rows.Count - 1
+                                voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                            Next
+                            If CDec(quiero) + CDec(voy) > tengo Then
+                                MsgBox("La suma de las cantidades es mayor a la existencia registrada", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                Exit Sub
+                            Else
+                                Call UpGrid()
+                            End If
 
-                            Call UpGrid()
+
                             My.Application.DoEvents()
                             Dim voy2 As Double = 0
                             Dim VarSumXD As Double = 0
@@ -4884,13 +4898,12 @@ kaka:
         End Try
     End Sub
 
-
     Public Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
         Dim editap As Boolean = False
         Dim cadxd As Integer = 0
         Try
-            cnn1.Clone()
+            cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "Select Caduca from Productos where Codigo='" & cbocodigo.Text & "'"
@@ -5021,7 +5034,7 @@ kaka:
                                             cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             cboLote.Focus().Equals(True)
                                         Else
-                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             rd1.Close() : cnn1.Close()
                                             rd2.Close() : cnn2.Close()
                                             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
@@ -5032,21 +5045,44 @@ kaka:
                             Else
                                 If editap = False And AscW(e.KeyChar) <> 13 Then e.KeyChar = Nothing
                                 If AscW(e.KeyChar) = Keys.Enter Then
-                                    cnn2.Close() : cnn2.Open()
-                                    cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText =
-                                "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
-                                    rd2 = cmd2.ExecuteReader
-                                    If rd2.HasRows Then
-                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                        cboLote.Focus().Equals(True)
+                                    Dim quiero As Double = txtcantidad.Text
+                                    Dim tengo As Double = 0
+                                    Dim voy As Double = 0
+                                    tengo = txtexistencia.Text
+                                    For xd As Integer = 0 To grdcaptura.Rows.Count - 1
+                                        voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                                    Next
+                                    If CDec(quiero) + CDec(voy) > tengo Then
+                                        MsgBox("La suma de las cantidades es mayor a la existencia registrada", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                        Exit Sub
+                                    Else
+
+                                    End If
+
+                                    If cadxd = 1 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText =
+                                    "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                        rd2 = cmd2.ExecuteReader
+                                        If rd2.HasRows Then
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            rd1.Close() : cnn1.Close()
+                                            rd2.Close() : cnn2.Close()
+                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        Else
+                                            MsgBox("El producto no cuenta con lotes registrados para la venta", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                            ' cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            'cboLote.Focus().Equals(True)
+                                            rd2.Close()
+                                            cnn2.Close()
+                                            Exit Sub
+                                        End If
+                                        rd2.Close() : cnn2.Close()
                                     Else
                                         cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                        rd1.Close() : cnn1.Close()
-                                        rd2.Close() : cnn2.Close()
                                         cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                     End If
-                                    rd2.Close() : cnn2.Close()
                                 End If
                             End If
                         Else
@@ -10733,7 +10769,7 @@ ecomoda:
                             cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
                             If lote <> "" Then
                                 e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                                e.Graphics.DrawString(Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
                                 e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
                                 Y += 15
                             End If

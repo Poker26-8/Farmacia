@@ -3816,7 +3816,19 @@ kaka:
                             End If
                             rd2.Close() : cnn2.Close()
 
-                            Call UpGrid()
+                            Dim quiero As Double = txtcantidad.Text
+                            Dim tengo As Double = 0
+                            Dim voy As Double = 0
+                            tengo = txtexistencia.Text
+                            For xd As Integer = 0 To grdcaptura.Rows.Count - 1
+                                voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                            Next
+                            If CDec(quiero) + CDec(voy) > tengo Then
+                                MsgBox("La suma de las cantidades es mayor a la existencia registrada", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                Exit Sub
+                            Else
+                                Call UpGrid()
+                            End If
                             My.Application.DoEvents()
                             Dim voy2 As Double = 0
                             Dim VarSumXD As Double = 0
@@ -3880,7 +3892,7 @@ kaka:
                             If rd2.Read Then
                                 Promo = IIf(rd2("Status_Promocion").ToString = False, False, True)
                                 'Anti = rd2("Grupo").ToString
-                                Anti = rd1("Anti").ToString
+                                Anti = rd2("Anti").ToString
                                 If Anti = 1 Then
                                     If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                         cbocodigo.Text = ""
@@ -4995,21 +5007,43 @@ kaka:
                             Else
                                 If editap = False And AscW(e.KeyChar) <> 13 Then e.KeyChar = Nothing
                                 If AscW(e.KeyChar) = Keys.Enter Then
-                                    cnn2.Close() : cnn2.Open()
-                                    cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText =
-                                "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
-                                    rd2 = cmd2.ExecuteReader
-                                    If rd2.HasRows Then
-                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                        cboLote.Focus().Equals(True)
+                                    Dim quiero As Double = txtcantidad.Text
+                                    Dim tengo As Double = 0
+                                    Dim voy As Double = 0
+                                    tengo = txtexistencia.Text
+                                    For xd As Integer = 0 To grdcaptura.Rows.Count - 1
+                                        voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                                    Next
+                                    If CDec(quiero) + CDec(voy) > tengo Then
+                                        MsgBox("La suma de las cantidades es mayor a la existencia registrada", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                        Exit Sub
+                                    Else
+
+                                    End If
+                                    If cadxd = 1 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText =
+                                    "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                        rd2 = cmd2.ExecuteReader
+                                        If rd2.HasRows Then
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            rd1.Close() : cnn1.Close()
+                                            rd2.Close() : cnn2.Close()
+                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        Else
+                                            MsgBox("El producto no cuenta con lotes registrados para la venta", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                            ' cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            'cboLote.Focus().Equals(True)
+                                            rd2.Close()
+                                            cnn2.Close()
+                                            Exit Sub
+                                        End If
+                                        rd2.Close() : cnn2.Close()
                                     Else
                                         cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                        rd1.Close() : cnn1.Close()
-                                        rd2.Close() : cnn2.Close()
                                         cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                     End If
-                                    rd2.Close() : cnn2.Close()
                                 End If
                             End If
                         Else
@@ -10633,7 +10667,7 @@ ecomoda:
                             cantidadlote = DataGridView2.Rows(asd).Cells(4).Value.ToString
                             If lote <> "" Then
                                 e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                                e.Graphics.DrawString("Caducidad: " & Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                                e.Graphics.DrawString(Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
                                 e.Graphics.DrawString("Cant.: " & cantidadlote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
                                 Y += 15
                             End If

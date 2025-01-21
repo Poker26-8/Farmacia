@@ -439,7 +439,8 @@ Public Class frmTraspSalida
                 txtcantidad.Focus()
                 Exit Sub
             End If
-            txtprecio.Focus()
+            txtprecio_KeyPress(txtprecio, New KeyPressEventArgs(ChrW(Keys.Enter)))
+            ' txtprecio.Focus()
         End If
     End Sub
 
@@ -532,8 +533,6 @@ Public Class frmTraspSalida
                                     Exit Sub
                                 End If
                             End If
-
-
                         Next
 
                         For xsd As Integer = 0 To grdcaptura.Rows.Count - 1
