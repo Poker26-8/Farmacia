@@ -4990,8 +4990,10 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                         rd2 = cmd2.ExecuteReader
                                         If rd2.HasRows Then
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             cboLote.Focus().Equals(True)
                                         Else
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             rd1.Close() : cnn1.Close()
                                             rd2.Close() : cnn2.Close()
                                             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
@@ -5008,8 +5010,10 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                     rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
+                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                         cboLote.Focus().Equals(True)
                                     Else
+                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                         rd1.Close() : cnn1.Close()
                                         rd2.Close() : cnn2.Close()
                                         cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))

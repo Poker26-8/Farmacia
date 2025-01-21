@@ -3887,7 +3887,7 @@ kaka:
                             If rd2.Read Then
                                 Promo = IIf(rd2("Status_Promocion").ToString = False, False, True)
                                 'Anti = rd2("Grupo").ToString
-                                Anti = rd1("Anti").ToString
+                                Anti = rd2("Anti").ToString
                                 If Anti = 1 Then
                                     If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
                                         cbocodigo.Text = ""
@@ -5018,8 +5018,10 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                         rd2 = cmd2.ExecuteReader
                                         If rd2.HasRows Then
+                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             cboLote.Focus().Equals(True)
                                         Else
+                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                             rd1.Close() : cnn1.Close()
                                             rd2.Close() : cnn2.Close()
                                             cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
@@ -5036,8 +5038,10 @@ kaka:
                                 "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                     rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
+                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                         cboLote.Focus().Equals(True)
                                     Else
+                                        cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
                                         rd1.Close() : cnn1.Close()
                                         rd2.Close() : cnn2.Close()
                                         cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))

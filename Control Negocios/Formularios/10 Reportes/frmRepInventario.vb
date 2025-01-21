@@ -13,11 +13,6 @@ Public Class frmRepInventario
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btncardex.Click
         frmCardex.Show()
     End Sub
-
-
-
-
-
     Private Sub btnetiquetas_Click(sender As System.Object, e As System.EventArgs) Handles btnetiquetas.Click
         frmEtiquetas.Show()
     End Sub

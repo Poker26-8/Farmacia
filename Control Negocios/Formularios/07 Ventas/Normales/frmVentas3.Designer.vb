@@ -1461,6 +1461,7 @@ Partial Class frmVentas3
         Me.txtbarr.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbarr.Location = New System.Drawing.Point(836, 207)
         Me.txtbarr.Name = "txtbarr"
+        Me.txtbarr.ReadOnly = True
         Me.txtbarr.Size = New System.Drawing.Size(116, 28)
         Me.txtbarr.TabIndex = 321
         '
@@ -2458,6 +2459,7 @@ Partial Class frmVentas3
         Me.txtexistencia.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtexistencia.Location = New System.Drawing.Point(758, 207)
         Me.txtexistencia.Name = "txtexistencia"
+        Me.txtexistencia.ReadOnly = True
         Me.txtexistencia.Size = New System.Drawing.Size(80, 28)
         Me.txtexistencia.TabIndex = 261
         '
