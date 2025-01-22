@@ -5052,7 +5052,10 @@ kaka:
                                     Dim voy As Double = 0
                                     tengo = txtexistencia.Text
                                     For xd As Integer = 0 To grdcaptura.Rows.Count - 1
-                                        voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                                        If grdcaptura.Rows(xd).Cells(0).Value.ToString = cbocodigo.Text Then
+                                            voy = voy + CDec(grdcaptura.Rows(xd).Cells(3).Value)
+                                            Exit For
+                                        End If
                                     Next
                                     If CDec(quiero) + CDec(voy) > tengo Then
                                         MsgBox("La suma de las cantidades es mayor a la existencia registrada", vbCritical + vbOKOnly, "Delsscom Farmacias")
