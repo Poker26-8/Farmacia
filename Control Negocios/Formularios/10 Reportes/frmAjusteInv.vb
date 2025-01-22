@@ -781,6 +781,12 @@
                 MsgBox("La suma de los lotes es menor a la existencia registrada", vbInformation + vbOKOnly, titulocentral)
                 Exit Sub
             Else
+                cnn3.Close()
+                cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "Delete from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
 
                 Dim cantivoy As Double = 0
                 For deku As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -798,17 +804,25 @@
                             'Actualiza un lote
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "update LoteCaducidad set Cantidad=" & CDbl(cantidadl) & ", Caducidad='" & Format(caducidad, "yyyy-MM") & "' where Lote='" & lote & "' AND Codigo='" & cbocodigo.Text & "'"
-                            cmd1.ExecuteNonQuery()
+                                "update LoteCaducidad set Cantidad=Cantidad+" & CDbl(cantidadl) & ", Caducidad='" & Format(caducidad, "yyyy-MM") & "' where Lote='" & lote & "' AND Codigo='" & cbocodigo.Text & "'"
+                            If cmd1.ExecuteNonQuery Then
+
+                            Else
+
+                            End If
                         End If
                     Else
                         'Inserta un nuevo lote
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
                             "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & cbocodigo.Text & "','" & lote & "','" & Format(caducidad, "yyyy-MM") & "'," & CDbl(cantidadl) & ")"
-                        cmd1.ExecuteNonQuery()
+                        If cmd1.ExecuteNonQuery Then
+
+                        Else
+
+                        End If
                     End If
-                    rd2.Close()
+                        rd2.Close()
                 Next
                 Dim MyPreci As Double = 0
                 cmd1 = cnn1.CreateCommand
