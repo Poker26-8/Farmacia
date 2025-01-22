@@ -4605,7 +4605,8 @@ kaka:
                         cnn1.Close()
                         Exit Sub
                     End If
-                    txtprecio.Focus().Equals(True)
+                    txtprecio_KeyPress(txtprecio, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    ' txtprecio.Focus().Equals(True)
                 End If
                 cnn1.Close()
             Catch ex As Exception

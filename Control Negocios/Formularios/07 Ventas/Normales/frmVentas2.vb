@@ -3810,7 +3810,8 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    cboLote.Focus.Equals(True)
+                                    cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                    'cboLote.Focus.Equals(True)
                                     rd2.Close() : cnn2.Close()
                                     Exit Sub
                                 End If
@@ -4614,7 +4615,8 @@ kaka:
                         cnn1.Close()
                         Exit Sub
                     End If
-                    txtprecio.Focus().Equals(True)
+                    txtprecio_KeyPress(txtprecio, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    'txtprecio.Focus().Equals(True)
                 End If
                 cnn1.Close()
             Catch ex As Exception
