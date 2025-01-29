@@ -165,7 +165,7 @@ Public Class frmConsultaNotas
 
         Dim MYFOLIO As Integer = IIf(cbofolio.Text = "", 0, cbofolio.Text)
 
-        Dim codigo, nombre, unidad, comentario As String
+        Dim codigo, nombre, unidad, comentario, caducidad, lote As String
         Dim cantidad, precio, total, descue As Double
 
         If cbofolio.Text <> "" Then
@@ -247,8 +247,10 @@ Public Class frmConsultaNotas
                             Do While rd2.Read
                                 If rd2.HasRows Then
                                     codigo = rd2("Codigo").ToString()
-                                    nombre = rd2("Nombre").ToString()
-                                    If (optdevos.Checked) Then
+                                nombre = rd2("Nombre").ToString()
+                                caducidad = rd2("Caducidad").ToString
+                                lote = rd2("Lote").ToString
+                                If (optdevos.Checked) Then
                                         unidad = rd2("UVenta").ToString()
                                         comentario = ""
                                         descue = 0
@@ -266,7 +268,7 @@ Public Class frmConsultaNotas
                                     precio = rd2("Precio").ToString()
                                     total = rd2("Total").ToString()
                                 comentario = IIf(rd2("Comentario").ToString = "", "", rd2("Comentario").ToString)
-                                grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0", comentario)
+                                grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0", lote, caducidad)
                                 If comentario <> "" Then
                                     grdcaptura.Rows.Add("", comentario, "", "", "", "")
                                 End If
@@ -4032,7 +4034,7 @@ doorcita:
         If rd1.HasRows Then
             If rd1.Read Then
                 If rd1("ReimprimirTicket").ToString() = False Then
-                    MsgBox("No cuentas con permiso para realizar cancelaciones.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("No cuentas con permiso para realizar reimpresiones.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     txtusuario.SelectAll()
                     Exit Sub
                 End If
@@ -5351,6 +5353,7 @@ doorcita:
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 8, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -5436,15 +5439,15 @@ doorcita:
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("COPIA NOTA VENTA", New Drawing.Font(tipografia, 15, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            e.Graphics.DrawString("COPIA NOTA VENTA", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
             Y += 17
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
             e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 270, Y, sf)
             Y += 15
-            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 270, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente
@@ -5513,29 +5516,67 @@ doorcita:
                     Y += 21
                     Continue For
                 End If
+
                 Dim codigo As String = grdcaptura.Rows(miku).Cells(0).Value.ToString()
                 Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
                 Dim unidad As String = IIf(grdcaptura.Rows(miku).Cells(2).Value.ToString() = "", "PZA", grdcaptura.Rows(miku).Cells(2).Value.ToString())
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 Dim descuento As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+                Dim lote As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
+                Dim caducidad As Date = Date.Now
+                caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
+                Dim barras As String = ""
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select CodBarra from Productos where Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    barras = rd1(0).ToString
+                End If
+                rd1.Close()
+                cnn1.Close()
 
-                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 60, Y)
-                Y += 12.5
+                e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
+                'e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
+                Dim caracteresPorLinea2 As Integer = 20
+                Dim texto2 As String = nombre
+                Dim inicio2 As Integer = 0
+                Dim longitudTexto2 As Integer = texto2.Length
+                Dim voy As Integer = 0
+                While inicio2 < longitudTexto2
+                    If voy = 0 Then
+                        caracteresPorLinea2 = 20
+                    Else
+                        caracteresPorLinea2 = 35
+                    End If
+                    Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                    Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                    If voy = 0 Then
+                        e.Graphics.DrawString(bloque2, fuente_prods, Brushes.Black, 120, Y)
+                    Else
+                        e.Graphics.DrawString(bloque2, fuente_prods, Brushes.Black, 1, Y)
+                    End If
+                    voy += 1
+                    Y += 13
+                    inicio2 += caracteresPorLinea2
+                End While
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 270, Y, sf)
-                Y += 21
-                'If descuento <> 0 Then
-                '    Y -= 4
-                '    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                '    Y += 12
-                'End If
+                Y += 15
+                If lote <> "" Then
+                    e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(Format(caducidad, "MM-yyyy"), New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 93, Y)
+                    e.Graphics.DrawString("Cant.: " & canti, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                    Y += 15
+                End If
+
                 total_prods = total_prods + canti
             Next
             Y -= 3

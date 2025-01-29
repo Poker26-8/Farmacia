@@ -151,7 +151,7 @@
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA'"
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             Do While rd2.Read
@@ -172,7 +172,7 @@
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION'"
+                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION' and Usuario='" & cboCajero.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             Do While rd2.Read
@@ -219,6 +219,18 @@
             Loop
             rd1.Close()
             cnn1.Close()
+
+
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                Do While rd2.Read
+                    CANCELACIONESNOTAS = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
+                Loop
+            End If
+            rd2.Close()
             cnn2.Close()
 
             cnn1.Close() : cnn1.Open()

@@ -10743,25 +10743,33 @@ ecomoda:
                 Dim caducidad As Date = Date.Now
                 Dim cantidadlote As Double = 0
 
-                'If ordetrabajo = 0 Then
-                '    If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
-                '    Else
-                '        lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
-                '        caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
-                '        fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                '    End If
-                'Else
-                '    lote = ""
-                '    caducidad = caducidad
-                '    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
-                'End If
 
 
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(barras, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 120, Y)
-                Y += 12.5
+                Dim caracteresPorLinea2 As Integer = 20
+                Dim texto2 As String = nombre
+                Dim inicio2 As Integer = 0
+                Dim longitudTexto2 As Integer = texto2.Length
+                Dim voy As Integer = 0
+                While inicio2 < longitudTexto2
+                    If voy = 0 Then
+                        caracteresPorLinea2 = 20
+                    Else
+                        caracteresPorLinea2 = 35
+                    End If
+                    Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                    Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+                    If voy = 0 Then
+                        e.Graphics.DrawString(bloque2, fuente_prods, Brushes.Black, 120, Y)
+                    Else
+                        e.Graphics.DrawString(bloque2, fuente_prods, Brushes.Black, 1, Y)
+                    End If
+                    voy += 1
+                    Y += 13
+                    inicio2 += caracteresPorLinea2
+                End While
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)

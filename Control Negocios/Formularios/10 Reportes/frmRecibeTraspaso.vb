@@ -133,7 +133,8 @@ Public Class frmRecibeTraspaso
             Dim cnn As MySqlConnection = New MySqlConnection
             Dim sSQL As String = ""
             If cbo.Text = "" Then
-                sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and CargadoE=0"
+                'sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and CargadoE=0"
+                Exit Sub
             Else
                 ' sSQL = "SELECT distinct NumTraspasosS FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
                 sSQL = "SELECT distinct Comentario FROM traspasos where destino=" & susursalr & " and Origen=" & lblidorigen.Text & " and CargadoE=0"
@@ -469,7 +470,7 @@ Public Class frmRecibeTraspaso
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim cnn2 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim odata2 As New ToolKitSQL.myssql
-        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA' and Codigo='" & codxd & "'"
+        Dim sSQL As String = "Select * from actuinvtraspasos where NumSuc = " & susursalr & " and Tipo = 'ENTRADA' and Codigo='" & codxd & "' and NumSucO=" & ComboBox1.Text & ""
         Dim ssql2 As String = ""
         Dim ssql3 As String = ""
         Dim sinfo As String = ""

@@ -605,9 +605,9 @@ Partial Class frmTraspSalida
         Me.gbLotes.Controls.Add(Me.btnGuardarLote)
         Me.gbLotes.Controls.Add(Me.DataGridView1)
         Me.gbLotes.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbLotes.Location = New System.Drawing.Point(249, 139)
+        Me.gbLotes.Location = New System.Drawing.Point(237, 138)
         Me.gbLotes.Name = "gbLotes"
-        Me.gbLotes.Size = New System.Drawing.Size(318, 296)
+        Me.gbLotes.Size = New System.Drawing.Size(321, 296)
         Me.gbLotes.TabIndex = 321
         Me.gbLotes.TabStop = False
         Me.gbLotes.Text = "Registro de Lotes"
@@ -834,9 +834,9 @@ Partial Class frmTraspSalida
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(804, 499)
+        Me.Controls.Add(Me.gbLotes)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.chkBuscaProd)
-        Me.Controls.Add(Me.gbLotes)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtcoment)
         Me.Controls.Add(Me.btnguardar)
