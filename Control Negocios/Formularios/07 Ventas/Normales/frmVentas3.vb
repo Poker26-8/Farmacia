@@ -3521,7 +3521,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                Label2.Text = "DescrIpción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                Label2.Text = "DescrIpción"
                             End If
                         Else
                             Label2.Text = "DescrIpción"
@@ -4266,7 +4266,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    Label2.Text = "Descripción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                    Label2.Text = "Descripción"
                                 End If
                             Else
                                 Label2.Text = "Descripción"
@@ -16681,6 +16681,10 @@ doorcita:
     End Sub
 
     Private Sub lblFolioFanasa_Click(sender As Object, e As EventArgs) Handles lblFolioFanasa.Click
+
+    End Sub
+
+    Private Sub cbodesc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbodesc.SelectedIndexChanged
 
     End Sub
 End Class

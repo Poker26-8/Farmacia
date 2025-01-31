@@ -3523,7 +3523,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                Label2.Text = "DescrIpción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                Label2.Text = "DescrIpción"
                             End If
                         Else
                             Label2.Text = "DescrIpción"
@@ -4273,7 +4273,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    Label2.Text = "Descripción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                    Label2.Text = "Descripción"
                                 End If
                             Else
                                 Label2.Text = "Descripción"

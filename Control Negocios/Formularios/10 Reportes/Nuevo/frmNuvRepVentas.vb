@@ -1509,7 +1509,7 @@ Public Class frmNuvRepVentas
 
             btnImprimir.Visible = False
 
-            grdCaptura.ColumnCount = 13
+            grdCaptura.ColumnCount = 14
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -1520,13 +1520,20 @@ Public Class frmNuvRepVentas
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(1)
-                    .HeaderText = "Descripción"
+                    .HeaderText = "Codigo de Barras"
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
                     .HeaderText = "Peso"
                     .Width = 100
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1534,7 +1541,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1542,7 +1549,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Cantidad"
                     .Width = 85
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1550,7 +1557,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Precio"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1558,7 +1565,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(6)
+                With .Columns(7)
                     .HeaderText = "Descuento"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1566,7 +1573,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(7)
+                With .Columns(8)
                     .HeaderText = "Subtotal"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1574,7 +1581,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(8)
+                With .Columns(9)
                     .HeaderText = "IEPS"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1582,7 +1589,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(9)
+                With .Columns(10)
                     .HeaderText = "IVA"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1590,7 +1597,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(10)
+                With .Columns(11)
                     .HeaderText = "Total"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1598,7 +1605,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(11)
+                With .Columns(12)
                     .HeaderText = "Fecha"
                     .Width = 110
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1606,7 +1613,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(12)
+                With .Columns(13)
                     .HeaderText = "Utl. Costo"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1742,7 +1749,7 @@ Public Class frmNuvRepVentas
 
             btnImprimir.Visible = False
 
-            grdCaptura.ColumnCount = 6
+            grdCaptura.ColumnCount = 7
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -1753,14 +1760,22 @@ Public Class frmNuvRepVentas
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(1)
-                    .HeaderText = "Descripcion"
-                    .Width = 280
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(2)
+                    .HeaderText = "Descripcion"
+                    .Width = 280
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
                     .HeaderText = "Cantidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1768,7 +1783,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Precio"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1776,7 +1791,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Total"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1784,7 +1799,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Fecha"
                     .Width = 130
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1822,7 +1837,7 @@ Public Class frmNuvRepVentas
             rbCortesias.Checked = False
 
             btnImprimir.Visible = True
-            grdCaptura.ColumnCount = 4
+            grdCaptura.ColumnCount = 5
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Codigo"
@@ -1833,13 +1848,20 @@ Public Class frmNuvRepVentas
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(1)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
                     .HeaderText = "Descripción"
                     .Width = 240
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(2)
+                With .Columns(3)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1847,7 +1869,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Cantidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1887,7 +1909,7 @@ Public Class frmNuvRepVentas
 
             btnImprimir.Visible = False
 
-            grdCaptura.ColumnCount = 4
+            grdCaptura.ColumnCount = 5
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Codigo"
@@ -1898,13 +1920,20 @@ Public Class frmNuvRepVentas
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(1)
-                    .HeaderText = "Descripción"
+                    .HeaderText = "Codigo de Barras"
                     .Width = 240
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .Width = 240
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1912,7 +1941,7 @@ Public Class frmNuvRepVentas
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Cantidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -3425,7 +3454,19 @@ Public Class frmNuvRepVentas
                         fechanueva = Format(fecha, "yyyy-MM-dd")
                         utilidad = DameUti(folio, codigo, cantidad)
 
-                        grdCaptura.Rows.Add(folio, descripcion, opeso, uventa, cantidad, precio, descu, subtotal, ieps, Iva, total, fechanueva, utilidad)
+
+                        cnn2.Close()
+                        cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select CodBarra From Productos where Nombre='" & descripcion & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.Read Then
+                            barras = rd2(0).ToString
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                        grdCaptura.Rows.Add(folio, barras, descripcion, opeso, uventa, cantidad, precio, descu, subtotal, ieps, Iva, total, fechanueva, utilidad)
 
                         T_Subtotal = T_Subtotal + subtotal
                         T_Total = T_Total + total
@@ -3586,7 +3627,18 @@ Public Class frmNuvRepVentas
                         T_Total = T_Total + total
                         Iva = CDbl(total) - CDbl(subtotal)
 
-                        grdCaptura.Rows.Add(folio, descripcion, cantidad, precio, total, fechanueva)
+                        cnn2.Close()
+                        cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select CodBarra From Productos where Nombre='" & descripcion & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.Read Then
+                            barras = rd2(0).ToString
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                        grdCaptura.Rows.Add(folio, barras, descripcion, cantidad, precio, total, fechanueva)
                         barcarga.Value = barcarga.Value + 1
                         T_Suma = T_Suma + cantidad
                         T_IVA = T_IVA + Iva
@@ -3680,7 +3732,18 @@ Public Class frmNuvRepVentas
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
-                        grdCaptura.Rows.Add(rd1("Cod").ToString(), rd1("Descrip").ToString(), rd1("Unidad").ToString(), rd1("Cant").ToString())
+                        cnn2.Close()
+                        cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select CodBarra From Productos where Codigo='" & rd1("Cod").ToString() & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.Read Then
+                            barras = rd2(0).ToString
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                        grdCaptura.Rows.Add(rd1("Cod").ToString(), barras, rd1("Descrip").ToString(), rd1("Unidad").ToString(), rd1("Cant").ToString())
                     End If
                 Loop
                 rd1.Close() : cnn1.Close()
@@ -3743,7 +3806,19 @@ Public Class frmNuvRepVentas
                         End If
                         rd2.Close()
 
-                        grdCaptura.Rows.Add(codigo, descripcion, uventa, cantidad)
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & codigo & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+
+                        grdCaptura.Rows.Add(codigo, barras, descripcion, uventa, cantidad)
                         barcarga.Value = barcarga.Value + 1
                         T_Suma = T_Suma + CDbl(cantidad)
                     End If

@@ -81,8 +81,20 @@ Public Class frmRepPrecios
                         Dim nue As Double = rd1("Nuevo").ToString()
                         Dim fecha As Date = rd1("Fecha").ToString()
                         Dim usuario As String = rd1("Usuario").ToString()
+                        Dim barras As String = ""
 
-                        grdcaptura.Rows.Add(codigo, nombre, "Precio de " & tipo, FormatNumber(ant, 2), FormatNumber(nue, 2), FormatDateTime(fecha, DateFormat.ShortDate), usuario)
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & codigo & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+                        grdcaptura.Rows.Add(codigo, barras, nombre, "Precio de " & tipo, FormatNumber(ant, 2), FormatNumber(nue, 2), FormatDateTime(fecha, DateFormat.ShortDate), usuario)
                     End If
                 Loop
                 rd1.Close() : cnn1.Close()
@@ -107,9 +119,21 @@ Public Class frmRepPrecios
                         Dim nue As Double = rd1("Nuevo").ToString()
                         Dim fecha As Date = rd1("Fecha").ToString()
                         Dim usuario As String = rd1("Usuario").ToString()
+                        Dim barras As String = ""
+
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & codigo & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
 
 
-                        grdcaptura.Rows.Add(codigo, nombre, "Precio de " & tipo, FormatNumber(ant, 2), FormatNumber(nue, 2), FormatDateTime(fecha, DateFormat.ShortDate), usuario)
+                        grdcaptura.Rows.Add(codigo, barras, nombre, "Precio de " & tipo, FormatNumber(ant, 2), FormatNumber(nue, 2), FormatDateTime(fecha, DateFormat.ShortDate), usuario)
                     End If
                 Loop
                 rd1.Close() : cnn1.Close()

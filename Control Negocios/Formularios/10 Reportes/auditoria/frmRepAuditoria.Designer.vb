@@ -23,12 +23,13 @@ Partial Class frmRepAuditoria
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepAuditoria))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rbLotes = New System.Windows.Forms.RadioButton()
         Me.rbprecios = New System.Windows.Forms.RadioButton()
         Me.rbexistencias = New System.Windows.Forms.RadioButton()
         Me.mcdesde = New System.Windows.Forms.MonthCalendar()
@@ -43,7 +44,6 @@ Partial Class frmRepAuditoria
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.rbLotes = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -82,6 +82,18 @@ Partial Class frmRepAuditoria
         Me.GroupBox1.Size = New System.Drawing.Size(166, 109)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'rbLotes
+        '
+        Me.rbLotes.AutoSize = True
+        Me.rbLotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbLotes.Location = New System.Drawing.Point(6, 76)
+        Me.rbLotes.Name = "rbLotes"
+        Me.rbLotes.Size = New System.Drawing.Size(72, 24)
+        Me.rbLotes.TabIndex = 3
+        Me.rbLotes.TabStop = True
+        Me.rbLotes.Text = "Lotes"
+        Me.rbLotes.UseVisualStyleBackColor = True
         '
         'rbprecios
         '
@@ -233,26 +245,26 @@ Partial Class frmRepAuditoria
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 242)
         Me.grdCaptura.Name = "grdCaptura"
@@ -260,18 +272,6 @@ Partial Class frmRepAuditoria
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(927, 322)
         Me.grdCaptura.TabIndex = 231
-        '
-        'rbLotes
-        '
-        Me.rbLotes.AutoSize = True
-        Me.rbLotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbLotes.Location = New System.Drawing.Point(6, 76)
-        Me.rbLotes.Name = "rbLotes"
-        Me.rbLotes.Size = New System.Drawing.Size(72, 24)
-        Me.rbLotes.TabIndex = 3
-        Me.rbLotes.TabStop = True
-        Me.rbLotes.Text = "Lotes"
-        Me.rbLotes.UseVisualStyleBackColor = True
         '
         'frmRepAuditoria
         '

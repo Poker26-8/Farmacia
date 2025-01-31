@@ -2047,6 +2047,7 @@ kaka:
             If grdcaptura.Rows.Count = 1 Then
                 grdcaptura.Rows.Clear()
                 txtprods.Text = ""
+                DataGridView2.Rows.Clear()
             Else
                 'For asd As Integer = 0 To DataGridView2.Rows.Count - 1
                 '    If grdcaptura.Rows(index).Cells(0).Value.ToString = DataGridView2.Rows(asd).Cells(0).Value.ToString Then
@@ -2090,6 +2091,7 @@ kaka:
             txtapagar.Text = FormatNumber(CDbl(txtsub1.Text) + CDbl(txtiva.Text), 2)
             lblvalor.Text = FormatNumber(txtprecio.Text, 2)
 
+            txtcodigo_KeyPress(txtcodigo, New KeyPressEventArgs(ChrW(Keys.Enter)))
         End If
         If grdcaptura.Rows.Count = 0 Then
             DataGridView2.Rows.Clear()

@@ -394,7 +394,7 @@ Public Class frmRepEntradas
                 'Otros gastos
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select SUM(Total) from OtrosGastos where Usuario<>'' and CorteU=0 AND Concepto<>'NOMINA'"
+                    "select SUM(Total) from OtrosGastos where Usuario<>'' and CorteU=0 AND Concepto<>'NOMINA'AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1717,6 +1717,8 @@ Public Class frmRepEntradas
         txtEfeCaja.Text = "0.00"
         txtSalTarj.Text = "0.00"
         txttotalformas.Text = "0.00"
+        txtOtrosgastos.Text = "0.00"
+        txtCompras.Text = "0.00"
 
         grdCanceñlaciones.Rows.Clear()
         grdpagos.Rows.Clear()

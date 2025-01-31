@@ -5525,7 +5525,12 @@ doorcita:
                 Dim descuento As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
                 Dim lote As String = grdcaptura.Rows(miku).Cells(7).Value.ToString()
                 Dim caducidad As Date = Date.Now
-                caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+                If lote = "" Then
+
+                Else
+                    caducidad = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+                End If
+
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
                 Dim barras As String = ""

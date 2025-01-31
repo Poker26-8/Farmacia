@@ -18,6 +18,10 @@
                 cmd5.CommandText = "SELECT DISTINCT Usuario FROM modprecios WHERE Usuario<>'' ORDER BY Usuario"
             End If
 
+            If (rbLotes.Checked) Then
+                cmd5.CommandText = "SELECT DISTINCT Usuario FROM cardex WHERE Usuario<>'' ORDER BY Usuario"
+            End If
+
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then
@@ -96,8 +100,20 @@
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
+                        Dim barras
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & rd1("Codigo").ToString & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
 
                         grdCaptura.Rows.Add(rd1("Codigo").ToString,
+                                            barras,
                                             rd1("Nombre").ToString,
                                             rd1("Movimiento").ToString,
                                             rd1("Final").ToString,
@@ -127,7 +143,20 @@
                 Do While rd1.Read
                     If rd1.HasRows Then
 
+                        Dim barras
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & rd1("Codigo").ToString & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
                         grdCaptura.Rows.Add(rd1("Codigo").ToString,
+                                            barras,
                                             rd1("Nombre").ToString,
                                             rd1("Nuevo").ToString,
                                             rd1("Fecha").ToString,
@@ -152,7 +181,7 @@
             grdCaptura.Rows.Clear()
             grdCaptura.ColumnCount = 0
 
-            grdCaptura.ColumnCount = 6
+            grdCaptura.ColumnCount = 7
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Codigo"
@@ -164,6 +193,15 @@
                 End With
 
                 With .Columns(1)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
                     .HeaderText = "Descripción"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -172,7 +210,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(2)
+                With .Columns(3)
                     .HeaderText = "Movimiento"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -181,7 +219,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Cantidad Actualizada"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -190,7 +228,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Fecha"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -199,7 +237,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Usuario"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -219,7 +257,7 @@
             grdCaptura.Rows.Clear()
             grdCaptura.ColumnCount = 0
 
-            grdCaptura.ColumnCount = 5
+            grdCaptura.ColumnCount = 6
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Codigo"
@@ -231,6 +269,15 @@
                 End With
 
                 With .Columns(1)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
                     .HeaderText = "Descripción"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -239,7 +286,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(2)
+                With .Columns(3)
                     .HeaderText = "Precio Nuevo"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -248,7 +295,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Fecha"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -257,7 +304,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Usuario"
                     .Width = 80
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -415,5 +462,9 @@
             End With
 
         End If
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class

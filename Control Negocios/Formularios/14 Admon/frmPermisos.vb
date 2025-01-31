@@ -625,7 +625,7 @@
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "update Ticket set VSE=0"
+                "update Ticket set VSE=1"
             cmd1.ExecuteNonQuery() : cnn1.Close()
         End If
     End Sub

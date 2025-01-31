@@ -1613,7 +1613,9 @@
     Private Sub txtSumaCajero_TextChanged(sender As Object, e As EventArgs) Handles txtSumaCajero.TextChanged
         Dim dife As Double = 0
 
-        dife = CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text)) - CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text))
+        'dife = CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text)) - CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text))
+
+        dife = CDbl(IIf(txtSumaCajero.Text = "", "0", txtSumaCajero.Text)) - CDbl(IIf(txtSumSistema.Text = "", "0", txtSumSistema.Text))
 
         If dife > 0 Then
             txtSumDife.Text = FormatNumber(dife, 2)

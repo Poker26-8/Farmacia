@@ -3531,7 +3531,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                Label2.Text = "DescrIpción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                Label2.Text = "DescrIpción"
                             End If
                         Else
                             Label2.Text = "DescrIpción"
@@ -4280,7 +4280,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    Label2.Text = "Descripción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                    Label2.Text = "Descripción"
                                 End If
                             Else
                                 Label2.Text = "Descripción"
@@ -5067,24 +5067,57 @@ kaka:
                                     End If
 
                                     If cadxd = 1 Then
-                                        cnn2.Close() : cnn2.Open()
-                                        cmd2 = cnn2.CreateCommand
-                                        cmd2.CommandText =
-                                    "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
-                                        rd2 = cmd2.ExecuteReader
-                                        If rd2.HasRows Then
-                                            cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                            rd1.Close() : cnn1.Close()
-                                            rd2.Close() : cnn2.Close()
-                                            cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                        If cbonota.Text <> "" Then
+                                            cnn2.Close() : cnn2.Open()
+                                            cmd2 = cnn2.CreateCommand
+                                            cmd2.CommandText =
+                                        "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                            rd2 = cmd2.ExecuteReader
+                                            If rd2.HasRows Then
+                                                rd1.Close() : cnn1.Close()
+                                                rd2.Close() : cnn2.Close()
+                                                cboLote.Focus().Equals(True)
+                                                gbLotes.Visible = True
+                                                txtcodlote.Text = cbocodigo.Text
+                                                txtnombrelote.Text = cbodesc.Text
+                                                TextBox1.Text = txtcantidad.Text
+                                                ConsultaLotesVenta(cbocodigo.Text)
+                                                My.Application.DoEvents()
+
+
+                                                'cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                                'rd1.Close() : cnn1.Close()
+                                                'rd2.Close() : cnn2.Close()
+                                                'cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            Else
+                                                MsgBox("El producto no cuenta con lotes registrados para la venta", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                                ' cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                                'cboLote.Focus().Equals(True)
+                                                rd2.Close()
+                                                cnn2.Close()
+                                                Exit Sub
+                                            End If
                                         Else
-                                            MsgBox("El producto no cuenta con lotes registrados para la venta", vbCritical + vbOKOnly, "Delsscom Farmacias")
-                                            ' cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                                            'cboLote.Focus().Equals(True)
-                                            rd2.Close()
-                                            cnn2.Close()
-                                            Exit Sub
+                                            cnn2.Close() : cnn2.Open()
+                                            cmd2 = cnn2.CreateCommand
+                                            cmd2.CommandText =
+                                        "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                            rd2 = cmd2.ExecuteReader
+                                            If rd2.HasRows Then
+                                                cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                                rd1.Close() : cnn1.Close()
+                                                rd2.Close() : cnn2.Close()
+                                                cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                            Else
+                                                MsgBox("El producto no cuenta con lotes registrados para la venta", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                                                ' cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                                'cboLote.Focus().Equals(True)
+                                                rd2.Close()
+                                                cnn2.Close()
+                                                Exit Sub
+                                            End If
                                         End If
+
                                         rd2.Close() : cnn2.Close()
                                     Else
                                         cbodesc_KeyPress(cbodesc, New KeyPressEventArgs(ChrW(Keys.Enter)))

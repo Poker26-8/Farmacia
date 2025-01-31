@@ -286,7 +286,7 @@ Public Class frmRepCompras
             cms1.Enabled = False
             TXTTOTAL.Text = "0"
 
-            grdcaptura.ColumnCount = 8
+            grdcaptura.ColumnCount = 9
             With grdcaptura
                 With .Columns(0)
                     .HeaderText = "Proveedor"
@@ -305,13 +305,21 @@ Public Class frmRepCompras
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(2)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
                     .HeaderText = "Descripción"
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -319,7 +327,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Cantidad"
                     .Width = 85
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -327,7 +335,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Precio"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -335,7 +343,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(6)
+                With .Columns(7)
                     .HeaderText = "Total"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -343,7 +351,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(7)
+                With .Columns(8)
                     .HeaderText = "Fecha"
                     .Width = 100
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -367,7 +375,7 @@ Public Class frmRepCompras
             cms1.Enabled = False
             TXTTOTAL.Text = "0"
 
-            grdcaptura.ColumnCount = 8
+            grdcaptura.ColumnCount = 9
             With grdcaptura
                 With .Columns(0)
                     .HeaderText = "Proveedor"
@@ -386,13 +394,21 @@ Public Class frmRepCompras
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(2)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
                     .HeaderText = "Descripción"
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -400,7 +416,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Cantidad"
                     .Width = 85
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -408,7 +424,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Precio"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -416,7 +432,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(6)
+                With .Columns(7)
                     .HeaderText = "Total"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -424,7 +440,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(7)
+                With .Columns(8)
                     .HeaderText = "Fecha"
                     .Width = 100
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -940,7 +956,7 @@ Public Class frmRepCompras
                     Dim lote As String = rd1("Lote").ToString
 
                     Dim barras As String = ""
-                    cnn2.Clone()
+                    cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "Select CodBarra from Productos where Codigo='" & MyCodi & "'"
@@ -982,6 +998,7 @@ Public Class frmRepCompras
                         Dim unidad As String = ""
                         Dim nombre As String = ""
                         Dim total As Double = 0
+                        Dim barras As String = ""
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
@@ -1011,7 +1028,18 @@ Public Class frmRepCompras
 
                         totpro = totpro + cantidad
 
-                        grdcaptura.Rows.Add(mycode, nombre, unidad, cantidad, precio, total)
+                        cnn3.Close()
+                        cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & mycode & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.Read Then
+                            barras = rd3(0).ToString
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+                        grdcaptura.Rows.Add(mycode, barras, nombre, unidad, cantidad, precio, total)
                     End If
                 Loop
                 rd1.Close() : cnn1.Close()
@@ -1056,8 +1084,20 @@ Public Class frmRepCompras
                     Dim MyPrec As Double = rd1("Precio").ToString
                     Dim MyTota As Double = MyCant * MyPrec
                     Dim MyFech As String = rd1("FechaC").ToString
+                    Dim barras As String = ""
 
-                    grdcaptura.Rows.Add(MyProv, MyCode, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
+                    cnn3.Close()
+                    cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & MyCode & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.Read Then
+                        barras = rd3(0).ToString
+                    End If
+                    rd3.Close()
+                    cnn3.Close()
+
+                    grdcaptura.Rows.Add(MyProv, MyCode, barras, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
                     totpro = totpro + MyCant
                     barcarga.Value = barcarga.Value + 1
                 End If
@@ -1102,8 +1142,20 @@ Public Class frmRepCompras
                     Dim MyPrec As Double = rd1("Precio").ToString
                     Dim MyTota As Double = MyCant * MyPrec
                     Dim MyFech As String = rd1("FechaC").ToString
+                    Dim barras As String = ""
 
-                    grdcaptura.Rows.Add(MyProv, MyCode, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
+                    cnn3.Close()
+                    cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "Select CodBarra From Productos where Codigo='" & MyCode & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.Read Then
+                        barras = rd3(0).ToString
+                    End If
+                    rd3.Close()
+                    cnn3.Close()
+
+                    grdcaptura.Rows.Add(MyProv, MyCode, barras, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
 
                     totpro = totpro + MyCant
                     barcarga.Value = barcarga.Value + 1
@@ -1642,7 +1694,7 @@ Public Class frmRepCompras
             ComboBox1.Visible = False
             cms1.Enabled = False
 
-            grdcaptura.ColumnCount = 6
+            grdcaptura.ColumnCount = 7
             With grdcaptura
                 With .Columns(0)
                     .HeaderText = "Código"
@@ -1653,13 +1705,21 @@ Public Class frmRepCompras
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(1)
+                    .HeaderText = "Codigo de Barras"
+                    .Width = 140
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
                     .HeaderText = "Descripción"
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(2)
+                With .Columns(3)
                     .HeaderText = "Unidad"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1667,7 +1727,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(3)
+                With .Columns(4)
                     .HeaderText = "Cantidad"
                     .Width = 85
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1675,7 +1735,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(4)
+                With .Columns(5)
                     .HeaderText = "Precio"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -1683,7 +1743,7 @@ Public Class frmRepCompras
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(5)
+                With .Columns(6)
                     .HeaderText = "Total"
                     .Width = 75
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None

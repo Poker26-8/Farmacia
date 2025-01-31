@@ -1772,7 +1772,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Formatos set NumPart='0' where Facturas='Acumula'"
+                    "update Formatos set NumPart='1' where Facturas='Acumula'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
