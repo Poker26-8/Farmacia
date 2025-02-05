@@ -60,7 +60,7 @@
                     If rd1.HasRows Then
                         Dim codxd As String = rd1("Codigo").ToString
                         Dim barras As String = ""
-                        cnn2.Clone()
+                        cnn2.Close()
                         cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText = "Select CodBarra from Productos where Codigo='" & codxd & "'"

@@ -3359,7 +3359,7 @@ doorcita:
                                 End If
                             End If
                             cnn2.Close()
-
+                            Multiplica = "*"
                             If Multiplica = "" Then
                                 txtcantidad.Text = pesofinal
                                 If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
@@ -3770,7 +3770,7 @@ kaka:
                             End If
                         End If
                         cnn2.Close()
-
+                        Multiplica = "*"
                         If Multiplica = "" Then
                             txtcantidad.Text = "1"
                             If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
@@ -4036,7 +4036,7 @@ kaka:
                                     End If
                                 End If
                                 cnn3.Close()
-
+                                Multiplica = "*"
                                 If Multiplica = "" Then
                                     txtcantidad.Text = "1"
                                     If CDbl(txtexistencia.Text) - CDbl(txtcantidad.Text) < 0 Then
@@ -4865,7 +4865,7 @@ kaka:
         Dim editap As Boolean = False
         Dim cadxd As Integer = 0
         Try
-            cnn1.Clone()
+            cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "Select Caduca from Productos where Codigo='" & cbocodigo.Text & "'"

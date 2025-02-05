@@ -223,7 +223,7 @@
 
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
+            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 Do While rd2.Read

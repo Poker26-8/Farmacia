@@ -13,7 +13,7 @@ Public Class frmConsultaBeneficios
     Public Sub ConsultaArriba()
         Try
             For xxx As Integer = 0 To grd1.Rows.Count - 1
-                cnn3.Clone()
+                cnn3.Close()
                 cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText = "Select Nombre from Productos where CodBarra='" & grd1.Rows(xxx).Cells(0).Value.ToString & "'"
@@ -33,7 +33,7 @@ Public Class frmConsultaBeneficios
     Public Sub ConsultaAbajo()
         Try
             For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
-                cnn4.Clone()
+                cnn4.Close()
                 cnn4.Open()
                 cmd4 = cnn4.CreateCommand
                 cmd4.CommandText = "Select Nombre from Productos where CodBarra='" & grdcaptura.Rows(xxx).Cells(4).Value.ToString & "'"
