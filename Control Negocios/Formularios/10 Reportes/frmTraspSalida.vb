@@ -61,10 +61,33 @@ Public Class frmTraspSalida
                 userbdF = ""
                 passbdF = ""
             End If
+
+            soySucursal()
         End If
 
     End Sub
-
+    Public Sub soySucursal()
+        Try
+            Dim cnn As MySqlConnection = New MySqlConnection
+            Dim sSQL As String = "SELECT nombre FROM sucursales where Id=" & susursalr & ""
+            Dim dr As DataRow
+            Dim dt1 As New DataTable
+            Dim sinfo As String = ""
+            Dim oData As New ToolKitSQL.myssql
+            With oData
+                If .dbOpen(cnn, sTargetdSincro, sinfo) Then
+                    If .getDt(cnn, dt1, sSQL, "etres") Then
+                        For Each dr In dt1.Rows
+                            Label1.Text = (dr("nombre").ToString)
+                        Next
+                    End If
+                    cnn.Close()
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
     Private Sub Folio()
         Try
             cnn3.Close() : cnn3.Open()
@@ -125,7 +148,7 @@ Public Class frmTraspSalida
             Else
 
                 Dim cnn As MySqlConnection = New MySqlConnection
-                Dim sSQL As String = "SELECT Distinct nombre FROM sucursales order by Nombre"
+                Dim sSQL As String = "SELECT Distinct nombre FROM sucursales where nombre<>'" & Label1.Text & "' order by Nombre "
                 Dim dt1 As New DataTable
                 Dim dr As DataRow
                 Dim sinfo As String = ""
@@ -649,6 +672,19 @@ kaka:
             End Try
         End If
     End Sub
+    Public Sub BorraLotes()
+        Try
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText =
+                "delete from LoteCaducidad where Cantidad<=0"
+            cmd5.ExecuteNonQuery()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn5.Close()
+        End Try
+    End Sub
 
     Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
         usu_copia = ""
@@ -677,6 +713,7 @@ kaka:
         DataGridView1.Rows.Clear()
         gbLotes.Visible = False
         btnguardar.Enabled = True
+        BorraLotes()
         Folio()
     End Sub
 
@@ -1596,6 +1633,11 @@ milky:
 
 
         For lucas As Integer = 0 To DataGridView1.Rows.Count - 1
+            If DataGridView1.Rows(lucas).Cells(4).Value Is Nothing OrElse IsDBNull(DataGridView1.Rows(lucas).Cells(4).Value) Then
+                MsgBox("La cantidad no puede ir vacia, Ingresa una cantidad valida", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                Exit Sub
+            End If
+
             senecesita = DataGridView1.Rows(lucas).Cells(4).Value.ToString
             tengo = DataGridView1.Rows(lucas).Cells(5).Value
             If DataGridView1.Rows(lucas).Cells(0).Value Then
@@ -1612,6 +1654,12 @@ milky:
                 voy += 1
             End If
         Next
+
+        If CDec(txtcantidad.Text) > CDec(txtexistencia.Text) Then
+            MsgBox("La cantidad es mayor a la existencia, Modifique el dato", vbInformation + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
+
         If voy = 0 Then
             MsgBox("Selecciona un lote, y agrega una cantidad valida para continuar", vbInformation + vbOKOnly, "Delsscom Farmacias")
             Exit Sub
@@ -1624,8 +1672,8 @@ milky:
 
         For xxx As Integer = 0 To DataGridView1.Rows.Count - 1
             If DataGridView1.Rows(xxx).Cells(0).Value Then
-                If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Then
-                    MsgBox("La cantidad del lote seleccionado no puede ser 0, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
+                If DataGridView1.Rows(xxx).Cells(4).Value.ToString = "0" Or DataGridView1.Rows(xxx).Cells(4).Value.ToString = "" Then
+                    MsgBox("La cantidad del lote no es valida, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
                 Else
                     DataGridView2.Rows.Add(txtcodlote.Text, DataGridView1.Rows(xxx).Cells(1).Value.ToString, DataGridView1.Rows(xxx).Cells(2).Value.ToString, DataGridView1.Rows(xxx).Cells(3).Value.ToString, DataGridView1.Rows(xxx).Cells(4).Value.ToString)
                 End If
@@ -1633,10 +1681,6 @@ milky:
         Next
         If DataGridView2.Rows.Count <> 0 Then
 
-            If CDec(txtcantidad.Text) > CDec(txtexistencia.Text) Then
-                MsgBox("La cantidad es mayor a la existencia, Modifique el dato", vbInformation + vbOKOnly, "Delsscom Farmacias")
-                Exit Sub
-            End If
 
             For xsd As Integer = 0 To grdcaptura.Rows.Count - 1
                 If cbocodigo.Text = grdcaptura.Rows(xsd).Cells(0).Value.ToString Then

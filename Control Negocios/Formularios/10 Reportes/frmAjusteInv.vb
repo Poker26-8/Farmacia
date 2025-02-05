@@ -151,19 +151,26 @@
                 Dim factor As Double = 0
                 Dim operad As Double = 0
                 Dim codigo As String = Mid(cbocodigo.Text, 1, 6)
+                Dim caduca As Integer = 0
 
                 Try
                     cnn1.Close() : cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Multiplo,UVenta,Nombre from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select Multiplo,UVenta,Nombre,Caduca from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
                             factor = IIf(rd1("Multiplo").ToString = "", 0, rd1("Multiplo").ToString)
                             txtunidad.Text = rd1("UVenta").ToString
                             cbodesc.Text = rd1("Nombre").ToString
+                            caduca = rd1("Caduca").ToString
+                            If caduca = 1 Then
+                                GroupBox2.Visible = True
+                            Else
+                                GroupBox2.Visible = False
+                            End If
                         End If
                     End If
                     rd1.Close()
@@ -410,6 +417,7 @@
         txtdiferencia.Text = ""
         chkmerma.Checked = False
         txtfinal.Text = "0"
+        GroupBox2.Visible = False
         btnlimpia_lote.PerformClick()
     End Sub
 

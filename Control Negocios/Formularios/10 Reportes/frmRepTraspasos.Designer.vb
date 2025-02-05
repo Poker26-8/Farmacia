@@ -46,12 +46,15 @@ Partial Class frmRepTraspasos
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -70,7 +73,7 @@ Partial Class frmRepTraspasos
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(799, 213)
+        Me.Panel1.Size = New System.Drawing.Size(1105, 213)
         Me.Panel1.TabIndex = 0
         '
         'GroupBox1
@@ -98,7 +101,7 @@ Partial Class frmRepTraspasos
         Me.dtpinicio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpinicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpinicio.Location = New System.Drawing.Point(287, 177)
+        Me.dtpinicio.Location = New System.Drawing.Point(593, 177)
         Me.dtpinicio.Name = "dtpinicio"
         Me.dtpinicio.ShowUpDown = True
         Me.dtpinicio.Size = New System.Drawing.Size(101, 26)
@@ -107,7 +110,7 @@ Partial Class frmRepTraspasos
         '
         'mcDesde
         '
-        Me.mcDesde.Location = New System.Drawing.Point(288, 9)
+        Me.mcDesde.Location = New System.Drawing.Point(593, 12)
         Me.mcDesde.Name = "mcDesde"
         Me.mcDesde.TabIndex = 211
         '
@@ -115,7 +118,7 @@ Partial Class frmRepTraspasos
         '
         Me.mcHasta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mcHasta.Location = New System.Drawing.Point(543, 9)
+        Me.mcHasta.Location = New System.Drawing.Point(848, 12)
         Me.mcHasta.Name = "mcHasta"
         Me.mcHasta.TabIndex = 210
         '
@@ -124,7 +127,7 @@ Partial Class frmRepTraspasos
         Me.dtpFin.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFin.Location = New System.Drawing.Point(690, 177)
+        Me.dtpFin.Location = New System.Drawing.Point(996, 177)
         Me.dtpFin.Name = "dtpFin"
         Me.dtpFin.ShowUpDown = True
         Me.dtpFin.Size = New System.Drawing.Size(100, 26)
@@ -143,13 +146,13 @@ Partial Class frmRepTraspasos
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 494)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(799, 86)
+        Me.Panel2.Size = New System.Drawing.Size(1105, 86)
         Me.Panel2.TabIndex = 1
         '
         'txtSubtotal
         '
         Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotal.Location = New System.Drawing.Point(585, 32)
+        Me.txtSubtotal.Location = New System.Drawing.Point(896, 50)
         Me.txtSubtotal.Name = "txtSubtotal"
         Me.txtSubtotal.Size = New System.Drawing.Size(100, 24)
         Me.txtSubtotal.TabIndex = 27
@@ -159,7 +162,7 @@ Partial Class frmRepTraspasos
         'lblSubtotal
         '
         Me.lblSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubtotal.Location = New System.Drawing.Point(585, 9)
+        Me.lblSubtotal.Location = New System.Drawing.Point(896, 27)
         Me.lblSubtotal.Name = "lblSubtotal"
         Me.lblSubtotal.Size = New System.Drawing.Size(100, 24)
         Me.lblSubtotal.TabIndex = 26
@@ -169,7 +172,7 @@ Partial Class frmRepTraspasos
         'txtTotal
         '
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(691, 32)
+        Me.txtTotal.Location = New System.Drawing.Point(1002, 50)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(100, 24)
         Me.txtTotal.TabIndex = 19
@@ -179,7 +182,7 @@ Partial Class frmRepTraspasos
         'lblTotal
         '
         Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.Location = New System.Drawing.Point(691, 6)
+        Me.lblTotal.Location = New System.Drawing.Point(1002, 24)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(74, 24)
         Me.lblTotal.TabIndex = 18
@@ -234,7 +237,7 @@ Partial Class frmRepTraspasos
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 213)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(799, 281)
+        Me.Panel3.Size = New System.Drawing.Size(1105, 281)
         Me.Panel3.TabIndex = 2
         '
         'grdCaptura
@@ -254,7 +257,7 @@ Partial Class frmRepTraspasos
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column3, Me.Column7, Me.Column8})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column9, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column3, Me.Column7, Me.Column10, Me.Column11, Me.Column8})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -278,7 +281,7 @@ Partial Class frmRepTraspasos
         Me.grdCaptura.RowHeadersVisible = False
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdCaptura.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.grdCaptura.Size = New System.Drawing.Size(799, 281)
+        Me.grdCaptura.Size = New System.Drawing.Size(1105, 281)
         Me.grdCaptura.TabIndex = 0
         '
         'Column1
@@ -288,6 +291,13 @@ Partial Class frmRepTraspasos
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Width = 76
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Codigo de Barras"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 140
         '
         'Column2
         '
@@ -334,6 +344,20 @@ Partial Class frmRepTraspasos
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Lote"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 80
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "Caducidad"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 80
+        '
         'Column8
         '
         Me.Column8.HeaderText = "Folio"
@@ -345,7 +369,7 @@ Partial Class frmRepTraspasos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(799, 580)
+        Me.ClientSize = New System.Drawing.Size(1105, 580)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -381,11 +405,14 @@ Partial Class frmRepTraspasos
     Friend WithEvents txtSubtotal As TextBox
     Friend WithEvents lblSubtotal As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class

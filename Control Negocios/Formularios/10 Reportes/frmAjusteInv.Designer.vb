@@ -263,6 +263,7 @@ Partial Class frmAjusteInv
         Me.GroupBox2.Size = New System.Drawing.Size(370, 176)
         Me.GroupBox2.TabIndex = 83
         Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Visible = False
         '
         'txtid
         '

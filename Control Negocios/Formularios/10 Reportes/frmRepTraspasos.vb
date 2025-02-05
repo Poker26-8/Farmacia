@@ -15,6 +15,9 @@ Public Class frmRepTraspasos
         Dim uventa As String = ""
         Dim precio As Double = 0
         Dim total As Double = 0
+        Dim barras As String = ""
+        Dim lote As String = ""
+        Dim fcaduca As String = ""
 
         Dim subtotal As Double = 0
         Try
@@ -22,6 +25,8 @@ Public Class frmRepTraspasos
                 MsgBox("Selecciona una opción para continuar", vbExclamation + vbOKOnly, "Delsscom Control Negocios Pro")
                 Exit Sub
             End If
+
+            grdCaptura.Rows.Clear()
 
             cnn1.Close()
             cnn1.Open()
@@ -44,7 +49,7 @@ Public Class frmRepTraspasos
                 cnn2.Close()
                 cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "Select Codigo,Nombre,Cantidad,Unidad,Precio,Total from TrasladosDet where Folio=" & idtraspaso & " and Concepto='" & cboDatos.Text & "' order by Id"
+                cmd2.CommandText = "Select Codigo,Nombre,Cantidad,Unidad,Precio,Total,Lote,FCaduca from TrasladosDet where Folio=" & idtraspaso & " and Concepto='" & cboDatos.Text & "' order by Id"
                 rd2 = cmd2.ExecuteReader
                 Do While rd2.Read
                     codigo = rd2("Codigo").ToString
@@ -53,7 +58,21 @@ Public Class frmRepTraspasos
                     uventa = rd2("Unidad").ToString
                     precio = rd2("Precio").ToString
                     total = rd2("Total").ToString
-                    grdCaptura.Rows.Add(codigo, descripcion, cantidad & " " & uventa, precio, total, fechanueva, Comisionistaxd, folioxd)
+                    lote = rd2("Lote").ToString
+                    fcaduca = rd2("FCaduca").ToString
+
+                    cnn3.Close()
+                    cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "Select CodBarra from Productos where COdigo='" & codigo & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.Read Then
+                        barras = rd3(0).ToString
+                    End If
+                    rd3.Close()
+                    cnn3.Close()
+
+                    grdCaptura.Rows.Add(codigo, barras, descripcion, cantidad & " " & uventa, precio, total, fechanueva, Comisionistaxd, lote, fcaduca, folioxd)
                     subtotal = subtotal + total
                 Loop
                 rd2.Close()

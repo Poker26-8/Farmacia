@@ -535,11 +535,11 @@ Public Class frmRecibeTraspaso
                                 End If
                             Else
                                 If odata2.getDr(cnn2, dr3, "Select * from productos where Codigo='" & dr("Codigo").ToString & "'", sinfo) Then
-                                    ssqlinsertal = "Insert Into Productos(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,VentaMin,MCD,Multiplo,Departamento,Grupo,PrecioCompra,PorcentageMin,Porcentage,PrecioVenta,PrecioVentaIVA,PecioVentaMinIVA,IVA,Existencia,id_tbMoneda,PercentIVAret,NombreLargo,IIEPS,isr,ClaveSat,ClaveUnidadSat,MSeries,CargadoInv) " &
+                                    ssqlinsertal = "Insert Into Productos(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,PrecioCompra,PorcMin,Porcentaje,PrecioVenta,PrecioVentaIVA,IVA,Existencia,id_tbMoneda,PercentIVAret,NombreLargo,IIEPS,isr,ClaveSat,UnidadSat,CargadoInv) " &
                                                             "VALUES('" & dr3("Codigo").ToString & "','" & dr3("Nombre").ToString & "','" & dr3("proveedor").ToString & "',0,'" & dr3("UVenta").ToString & "','" & dr3("UVenta").ToString &
                                                            "','" & dr3("UVenta").ToString & "',1,1,'" & dr3("Depto").ToString & "','" & dr3("Grupo").ToString & "','" & dr3("PrecioCompra").ToString &
-                                                          "','0','0','0','" & dr3("PrecioVentaIVA").ToString & "','0','" & dr3("IVA").ToString & "'," & dr("Cantidad").ToString &
-                                                         ",1,0,'',0,0,'" & dr3("clavesat").ToString & "','" & dr3("claveunisat").ToString & "',0,0)"
+                                                          "','0','0','0','" & dr3("PrecioVentaIVA").ToString & "','" & dr3("IVA").ToString & "'," & dr("Cantidad").ToString &
+                                                         ",1,0,'',0,0,'" & dr3("clavesat").ToString & "','" & dr3("claveunisat").ToString & "',0)"
                                     If oData.runSp(cnn, ssqlinsertal, sinfo) Then
                                         MyExist = 0
                                         MyNewEsist = CDec(MyExist) + CDec(dr("Cantidad").ToString)
@@ -552,6 +552,8 @@ Public Class frmRecibeTraspaso
 
                                         End If
                                         'grid_eventos.Rows.Insert(0, "Finaliza Ajuste de Inventario " & dr3("Nombre").ToString, Date.Now)
+                                    Else
+                                        MsgBox(sinfo)
                                     End If
                                 End If
                             End If

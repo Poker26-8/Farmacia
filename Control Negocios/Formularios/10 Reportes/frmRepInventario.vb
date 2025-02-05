@@ -2721,6 +2721,15 @@ quepaso_wey:
 
                 cnn1.Close() : cnn1.Open()
                 Dim contadorconexion As Integer = 0
+                For z As Integer = 0 To DataGridView1.Rows.Count - 1
+                    CODIGO = DataGridView1.Rows.Item(z).Cells(0).Value
+                    cnn3.Close()
+                    cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "Update Productos set Existencia=0 where Codigo='" & CODIGO & "'"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+                Next
 
                 For X As Integer = 0 To DataGridView1.Rows.Count - 1
                     '     For Each row As DataGridViewRow In DataGridView1.Rows
@@ -2773,7 +2782,7 @@ quepaso_wey:
                                 cmd2.ExecuteNonQuery()
 
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
+                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=Existencia+" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
 
@@ -2782,8 +2791,11 @@ quepaso_wey:
                         rd1.Close()
 
                         If LOTE <> "" Then
+                            Dim sumaxd As Double = 0
                             Lote_Caducidad(CODIGO, EXISTENCIA, CADUCA, LOTE)
                         End If
+
+
                     Else
                         conteo += 1
                         txtregistros.Text = conteo

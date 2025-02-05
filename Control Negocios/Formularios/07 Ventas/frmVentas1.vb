@@ -10384,6 +10384,7 @@ ecomoda:
                                         cmd3 = cnn3.CreateCommand
                                         cmd3.CommandText = "Select Lote from lotecaducidad where Codigo='" & codx & "'"
                                         rd3 = cmd3.ExecuteReader
+
                                         Do While rd3.Read
                                             If lote = rd3(0).ToString Then
                                                 cnn4.Close()
@@ -10406,6 +10407,7 @@ ecomoda:
 
                                                 End If
                                                 cnn4.Close()
+                                                Exit Do
                                             End If
                                         Loop
                                         rd3.Close()
