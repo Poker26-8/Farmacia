@@ -1280,7 +1280,6 @@
             If usuario = "" Then
                 pcontra.Visible = True
                 txtContraseña.Focus.Equals(True)
-
             Else
                 Dim foliov As Integer = 0
 
