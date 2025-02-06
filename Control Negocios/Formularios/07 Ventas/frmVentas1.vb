@@ -5359,22 +5359,22 @@ kaka:
                 Exit Sub
             End If
 
-            If Anti = 1 Then
-                If MsgBox("Este producto es un Antibiotico, ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                    cbocodigo.Text = ""
-                    cbodesc.Text = ""
-                    txtunidad.Text = ""
-                    txtcantidad.Text = ""
-                    txtprecio.Text = "0.00"
-                    txttotal.Text = "0.00"
-                    txtexistencia.Text = ""
-                    cboLote.Text = ""
-                    txtfechacad.Text = ""
-                    cbodesc.Focus().Equals(True)
-                    cnn1.Close()
-                    Exit Sub
-                End If
-            End If
+            'If Anti = 1 Then
+            '    If MsgBox("Este producto es un Antibiotico, ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+            '        cbocodigo.Text = ""
+            '        cbodesc.Text = ""
+            '        txtunidad.Text = ""
+            '        txtcantidad.Text = ""
+            '        txtprecio.Text = "0.00"
+            '        txttotal.Text = "0.00"
+            '        txtexistencia.Text = ""
+            '        cboLote.Text = ""
+            '        txtfechacad.Text = ""
+            '        cbodesc.Focus().Equals(True)
+            '        cnn1.Close()
+            '        Exit Sub
+            '    End If
+            'End If
 
             Dim dia As Integer = 0
             Dim decu As String = ""
