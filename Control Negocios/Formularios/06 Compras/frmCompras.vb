@@ -5972,6 +5972,7 @@ quepasowey:
                 cmd1.CommandText =
                         "insert into ComprasDet(Id_Compra,NumRemision,NumFactura,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,Total,FechaC,Grupo,Depto,Caducidad,Lote,FolioRep,NotaCred) values(" & IdCompra & ",'" & cboremision.Text & "','" & cbofactura.Text & "','" & cboproveedor.Text & "','" & codigo & "','" & nombre & "','" & unidad & "'," & cantid & "," & precio & "," & tottal & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "','" & grupo & "','" & dpto & "','" & caduc & "','" & lote & "',0,'')"
                 cmd1.ExecuteNonQuery()
+                voy += 1
             End If
             If voy = 0 Then
                 cmd1 = cnn1.CreateCommand

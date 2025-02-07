@@ -413,7 +413,7 @@ Public Class frmRepEntradas
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -424,7 +424,7 @@ Public Class frmRepEntradas
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -435,7 +435,7 @@ Public Class frmRepEntradas
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -446,7 +446,7 @@ Public Class frmRepEntradas
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1279,7 +1279,7 @@ Public Class frmRepEntradas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & " and Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1290,7 +1290,7 @@ Public Class frmRepEntradas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Tarjeta) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1301,7 +1301,7 @@ Public Class frmRepEntradas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Transfe) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1312,7 +1312,7 @@ Public Class frmRepEntradas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and CorteU=0 and Concepto='ABONO'"
+                      "SELECT SUM(Otro) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
