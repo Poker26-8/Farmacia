@@ -5446,8 +5446,8 @@ doorcita:
 
             e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 270, Y, sf)
             Y += 15
-            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString("Fecha: " & lblfechaventa.Text, fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & lblhoraventa.Text, fuente_fecha, Brushes.Black, 270, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente

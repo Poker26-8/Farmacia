@@ -232,34 +232,34 @@ Public Class frmRepInventario
 
         End If
         Try
-            cnn2.Close() : cnn2.Open()
-            cnn3.Close() : cnn3.Open()
+            cnn4.Close() : cnn4.Open()
+            cnn5.Close() : cnn5.Open()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText =
                 "select Codigo from LoteCaducidad where Codigo='" & codigo & "' and Lote='" & lote & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
                 'Existe
-                If rd2.Read Then
-                    cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "'"
+                If rd4.Read Then
+                    cmd5 = cnn5.CreateCommand
+                    cmd5.CommandText = "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "'"
 
-                    cmd3.ExecuteNonQuery()
+                    cmd5.ExecuteNonQuery()
                 End If
             Else
                 'No existe
-                cmd3 = cnn3.CreateCommand
-                cmd3.CommandText =
+                cmd5 = cnn5.CreateCommand
+                cmd5.CommandText =
                     "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codigo & "','" & lote & "','" & caduci & "'," & cantidad & ")"
-                cmd3.ExecuteNonQuery()
+                cmd5.ExecuteNonQuery()
             End If
-            rd2.Close()
-            cnn2.Close()
-            cnn3.Close()
+            rd4.Close()
+            cnn4.Close()
+            cnn5.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
-            cnn2.Close()
+            cnn4.Close()
         End Try
     End Sub
 
@@ -2659,57 +2659,35 @@ quepaso_wey:
     End Sub
 
     Private Sub btnImpExis_Click(sender As Object, e As EventArgs) Handles btnImpExis.Click
-
-        'If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-        '    Excel_Grid_SQL(DataGridView1)
-        'End If
-
         CargarDatosDesdeExcel()
-
     End Sub
-
-    ' Función para cargar datos de Excel a un DataGridView
     Private Sub CargarDatosDesdeExcel()
         btnImpExis.Enabled = False
-        ' Crear el OpenFileDialog para seleccionar el archivo Excel
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Archivos de Excel|*.xlsx"
         openFileDialog.Title = "Seleccionar archivo Excel"
 
-        ' Si el usuario selecciona un archivo
         If openFileDialog.ShowDialog() = DialogResult.OK Then
-
-            ' Ruta del archivo Excel seleccionado
             Dim filePath As String = openFileDialog.FileName
-
-            ' Crear un DataTable para almacenar los datos
             Dim dt As New DataTable()
-
-            ' Abrir el archivo de Excel usando ClosedXML
             Using workbook As New XLWorkbook(filePath)
-                ' Asumimos que los datos están en la primera hoja
                 Dim worksheet As IXLWorksheet = workbook.Worksheet(1)
 
-                ' Obtener la primera fila como encabezados y añadir columnas al DataTable
                 Dim firstRow As IXLRow = worksheet.Row(1)
                 For Each cell As IXLCell In firstRow.CellsUsed()
                     dt.Columns.Add(cell.Value.ToString())
                 Next
 
-                ' Recorrer las filas restantes y añadirlas al DataTable
                 For rowIndex As Integer = 2 To worksheet.RowsUsed().Count()
                     Dim row As DataRow = dt.NewRow()
                     Dim currentRow As IXLRow = worksheet.Row(rowIndex)
-
                     For colIndex As Integer = 1 To dt.Columns.Count
                         row(colIndex - 1) = currentRow.Cell(colIndex).GetValue(Of String)()
                     Next
-
                     dt.Rows.Add(row)
                 Next
             End Using
 
-            ' Asignar el DataTable al DataGridView para mostrar los datos
             DataGridView1.DataSource = dt
 
             Try
@@ -2721,19 +2699,17 @@ quepaso_wey:
 
                 cnn1.Close() : cnn1.Open()
                 Dim contadorconexion As Integer = 0
-                For z As Integer = 0 To DataGridView1.Rows.Count - 1
-                    CODIGO = DataGridView1.Rows.Item(z).Cells(0).Value
-                    cnn3.Close()
-                    cnn3.Open()
-                    cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "Update Productos set Existencia=0 where Codigo='" & CODIGO & "'"
-                    cmd3.ExecuteNonQuery()
-                    cnn3.Close()
-                Next
+                'For z As Integer = 0 To DataGridView1.Rows.Count - 1
+                '    CODIGO = DataGridView1.Rows.Item(z).Cells(0).Value
+                '    cnn3.Close()
+                '    cnn3.Open()
+                '    cmd3 = cnn3.CreateCommand
+                '    cmd3.CommandText = "Update Productos set Existencia=0 where Codigo='" & CODIGO & "'"
+                '    cmd3.ExecuteNonQuery()
+                '    cnn3.Close()
+                'Next
 
                 For X As Integer = 0 To DataGridView1.Rows.Count - 1
-                    '     For Each row As DataGridViewRow In DataGridView1.Rows
-                    'If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
 
                     contadorconexion += 1
 
@@ -2741,16 +2717,13 @@ quepaso_wey:
                     If CODIGO = "" Then
                         GoTo kaka
                     End If
-                    BARRAS = DataGridView1.Rows.Item(X).Cells(1).Value 'If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
-                    NOMBRE = DataGridView1.Rows.Item(X).Cells(2).Value 'row.Cells(1).Value?.ToString()
-                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(3).Value 'If(String.IsNullOrEmpty(row.Cells
+                    BARRAS = DataGridView1.Rows.Item(X).Cells(1).Value
+                    NOMBRE = DataGridView1.Rows.Item(X).Cells(2).Value
+                    EXISTENCIA = DataGridView1.Rows.Item(X).Cells(3).Value
                     LOTE = DataGridView1.Rows.Item(X).Cells(4).Value
                     If LOTE <> "" Then
                         CADUCA = DataGridView1.Rows.Item(X).Cells(5).Value
                     End If
-                    'L(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
-                    'Dim caducaxd As Date = Format("01-" & CADUCA, "yyyy-MM")
-                    'If String.IsNullOrEmpty(CODIGO) Then Continue For
 
                     If contadorconexion > 499 Then
                         cnn1.Close() : cnn1.Open()
@@ -2762,7 +2735,6 @@ quepaso_wey:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText = "SELECT Existencia,Multiplo,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
-                        cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -2770,7 +2742,6 @@ quepaso_wey:
                                 existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
                                 mcd = If(IsDBNull(rd1("Multiplo")), 1, CDbl(rd1("Multiplo")))
                                 MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
-
 
                                 diferencia = existenciacardex - EXISTENCIA
                                 existencia_final = EXISTENCIA * mcd
@@ -2781,19 +2752,43 @@ quepaso_wey:
                                 cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
                                 cmd2.ExecuteNonQuery()
 
-                                cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=Existencia+" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
-                                cmd2.ExecuteNonQuery()
-                                cnn2.Close()
+                                If EXISTENCIA = 0 Then
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "delete from lotecaducidad where  codigo='" & Strings.Left(CODIGO, 6) & "'"
+                                    cmd2.ExecuteNonQuery()
 
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=0 WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
+                                    cmd2.ExecuteNonQuery()
+
+                                    cnn2.Close()
+                                Else
+                                    Dim caducaxd As String = ""
+                                    caducaxd = Format(CADUCA, "yyyy-MM")
+                                    Dim cantlote As Double = 0
+                                    Dim diferencialote As Double = 0
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "Select Cantidad from LoteCaducidad where Codigo='" & CODIGO & "' and Lote='" & LOTE & "' and Caducidad='" & caducaxd & "'"
+                                    rd2 = cmd2.ExecuteReader
+                                    If rd2.Read Then
+                                        cantlote = rd2(0).ToString
+                                    End If
+                                    rd2.Close()
+                                    diferencia = EXISTENCIA - cantlote
+
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=Existencia+" & diferencia & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "' and CodBarra='" & BARRAS & "'"
+                                    cmd2.ExecuteNonQuery()
+                                    cnn2.Close()
+
+                                    If LOTE <> "" Then
+                                        Dim sumaxd As Double = 0
+                                        Lote_Caducidad(CODIGO, EXISTENCIA, CADUCA, LOTE)
+                                    End If
+                                End If
                             End If
                         End If
                         rd1.Close()
-
-                        If LOTE <> "" Then
-                            Dim sumaxd As Double = 0
-                            Lote_Caducidad(CODIGO, EXISTENCIA, CADUCA, LOTE)
-                        End If
 
 
                     Else
@@ -2815,134 +2810,24 @@ kaka:
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
             End Try
-
-
         End If
 
     End Sub
 
-    'Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)
-
-    '    Dim con As OleDb.OleDbConnection
-    '    Dim dt As New System.Data.DataTable
-    '    Dim ds As New DataSet
-    '    Dim da As OleDb.OleDbDataAdapter
-    '    Dim cuadro_dialogo As New OpenFileDialog
-    '    Dim ruta As String = ""
-    '    Dim sheet As String = "hoja1"
-
-    '    With cuadro_dialogo
-    '        .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
-    '        .Title = "Selecciona el archivo a importar"
-    '        .Multiselect = False
-    '        .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
-    '        .ShowDialog()
-    '    End With
-
-    '    Try
-    '        If cuadro_dialogo.FileName.ToString() <> "" Then
-    '            ruta = cuadro_dialogo.FileName.ToString()
-    '            con = New OleDb.OleDbConnection(
-    '                "Provider=Microsoft.ACE.OLEDB.12.0;" &
-    '                " Data Source='" & ruta & "'; " &
-    '                "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
-
-    '            da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
-
-    '            con.Open()
-    '            da.Fill(ds, "MyData")
-    '            dt = ds.Tables("MyData")
-    '            tabla.DataSource = ds
-    '            tabla.DataMember = "MyData"
-    '            con.Close()
-    '        End If
-
-    '        Dim NOMBRE, CODIGO As String
-    '        Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
-    '        Dim conteo As Integer = 0
-
-    '        cnn1.Close() : cnn1.Open()
-    '        Dim contadorconexion As Integer = 0
-
-    '        For Each row As DataGridViewRow In DataGridView1.Rows
-    '            If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
-
-    '            contadorconexion += 1
-
-    '            CODIGO = If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
-    '            NOMBRE = row.Cells(1).Value?.ToString()
-    '            EXISTENCIA = If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
-
-    '            If String.IsNullOrEmpty(CODIGO) Then Continue For
-
-    '            If contadorconexion > 499 Then
-    '                cnn1.Close() : cnn1.Open()
-    '                contadorconexion = 1
-    '            End If
-
-    '            If (Comprueba(CODIGO)) Then
-    '                If cnn1.State = ConnectionState.Closed Then cnn1.Open()
-
-    '                cmd1 = cnn1.CreateCommand
-    '                cmd1.CommandText = "SELECT Existencia,Multiplo,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
-    '                cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
-    '                rd1 = cmd1.ExecuteReader
-    '                If rd1.HasRows Then
-    '                    If rd1.Read Then
-
-    '                        existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
-    '                        mcd = If(IsDBNull(rd1("Multiplo")), 1, CDbl(rd1("Multiplo")))
-    '                        MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
-
-
-    '                        diferencia = existenciacardex - EXISTENCIA
-    '                        existencia_final = EXISTENCIA * mcd
-
-    '                        cnn2.Close() : cnn2.Open()
-    '                        cmd2 = cnn2.CreateCommand
-    '                        cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
-    '                        cmd2.ExecuteNonQuery()
-
-    '                        cmd2 = cnn2.CreateCommand
-    '                        cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & Strings.Left(CODIGO, 6) & "'"
-    '                        cmd2.ExecuteNonQuery()
-    '                        cnn2.Close()
-
-    '                    End If
-    '                End If
-    '                rd1.Close()
-    '            Else
-    '                conteo += 1
-    '                Continue For
-    '            End If
-    '            conteo += 1
-    '        Next
-    '        cnn1.Close()
-    '        MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.ToString())
-    '        cnn1.Close()
-    '    End Try
-
-    'End Sub
 
     Private Function Comprueba(ByVal codigo As String) As Boolean
         Try
             Dim valida As Boolean = True
-
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT Codigo FROM productos WHERE Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-
-
                 End If
             Else
                 MsgBox("El código corto no existe " & codigo & ".", vbInformation + vbOKOnly, titulocentral)
                 valida = False
-                'Exit Function
             End If
             rd2.Close()
             cnn2.Close()
@@ -2962,15 +2847,11 @@ kaka:
         End If
     End Function
 
-
-
     Private Sub rbAjuste_CheckedChanged(sender As Object, e As EventArgs) Handles rbAjuste.CheckedChanged
         Try
-
             If (rbAjuste.Checked) Then
                 grdcaptura.Rows.Clear()
                 grdcaptura.ColumnCount = 0
-
                 grdcaptura.ColumnCount = 5
 
                 With grdcaptura.Columns(0)
@@ -3057,8 +2938,6 @@ kaka:
         frmMinMax.BringToFront()
     End Sub
 
-
-
     Private Sub optperdidas_Click(sender As Object, e As EventArgs) Handles optperdidas.Click
         If (optperdidas.Checked) Then
 
@@ -3075,8 +2954,6 @@ kaka:
 
             If (Libreria) Then
             Else
-
-
                 grdcaptura.ColumnCount = 8
                 With grdcaptura
                     With .Columns(0)
@@ -3333,7 +3210,6 @@ kaka:
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-
                 With .Columns(2)
                     .HeaderText = "Descripción"
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -3377,7 +3253,7 @@ kaka:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select Codigo,CodBarra,Nombre,Existencia from Productos where Caduca=1"
+            cmd1.CommandText = "Select Codigo,CodBarra,Nombre,Existencia from Productos where Caduca=1 order by Codigo"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Do While rd1.Read
@@ -3397,10 +3273,121 @@ kaka:
 
                             diferencia = existencia - existencialote
                             diferencia = FormatNumber(diferencia, 2)
+                            If existencia = existencialote Then
+                                Continue Do
+                            End If
                         End If
                     End If
                     rd2.Close()
                     grdcaptura.Rows.Add(cod, barras, nombre, existencia, existencialote, diferencia)
+                    My.Application.DoEvents()
+                Loop
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub rbListaLotes_Click(sender As Object, e As EventArgs) Handles rbListaLotes.Click
+        If (rbListaLotes.Checked) Then
+            cbofiltro.Text = ""
+            cbofiltro.Items.Clear()
+            cbofiltro.Enabled = False
+            boxcaduca.Enabled = False
+            txtCompraTot.Text = "0.00"
+            txtVentaTot.Text = "0.00"
+
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+            My.Application.DoEvents()
+            grdcaptura.ColumnCount = 6
+            With grdcaptura
+                With .Columns(0)
+                    .HeaderText = "Código"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Cod. Barras"
+                    .Width = 180
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                End With
+                With .Columns(3)
+                    .HeaderText = "Existencia Lote"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Lote"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Caducidad"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+            End With
+        End If
+        My.Application.DoEvents()
+        Try
+            Dim cod As String = ""
+            Dim barras As String = ""
+            Dim nombre As String = ""
+            Dim existencialote As Double = 0
+            Dim lote As String = ""
+            Dim caducidad As String = ""
+
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Codigo,CodBarra,Nombre,Existencia from Productos where Caduca=1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                Do While rd1.Read
+                    cod = rd1(0).ToString
+                    barras = rd1(1).ToString
+                    nombre = rd1(2).ToString
+
+                    cnn2.Close()
+                    cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "Select Lote,Caducidad,Cantidad from lotecaducidad where Codigo='" & cod & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        Do While rd2.Read
+                            lote = rd2(0).ToString
+                            caducidad = rd2(1).ToString
+                            existencialote = rd2(2).ToString
+                            grdcaptura.Rows.Add(cod, barras, nombre, existencialote, lote, caducidad)
+                        Loop
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
                     My.Application.DoEvents()
                 Loop
             End If

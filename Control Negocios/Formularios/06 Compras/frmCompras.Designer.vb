@@ -23,14 +23,14 @@ Partial Class frmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompras))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -238,8 +238,8 @@ Partial Class frmCompras
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -281,8 +281,8 @@ Partial Class frmCompras
         '
         'Column4
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.MinimumWidth = 8
         Me.Column4.Name = "Column4"
@@ -291,8 +291,8 @@ Partial Class frmCompras
         '
         'Column5
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column5.HeaderText = "Precio"
         Me.Column5.MinimumWidth = 8
         Me.Column5.Name = "Column5"
@@ -301,8 +301,8 @@ Partial Class frmCompras
         '
         'Column6
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column6.HeaderText = "Total"
         Me.Column6.MinimumWidth = 8
         Me.Column6.Name = "Column6"
@@ -311,8 +311,8 @@ Partial Class frmCompras
         '
         'Column7
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle12
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.MinimumWidth = 8
         Me.Column7.Name = "Column7"
@@ -733,19 +733,21 @@ Partial Class frmCompras
         'cbofactura
         '
         Me.cbofactura.FormattingEnabled = True
-        Me.cbofactura.Location = New System.Drawing.Point(77, 42)
+        Me.cbofactura.Location = New System.Drawing.Point(392, -13)
         Me.cbofactura.Name = "cbofactura"
         Me.cbofactura.Size = New System.Drawing.Size(120, 23)
         Me.cbofactura.TabIndex = 7
+        Me.cbofactura.Visible = False
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(8, 46)
+        Me.Label15.Location = New System.Drawing.Point(259, -5)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(49, 15)
         Me.Label15.TabIndex = 6
         Me.Label15.Text = "Factura:"
+        Me.Label15.Visible = False
         '
         'Label13
         '
@@ -770,20 +772,20 @@ Partial Class frmCompras
         '
         Me.cboremision.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboremision.FormattingEnabled = True
-        Me.cboremision.Location = New System.Drawing.Point(519, 16)
+        Me.cboremision.Location = New System.Drawing.Point(117, 42)
         Me.cboremision.Name = "cboremision"
-        Me.cboremision.Size = New System.Drawing.Size(112, 23)
+        Me.cboremision.Size = New System.Drawing.Size(144, 23)
         Me.cboremision.TabIndex = 3
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(456, 20)
+        Me.Label12.Location = New System.Drawing.Point(8, 45)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 15)
+        Me.Label12.Size = New System.Drawing.Size(103, 15)
         Me.Label12.TabIndex = 2
-        Me.Label12.Text = "Remisión:"
+        Me.Label12.Text = "Remisión/Factura:"
         '
         'cboproveedor
         '
@@ -1957,8 +1959,8 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn7.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn7.MinimumWidth = 8
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
@@ -2040,8 +2042,8 @@ Partial Class frmCompras
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
         Me.DataGridViewTextBoxColumn4.MinimumWidth = 8
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"

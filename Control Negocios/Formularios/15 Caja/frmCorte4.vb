@@ -83,142 +83,152 @@
                     foliov = rd1(0).ToString
                     status = rd1(1).ToString
 
-
                     If status = "PAGADO" Then
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            ' If rd2.Read Then
-                            Do While rd2.Read
-                                ventascontado = ventascontado + CDec(rd2(0).ToString)
-                            Loop
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                ' If rd2.Read Then
+                                Do While rd2.Read
+                                    ventascontado = ventascontado + CDec(rd2(0).ToString)
+                                Loop
 
-                            ' End If
+                                ' End If
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    devolucionescontado = devolucionescontado + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            'Formas de pago
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+                        ElseIf status = "CANCELADA" Then
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    ventascontado = ventascontado + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    CANCELACIONESNOTAS = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                        Else
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Saldo FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Concepto='NOTA VENTA'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    ventascredito = ventascredito + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION' and Usuario='" & cboCajero.Text & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    devolucionescredito = devolucionescredito + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    abonoscreditos = abonoscreditos + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+                            'Formas de pago
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND Usuario='" & cboCajero.Text & "' AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                Do While rd2.Read
+                                    INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
+                                Loop
+                            End If
+                            rd2.Close()
+
+
                         End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                devolucionescontado = devolucionescontado + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        'Formas de pago
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-                    ElseIf status = "CANCELADA" Then
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                ventascontado = ventascontado + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                CANCELACIONESNOTAS = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                    Else
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Saldo FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Concepto='NOTA VENTA'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                ventascredito = ventascredito + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION' and Usuario='" & cboCajero.Text & "'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                devolucionescredito = devolucionescredito + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                INGRESOSEFECTIVO = INGRESOSEFECTIVO + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                abonoscreditos = abonoscreditos + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
-                        'Formas de pago
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Abono FROM abonoi WHERE NumFolio=" & foliov & " AND Usuario='" & cboCajero.Text & "' AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            Do While rd2.Read
-                                INGRESOSFORMAS = INGRESOSFORMAS + CDec(rd2(0).ToString)
-                            Loop
-                        End If
-                        rd2.Close()
-
 
                     End If
-
-                End If
             Loop
             rd1.Close()
             cnn1.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE  FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                Do While rd2.Read
+                    devolucionescontado = IIf(rd2(0).ToString = "", "0", rd2(0).ToString)
+                Loop
+            End If
+            rd2.Close()
+
 
 
 

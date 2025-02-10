@@ -6577,4 +6577,10 @@ quepasowey:
             cbonombre.DroppedDown = True
         End If
     End Sub
+
+    Private Sub cboremision_TextChanged(sender As Object, e As EventArgs) Handles cboremision.TextChanged
+        If cboremision.Text <> "" Then
+            Call cboremision_KeyPress(cboremision, New KeyPressEventArgs(ChrW(Keys.Enter)))
+        End If
+    End Sub
 End Class

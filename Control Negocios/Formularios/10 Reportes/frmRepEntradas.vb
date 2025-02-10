@@ -1212,7 +1212,7 @@ Public Class frmRepEntradas
             ''''''''''''''''''''''''''''''''
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario<>'' AND Concepto='DEVOLUCION'"
+            cmd1.CommandText = "Select DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario='" & ComboBox1.Text & "' And Concepto ='DEVOLUCION'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1222,7 +1222,7 @@ Public Class frmRepEntradas
                     If formapago = "EFECTIVO" Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<>'' AND Concepto='DEVOLUCION' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                        cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario='" & ComboBox1.Text & "' AND Concepto='DEVOLUCION' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1235,7 +1235,7 @@ Public Class frmRepEntradas
 
                     Else
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='" & formapago & "' AND FormaPago<>'EFECTIVO' AND Usuario<>'' AND Concepto='NOTA CANCELADA' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                        cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='" & formapago & "' AND FormaPago<>'EFECTIVO' AND Usuario='" & ComboBox1.Text & "' AND Concepto='NOTA CANCELADA' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1260,7 +1260,7 @@ Public Class frmRepEntradas
             'Otros gastos
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "select SUM(Monto) from OtrosGastos where Usuario<>'' and CorteU=0 and Usuario='" & ComboBox1.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                    "select SUM(Monto) from OtrosGastos where Usuario<>'' and Usuario='" & ComboBox1.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1279,7 +1279,7 @@ Public Class frmRepEntradas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & " and Concepto='ABONO'"
+                      "SELECT SUM(Efectivo) FROM AbonoE WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1362,7 +1362,7 @@ Public Class frmRepEntradas
             txtCancelaefectivo.Text = FormatNumber(sumacancelacionestotalesEFEC, 2)
             txtcancelacionestotales.Text = IIf(sumacancelacionestotalesformas = 0, 0, sumacancelacionestotalesformas)
             My.Application.DoEvents()
-            txtDevoefectivo.Text = FormatNumber(sumadevolucionesEFEC, 2)
+            txtDevoefectivo.Text = FormatNumber(sumadevolucionesTOTALESEFEC, 2)
             txtdevolucionesformas.Text = FormatNumber(sumadevolucionesTOTALESFORMAS, 2)
             My.Application.DoEvents()
 

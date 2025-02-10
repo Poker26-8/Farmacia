@@ -84,6 +84,7 @@ Partial Class frmRepInventario
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rbNegativas = New System.Windows.Forms.RadioButton()
         Me.rbPositivas = New System.Windows.Forms.RadioButton()
+        Me.rbListaLotes = New System.Windows.Forms.RadioButton()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -120,6 +121,7 @@ Partial Class frmRepInventario
         '
         'tpInv
         '
+        Me.tpInv.Controls.Add(Me.rbListaLotes)
         Me.tpInv.Controls.Add(Me.rbLotes)
         Me.tpInv.Controls.Add(Me.rbAjuste)
         Me.tpInv.Controls.Add(Me.optperdidas)
@@ -781,6 +783,17 @@ Partial Class frmRepInventario
         Me.rbPositivas.Text = "Existencia positivas"
         Me.rbPositivas.UseVisualStyleBackColor = True
         '
+        'rbListaLotes
+        '
+        Me.rbListaLotes.AutoSize = True
+        Me.rbListaLotes.Location = New System.Drawing.Point(125, 67)
+        Me.rbListaLotes.Name = "rbListaLotes"
+        Me.rbListaLotes.Size = New System.Drawing.Size(108, 19)
+        Me.rbListaLotes.TabIndex = 60
+        Me.rbListaLotes.TabStop = True
+        Me.rbListaLotes.Text = "Reporte de Lote"
+        Me.rbListaLotes.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -897,4 +910,5 @@ Partial Class frmRepInventario
     Friend WithEvents rbNegativas As RadioButton
     Friend WithEvents rbPositivas As RadioButton
     Friend WithEvents rbLotes As RadioButton
+    Friend WithEvents rbListaLotes As RadioButton
 End Class

@@ -3075,7 +3075,7 @@ doorcita:
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select Codigo,Grupo,CodBarra from Productos where Nombre='" & cbodesc.Text & "'"
+                "select Codigo,Grupo,CodBarra,Existencia from Productos where Nombre='" & cbodesc.Text & "'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -3083,6 +3083,7 @@ doorcita:
                     ' cbocodigo.Text = ""
                     cbocodigo.Text = MyCode
                     soybarras = rd4(2).ToString
+                    txtexistencia.Text = rd4(3).ToString
                     txtbarr.Text = soybarras
                 End If
             Else
