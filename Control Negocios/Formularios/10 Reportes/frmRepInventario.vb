@@ -2916,20 +2916,22 @@ kaka:
     End Sub
 
     Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
-        If e.ColumnIndex > 0 Then
-            Dim nuevoValor As String = ""
-            Dim INDEX As Double = grdcaptura.CurrentRow.Index
-            Dim valorActual As String = grdcaptura.Rows(INDEX).Cells(3).Value.ToString
+        If rbAjuste.Checked = True Then
+            If e.ColumnIndex > 0 Then
+                Dim nuevoValor As String = ""
+                Dim INDEX As Double = grdcaptura.CurrentRow.Index
+                Dim valorActual As String = grdcaptura.Rows(INDEX).Cells(3).Value.ToString
 
-            Dim existencia As String = grdcaptura.Rows(INDEX).Cells(2).Value.ToString
-            Dim diferencia As Double = 0
-            nuevoValor = InputBox("Ingresa la nueva existencia", "Editar Existencia", valorActual.ToString())
-            If nuevoValor <> "" Then
-                ' grdcaptura.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = nuevoValor
-                grdcaptura.Rows(INDEX).Cells(3).Value = nuevoValor
+                Dim existencia As String = grdcaptura.Rows(INDEX).Cells(2).Value.ToString
+                Dim diferencia As Double = 0
+                nuevoValor = InputBox("Ingresa la nueva existencia", "Editar Existencia", valorActual.ToString())
+                If nuevoValor <> "" Then
+                    ' grdcaptura.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = nuevoValor
+                    grdcaptura.Rows(INDEX).Cells(3).Value = nuevoValor
 
-                diferencia = CDbl(existencia) - CDbl(nuevoValor)
-                grdcaptura.Rows(INDEX).Cells(4).Value = diferencia
+                    diferencia = CDbl(existencia) - CDbl(nuevoValor)
+                    grdcaptura.Rows(INDEX).Cells(4).Value = diferencia
+                End If
             End If
         End If
     End Sub
