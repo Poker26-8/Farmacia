@@ -3126,10 +3126,6 @@ kaka:
                     Controla = DataGridView1.Rows.Item(X).Cells(4).Value
                     Caducac = DataGridView1.Rows.Item(X).Cells(5).Value
 
-
-
-
-
                     If contadorconexion > 499 Then
                         cnn1.Close() : cnn1.Open()
                         contadorconexion = 1

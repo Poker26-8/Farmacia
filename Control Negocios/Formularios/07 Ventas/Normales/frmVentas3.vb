@@ -3238,23 +3238,23 @@ doorcita:
                             'Anti = rd1("Grupo").ToString
                             Anti = rd1("Anti").ToString
                             If Anti = 1 Then
-                                If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                                    cbocodigo.Text = ""
-                                    cbodesc.Text = ""
-                                    txtunidad.Text = ""
-                                    txtcantidad.Text = ""
-                                    txtprecio.Text = "0.00"
-                                    txtprecio.Tag = 0
-                                    txttotal.Text = "0.00"
-                                    txtexistencia.Text = ""
-                                    cboLote.Text = ""
-                                    cboLote.Tag = 0
-                                    txtfechacad.Text = ""
-                                    txtubicacion.Text = ""
-                                    cbodesc.Focus().Equals(True)
-                                    rd1.Close() : cnn1.Close()
-                                    Exit Sub
-                                End If
+                                'If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                                '    cbocodigo.Text = ""
+                                '    cbodesc.Text = ""
+                                '    txtunidad.Text = ""
+                                '    txtcantidad.Text = ""
+                                '    txtprecio.Text = "0.00"
+                                '    txtprecio.Tag = 0
+                                '    txttotal.Text = "0.00"
+                                '    txtexistencia.Text = ""
+                                '    cboLote.Text = ""
+                                '    cboLote.Tag = 0
+                                '    txtfechacad.Text = ""
+                                '    txtubicacion.Text = ""
+                                '    cbodesc.Focus().Equals(True)
+                                '    rd1.Close() : cnn1.Close()
+                                '    Exit Sub
+                                'End If
                             End If
                             If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
                                 cbocodigo.Text = rd1("Codigo").ToString
@@ -3472,23 +3472,23 @@ kaka:
                         'Anti = rd1("Grupo").ToString
                         Anti = rd1("Anti").ToString
                         If Anti = 1 Then
-                            If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                                cbocodigo.Text = ""
-                                cbodesc.Text = ""
-                                txtunidad.Text = ""
-                                txtcantidad.Text = ""
-                                txtprecio.Text = "0.00"
-                                txtprecio.Tag = 0
-                                txttotal.Text = "0.00"
-                                txtexistencia.Text = ""
-                                cboLote.Text = ""
-                                cboLote.Tag = 0
-                                txtfechacad.Text = ""
-                                txtubicacion.Text = ""
-                                cbodesc.Focus().Equals(True)
-                                rd1.Close() : cnn1.Close()
-                                Exit Sub
-                            End If
+                            'If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                            '    cbocodigo.Text = ""
+                            '    cbodesc.Text = ""
+                            '    txtunidad.Text = ""
+                            '    txtcantidad.Text = ""
+                            '    txtprecio.Text = "0.00"
+                            '    txtprecio.Tag = 0
+                            '    txttotal.Text = "0.00"
+                            '    txtexistencia.Text = ""
+                            '    cboLote.Text = ""
+                            '    cboLote.Tag = 0
+                            '    txtfechacad.Text = ""
+                            '    txtubicacion.Text = ""
+                            '    cbodesc.Focus().Equals(True)
+                            '    rd1.Close() : cnn1.Close()
+                            '    Exit Sub
+                            'End If
                         End If
                         If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
                             cbocodigo.Text = rd1("Codigo").ToString
@@ -3625,23 +3625,23 @@ kaka:
                         'Anti = rd1("Grupo").ToString
                         Anti = rd1("Anti").ToString
                         If Anti = 1 Then
-                            If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                                cbocodigo.Text = ""
-                                cbodesc.Text = ""
-                                txtunidad.Text = ""
-                                txtcantidad.Text = ""
-                                txtprecio.Text = "0.00"
-                                txtprecio.Tag = 0
-                                txttotal.Text = "0.00"
-                                txtexistencia.Text = ""
-                                cboLote.Text = ""
-                                cboLote.Tag = 0
-                                txtfechacad.Text = ""
-                                txtubicacion.Text = ""
-                                cbodesc.Focus().Equals(True)
-                                rd1.Close() : cnn1.Close()
-                                Exit Sub
-                            End If
+                            'If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                            '    cbocodigo.Text = ""
+                            '    cbodesc.Text = ""
+                            '    txtunidad.Text = ""
+                            '    txtcantidad.Text = ""
+                            '    txtprecio.Text = "0.00"
+                            '    txtprecio.Tag = 0
+                            '    txttotal.Text = "0.00"
+                            '    txtexistencia.Text = ""
+                            '    cboLote.Text = ""
+                            '    cboLote.Tag = 0
+                            '    txtfechacad.Text = ""
+                            '    txtubicacion.Text = ""
+                            '    cbodesc.Focus().Equals(True)
+                            '    rd1.Close() : cnn1.Close()
+                            '    Exit Sub
+                            'End If
                         End If
                         If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
                             cbocodigo.Text = rd1("Codigo").ToString
@@ -3897,23 +3897,23 @@ kaka:
                                 'Anti = rd2("Grupo").ToString
                                 Anti = rd2("Anti").ToString
                                 If Anti = 1 Then
-                                    If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                                        cbocodigo.Text = ""
-                                        cbodesc.Text = ""
-                                        txtunidad.Text = ""
-                                        txtcantidad.Text = ""
-                                        txtprecio.Text = "0.00"
-                                        txtprecio.Tag = 0
-                                        txttotal.Text = "0.00"
-                                        txtexistencia.Text = ""
-                                        cboLote.Text = ""
-                                        cboLote.Tag = 0
-                                        txtfechacad.Text = ""
-                                        txtubicacion.Text = ""
-                                        cbodesc.Focus().Equals(True)
-                                        rd2.Close() : cnn2.Close()
-                                        Exit Sub
-                                    End If
+                                    'If MsgBox("Este en un Antibiotico ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                                    '    cbocodigo.Text = ""
+                                    '    cbodesc.Text = ""
+                                    '    txtunidad.Text = ""
+                                    '    txtcantidad.Text = ""
+                                    '    txtprecio.Text = "0.00"
+                                    '    txtprecio.Tag = 0
+                                    '    txttotal.Text = "0.00"
+                                    '    txtexistencia.Text = ""
+                                    '    cboLote.Text = ""
+                                    '    cboLote.Tag = 0
+                                    '    txtfechacad.Text = ""
+                                    '    txtubicacion.Text = ""
+                                    '    cbodesc.Focus().Equals(True)
+                                    '    rd2.Close() : cnn2.Close()
+                                    '    Exit Sub
+                                    'End If
                                 End If
                                 If CStr(rd2("Departamento").ToString) = "SERVICIOS" Then
                                     cbocodigo.Text = rd2("Codigo").ToString
