@@ -2809,6 +2809,7 @@ kaka:
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
+                btnImpExis.Enabled = True
             End Try
         End If
 
@@ -3169,6 +3170,7 @@ kaka:
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
+                btnCaracteristicas.Enabled = True
             End Try
 
 

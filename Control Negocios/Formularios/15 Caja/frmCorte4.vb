@@ -220,7 +220,7 @@
             cnn1.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE  FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION'"
+            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE  FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='DEVOLUCION' and Usuario='" & cboCajero.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 Do While rd2.Read
@@ -233,7 +233,7 @@
 
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "'"
+            cmd2.CommandText = "SELECT Sum(Abono) FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' AND Concepto='NOTA CANCELADA' and Usuario='" & cboCajero.Text & "' AND CorteU=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 Do While rd2.Read
@@ -1295,29 +1295,15 @@
 
                 If MsgBox("¿Deseas realizar el corte de los días seleccionados?", vbInformation + vbOKCancel, "Delsscom Farmacias") = vbOK Then
 
-                    cnn1.Close() : cnn1.Open()
                     cnn2.Close() : cnn2.Open()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                    rd1 = cmd1.ExecuteReader
-                    Do While rd1.Read
-                        If rd1.HasRows Then
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE  CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' and Usuario='" & cboCajero.Text & "'"
+                    cmd2.ExecuteNonQuery()
 
-                            foliov = rd1(0).ToString
-
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "UPDATE ventas SET CorteU=1 WHERE Folio=" & foliov & " AND CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                            cmd2.ExecuteNonQuery()
-
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "UPDATE Abonoi SET CorteU=1 WHERE NumFolio=" & foliov & " AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "'"
-                            cmd2.ExecuteNonQuery()
-
-
-                        End If
-                    Loop
-                    rd1.Close()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE SET CorteU=1 WHERE CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' and Usuario='" & cboCajero.Text & "'"
+                    cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE Abonoe SET CorteU=1 WHERE CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "' and Usuario='" & cboCajero.Text & "'"
@@ -1326,7 +1312,7 @@
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE otrosgastos SET CorteU=1 WHERE CorteU=0 AND Fecha BETWEEN '" & Format(dtpInicial.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFin.Value, "yyyy-MM-dd") & "' and Usuario='" & cboCajero.Text & "'"
                     cmd2.ExecuteNonQuery()
-
+                    cnn2.Close()
 
                     Dim ventasconta As Double = txtVentas.Text
                     Dim devoconta As Double = txtDevolucionesV.Text
@@ -1359,12 +1345,13 @@
                     Dim TOTALCANCELACIONES As Double = txtCancelaciones.Text
                     Dim COmprasCanceladas As Double = txtComprasCanceladas.Text
 
+                    cnn1.Close()
+                    cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText = "INSERT INTO corteusuariofar(Folio,FInicial,FFinal,FCorte,Cajero,Usuario,VentasC,DevolucionesC,ServiciosC,RecargasC,TotalContado,VentasCre,AbonosCre,DevolucionesCre,TotalCredito,TotalGeneral,Ingresos,SaldoInicial,Retiros,DevolucionesT,SumaIngresos,SumaCajero,SumaDiferencia,TotalIngresos,TotalCajero,TotalDiferencia,IngresosF,DevolucionesF,SumaIngresosF,SumaCajeroF,SumaDiferenciaF,TotalIngresosF,TotalCajeroF,TotalDiferenciaF,TotalCancelaciones,ComprasCanceladas) VALUES('" & varcodunico & "','" & Format(dtpInicial.Value, "yyyy-MM-dd") & " " & Format(dtpHInicial.Value, "HH:mm:ss") & "','" & Format(dtpFin.Value, "yyyy-MM-dd") & " " & Format(dtpHFinal.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboCajero.Text & "','" & usuario & "'," & ventasconta & "," & devoconta & "," & serconta & "," & tiempoconta & "," & totalcontado & "," & ventascre & "," & abonoscre & "," & devolucionescre & "," & totalcredito & "," & totalgeneral & "," & ingresos & "," & saldoinicial & "," & retiros & "," & devoluciones & "," & sumaingresos & "," & sumacajero & "," & sumadiferencia & "," & totalsistema & "," & totalcajero & "," & totaldiferencia & "," & ingresostarjeta & "," & devolucionestarjeta & "," & sumasistematar & "," & sumacajerotar & "," & sumadiferenciatar & "," & totalingresostar & "," & totalcajerotar & "," & totaldiferenciatar & "," & TOTALCANCELACIONES & "," & COmprasCanceladas & ")"
                     If cmd1.ExecuteNonQuery() Then
                         MsgBox("Cierre realizado correctamente", vbInformation + vbOKOnly, titulocentral)
                     End If
-                    cnn2.Close()
                     cnn1.Close()
 
                     Dim impre As Integer = TamImpre()

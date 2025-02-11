@@ -16095,10 +16095,6 @@ doorcita:
         gbLotes.Visible = False
     End Sub
 
-    Private Sub pCentral_Paint(sender As Object, e As PaintEventArgs) Handles pCentral.Paint
-
-    End Sub
-
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         If sTargetdSincro = "" Then
             MsgBox("Necesitas tener un sincronizador activo para continuar con el proceso", vbInformation + vbOKOnly, "Delsscom Farrmacias")

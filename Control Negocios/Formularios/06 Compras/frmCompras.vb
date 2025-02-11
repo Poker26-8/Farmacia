@@ -3010,8 +3010,21 @@ kaka:
             Dim lote As String = "" 'grdcaptura.Rows(miku).Cells(8).Value.ToString
             Dim cantidadlote As Double = 0
 
-            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select CodBarra from Productos where Codigo='" & codigo & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                e.Graphics.DrawString(rd1(0).ToString, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 120, Y)
+            Else
+                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+            End If
+            rd1.Close()
+            cnn1.Close()
+
             Y += 12.5
             e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
             e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)

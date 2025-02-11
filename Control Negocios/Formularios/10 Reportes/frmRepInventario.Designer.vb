@@ -27,6 +27,7 @@ Partial Class frmRepInventario
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
         Me.tpInv = New System.Windows.Forms.TabPage()
+        Me.rbListaLotes = New System.Windows.Forms.RadioButton()
         Me.rbLotes = New System.Windows.Forms.RadioButton()
         Me.rbAjuste = New System.Windows.Forms.RadioButton()
         Me.optperdidas = New System.Windows.Forms.RadioButton()
@@ -84,7 +85,6 @@ Partial Class frmRepInventario
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rbNegativas = New System.Windows.Forms.RadioButton()
         Me.rbPositivas = New System.Windows.Forms.RadioButton()
-        Me.rbListaLotes = New System.Windows.Forms.RadioButton()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -137,10 +137,21 @@ Partial Class frmRepInventario
         Me.tpInv.Text = "      Inventario      "
         Me.tpInv.UseVisualStyleBackColor = True
         '
+        'rbListaLotes
+        '
+        Me.rbListaLotes.AutoSize = True
+        Me.rbListaLotes.Location = New System.Drawing.Point(125, 56)
+        Me.rbListaLotes.Name = "rbListaLotes"
+        Me.rbListaLotes.Size = New System.Drawing.Size(108, 19)
+        Me.rbListaLotes.TabIndex = 60
+        Me.rbListaLotes.TabStop = True
+        Me.rbListaLotes.Text = "Reporte de Lote"
+        Me.rbListaLotes.UseVisualStyleBackColor = True
+        '
         'rbLotes
         '
         Me.rbLotes.AutoSize = True
-        Me.rbLotes.Location = New System.Drawing.Point(125, 37)
+        Me.rbLotes.Location = New System.Drawing.Point(125, 32)
         Me.rbLotes.Name = "rbLotes"
         Me.rbLotes.Size = New System.Drawing.Size(114, 19)
         Me.rbLotes.TabIndex = 59
@@ -782,17 +793,6 @@ Partial Class frmRepInventario
         Me.rbPositivas.TabStop = True
         Me.rbPositivas.Text = "Existencia positivas"
         Me.rbPositivas.UseVisualStyleBackColor = True
-        '
-        'rbListaLotes
-        '
-        Me.rbListaLotes.AutoSize = True
-        Me.rbListaLotes.Location = New System.Drawing.Point(125, 67)
-        Me.rbListaLotes.Name = "rbListaLotes"
-        Me.rbListaLotes.Size = New System.Drawing.Size(108, 19)
-        Me.rbListaLotes.TabIndex = 60
-        Me.rbListaLotes.TabStop = True
-        Me.rbListaLotes.Text = "Reporte de Lote"
-        Me.rbListaLotes.UseVisualStyleBackColor = True
         '
         'frmRepInventario
         '
