@@ -271,12 +271,15 @@ Public Class frmRecibeTraspaso
             If odata4.dbOpen(cnn4, sTargetdSincro, sinfo) Then
                 If odata4.getDt(cnn4, dt4, sSQL, sinfo) Then
                     For Each dr4 In dt4.Rows
-                        If odata4.getDt(cnn4, dt5, "Select CodBarra from productos where COdigo='" & dr4("Codigo").ToString & "'", sinfo) Then
-                            For Each dr5 In dt5.Rows
-                                barras = dr5(0).ToString
-                            Next
-                        Else
+                        barras = dr4("Barras").ToString
+                        If barras = "" Then
+                            If odata4.getDt(cnn4, dt5, "Select CodBarra from productos where Codigo='" & dr4("Codigo").ToString & "'", sinfo) Then
+                                For Each dr5 In dt5.Rows
+                                    barras = dr5(0).ToString
+                                Next
+                            Else
 
+                            End If
                         End If
                         My.Application.DoEvents()
                         grdcaptura.Rows.Add(dr4("Codigo").ToString, dr4("Nombre").ToString, dr4("UVenta").ToString, dr4("Cantidad").ToString, dr4("Precio").ToString, dr4("Total").ToString, dr4("Fecha").ToString, dr4("Lote").ToString, dr4("FechaCad").ToString, barras)

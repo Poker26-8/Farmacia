@@ -895,16 +895,18 @@ kaka:
                 Dim existencia As Double = 0
                 Dim multiplo As Double = 0
                 Dim mcd As Double = 0
+                Dim barras As String = ""
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Multiplo, Departamento, Grupo from Productos where Codigo='" & codigo & "'"
+                    "select Multiplo, Departamento, Grupo, CodBarra from Productos where Codigo='" & codigo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         multiplo = rd1(0).ToString
                         depto = rd1(1).ToString
                         grupo = rd1(2).ToString
+                        barras = rd1(3).ToString
                     End If
                 End If
                 rd1.Close()
@@ -923,7 +925,7 @@ kaka:
                             mycant2 = DataGridView2.Rows(cuca).Cells(4).Value.ToString
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & mycant2 & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','" & lote & "','" & caduca & "')"
+                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca,Barras) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & mycant2 & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','" & lote & "','" & caduca & "','" & barras & "')"
                             cmd1.ExecuteNonQuery()
                             voy += 1
                         End If
@@ -932,7 +934,7 @@ kaka:
                 Else
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','')"
+                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca,Barras) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','','" & barras & "')"
                     cmd1.ExecuteNonQuery()
                     voy = 1
                 End If
@@ -940,7 +942,7 @@ kaka:
                 If voy = 0 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','')"
+                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR,Lote,FCaduca,Barras) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','SALIDA','" & depto & "','" & grupo & "','','','','" & barras & "')"
                     cmd1.ExecuteNonQuery()
                 End If
 
@@ -1667,6 +1669,11 @@ milky:
 
         If voyconteo > ventatotal Then
             MsgBox("La suma de las cantidades es mayor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
+            Exit Sub
+        End If
+
+        If voyconteo < ventatotal Then
+            MsgBox("La suma de las cantidades es menor a la de la venta, revisa la informacion", vbCritical + vbOKOnly, "Delsscom Farmacias")
             Exit Sub
         End If
 
