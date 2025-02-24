@@ -40,8 +40,6 @@ Partial Class frmRepEntradas
         Me.txtDevoefectivo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCancelaefectivo = New System.Windows.Forms.TextBox()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnNuevo = New System.Windows.Forms.Button()
         Me.optEgresosTransferencia = New System.Windows.Forms.RadioButton()
         Me.optAbonosTransferencia = New System.Windows.Forms.RadioButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -53,7 +51,6 @@ Partial Class frmRepEntradas
         Me.MC2 = New System.Windows.Forms.MonthCalendar()
         Me.MC1 = New System.Windows.Forms.MonthCalendar()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.btnExportar = New System.Windows.Forms.Button()
         Me.grdpagos = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -78,6 +75,11 @@ Partial Class frmRepEntradas
         Me.txtOtrosgastos = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCompras = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtcCancela = New System.Windows.Forms.TextBox()
+        Me.btnExportar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,17 +105,17 @@ Partial Class frmRepEntradas
         'Label9
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.Location = New System.Drawing.Point(521, 571)
+        Me.Label9.Location = New System.Drawing.Point(247, 602)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(117, 18)
+        Me.Label9.Size = New System.Drawing.Size(391, 37)
         Me.Label9.TabIndex = 319
-        Me.Label9.Text = "Saldo Formas Pago:"
+        Me.Label9.Text = "Saldo Formas Pago (Ingresos formas de pago - Notas canceladas formas de pago):"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtSalTarj
         '
         Me.txtSalTarj.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSalTarj.Location = New System.Drawing.Point(644, 568)
+        Me.txtSalTarj.Location = New System.Drawing.Point(644, 605)
         Me.txtSalTarj.Name = "txtSalTarj"
         Me.txtSalTarj.Size = New System.Drawing.Size(85, 23)
         Me.txtSalTarj.TabIndex = 318
@@ -124,7 +126,7 @@ Partial Class frmRepEntradas
         '
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(546, 543)
+        Me.Label10.Location = New System.Drawing.Point(546, 580)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(92, 15)
         Me.Label10.TabIndex = 317
@@ -133,7 +135,7 @@ Partial Class frmRepEntradas
         'txtEfeCaja
         '
         Me.txtEfeCaja.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 540)
+        Me.txtEfeCaja.Location = New System.Drawing.Point(644, 577)
         Me.txtEfeCaja.Name = "txtEfeCaja"
         Me.txtEfeCaja.Size = New System.Drawing.Size(85, 23)
         Me.txtEfeCaja.TabIndex = 316
@@ -144,7 +146,7 @@ Partial Class frmRepEntradas
         '
         Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(569, 515)
+        Me.Label16.Location = New System.Drawing.Point(569, 552)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(65, 15)
         Me.Label16.TabIndex = 315
@@ -155,7 +157,7 @@ Partial Class frmRepEntradas
         Me.txtTotalAbono.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalAbono.BackColor = System.Drawing.SystemColors.HotTrack
         Me.txtTotalAbono.ForeColor = System.Drawing.Color.White
-        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 512)
+        Me.txtTotalAbono.Location = New System.Drawing.Point(644, 549)
         Me.txtTotalAbono.Name = "txtTotalAbono"
         Me.txtTotalAbono.Size = New System.Drawing.Size(85, 23)
         Me.txtTotalAbono.TabIndex = 314
@@ -267,41 +269,10 @@ Partial Class frmRepEntradas
         Me.txtCancelaefectivo.Text = "0.00"
         Me.txtCancelaefectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnGuardar
-        '
-        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(356, 40)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
-        Me.btnGuardar.TabIndex = 287
-        Me.btnGuardar.Text = "Reporte"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNuevo.BackgroundImage = CType(resources.GetObject("btnNuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(422, 40)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
-        Me.btnNuevo.TabIndex = 286
-        Me.btnNuevo.Text = "Limpiar"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        '
         'optEgresosTransferencia
         '
         Me.optEgresosTransferencia.AutoSize = True
-        Me.optEgresosTransferencia.Location = New System.Drawing.Point(278, 629)
+        Me.optEgresosTransferencia.Location = New System.Drawing.Point(260, 555)
         Me.optEgresosTransferencia.Name = "optEgresosTransferencia"
         Me.optEgresosTransferencia.Size = New System.Drawing.Size(254, 19)
         Me.optEgresosTransferencia.TabIndex = 284
@@ -313,7 +284,7 @@ Partial Class frmRepEntradas
         'optAbonosTransferencia
         '
         Me.optAbonosTransferencia.AutoSize = True
-        Me.optAbonosTransferencia.Location = New System.Drawing.Point(278, 609)
+        Me.optAbonosTransferencia.Location = New System.Drawing.Point(281, 555)
         Me.optAbonosTransferencia.Name = "optAbonosTransferencia"
         Me.optAbonosTransferencia.Size = New System.Drawing.Size(201, 19)
         Me.optAbonosTransferencia.TabIndex = 283
@@ -335,7 +306,7 @@ Partial Class frmRepEntradas
         'optEgresosTarjeta
         '
         Me.optEgresosTarjeta.AutoSize = True
-        Me.optEgresosTarjeta.Location = New System.Drawing.Point(278, 589)
+        Me.optEgresosTarjeta.Location = New System.Drawing.Point(290, 550)
         Me.optEgresosTarjeta.Name = "optEgresosTarjeta"
         Me.optEgresosTarjeta.Size = New System.Drawing.Size(203, 19)
         Me.optEgresosTarjeta.TabIndex = 281
@@ -347,7 +318,7 @@ Partial Class frmRepEntradas
         'optAbonosTarjeta
         '
         Me.optAbonosTarjeta.AutoSize = True
-        Me.optAbonosTarjeta.Location = New System.Drawing.Point(278, 569)
+        Me.optAbonosTarjeta.Location = New System.Drawing.Point(290, 552)
         Me.optAbonosTarjeta.Name = "optAbonosTarjeta"
         Me.optAbonosTarjeta.Size = New System.Drawing.Size(168, 19)
         Me.optAbonosTarjeta.TabIndex = 280
@@ -420,21 +391,6 @@ Partial Class frmRepEntradas
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(998, 200)
         Me.grdcaptura.TabIndex = 285
-        '
-        'btnExportar
-        '
-        Me.btnExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
-        Me.btnExportar.Location = New System.Drawing.Point(290, 40)
-        Me.btnExportar.Name = "btnExportar"
-        Me.btnExportar.Size = New System.Drawing.Size(60, 63)
-        Me.btnExportar.TabIndex = 320
-        Me.btnExportar.Text = "Exportar"
-        Me.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnExportar.UseVisualStyleBackColor = True
         '
         'grdpagos
         '
@@ -619,7 +575,7 @@ Partial Class frmRepEntradas
         'cboFormaPago
         '
         Me.cboFormaPago.FormattingEnabled = True
-        Me.cboFormaPago.Location = New System.Drawing.Point(572, 601)
+        Me.cboFormaPago.Location = New System.Drawing.Point(279, 547)
         Me.cboFormaPago.Name = "cboFormaPago"
         Me.cboFormaPago.Size = New System.Drawing.Size(145, 23)
         Me.cboFormaPago.TabIndex = 337
@@ -661,7 +617,7 @@ Partial Class frmRepEntradas
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(576, 489)
+        Me.Label5.Location = New System.Drawing.Point(577, 489)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 15)
         Me.Label5.TabIndex = 343
@@ -671,18 +627,86 @@ Partial Class frmRepEntradas
         '
         Me.txtCompras.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCompras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
-        Me.txtCompras.Location = New System.Drawing.Point(644, 486)
+        Me.txtCompras.Location = New System.Drawing.Point(645, 486)
         Me.txtCompras.Name = "txtCompras"
         Me.txtCompras.Size = New System.Drawing.Size(85, 23)
         Me.txtCompras.TabIndex = 342
         Me.txtCompras.Text = "0.00"
         Me.txtCompras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.Location = New System.Drawing.Point(521, 515)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 33)
+        Me.Label6.TabIndex = 345
+        Me.Label6.Text = "Compras Canceladas efectivo:"
+        '
+        'txtcCancela
+        '
+        Me.txtcCancela.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtcCancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(194, Byte), Integer))
+        Me.txtcCancela.Location = New System.Drawing.Point(644, 515)
+        Me.txtcCancela.Name = "txtcCancela"
+        Me.txtcCancela.Size = New System.Drawing.Size(85, 23)
+        Me.txtcCancela.TabIndex = 344
+        Me.txtcCancela.Text = "0.00"
+        Me.txtcCancela.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'btnExportar
+        '
+        Me.btnExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
+        Me.btnExportar.Location = New System.Drawing.Point(290, 40)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(60, 63)
+        Me.btnExportar.TabIndex = 320
+        Me.btnExportar.Text = "Exportar"
+        Me.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExportar.UseVisualStyleBackColor = True
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(356, 40)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
+        Me.btnGuardar.TabIndex = 287
+        Me.btnGuardar.Text = "Reporte"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevo.BackgroundImage = CType(resources.GetObject("btnNuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Location = New System.Drawing.Point(422, 40)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
+        Me.btnNuevo.TabIndex = 286
+        Me.btnNuevo.Text = "Limpiar"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        '
         'frmRepEntradas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1015, 655)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txtcCancela)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtCompras)
         Me.Controls.Add(Me.Label4)
@@ -734,7 +758,7 @@ Partial Class frmRepEntradas
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmRepEntradas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Reporte de ingresos"
+        Me.Text = "Reporte de Auditoria"
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).EndInit()
@@ -801,4 +825,6 @@ Partial Class frmRepEntradas
     Friend WithEvents txtOtrosgastos As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtCompras As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtcCancela As TextBox
 End Class

@@ -138,6 +138,8 @@ Partial Class frmCorte4
         Me.txtCancelaciones = New System.Windows.Forms.TextBox()
         Me.txtCompras = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtComprasCanceladas = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.btnCalculadora = New System.Windows.Forms.Button()
         Me.PCalculo80 = New System.Drawing.Printing.PrintDocument()
         Me.Label32 = New System.Windows.Forms.Label()
@@ -152,8 +154,8 @@ Partial Class frmCorte4
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCierre = New System.Windows.Forms.Button()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.txtComprasCanceladas = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.txtComprasEfectivo = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.pcontra.SuspendLayout()
         Me.gbxCalculo.SuspendLayout()
@@ -163,11 +165,13 @@ Partial Class frmCorte4
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.gbxCalculo)
+        Me.Panel1.Controls.Add(Me.Label42)
+        Me.Panel1.Controls.Add(Me.txtComprasEfectivo)
         Me.Panel1.Controls.Add(Me.pcontra)
         Me.Panel1.Controls.Add(Me.Label40)
         Me.Panel1.Controls.Add(Me.Label39)
         Me.Panel1.Controls.Add(Me.Label38)
-        Me.Panel1.Controls.Add(Me.gbxCalculo)
         Me.Panel1.Controls.Add(Me.Label37)
         Me.Panel1.Controls.Add(Me.txtAbonosCreditos)
         Me.Panel1.Controls.Add(Me.txtTotalDifeTar)
@@ -236,7 +240,7 @@ Partial Class frmCorte4
         Me.Panel1.Controls.Add(Me.Label41)
         Me.Panel1.Location = New System.Drawing.Point(3, 75)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(581, 701)
+        Me.Panel1.Size = New System.Drawing.Size(581, 724)
         Me.Panel1.TabIndex = 0
         '
         'pcontra
@@ -274,18 +278,18 @@ Partial Class frmCorte4
         '
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(14, 402)
+        Me.Label39.Location = New System.Drawing.Point(12, 400)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(82, 18)
+        Me.Label39.Size = New System.Drawing.Size(143, 18)
         Me.Label39.TabIndex = 178
-        Me.Label39.Text = "Compras:"
+        Me.Label39.Text = "Compras Totales:"
         '
         'Label38
         '
         Me.Label38.BackColor = System.Drawing.Color.White
         Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label38.ForeColor = System.Drawing.Color.Black
-        Me.Label38.Location = New System.Drawing.Point(12, 670)
+        Me.Label38.Location = New System.Drawing.Point(12, 699)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(158, 23)
         Me.Label38.TabIndex = 176
@@ -296,7 +300,7 @@ Partial Class frmCorte4
         '
         Me.gbxCalculo.BackColor = System.Drawing.SystemColors.HotTrack
         Me.gbxCalculo.Controls.Add(Me.grpb)
-        Me.gbxCalculo.Location = New System.Drawing.Point(171, 154)
+        Me.gbxCalculo.Location = New System.Drawing.Point(166, 140)
         Me.gbxCalculo.Name = "gbxCalculo"
         Me.gbxCalculo.Size = New System.Drawing.Size(233, 356)
         Me.gbxCalculo.TabIndex = 175
@@ -815,7 +819,7 @@ Partial Class frmCorte4
         'txtTotalDifeTar
         '
         Me.txtTotalDifeTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalDifeTar.Location = New System.Drawing.Point(483, 670)
+        Me.txtTotalDifeTar.Location = New System.Drawing.Point(483, 699)
         Me.txtTotalDifeTar.Name = "txtTotalDifeTar"
         Me.txtTotalDifeTar.Size = New System.Drawing.Size(86, 22)
         Me.txtTotalDifeTar.TabIndex = 60
@@ -825,7 +829,7 @@ Partial Class frmCorte4
         'txtTotalCajeroTar
         '
         Me.txtTotalCajeroTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalCajeroTar.Location = New System.Drawing.Point(335, 670)
+        Me.txtTotalCajeroTar.Location = New System.Drawing.Point(335, 699)
         Me.txtTotalCajeroTar.Name = "txtTotalCajeroTar"
         Me.txtTotalCajeroTar.Size = New System.Drawing.Size(81, 22)
         Me.txtTotalCajeroTar.TabIndex = 59
@@ -835,7 +839,7 @@ Partial Class frmCorte4
         'txtTotalIngresosTar
         '
         Me.txtTotalIngresosTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalIngresosTar.Location = New System.Drawing.Point(186, 670)
+        Me.txtTotalIngresosTar.Location = New System.Drawing.Point(186, 699)
         Me.txtTotalIngresosTar.Name = "txtTotalIngresosTar"
         Me.txtTotalIngresosTar.Size = New System.Drawing.Size(74, 22)
         Me.txtTotalIngresosTar.TabIndex = 58
@@ -847,7 +851,7 @@ Partial Class frmCorte4
         Me.Label33.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label33.ForeColor = System.Drawing.Color.White
-        Me.Label33.Location = New System.Drawing.Point(1, 657)
+        Me.Label33.Location = New System.Drawing.Point(1, 686)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(580, 10)
         Me.Label33.TabIndex = 57
@@ -856,7 +860,7 @@ Partial Class frmCorte4
         'txtSumDifeTarj
         '
         Me.txtSumDifeTarj.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumDifeTarj.Location = New System.Drawing.Point(483, 634)
+        Me.txtSumDifeTarj.Location = New System.Drawing.Point(483, 663)
         Me.txtSumDifeTarj.Name = "txtSumDifeTarj"
         Me.txtSumDifeTarj.Size = New System.Drawing.Size(86, 22)
         Me.txtSumDifeTarj.TabIndex = 56
@@ -866,7 +870,7 @@ Partial Class frmCorte4
         'txtSumCajeroTar
         '
         Me.txtSumCajeroTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumCajeroTar.Location = New System.Drawing.Point(335, 634)
+        Me.txtSumCajeroTar.Location = New System.Drawing.Point(335, 663)
         Me.txtSumCajeroTar.Name = "txtSumCajeroTar"
         Me.txtSumCajeroTar.Size = New System.Drawing.Size(81, 22)
         Me.txtSumCajeroTar.TabIndex = 55
@@ -876,7 +880,7 @@ Partial Class frmCorte4
         'txtSumSistemaTar
         '
         Me.txtSumSistemaTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumSistemaTar.Location = New System.Drawing.Point(186, 634)
+        Me.txtSumSistemaTar.Location = New System.Drawing.Point(186, 663)
         Me.txtSumSistemaTar.Name = "txtSumSistemaTar"
         Me.txtSumSistemaTar.Size = New System.Drawing.Size(74, 22)
         Me.txtSumSistemaTar.TabIndex = 54
@@ -888,7 +892,7 @@ Partial Class frmCorte4
         Me.Label34.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.White
-        Me.Label34.Location = New System.Drawing.Point(0, 621)
+        Me.Label34.Location = New System.Drawing.Point(0, 650)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(581, 10)
         Me.Label34.TabIndex = 53
@@ -898,7 +902,7 @@ Partial Class frmCorte4
         '
         Me.Label31.AutoSize = True
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(21, 598)
+        Me.Label31.Location = New System.Drawing.Point(21, 627)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(115, 18)
         Me.Label31.TabIndex = 51
@@ -907,7 +911,7 @@ Partial Class frmCorte4
         'txtDevoTarj
         '
         Me.txtDevoTarj.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDevoTarj.Location = New System.Drawing.Point(186, 596)
+        Me.txtDevoTarj.Location = New System.Drawing.Point(186, 625)
         Me.txtDevoTarj.Name = "txtDevoTarj"
         Me.txtDevoTarj.Size = New System.Drawing.Size(74, 22)
         Me.txtDevoTarj.TabIndex = 50
@@ -918,7 +922,7 @@ Partial Class frmCorte4
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(21, 572)
+        Me.Label30.Location = New System.Drawing.Point(21, 601)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(78, 18)
         Me.Label30.TabIndex = 49
@@ -928,7 +932,7 @@ Partial Class frmCorte4
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(256, 549)
+        Me.Label29.Location = New System.Drawing.Point(256, 578)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(128, 18)
         Me.Label29.TabIndex = 48
@@ -937,7 +941,7 @@ Partial Class frmCorte4
         'txtIngresosTar
         '
         Me.txtIngresosTar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIngresosTar.Location = New System.Drawing.Point(186, 570)
+        Me.txtIngresosTar.Location = New System.Drawing.Point(186, 599)
         Me.txtIngresosTar.Name = "txtIngresosTar"
         Me.txtIngresosTar.Size = New System.Drawing.Size(74, 22)
         Me.txtIngresosTar.TabIndex = 47
@@ -949,7 +953,7 @@ Partial Class frmCorte4
         Me.Label28.BackColor = System.Drawing.Color.White
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.Black
-        Me.Label28.Location = New System.Drawing.Point(19, 549)
+        Me.Label28.Location = New System.Drawing.Point(19, 578)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(150, 23)
         Me.Label28.TabIndex = 46
@@ -961,7 +965,7 @@ Partial Class frmCorte4
         Me.Label27.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.White
-        Me.Label27.Location = New System.Drawing.Point(0, 539)
+        Me.Label27.Location = New System.Drawing.Point(0, 568)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(581, 10)
         Me.Label27.TabIndex = 45
@@ -972,7 +976,7 @@ Partial Class frmCorte4
         Me.Label26.BackColor = System.Drawing.Color.White
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.ForeColor = System.Drawing.Color.Black
-        Me.Label26.Location = New System.Drawing.Point(17, 516)
+        Me.Label26.Location = New System.Drawing.Point(17, 545)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(131, 23)
         Me.Label26.TabIndex = 44
@@ -982,7 +986,7 @@ Partial Class frmCorte4
         'txtTotalDife
         '
         Me.txtTotalDife.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalDife.Location = New System.Drawing.Point(484, 516)
+        Me.txtTotalDife.Location = New System.Drawing.Point(484, 545)
         Me.txtTotalDife.Name = "txtTotalDife"
         Me.txtTotalDife.Size = New System.Drawing.Size(85, 22)
         Me.txtTotalDife.TabIndex = 43
@@ -992,7 +996,7 @@ Partial Class frmCorte4
         'txtTotalCajero
         '
         Me.txtTotalCajero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalCajero.Location = New System.Drawing.Point(335, 516)
+        Me.txtTotalCajero.Location = New System.Drawing.Point(335, 545)
         Me.txtTotalCajero.Name = "txtTotalCajero"
         Me.txtTotalCajero.Size = New System.Drawing.Size(81, 22)
         Me.txtTotalCajero.TabIndex = 42
@@ -1002,7 +1006,7 @@ Partial Class frmCorte4
         'txtTotalSistema
         '
         Me.txtTotalSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalSistema.Location = New System.Drawing.Point(186, 516)
+        Me.txtTotalSistema.Location = New System.Drawing.Point(186, 545)
         Me.txtTotalSistema.Name = "txtTotalSistema"
         Me.txtTotalSistema.Size = New System.Drawing.Size(74, 22)
         Me.txtTotalSistema.TabIndex = 41
@@ -1014,7 +1018,7 @@ Partial Class frmCorte4
         Me.Label25.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(0, 503)
+        Me.Label25.Location = New System.Drawing.Point(0, 532)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(581, 10)
         Me.Label25.TabIndex = 40
@@ -1023,7 +1027,7 @@ Partial Class frmCorte4
         'txtSumDife
         '
         Me.txtSumDife.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumDife.Location = New System.Drawing.Point(483, 480)
+        Me.txtSumDife.Location = New System.Drawing.Point(483, 509)
         Me.txtSumDife.Name = "txtSumDife"
         Me.txtSumDife.Size = New System.Drawing.Size(85, 22)
         Me.txtSumDife.TabIndex = 39
@@ -1033,7 +1037,7 @@ Partial Class frmCorte4
         'txtSumaCajero
         '
         Me.txtSumaCajero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumaCajero.Location = New System.Drawing.Point(335, 480)
+        Me.txtSumaCajero.Location = New System.Drawing.Point(335, 509)
         Me.txtSumaCajero.Name = "txtSumaCajero"
         Me.txtSumaCajero.Size = New System.Drawing.Size(81, 22)
         Me.txtSumaCajero.TabIndex = 38
@@ -1043,7 +1047,7 @@ Partial Class frmCorte4
         'txtSumSistema
         '
         Me.txtSumSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSumSistema.Location = New System.Drawing.Point(186, 480)
+        Me.txtSumSistema.Location = New System.Drawing.Point(186, 509)
         Me.txtSumSistema.Name = "txtSumSistema"
         Me.txtSumSistema.Size = New System.Drawing.Size(74, 22)
         Me.txtSumSistema.TabIndex = 37
@@ -1055,7 +1059,7 @@ Partial Class frmCorte4
         Me.Label24.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(0, 467)
+        Me.Label24.Location = New System.Drawing.Point(0, 496)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(581, 10)
         Me.Label24.TabIndex = 36
@@ -1469,6 +1473,25 @@ Partial Class frmCorte4
         Me.Label7.TabIndex = 10
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'txtComprasCanceladas
+        '
+        Me.txtComprasCanceladas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComprasCanceladas.Location = New System.Drawing.Point(186, 460)
+        Me.txtComprasCanceladas.Name = "txtComprasCanceladas"
+        Me.txtComprasCanceladas.Size = New System.Drawing.Size(74, 22)
+        Me.txtComprasCanceladas.TabIndex = 183
+        Me.txtComprasCanceladas.Text = "0.00"
+        Me.txtComprasCanceladas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label41
+        '
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(9, 461)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(175, 39)
+        Me.Label41.TabIndex = 182
+        Me.Label41.Text = "Compras Canceladas Efectivo:"
+        '
         'btnCalculadora
         '
         Me.btnCalculadora.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -1598,32 +1621,32 @@ Partial Class frmCorte4
         Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCierre.UseVisualStyleBackColor = True
         '
-        'Label41
+        'Label42
         '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(9, 428)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(175, 18)
-        Me.Label41.TabIndex = 182
-        Me.Label41.Text = "Compras Canceladas:"
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(12, 431)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(148, 18)
+        Me.Label42.TabIndex = 184
+        Me.Label42.Text = "Compras Efectivo:"
         '
-        'txtComprasCanceladas
+        'txtComprasEfectivo
         '
-        Me.txtComprasCanceladas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComprasCanceladas.Location = New System.Drawing.Point(186, 427)
-        Me.txtComprasCanceladas.Name = "txtComprasCanceladas"
-        Me.txtComprasCanceladas.Size = New System.Drawing.Size(74, 22)
-        Me.txtComprasCanceladas.TabIndex = 183
-        Me.txtComprasCanceladas.Text = "0.00"
-        Me.txtComprasCanceladas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtComprasEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComprasEfectivo.Location = New System.Drawing.Point(186, 430)
+        Me.txtComprasEfectivo.Name = "txtComprasEfectivo"
+        Me.txtComprasEfectivo.Size = New System.Drawing.Size(74, 22)
+        Me.txtComprasEfectivo.TabIndex = 185
+        Me.txtComprasEfectivo.Text = "0.00"
+        Me.txtComprasEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmCorte4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(586, 777)
+        Me.ClientSize = New System.Drawing.Size(586, 809)
         Me.Controls.Add(Me.btnCierre)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
@@ -1785,4 +1808,6 @@ Partial Class frmCorte4
     Friend WithEvents txtCancelaciones As TextBox
     Friend WithEvents Label41 As Label
     Friend WithEvents txtComprasCanceladas As TextBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents txtComprasEfectivo As TextBox
 End Class

@@ -835,7 +835,7 @@ Public Class frmRepCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Id) from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Status<>'CANCELADA'"
+                "select count(Id) from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -851,7 +851,7 @@ Public Class frmRepCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select Id,NumRemision,Proveedor,Sub2,IVA,Total,FechaC,Status from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Status<>'CANCELADA' order by Id"
+                "select Id,NumRemision,Proveedor,Sub2,IVA,Total,FechaC,Status from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

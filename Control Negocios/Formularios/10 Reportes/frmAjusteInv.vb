@@ -541,6 +541,7 @@
                     txtfinal.Text = txtfisica.Text
                     AJUSTAINVENTARIO()
                     btnlimpia_lote.PerformClick()
+                    btnNuevo.PerformClick()
                 End If
             End If
         End If
@@ -679,9 +680,12 @@
     End Sub
 
     Private Sub txtcantidad_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcantidad.KeyPress
-        If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = "" : Exit Sub
+        If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = "0" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
-
+            If txtcantidad.Text = "0" Or txtcantidad.Text = "" Then
+                txtcantidad.Focus.Equals(True)
+                Exit Sub
+            End If
             Dim totproductos As Double = 0
             Dim sumalotes As Double = 0
             Dim existencias As Double = 0
@@ -721,7 +725,7 @@
             txtlote.Text = ""
             dtpcaduca.Value = Date.Now
             txtcantidad.Text = "0"
-            btnguarda_lote.Focus().Equals(True)
+            txtlote.Focus.Equals(True)
 
         End If
     End Sub
@@ -805,7 +809,7 @@
                     Dim cantidadl As Double = grdcaptura.Rows(deku).Cells(3).Value.ToString
                     cantivoy = cantivoy + cantidadl
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT Lote FROM lotecaducidad WHERE Lote='" & lote & "'"
+                    cmd2.CommandText = "SELECT Lote FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & cbocodigo.Text & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

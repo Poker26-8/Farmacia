@@ -347,6 +347,7 @@ Partial Class frmAjusteInv
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(83, 23)
         Me.txtcantidad.TabIndex = 125
+        Me.txtcantidad.Text = "0"
         '
         'btnguarda_lote
         '

@@ -1424,10 +1424,6 @@ milky:
         End Try
     End Sub
 
-    Private Sub btncopia_Click(sender As Object, e As EventArgs) Handles btncopia.Click
-
-    End Sub
-
     Private Sub pSalida58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pSalida58.PrintPage
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 8, FontStyle.Regular)

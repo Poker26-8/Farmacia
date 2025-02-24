@@ -880,18 +880,14 @@ Public Class Inicio
     End Sub
 
     Private Sub ReporteDeIngresosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pRepIngEgr.Click
-        frmRepEntradas.Show()
-        frmRepEntradas.BringToFront()
+        frmIngresos.Show()
+        frmIngresos.BringToFront()
     End Sub
 
     Private Sub InventarioToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pInventario.Click
 
-
         frmRepInventario.Show()
         frmRepInventario.BringToFront()
-
-
-
 
     End Sub
 
@@ -2129,5 +2125,10 @@ Public Class Inicio
         'frmFanasa.BringToFront()
         frmVentas3.Show()
         frmVentas3.BringToFront()
+    End Sub
+
+    Private Sub AuditoriaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AuditoriaToolStripMenuItem.Click
+        frmRepEntradas.Show()
+        frmRepEntradas.BringToFront()
     End Sub
 End Class

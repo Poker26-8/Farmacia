@@ -753,6 +753,12 @@
     <Compile Include="Formularios\10 Reportes\frmEtiquetas2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\frmIngresos.Designer.vb">
+      <DependentUpon>frmIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmIngresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\frmMinMax.Designer.vb">
       <DependentUpon>frmMinMax.vb</DependentUpon>
     </Compile>
@@ -2388,6 +2394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmEtiquetas2.resx">
       <DependentUpon>frmEtiquetas2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmIngresos.resx">
+      <DependentUpon>frmIngresos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmMinMax.resx">
       <DependentUpon>frmMinMax.vb</DependentUpon>

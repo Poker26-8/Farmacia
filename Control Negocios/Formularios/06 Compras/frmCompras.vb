@@ -250,22 +250,22 @@ Public Class frmCompras
 
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbonombre.SelectedValueChanged
         Try
-            cnn1.Close() : cnn1.Open()
+            cnn9.Close() : cnn9.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
+            cmd9 = cnn9.CreateCommand
+            cmd9.CommandText =
                 "select Codigo from Productos where Nombre='" & cbonombre.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txtcodigo.Text = Strings.Left(rd1("Codigo").ToString, 6)
+            rd9 = cmd9.ExecuteReader
+            If rd9.HasRows Then
+                If rd9.Read Then
+                    txtcodigo.Text = Strings.Left(rd9("Codigo").ToString, 6)
                 End If
             End If
-            rd1.Close()
-            cnn1.Close()
+            rd9.Close()
+            cnn9.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn1.Close()
+            cnn9.Close()
         End Try
     End Sub
 
@@ -664,6 +664,7 @@ Public Class frmCompras
                 If rd1.HasRows Then
                     If rd1.Read Then
                         MsgBox("Este número de remisión ya existe en una compra previa.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        grdcaptura.Rows.Clear()
                         Pedido = 0
                         cbofactura.Text = rd1(1).ToString
                         cbopedido.Text = rd1(2).ToString
@@ -685,6 +686,17 @@ Public Class frmCompras
                     txtsaldo.Enabled = True
                     grdcaptura.DefaultCellStyle.ForeColor = Color.Black
                     cbofactura.Focus().Equals(True)
+                End If
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select NumRemision, NumFactura, NumPedido, FechaC from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "' and Status='CANCELADA'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    MsgBox("Este número de remisión ya fue cancelado en una compra previa.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    btnnuevo.PerformClick()
+                    My.Application.DoEvents()
+                    Exit Sub
                 End If
                 rd1.Close()
 
@@ -709,6 +721,7 @@ Public Class frmCompras
                 cmd1.CommandText =
                     "select Codigo,Precio,Cantidad,Caducidad,Lote from ComprasDet where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
                 rd1 = cmd1.ExecuteReader
+                grdcaptura.Rows.Clear()
                 Do While rd1.Read
                     If rd1.HasRows Then
                         Dim codigo As String = rd1("Codigo").ToString
@@ -729,6 +742,7 @@ Public Class frmCompras
                             End If
                         End If
                         rd2.Close()
+
                         Dim precio As Double = rd1("Precio").ToString
                         Dim cantidad As Double = rd1("Cantidad").ToString
                         Dim total As Double = precio * cantidad
@@ -820,9 +834,9 @@ Public Class frmCompras
     End Sub
 
     Private Sub cboremision_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cboremision.SelectedValueChanged
-        If cboremision.Text <> "" Then
-            Call cboremision_KeyPress(cboremision, New KeyPressEventArgs(ChrW(Keys.Enter)))
-        End If
+        'If cboremision.Text <> "" Then
+        '    Call cboremision_KeyPress(cboremision, New KeyPressEventArgs(ChrW(Keys.Enter)))
+        'End If
     End Sub
 
     Private Sub cbofactura_DropDown(sender As System.Object, e As System.EventArgs) Handles cbofactura.DropDown
@@ -4655,28 +4669,6 @@ kaka:
                 btncancela.Enabled = False
                 Dim peps As Boolean = True
 
-                For rm As Integer = 0 To grdcaptura.Rows.Count - 1
-                    Dim codigo As String = grdcaptura.Rows(rm).Cells(0).Value.ToString()
-
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Entrada,Saldo from Costeo where Referencia='" & cboremision.Text & "' and Concepto='COMPRA' and Codigo='" & codigo & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            Dim entrada As Double = rd1("Entrada").ToString()
-                            Dim saldo_c As Double = rd1("Saldo").ToString()
-
-                            If saldo_c < entrada Then
-                                peps = False
-                            End If
-                        End If
-                    End If
-                    rd1.Close()
-                Next
-
-                If peps = False Then MsgBox("No puedes cancelar esta compra ya que uno o varios productos de la misma ya tuvieron ventas.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn1.Close() : btncancela.Enabled = True : Exit Sub
-
                 cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
@@ -4755,7 +4747,7 @@ kaka:
                         rd1.Close()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "'"
+                        cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -4764,7 +4756,7 @@ kaka:
                                 If exislote = cantidad Then
                                     cnn2.Close() : cnn2.Open()
                                     cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "'"
+                                    cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
                                     cmd2.ExecuteNonQuery()
                                     cnn2.Close()
                                 End If
@@ -5197,11 +5189,27 @@ caca:
         rd1.Close()
 
         Dim mysaldo As Double = 0
-        mysaldo = saldo - abono
+        ' mysaldo = saldo - abono
+
+        Dim efectivoXD As Double = 0
+        Dim tarjetaXD As Double = 0
+        Dim transfeXD As Double = 0
+        Dim otroXD As Double = 0
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "Select Efectivo, Tarjeta, Transfe, Otro from Abonoe where IdProv=" & id_prov & " and Proveedor='" & cboproveedor.Text & "' and NumRemision='" & cboremision.Text & "' and Concepto='ABONO'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.Read Then
+            efectivoXD = rd1(0).ToString
+            tarjetaXD = rd1(1).ToString
+            transfeXD = rd1(2).ToString
+            otroXD = rd1(3).ToString
+        End If
+        rd1.Close()
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & id_prov & ",'" & cboproveedor.Text & "','CANCELACION','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & abono & "," & mysaldo & ",'','','" & alias_compras & "')"
+            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,Efectivo,Tarjeta,Transfe,Otro) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & id_prov & ",'" & cboproveedor.Text & "','CANCELACION','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & abono & "," & mysaldo & ",'','','" & lblusuario.Text & "'," & efectivoXD & "," & tarjetaXD & "," & transfeXD & "," & otroXD & ")"
         cmd1.ExecuteNonQuery()
 
         Dim fecha_cancela As String = Format(Date.Now, "yyyy-MM-dd")
@@ -5233,7 +5241,7 @@ caca:
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "'"
+            cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -5242,7 +5250,14 @@ caca:
                     If exislote = cantidad Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "'"
+                        cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    Else
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Update lotecaducidad set Cantidad=Cantidad-" & cantidad & " where Lote='" & lote & "' and Codigo='" & codigo & "'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -5254,7 +5269,7 @@ caca:
             'Actualiza el cardex
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Cancela compra'," & existencia & "," & cantidad & "," & (existencia - cantidad) & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & alias_compras & "','" & cboremision.Text & "','','','','','')"
+                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Cancela compra'," & existencia & "," & cantidad & "," & (existencia - cantidad) & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblusuario.Text & "','" & cboremision.Text & "','','','','','')"
             cmd1.ExecuteNonQuery()
 
             'Actualiza la tabla del Costeo
@@ -5379,7 +5394,238 @@ quepasowey:
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        Dim id_compra As Double = 0
+        Dim acuenta As Double = 0
+        Dim resta As Double = 0
+        Dim status As String = ""
 
+        Dim id_prov As Double = 0
+
+        On Error GoTo quepasowey
+        If cnn1.State = 1 Then cnn1.Close()
+
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select Id,IdProv,ACuenta,Resta,Status from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "' and Status<>'CANCELADA'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                id_compra = rd1("Id").ToString()
+                id_prov = rd1("IdProv").ToString()
+                acuenta = rd1("ACuenta").ToString()
+                resta = rd1("Resta").ToString()
+                status = rd1("Status").ToString()
+            End If
+        End If
+        rd1.Close()
+
+        Dim saldo As Double = 0
+        Dim abono As Double = 0
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select Abono from AbonoE where NumRemision='" & cboremision.Text & "' and Concepto='ABONO' and IdProv=" & id_prov & ""
+        rd1 = cmd1.ExecuteReader
+        Do While rd1.Read
+            If rd1.HasRows Then
+                abono = abono + CDbl(rd1(0).ToString())
+            End If
+        Loop
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & id_prov & ")"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                saldo = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        Dim mysaldo As Double = 0
+        mysaldo = saldo - abono
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & id_prov & ",'" & cboproveedor.Text & "','CANCELACION','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & abono & "," & mysaldo & ",'','','" & lblusuario.Text & "')"
+        cmd1.ExecuteNonQuery()
+
+        Dim fecha_cancela As String = Format(Date.Now, "yyyy-MM-dd")
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "update Compras set Status='CANCELADA',FechaCancela='" & fecha_cancela & "' where Id=" & id_compra
+        cmd1.ExecuteNonQuery()
+
+        For t As Integer = 0 To grdcaptura.Rows.Count - 1
+            Dim codigo As String = grdcaptura.Rows(t).Cells(0).Value.ToString()
+            Dim nombre As String = grdcaptura.Rows(t).Cells(1).Value.ToString()
+            Dim unidad As String = grdcaptura.Rows(t).Cells(2).Value.ToString()
+            Dim cantidad As Double = grdcaptura.Rows(t).Cells(3).Value.ToString()
+            Dim precio As Double = grdcaptura.Rows(t).Cells(4).Value.ToString()
+            Dim lote As String = grdcaptura.Rows(t).Cells(8).Value.ToString
+            Dim exislote As Double = 0
+            Dim existencia As Double = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    existencia = rd1("Existencia").ToString()
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    exislote = rd1(0).ToString
+
+                    If exislote = cantidad Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM lotecaducidad WHERE Lote='" & lote & "' and Codigo='" & codigo & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    Else
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Update lotecaducidad set Cantidad=Cantidad-" & cantidad & " where Lote='" & lote & "' and Codigo='" & codigo & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+
+
+            'Actualiza el cardex
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Cancela compra'," & existencia & "," & cantidad & "," & (existencia - cantidad) & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblusuario.Text & "','" & cboremision.Text & "','','','','','')"
+            cmd1.ExecuteNonQuery()
+
+            'Actualiza la tabla del Costeo
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Costeo set Saldo=0 where Referencia='" & cboremision.Text & "' and Concepto='COMPRA' and Codigo='" & Strings.Left(codigo, 6) & "'"
+            cmd1.ExecuteNonQuery()
+
+            'Actualiza la tabla de productos
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Productos set Existencia=" & (existencia - cantidad) & " where Codigo='" & Strings.Left(codigo, 6) & "'"
+            cmd1.ExecuteNonQuery()
+        Next
+        cnn1.Close()
+
+        If MsgBox("¿Deseas imprimir un recibo de la cancelación?", vbInformation + vbYesNo, "Delsscom Control Negocios Pro") = vbYes Then
+            Dim ImprimeEn As String = ""
+            Dim Impresora As String = ""
+            Dim tPapel As String = ""
+            Dim tMilimetros As String = ""
+            printLine = 0
+            Contador = 0
+            pagina = 0
+
+            tipo_cancelacion = "CASO 2"
+
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NotasCred from Formatos where Facturas='TPapelCP'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    tPapel = rd1(0).ToString
+                    If tPapel = "CARTA" Or tPapel = "MEDIA CARTA" Then
+                        ImprimeEn = "ImpreC"
+                    ElseIf tPapel = "TICKET" Then
+                        ImprimeEn = "ImpreT"
+                    Else
+                        ImprimeEn = ""
+                    End If
+                End If
+            Else
+                MsgBox("No se ha establecido un tamaño de papel para el formato de impresión de compras.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                rd1.Close()
+                cnn1.Close()
+                btnnuevo.PerformClick()
+                Exit Sub
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NotasCred from Formatos where Facturas='TamImpre'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    tMilimetros = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            If ImprimeEn <> "" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select NotasCred from Formatos where Facturas='" & ImprimeEn & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Impresora = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+            Else
+                MsgBox("No tienes una impresora configurada para imprimir en formato " & tPapel & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                cnn1.Close()
+                btnnuevo.PerformClick()
+                Exit Sub
+            End If
+            cnn1.Close()
+
+            If tPapel = "TICKET" Then
+                If tMilimetros = "80" Then
+                    pCancela80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pCancela80.Print()
+                End If
+                If tMilimetros = "58" Then
+                    pCancela58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pCancela58.Print()
+                End If
+            End If
+            If tPapel = "MEDIA CARTA" Then
+                pCancelaMC.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pCancelaMC.Print()
+            End If
+            If tPapel = "CARTA" Then
+                pCancelaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pCancelaCarta.Print()
+            End If
+            If tPapel = "PDF - CARTA" Then
+                'Genera PDF y lo guarda en la ruta
+
+            End If
+        End If
+        MsgBox("Compra cancelada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        btnnuevo.PerformClick()
+        Exit Sub
+quepasowey:
+        MsgBox(Err.Description & " - " & Err.Number & vbNewLine & "No se pudo realizar la cancelación debido a un error inesperado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        cnn1.Close()
+        Exit Sub
     End Sub
 
     Private Sub UnicoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnicoToolStripMenuItem.Click
@@ -5829,7 +6075,7 @@ quepasowey:
                     End If
                 End If
 
-                If MySaldoF > CDbl(txtresta.Text) Then
+                If MySaldoF >= CDbl(txtresta.Text) Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                             "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"

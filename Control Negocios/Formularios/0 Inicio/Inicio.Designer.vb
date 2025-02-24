@@ -126,6 +126,7 @@ Partial Class Inicio
         Me.ReporteDeHotelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.repHistorialMesas = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeTraspasosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pListados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pLisPrecios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pLisProductos = New System.Windows.Forms.ToolStripMenuItem()
@@ -826,7 +827,7 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteMovCuentasToolStripMenuItem, Me.ReporteDeHotelToolStripMenuItem, Me.repHistorialMesas, Me.ReporteDeTraspasosToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteMovCuentasToolStripMenuItem, Me.ReporteDeHotelToolStripMenuItem, Me.repHistorialMesas, Me.ReporteDeTraspasosToolStripMenuItem, Me.AuditoriaToolStripMenuItem})
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
@@ -1008,6 +1009,12 @@ Partial Class Inicio
         Me.ReporteDeTraspasosToolStripMenuItem.Name = "ReporteDeTraspasosToolStripMenuItem"
         Me.ReporteDeTraspasosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeTraspasosToolStripMenuItem.Text = "Reporte de Traspasos"
+        '
+        'AuditoriaToolStripMenuItem
+        '
+        Me.AuditoriaToolStripMenuItem.Name = "AuditoriaToolStripMenuItem"
+        Me.AuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.AuditoriaToolStripMenuItem.Text = "Auditoria"
         '
         'pListados
         '
@@ -1313,7 +1320,7 @@ Partial Class Inicio
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(318, 42)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Delsscom Farmacias Version 2.67"
+        Me.Label2.Text = "Delsscom Farmacias Version 2.70.9"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button3
@@ -1535,4 +1542,5 @@ Partial Class Inicio
     Friend WithEvents NUEVOToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultaDeCorteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventariosSelectivosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AuditoriaToolStripMenuItem As ToolStripMenuItem
 End Class
